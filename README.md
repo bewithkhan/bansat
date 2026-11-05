@@ -10,7 +10,8 @@
 
 <p align="center">
   <a href="https://agentskills.io"><img alt="Agent Skill: SKILL.md" src="https://img.shields.io/badge/Agent_Skill-SKILL.md-0B3D91?style=flat-square"></a>
-  <img alt="Framework v2.1" src="https://img.shields.io/badge/framework-v2.1-1F6FEB?style=flat-square">
+  <img alt="Framework v2.2" src="https://img.shields.io/badge/framework-v2.2-1F6FEB?style=flat-square">
+  <a href="https://github.com/bewithkhan/bansat/actions/workflows/validate.yml"><img alt="Tested examples: CI status" src="https://github.com/bewithkhan/bansat/actions/workflows/validate.yml/badge.svg?branch=main"></a>
   <img alt="Laws checked 4 Nov 2026" src="https://img.shields.io/badge/laws_checked-4_Nov_2026-2EA44F?style=flat-square">
   <img alt="Covers UK GDPR, EU GDPR, EU AI Act and NDPA" src="https://img.shields.io/badge/covers-UK_GDPR_%C2%B7_EU_GDPR_%C2%B7_EU_AI_Act_%C2%B7_NDPA-555555?style=flat-square">
   <a href="#licence"><img alt="Licence: CC BY 4.0 and MIT" src="https://img.shields.io/badge/licence-CC_BY_4.0_%2B_MIT-blue?style=flat-square"></a>
@@ -77,12 +78,12 @@ flowchart LR
 
 ```bash
 # macOS / Linux
-git clone --branch v2.1.0 --depth 1 https://github.com/bewithkhan/bansat ~/.claude/skills/bansat
+git clone --branch v2.2.0 --depth 1 https://github.com/bewithkhan/bansat ~/.claude/skills/bansat
 ```
 
 ```powershell
 # Windows (PowerShell)
-git clone --branch v2.1.0 --depth 1 https://github.com/bewithkhan/bansat "$HOME\.claude\skills\bansat"
+git clone --branch v2.2.0 --depth 1 https://github.com/bewithkhan/bansat "$HOME\.claude\skills\bansat"
 ```
 
 Start a new Claude Code session and type `/bansat`. To share it with your team, copy the folder into your repo at `.claude/skills/bansat/` and commit it.
@@ -96,7 +97,7 @@ git -C ~/.claude/skills/bansat checkout vX.Y.Z
 
 **Claude apps** (web and desktop): add it as a skill in your Claude settings. See [Use skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude).
 
-**Any other agent:** `SKILL.md` follows the open [Agent Skills](https://agentskills.io) format, so skills-compatible agents can load it as it is. For Cursor, Copilot, Lovable, Bolt or anything else that reads a rules file, give the agent `reference/bansat-framework.md` and paste its [Part 12.1 agent rules](reference/bansat-framework.md#p12) into `AGENTS.md`, `.cursor/rules` or your project knowledge.
+**Any other agent:** `SKILL.md` follows the open [Agent Skills](https://agentskills.io) format, so skills-compatible agents can load it as it is. For Cursor, Copilot, Lovable, Bolt or anything else that reads a rules file, give the agent `reference/bansat-framework.md` (or only the modules it needs from [`framework/`](framework/README.md)) and paste its [Part 12.1 agent rules](reference/bansat-framework.md#p12) into `AGENTS.md`, `.cursor/rules` or your project knowledge.
 
 ### Make G1 a hard stop (optional)
 
@@ -206,7 +207,9 @@ Viral compliance threads get some of this wrong. Bansat sticks to what the law a
 
 ## What's in the blueprint
 
-One Markdown file: 15 parts and 4 appendices, about 2,800 lines. Claude reads only the parts each project needs.
+15 parts and 4 appendices, about 3,000 lines of Markdown, split into [modules](framework/README.md) so Claude reads only the parts each step needs. `reference/bansat-framework.md` has the whole framework in one file.
+
+Planning with a PRD, TRD, app flow, UI/UX brief, backend schema and implementation plan? They're all here, as parts of one blueprint that can't contradict itself: the [map](framework/how-to-use.md#where-the-usual-planning-documents-live) shows where each one lives.
 
 | Part | What it nails down |
 |---|---|
@@ -214,15 +217,15 @@ One Markdown file: 15 parts and 4 appendices, about 2,800 lines. Claude reads on
 | **1** Product (PRD) | Problem, metrics, personas, MoSCoW features with IDs, Gherkin acceptance criteria |
 | **2** Non-functional | Targets with numbers: Core Web Vitals, uptime, recovery, security baseline, accessibility, cost |
 | **3** Architecture (TRD) | Pinned stack, environments, a context diagram, data flows, a processor register, secrets |
-| **4** Decisions (ADRs) | Baseline architecture decisions, accepted unless you override them |
-| **5** Data | Classification, a data dictionary, a Prisma 7 schema, RLS policies with isolation tests, retention |
+| **4** Decisions (ADRs) | Baseline architecture decisions, accepted unless you override them, each recording the prior art considered |
+| **5** Data | Classification, a data dictionary, an entity-relationship diagram, a Prisma 7 schema, RLS policies with isolation tests, retention |
 | **6** API | An endpoint inventory, RFC 9457 errors mapped to UI states, validation, webhooks, rate limits |
-| **7** Security | Auth, an RBAC matrix, 12 pre-filled STRIDE threats, headers and CSP, logging rules |
+| **7** Security | An authentication flow based on OWASP, an RBAC matrix, 12 pre-filled STRIDE threats, headers and CSP, logging rules |
 | **8** AI features | A feature register with pinned models, data minimisation, evals, prompt-injection defences, EU AI Act labelling, spend caps |
 | **9** Privacy & compliance | 27 sections, from lawful bases, consent and cookies to children, marketing, rights, breaches and DPIAs |
-| **10** Experience | Journeys, WCAG 2.2 AA, contrast-checked design tokens, and 17 mandatory UI states for every screen |
+| **10** Experience | The app flow and a navigation map, a look-and-feel brief, WCAG 2.2 AA, contrast-checked design tokens, and 17 mandatory UI states for every screen |
 | **11** Delivery | 9 phases with exit criteria, a Definition of Done, RLS, privacy and E2E tests, CI/CD, incidents |
-| **12** Agent manual | Rules for `CLAUDE.md` or `AGENTS.md`, a feature protocol and an 8-step debugging protocol |
+| **12** Agent manual | Rules for `CLAUDE.md` or `AGENTS.md` (research before building), a feature protocol, an 8-step debugging protocol, and prompts for research, logic, debugging and full audits |
 | **13** Launch gate | 37 go/no-go checks; any one of the 17 blocking checks stops the launch |
 | **14** Retrofit | Day-0 triage, reverse-engineering, a gap register, a review cadence and a portfolio register |
 | **A–D** Appendices | Templates (DPIA, LIA, breach log and more), references, a glossary and 9 stack profiles |
@@ -234,21 +237,23 @@ One Markdown file: 15 parts and 4 appendices, about 2,800 lines. Claude reads on
 | Product, architecture, security, privacy and UX in one plan | Product only | Patchy | ✅ |
 | Gates Claude stops at until you approve | ❌ | ❌ | ✅ G0–G4, plus an optional G1 hook |
 | Laws cited to the section, and checked on a stated date | ❌ | Unverified | ✅ 4 Nov 2026 |
-| Code samples tested before release | ❌ | Untested | ✅ |
+| Code samples tested, in CI | ❌ | Untested | ✅ `examples/` |
+| Looks at how others solved it before building | ❌ | Rarely | ✅ Research first |
 | A track for apps that are already live | ❌ | ❌ | ✅ Day-0 triage |
 | Every UI state designed and tested on every screen | ❌ | Happy path only | ✅ 17 states |
 | The same standard on every project, team and tool | Copy and paste | Per chat | ✅ One skill, one file |
 
 ## Tested, not just written
 
-The code in the framework was run before release:
+The framework's code runs in CI on every change, from the [`examples/`](examples/README.md) folder:
 
-- The **Prisma 7 schema** validates, with the connection in `prisma.config.ts` as Prisma 7 requires.
-- The **Supabase RLS policies** pass 14 tenant-isolation tests on a real Postgres database, and an audit query finds any table left without RLS.
+- The **Prisma 7 schema** creates its tables in a real Postgres database, with the connection in `prisma.config.ts` as Prisma 7 requires.
+- The **RLS policies** pass 13 access checks on those tables (tenants, roles, writes, anonymous visitors), and the Day-0 audit query finds any table left without RLS.
+- The **consent loader** runs in Chromium: a vendor script loads only after "Accept all", and every choice is logged.
+- The **Playwright privacy test** passes on clean pages and must fail on a page that loads a third-party font before consent.
 - The **TypeScript UI-state pattern** compiles in strict mode, and the build fails if a screen forgets a state.
-- The **Playwright privacy test** passes on a clean page and fails as soon as a page contacts a third party before consent.
 
-These test files aren't in the repo yet. They're coming in an `examples/` folder with CI, so you can check the claims yourself ([issue #1](https://github.com/bewithkhan/bansat/issues/1)). The G1 hook's tests are already here: `node hooks/bansat-g1-guard.test.mjs`.
+CI also fails if a sample in the framework and its tested copy differ, so what you copy is what was tested ([issue #1](https://github.com/bewithkhan/bansat/issues/1)). Run it yourself: `cd examples && npm ci && npx playwright install chromium && npm test`. The G1 hook's tests run with `node hooks/bansat-g1-guard.test.mjs`.
 
 <details>
 <summary><b>Laws and standards covered</b> (checked 4 November 2026)</summary>
@@ -317,7 +322,7 @@ It scales with risk. A low-risk project fills in only the essentials: intake, th
 
 <br>
 
-No. The framework is one Markdown file you can fill in by hand or with any AI agent. Claude Code just does the most for you: it screens your idea, writes the blueprint and stops at each gate.
+No. The framework is plain Markdown that you can fill in by hand or with any AI agent. Claude Code just does the most for you: it screens your idea, writes the blueprint and stops at each gate.
 
 </details>
 
@@ -361,14 +366,14 @@ It lives in your repo as `docs/BLUEPRINT.md` and changes in the same pull reques
 
 Use GitHub's **Cite this repository** button, or:
 
-> Khan, M. T. (2026). *Bansat (بنسټ): A blueprint-first framework for building software* (Version 2.1) [Computer software]. GitHub. https://github.com/bewithkhan/bansat
+> Khan, M. T. (2026). *Bansat (بنسټ): A blueprint-first framework for building software* (Version 2.2) [Computer software]. GitHub. https://github.com/bewithkhan/bansat
 
 ```bibtex
 @misc{khan2026bansat,
   author       = {Khan, Muhammad Tufail},
   title        = {Bansat: A blueprint-first framework for building software},
   year         = {2026},
-  note         = {Version 2.1},
+  note         = {Version 2.2},
   howpublished = {\url{https://github.com/bewithkhan/bansat}}
 }
 ```

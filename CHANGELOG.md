@@ -2,6 +2,20 @@
 
 All notable changes to Bansat (بنسټ). Each release is a git tag, and the install command in the README is pinned to one, so the skill's instructions only change when you choose to update.
 
+## v2.2.0 (2026-11-05)
+
+- **Research first.** Before building anything new, the agent looks at how others have done it (official docs, GitHub repositories and issues, Stack Overflow), notes the problems they hit, and says why it's reusing, adapting or building from scratch. It's in the agent rules (12.1), the feature protocol (new step 0 in 12.2), the debugging protocol (12.3), the ADR template (4.1), the Definition of Ready (11.2) and the skill.
+- **New prompts (12.4).** Research first, Logic first and Full audit, which checks logic, authentication, database reads and writes, role-based access, responsive UI and interactive elements, then reports issues by severity and confirms what fully works. The Debug prompt now carries the whole method: 5–7 possible sources, distilled to 1–2, with logs to confirm before any fix.
+- **App flow and design brief.** A navigation map (screen → action → next screen, and the state each failure shows) in 10.3, Layout and Actions lines in the screen template (10.4), and a look-and-feel brief before the design tokens (10.5).
+- **Diagrams.** An authentication flow based on the OWASP cheat sheets (7.1) and an entity-relationship diagram of the reference schema (5.3).
+- **Form states.** The typed UI-state pattern now covers validation (S9) and success (S10) as well (10.7).
+- **Where the usual documents live.** How to use maps the PRD, TRD, app flow, UI/UX brief, backend schema and implementation plan to their parts.
+- **Modules.** The framework is split into `framework/`, one file per part, and the skill reads only the modules each step needs. `reference/bansat-framework.md` is generated from them, so links and older installs keep working.
+- **Tested examples, in CI.** `examples/` runs the framework's code: the Prisma schema and RLS policies on a real Postgres, the consent loader and privacy test in Chromium, and the UI-state types. CI fails if a sample in the framework and its tested copy differ ([issue #1](https://github.com/bewithkhan/bansat/issues/1), point 2).
+- **Fixed:** the Debug prompt's `<symptom>` placeholder was hidden when GitHub rendered it.
+
+**Re-checking an existing blueprint:** update the Framework row in Document control to v2.2, and add the research rule to your agent rules file (12.1).
+
 ## v2.1.0 (2026-11-05)
 
 Changes from the review in [issue #1](https://github.com/bewithkhan/bansat/issues/1). Thanks to @jcc2010.
