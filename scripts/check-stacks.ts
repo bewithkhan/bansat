@@ -107,7 +107,9 @@ for (const [id, group] of listed) {
     const host = new URL(url).hostname.replace(/^www\./, '');
     if (NOT_SOURCES.some((d) => host === d || host.endsWith(`.${d}`))) problem(file, `links to ${host}; use the stack's own documentation instead`);
   }
-  if (/\{\{[^}]+\}\}/.test(text.replace(/```[\s\S]*?```/g, ''))) problem(file, 'has a {{placeholder}} left in it');
+  // Template syntax in code is fine (Blade's {{ }}, Django's {{ csp_nonce }}); a {{placeholder}} in prose isn't.
+  const prose = text.replace(/```[\s\S]*?```/g, '').replace(/`[^`\n]*`/g, '');
+  if (/\{\{[^}]+\}\}/.test(prose)) problem(file, 'has a {{placeholder}} left in it');
 }
 
 if (problems.length) {

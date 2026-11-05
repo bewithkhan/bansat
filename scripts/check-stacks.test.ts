@@ -36,6 +36,8 @@ const cases: Case[] = [
   { name: 'a code example over 15 lines fails', expect: /keep examples to 15 at most/, files: { 'example.md': profile({ extra: longCode }) } },
   { name: 'a blog as a source fails', expect: /links to medium\.com/, files: { 'example.md': profile({ sources: '- [Post](https://medium.com/x)\n- [Docs](https://docs.example.org/a)\n- [Auth](https://docs.example.org/b)' }) } },
   { name: 'too few sources fail', expect: /Sources has 1 links/, files: { 'example.md': profile({ sources: '- [Docs](https://docs.example.org/a)' }) } },
+  { name: 'template syntax in inline code passes', expect: null, files: { 'example.md': profile({ extra: 'Blade escapes `{{ $name }}`, but `{!! $html !!}` does not.\n' }) } },
+  { name: 'a placeholder left in prose fails', expect: /placeholder/, files: { 'example.md': profile({ extra: 'Set the region to {{region}}.\n' }) } },
   { name: 'a profile the README doesn\'t list fails', expect: /isn't listed in stacks\/README\.md/, files: { 'example.md': profile(), 'other.md': profile() } },
   { name: 'a listed profile that doesn\'t exist fails', expect: /lists missing, but stacks\/missing\.md doesn't exist/, readme: `${README.trim()}\n| Mobile | [Missing](missing.md) |\n` },
 ];
