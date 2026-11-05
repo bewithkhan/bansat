@@ -1,0 +1,125 @@
+# Texas (United States). Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: us-tx
+name: Texas
+tier: full
+applies_with: [us-federal]
+laws:
+  - name: Texas Data Privacy and Security Act (TDPSA)
+    citation: Tex. Bus. & Com. Code ch. 541
+    official_url: https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm
+    status: in-force
+    in_force_from: "2024-07-01"
+  - name: Identity Theft Enforcement and Protection Act (breach notification)
+    citation: Tex. Bus. & Com. Code ch. 521 (§ 521.053)
+    official_url: https://tcss.legis.texas.gov/resources/BC/htm/BC.521.htm
+    status: in-force
+    in_force_from: "2009-04-01"
+    notes: The date is when the current chapter was codified; Texas has required breach notices since before then.
+  - name: Texas Responsible Artificial Intelligence Governance Act (TRAIGA)
+    citation: Tex. Bus. & Com. Code chs. 551 to 554 (HB 149, 2025)
+    official_url: https://tcss.legis.texas.gov/resources/BC/htm/BC.552.htm
+    status: in-force
+    in_force_from: "2026-01-01"
+  - name: Data brokers
+    citation: Tex. Bus. & Com. Code ch. 510 (formerly ch. 509)
+    official_url: https://tcss.legis.texas.gov/resources/BC/htm/BC.510.htm
+    status: in-force
+    in_force_from: "2023-09-01"
+    notes: Expanded by SB 1343 and SB 2121 from 1 September 2025.
+  - name: Securing Children Online through Parental Empowerment (SCOPE) Act
+    citation: Tex. Bus. & Com. Code ch. 509 (HB 18, 2023)
+    official_url: https://tcss.legis.texas.gov/resources/BC/htm/BC.509.htm
+    status: in-force
+    in_force_from: "2024-09-01"
+    notes: Enforced by the Attorney General's consumer protection division as a deceptive trade practice; a parent of an affected minor can sue only for a declaration or an injunction. Parts are blocked by court orders that are under appeal (see children).
+  - name: App Store Accountability Act (SB 2420)
+    citation: Tex. Bus. & Com. Code §§ 121.001 to 121.102 (Acts 2025, 89th Leg., R.S., ch. 200)
+    official_url: https://capitol.texas.gov/tlodocs/89R/billtext/html/SB02420F.htm
+    status: in-force
+    in_force_from: "2026-01-01"
+    notes: A federal court barred enforcing any of it on 23 December 2025, but on 4 June 2026 the Fifth Circuit stayed that order while Texas appeals (Nos. 25-51073 and 26-50001), and on 6 July 2026 the Supreme Court refused to lift the stay. So the Act can be enforced while the appeal is pending. App developers must rate apps and in-app purchases by age, tell app stores about significant changes, check app store age and consent data, use it only for age protections and delete it, and not enforce terms against a minor without consent. Violations are deceptive trade practices.
+regulators:
+  - name: Office of the Attorney General of Texas (Consumer Protection Division)
+    url: https://www.texasattorneygeneral.gov/consumer-protection/file-consumer-complaint/consumer-privacy-rights/texas-data-privacy-and-security-act
+obligations:
+  scope:
+    summary: Applies to anyone who does business in Texas or makes products or services Texans use, processes or sells personal data, and isn't a small business as defined by the US Small Business Administration. Small businesses still need consent before selling sensitive data. Government bodies, GLBA financial institutions, HIPAA covered entities, non-profits, universities and some electricity companies are exempt. Employees and B2B contacts aren't consumers.
+    source:
+      - https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm
+      - https://www.texasattorneygeneral.gov/consumer-protection/file-consumer-complaint/consumer-privacy-rights/texas-data-privacy-and-security-act
+  lawful_bases:
+    summary: There are no GDPR-style lawful bases. Controllers give a privacy notice and honour rights to access, correct, delete and port data, and to opt out of targeted advertising, sale and significant-decision profiling. Sensitive data, including precise geolocation, needs opt-in consent. A controller that sells sensitive or biometric data must post a set notice saying so. Collecting biometric identifiers for a commercial purpose also needs informed consent under a separate law.
+    source:
+      - https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm
+      - https://tcss.legis.texas.gov/resources/BC/htm/BC.503.htm
+  consent_age:
+    summary: A child is under 13, and a known child's sensitive data must be processed under COPPA, with parental consent. The TDPSA has no teen opt-in rule, but the SCOPE Act protects users who register as under 18 (see children).
+    value: 13
+    unit: years
+    source:
+      - https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm
+      - https://tcss.legis.texas.gov/resources/BC/htm/BC.509.htm
+  children:
+    summary: Under the SCOPE Act, social platforms must register users' age and, unless a verified parent decides otherwise, limit known minors' data and not sell or share it, collect their precise geolocation, target ads at them or let them buy things. They must give parents tools. Since 30 August 2024, the duty to monitor and filter harmful content can't be enforced against CCIA, NetChoice or their members. A February 2025 order in SEAT v. Paxton also blocked the targeted-ads, unlawful-ads and age-verification rules; no official copy shows whom it covers. Appeals are before the full Fifth Circuit.
+    source:
+      - https://tcss.legis.texas.gov/resources/BC/htm/BC.509.htm
+      - https://www.texasattorneygeneral.gov/consumer-protection/file-consumer-complaint/enforcing-privacy-and-data-security-laws-protect-texans/scope
+      - https://www.govinfo.gov/content/pkg/USCOURTS-txwd-1_24-cv-00849/pdf/USCOURTS-txwd-1_24-cv-00849-0.pdf
+      - https://www.ca5.uscourts.gov/opinions/pub/24/24-50721-CV0.pdf
+      - https://www.ca5.uscourts.gov/opinions/pub/24/24-50721-CV1.pdf
+      - https://capitol.texas.gov/tlodocs/89R/billtext/html/SB02420F.htm
+      - https://www.govinfo.gov/content/pkg/USCOURTS-txwd-1_25-cv-01660/pdf/USCOURTS-txwd-1_25-cv-01660-0.pdf
+      - https://www.ca5.uscourts.gov/opinions/pub/25/25-51073-CV0.pdf
+      - https://www.supremecourt.gov/docket/docketfiles/html/public/25a1389.html
+      - https://www.supremecourt.gov/docket/docketfiles/html/public/25a1390.html
+  cookies:
+    summary: There's no cookie-consent rule. Consumers can opt out of targeted advertising and sale, and since 1 January 2025 they can do so through an authorized agent such as a browser setting, extension or global device setting (for example Global Privacy Control). Controllers must honour such signals unless the request is unclear, they can't verify the consumer lives in Texas, they can't process it, or they don't honour similar requests under other states' laws.
+    source:
+      - https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm
+      - https://capitol.texas.gov/tlodocs/88R/billtext/html/HB00004F.htm
+  marketing:
+    summary: Email marketing relies on federal CAN-SPAM. For sales calls and texts, Texas adds its own rules on top of the federal TCPA. Sellers making telephone solicitations generally need a registration certificate, telemarketers must not call numbers on the Texas no-call list, and since 1 September 2025 consumers can also enforce the no-call rules under the Deceptive Trade Practices Act.
+    source:
+      - https://tcss.legis.texas.gov/resources/BC/htm/BC.302.htm
+      - https://tcss.legis.texas.gov/resources/BC/htm/BC.304.htm
+  breach_notice:
+    summary: Notify affected individuals without unreasonable delay and no later than 60 days after determining a breach occurred. If 250 or more Texans are affected, notify the Attorney General through its online form within 30 days. If more than 10,000 people are notified, also tell the nationwide credit bureaus. Penalties run from $2,000 to $50,000 per violation, plus up to $100 per person per day for late notices (up to $250,000).
+    value: 60
+    unit: days
+    source:
+      - https://tcss.legis.texas.gov/resources/BC/htm/BC.521.htm
+  registration_or_fees:
+    summary: Data brokers must register with the Secretary of State and pay $300 if more than half their revenue, or revenue from data on more than 50,000 people, comes from personal data they didn't collect directly. They must post a notice on their website or app saying they're a data broker and how to exercise privacy rights. The TDPSA itself has no registration or fee.
+    source:
+      - https://tcss.legis.texas.gov/resources/BC/htm/BC.510.htm
+  dpo:
+    summary: There's no requirement to appoint a data protection officer.
+    source:
+      - https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm
+  transfers:
+    summary: Texas has no general restriction on transferring personal data abroad; federal rules are in us-federal. One exception is health care, where covered entities must keep electronic health records of patients physically in the US or its territories, including when stored in the cloud.
+    source:
+      - https://tcss.legis.texas.gov/resources/HS/htm/HS.183.htm
+      - https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm
+  dpia:
+    summary: Document a data protection assessment for targeted advertising, sale, sensitive data, risky profiling and any other heightened-risk processing. The Attorney General can demand assessments in an investigation, and they stay confidential.
+    source:
+      - https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm
+  automated_decisions_ai:
+    summary: Consumers can opt out of significant-decision profiling. Since 1 January 2026, TRAIGA bans AI that intentionally aims to encourage self-harm, harm to others or crime, AI built with intent to unlawfully discriminate, AI made to produce child sexual abuse material or unlawful deepfakes, and AI that imitates a child in sexual chats. Government agencies must disclose AI to consumers, and health care providers must tell patients. The Attorney General enforces, with a 60-day cure, penalties of $10,000 to $200,000 per violation and $2,000 to $40,000 a day for continuing ones.
+    source:
+      - https://tcss.legis.texas.gov/resources/BC/htm/BC.552.htm
+      - https://tcss.legis.texas.gov/resources/BC/htm/BC.551.htm
+      - https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm
+  penalties:
+    summary: The Attorney General enforces alone. Before suing it must give 30 days' notice to cure, and this right to cure doesn't expire. Civil penalties are up to $7,500 per violation, plus injunctions and costs. There's no private right of action.
+    source:
+      - https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm
+      - https://www.texasattorneygeneral.gov/consumer-protection/file-consumer-complaint/consumer-privacy-rights/texas-data-privacy-and-security-act
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

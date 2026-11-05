@@ -1,0 +1,117 @@
+# Tennessee. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: us-tn
+name: Tennessee
+tier: full
+applies_with: [us-federal]
+laws:
+  - name: Tennessee Information Protection Act
+    citation: Tenn. Code Ann. 47-18-3201 to 47-18-3213 (Pub. Ch. 408, 2023, HB 1181)
+    official_url: https://wapp.capitol.tn.gov/apps/BillInfo/Default.aspx?BillNumber=HB1181&GA=113
+    status: in-force
+    in_force_from: "2025-07-01"
+    notes: The enacted text is House Amendment 1 (HA0348), which replaced the bill. Pub. Ch. 201 (2025) widened the non-profit exemption to public utilities regulated in Tennessee.
+  - name: Release of personal consumer information (breach notice)
+    citation: Tenn. Code Ann. 47-18-2107 (Pub. Ch. 473, 2005; amended by Pub. Ch. 692, 2016, and Pub. Ch. 91, 2017)
+    official_url: https://wapp.capitol.tn.gov/apps/BillInfo/Default.aspx?BillNumber=SB2220&GA=104
+    status: in-force
+    in_force_from: "2005-07-01"
+  - name: Protecting Children from Social Media Act
+    citation: Tenn. Code Ann. 47-18-5701 to 47-18-5706 (Pub. Ch. 899, 2024, HB 1891)
+    official_url: https://wapp.capitol.tn.gov/apps/BillInfo/Default.aspx?BillNumber=HB1891&GA=113
+    status: in-force
+    in_force_from: "2025-01-01"
+    notes: Challenged in NetChoice v. Skrmetti (M.D. Tenn. No. 3:24-cv-01191). On 28 August 2026 the Sixth Circuit vacated the denial of a preliminary injunction and sent the case back. On 27 October 2026 the district court denied the old motion as moot and invited a renewed one; no injunction was in place.
+  - name: AI systems presented as mental health professionals
+    citation: Tenn. Code Ann. 33-1-205 (Pub. Ch. 647, 2026, SB 1580)
+    official_url: https://wapp.capitol.tn.gov/apps/BillInfo/Default.aspx?BillNumber=SB1580&GA=114
+    status: in-force
+    in_force_from: "2026-07-01"
+  - name: Ensuring Likeness, Voice, and Image Security (ELVIS) Act of 2024
+    citation: Tenn. Code Ann. 47-25-1101 et seq. (Pub. Ch. 588, 2024, HB 2091)
+    official_url: https://wapp.capitol.tn.gov/apps/BillInfo/Default.aspx?BillNumber=HB2091&GA=113
+    status: in-force
+    in_force_from: "2024-07-01"
+    notes: Makes a person's voice a protected property right, including simulated voices, and covers tools made to copy a specific person's voice or likeness.
+regulators:
+  - name: Tennessee Attorney General and Reporter (Consumer Protection)
+    url: https://www.tn.gov/attorneygeneral/working-for-tennessee/protecting-consumers.html
+obligations:
+  scope:
+    summary: Applies to businesses in Tennessee whose products or services target its residents, that earn over $25 million in revenue, and either process data of 175,000+ consumers in a calendar year or of 25,000+ while earning over half of gross revenue from selling personal information. Non-profits, colleges, government, licensed insurers, GLBA financial institutions and HIPAA-regulated bodies are exempt. Employees and B2B contacts aren't consumers.
+    source:
+      - https://capitol.tn.gov/Bills/113/Amend/HA0348.pdf
+      - https://wapp.capitol.tn.gov/apps/BillInfo/Default.aspx?BillNumber=SB0529&GA=114
+  lawful_bases:
+    summary: No GDPR-style lawful bases. Controllers give a privacy notice and honour rights to access, correct, delete and port data and to opt out of sale, targeted advertising and profiling for significant decisions, within 45 days (extendable once by 45). Sensitive data needs opt-in consent, and collection must be limited to what's reasonably necessary for the disclosed purposes.
+    source:
+      - https://capitol.tn.gov/Bills/113/Amend/HA0348.pdf
+  consent_age:
+    summary: A child is under 13. A known child's sensitive data must be processed as COPPA requires, and a parent or guardian exercises the child's rights. TIPA has no teen rule, but the social media act needs verified parental consent for any account holder under 18.
+    value: 13
+    unit: years
+    source:
+      - https://capitol.tn.gov/Bills/113/Amend/HA0348.pdf
+      - https://www.capitol.tn.gov/Bills/113/Amend/SA0929.pdf
+  children:
+    summary: Since 1 January 2025, social media companies must verify the age of anyone opening an account, need verified parental consent before a minor under 18 opens one, and must give parents tools to see privacy settings, set time limits and enforce breaks. They must not keep the identifying data used for checks. The AG enforces with Consumer Protection Act penalties. NetChoice's federal challenge continues (see laws); as of 27 October 2026 no court order blocked the Act.
+    source:
+      - https://www.capitol.tn.gov/Bills/113/Amend/HA0668.pdf
+      - https://www.capitol.tn.gov/Bills/113/Amend/SA0929.pdf
+      - https://wapp.capitol.tn.gov/apps/BillInfo/Default.aspx?BillNumber=HB1891&GA=113
+      - https://www.opn.ca6.uscourts.gov/opinions.pdf/26a0250p-06.pdf
+      - https://www.govinfo.gov/content/pkg/USCOURTS-tnmd-3_24-cv-01191/pdf/USCOURTS-tnmd-3_24-cv-01191-2.pdf
+  cookies:
+    summary: No cookie-consent rule. A controller that sells personal information or uses it for targeted advertising must say so clearly and explain how to opt out. TIPA doesn't require honouring a universal opt-out signal such as Global Privacy Control; 2025–2026 bills to add one did not pass.
+    source:
+      - https://capitol.tn.gov/Bills/113/Amend/HA0348.pdf
+      - https://wapp.capitol.tn.gov/apps/Indexes/BillsBySubject?PrimarySubject=1010&ga=114
+  marketing:
+    summary: Telephone solicitors must not call or text numbers on the Tennessee Public Utility Commission's Do-Not-Call/Do-Not-Text register, which covers home and mobile numbers, unless an exemption applies, such as express permission or a business relationship in the past 12 months. The Commission handles solicitor applications. Federal CAN-SPAM and the TCPA apply too.
+    source:
+      - https://www.tn.gov/tpuc/services/tennessee-do-not-call-program.html
+  breach_notice:
+    summary: Notify affected Tennessee residents immediately, and no later than 45 days after discovering the breach or being told of it, unless law enforcement needs a delay. A business holding data for another must tell the owner within the same limit. If more than 1,000 people are notified at once, also tell the national consumer reporting agencies. There's no duty to notify the Attorney General. Encrypted data is covered only if the key was also taken. GLBA- and HIPAA-regulated entities are exempt.
+    value: 45
+    unit: days
+    source:
+      - https://www.capitol.tn.gov/Bills/109/Amend/HA0750.pdf
+      - https://wapp.capitol.tn.gov/apps/BillInfo/Default.aspx?BillNumber=SB2005&GA=109
+      - https://wapp.capitol.tn.gov/apps/BillInfo/Default.aspx?BillNumber=SB0547&GA=110
+      - https://www.capitol.tn.gov/Bills/110/Bill/SB0547.pdf
+      - https://www.capitol.tn.gov/Bills/104/Amend/HA0424.pdf
+      - https://wapp.capitol.tn.gov/apps/BillInfo/Default.aspx?BillNumber=SB2220&GA=104
+  registration_or_fees:
+    summary: TIPA has no registration or fee, and we found no Tennessee data broker registry. A 2025–2026 bill to make controllers register with the Attorney General did not pass.
+    source:
+      - https://capitol.tn.gov/Bills/113/Amend/HA0348.pdf
+      - https://wapp.capitol.tn.gov/apps/Indexes/BillsBySubject?PrimarySubject=1010&ga=114
+  dpo:
+    summary: No duty to appoint a data protection officer.
+    source:
+      - https://capitol.tn.gov/Bills/113/Amend/HA0348.pdf
+  transfers:
+    summary: No cross-border transfer rules in Tennessee law (federal rules are in us-federal). Processors must work under a contract that sets processing instructions and duties.
+    source:
+      - https://capitol.tn.gov/Bills/113/Amend/HA0348.pdf
+  dpia:
+    summary: Controllers must conduct and document an assessment of targeted advertising, sale, sensitive data, risky profiling and other high-risk processing created on or after 1 July 2024. The Attorney General can obtain it through a civil investigative demand; it stays confidential.
+    source:
+      - https://capitol.tn.gov/Bills/113/Amend/HA0348.pdf
+  automated_decisions_ai:
+    summary: Consumers can opt out of profiling for decisions with legal or similarly significant effects. Since 1 July 2026, developers and deployers must not advertise or present an AI system as a qualified mental health professional ($5,000 per violation). The ELVIS Act creates liability for sharing tools made to produce a specific person's voice or likeness without permission.
+    source:
+      - https://capitol.tn.gov/Bills/113/Amend/HA0348.pdf
+      - https://www.capitol.tn.gov/Bills/114/Bill/SB1580.pdf
+      - https://www.capitol.tn.gov/Bills/113/Amend/HA0578.pdf
+  penalties:
+    summary: Only the Attorney General enforces, after a 60-day notice and cure that doesn't expire. Courts can impose up to $7,500 per violation, and treble damages for wilful or knowing violations. There's no private right of action. It's an affirmative defence to keep a written privacy program that reasonably conforms to the NIST Privacy Framework 1.0 (1.1 is still a draft) or other documented privacy policies, is updated within 2 years of a revised framework, and gives the Act's rights.
+    source:
+      - https://capitol.tn.gov/Bills/113/Amend/HA0348.pdf
+      - https://www.nist.gov/privacy-framework
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

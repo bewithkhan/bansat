@@ -1,0 +1,91 @@
+# Kentucky, United States. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact. Read together with us-federal.
+id: us-ky
+name: Kentucky
+tier: full
+applies_with: [us-federal]
+laws:
+  - name: Kentucky Consumer Data Protection Act
+    citation: KRS 367.3611 to 367.3629 (2024 Ky. Acts ch. 72, HB 15), as amended
+    official_url: https://apps.legislature.ky.gov/law/statutes/chapter.aspx?id=39092
+    status: in-force
+    in_force_from: "2026-01-01"
+    notes: HB 473 (2025 Ky. Acts ch. 13) exempted HIPAA-protected data held by health care providers and limited data sets, and required impact assessments for profiling that risks unlawful disparate impact. HB 692 (2026 Ky. Acts ch. 118) requires consent to collect smart TV content recognition data from 1 July 2027.
+  - name: Notification of computer security breach
+    citation: KRS 365.732
+    official_url: https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=43326
+    status: in-force
+    in_force_from: "2014-07-15"
+regulators:
+  - name: Kentucky Attorney General (Office of Data Privacy)
+    url: https://www.ag.ky.gov/Resources/Consumer-Resources/Pages/default.aspx
+obligations:
+  scope:
+    summary: Applies to businesses that operate in Kentucky or target its residents and, in a calendar year, control or process personal data of at least 100,000 consumers, or of 25,000 while earning over 50% of gross revenue from selling personal data. Government, financial institutions and GLBA data, HIPAA covered entities and business associates, nonprofits, higher education and some utilities are exempt. Employee and business-contact data are out of scope.
+    source:
+      - https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=56648
+      - https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=55836
+  lawful_bases:
+    summary: No GDPR-style lawful bases. Give a clear privacy notice and honour rights to confirm and access, correct, delete, get a portable copy, and opt out of targeted advertising, sale and significant profiling. Reply within 45 days (one 45-day extension), free twice a year, and decide appeals within 60 days. Sensitive data needs opt-in consent. Collect only what's adequate, relevant and reasonably necessary for the disclosed purposes.
+    source:
+      - https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=55838
+      - https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=55839
+  consent_age:
+    summary: A child is under 13, as in COPPA. A known child's data must be processed in line with COPPA, and parents can use the child's rights. There's no teen consent rule.
+    value: 13
+    unit: years
+    source:
+      - https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=55836
+      - https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=55838
+  children:
+    summary: Data collected from a known child is sensitive data and must be handled under COPPA. Meeting COPPA's verifiable parental consent rules counts as compliance. The act sets no extra rules for teenagers.
+    source:
+      - https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=55836
+      - https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=56648
+  cookies:
+    summary: No cookie-consent rule. Controllers that sell personal data or use it for targeted advertising must disclose it clearly and explain how to opt out. The act has no duty to honour universal opt-out signals such as Global Privacy Control. From 1 July 2027, collecting automatic content recognition data from smart TVs or monitors needs consent.
+    source:
+      - https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=55839
+      - https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=58309
+      - https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=58308
+      - https://apps.legislature.ky.gov/record/26rs/hb692.html
+  marketing:
+    summary: Adds to CAN-SPAM and the TCPA. Telemarketing companies must register with the Attorney General 10 days before soliciting Kentuckians ($300, then $50 a year). Sales calls may not go to numbers on the national Do Not Call Registry, outside 10 a.m. to 9 p.m., or to anyone under 18, and prerecorded sales calls need prior express consent.
+    source:
+      - https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=48885
+      - https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=54553
+  breach_notice:
+    summary: Tell affected Kentucky residents in the most expedient time possible and without unreasonable delay after discovering a breach of unencrypted personal information that causes, or that the business reasonably believes has caused or will cause, identity theft or fraud. If more than 1,000 people must be told at once, also tell the nationwide credit reporting agencies. There's no duty to tell the Attorney General. Entities covered by GLBA or HIPAA are exempt.
+    source:
+      - https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=43326
+  registration_or_fees:
+    summary: No data protection registration or fee, and no data broker registry. Telemarketing companies register separately (see marketing).
+    source:
+      - https://apps.legislature.ky.gov/law/statutes/chapter.aspx?id=39092
+  dpo:
+    summary: No duty to appoint a data protection officer.
+    source:
+      - https://apps.legislature.ky.gov/law/statutes/chapter.aspx?id=39092
+  transfers:
+    summary: Kentucky law doesn't restrict sending personal data outside the state or the US. Federal rules are in us-federal.
+    source:
+      - https://apps.legislature.ky.gov/law/statutes/chapter.aspx?id=39092
+  dpia:
+    summary: Do and document a data protection impact assessment for targeted advertising, selling personal data, risky profiling, sensitive data and other high-risk processing. It applies to processing activities created or generated from 1 June 2026. The Attorney General can demand it in an investigation, and it stays confidential.
+    source:
+      - https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=56649
+  automated_decisions_ai:
+    summary: People can opt out of profiling used for decisions with legal or similarly significant effects, such as on lending, housing, insurance, education, criminal justice, jobs, health care or basic necessities. Risky profiling also needs an impact assessment.
+    source:
+      - https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=55838
+      - https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=55836
+  penalties:
+    summary: The Attorney General has exclusive enforcement. It must give 30 days' written notice first; if the business cures and confirms in writing, no action for damages follows. The cure right doesn't expire. Up to $7,500 per continued violation, plus investigation costs and attorney's fees. No private right of action.
+    source:
+      - https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=55844
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

@@ -1,0 +1,115 @@
+# Indiana, United States. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact. Read together with us-federal.
+id: us-in
+name: Indiana
+tier: full
+applies_with: [us-federal]
+laws:
+  - name: Indiana Consumer Data Protection Act
+    citation: IC 24-15, added by Senate Enrolled Act 5 (2023)
+    official_url: https://iga.in.gov/laws/2025/ic/titles/24#24-15
+    status: in-force
+    in_force_from: "2026-01-01"
+    notes: Passed in 2023. The Attorney General has enforced it since 1 January 2026.
+  - name: Disclosure of Security Breach law
+    citation: IC 24-4.9
+    official_url: https://iga.in.gov/laws/2025/ic/titles/24#24-4.9
+    status: in-force
+    in_force_from: "2006-07-01"
+    notes: House Enrolled Act 1351 (2022) added the 45-day outer limit for telling people about a breach, from 1 July 2022.
+  - name: Social media providers law
+    citation: IC 24-16, added by House Enrolled Act 1408 (2026)
+    official_url: https://iga.in.gov/pdf-documents/124/2026/house/bills/HB1408/HB1408.04.ENRS.pdf
+    status: enacted
+    in_force_from: "2027-01-01"
+    notes: Signed on 4 March 2026 as part of an act on education matters. The social media rules take effect on 1 January 2027.
+regulators:
+  - name: Indiana Attorney General (Consumer Protection Division)
+    url: https://www.in.gov/attorneygeneral/consumer-protection-division/
+obligations:
+  scope:
+    summary: Applies to businesses that operate in Indiana or target its residents and, in a calendar year, control or process personal data of at least 100,000 Indiana residents, or of 25,000 while earning over 50% of gross revenue from selling personal data. Government, financial institutions and GLBA data, HIPAA covered entities and business associates, nonprofits, higher education and public utilities are exempt. People acting as employees or in a business context aren't covered.
+    source:
+      - https://www.in.gov/attorneygeneral/files/Indiana-Consumer-Data-Protection_Consumer-Bill-of-Rights_CDPCBOR.pdf
+      - https://iga.in.gov/pdf-documents/123/2023/senate/bills/SB0005/SB0005.05.ENRH.pdf
+  lawful_bases:
+    summary: No GDPR-style lawful bases. Give a clear privacy notice and honour rights to confirm processing, get a copy or summary of data the person provided, correct it, delete, port it, and opt out of targeted advertising, sale and profiling. Answer within 45 days (one 45-day extension) and offer an appeal, decided within 60 days. Sensitive data needs opt-in consent. Collect only what's reasonably necessary for the purposes you disclosed.
+    source:
+      - https://www.in.gov/attorneygeneral/files/Indiana-Consumer-Data-Protection_Consumer-Bill-of-Rights_CDPCBOR.pdf
+  consent_age:
+    summary: A child is under 13. A controller that knows it's processing a child's data needs a parent's consent, given as COPPA requires, and parents can use the child's rights. The privacy act has no teen consent rule, but from 2027 large social media platforms need a parent's consent before opening an account for anyone under 16 (see children).
+    value: 13
+    unit: years
+    source:
+      - https://www.in.gov/attorneygeneral/files/Indiana-Consumer-Data-Protection_Consumer-Bill-of-Rights_CDPCBOR.pdf
+      - https://iga.in.gov/pdf-documents/124/2026/house/bills/HB1408/HB1408.04.ENRS.pdf
+  children:
+    summary: Under the privacy act, a known child's data is sensitive and needs COPPA parental consent. From 1 January 2027, IC 24-16 covers social media with content algorithms and addictive features, where 10% or more of under-16 daily users average 2 hours a day, run by groups with $1 billion in worldwide revenue in one of the last three years. Under-16s need verifiable parental consent to open an account, ages must be checked, and their accounts must block messages and search from unlinked users, usage-based content and ads, and addictive features. The Attorney General enforces it as a deceptive act.
+    source:
+      - https://www.in.gov/attorneygeneral/files/Indiana-Consumer-Data-Protection_Consumer-Bill-of-Rights_CDPCBOR.pdf
+      - https://iga.in.gov/pdf-documents/124/2026/house/bills/HB1408/HB1408.04.ENRS.pdf
+      - https://www.in.gov/gov/newsroom/2026-bill-watch/
+  cookies:
+    summary: No cookie-consent rule. Controllers that sell personal data or use it for targeted advertising must say so in the privacy notice and let people opt out. Opt-outs are made by request to each controller. The act sets no authorised-agent process; the Attorney General's guide says only a parent (for a child) or someone with a power of attorney or other legal authority can act for another person. There's no duty to honour universal opt-out signals such as Global Privacy Control.
+    source:
+      - https://www.in.gov/attorneygeneral/files/Indiana-Consumer-Data-Protection_Consumer-Bill-of-Rights_CDPCBOR.pdf
+      - https://iga.in.gov/pdf-documents/123/2023/senate/bills/SB0005/SB0005.05.ENRH.pdf
+  marketing:
+    summary: Adds to CAN-SPAM and the TCPA. Telephone solicitors must register with the Attorney General before doing business in Indiana and buy the state Do Not Call list ($750 a year, updated quarterly). Sales calls and texts to listed home, mobile or VoIP numbers are banned, with exemptions such as express requests and, for some sectors, existing customers.
+    source:
+      - https://www.in.gov/attorneygeneral/consumer-protection-division/id-theft-prevention/do-not-call/telephone-solicitors/
+      - https://www.in.gov/attorneygeneral/consumer-protection-division/id-theft-prevention/do-not-call/faqs/
+  breach_notice:
+    summary: Tell affected Indiana residents without unreasonable delay, and no later than 45 days after discovery, when their unencrypted personal information (or encrypted data with its key) was or may have been taken and the breach has caused or could cause identity theft, identity deception or fraud. Delay is reasonable only to restore the system, find the breach's scope, or at the request of the Attorney General or police. Also tell the Attorney General, and the national credit reporting agencies when more than 1,000 people are notified.
+    value: 45
+    unit: days
+    source:
+      - https://www.in.gov/attorneygeneral/consumer-protection-division/id-theft-prevention/security-breaches/security-breach-faqs-and-notification-form-for-businesses/
+      - https://iga.in.gov/pdf-documents/122/2022/house/bills/HB1351/HB1351.04.ENRS.pdf
+      - https://archive.iga.in.gov/2009/bills/HE/HE1121.1.html
+    secondary:
+      - https://law.justia.com/codes/indiana/title-24/article-4-9/chapter-3/section-24-4-9-3-3/
+      - https://law.justia.com/codes/indiana/title-24/article-4-9/chapter-3/section-24-4-9-3-1/
+  registration_or_fees:
+    summary: No data protection registration or fee, and no data broker registry. Telephone solicitors register separately (see marketing).
+    source:
+      - https://iga.in.gov/pdf-documents/123/2023/senate/bills/SB0005/SB0005.05.ENRH.pdf
+      - https://www.in.gov/attorneygeneral/consumer-protection-division/id-theft-prevention/do-not-call/telephone-solicitors/
+  dpo:
+    summary: No duty to appoint a data protection officer.
+    source:
+      - https://iga.in.gov/pdf-documents/123/2023/senate/bills/SB0005/SB0005.05.ENRH.pdf
+  transfers:
+    summary: Indiana law doesn't restrict sending personal data outside the state or the US. Federal rules are in us-federal.
+    source:
+      - https://iga.in.gov/pdf-documents/123/2023/senate/bills/SB0005/SB0005.05.ENRH.pdf
+  dpia:
+    summary: Do and document a data protection impact assessment for targeted advertising, selling personal data, risky profiling, sensitive data and other high-risk processing. It covers processing activities created or generated after 31 December 2025. The Attorney General can demand it through a civil investigative demand, and it stays confidential.
+    source:
+      - https://iga.in.gov/pdf-documents/123/2023/senate/bills/SB0005/SB0005.05.ENRH.pdf
+    secondary:
+      - https://law.justia.com/codes/indiana/title-24/article-15/chapter-6/section-24-15-6-1/
+      - https://law.justia.com/codes/indiana/title-24/article-15/chapter-6/
+  automated_decisions_ai:
+    summary: People can opt out of profiling, meaning solely automated evaluation or prediction of things like their finances, health, interests, behaviour or movements, used for decisions with legal or similarly significant effects. Profiling with a foreseeable risk of unfair treatment or other substantial harm also needs an impact assessment.
+    source:
+      - https://www.in.gov/attorneygeneral/files/Indiana-Consumer-Data-Protection_Consumer-Bill-of-Rights_CDPCBOR.pdf
+      - https://iga.in.gov/pdf-documents/123/2023/senate/bills/SB0005/SB0005.05.ENRH.pdf
+    secondary:
+      - https://law.justia.com/codes/indiana/title-24/article-15/chapter-3/section-24-15-3-1/
+  penalties:
+    summary: The Attorney General has exclusive enforcement. Before suing it must give 30 days' written notice; if the business cures and confirms in writing, no action follows. The act sets no end date for this right to cure. Civil penalties up to $7,500 per violation, plus injunctions and investigation costs, including attorney's fees. No private right of action. Breach-notice failures can cost up to $150,000 per deceptive act, plus the Attorney General's costs.
+    source:
+      - https://iga.in.gov/laws/2025/ic/titles/24#24-15-10
+      - https://iga.in.gov/pdf-documents/123/2023/senate/bills/SB0005/SB0005.05.ENRH.pdf
+      - https://www.in.gov/attorneygeneral/consumer-protection-division/id-theft-prevention/security-breaches/security-breach-faqs-and-notification-form-for-businesses/
+    secondary:
+      - https://law.justia.com/codes/indiana/title-24/article-15/chapter-10/section-24-15-10-2/
+      - https://law.justia.com/codes/indiana/title-24/article-15/chapter-10/section-24-15-10-3/
+      - https://law.justia.com/codes/indiana/title-24/article-15/chapter-10/
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

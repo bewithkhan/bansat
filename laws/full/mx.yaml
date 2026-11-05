@@ -1,0 +1,101 @@
+# Mexico. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: mx
+name: Mexico
+tier: full
+laws:
+  - name: Federal Law on the Protection of Personal Data Held by Private Parties (LFPDPPP)
+    citation: Ley Federal de Protección de Datos Personales en Posesión de los Particulares, DOF 20-03-2025, last amended DOF 14-11-2025
+    official_url: https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf
+    status: in-force
+    in_force_from: "2025-03-21"
+    notes: Replaced the 2010 law of the same name. The same reform abolished INAI and gave its role to the Secretaría Anticorrupción y Buen Gobierno. Public bodies follow a separate general law, also new in 2025.
+  - name: Regulations of the LFPDPPP (Reglamento)
+    citation: Reglamento de la Ley Federal de Protección de Datos Personales en Posesión de los Particulares, DOF 21-12-2011
+    official_url: https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LFPDPPP.pdf
+    status: in-force
+    in_force_from: "2011-12-22"
+    notes: Issued under the 2010 law. The 2025 reform gave the Executive 90 days to adapt regulations (twelfth transitional article), but no new Reglamento had been published by November 2026, and the Chamber of Deputies still lists this one as in force. Read it with the 2025 law, which prevails.
+  - name: Federal Consumer Protection Law (LFPC)
+    citation: Ley Federal de Protección al Consumidor, DOF 24-12-1992, last amended DOF 12-12-2025
+    official_url: https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPC.pdf
+    status: in-force
+    in_force_from: "1992-12-25"
+    notes: Covers advertising sent to consumers, including the consumer protection agency's (PROFECO's) register of people who don't want advertising.
+regulators:
+  - name: Secretaría Anticorrupción y Buen Gobierno (SABG), through its Unidad de Protección de Datos Personales (took over from INAI on 21 March 2025)
+    url: https://portal-transparencia.buengobierno.gob.mx/proteccion-de-datos-personales/normatividad-en-materia-de-proteccion-de-datos-personales/updatospersonales/
+obligations:
+  scope:
+    summary: The LFPDPPP covers private individuals and companies that process personal data. Credit bureaus under their own law and purely personal, non-commercial use are excluded. The 2011 Reglamento also covers processing at a Mexican establishment, processors acting for a Mexican controller, and foreign controllers that use means located in Mexico. Public bodies follow a separate general law.
+    source:
+      - https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf
+      - https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LFPDPPP.pdf
+      - https://www.diputados.gob.mx/LeyesBiblio/pdf/LGPDPPSO.pdf
+  lawful_bases:
+    summary: Processing rests on consent, and a privacy notice is always required. Tacit consent is the general rule, meaning the person got the privacy notice and didn't object. Financial or property data need express consent, and sensitive data need express written consent by signature, e-signature or another authentication method. Consent isn't needed in listed cases, such as a legal duty, public sources, a legal relationship with the person, emergencies or medical care.
+    source:
+      - https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf
+  consent_age:
+    summary: The data protection law sets no age. Under the Federal Civil Code adulthood starts at 18 (Art. 646), minors lack legal capacity (Art. 450), and those with parental authority represent them (Art. 425). The Reglamento applies these rules to minors' data rights (Art. 89). So consent for a minor's data comes from the person with parental authority or guardianship.
+    value: 18
+    unit: years
+    source:
+      - https://www.diputados.gob.mx/LeyesBiblio/pdf/CCF.pdf
+      - https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LFPDPPP.pdf
+  children:
+    summary: The data protection law has no child-specific rules. The General Law on the Rights of Children and Adolescents gives minors a right to privacy and to protection of their personal data, bans unlawful disclosure of it, and treats media use of a child's image, name or identifying data that harms them or puts them at risk as a breach of their privacy.
+    source:
+      - https://www.diputados.gob.mx/LeyesBiblio/pdf/LGDNNA.pdf
+  cookies:
+    summary: There is no cookie-specific law. If a website or app collects personal data automatically, for example through cookies or web beacons, the privacy notice must say so, say what data is collected and explain how to switch the technology off (Reglamento Art. 14). Tacit consent through the notice generally covers this, unless the data is financial or sensitive.
+    source:
+      - https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LFPDPPP.pdf
+      - https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf
+  marketing:
+    summary: There is no separate anti-spam law. Under the consumer protection law, people can ask a business to stop sending offers and not to pass their data on, and can join PROFECO's free register of people who don't want advertising (REPEP). Sending advertising to people who opted out or registered is banned. Marketing must be listed as a purpose in the privacy notice, and people can object to processing.
+    source:
+      - https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPC.pdf
+      - https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LFPDPPP.pdf
+      - https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf
+  breach_notice:
+    summary: Tell affected people immediately about a security breach that significantly affects their property or moral rights, so they can protect themselves. Say what happened, which data was involved, what they can do, what you've done to fix it and where to get more information. The law sets no duty to notify the authority.
+    source:
+      - https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf
+      - https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LFPDPPP.pdf
+  registration_or_fees:
+    summary: None. There is no registration of controllers or databases and no fee. Joining a self-regulation scheme, such as a code of practice or a trust seal, is voluntary, and schemes are notified to the authority.
+    source:
+      - https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf
+  dpo:
+    summary: Appoint a person or department of personal data to handle people's requests to access, correct, cancel or object to their data (ARCO rights) and to promote data protection inside the organisation. No qualifications are set. Answer requests within 20 business days, and carry out what you agreed to within 15 more.
+    source:
+      - https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf
+  transfers:
+    summary: Domestic and international transfers follow the same rules, with no adequacy list. Before transferring data to a third party other than a processor, give it the privacy notice and the purposes the person agreed to. The notice must say whether the person accepts transfers, and the recipient takes on the same duties. Consent isn't needed in listed cases, such as transfers within a corporate group under common policies, or for a contract in the person's interest. Sending data to a processor isn't a transfer.
+    source:
+      - https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf
+      - https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LFPDPPP.pdf
+  dpia:
+    summary: Private companies have no duty to carry out impact assessments. The authority itself can prepare privacy impact studies before new kinds of processing. Security measures must take account of the risk, the possible consequences for people, the sensitivity of the data and the state of technology.
+    source:
+      - https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf
+  automated_decisions_ai:
+    summary: People can object to automated processing without human involvement that has unwanted legal effects or significantly affects them, such as assessing their work, finances, health, reliability or behaviour. The Reglamento adds a duty to tell people when a decision is made without human evaluation. Mexico has no federal AI law.
+    source:
+      - https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf
+      - https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LFPDPPP.pdf
+      - https://www.diputados.gob.mx/LeyesBiblio/index.htm
+    secondary:
+      - https://www.itsitio.com/mx/inteligencia-artificial/regulacion-de-ia-en-mexico-todavia-no-hay-una-ley-general-pero-las-reglas-ya-avanzan-por-sectores/
+  penalties:
+    summary: The SABG verifies compliance, decides rights-protection claims and imposes sanctions. Fines run from 100 to 160,000 UMA (Mexico's daily reference unit) for lesser breaches, and from 200 to 320,000 UMA for serious ones such as unlawful transfers, security breaches or collecting data without required express consent. Repeated breaches add up to 320,000 UMA, and amounts can double for sensitive data. Causing a security breach for profit can mean 3 months to 3 years in prison, and processing data by deceit for undue gain 6 months to 5 years, both doubled for sensitive data.
+    source:
+      - https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf
+      - https://sidof.segob.gob.mx/notas/docFuente/5752650
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

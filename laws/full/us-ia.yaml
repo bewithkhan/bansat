@@ -1,0 +1,103 @@
+# Iowa. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: us-ia
+name: Iowa
+tier: full
+applies_with: [us-federal]
+laws:
+  - name: Iowa Consumer Data Protection Act
+    citation: Iowa Code ch. 715D (2023 Iowa Acts ch. 17, SF 262)
+    official_url: https://www.legis.iowa.gov/docs/code/715D.pdf
+    status: in-force
+    in_force_from: "2025-01-01"
+    notes: Unchanged in the Iowa Code 2026. Bills to amend it in 2025 (SF 143 and HF 503) did not pass.
+  - name: Personal Information Security Breach Protection
+    citation: Iowa Code ch. 715C
+    official_url: https://www.legis.iowa.gov/docs/code/715C.pdf
+    status: in-force
+    in_force_from: "2008-07-01"
+  - name: Conversational AI services Act
+    citation: 2026 Iowa Acts ch. 1068 (SF 2417)
+    official_url: https://www.legis.iowa.gov/docs/publications/iactc/91.2/CH1068.pdf
+    status: enacted
+    in_force_from: "2027-07-01"
+    notes: Signed on 2 May 2026. The Act took effect on 1 July 2026, but its duties apply from 1 July 2027.
+  - name: Age verification for sites with content pornographic for minors
+    citation: 2026 Iowa Acts ch. 1143 (HF 864)
+    official_url: https://www.legis.iowa.gov/docs/publications/iactc/91.2/CH1143.pdf
+    status: in-force
+    in_force_from: "2026-07-01"
+    notes: Signed on 1 June 2026. It names no start date, so it took effect on 1 July 2026 under Iowa Code section 3.7.
+regulators:
+  - name: Iowa Attorney General (Consumer Protection Division)
+    url: https://www.iowaattorneygeneral.gov/
+obligations:
+  scope:
+    summary: Applies to businesses that operate in Iowa or target Iowa residents and, in a calendar year, control or process personal data of at least 100,000 Iowa consumers, or at least 25,000 while earning over half their gross revenue from selling personal data. Non-profits, colleges, the state, GLBA financial institutions and HIPAA-regulated bodies are exempt. Employees, job applicants and people acting in a business role aren't covered.
+    source:
+      - https://www.legis.iowa.gov/docs/code/715D.2.pdf
+      - https://www.legis.iowa.gov/docs/code/715D.1.pdf
+  lawful_bases:
+    summary: No GDPR-style lawful bases. Controllers give a privacy notice and honour rights to confirm and access data, delete data the consumer provided, get a portable copy and opt out of sale, within 90 days (extendable once by 45). There's no right to correct data and no right to opt out of profiling. Sensitive data needs clear notice and a chance to opt out, rather than opt-in consent.
+    source:
+      - https://www.legis.iowa.gov/docs/code/715D.3.pdf
+      - https://www.legis.iowa.gov/docs/code/715D.pdf
+  consent_age:
+    summary: A child is anyone under 13. A known child's parent or guardian exercises the child's rights, and sensitive data about a known child must be processed as COPPA requires. The privacy law has no separate teen rule for targeted advertising or sale.
+    value: 13
+    unit: years
+    source:
+      - https://www.legis.iowa.gov/docs/code/715D.1.pdf
+      - https://www.legis.iowa.gov/docs/code/715D.3.pdf
+  children:
+    summary: Data from a known child is sensitive data, handled under COPPA. From 1 July 2027, public chatbots built mainly to simulate conversation (not customer-service, built-in, narrow-topic, internal or voice-assistant bots) must tell users known or reasonably certain to be under 18 that they're AI, take reasonable measures against sexual content and human-like claims, avoid unpredictable rewards and offer privacy tools. Since 1 July 2026, sites where 33% or more of content is pornographic for minors must verify age and not keep the identifying data.
+    source:
+      - https://www.legis.iowa.gov/docs/code/715D.pdf
+      - https://www.legis.iowa.gov/docs/publications/iactc/91.2/CH1068.pdf
+      - https://www.legis.iowa.gov/docs/publications/iactc/91.2/CH1143.pdf
+  cookies:
+    summary: No cookie-consent rule. A controller that sells personal data or uses it for targeted advertising must say so clearly and explain how to opt out, but the listed rights cover opting out of sale only. The law doesn't require honouring a universal opt-out signal such as Global Privacy Control.
+    source:
+      - https://www.legis.iowa.gov/docs/code/715D.pdf
+      - https://www.legis.iowa.gov/docs/code/715D.3.pdf
+  marketing:
+    summary: Iowa adds no consent rule for marketing emails, texts or calls, so federal CAN-SPAM and the TCPA apply. Its own law makes it a crime to falsify routing or header information when sending unsolicited bulk email.
+    source:
+      - https://www.legis.iowa.gov/docs/code/716A.2.pdf
+  breach_notice:
+    summary: Tell affected Iowa residents in the most expeditious manner possible and without unreasonable delay. If more than 500 Iowans must be told, notify the Attorney General's Consumer Protection Division in writing within 5 business days of telling them. Notice isn't needed if a documented investigation finds no reasonable likelihood of financial harm; keep that record for 5 years. A business holding data for another must tell the owner immediately. Businesses subject to and complying with GLBA or HIPAA rules are exempt.
+    source:
+      - https://www.legis.iowa.gov/docs/code/715C.2.pdf
+      - https://www.iowaattorneygeneral.gov/for-consumers/security-breach-notifications/
+  registration_or_fees:
+    summary: The privacy law has no registration or fee, and we found no Iowa data broker registry.
+    source:
+      - https://www.legis.iowa.gov/docs/code/715D.pdf
+  dpo:
+    summary: No duty to appoint a data protection officer.
+    source:
+      - https://www.legis.iowa.gov/docs/code/715D.pdf
+  transfers:
+    summary: Iowa law has no cross-border transfer rules (federal rules are in us-federal). Processors must work under a contract that sets instructions, confidentiality, deletion or return of data, and terms for subcontractors.
+    source:
+      - https://www.legis.iowa.gov/docs/code/715D.5.pdf
+  dpia:
+    summary: Iowa doesn't require data protection assessments.
+    source:
+      - https://www.legis.iowa.gov/docs/code/715D.pdf
+  automated_decisions_ai:
+    summary: There's no right to opt out of profiling or automated decisions. From 1 July 2027, operators of public chatbots built mainly to simulate conversation (see children for exclusions) must adopt a suicide and self-harm protocol that points users to crisis services, must not present the chatbot as a licensed mental health provider, and must disclose that it's AI where a reasonable person could think it's human.
+    source:
+      - https://www.legis.iowa.gov/docs/publications/iactc/91.2/CH1068.pdf
+  penalties:
+    summary: Only the Attorney General enforces. Before suing, the AG must give 90 days' written notice to cure, and this right to cure doesn't expire. After that, civil penalties are up to $7,500 per violation, plus injunctions. There's no private right of action. From 2027, chatbot violations cost $1,000 each, up to $500,000 per operator. Age-verification violations cost up to $1,000 each (each access counts), capped at $10,000 a day.
+    source:
+      - https://www.legis.iowa.gov/docs/code/715D.8.pdf
+      - https://www.legis.iowa.gov/docs/publications/iactc/91.2/CH1068.pdf
+      - https://www.legis.iowa.gov/docs/publications/iactc/91.2/CH1143.pdf
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

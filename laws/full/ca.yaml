@@ -1,0 +1,123 @@
+# Canada (federal). Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: ca
+name: Canada
+tier: full
+laws:
+  - name: Personal Information Protection and Electronic Documents Act (PIPEDA)
+    citation: S.C. 2000, c. 5
+    official_url: https://laws-lois.justice.gc.ca/eng/acts/P-8.6/
+    status: in-force
+    in_force_from: "2001-01-01"
+    notes: Part 1 is the private-sector privacy law. It was phased in and has covered commercial activity in every province since 2004, except where a substantially similar provincial law applies instead.
+  - name: Breach of Security Safeguards Regulations
+    citation: SOR/2018-64
+    official_url: https://laws-lois.justice.gc.ca/eng/regulations/SOR-2018-64/page-1.html
+    status: in-force
+    in_force_from: "2018-11-01"
+    notes: What breach reports and notices must contain, and the 24-month record-keeping rule.
+  - name: Canada's Anti-Spam Legislation (CASL)
+    citation: S.C. 2010, c. 23
+    official_url: https://laws-lois.justice.gc.ca/eng/acts/E-1.6/
+    status: in-force
+    in_force_from: "2014-07-01"
+    notes: Commercial electronic messages and, since 15 January 2015, installing computer programs. Its private right of action was repealed before it ever came into force.
+  - name: Bill C-36 (Protecting Privacy and Consumer Data Act)
+    citation: Bill C-36, 45th Parliament, 1st Session
+    official_url: https://www.parl.ca/LegisInfo/en/bill/45-1/c-36
+    status: draft
+    notes: Introduced on 15 June 2026 to replace Part 1 of PIPEDA, with fines and a new Digital Safety and Data Protection Commission. Only first reading had happened when checked. Its predecessor, Bill C-27, died in January 2025 along with its Artificial Intelligence and Data Act.
+regulators:
+  - name: Office of the Privacy Commissioner of Canada (OPC)
+    url: https://www.priv.gc.ca/en/
+  - name: Canadian Radio-television and Telecommunications Commission (CRTC), for CASL
+    url: https://crtc.gc.ca/eng/internet/anti.htm
+obligations:
+  scope:
+    summary: PIPEDA covers private-sector organisations that handle personal information in commercial activities, plus employee data of federally regulated businesses such as banks, airlines and telecoms. Non-profits are covered only for commercial activities. Alberta, British Columbia and Quebec have their own private-sector laws that apply instead within those provinces, but PIPEDA still covers federally regulated businesses and data crossing provincial or national borders. Business contact details used only to reach someone about their work are excluded.
+    source:
+      - https://laws-lois.justice.gc.ca/eng/acts/P-8.6/page-1.html
+      - https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda/pipeda_brief/
+      - https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda/r_o_p/prov-pipeda/
+      - https://laws-lois.justice.gc.ca/eng/regulations/SOR-2004-219/page-1.html
+      - https://laws-lois.justice.gc.ca/eng/regulations/SOR-2004-220/page-1.html
+  lawful_bases:
+    summary: PIPEDA is consent-based. Organisations need meaningful consent to collect, use or disclose personal information, unless a listed exception applies, and only for purposes a reasonable person would consider appropriate. Consent counts only if people would understand its nature, purpose and consequences. Express consent is generally needed for sensitive information, for uses outside reasonable expectations, or where there's a meaningful risk of significant harm.
+    source:
+      - https://laws-lois.justice.gc.ca/eng/acts/P-8.6/page-1.html
+      - https://laws-lois.justice.gc.ca/eng/acts/P-8.6/page-7.html
+      - https://www.priv.gc.ca/en/privacy-topics/collecting-personal-information/consent/gl_omc_201805/
+  consent_age:
+    summary: PIPEDA sets no age. The OPC's position is that, in all but exceptional circumstances, consent for children under 13 must come from a parent or guardian. For older minors, consent is valid only if their maturity lets them understand what they agree to.
+    value: 13
+    unit: years
+    source:
+      - https://www.priv.gc.ca/en/privacy-topics/collecting-personal-information/consent/gl_omc_201805/
+      - https://www.priv.gc.ca/en/privacy-topics/privacy-for-businesses/protection-of-children-for-businesses/childrens-privacy-code/children-code-final-report-2026/
+  children:
+    summary: The OPC's Children's Privacy Code (20 October 2026) is guidance on PIPEDA for online services directed at or likely to be used by under-18s. It expects the child's best interests to come first, opt-in for non-essential uses, location, profile visibility and third-party sharing off by default, no profiling for marketing or behavioural ads, and no deceptive design. The OPC takes comments until 20 January 2027. Its age assurance guidance is being finalised. Bill C-36 would list under-18s' information as an example of sensitive information (pending).
+    source:
+      - https://www.priv.gc.ca/en/privacy-topics/privacy-for-businesses/protection-of-children-for-businesses/childrens-privacy-code/children-code-final-report-2026/
+      - https://www.priv.gc.ca/en/opc-news/news-and-announcements/2026/nr-c_261020/
+      - https://www.priv.gc.ca/en/about-the-opc/what-we-do/consultations/completed-consultations/consultation-age/
+      - https://www.parl.ca/DocumentViewer/en/45-1/bill/C-36/first-reading
+  cookies:
+    summary: No separate cookie law. Online tracking falls under PIPEDA consent. The OPC accepts opt-out consent for behavioural advertising only if the purposes are obvious, people learn of them at or before collection, the opt-out is easy, immediate and lasting, and the data is non-sensitive where practicable. Avoid tracking children, and don't use tracking people can't decline, such as fingerprinting. CASL treats cookies and scripts as consented to where a person's conduct shows it.
+    source:
+      - https://www.priv.gc.ca/en/privacy-topics/technology/online-privacy-tracking-cookies/tracking-and-ads/gl_ba_1112/
+      - https://laws-lois.justice.gc.ca/eng/acts/E-1.6/page-2.html
+  marketing:
+    summary: Under CASL, commercial electronic messages such as email and texts need express or implied consent, sender identification and a free unsubscribe that takes effect within 10 business days. Implied consent covers, for example, a purchase in the past two years or an inquiry in the past six months. Messages that only give a requested quote or confirm a transaction don't need consent, but still need sender identification and an unsubscribe. Installing software on someone's device in the course of business needs express consent.
+    source:
+      - https://laws-lois.justice.gc.ca/eng/acts/E-1.6/page-1.html
+      - https://laws-lois.justice.gc.ca/eng/acts/E-1.6/page-2.html
+  breach_notice:
+    summary: Report a breach of security safeguards to the OPC, and notify the people affected, as soon as feasible once you determine it creates a real risk of significant harm. Also notify organisations that can reduce the harm. Keep a record of every breach, reportable or not, for 24 months. Knowingly failing to report, notify or keep records is an offence.
+    source:
+      - https://laws-lois.justice.gc.ca/eng/acts/P-8.6/page-3.html
+      - https://laws-lois.justice.gc.ca/eng/regulations/SOR-2018-64/page-1.html
+      - https://www.priv.gc.ca/en/privacy-topics/business-privacy/breaches-and-safeguards/privacy-breaches-at-your-business/gd_pb_201810/
+  registration_or_fees:
+    summary: None. PIPEDA has no registration duty and no fee for organisations.
+    source:
+      - https://laws-lois.justice.gc.ca/eng/acts/P-8.6/
+      - https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda/pipeda_brief/
+  dpo:
+    summary: Designate one or more people accountable for compliance and give their identity on request. They can delegate day-to-day work, but the organisation stays accountable. OPC guidance expects a privacy management program with a named person in charge.
+    source:
+      - https://laws-lois.justice.gc.ca/eng/acts/P-8.6/page-7.html
+      - https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda/pipeda-compliance-help/pipeda-compliance-and-training-tools/gl_acc_201204/
+  transfers:
+    summary: PIPEDA doesn't restrict transfers outside Canada. The organisation stays accountable for information sent to a processor and must use contracts or other means to get a comparable level of protection. Tell people their information may be processed abroad and accessed by foreign courts and authorities. Bill C-36 would require a privacy impact assessment before transfers out of Canada (pending).
+    source:
+      - https://laws-lois.justice.gc.ca/eng/acts/P-8.6/page-7.html
+      - https://www.priv.gc.ca/en/privacy-topics/airports-and-borders/gl_dab_090127/
+      - https://www.parl.ca/DocumentViewer/en/45-1/bill/C-36/first-reading
+  dpia:
+    summary: Not required by PIPEDA. The OPC recommends privacy impact assessments for new projects involving personal information and for generative AI, and its Children's Privacy Code strongly encourages them for higher-risk services used by children.
+    source:
+      - https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda/pipeda-compliance-help/pipeda-compliance-and-training-tools/gl_acc_201204/
+      - https://www.priv.gc.ca/en/privacy-topics/technology/artificial-intelligence/gd_principles_ai/
+      - https://www.priv.gc.ca/en/privacy-topics/privacy-for-businesses/protection-of-children-for-businesses/childrens-privacy-code/children-code-final-report-2026/
+  automated_decisions_ai:
+    summary: No federal AI law. The Artificial Intelligence and Data Act died with Bill C-27 in January 2025, and Bill C-36 leaves AI out, though it would give people an explanation of automated decisions with significant effects (pending). The OPC's generative AI principles expect a legal basis, necessity, openness, explainable outputs and impact assessments, and warn of no-go zones. The government consulted on AI transparency in 2026.
+    source:
+      - https://www.parl.ca/legisinfo/en/bill/44-1/c-27
+      - https://www.parl.ca/DocumentViewer/en/45-1/bill/C-36/first-reading
+      - https://www.priv.gc.ca/en/privacy-topics/technology/artificial-intelligence/gd_principles_ai/
+      - https://www.priv.gc.ca/en/opc-news/news-and-announcements/2026/nr-c_261023/
+  penalties:
+    summary: The OPC investigates, makes findings and can enter compliance agreements, but it can't fine. Complainants or the OPC can apply to the Federal Court, which can order changes and award damages. Knowingly breaching the breach rules or obstructing the OPC is an offence with fines up to $100,000. CASL violations carry penalties up to $1 million for individuals and $10 million for others. Bill C-36 would add fines up to $10 million or 3% of global revenue (pending).
+    source:
+      - https://laws-lois.justice.gc.ca/eng/acts/P-8.6/page-3.html
+      - https://laws-lois.justice.gc.ca/eng/acts/P-8.6/page-4.html
+      - https://laws-lois.justice.gc.ca/eng/acts/P-8.6/page-5.html
+      - https://www.priv.gc.ca/en/privacy-topics/business-privacy/breaches-and-safeguards/privacy-breaches-at-your-business/gd_pb_201810/
+      - https://laws-lois.justice.gc.ca/eng/acts/E-1.6/page-3.html
+      - https://www.parl.ca/DocumentViewer/en/45-1/bill/C-36/first-reading
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

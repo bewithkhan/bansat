@@ -1,0 +1,100 @@
+# Delaware. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: us-de
+name: Delaware
+tier: full
+applies_with: [us-federal]
+laws:
+  - name: Delaware Personal Data Privacy Act
+    citation: Del. Code tit. 6, ch. 12D (84 Del. Laws c. 197, HB 154)
+    official_url: https://delcode.delaware.gov/title6/c012d/index.html
+    status: in-force
+    in_force_from: "2025-01-01"
+    notes: Amended by HB 380 (85 Del. Laws c. 463), signed on 2 September 2026. Its changes apply from 1 January 2027, and the Delaware Code shows both versions side by side.
+  - name: Computer Security Breaches
+    citation: Del. Code tit. 6, ch. 12B (75 Del. Laws c. 61)
+    official_url: https://delcode.delaware.gov/title6/c012b/index.html
+    status: in-force
+    in_force_from: "2005-06-28"
+    notes: Amended by HB 381 (85 Del. Laws c. 464), signed and in force on 2 September 2026; the Delaware Code shows the amended text as current.
+  - name: Delaware Online Privacy and Protection Act
+    citation: Del. Code tit. 6, ch. 12C (80 Del. Laws c. 148)
+    official_url: https://delcode.delaware.gov/title6/c012c/index.html
+    status: in-force
+    in_force_from: "2016-01-01"
+    notes: Privacy policy duty for commercial websites and apps, and limits on marketing certain products to children.
+regulators:
+  - name: Delaware Department of Justice (Consumer Protection Unit)
+    url: https://attorneygeneral.delaware.gov/fraud/personal-data-privacy-portal/
+obligations:
+  scope:
+    summary: Covers businesses active in Delaware that in the previous year handled data of 35,000+ Delaware consumers (not counting payment-only data), or 10,000+ with over 20% of revenue from selling data. From 1 January 2027 these fall to 10,000 and 5,000, third parties that get data from a controller take on duties too, and the GLBA entity exemption narrows to banks, insurers and investment firms. Non-profits are covered. HIPAA-protected health information is exempt. Employees and B2B contacts aren't consumers.
+    source:
+      - https://delcode.delaware.gov/title6/c012d/index.html
+      - https://attorneygeneral.delaware.gov/fraud/personal-data-privacy-portal/business/
+      - https://legis.delaware.gov/BillDetail?LegislationId=143105
+  lawful_bases:
+    summary: No GDPR-style lawful bases. Controllers give a privacy notice and honour rights to access, correct, delete and port data, get the categories of third parties (specific third parties from 2027), and opt out of targeted advertising, sale and profiling for significant decisions, within 45 days (extendable by 45). Sensitive data needs opt-in consent. From 2027 it must also be reasonably necessary and proportionate, and may be sold only when strictly necessary for a service the consumer asked for, after notice naming the third parties, with consent recorded for 5 years.
+    source:
+      - https://delcode.delaware.gov/title6/c012d/index.html
+  consent_age:
+    summary: A child is under 13 (as in COPPA), and a known child's sensitive data needs a parent's consent. Teens aged 13 to 17 must opt in before their data is sold or used for targeted advertising, if the controller knows or wilfully disregards their age. From 1 January 2027 the teen rule also covers profiling for significant decisions, and any personal data of a known child needs a parent's consent.
+    value: 13
+    unit: years
+    source:
+      - https://delcode.delaware.gov/title6/c012d/index.html
+  children:
+    summary: Under the Online Privacy and Protection Act, a service directed at children, or one that knows a user is under 18, must not market listed products to them, such as alcohol, tobacco, firearms, gambling and tattoos. The privacy act's child and teen consent rules apply on top.
+    source:
+      - https://delcode.delaware.gov/title6/c012c/index.html
+      - https://delcode.delaware.gov/title6/c012d/index.html
+  cookies:
+    summary: No cookie-consent rule. Offer a clear opt-out link for targeted advertising and sale, and since 1 January 2026 honour opt-out preference signals such as Global Privacy Control. Any commercial website or app that collects Delaware residents' data must also post a privacy policy, saying how it responds to Do Not Track signals if it tracks users across sites.
+    source:
+      - https://delcode.delaware.gov/title6/c012d/index.html
+      - https://delcode.delaware.gov/title6/c012c/index.html
+  marketing:
+    summary: Telemarketing sellers and businesses must register with the Department of Justice unless an exemption applies, such as business-to-business calls or calls the customer started. Marketing listed products to children is restricted. Email and text marketing otherwise follow federal CAN-SPAM and the TCPA.
+    source:
+      - https://delcode.delaware.gov/title6/c025a/index.html
+      - https://delcode.delaware.gov/title6/c012c/index.html
+  breach_notice:
+    summary: Notify affected Delaware residents without unreasonable delay and within 60 days of determining a breach, unless an investigation finds harm unlikely. Tell the Attorney General no later than the residents if more than 500 are affected. If you can't identify some affected residents within 60 days, tell the Attorney General within those 60 days. Offer 1 year of free credit monitoring when Social Security numbers are involved. A business holding data it doesn't own must tell the owner immediately.
+    value: 60
+    unit: days
+    source:
+      - https://delcode.delaware.gov/title6/c012b/index.html
+      - https://attorneygeneral.delaware.gov/fraud/cpu/securitybreachnotification/
+      - https://legis.delaware.gov/BillDetail?LegislationId=143107
+  registration_or_fees:
+    summary: The privacy law has no registration or fee, and we found no Delaware data broker registry. Telemarketing sellers register separately with the Department of Justice.
+    source:
+      - https://delcode.delaware.gov/title6/c012d/index.html
+      - https://delcode.delaware.gov/title6/c025a/index.html
+  dpo:
+    summary: No duty to appoint a data protection officer.
+    source:
+      - https://delcode.delaware.gov/title6/c012d/index.html
+  transfers:
+    summary: No cross-border transfer rules (federal rules are in us-federal). Processor contracts are required. From 1 January 2027, controllers also need contracts limiting how third parties that receive data may use it, and must check those third parties with questionnaires and document reviews.
+    source:
+      - https://delcode.delaware.gov/title6/c012d/index.html
+  dpia:
+    summary: Controllers handling data of 100,000+ consumers must assess targeted advertising, sale, sensitive data and risky profiling, for processing created on or after 1 July 2025. From 1 January 2027 the threshold falls to 50,000, and profiling for significant automated decisions needs a separate impact assessment. The Attorney General can require assessments in an investigation; they stay confidential.
+    source:
+      - https://delcode.delaware.gov/title6/c012d/index.html
+  automated_decisions_ai:
+    summary: Consumers can opt out of profiling for solely automated decisions with significant effects; from 2027 "solely" is dropped. From 2027, a controller that gives a third party a report used for such decisions must make it tell residents about adverse actions and offer human review where feasible, and must give residents their data, its sources and the report's recipients within 30 days.
+    source:
+      - https://delcode.delaware.gov/title6/c012d/index.html
+  penalties:
+    summary: The Department of Justice enforces. Its mandatory 60-day cure notice applied only during 2025; since 2026 a cure is at its discretion. Violations are unlawful practices under the Consumer Fraud Act, with civil penalties up to $10,000 per wilful violation. There's no private right of action.
+    source:
+      - https://delcode.delaware.gov/title6/c012d/index.html
+      - https://delcode.delaware.gov/title6/c025/sc02/index.html
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

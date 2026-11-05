@@ -1,0 +1,113 @@
+# Louisiana, United States. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact. Read together with us-federal.
+id: us-la
+name: Louisiana
+tier: full
+applies_with: [us-federal]
+laws:
+  - name: Louisiana Data Privacy Act
+    citation: Act 502 of 2026 (SB 386), La. R.S. 51:1780.1 to 1780.5
+    official_url: https://legis.la.gov/legis/ViewDocument.aspx?d=1480202
+    status: enacted
+    in_force_from: "2027-01-01"
+    notes: Signed on 29 May 2026. Takes effect on 1 January 2027.
+  - name: Database Security Breach Notification Law
+    citation: La. R.S. 51:3071 to 3077
+    official_url: https://legis.la.gov/legis/Law.aspx?d=322030
+    status: in-force
+    in_force_from: "2006-01-01"
+    notes: Read with the Attorney General's rule on notice to the office, LAC 16:III.701.
+  - name: Protection of Children on Applications (app store law)
+    citation: Act 185 of 2026 (HB 977), La. R.S. 51:1771 and following
+    official_url: https://legis.la.gov/legis/ViewDocument.aspx?d=1475238
+    status: enacted
+    in_force_from: "2027-07-01"
+    notes: Replaces Act 481 of 2025, which never took effect. Sets age-signal and parental consent duties for app stores and developers.
+  - name: Secure Online Child Interaction and Age Limitation Act
+    citation: La. R.S. 51:1751 to 1756 (Act 456 of 2023, as amended)
+    official_url: https://legis.la.gov/legis/Law.aspx?d=1337817
+    status: in-force
+    in_force_from: "2025-07-01"
+    notes: Age checks and parental consent for under-16s on social media platforms with at least 5 million account holders. On 15 December 2025 a federal court permanently barred enforcement against ten named NetChoice members, including Meta, YouTube, Snap and X; it still binds other covered platforms.
+  - name: Protection of Children's Internet Data
+    citation: La. R.S. 51:1761 to 1763 (Act 656 of 2024)
+    official_url: https://legis.la.gov/legis/Law.aspx?d=104138
+    status: in-force
+    in_force_from: "2025-07-01"
+    notes: Social media platforms with over a million account holders may not show targeted ads to known minors under 18 or sell their sensitive data. The Attorney General enforces, with fines up to $10,000 per violation after a 45-day notice and cure.
+regulators:
+  - name: Louisiana Attorney General (Consumer Protection Section)
+    url: https://ag.louisiana.gov/Page/DataBreach
+obligations:
+  scope:
+    summary: From 1 January 2027, applies to businesses that operate in Louisiana and either have annual gross revenue over $25 million, buy, receive, sell or share personal information of 75,000 or more consumers, households or devices a year, or earn at least half their revenue from selling it. Government, financial institutions and GLBA data, HIPAA covered entities, nonprofits, higher education, electric utilities and registered pollsters are exempt. Employee and business-contact data are out of scope.
+    source:
+      - https://legis.la.gov/legis/ViewDocument.aspx?d=1480202
+      - https://legis.la.gov/legis/BillInfo.aspx?s=26RS&b=SB386&sbi=y
+  lawful_bases:
+    summary: No GDPR-style lawful bases. Give a clear privacy notice and honour rights to confirm and access, correct, delete, get a portable copy, and opt out of targeted advertising, sale and significant profiling. Reply within 45 days (one 45-day extension), free twice a year, and decide appeals within 60 days. Sensitive data needs opt-in consent, and selling it requires the notice "We may sell your sensitive personal data" (or biometric data).
+    source:
+      - https://legis.la.gov/legis/ViewDocument.aspx?d=1480202
+  consent_age:
+    summary: A child is under 13. A known child's sensitive data must be processed in line with COPPA, and parents can use the child's rights. The privacy act has no teen consent rule, but other laws protect minors (see children).
+    value: 13
+    unit: years
+    source:
+      - https://legis.la.gov/legis/ViewDocument.aspx?d=1480202
+  children:
+    summary: Under the privacy act, a known child's data is sensitive and follows COPPA. Social media platforms with over a million account holders may not show targeted ads to known minors under 18 or sell their sensitive data. From 1 July 2027, app developers must check users' age categories through app store signals and rely on app store parental consent for minors. The 2023 social media age-check law can't be enforced against the ten NetChoice members named in a December 2025 federal ruling, but still binds other covered platforms.
+    source:
+      - https://legis.la.gov/legis/Law.aspx?d=104138
+      - https://legis.la.gov/legis/Law.aspx?d=1337817
+      - https://legis.la.gov/legis/ViewDocument.aspx?d=1475238
+      - https://www.govinfo.gov/content/pkg/USCOURTS-lamd-3_25-cv-00231/pdf/USCOURTS-lamd-3_25-cv-00231-1.pdf
+  cookies:
+    summary: No cookie-consent rule. From 2027, controllers must disclose sales and targeted advertising and offer opt-outs. People can opt out through an authorised agent, including a browser setting or device-wide signal. A controller must act on it if it can verify the person and the agent, but may refuse if the request is unclear, it can't verify Louisiana residency, it can't process such requests, or it doesn't honour them under other states' laws. A signal can't be on by default.
+    source:
+      - https://legis.la.gov/legis/ViewDocument.aspx?d=1480202
+  marketing:
+    summary: Adds to CAN-SPAM and the TCPA. Louisiana keeps its own Do Not Call list through the Public Service Commission. Telephone solicitors must register with the commission and buy the list, and may not call numbers on it or on the national registry. Fines reach $1,500 per violation, or $3,000 if the person called is over 65. Most sales calls are barred during a declared state of emergency.
+    source:
+      - https://legis.la.gov/legis/Law.aspx?d=100148
+      - https://legis.la.gov/legis/Law.aspx?d=100149
+      - https://legis.la.gov/legis/Law.aspx?d=207496
+  breach_notice:
+    summary: Tell affected Louisiana residents in the most expedient time possible and no later than 60 days after discovering the breach, unless an investigation finds no reasonable likelihood of harm (keep that record for five years). Tell the Attorney General's Consumer Protection Section in writing within 10 days of notifying residents, listing the names of all affected residents; late notice can be fined up to $5,000 per violation, each day counting separately. Give the Attorney General written reasons for any delay within the 60 days.
+    value: 60
+    unit: days
+    source:
+      - https://legis.la.gov/legis/Law.aspx?d=322030
+      - https://ag.louisiana.gov/Page/DataBreach
+  registration_or_fees:
+    summary: No data protection registration or fee, and no data broker registry. Telephone solicitors register with the Public Service Commission (see marketing).
+    source:
+      - https://legis.la.gov/legis/ViewDocument.aspx?d=1480202
+      - https://legis.la.gov/legis/Law.aspx?d=100148
+  dpo:
+    summary: No duty to appoint a data protection officer.
+    source:
+      - https://legis.la.gov/legis/ViewDocument.aspx?d=1480202
+  transfers:
+    summary: Louisiana law doesn't restrict sending personal data outside the state or the US. Federal rules are in us-federal.
+    source:
+      - https://legis.la.gov/legis/ViewDocument.aspx?d=1480202
+  dpia:
+    summary: Do and document a data protection assessment for targeted advertising, selling personal data, risky profiling, sensitive data and other high-risk processing. It applies to processing from 1 January 2027 and isn't retroactive. The Attorney General can demand it through a civil investigative demand, and it stays confidential.
+    source:
+      - https://legis.la.gov/legis/ViewDocument.aspx?d=1480202
+  automated_decisions_ai:
+    summary: People can opt out of profiling (solely automated evaluation of things like their finances, health or behaviour) used for decisions with legal or similarly significant effects, such as on lending, housing, insurance, health care, education, jobs, criminal justice or basic necessities. Risky profiling also needs a data protection assessment.
+    source:
+      - https://legis.la.gov/legis/ViewDocument.aspx?d=1480202
+  penalties:
+    summary: The Attorney General enforces. A violation is an unfair trade practice under the state consumer protection law, with injunctions and court-imposed civil penalties, up to $5,000 per violation where there was intent to defraud, plus up to $5,000 more against elderly or disabled people. From 1 January to 31 July 2027 only, the business gets 30 days' notice to cure before an investigation. No private right of action. From 1 July 2027, app stores and developers face fines up to $10,000 per violation after a 45-day notice and cure, plus fees.
+    source:
+      - https://legis.la.gov/legis/ViewDocument.aspx?d=1480202
+      - https://legis.la.gov/legis/Law.aspx?d=104031
+      - https://legis.la.gov/legis/ViewDocument.aspx?d=1475238
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

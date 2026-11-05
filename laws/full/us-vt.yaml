@@ -1,0 +1,104 @@
+# Vermont, United States. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact. Read together with us-federal.
+id: us-vt
+name: Vermont
+tier: full
+applies_with: [us-federal]
+laws:
+  - name: Vermont Data Privacy and Online Surveillance Act
+    citation: 2025, No. 145 (Adj. Sess.) (S.71), 9 V.S.A. chapter 61A, §§ 2415a to 2415k
+    official_url: https://legislature.vermont.gov/Documents/2026/Docs/ACTS/ACT145/ACT145%20As%20Enacted.pdf
+    status: enacted
+    in_force_from: "2028-01-01"
+    notes: Signed on 16 June 2026. Takes effect on 1 January 2028.
+  - name: Security Breach Notice Act
+    citation: 9 V.S.A. § 2435
+    official_url: https://legislature.vermont.gov/statutes/section/09/062/02435
+    status: in-force
+    in_force_from: "2007-01-01"
+    notes: 2025, No. 138 (Adj. Sess.) makes small changes from 1 January 2027, such as five call attempts before a voicemail notice and a compliance certification from HIPAA-covered collectors.
+  - name: Vermont Age-Appropriate Design Code Act
+    citation: 2025, No. 63, 9 V.S.A. §§ 2449a to 2449j
+    official_url: https://legislature.vermont.gov/statutes/section/09/062/02449a
+    status: enacted
+    in_force_from: "2027-01-01"
+    notes: The Attorney General is still finalising its rules, including on age assurance.
+  - name: Data broker law
+    citation: 9 V.S.A. §§ 2430 to 2431 and 2446 to 2447
+    official_url: https://legislature.vermont.gov/statutes/section/09/062/02446
+    status: in-force
+    in_force_from: "2019-01-01"
+    notes: 2025, No. 138 (Adj. Sess.) tightens registration from 1 January 2027.
+regulators:
+  - name: Vermont Attorney General
+    url: https://ago.vermont.gov/
+obligations:
+  scope:
+    summary: From 2028, applies to businesses that operate in Vermont or target its residents and last year handled personal data of 35,000 consumers or sensitive data of 3,000 (excluding payment-only data), or offered 3,000 consumers' data for sale. Its health data rules (no geofence within 1,850 feet of a health care facility, consent to sell health data, staff confidentiality, processor contracts) apply regardless of size. Government, HIPAA entities, GLBA data, banks, credit unions and insurers are exempt, but not nonprofits or colleges. Employee and business-contact data are out of scope.
+    source:
+      - https://legislature.vermont.gov/Documents/2026/Docs/ACTS/ACT145/ACT145%20As%20Enacted.pdf
+  lawful_bases:
+    summary: No GDPR-style lawful bases, but strict minimisation. Collect only what's reasonably necessary and proportionate to the disclosed purposes, and get consent for new incompatible purposes. Sensitive data needs consent and must be reasonably necessary; selling it also needs consent. Rights include access (with inferences), correction, deletion, portability, opt-outs and a list of buyers. Reply within 45 days (one 45-day extension); appeals within 60 days.
+    source:
+      - https://legislature.vermont.gov/Documents/2026/Docs/ACTS/ACT145/ACT145%20As%20Enacted.pdf
+  consent_age:
+    summary: A child is under 13, as in COPPA; a controller that knows, or wilfully disregards, that a consumer is a child processes their sensitive data under COPPA. For 13 to 17-year-olds, targeted ads and sales are banned outright, with no consent option. That rule says "actual knowledge, and willfully disregards" where the child rule says "or", so treat actual knowledge of a teen's age as enough. Covered businesses must also follow the design code for covered minors.
+    value: 13
+    unit: years
+    source:
+      - https://legislature.vermont.gov/Documents/2026/Docs/ACTS/ACT145/ACT145%20As%20Enacted.pdf
+  children:
+    summary: From 1 January 2027, the Age-Appropriate Design Code applies to businesses earning most of their revenue online whose services minors (under 18) are likely to use. It protects covered minors, meaning users a business actually knows are minors or labels as minors under the Attorney General's age-assurance rules. They're owed a duty of care against foreseeable emotional distress, compulsive use and discrimination, highest-privacy defaults and minimal collection. Their data mostly can't personalise feeds, and push notifications to them are banned from midnight to 6 a.m.
+    source:
+      - https://legislature.vermont.gov/statutes/section/09/062/02449a
+      - https://legislature.vermont.gov/statutes/section/09/062/02449c
+      - https://legislature.vermont.gov/statutes/section/09/062/02449f
+      - https://ago.vermont.gov/vermont-age-appropriate-design-code-rulemaking
+  cookies:
+    summary: No cookie-consent rule. From 2028, controllers must put a clear opt-out link on their website and honour opt-out preference signals, such as a browser or device setting, for targeted advertising and sales. A signal can't be on by default. It overrides conflicting site settings, though the controller may ask the person to confirm.
+    source:
+      - https://legislature.vermont.gov/Documents/2026/Docs/ACTS/ACT145/ACT145%20As%20Enacted.pdf
+  marketing:
+    summary: Adds to CAN-SPAM and the TCPA. Telemarketers must register with the Secretary of State ($125) before calling Vermont numbers and follow the federal Do Not Call rules, which Vermont law repeats. Robocalls that break the TCPA also break state law, and people can sue for their damages or a civil penalty of $500 for a first violation and $1,000 for each later one, whichever is greater.
+    source:
+      - https://legislature.vermont.gov/statutes/section/09/063/02464a
+      - https://legislature.vermont.gov/statutes/section/09/063/02464b
+      - https://legislature.vermont.gov/statutes/section/09/063/02464e
+  breach_notice:
+    summary: Tell affected consumers within 45 days of discovering a breach of personal information or login credentials. Within 14 business days of discovery (or when consumers are told, if sooner), send the Attorney General, or the Department of Financial Regulation for firms it regulates, a preliminary notice. Tell the nationwide credit reporting agencies if more than 1,000 consumers are notified. A HIPAA-covered collector whose breach involves only health data complies by following HIPAA's breach rule; from 2027 it must also send that preliminary notice with a certification of HIPAA compliance.
+    value: 45
+    unit: days
+    source:
+      - https://legislature.vermont.gov/statutes/section/09/062/02435
+  registration_or_fees:
+    summary: Data brokers must register with the Secretary of State. Until the end of 2026 that's by 31 January each year, with a $100 fee. From 1 January 2027, they must register within 30 days of becoming a data broker and every 1 July, pay $900, keep a $20,000 bond and disclose more, such as sales to foreign actors or AI developers.
+    source:
+      - https://legislature.vermont.gov/statutes/section/09/062/02446
+  dpo:
+    summary: No duty to appoint a data protection officer.
+    source:
+      - https://legislature.vermont.gov/Documents/2026/Docs/ACTS/ACT145/ACT145%20As%20Enacted.pdf
+  transfers:
+    summary: Vermont law doesn't restrict sending personal data outside the state or the US. Federal rules are in us-federal.
+    source:
+      - https://legislature.vermont.gov/Documents/2026/Docs/ACTS/ACT145/ACT145%20As%20Enacted.pdf
+  dpia:
+    summary: Do and document a data protection assessment for targeted advertising, selling personal data, risky profiling and sensitive data. Profiling for significant decisions also needs an impact assessment covering purpose, risks, inputs and outputs, metrics and monitoring. Both apply to processing created after 1 January 2028 and go to the Attorney General on request.
+    source:
+      - https://legislature.vermont.gov/Documents/2026/Docs/ACTS/ACT145/ACT145%20As%20Enacted.pdf
+  automated_decisions_ai:
+    summary: People can opt out of profiling for automated decisions with legal or similarly significant effects. Where feasible, they can question the result, learn the reason and review the data used; for housing decisions they can correct the data and get a re-evaluation. Privacy notices must say whether personal data is collected, used or sold to train large language models.
+    source:
+      - https://legislature.vermont.gov/Documents/2026/Docs/ACTS/ACT145/ACT145%20As%20Enacted.pdf
+  penalties:
+    summary: Only the Attorney General enforces, under the Consumer Protection Act, with civil penalties up to $10,000 per violation. The act expressly gives no private right of action. From 1 January 2028 to 30 June 2029, the Attorney General must first allow 60 days to cure where a cure is possible.
+    source:
+      - https://legislature.vermont.gov/Documents/2026/Docs/ACTS/ACT145/ACT145%20As%20Enacted.pdf
+      - https://legislature.vermont.gov/Documents/2026/Docs/ACTS/ACT145/ACT145%20Act%20Summary.pdf
+      - https://legislature.vermont.gov/statutes/section/09/063/02458
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

@@ -1,0 +1,93 @@
+# Quebec. Read together with the Canada entry (ca). Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: ca-qc
+name: Quebec
+tier: full
+applies_with: [ca]
+laws:
+  - name: Act respecting the protection of personal information in the private sector
+    citation: CQLR c P-39.1
+    official_url: https://www.legisquebec.gouv.qc.ca/en/showdoc/cs/P-39.1
+    status: in-force
+    in_force_from: "1994-01-01"
+    notes: Modernised by Law 25 (Act to modernize legislative provisions as regards the protection of personal information, S.Q. 2021, c. 25), which took effect in stages from September 2022 to 22 September 2024. Federal CASL governs e-marketing (see ca).
+regulators:
+  - name: Commission d'accès à l'information du Québec (CAI)
+    url: https://cai.gouv.qc.ca/
+obligations:
+  scope:
+    summary: The Act applies to anyone carrying on an enterprise who collects, holds, uses or communicates personal information, whatever the medium. Journalistic, historical and genealogical material is excluded. Its collection and confidentiality rules (Divisions II and III) don't apply to information that is public by law or to work contact details. PIPEDA (see ca) still applies in Quebec to federally regulated businesses and to data crossing provincial or national borders.
+    source:
+      - https://www.legisquebec.gouv.qc.ca/en/showdoc/cs/P-39.1
+      - https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda/r_o_p/prov-pipeda/
+  lawful_bases:
+    summary: Consent-based. Set purposes before collecting, collect only what's necessary, and tell people the purposes, means, their rights and whether data may leave Quebec. Consent must be clear, free, informed, specific and asked for separately for each purpose. Using data for a new purpose needs consent, express for sensitive data, unless an exception applies. People can access, correct and get portable copies of their data, and ask for de-indexing. Once the purposes are met, destroy the data, or anonymise it for serious and legitimate uses under the 2024 anonymisation regulation.
+    source:
+      - https://www.legisquebec.gouv.qc.ca/en/showdoc/cs/P-39.1
+      - https://www.legisquebec.gouv.qc.ca/en/document/rc/A-2.1,%20r.%200.1
+      - https://www.cai.gouv.qc.ca/uploads/pdfs/CAI_Criteres_Validite_Consentement.pdf
+      - https://www.cai.gouv.qc.ca/protection-renseignements-personnels/sujets-et-domaines-dinteret/principaux-changements-loi-25
+  consent_age:
+    summary: Personal information about a child under 14 can't be collected from the child without consent from a parent or tutor, unless collecting it is clearly in the child's interest. From 14, the minor, a parent or the tutor can give consent.
+    value: 14
+    unit: years
+    source:
+      - https://www.legisquebec.gouv.qc.ca/en/showdoc/cs/P-39.1
+      - https://www.cai.gouv.qc.ca/uploads/pdfs/CAI_Criteres_Validite_Consentement.pdf
+  children:
+    summary: Beyond the under-14 rule, general rules matter for children. Products and services offered to the public must have the highest privacy settings by default, and the CAI says identification, location and profiling functions must stay off until the person turns them on. Whether someone was a minor when information was published counts in de-indexing requests. A 2026 private member's bill on screens and social media (Bill 796) was introduced but not passed before the legislature ended.
+    source:
+      - https://www.legisquebec.gouv.qc.ca/en/showdoc/cs/P-39.1
+      - https://www.cai.gouv.qc.ca/protection-renseignements-personnels/sujets-et-domaines-dinteret/principaux-changements-loi-25
+      - https://www.assnat.qc.ca/en/travaux-parlementaires/projets-loi/projets-loi-43-3.html
+  cookies:
+    summary: Before collecting data with technology that can identify, locate or profile a person, tell them it's used and how to turn those functions on. The CAI says such functions can't be on by default. The highest-privacy-by-default rule doesn't apply to browser cookie settings. Anyone collecting personal information through technological means must publish a confidentiality policy in clear and simple language on its website, if it has one. Federal CASL rules on installing software also apply (see ca).
+    source:
+      - https://www.legisquebec.gouv.qc.ca/en/showdoc/cs/P-39.1
+      - https://www.cai.gouv.qc.ca/protection-renseignements-personnels/sujets-et-domaines-dinteret/principaux-changements-loi-25
+  marketing:
+    summary: Federal CASL governs commercial electronic messages (see ca). On top, using personal information for commercial or philanthropic prospecting needs consent, because it isn't a purpose consistent with the original collection. When prospecting, identify yourself, tell people they can withdraw consent, and stop using their data for it when they do.
+    source:
+      - https://www.legisquebec.gouv.qc.ca/en/showdoc/cs/P-39.1
+  breach_notice:
+    summary: If a confidentiality incident (unauthorised access, use or communication, loss, or any other breach of protection) presents a risk of serious injury, promptly notify the CAI and the people affected, and take steps to reduce the risk. Weigh sensitivity, likely consequences and likelihood of misuse. Keep a register of every incident for at least five years and give the CAI a copy on request.
+    source:
+      - https://www.legisquebec.gouv.qc.ca/en/showdoc/cs/P-39.1
+      - https://www.legisquebec.gouv.qc.ca/en/showdoc/cr/A-2.1,%20r.%203.1
+  registration_or_fees:
+    summary: No general registration. Tell the CAI in advance before verifying identity with biometrics, which also needs the person's express consent, and disclose a biometric database at least 60 days before it goes into service. Personal information agents, who build files on people and sell credit reports, must register with the CAI and pay the prescribed fee.
+    source:
+      - https://www.legisquebec.gouv.qc.ca/en/showdoc/cs/C-1.1
+      - https://www.cai.gouv.qc.ca/protection-renseignements-personnels/sujets-et-domaines-dinteret/biometrie
+      - https://www.legisquebec.gouv.qc.ca/en/showdoc/cs/P-39.1
+  dpo:
+    summary: The person with the highest authority in the enterprise is in charge of protecting personal information and can delegate the role in writing. Publish that person's title and contact details on your website. Adopt governance policies covering retention, staff roles and complaints, approved by that person, and publish plain-language information about them.
+    source:
+      - https://www.legisquebec.gouv.qc.ca/en/showdoc/cs/P-39.1
+      - https://www.cai.gouv.qc.ca/protection-renseignements-personnels/sujets-et-domaines-dinteret/principaux-changements-loi-25
+  transfers:
+    summary: Before communicating personal information outside Quebec, or having it handled outside Quebec, do a privacy impact assessment that weighs sensitivity, purpose, safeguards and the destination's legal framework. Go ahead only if it shows adequate protection, and under a written agreement. Tell people at collection if their data may leave Quebec.
+    source:
+      - https://www.legisquebec.gouv.qc.ca/en/showdoc/cs/P-39.1
+      - https://www.cai.gouv.qc.ca/protection-renseignements-personnels/sujets-et-domaines-dinteret/principaux-changements-loi-25
+  dpia:
+    summary: Do a privacy impact assessment for any project to acquire, develop or overhaul an information system or electronic service involving personal information, consulting the person in charge from the start, and keep it proportionate to sensitivity and volume. Assessments are also required before data leaves Quebec and before disclosing it without consent for research.
+    source:
+      - https://www.legisquebec.gouv.qc.ca/en/showdoc/cs/P-39.1
+      - https://www.cai.gouv.qc.ca/protection-renseignements-personnels/sujets-et-domaines-dinteret/principaux-changements-loi-25
+  automated_decisions_ai:
+    summary: If a decision is based only on automated processing, tell the person no later than when you tell them the decision. On request, explain the information used and the main reasons and factors, let them correct the information, and let them submit observations to a staff member who can review the decision.
+    source:
+      - https://www.legisquebec.gouv.qc.ca/en/showdoc/cs/P-39.1
+      - https://www.cai.gouv.qc.ca/protection-renseignements-personnels/sujets-et-domaines-dinteret/principaux-changements-loi-25
+  penalties:
+    summary: The CAI can impose administrative penalties up to $10 million or 2% of worldwide turnover, whichever is higher, or accept an undertaking instead. Penal fines for enterprises run from $15,000 to $25 million or 4% of worldwide turnover, doubled for repeat offences. People can sue, and courts must award at least $1,000 in punitive damages where an unlawful infringement causing injury is intentional or grossly negligent.
+    source:
+      - https://www.legisquebec.gouv.qc.ca/en/showdoc/cs/P-39.1
+      - https://www.cai.gouv.qc.ca/uploads/pdfs/CAI_Cadre_Sanct_Pecun.pdf
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
