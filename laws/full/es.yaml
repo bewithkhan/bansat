@@ -59,6 +59,7 @@ obligations:
   consent_age:
     summary: People can consent to the processing of their own data from 14, unless the law needs a parent to take part in the underlying act. Below 14, consent must come from a parent or guardian. Unlike the GDPR rule, this covers all consent-based processing, not only online services. A bill to raise the age to 16 lapsed when parliament was dissolved on 6 October 2026, so 14 still applies.
     value: 14
+    unit: years
     source:
       - https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673#a7
       - https://www.congreso.es/public_oficiales/L15/CONG/BOCG/A/BOCG-15-A-52-1.PDF
@@ -92,6 +93,7 @@ obligations:
   breach_notice:
     summary: The GDPR rule applies. Report a breach to the AEPD without undue delay and within 72 hours through the breach channel of its e-office, unless it's unlikely to risk people's rights. Tell the people affected when the risk to them is high. The AEPD's Asesora Brecha tool helps assess the risk. Spain treats not notifying as a serious infringement and late or incomplete notice as a minor one (arts. 73 and 74).
     value: 72
+    unit: hours
     source:
       - https://www.aepd.es/preguntas-frecuentes/2-rgpd/11-brechas-de-datos-personales/FAQ-0233-a-quien-hay-que-notificar-las-brechas-de-datos-personales
       - https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673#a7-5

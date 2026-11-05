@@ -50,6 +50,7 @@ obligations:
   consent_age:
     summary: When an online service offered directly to a child relies on consent, the child can consent from 14. Under 14, a holder of parental responsibility must give consent. Information for minors must be especially clear, simple and easy for them to understand.
     value: 14
+    unit: years
     source:
       - https://www.normattiva.it/eli/id/2003/07/29/003G0218/CONSOLIDATED
       - https://www.garanteprivacy.it/temi/minori
@@ -76,6 +77,7 @@ obligations:
   breach_notice:
     summary: Under the GDPR, notify the Garante through its online service within 72 hours where feasible, and tell the people affected when the risk to them is high. Since 20 February 2026 the Code says businesses with fewer than five employees will use a simpler procedure, with guided self-assessment and support, once the Garante sets it up. As of 5 November 2026 its breach page offers only the standard online service.
     value: 72
+    unit: hours
     source:
       - https://www.garanteprivacy.it/regolamentoue/databreach
       - https://www.normattiva.it/eli/id/2003/07/29/003G0218/CONSOLIDATED

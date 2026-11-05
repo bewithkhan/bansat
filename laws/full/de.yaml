@@ -74,6 +74,7 @@ obligations:
   consent_age:
     summary: Germany kept the GDPR default. When an online service offered directly to a child relies on consent, children can consent for themselves from 16. Below that, a parent must give or authorise consent. German law sets no lower age.
     value: 16
+    unit: years
     source:
       - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
       - https://www.bundestag.de/resource/blob/959324/WD-10-019-23-pdf.pdf
@@ -98,6 +99,7 @@ obligations:
   breach_notice:
     summary: The GDPR rule applies. Report a breach to your supervisory authority without undue delay and within 72 hours, unless it's unlikely to risk people's rights, and tell affected people without undue delay when the risk to them is high. In Germany a notification may only be used in criminal or fine proceedings against the person who made it with their consent (§§ 42(4), 43(4) BDSG).
     value: 72
+    unit: hours
     source:
       - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
       - https://www.gesetze-im-internet.de/bdsg_2018/__42.html

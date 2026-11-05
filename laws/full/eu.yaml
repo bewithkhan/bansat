@@ -63,6 +63,7 @@ obligations:
   consent_age:
     summary: When an online service offered directly to a child relies on consent, the GDPR default is that children can consent for themselves from 16. Member states may set a lower age, but not below 13, so it ranges from 13 to 16 (see each member state's entry). Below that age a parent must give or authorise consent, and you must make reasonable efforts to check it.
     value: 16
+    unit: years
     source:
       - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
       - https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/legal-grounds-processing-data/are-there-any-specific-safeguards-data-about-children_en
@@ -89,6 +90,7 @@ obligations:
   breach_notice:
     summary: Report a personal data breach to the supervisory authority without undue delay and, where feasible, within 72 hours of becoming aware of it, unless it's unlikely to risk people's rights, and tell those affected without undue delay if the risk to them is high. Processors must tell the controller, and every breach must be documented. Public telecoms and internet providers also notify under ePrivacy Art. 4(3), within 24 hours of detection where feasible (Regulation 611/2013). The pending Digital Omnibus would limit GDPR reports to high-risk breaches, within 96 hours, via one reporting point.
     value: 72
+    unit: hours
     source:
       - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
       - https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/obligations/what-data-breach-and-what-do-we-have-do-case-data-breach_en

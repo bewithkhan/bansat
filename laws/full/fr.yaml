@@ -47,6 +47,7 @@ obligations:
   consent_age:
     summary: When an online service offered directly to a child relies on consent, the child can consent alone from 15. Under 15, the child and a holder of parental authority must consent together. Information for minors must be written in clear, simple terms they can understand.
     value: 15
+    unit: years
     source:
       - https://www.cnil.fr/fr/le-cadre-national/la-loi-informatique-et-libertes#article45
       - https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000886460
@@ -76,6 +77,7 @@ obligations:
   breach_notice:
     summary: Under the GDPR, notify the CNIL through its online service within 72 hours where feasible, and tell the people affected when the risk to them is high. Providers of public electronic communications services also have a national duty to notify the CNIL without delay and to keep an inventory of breaches.
     value: 72
+    unit: hours
     source:
       - https://www.cnil.fr/fr/services-en-ligne/notifier-une-violation-de-donnees-personnelles
       - https://www.cnil.fr/fr/le-cadre-national/la-loi-informatique-et-libertes#article83

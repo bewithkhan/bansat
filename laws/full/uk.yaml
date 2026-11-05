@@ -44,6 +44,7 @@ obligations:
   consent_age:
     summary: When an online service offered directly to a child relies on consent, children can consent for themselves from 13. Below that, a parent must give or authorise consent.
     value: 13
+    unit: years
     source:
       - https://www.legislation.gov.uk/ukpga/2018/12/section/9
       - https://www.legislation.gov.uk/eur/2016/679/article/8
@@ -64,6 +65,7 @@ obligations:
   breach_notice:
     summary: Report a personal data breach to the regulator without undue delay and, where feasible, within 72 hours of becoming aware of it, unless it's unlikely to risk people's rights. Tell the people affected without undue delay when the risk to them is high.
     value: 72
+    unit: hours
     source:
       - https://www.legislation.gov.uk/eur/2016/679/article/33
       - https://www.legislation.gov.uk/eur/2016/679/article/34

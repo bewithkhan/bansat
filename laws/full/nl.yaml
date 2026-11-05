@@ -51,6 +51,7 @@ obligations:
   consent_age:
     summary: The Netherlands kept the GDPR default. When an online service offered directly to a child relies on consent, children can consent for themselves from 16. Below that, a parent or other legal representative must consent. Dutch law applies the same age of 16 to consent in other settings too (art. 5 UAVG).
     value: 16
+    unit: years
     source:
       - https://wetten.overheid.nl/jci1.3:c:BWBR0040940&hoofdstuk=1&artikel=5
       - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
@@ -75,6 +76,7 @@ obligations:
   breach_notice:
     summary: The GDPR rule applies. Report a breach to the AP without undue delay and, where feasible, within 72 hours, unless it's unlikely to risk people's rights, and tell affected people without undue delay when the risk to them is high. Financial firms under the Wft don't have to notify affected people under Art. 34 GDPR (art. 42 UAVG). Public telecoms and internet providers must also notify the AP without delay (art. 11.3a Telecommunicatiewet), within 24 hours of detection where feasible (Regulation 611/2013), and tell those affected when their privacy is likely to suffer.
     value: 72
+    unit: hours
     source:
       - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
       - https://wetten.overheid.nl/jci1.3:c:BWBR0040940&hoofdstuk=4&artikel=42

@@ -52,6 +52,7 @@ obligations:
   consent_age:
     summary: When an information society service offered directly to a child relies on consent, children can consent for themselves from 13. Below that, a parent must consent. Norway's EEA notification of September 2025 says the 13 doesn't apply to providers established in another EEA state, and proposes raising the age to 15 for all providers serving children in Norway. That change is pending. For other processing, Datatilsynet's view is that a parent usually consents until 18, unless the child is mature enough to understand the processing in question.
     value: 13
+    unit: years
     source:
       - https://stortinget.no/no/Saker-og-publikasjoner/Vedtak/Beslutninger/Lovvedtak/2017-2018/vedtak-201718-054/
       - https://www.datatilsynet.no/personvern-pa-ulike-omrader/skole-barn-unge/samtykkje-fra-mindrearige/
@@ -77,6 +78,7 @@ obligations:
   breach_notice:
     summary: The GDPR rule applies. Report a personal data breach to Datatilsynet without undue delay and within 72 hours of becoming aware of it, unless it's unlikely to risk people's rights. Tell the people affected without undue delay when the risk to them is high. Since 1 October 2025, the Digital Security Act also requires online marketplaces, search engines and cloud services based in Norway to report incidents that significantly affect their service without undue delay, or risk a fine. Those based outside the EEA need a representative in Norway, or in another EEA state where they offer services.
     value: 72
+    unit: hours
     source:
       - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504
       - https://www.datatilsynet.no/rettigheter-og-plikter/virksomhetenes-plikter/avvik/

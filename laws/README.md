@@ -20,6 +20,7 @@ The `id` is the ISO 3166-1 alpha-2 code (`de`, `ng`), with `uk` for the United K
 
 - **Official sources only** (blueprint BR-02): legislation and official gazettes, the regulator's own site, government sites and courts. Each source must be on a domain listed for that jurisdiction in `watch/sources.yaml`, or for an entry it applies with. Trackers, law firms and news are leads at most: list them under `secondary`, never as the only support for a claim.
 - **Our own words.** Summarise; don't copy. Keep each summary short (600 characters at most), and say plainly when something is pending, such as a bill or an appeal.
+- **Numbers say what they count.** Where an obligation has a number, such as the consent age (16) or a breach deadline (72), `value` holds it and `unit` says what it counts: `years`, `hours`, `days` or `business days`. CI rejects a number without a unit.
 - **Dated and labelled.** `checked.date` is when the entry was last checked against its sources. `checked.status` is `ai-checked`, or `human-reviewed` with the reviewer's GitHub username in `checked.by`. Add a `history` item, newest first, for every change.
 
 CI checks all of this on every pull request (`node scripts/validate-laws.ts`), and `node scripts/validate-laws.test.ts` proves each rule catches a bad entry.

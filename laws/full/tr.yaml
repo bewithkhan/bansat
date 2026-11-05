@@ -88,6 +88,7 @@ obligations:
   breach_notice:
     summary: Any case of others obtaining personal data unlawfully must be reported; there's no risk threshold. Notify the Board within 72 hours of learning of it, through its form or portal, explaining any delay. Details can follow in stages. Tell the people affected as soon as reasonably possible, directly where you can. Keep a breach record and a response plan. Processors tell the controller without delay. Controllers abroad report breaches affecting people in Türkiye. Cyber Security Law No. 7545 also requires reporting detected cyber incidents to the Presidency of Cyber Security without delay.
     value: 72
+    unit: hours
     source:
       - https://www.kvkk.gov.tr/Icerik/5362/Veri-Ihlali-Bildirimi
       - https://www.kvkk.gov.tr/Icerik/6649/Personal-Data-Protection-Law

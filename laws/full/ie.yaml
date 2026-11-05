@@ -44,6 +44,7 @@ obligations:
   consent_age:
     summary: When an online service offered directly to a child relies on consent, children can consent for themselves from 16. Below that, a parent must give or authorise consent. Preventative and counselling services don't count as online services for this rule (s.31). The consolidated Act shows no change to the age.
     value: 16
+    unit: years
     source:
       - https://www.irishstatutebook.ie/eli/2018/act/7/section/31/enacted/en/html
       - https://revisedacts.lawreform.ie/eli/2018/act/7/section/31/revised/en/html
@@ -68,6 +69,7 @@ obligations:
   breach_notice:
     summary: The GDPR rule applies. Report a breach to the DPC without undue delay and, where feasible, within 72 hours, using its online form, unless it's unlikely to risk people's rights, and tell the people affected without undue delay when the risk is high. Record every breach, including why you decided not to report one. Telecoms and internet providers also report under Reg. 4 of S.I. 336/2011, within 24 hours where feasible under EU Regulation 611/2013.
     value: 72
+    unit: hours
     source:
       - https://www.dataprotection.ie/en/organisations/know-your-obligations/breach-notification
       - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679

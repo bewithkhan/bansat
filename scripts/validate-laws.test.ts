@@ -26,6 +26,8 @@ const cases: Case[] = [
   { name: 'applies_with naming a missing entry fails', expect: /has no entry/, change: (e) => { e.applies_with = ['eu']; } },
   { name: 'a basic entry with obligations fails', expect: /must NOT be valid/, tier: 'basic', change: (e) => { e.tier = 'basic'; } },
   { name: 'an unknown field fails', expect: /must NOT have additional properties/, change: (e) => { e.summary = 'extra'; } },
+  { name: 'a number without a unit fails', expect: /must have required property 'unit'/, change: (e) => { delete e.obligations.consent_age.unit; } },
+  { name: 'a unit without a number fails', expect: /must NOT be valid/, change: (e) => { e.obligations.dpo.unit = 'days'; } },
   { name: 'a duplicate YAML key fails', expect: /isn't valid YAML/, raw: (t) => t.replace('tier: full\n', 'tier: full\ntier: full\n') },
 ];
 

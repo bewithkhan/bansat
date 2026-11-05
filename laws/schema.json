@@ -215,11 +215,20 @@
           "$ref": "#/$defs/text"
         },
         "value": {
-          "description": "An optional machine-readable value, such as the digital consent age (16) or the breach deadline in hours (72).",
+          "description": "An optional machine-readable value, such as the digital consent age (16) or a breach deadline (72). A number needs a unit.",
           "type": [
             "number",
             "string",
             "boolean"
+          ]
+        },
+        "unit": {
+          "description": "What a numeric value counts. Required with a number, and only then.",
+          "enum": [
+            "years",
+            "hours",
+            "days",
+            "business days"
           ]
         },
         "source": {
@@ -238,6 +247,28 @@
             "$ref": "#/$defs/url"
           },
           "uniqueItems": true
+        }
+      },
+      "if": {
+        "required": [
+          "value"
+        ],
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "unit"
+        ]
+      },
+      "else": {
+        "not": {
+          "required": [
+            "unit"
+          ]
         }
       }
     },
