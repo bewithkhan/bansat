@@ -1,0 +1,112 @@
+# Israel. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+# gov.il web pages block automated access, so links point to documents the Privacy Protection Authority publishes
+# on gov.il (its English translations, where the Hebrew text prevails, and its opinions) and to the Knesset's copies of laws.
+id: il
+name: Israel
+tier: full
+laws:
+  - name: Protection of Privacy Law
+    citation: Protection of Privacy Law, 5741-1981 (Sefer HaChukim 1011, 11 March 1981, p. 128), as amended, including by Amendment No. 13 of 2024
+    official_url: https://www.gov.il/BlobFolder/legalinfo/legislation/en/Protection-of-Privacy-Law57411981unofficialtranslatioup.pdf
+    status: in-force
+    in_force_from: "1981-03-11"
+    notes: Derived date. The Act sets no general start date, so the publication date is used; Chapter B on databases began six months after publication (s. 37). The link is the Privacy Protection Authority's unofficial English translation, updated after Amendment 13; the Hebrew text prevails.
+  - name: Protection of Privacy Law (Amendment No. 13)
+    citation: Protection of Privacy Law (Amendment No. 13), 5784-2024 (Sefer HaChukim 3287, 14 August 2024)
+    official_url: https://www.gov.il/BlobFolder/reports/13_amendment/he/%D7%AA%D7%99%D7%A7%D7%95%D7%9F%2013%20-%20%D7%A4%D7%A8%D7%A1%D7%95%D7%9D%20%D7%91%D7%A1%D7%A4%D7%A8%20%D7%94%D7%97%D7%95%D7%A7%D7%99%D7%9D.pdf
+    status: in-force
+    in_force_from: "2025-08-14"
+    notes: Derived date, one year after publication (s. 74), which the Authority confirms. The Knesset passed it on 5 August 2024. It narrowed database registration, made some organisations appoint a data protection officer, broadened the definitions of personal data and data of special sensitivity, and gave the Authority administrative fines and stronger inspection powers.
+  - name: Privacy Protection (Data Security) Regulations
+    citation: Protection of Privacy Regulations (Data Security), 5777-2017 (Kovetz HaTakanot 7809, 8 May 2017, p. 1022)
+    official_url: https://www.gov.il/BlobFolder/legalinfo/data_security_regulation/en/5777%E2%80%932017.pdf
+    status: in-force
+    in_force_from: "2018-05-08"
+    notes: Derived date, one year after publication (reg. 22). Databases fall into four groups (managed by an individual, basic, medium and high security), with duties rising by group, including reporting severe security incidents. The link is the Authority's English translation; the Hebrew text prevails.
+  - name: Communications (Telecommunications and Broadcasting) Law, section 30A (advertising messages)
+    citation: Communications (Telecommunications and Broadcasting) Law, 5742-1982, s. 30A, as replaced by Amendment No. 40, 5768-2008 (Sefer HaChukim 2153, 1 June 2008)
+    official_url: https://fs.knesset.gov.il/17/law/17_lsr_299991.pdf
+    status: in-force
+    in_force_from: "2008-12-01"
+    notes: Derived date, six months after publication of Amendment No. 40. The link is the amendment as published in Sefer HaChukim. No later change to s. 30A turned up in the official sources checked.
+  - name: No AI-specific law yet
+    citation: None adopted. The Privacy Protection Authority's guidance on AI systems (28 April 2025) is a draft
+    official_url: https://www.gov.il/BlobFolder/rfp/ai_reg/he/ai_regu_draft.pdf
+    status: none
+    notes: Israel has no AI law, so the Protection of Privacy Law applies to personal data in AI systems. The Authority published its guidance on this as a draft for public comment; it isn't binding.
+regulators:
+  - name: Privacy Protection Authority (Ministry of Justice)
+    url: https://mojforms.justice.gov.il/mojaemprivacyprotectionauthority/dpiaform.html
+obligations:
+  scope:
+    summary: The Act covers infringements of privacy (s. 2) and the processing of personal data in databases, meaning collections of personal data processed digitally. Collections for personal non-business use are excluded, as are lists of only names, addresses and contact details on 100,000 people or fewer that reveal nothing more (s. 3). Personal data is any data about an identified or identifiable person. Both database controllers and processors have duties. The Act doesn't state its territorial reach.
+    source:
+      - https://www.gov.il/BlobFolder/legalinfo/legislation/en/Protection-of-Privacy-Law57411981unofficialtranslatioup.pdf
+  lawful_bases:
+    summary: No one may infringe another's privacy without consent, which must be informed and can be express or implied (ss. 1 and 3), unless the law authorises it; s. 18 gives narrow defences. Data in a database may be processed only for its lawfully established purpose (s. 8). A request for data must say whether giving it is a legal duty or voluntary, what refusing means, the purpose, the controller, who receives it, and the rights of access and correction (s. 11). The Authority's February 2026 opinion explains when consent is valid.
+    source:
+      - https://www.gov.il/BlobFolder/legalinfo/legislation/en/Protection-of-Privacy-Law57411981unofficialtranslatioup.pdf
+      - https://www.gov.il/BlobFolder/legalinfo/consent-2026/he/cpncent-2025.pdf
+  consent_age:
+    summary: The Act sets no age at which a minor can consent to processing, and the Authority's opinions don't set one either. Its June 2026 guidance on age assurance online is a draft for public comment.
+    source:
+      - https://www.gov.il/BlobFolder/legalinfo/legislation/en/Protection-of-Privacy-Law57411981unofficialtranslatioup.pdf
+      - https://www.gov.il/BlobFolder/legalinfo/age-assurance-1/he/age-assurance.pdf
+  children:
+    summary: There's no children's privacy law. In its February 2026 consent opinion, the Authority says parents who agree to a child safety app collecting location data don't expect marketing use, which needs their separate consent. Its draft guidance of 11 June 2026, for websites, social networks and online games using age assurance, compares self-declaration, age estimation and verification, sets out the privacy risks and recommends safeguards. It is a draft for public comment, not final.
+    source:
+      - https://www.gov.il/BlobFolder/legalinfo/consent-2026/he/cpncent-2025.pdf
+      - https://www.gov.il/BlobFolder/legalinfo/age-assurance-1/he/age-assurance.pdf
+  cookies:
+    summary: No cookie-specific rule. Cookies and other tools that collect personal data fall under the Act's consent and notice rules. The Authority's February 2026 opinion says consent must be informed and free, and recommends letting users choose which data and purposes they accept instead of asking for blanket consent. It says separate opt-in consent is advisable for data not needed for the service, and required for unrelated profiling where there's a power gap and for direct mailing.
+    source:
+      - https://www.gov.il/BlobFolder/legalinfo/consent-2026/he/cpncent-2025.pdf
+      - https://www.gov.il/BlobFolder/legalinfo/legislation/en/Protection-of-Privacy-Law57411981unofficialtranslatioup.pdf
+  marketing:
+    summary: Ads by fax, autodialler, email or text message need the recipient's prior express consent in writing, which can be electronic or a recorded call (Communications Law s. 30A). Exceptions are a single offer to a business to receive ads, and customers who gave their details in a purchase or negotiation, were told and could refuse, for similar products. Ads must say they're ads and identify the sender, with a free way to refuse. Courts can award up to NIS 1,000 per message without proof of damage. Direct mailing has its own rules (ss. 17D to 17F).
+    source:
+      - https://fs.knesset.gov.il/17/law/17_lsr_299991.pdf
+      - https://www.gov.il/BlobFolder/legalinfo/legislation/en/Protection-of-Privacy-Law57411981unofficialtranslatioup.pdf
+  breach_notice:
+    summary: Document every security incident (Data Security Regulations, reg. 11). For a severe incident, notify the Authority immediately and report the steps taken. Severe means any unauthorised use of, or damage to, data in a high-security database, or the same affecting a substantial part of a medium-security database. The Authority can order you to tell people who may be harmed, after consulting the National Cyber Defense Authority. Not reporting can be fined NIS 80,000 (medium) or NIS 320,000 (high, doubled at 1,000,000 people or more).
+    source:
+      - https://www.gov.il/BlobFolder/legalinfo/data_security_regulation/en/5777%E2%80%932017.pdf
+      - https://www.gov.il/BlobFolder/legalinfo/legislation/en/Protection-of-Privacy-Law57411981unofficialtranslatioup.pdf
+  registration_or_fees:
+    summary: Since 14 August 2025 only two kinds of database must be registered with the Authority, those of data brokers (whose main purpose is providing data to others, including direct mailing) on more than 10,000 people, and those of public bodies unless they hold only staff data (s. 8A). If any other database holds data of special sensitivity on more than 100,000 people, notify the Authority within 30 days with contact, DPO and database definition details. Processing in an unregistered database that should be registered can be fined NIS 150,000.
+    source:
+      - https://www.gov.il/BlobFolder/legalinfo/legislation/en/Protection-of-Privacy-Law57411981unofficialtranslatioup.pdf
+      - https://www.gov.il/BlobFolder/legalinfo/amendment-13-26-07-26/he/media_06-07-26.pdf
+  dpo:
+    summary: Since 14 August 2025 these must appoint a data protection officer, public bodies and their processors, data brokers with data on more than 10,000 people, and controllers or processors whose core activities involve systematic monitoring on a significant scale or whose main activity is processing data of special sensitivity on a significant scale (s. 17B1). The officer needs privacy, technology and security knowledge, reports to the general manager or a direct report, and must avoid conflicts. The Authority's July 2026 opinion says only an individual can serve.
+    source:
+      - https://www.gov.il/BlobFolder/legalinfo/legislation/en/Protection-of-Privacy-Law57411981unofficialtranslatioup.pdf
+      - https://www.gov.il/BlobFolder/legalinfo/amendment-13-26-07-26/he/media_06-07-26.pdf
+  transfers:
+    summary: Data may leave Israel to a country whose law protects it no less than Israeli law, or under a listed condition such as consent, transfer within a group that guarantees privacy, or a contract binding the recipient to Israeli conditions (2001 Regulations, regs. 1 and 2). The recipient must also undertake in writing to protect the data and not pass it on (reg. 3). The Authority's April 2026 opinion sets what such contracts must cover. Data received from the EEA has extra deletion, accuracy and notice duties (2023 Regulations).
+    source:
+      - https://www.gov.il/BlobFolder/legalinfo/legislation/en/Privacy-ProtectionTransferofDataabroadRegulationsun.pdf
+      - https://www.gov.il/BlobFolder/legalinfo/infoabroad/en/Article-2-4.pdf
+      - https://www.gov.il/BlobFolder/legalinfo/datatransferredisrael2023/en/Privacy%20Protection%20Regulations%20(Instructions%20for%20Data%20that%20was%20transferred%20to%20Israel%20from%20the%20European%20Economic%20Area).pdf
+      - https://www.gov.il/BlobFolder/reports/ann2023/he/my_privacy_anual_report_Mo.pdf
+  dpia:
+    summary: There's no general duty to carry out a privacy impact assessment; the Authority's guide says so and recommends one for new projects. The Data Security Regulations require a database definitions document covering purposes, data types, transfers abroad, processors and the main security risks, and for high-security databases a risk assessment and penetration tests at least every 18 months. The Authority offers an online risk tool.
+    source:
+      - https://www.gov.il/BlobFolder/reports/taskir_privacy_news/he/taskir_privacy.pdf
+      - https://www.gov.il/BlobFolder/legalinfo/data_security_regulation/en/5777%E2%80%932017.pdf
+      - https://mojforms.justice.gov.il/mojaemprivacyprotectionauthority/dpiaform.html
+  automated_decisions_ai:
+    summary: The Act has no specific rule on automated decisions, and Israel has no AI law. The Authority's draft guidance on AI (April 2025, for public comment, not binding) says people should be told how AI systems use their data and, where it matters, that they're dealing with a bot. It treats scraping personal data from the internet to train AI without informed consent as a privacy infringement, and expects sites where users share data to guard against scraping and report it as a severe security incident.
+    source:
+      - https://www.gov.il/BlobFolder/rfp/ai_reg/he/ai_regu_draft.pdf
+  penalties:
+    summary: From 14 August 2025 the Authority can impose fines such as NIS 150,000 for registration breaches (doubled at 1,000,000 people), NIS 50 or 100 per person for some notice and direct mailing breaches, NIS 2 to 8 per person in the database for others, such as unlawful processing, and up to NIS 320,000 per security breach, doubled for large high-security databases. Amounts are indexed yearly, small firms get caps, and a fine can be cut to 5% of turnover. Courts can award up to NIS 50,000 without proof of damage, doubled for intent to harm. Wilful infringements can bring up to five years in prison.
+    source:
+      - https://www.gov.il/BlobFolder/legalinfo/legislation/en/Protection-of-Privacy-Law57411981unofficialtranslatioup.pdf
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry, checked against official sources with AI assistance.
