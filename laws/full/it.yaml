@@ -22,10 +22,20 @@ laws:
     official_url: https://www.normattiva.it/eli/id/2025/09/25/25G00143/CONSOLIDATED
     status: in-force
     in_force_from: "2025-10-10"
-    notes: Sets national principles for AI, parental consent for under-14s, transparency at work and the national AI Act authorities. It also lets the government adopt decrees aligning Italian law with the AI Act.
+    notes: Sets national principles for AI, parental consent for under-14s, transparency at work and the national AI Act authorities. The government has since adopted decrees under it, namely D.lgs. 160/2026 on police use of AI and AI liability (in force 30 September 2026) and D.lgs. 179/2026, listed below.
+  - name: AI Act implementing decree
+    citation: Decreto legislativo 7 ottobre 2026, n. 179 (GU n. 234 of 8 October 2026)
+    official_url: https://www.normattiva.it/eli/id/2026/10/08/26G00200/CONSOLIDATED
+    status: in-force
+    in_force_from: "2026-10-23"
+    notes: Adapts Italian law to the EU AI Act. It sets the powers of the national AI authorities, the fines for AI Act breaches and a national AI sandbox, and adds rules on AI at work, including that a person takes final employment decisions.
 regulators:
   - name: Garante per la protezione dei dati personali
     url: https://www.garanteprivacy.it
+  - name: Agenzia per la cybersicurezza nazionale (ACN), the main AI Act market surveillance authority and single point of contact
+    url: https://www.acn.gov.it
+  - name: Agenzia per l'Italia digitale (AgID), the AI Act notifying authority
+    url: https://www.agid.gov.it
 obligations:
   scope:
     summary: The GDPR sets who is covered. The Privacy Code adapts it to Italian law and adds national rules, such as the consent age, sector rules for work, health and research, and the rules on cookies and marketing. A deceased person's rights can be exercised by someone with their own interest, acting for them or for family reasons, unless the person forbade it in writing for online services.
@@ -56,14 +66,15 @@ obligations:
       - https://www.normattiva.it/eli/id/2003/07/29/003G0218/CONSOLIDATED
       - https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9677876
   marketing:
-    summary: Marketing by automated calls, email, fax, SMS or MMS needs prior consent (art. 130). A business may email its customers about products similar to what they bought without consent, if they were told and can object at any time. Calls with a live operator and post are allowed unless the person is on the Registro pubblico delle opposizioni, which covers all numbers, mobiles included. Joining the register cancels earlier marketing consents.
+    summary: Marketing by automated calls, email, fax, SMS or MMS needs prior consent (art. 130). A business may email its customers about products similar to what they bought without consent, if they were told and can object at any time. Calls with a live operator and post are allowed unless the person is on the Registro pubblico delle opposizioni, which covers all numbers, mobiles included. Joining it cancels earlier consents to marketing calls, live or automated, except under a contract that is current or ended no more than 30 days ago, or a consent given after joining.
     source:
       - https://www.normattiva.it/eli/id/2003/07/29/003G0218/CONSOLIDATED
       - https://www.garanteprivacy.it/temi/telemarketing
       - https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/2542348
       - https://www.gazzettaufficiale.it/eli/id/2022/03/29/22G00033/sg
+      - https://www.normattiva.it/eli/id/2018/02/03/18G00021/CONSOLIDATED
   breach_notice:
-    summary: Under the GDPR, notify the Garante through its online service within 72 hours where feasible, and tell the people affected when the risk to them is high. Since 20 February 2026 the Code also provides a simplified procedure, with guided self-assessment and support, for businesses with fewer than five employees. The Garante sets how it works.
+    summary: Under the GDPR, notify the Garante through its online service within 72 hours where feasible, and tell the people affected when the risk to them is high. Since 20 February 2026 the Code says businesses with fewer than five employees will use a simpler procedure, with guided self-assessment and support, once the Garante sets it up. As of 5 November 2026 its breach page offers only the standard online service.
     value: 72
     source:
       - https://www.garanteprivacy.it/regolamentoue/databreach
@@ -90,18 +101,21 @@ obligations:
       - https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9058979
       - https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9059358
   automated_decisions_ai:
-    summary: GDPR Article 22 applies. Italy's AI law (Law 132/2025, in force since 10 October 2025) requires employers to tell workers when they use AI, under the rules on automated decision and monitoring systems. It names AgID as the AI Act notifying authority and ACN as the market surveillance authority, with the Bank of Italy, CONSOB and IVASS for finance, and leaves the Garante's powers unchanged.
+    summary: Beyond GDPR Art. 22, Law 132/2025 requires employers to tell workers when they use AI. Since 23 October 2026 (D.lgs. 179/2026), a person, not AI alone, must take final decisions on hiring, changing or ending a job, discipline and appraisals. Screening applicants isn't covered, and consent is no exception. Workers can ask for an explanation, and decisions in breach are void. ACN is the main AI Act market surveillance authority, with the Bank of Italy, CONSOB and IVASS for finance and the Garante for high-risk AI in policing, borders, justice and democracy. AgID is the notifying authority.
     source:
       - https://www.normattiva.it/eli/id/2025/09/25/25G00143/CONSOLIDATED
       - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+      - https://www.normattiva.it/eli/id/2026/10/08/26G00200/CONSOLIDATED
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R1689
   penalties:
-    summary: The Garante fines under the GDPR tiers. Breaches of key national rules, including the consent age, cookie and marketing rules, carry the top tier of up to €20 million or 4% of worldwide turnover. Paying half the fine within the appeal deadline, and complying, settles the case. Some unlawful processing that harms people, done for profit or to cause harm, is also a crime, with prison terms from six months to six years.
+    summary: The Garante fines under the GDPR tiers. Breaches of key national rules, including the consent age, cookie and marketing rules, carry the top tier of up to €20 million or 4% of worldwide turnover. Paying half the fine within the appeal deadline, and complying, settles the case. Some unlawful processing that harms people, done for profit or to cause harm, is also a crime, with prison terms from six months to six years. D.lgs. 179/2026 applies the AI Act's fine ceilings and adds one of €1 million or 0.5% of turnover for the fundamental-rights impact assessment and explanation duties.
     source:
       - https://www.normattiva.it/eli/id/2003/07/29/003G0218/CONSOLIDATED
       - https://www.garanteprivacy.it/temi/telemarketing
+      - https://www.normattiva.it/eli/id/2026/10/08/26G00200/CONSOLIDATED
 checked:
   date: "2026-11-05"
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

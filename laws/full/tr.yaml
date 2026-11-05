@@ -1,7 +1,8 @@
 # Türkiye. Summarised in Bansat's own words from the official sources linked below.
 # Not legal advice: check the sources before relying on any fact.
 # mevzuat.gov.tr and resmigazete.gov.tr block automated access, so links point to the KVKK Authority's
-# own texts (its English translation of Law No. 6698, where the Turkish text prevails) and the Ministry of Trade.
+# own texts (its English translation of Law No. 6698, where the Turkish text prevails), the Ministry of Trade,
+# and laws as the TBMM (parliament) adopted them, which don't show later amendments.
 id: tr
 name: Türkiye
 tier: full

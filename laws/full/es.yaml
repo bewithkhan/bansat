@@ -42,7 +42,7 @@ regulators:
     url: https://aesia.digital.gob.es/
 obligations:
   scope:
-    summary: The GDPR applies directly. The LOPDGDD adapts it for Spain and adds digital rights, such as privacy on work devices and a right to digital disconnection. It doesn't cover deceased people's data, but relatives and heirs can ask for access, correction or erasure. The AEPD supervises most organisations, and regional authorities, where a region has one, cover its regional and local public bodies (art. 57).
+    summary: The GDPR applies directly. The LOPDGDD adapts it for Spain and adds digital rights, such as privacy on work devices and a right to digital disconnection. It doesn't cover deceased people's data, but relatives and heirs can ask for access, correction or erasure. The AEPD supervises most organisations. Regional authorities, where a region has one, cover its regional and local public sector, including those running its services, and anyone exercising public functions in regional or local matters (art. 57).
     source:
       - https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673#a2
       - https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673#a3
@@ -82,7 +82,7 @@ obligations:
       - https://www.aepd.es/guias/guia-cookies.pdf
       - https://www.aepd.es/guias/guia-cookies-analiticas-externas.pdf
   marketing:
-    summary: Marketing emails and texts need prior request or express consent, except offers of similar products to existing customers, with a free opt-out at collection and in every message (LSSI art. 21). Marketing calls need consent or another GDPR basis, and since 17 October 2026 must come from 400 numbers. Check the advertising exclusion lists first, unless the person consented to you (art. 23). Most consumer contracts made through unlawful calls are void, and consent to a call only counts if given or renewed expressly in the two years before it.
+    summary: Marketing emails and texts need prior request or express consent, except offers of similar products to existing customers, with a free opt-out at collection and in every message (LSSI art. 21). Marketing calls need consent or another GDPR basis, and since 17 October 2026 must come from 400 numbers. Check the advertising exclusion lists first, unless the person consented to you (art. 23). Most consumer contracts made through unlawful calls are void. For a contract made on a call to be valid, consent to the call must have been given or renewed expressly in the two years before it.
     source:
       - https://www.boe.es/buscar/act.php?id=BOE-A-2002-13758#a21
       - https://www.boe.es/buscar/act.php?id=BOE-A-2022-10757#a6-8
@@ -141,4 +141,4 @@ checked:
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
