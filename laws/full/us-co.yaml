@@ -122,3 +122,8 @@ checked:
 history:
   - date: "2026-11-05"
     summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
+watch:
+  - url: https://content.leg.colorado.gov/publication-search?search_api_fulltext=%22Digest+of+Bills%22&field_publication_year=All&sort_bef_combine=field_date_DESC
+    type: html
+    selector: '#block-uswds-child-content .views-row'
+    language: en

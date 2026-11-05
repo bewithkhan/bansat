@@ -91,3 +91,8 @@ checked:
 history:
   - date: "2026-11-05"
     summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
+watch:
+  - url: https://www.cai.gouv.qc.ca/actualites
+    type: html
+    selector: '.actualite-container-desktop'
+    language: fr

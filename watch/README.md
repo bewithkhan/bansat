@@ -21,18 +21,32 @@ Each entry lists its watched sources under `watch`. Each item gives a `url` on o
 |---|---|---|
 | `rss`, `atom` | A feed's items: title, link and date | A new or changed item |
 | `html` | The part of the page that `selector` (a CSS selector) picks out | New links, or edited text, inside that part |
-| `api` | A JSON response, such as SPARQL results from the EU's Cellar endpoint | Any change to the response |
+| `api` | A JSON response: a list of documents with titles and links (as the Federal Register's API returns), SPARQL results, or any other JSON | A new document, or any change to the response |
 
 ```yaml
 watch:
-  - url: https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/
+  - url: https://www.legislation.gov.uk/changes/affected/ukpga/2018/12/data.feed
+    type: atom
+    language: en
+  - url: https://cppa.ca.gov/regulations/
     type: html
-    selector: main .listing
+    selector: main.main-primary > article
     language: en
 ```
 
 Pick feeds where they exist, and point a selector at a stable list of news or changes, not the whole page, so a
 changed banner or date doesn't raise a false alarm. A source two entries share is fetched once.
+
+An office-wide news list (an attorney general's press releases, say) changes every week for reasons that have
+nothing to do with the registry. Give it `keywords`: then only items whose title contains one of them, as whole
+words in any case, count, and unrelated news changes nothing:
+
+```yaml
+  - url: https://news.delaware.gov/category/justice/feed/
+    type: rss
+    keywords: [privacy, data, children, social media, AI, robocall]
+    language: en
+```
 
 ## How it behaves
 

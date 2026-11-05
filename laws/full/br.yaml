@@ -131,3 +131,19 @@ checked:
 history:
   - date: "2026-11-05"
     summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
+watch:
+  - url: https://www2.camara.leg.br/legin/fed/lei/2018/lei-13709-14-agosto-2018-787077-normaatualizada-pl.html
+    type: html
+    selector: 'body'
+    language: pt-BR
+  - url: https://www.gov.br/anpd/pt-br/acesso-a-informacao/institucional/atos-normativos/regulamentacoes_anpd
+    type: html
+    selector: '#page-document'
+    language: pt-BR
+  - url: https://www.gov.br/anpd/++api++/pt-br/assuntos/noticias/@search?portal_type=News%20Item&sort_on=effective&sort_order=descending&b_size=20
+    type: api
+    language: pt-BR
+  - url: https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2487262
+    type: html
+    selector: '#informacoesDeTramitacao, #pareceresValidos'
+    language: pt-BR

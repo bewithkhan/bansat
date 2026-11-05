@@ -22,6 +22,11 @@ laws:
     status: in-force
     in_force_from: "2014-07-01"
     notes: Commercial electronic messages and, since 15 January 2015, installing computer programs. Its private right of action was repealed before it ever came into force.
+  - name: Data mobility amendments to PIPEDA (Budget 2025 Implementation Act, No. 1)
+    citation: S.C. 2026, c. 3, ss. 389–390
+    official_url: https://laws-lois.justice.gc.ca/eng/acts/P-8.6/nifnev.html
+    status: enacted
+    notes: Assented to on 26 March 2026 but not yet in force. Once regulations set up a data mobility framework, an organisation in it must, when an individual asks, send the personal information it collected from them to another organisation in the framework.
   - name: Bill C-36 (Protecting Privacy and Consumer Data Act)
     citation: Bill C-36, 45th Parliament, 1st Session
     official_url: https://www.parl.ca/LegisInfo/en/bill/45-1/c-36
@@ -42,9 +47,10 @@ obligations:
       - https://laws-lois.justice.gc.ca/eng/regulations/SOR-2004-219/page-1.html
       - https://laws-lois.justice.gc.ca/eng/regulations/SOR-2004-220/page-1.html
   lawful_bases:
-    summary: PIPEDA is consent-based. Organisations need meaningful consent to collect, use or disclose personal information, unless a listed exception applies, and only for purposes a reasonable person would consider appropriate. Consent counts only if people would understand its nature, purpose and consequences. Express consent is generally needed for sensitive information, for uses outside reasonable expectations, or where there's a meaningful risk of significant harm.
+    summary: PIPEDA is consent-based. Organisations need meaningful consent to collect, use or disclose personal information, unless a listed exception applies, and only for purposes a reasonable person would consider appropriate. Consent counts only if people would understand its nature, purpose and consequences. Express consent is generally needed for sensitive information, for uses outside reasonable expectations, or where there's a meaningful risk of significant harm. A right to move data between organisations is enacted but not yet in force (see laws).
     source:
       - https://laws-lois.justice.gc.ca/eng/acts/P-8.6/page-1.html
+      - https://laws-lois.justice.gc.ca/eng/acts/P-8.6/nifnev.html
       - https://laws-lois.justice.gc.ca/eng/acts/P-8.6/page-7.html
       - https://www.priv.gc.ca/en/privacy-topics/collecting-personal-information/consent/gl_omc_201805/
   consent_age:
@@ -120,4 +126,22 @@ checked:
   status: ai-checked
 history:
   - date: "2026-11-05"
+    summary: Added the data mobility amendments to PIPEDA (S.C. 2026, c. 3, ss. 389–390), enacted but not yet in force, found by Law Watch's first check of Justice Laws.
+  - date: "2026-11-05"
     summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
+watch:
+  - url: https://www.priv.gc.ca/en/rss/news/
+    type: rss
+    language: en
+  - url: https://laws-lois.justice.gc.ca/eng/acts/P-8.6/
+    type: html
+    selector: '#hist + table'
+    language: en
+  - url: https://laws-lois.justice.gc.ca/eng/acts/P-8.6/nifnev.html
+    type: html
+    selector: '.ScheduleNIF'
+    language: en
+  - url: https://laws-lois.justice.gc.ca/eng/acts/E-1.6/
+    type: html
+    selector: '#hist + table'
+    language: en

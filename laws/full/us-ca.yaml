@@ -189,3 +189,15 @@ checked:
 history:
   - date: "2026-11-05"
     summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
+watch:
+  - url: https://privacy.ca.gov/feed/
+    type: rss
+    language: en
+  - url: https://cppa.ca.gov/regulations/
+    type: html
+    selector: 'main.main-primary > article'
+    language: en
+  - url: https://oag.ca.gov/privacy/privacy-enforcement-actions
+    type: html
+    selector: '.node-page .field-name-body'
+    language: en
