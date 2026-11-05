@@ -57,6 +57,7 @@ To re-check an existing blueprint, update its Framework row to v2.3, answer the 
 | Choosing a method ★ | A picker recommends an outer method for approvals, when one is needed, and an inner method for the build. It's hybrid by default, and the choice goes in an ADR (11.7). |
 | Method profiles | Scrum, Kanban, stage gates (the PRINCE2® method and the *PMBOK® Guide*), Shape Up, a solo loop and scaled methods, each showing where G0–G4 and Bansat's documents fall (Appendix E). |
 | Toolkit | RACI, RAID log, stakeholder map, status report, change request, a Mermaid timeline, and forecasting from throughput, each with the way it usually goes wrong (11.8). |
+| UK regulator (v2.3.1) | The Information Commission took over from the ICO on 30 September 2026 (9.1). |
 
 ### What changed in v2.2
 
@@ -1431,7 +1432,7 @@ Compliance here is a set of **product features**, each with acceptance criteria 
 
 | Regime | Applies when | Main build impact | Regulator | Maximum penalty |
 |---|---|---|---|---|
-| **UK GDPR + Data Protection Act 2018**, as amended by the **Data (Use and Access) Act 2025 (DUAA)**: most changes in force 5 Feb 2026, the complaints duty from 19 Jun 2026 | You're established in the UK, or you offer services to or monitor people in the UK | All of Part 9 | ICO (moving to the Information Commission structure under DUAA) | £17.5m or 4% of worldwide annual turnover, whichever is higher |
+| **UK GDPR + Data Protection Act 2018**, as amended by the **Data (Use and Access) Act 2025 (DUAA)**: most changes in force 5 Feb 2026, the complaints duty from 19 Jun 2026 | You're established in the UK, or you offer services to or monitor people in the UK | All of Part 9 | The Information Commission, which took over from the ICO on 30 Sep 2026 (still at ico.org.uk; this framework says "ICO" for short) | £17.5m or 4% of worldwide annual turnover, whichever is higher |
 | **PECR** (as amended by DUAA) | Cookies or similar technologies on UK users' devices; electronic marketing to UK recipients | 9.8–9.11 | ICO | Now up to UK GDPR levels |
 | **EU GDPR** | You're established in the EU, or you offer goods or services to or monitor people in the EU (Art. 3(2)) | All of Part 9, plus an **EU representative** (Art. 27) if you have no EU establishment, unless the processing is occasional, low-risk and not large-scale sensitive data | National DPAs | €20m or 4% of worldwide annual turnover |
 | **ePrivacy Directive** (national laws) | Cookies and e-marketing for EU users | Opt-in consent for non-essential storage or access; e-marketing consent or soft opt-in | DPAs / national regulators | National |

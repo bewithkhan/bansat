@@ -56,6 +56,7 @@ To re-check an existing blueprint, update its Framework row to v2.3, answer the 
 | Choosing a method ★ | A picker recommends an outer method for approvals, when one is needed, and an inner method for the build. It's hybrid by default, and the choice goes in an ADR (11.7). |
 | Method profiles | Scrum, Kanban, stage gates (the PRINCE2® method and the *PMBOK® Guide*), Shape Up, a solo loop and scaled methods, each showing where G0–G4 and Bansat's documents fall (Appendix E). |
 | Toolkit | RACI, RAID log, stakeholder map, status report, change request, a Mermaid timeline, and forecasting from throughput, each with the way it usually goes wrong (11.8). |
+| UK regulator (v2.3.1) | The Information Commission took over from the ICO on 30 September 2026 (9.1). |
 
 ### What changed in v2.2
 

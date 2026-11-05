@@ -128,6 +128,7 @@ const expectIn = (file: string, pattern: RegExp, expected: string, what: string)
 };
 expectIn('CITATION.cff', /^version:\s*"?([\d.]+)"?\s*$/gm, version, 'version');
 expectIn('README.md', /--branch (v[\d.]+)/g, tag, 'install tag');
+expectIn('site/src/content/docs/index.mdx', /--branch (v[\d.]+)/g, tag, 'install tag');
 expectIn('README.md', /badge\/framework-v([\d.]+)-/g, minor, 'framework badge');
 const latest = /^## (v[\d.]+) /m.exec(read('CHANGELOG.md'))?.[1];
 if (latest !== tag) problem(`CHANGELOG.md: the latest entry is ${latest ?? 'missing'}, expected ${tag}`);
