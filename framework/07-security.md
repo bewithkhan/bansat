@@ -14,6 +14,46 @@
 - **Recovery:** verified email only. Notify the user when the email, MFA or sign-in method changes.
 - **Passwords (if used):** check against breached-password lists, allow paste and password managers (WCAG 3.3.8), set no composition rules beyond length ≥ 12, and rate-limit attempts.
 
+**Authentication flow.** Adapt it to your provider (Supabase Auth, Auth.js, Clerk, Firebase, Laravel Sanctum, Django) and keep the rules in the notes, which follow the OWASP Authentication and Session Management cheat sheets (Appendix B).
+
+```mermaid
+sequenceDiagram
+  actor U as User
+  participant App as Browser or app
+  participant S as Server entry point
+  participant Auth as Auth provider
+  participant DB as Database
+  U->>App: Sign up or sign in with an email link, OAuth or a passkey
+  App->>S: Submit, rate-limited per account and per IP
+  S->>Auth: Verify
+  alt Verified
+    Auth-->>S: User ID and tokens
+    opt OWNER or ADMIN in a large workspace
+      S->>U: Ask for the second factor
+    end
+    S-->>App: New session ID in Secure, HttpOnly, SameSite cookies
+  else Unknown account or wrong credentials
+    S-->>App: The same message, status and timing either way
+  end
+  App->>S: Request with the session cookie
+  S->>S: Validate the session, then check the role (7.2)
+  S->>DB: Query scoped to the user and tenant
+  DB-->>S: Only the rows the access rules allow
+  S-->>App: Data, or 401 for S8 and 403 for S7
+  Note over App,S: Near expiry, refresh silently with a rotating refresh token
+  U->>App: Delete account, change email, export or change roles
+  App->>U: Re-authenticate first, then rotate the session
+  U->>App: Sign out
+  App->>S: Sign-out request
+  S->>Auth: Revoke the session and refresh token on the server
+  S-->>App: Clear the cookies, local drafts and caches
+```
+
+- A new session ID is issued at sign-in and whenever privileges change, so an old or planted one can't be reused.
+- Cookies are `Secure` and `HttpOnly`, with `SameSite=Lax` or `Strict` and no `Domain` attribute.
+- Sign-out ends the session on the server. Deleting the cookie alone is not enough.
+- Errors and timing are the same whether or not the account exists, and repeated failures are throttled per account, not only per IP.
+
 ### 7.2 Authorisation
 
 Deny by default. Enforce at three layers:

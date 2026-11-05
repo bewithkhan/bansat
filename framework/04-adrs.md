@@ -7,7 +7,8 @@
 ADR-NNN — {{Title}}
 Status: Proposed | Accepted | Superseded by ADR-NNN        Date: {{YYYY-MM-DD}}   Review by: {{date}}
 Context: {{forces, constraints, options considered}}
-Decision: {{what we will do}}
+Prior art: {{how others solved this (docs, GitHub repos and issues, Stack Overflow, with links) and the problems they hit}}
+Decision: {{what we will do: reuse, adapt or build, and why}}
 Consequences: (+) {{benefits}}   (−) {{costs, risks, follow-ups}}
 Privacy & security impact: {{new data, vendors, transfers; RoPA/DPIA updates needed}}
 ```

@@ -3,6 +3,8 @@
 
 ### 10.1 Primary user journey
 
+The **app flow** is this journey diagram, the key flows in 10.2 and the navigation map in 10.3. Together they show every screen, how people move between them, and where each failure leads.
+
 ```mermaid
 flowchart TD
   A[Landing page] --> B{Cookie choice made?}
@@ -61,11 +63,29 @@ Also diagram: **session expiry and draft restore** (S8), **data export** (async 
 | SCR-09 | `/settings/privacy` | Privacy centre | Self | Export / delete | C2 | None | **Never** |
 | SCR-10 | `/legal/privacy` · `/legal/cookies` · `/legal/terms` | Legal pages | Public | — | C0 | Aggregate | If consented |
 
+**Navigation map.** One row per action that moves the user, so no screen is a dead end and every failure lands on a designed state (10.7):
+
+| From | Action | Goes to | If it fails |
+|---|---|---|---|
+| SCR-01 Landing | Sign up | SCR-02 Sign-up | — |
+| SCR-02 Sign-up | Create account | "Check your email" panel, then SCR-04 after verifying | S9 field errors · S3 with Retry · the age block or parental-consent flow (10.1) if below the minimum age |
+| SCR-03 Log in | Sign in | The last workspace (SCR-05), or SCR-04 if there's none | S9 · the same message for any unknown account (7.1) · S13 after repeated tries |
+| SCR-04 Onboarding | Create or join a workspace | SCR-05 Board | S9 (slug taken) · S11 (invite expired) |
+| SCR-05 Board | Open a task | SCR-06 Task detail, as a modal with its own URL | S11 if it was deleted |
+| SCR-05 Board | Generate standup | SCR-07 Standup | S13 quota · S15 if AI is switched off |
+| SCR-07 Standup | Generate | S14 progress, then the result; Copy gives S10 | S3 · S5 then Cancel · S13 |
+| SCR-08 Members | Invite member | S10 "Invite sent" | S7 for MEMBER · S9 |
+| SCR-09 Privacy centre | Delete account | Re-authenticate, then the confirmation in 10.2 | S16 confirmation · S8 |
+| Any screen | The session expires | A sign-in modal, then back to the same place with the draft | S8 |
+| Any screen | An unknown or deleted route | S11 with a link back | — |
+
 ### 10.4 Screen specification template
 
 ```text
 SCR-NN — {{Screen name}}                         Route: {{ }}     Access: {{roles}}
 Purpose & primary action: {{ }}
+Layout: {{regions, e.g. header · sidebar · main · detail panel; what moves or collapses on mobile}}
+Actions → next: {{each action → the screen or result it leads to (navigation map, 10.3), and the state on failure}}
 Components: {{ }}              Data (DATA- refs, classes): {{ }}       API: {{API- refs}}
 States (10.7): S1 {{…}} · S2 {{…}} · S3 {{…}} · … (or N/A + reason)
 Copy: title, empty-state text, error text, success text (10.5 content rules)
@@ -75,6 +95,21 @@ Responsive: 320 / 768 / 1280 behaviour
 ```
 
 ### 10.5 Design system
+
+**Look-and-feel brief.** Fill this in before choosing tokens. It's the design brief that a designer or an agent works from, and it settles taste questions before they turn into rework:
+
+```text
+Personality: {{three words, e.g. calm · precise · friendly}}
+Audience & context: {{who, on which devices, how often, in what setting}}
+References: {{2–3 products whose look or flow you like, and exactly what you like about each}}
+Avoid: {{styles, patterns or clichés to stay away from}}
+Density: compact | comfortable          Theme: dark first | light first | follow the system
+Brand assets: {{logo, existing colours and fonts, or "none yet"}}
+Type & icons: {{UI and code typefaces (self-hosted, 9.9), one icon set, illustration or photo style}}
+Voice & tone: {{e.g. plain and warm, British English, no exclamation marks in errors}}
+Motion: none | subtle (150–250 ms) | expressive          Accessibility: WCAG 2.2 AA (not negotiable)
+Design first: {{the SCR- IDs that set the pattern for the rest}}
+```
 
 **Principles:**
 - Calm and fast.
@@ -200,8 +235,28 @@ export type ViewState<T> =
   | { kind: 'notFound' }                                      // S11
   | { kind: 'rateLimited'; retryAfterSeconds: number };       // S13
 
+// Forms and mutations: S9 and S10 belong to the form, not to the view around it
+export type FormState<Field extends string> =
+  | { kind: 'editing' }
+  | { kind: 'submitting' }                                      // S2 inline progress
+  | { kind: 'invalid'; errors: Partial<Record<Field, string>> } // S9: the inputs are kept
+  | { kind: 'failed'; code: AppErrorCode; ref: string }         // S3 (S7, S8, S13 map from code)
+  | { kind: 'succeeded'; message: string; undo?: () => void };  // S10
+
 export function assertNever(x: never): never {
   throw new Error(`Unhandled view state: ${JSON.stringify(x)}`);
+}
+
+// The status line under a form: what happened, then what to do next (10.5 content rules)
+export function formStatus<Field extends string>(state: FormState<Field>): string | null {
+  switch (state.kind) {
+    case 'editing':    return null;
+    case 'submitting': return 'Saving…';
+    case 'invalid':    return 'Check the highlighted fields.'; // focus moves to the first error
+    case 'failed':     return `We couldn't save your changes. Try again. Ref ${state.ref}`;
+    case 'succeeded':  return state.message;
+    default:           return assertNever(state);
+  }
 }
 
 // ---- usage: the compiler fails the build if a new state is added but not handled ----

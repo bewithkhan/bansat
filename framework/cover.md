@@ -4,9 +4,9 @@
 
 **Product · Architecture · Design · Security · Privacy & Compliance · Delivery**
 
-Created by **Muhammad Tufail Khan** ([github.com/bewithkhan](https://github.com/bewithkhan)) · Framework version **2.1** · Legal position checked **4 November 2026** against official sources, with AI assistance (not yet reviewed by a lawyer) · Supersedes *Comprehensive App Development Framework & Master Blueprint* (v1)
+Created by **Muhammad Tufail Khan** ([github.com/bewithkhan](https://github.com/bewithkhan)) · Framework version **2.2** · Legal position checked **4 November 2026** against official sources, with AI assistance (not yet reviewed by a lawyer) · Supersedes *Comprehensive App Development Framework & Master Blueprint* (v1)
 
-> **Cite as:** Khan, M. T. (2026). *Bansat (بنسټ): A blueprint-first framework for building software* (Version 2.1). https://github.com/bewithkhan/bansat
+> **Cite as:** Khan, M. T. (2026). *Bansat (بنسټ): A blueprint-first framework for building software* (Version 2.2). https://github.com/bewithkhan/bansat
 > Text and templates: **CC BY 4.0**. Code samples: **MIT**. Keep this credit when you copy, adapt or share the framework.
 
 This is the single source of truth for **every project, new or existing**. For a new project, complete it **before any code is generated**. For an existing or live project, use the **retrofit track (Part 14)**: reverse-engineer the blueprint from what's built, triage the live risks first, then close the gaps. Either way, it turns your product into decisions that an AI coding agent (Claude, Cursor, Lovable, Bolt, Copilot) can build from without guessing. Privacy and security are built in from the first commit rather than bolted on after launch: UK GDPR, PECR, EU GDPR, Nigeria's NDPA 2023 and GAID 2025, and the EU AI Act.
@@ -27,13 +27,13 @@ This is the single source of truth for **every project, new or existing**. For a
 | Privacy contact / DPO | {{NAME, privacy@DOMAIN}} |
 | Repository | {{URL}} |
 | Last updated · Next review | {{YYYY-MM-DD}} · {{YYYY-MM-DD}} |
-| Framework | Bansat (بنسټ) v2.1 by Muhammad Tufail Khan, https://github.com/bewithkhan/bansat (CC BY 4.0) |
+| Framework | Bansat (بنسټ) v2.2 by Muhammad Tufail Khan, https://github.com/bewithkhan/bansat (CC BY 4.0) |
 
 **Revision history**
 
 | Version | Date | Author | Summary |
 |---|---|---|---|
-| 0.1 | {{YYYY-MM-DD}} | {{NAME}} | First draft from framework v2.1 |
+| 0.1 | {{YYYY-MM-DD}} | {{NAME}} | First draft from framework v2.2 |
 
 **Gate approvals**
 
@@ -45,6 +45,20 @@ This is the single source of truth for **every project, new or existing**. For a
 | G4 Post-launch review | | | |
 
 > **Only a person signs a gate.** An AI agent never fills in this table. With the optional G1 hook from the Bansat repo (`hooks/bansat-g1-guard.mjs`), Claude Code refuses code edits until the G1 row names an approver and a date.
+
+### What changed in v2.2
+
+To re-check an existing blueprint, update its Framework row to v2.2 and add the new research rule to your agent rules file (12.1). The rows marked ★ change how you work.
+
+| Area | Change |
+|---|---|
+| Research first ★ | Before building anything new, look at how others have done it: official docs, GitHub repositories and issues, Stack Overflow. Note the problems they hit, then reuse, adapt or build, and say why (12.1, 12.2 step 0, 12.3, the ADR template in 4.1, Definition of Ready in 11.2). |
+| Prompts ★ | New prompts: Research first, Logic first and Full audit. The Debug prompt now carries the whole method on its own: 5–7 possible sources, distilled to 1–2, with logs to confirm before any fix (12.4). |
+| App flow | A navigation map (screen → action → next screen, and the state each failure shows) sits alongside the journey diagram (10.1, 10.3). The screen template adds Layout and Actions lines (10.4). |
+| Design brief | A look-and-feel brief to fill in before choosing tokens (10.5). |
+| Diagrams | An authentication flow based on the OWASP cheat sheets (7.1), and an entity-relationship diagram of the reference schema (5.3). |
+| UI states | The typed pattern now covers forms as well: validation (S9) and success (S10) (10.7). |
+| Tested code | The framework is split into modules (`framework/` in the repo) and this file is generated from them. The code samples run in CI from `examples/`, and CI fails if a sample in the text and its tested copy differ. |
 
 ### What changed in v2.1
 

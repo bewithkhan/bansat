@@ -18,6 +18,22 @@ Then add the matching **stack profile** from Appendix D (web, PWA, mobile, weara
 5. **Trace everything.** Requirements carry IDs (`FR-`, `NFR-`, `BR-`, `SCR-`, `API-`, `DATA-`, `ROPA-`, `ADR-`, `RISK-`, `TEST-`). Every `FR` links to its screens, endpoints, data, tests and processing record (Appendix A6).
 6. **Treat examples as illustrations.** The worked example throughout is **TaskFlow AI** from v1: a team workspace with AI standups. Replace it with your own content.
 7. **Your project's rules win.** If the repo already has its own planning stages, templates or agent workflow (in `CLAUDE.md`, `AGENTS.md` or its docs), follow those. Map these gates onto its stages, use this framework to fill the gaps, and note where the two differ.
+8. **Research before you build.** For anything new, look at how others have done something similar (official docs, GitHub repositories and issues, Stack Overflow) and the problems they hit, before making assumptions or building from scratch (12.2, step 0).
+
+### Where the usual planning documents live
+
+Many builders plan with six documents plus decision records and prompts. In Bansat they're parts of one blueprint, so they can't contradict each other:
+
+| Document | Where it lives |
+|---|---|
+| Product requirements (PRD) | Part 1, with the numbers in Part 2 |
+| Technical requirements (TRD) | Part 3 |
+| Architecture decision records (ADRs) | Part 4 |
+| App flow | 10.1 journey diagram, 10.2 key flows, 10.3 screen inventory and navigation map |
+| UI/UX design brief | 10.4 screen specs, 10.5 look-and-feel brief and design system, 10.6 accessibility, 10.7 UI states |
+| Backend schema | Part 5: data dictionary, entity-relationship diagram, schema, access rules; Part 6: API |
+| Implementation plan | 11.1 phased plan, with 11.2 Definition of Ready and Done |
+| Prompts for agents | 12.4: research first, logic first, feature, debug, full audit and more |
 
 ### Depth by risk tier
 

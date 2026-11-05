@@ -29,6 +29,81 @@ Changes from v1:
 - New tables: consent evidence, marketing suppressions, rights requests and complaints, audit log, and an AI usage ledger.
 - The date of birth is never stored; only the age-check result is.
 
+**Entity relationships.** The backend schema at a glance, showing keys and the fields that matter for privacy. Keep it in step with the Prisma schema below; `SetNull` relations keep team content when a person is erased.
+
+```mermaid
+erDiagram
+  profiles ||--o{ memberships : "has"
+  organizations ||--o{ memberships : "has"
+  organizations ||--o{ tasks : "owns"
+  profiles |o--o{ tasks : "creates (SetNull)"
+  profiles |o--o{ tasks : "is assigned (SetNull)"
+  tasks ||--o{ comments : "has"
+  organizations ||--o{ comments : "scopes"
+  profiles |o--o{ comments : "writes (SetNull)"
+  profiles |o--o{ consent_records : "gives"
+  profiles |o--o{ data_subject_requests : "makes"
+  organizations |o--o{ audit_logs : "records"
+  organizations ||--o{ ai_generations : "meters"
+  profiles {
+    uuid id PK "same as the auth user ID"
+    text email UK "C2"
+    enum age_status "the result, never the date of birth"
+    timestamp deletion_requested_at
+  }
+  organizations {
+    uuid id PK
+    varchar slug UK
+    timestamp deleted_at "soft delete"
+  }
+  memberships {
+    uuid id PK
+    uuid user_id FK
+    uuid organization_id FK
+    enum role "OWNER, ADMIN or MEMBER"
+  }
+  tasks {
+    uuid id PK
+    uuid organization_id FK
+    uuid creator_id FK "nullable"
+    uuid assignee_id FK "nullable"
+    varchar description "C2"
+  }
+  comments {
+    uuid id PK
+    uuid organization_id FK "copied from the task for simple RLS"
+    uuid task_id FK
+    uuid author_id FK "nullable"
+  }
+  consent_records {
+    uuid id PK
+    uuid profile_id FK "nullable before sign-up"
+    enum purpose
+    boolean granted
+    text notice_version
+  }
+  marketing_suppressions {
+    text email_hash PK "SHA-256, kept after erasure"
+  }
+  data_subject_requests {
+    uuid id PK
+    uuid profile_id FK "nullable"
+    enum type
+    timestamp due_at
+  }
+  audit_logs {
+    uuid id PK
+    uuid organization_id FK "nullable"
+    uuid actor_id
+  }
+  ai_generations {
+    uuid id PK
+    uuid organization_id FK
+    int input_tokens
+    int output_tokens
+  }
+```
+
 ```prisma
 // prisma/schema.prisma — privacy-aware reference schema (example: TaskFlow AI)
 // Conventions: snake_case tables/columns (@@map/@map), UUID keys, UTC timestamps.

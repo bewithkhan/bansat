@@ -73,6 +73,7 @@ Each phase ends with exit criteria. Don't start the next phase until they're met
 - [ ] The API is defined (6.2).
 - [ ] Privacy impact is noted: new data? new vendor? consent needed?
 - [ ] The design exists, if there's UI.
+- [ ] Prior art is checked for anything new: how others built it and the problems they hit (12.2, step 0).
 - [ ] The test approach is agreed.
 
 **Done (per story):**
