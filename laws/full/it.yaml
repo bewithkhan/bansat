@@ -1,0 +1,107 @@
+# Italy. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: it
+name: Italy
+tier: full
+applies_with: [eu]
+laws:
+  - name: Codice in materia di protezione dei dati personali (Privacy Code)
+    citation: Decreto legislativo 30 giugno 2003, n. 196, as amended (notably by Decreto legislativo 10 agosto 2018, n. 101)
+    official_url: https://www.normattiva.it/eli/id/2003/07/29/003G0218/CONSOLIDATED
+    status: in-force
+    in_force_from: "2004-01-01"
+    notes: Italy's data protection law, read with the GDPR and adapted to it from 19 September 2018. Article 122 sets the cookie rules and article 130 the marketing rules. Last amended in February 2026.
+  - name: Registro pubblico delle opposizioni regulation
+    citation: Decreto del Presidente della Repubblica 27 gennaio 2022, n. 26
+    official_url: https://www.gazzettaufficiale.it/eli/id/2022/03/29/22G00033/sg
+    status: in-force
+    in_force_from: "2022-04-13"
+    notes: Runs the national opt-out register for marketing calls and post under Law 5/2018, now covering all numbers, mobiles included.
+  - name: Italian AI law
+    citation: Legge 23 settembre 2025, n. 132 (Disposizioni e deleghe al Governo in materia di intelligenza artificiale)
+    official_url: https://www.normattiva.it/eli/id/2025/09/25/25G00143/CONSOLIDATED
+    status: in-force
+    in_force_from: "2025-10-10"
+    notes: Sets national principles for AI, parental consent for under-14s, transparency at work and the national AI Act authorities. It also lets the government adopt decrees aligning Italian law with the AI Act.
+regulators:
+  - name: Garante per la protezione dei dati personali
+    url: https://www.garanteprivacy.it
+obligations:
+  scope:
+    summary: The GDPR sets who is covered. The Privacy Code adapts it to Italian law and adds national rules, such as the consent age, sector rules for work, health and research, and the rules on cookies and marketing. A deceased person's rights can be exercised by someone with their own interest, acting for them or for family reasons, unless the person forbade it in writing for online services.
+    source:
+      - https://www.normattiva.it/eli/id/2003/07/29/003G0218/CONSOLIDATED
+      - https://www.garanteprivacy.it/codice
+  lawful_bases:
+    summary: The GDPR's six lawful bases apply. Processing for a public task needs a basis in law, regulation or a general administrative act, and since 2021 public bodies may also rely on what their tasks require. Genetic, biometric and health data must also follow the Garante's safeguard measures. Data on criminal offences may be processed only where a law, or a regulation the law provides for, allows it with appropriate safeguards.
+    source:
+      - https://www.normattiva.it/eli/id/2003/07/29/003G0218/CONSOLIDATED
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+  consent_age:
+    summary: When an online service offered directly to a child relies on consent, the child can consent from 14. Under 14, a holder of parental responsibility must give consent. Information for minors must be especially clear, simple and easy for them to understand.
+    value: 14
+    source:
+      - https://www.normattiva.it/eli/id/2003/07/29/003G0218/CONSOLIDATED
+      - https://www.garanteprivacy.it/temi/minori
+  children:
+    summary: Under the 2025 AI law, children under 14 need a parent's consent to use AI tools and for the related data processing. From 14 they can consent themselves if the information is easy to understand. Children from 14, or their parents, can ask a platform to remove cyberbullying content and go to the Garante if it doesn't act. Anyone, including children from 14, can warn the Garante that intimate images may be shared, and it decides within 48 hours. Video-sharing platforms available in Italy must give it, or publish, a contact point for its orders.
+    source:
+      - https://www.normattiva.it/eli/id/2025/09/25/25G00143/CONSOLIDATED
+      - https://www.garanteprivacy.it/temi/minori
+      - https://www.garanteprivacy.it/temi/cyberbullismo
+      - https://www.normattiva.it/eli/id/2003/07/29/003G0218/CONSOLIDATED
+  cookies:
+    summary: Storing or reading information on a device needs consent, except to transmit a communication or where strictly needed for a service the user asked for (art. 122). The Garante's 2021 guidelines say closing the banner with an X keeps only technical cookies, scrolling isn't consent, cookie walls are unlawful unless there's an equivalent alternative, and a refused banner shouldn't return for six months. Analytics count as technical cookies only under strict conditions.
+    source:
+      - https://www.normattiva.it/eli/id/2003/07/29/003G0218/CONSOLIDATED
+      - https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9677876
+  marketing:
+    summary: Marketing by automated calls, email, fax, SMS or MMS needs prior consent (art. 130). A business may email its customers about products similar to what they bought without consent, if they were told and can object at any time. Calls with a live operator and post are allowed unless the person is on the Registro pubblico delle opposizioni, which covers all numbers, mobiles included. Joining the register cancels earlier marketing consents.
+    source:
+      - https://www.normattiva.it/eli/id/2003/07/29/003G0218/CONSOLIDATED
+      - https://www.garanteprivacy.it/temi/telemarketing
+      - https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/2542348
+      - https://www.gazzettaufficiale.it/eli/id/2022/03/29/22G00033/sg
+  breach_notice:
+    summary: Under the GDPR, notify the Garante through its online service within 72 hours where feasible, and tell the people affected when the risk to them is high. Since 20 February 2026 the Code also provides a simplified procedure, with guided self-assessment and support, for businesses with fewer than five employees. The Garante sets how it works.
+    value: 72
+    source:
+      - https://www.garanteprivacy.it/regolamentoue/databreach
+      - https://www.normattiva.it/eli/id/2003/07/29/003G0218/CONSOLIDATED
+  registration_or_fees:
+    summary: No registration or fee for controllers. DPO contact details are filed through the Garante's online service. Businesses that make marketing calls or send marketing post must check numbers and addresses against the Registro pubblico delle opposizioni, which charges them access fees.
+    source:
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+      - https://www.garanteprivacy.it/regolamentoue/rpd
+      - https://www.normattiva.it/eli/id/2003/07/29/003G0218/CONSOLIDATED
+  dpo:
+    summary: The GDPR rule applies, and Italy adds no general threshold for private bodies. The Garante's FAQs give examples that usually need one, such as banks, insurers, utilities, call centres and private hospitals. DPO contact details must be filed through the Garante's online service, the only channel it accepts.
+    source:
+      - https://www.garanteprivacy.it/faq-sul-responsabile-della-protezione-dei-dati-rpd-in-ambito-privato
+      - https://www.garanteprivacy.it/regolamentoue/rpd
+  transfers:
+    summary: The GDPR rules apply, using adequacy decisions, safeguards such as standard contractual clauses or binding corporate rules, or the Article 49 exceptions. Ad hoc contractual clauses need the Garante's authorisation. Under the Code, an unlawful transfer that harms someone, made for profit or to cause harm, is a crime punishable by one to three years in prison.
+    source:
+      - https://www.garanteprivacy.it/temi/trasferimento-di-dati-all-estero
+      - https://www.normattiva.it/eli/id/2003/07/29/003G0218/CONSOLIDATED
+  dpia:
+    summary: The GDPR rule applies, with a national list. The Garante's list names 12 types of processing that need a DPIA, including large-scale scoring or profiling, employee monitoring through technology, regular processing of vulnerable people's data such as children's, and innovative technologies like IoT. Otherwise a DPIA is generally expected when two or more EDPB criteria apply.
+    source:
+      - https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9058979
+      - https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9059358
+  automated_decisions_ai:
+    summary: GDPR Article 22 applies. Italy's AI law (Law 132/2025, in force since 10 October 2025) requires employers to tell workers when they use AI, under the rules on automated decision and monitoring systems. It names AgID as the AI Act notifying authority and ACN as the market surveillance authority, with the Bank of Italy, CONSOB and IVASS for finance, and leaves the Garante's powers unchanged.
+    source:
+      - https://www.normattiva.it/eli/id/2025/09/25/25G00143/CONSOLIDATED
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+  penalties:
+    summary: The Garante fines under the GDPR tiers. Breaches of key national rules, including the consent age, cookie and marketing rules, carry the top tier of up to €20 million or 4% of worldwide turnover. Paying half the fine within the appeal deadline, and complying, settles the case. Some unlawful processing that harms people, done for profit or to cause harm, is also a crime, with prison terms from six months to six years.
+    source:
+      - https://www.normattiva.it/eli/id/2003/07/29/003G0218/CONSOLIDATED
+      - https://www.garanteprivacy.it/temi/telemarketing
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry, checked against official sources with AI assistance.

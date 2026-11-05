@@ -21,3 +21,7 @@ jurisdictions:
     official_domains: [datatilsynet.no, nkom.no, forbrukertilsynet.no, stortinget.no]
   tr:
     official_domains: [kvkk.gov.tr, ticaret.gov.tr]
+  fr:
+    official_domains: [legifrance.gouv.fr, cnil.fr, conseil-constitutionnel.fr, assemblee-nationale.fr, senat.fr]
+  it:
+    official_domains: [normattiva.it, gazzettaufficiale.it, garanteprivacy.it]
