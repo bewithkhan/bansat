@@ -2,6 +2,16 @@
 
 All notable changes to Bansat (بنسټ). Each release is a git tag, and the install command in the README is pinned to one, so the skill's instructions only change when you choose to update.
 
+## v2.3.0 (2026-11-05)
+
+- **Delivery questions (0.4).** Eight questions on team size, number of teams, how settled the requirements are, what's fixed, the contract and any need for formal evidence.
+- **Choosing a method (11.7).** A picker turns those answers into a method, reading each answer on its own rather than adding up a score. It's hybrid by default (the blueprint up front, an iterative build after G1), it combines an outer and an inner method when both apply, and the choice goes in an ADR.
+- **Method profiles (Appendix E).** Scrum, Kanban, stage gates (the PRINCE2® method and the *PMBOK® Guide*), Shape Up, a solo loop, and scaled methods (LeSS and SAFe®). Each one says when it fits, how it commonly fails, and where every gate (G0–G4) and Bansat document falls. The methods are summarised in Bansat's own words, with links to their official sources: their texts are ShareAlike or all rights reserved, and several names are trademarks.
+- **Project-management toolkit (11.8).** RACI, RAID log, stakeholder map, status report, change request, a Mermaid timeline, and forecasting from throughput, each with the way it usually goes wrong.
+- **Skill.** It asks the delivery questions, loads only the chosen profile, and reports the method and the reason in its summary.
+
+**Re-checking an existing blueprint:** update the Framework row to v2.3, answer the delivery questions (0.4), and record your method in an ADR.
+
 ## v2.2.0 (2026-11-05)
 
 - **Research first.** Before building anything new, the agent looks at how others have done it (official docs, GitHub repositories and issues, Stack Overflow), notes the problems they hit, and says why it's reusing, adapting or building from scratch. It's in the agent rules (12.1), the feature protocol (new step 0 in 12.2), the debugging protocol (12.3), the ADR template (4.1), the Definition of Ready (11.2) and the skill.

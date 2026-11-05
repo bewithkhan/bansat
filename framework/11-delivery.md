@@ -3,7 +3,7 @@
 
 ### 11.1 Phased implementation plan
 
-Each phase ends with exit criteria. Don't start the next phase until they're met.
+Each phase ends with exit criteria. Don't start the next phase until they're met. Run the phases with the method chosen in 11.7; Appendix E shows where they fall in each method.
 
 **Phase 0 — Blueprint & compliance foundations** (no production code)
 - 0.1 Complete Parts 0–10 for everything in scope, and run the DPIA screening.
@@ -150,3 +150,115 @@ FR/ADR/SCR IDs:
 | SEV3 | Minor bug, workaround exists | Next working day | Changelog |
 
 Run a blameless post-incident review within 5 working days (Appendix A7), and track its actions to completion.
+
+### 11.7 Choosing a delivery method
+
+Bansat's phases (11.1) and gates (G0–G4) work with any method. The gates say what must be true before you move on; the method says how the team works in between. Choose it from the delivery questions (0.4):
+- **Read each answer on its own** instead of adding up a score, because one strong factor can decide. The PRINCE2 Agile® Agilometer works the same way.
+- **Record the choice and the reason in an ADR** (4.1).
+- **Revisit it at G4**, or when the answers change.
+
+**Hybrid by default.** Bansat is already a hybrid: the blueprint is agreed up front, to G1, and the build after it is iterative. Most projects then use Scrum or Kanban for the build.
+
+| If the answers say | Use | Why |
+|---|---|---|
+| D8 names a method the organisation uses | That method, with Bansat's gates mapped onto it | Your project's rules win (How to use, item 7) |
+| D5 is a fixed-price client, D4 fixes both the date and the scope, or D6 is yes | Stage gates (E3), with iterative builds inside each stage | The client or auditor approves stages, and G0–G4 already are stage boundaries |
+| D2 is two or more teams on one product | A scaled method (E6): one backlog, one Product Owner, one Definition of Done | Several teams need one view of the product; start with as little structure as possible |
+| D1 is one person | The solo loop (E5) | There are no team events to run alone, but the gates still apply |
+| D7 is mostly a stream of requests and fixes, or the project is a live retrofit (Part 14) | Kanban (E2) | Flow suits work that arrives unpredictably, and the gap register becomes the board |
+| D3 is still being discovered, with one team of two to nine | Scrum (E1) | Short Sprints and reviews suit complex work where you learn by building |
+| A product team sets its own appetite, has no client deadline, and D3 is mostly known | Shape Up (E4) | Fixed time and variable scope, with shaping done up front |
+
+Work down the table and take the first row that applies. When two rows apply, combine them: the outer method handles approvals with the client or organisation (usually E3), and the inner one runs the build (E1, E2 or E5). For example, a freelancer on a fixed-price contract uses stage gates with the client and the solo loop inside each stage.
+
+### 11.8 Project-management toolkit
+
+Each tool comes with the way it usually goes wrong. Keep them in the repo next to the blueprint (`docs/`), so they change in the same pull requests.
+
+**RACI** (who does what). One row per decision or deliverable, one column per role. Every row has at least one **R** (does the work) and exactly one **A** (answers for it, and signs it off). **C** is consulted before (two-way); **I** is informed after (one-way). A gate's **A** is always a named person (Document control).
+
+| Decision or deliverable | Owner | Developer | Designer | Client | DPO / privacy lead |
+|---|---|---|---|---|---|
+| Sign G1 (blueprint approved) | A | C | C | C | C |
+| Privacy notice (9.6) | A | C | I | C | R |
+| Release to production (G3) | A | R | I | C | C |
+| {{ }} | | | | | |
+
+*How it goes wrong:* several A's on one row, so nobody decides; or a RACI written once and never updated.
+
+**RAID log** (risks, assumptions, issues, dependencies). One row per item, with an ID, description, owner, priority, status, target date and next step. Risks add likelihood and impact. Assumptions link to 1.9, risks to 7.3 and 8.4, and decisions go to an ADR, not here.
+
+| ID | Type | Description | Owner | Likelihood · Impact | Status | Next step · Date |
+|---|---|---|---|---|---|---|
+| RISK-01 | Risk | The AI provider changes its data-retention terms | {{ }} | Low · High | Open | Review the DPA quarterly (9.18) · {{date}} |
+| DEP-01 | Dependency | The client supplies brand assets for the design brief (10.5) | {{ }} | — | Waiting | Chase on {{date}} |
+
+*How it goes wrong:* a log that grows but is never reviewed. Go through it at every planning session and every gate.
+
+**Stakeholder map** (power and interest). Place each stakeholder by how much they can affect the project and how much they care about it:
+- High power, high interest: **manage closely**.
+- High power, low interest: **keep satisfied**.
+- Low power, high interest: **keep informed**.
+- Low power, low interest: **monitor**.
+
+Users and the people whose data you process belong on the map too. It's a snapshot, so redraw it at each gate.
+
+**Status report** (weekly or per Sprint, one page):
+
+```text
+Project: {{ }}    Period: {{ }}    Working towards: G{{n}} (see Gate approvals)
+Overall: Green | Amber | Red, with one sentence of evidence
+Scope · Schedule · Budget · Quality and risk: a colour each, with the evidence (tests, flow measures, open blockers)
+Done since the last report: {{FR IDs}}          Next: {{FR IDs}}
+Decisions needed, from whom and by when: {{ }}
+Top 3 RAID items: {{IDs}}
+```
+
+*How it goes wrong:* the "watermelon" report, green on the outside and red inside. Every colour needs evidence, amber is information rather than failure, and the honest headline is always which gate you're working towards and what's left for it.
+
+**Change request** (anything that changes scope, time, cost, quality, risk, or privacy and security):
+
+```text
+CR-NNN — {{title}}                 Raised by: {{ }}   Date: {{ }}
+Type: request for change | off-specification (something doesn't meet its spec) | problem or concern
+What and why: {{ }}
+Impact: time {{ }} · cost {{ }} · scope {{ }} · quality {{ }} · risk {{ }} · privacy and security {{new data? new vendor? (9.3, 3.6)}}
+Blueprint IDs affected: {{FR-, SCR-, DATA-, ADR-}}
+Decision: approve | defer | reject      By: {{the A in the RACI}}     Date: {{ }}
+```
+
+Capture it, assess the impact, recommend, decide, then implement, updating the blueprint in the same pull request as the change. *How it goes wrong:* changes absorbed quietly ("it's only small"), which is how fixed-price projects lose money.
+
+**Timeline.** A Mermaid gantt chart lives in Markdown and renders on GitHub. Mark the gates as milestones, and treat the dates as a forecast to update, not a promise:
+
+```mermaid
+gantt
+  title TaskFlow AI delivery plan (example)
+  dateFormat YYYY-MM-DD
+  axisFormat %d %b
+  section Blueprint
+  Phase 0 blueprint and compliance :p0, 2026-01-05, 14d
+  G1 blueprint approved :milestone, g1, after p0, 0d
+  section Build
+  Phase 1 set-up and guardrails :p1, after g1, 7d
+  Phase 2 data, auth and privacy :p2, after p1, 14d
+  G2 data-ready :milestone, g2, after p2, 0d
+  Phase 3 core features :p3, after p2, 28d
+  Phase 4 privacy centre and email :p4, after p3, 14d
+  Phase 5 AI features :p5, after p4, 14d
+  section Launch
+  Phase 6 hardening and QA :p6, after p5, 14d
+  G3 release candidate :milestone, g3, after p6, 0d
+  Phase 7 launch :p7, after g3, 3d
+  Phase 8 first 30 days :p8, after p7, 30d
+  G4 post-launch review :milestone, g4, after p8, 0d
+```
+
+*How it goes wrong:* false precision. A chart planned to the day months ahead hides the uncertainty, so keep it at the phase level and forecast the detail.
+
+**Estimation and forecasting.**
+- **Forecast from throughput:** count the items finished each week, then run a Monte Carlo simulation to give a date with a probability, for example "85% likely to finish the remaining 30 items by 12 March".
+- **Make the forecast trustworthy:** it needs a reasonably stable way of working and an honest record that includes weeks where nothing finished.
+- **Story points, if you use them:** keep them inside one team for its own planning. Never set them as a target, and never compare teams with them; once velocity becomes a target, it stops measuring anything.
+- **Fixed-price quotes:** give a range, list the assumptions behind it in the RAID log, and put a change-request process in the contract.

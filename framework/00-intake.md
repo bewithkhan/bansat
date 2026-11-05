@@ -46,3 +46,20 @@ Answer every question. Each **Yes** switches on the linked module.
 - **Low** otherwise.
 
 **Result:** Tier {{Low / Medium / High}} · DPIA required {{Y/N}} · Modules in scope: {{list}}
+
+### 0.4 Delivery questions
+
+These decide how the project runs (11.7). There are no wrong answers, and you can change the method later with an ADR.
+
+| # | Question | Answer |
+|---|---|---|
+| D1 | How many people will build it? | {{1 · 2–9 · 10–50 · more than 50}} |
+| D2 | How many teams work on the same product? | {{1 · 2–8 · more than 8}} |
+| D3 | How settled are the requirements? | {{fixed and well understood · mostly known · still being discovered}} |
+| D4 | What's fixed: the date, the budget or the scope? | {{any of them, or none}} |
+| D5 | Who's paying, and how? | {{your own product · a client, fixed price · a client, paid for time · an internal team}} |
+| D6 | Does anyone need formal evidence of control, such as a regulator, an auditor, a public-sector buyer or a client's project office? | {{Y/N}} |
+| D7 | Is the work mostly planned features, or a stream of requests and fixes? | {{planned features · a stream · both}} |
+| D8 | Does the organisation already use a method you're expected to follow? | {{its name, or no}} |
+
+**Result:** Method {{…}} (11.7) · Reason {{one sentence}} · Recorded in ADR-{{NNN}}

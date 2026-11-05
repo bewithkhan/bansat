@@ -33,3 +33,10 @@ Check these sources again before each launch; guidance changes.
 - OWASP Cheat Sheet Series, Authentication: https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html · Session Management: https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html
 - RFC 8058 (one-click unsubscribe): https://www.rfc-editor.org/rfc/rfc8058 · RFC 9457 (Problem Details): https://www.rfc-editor.org/rfc/rfc9457 · RFC 9116 (security.txt): https://www.rfc-editor.org/rfc/rfc9116
 - Gmail sender guidelines: https://support.google.com/a/answer/81126
+
+**Delivery methods** (Appendix E; summarised, not copied)
+- Scrum Guide (2020): https://scrumguides.org/scrum-guide.html · Kanban Guide (2025.5): https://kanbanguides.org/the-kanban-guide/
+- PRINCE2® 7 (PeopleCert): https://www.peoplecert.org · *PMBOK® Guide* 8th edition (PMI): https://www.pmi.org/standards/pmbok
+- Shape Up (37signals): https://basecamp.com/shapeup · LeSS rules: https://less.works/less/rules/index · SAFe® 6.0: https://framework.scaledagile.com
+- Boehm and Turner, "Using Risk to Balance Agile and Plan-Driven Methods", IEEE Computer, 2003: https://doi.org/10.1109/MC.2003.1204376
+- Mermaid gantt charts: https://mermaid.js.org/syntax/gantt.html · forecasting from throughput: https://prokanban.org/kanban-playbook/forecasting-delivery
