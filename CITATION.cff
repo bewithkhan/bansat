@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use Bansat in your work, please cite it as below."
+type: software
+title: "Bansat (بنسټ): A blueprint-first framework for building software"
+abstract: >-
+  Bansat (Pashto for "foundation") is a blueprint-first framework and Claude Agent Skill
+  for planning new software projects and auditing existing ones before code is written.
+  It covers product requirements, architecture, security, UK/EU GDPR, PECR and Nigeria
+  NDPA compliance, UI states, delivery and launch readiness.
+authors:
+  - family-names: "Khan"
+    given-names: "Muhammad Tufail"
+    # orcid: "https://orcid.org/0000-0000-0000-0000"   (add yours to link the citation to your ORCID record)
+version: "2.0.0"
+date-released: "2026-11-04"
+license:
+  - CC-BY-4.0
+  - MIT
+repository-code: "https://github.com/bewithkhan/bansat"
+url: "https://github.com/bewithkhan/bansat"
+keywords:
+  - blueprint
+  - software architecture
+  - privacy by design
+  - GDPR
+  - NDPA
+  - agent skills
+  - Claude
