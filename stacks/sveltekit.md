@@ -1,12 +1,12 @@
 # SvelteKit
 
-> **Group:** Frontend and full-stack · **Covers:** SvelteKit 3 (3.1, released 1 October 2026) on Svelte 5, Vite 8 and Node 22.17+; notes for 2.x · **Checked:** 2026-11-05 against the official docs
+> **Group:** Frontend and full-stack · **Covers:** SvelteKit 3 (3.1.1; 3.0 shipped on 1 October 2026) on Svelte 5, Vite 8 and Node 22.17+; notes for 2.x · **Checked:** 2026-11-05 against the official docs
 
 What changes from Next.js: the server entry points are `load` functions, form actions, `+server.ts` endpoints and
-(experimental) remote functions; `hooks.server.ts` runs `handle` before them; the CSRF origin check is always on since
-3.0; CSP is built in, with nonces or hashes; private variables come from `$app/env/private`, and server-only imports
-fail the build. SvelteKit 3 moved all configuration into the `sveltekit()` plugin in `vite.config.js`
-(`svelte.config.js` is no longer read) and replaced `$lib` with `#lib`.
+(experimental) remote functions; `hooks.server.ts` runs `handle` before them; the CSRF origin check is on by default,
+and since 3.0 only `trustedOrigins: ['*']` switches it off; CSP is built in, with nonces or hashes; private variables
+come from `$app/env/private`, and server-only imports fail the build. SvelteKit 3 moved all configuration into the
+`sveltekit()` plugin in `vite.config.js` (`svelte.config.js` is no longer read) and replaced `$lib` with `#lib`.
 
 ## Access and the isolation test
 
@@ -18,8 +18,11 @@ fail the build. SvelteKit 3 moved all configuration into the `sveltekit()` plugi
   layout `load` doesn't rerun on client navigation between child routes, and runs alongside page `load` unless the
   page awaits `parent()`. The docs suggest `handle` for groups of routes and a guard in each `+page.server.ts` for the
   rest. Form actions don't run `load` first.
-- **`handle` never runs for prerendered pages or static assets**, so a prerendered route (`export const prerender =
-  true`) is public whatever your hooks say. Keep per-user data out of it.
+- **What a server `load` returns goes to the browser**: SvelteKit serialises it with devalue into the HTML or the
+  `__data.json` response. Return DTOs, never whole rows or tokens.
+- **`handle` runs while a page is prerendered at build time, never when the prerendered file or a static asset is
+  served**, so a prerendered route (`export const prerender = true`) is public whatever your hooks say. Keep per-user
+  data out of it.
 - **Remote functions** (still experimental in 3.x, behind `experimental.remoteFunctions`) are HTTP endpoints. Give
   each one a Standard Schema validator (Zod or Valibot); `'unchecked'` switches validation off. In `handle`, a remote
   call's `event.url`, `route` and `params` describe the calling page and can be forged, so never authorise on them;
@@ -51,8 +54,8 @@ test('another tenant is denied', async ({ request }) => {
 - No built-in auth. The docs suggest checking the session cookie in `handle` and storing the user in `locals`; `npx sv
   add better-auth` scaffolds Better Auth with Drizzle (email and password by default), and the Lucia guide covers
   hand-rolled sessions.
-- `cookies.set` defaults to `httpOnly: true`, `secure: true` (except in development) and, since 3.0, `path: '/'`. Set
-  `sameSite: 'lax'` yourself. Cookie names must be ASCII.
+- `cookies.set` defaults to `httpOnly: true`, `secure: true` (except in development and on `http://localhost`),
+  `sameSite: 'lax'` and, since 3.0, `path: '/'`. Cookie names must be ASCII.
 - `handle` runs before an action but doesn't rerun before the `load` that follows, so an action that signs someone in
   or out must update `event.locals` itself.
 - Remote `form` fields whose names start with an underscore (`_password`) aren't sent back to the browser when
@@ -74,11 +77,12 @@ test('another tenant is denied', async ({ request }) => {
 
 ## CSRF and XSS
 
-- **CSRF**: since 3.0 the origin check can't be switched off. SvelteKit compares `Origin` with your origin on `POST`,
-  `PUT`, `PATCH` and `DELETE` form submissions and remote function calls, and rejects cross-origin unsafe requests
-  that have no `Content-Type`. Allow partners such as a payment provider with `csrf.trustedOrigins` (full origins).
-  `'*'` trusts everyone, which is the escape hatch. Behind a proxy, set `paths.origin` (it replaces `adapter-node`'s
-  `ORIGIN`) so the check knows your public origin.
+- **CSRF**: in production builds SvelteKit compares `Origin` with your origin on `POST`, `PUT`, `PATCH` and `DELETE`
+  form submissions (form, `text/plain` or no `Content-Type`) and on every non-`GET` remote function call. 3.0 removed
+  `checkOrigin`; allow partners such as a payment provider with `csrf.trustedOrigins` (full origins). The escape hatch
+  is `trustedOrigins: ['*']`, which switches the form check off at build time. Remote functions stay same-origin
+  whatever you list. Behind a proxy, set `paths.origin` (it replaces `adapter-node`'s `ORIGIN` variable and is read
+  when you build) so the check knows your public origin.
 - JSON `+server.ts` endpoints used with cookies: verify `Origin` yourself if your CORS policy is loose (7.4).
 - **XSS**: Svelte escapes expressions; `{@html ...}` is the escape hatch, so pass it only sanitised HTML (6.4). Svelte
   fixed several SSR XSS bugs in 2026 (spread attributes, `<svelte:element>`, `<option>`, `contenteditable` bindings),
@@ -90,8 +94,8 @@ test('another tenant is denied', async ({ request }) => {
   stamps its own inline scripts and styles; use `%sveltekit.nonce%` for tags in `app.html`. Prerendered pages get the
   policy as a `<meta>` tag, which ignores `frame-ancestors`, `report-uri` and `sandbox`, so send those as headers at
   the host.
-- Set the other 7.4 headers in `handle` with `response.headers.set`. `handle` doesn't see prerendered pages, so
-  configure those headers at the host too.
+- Set the other 7.4 headers in `handle` with `response.headers.set`. `handle` doesn't run when prerendered pages are
+  served, so configure those headers at the host too.
 
 ## Fonts and assets
 
@@ -144,7 +148,7 @@ test('another tenant is denied', async ({ request }) => {
 ## Limits
 
 - Remote functions are experimental, and 2026 brought several denial-of-service fixes in their form decoding.
-- `handle` doesn't run for prerendered pages, and CSRF checks don't run in development.
+- `handle` doesn't run when prerendered pages are served, and CSRF checks don't run in development.
 - No built-in auth or rate limiting.
 - 2.x still gets patches (2.70.4 shipped on 5 November 2026), but we couldn't find a published end date.
 
@@ -153,5 +157,6 @@ test('another tenant is denied', async ({ request }) => {
 - SvelteKit: [Auth](https://svelte.dev/docs/kit/auth) · [Hooks](https://svelte.dev/docs/kit/hooks) · [Loading data](https://svelte.dev/docs/kit/load) · [Form actions](https://svelte.dev/docs/kit/form-actions) · [Remote functions](https://svelte.dev/docs/kit/remote-functions) · [Server-only modules](https://svelte.dev/docs/kit/server-only-modules) · [Environment variables](https://svelte.dev/docs/kit/environment-variables)
 - [Configuration (csp, csrf)](https://svelte.dev/docs/kit/@sveltejs-kit-vite) · [Cookies API](https://svelte.dev/docs/kit/@sveltejs-kit) · [Errors](https://svelte.dev/docs/kit/errors) · [Observability](https://svelte.dev/docs/kit/observability) · [Performance](https://svelte.dev/docs/kit/performance) · [Migrating to v3](https://svelte.dev/docs/kit/migrating-to-sveltekit-3)
 - [Node servers](https://svelte.dev/docs/kit/adapter-node) · [Vercel](https://svelte.dev/docs/kit/adapter-vercel) · [Building your app](https://svelte.dev/docs/kit/building-your-app) · [Svelte `{@html}`](https://svelte.dev/docs/svelte/@html) · [CLI: better-auth](https://svelte.dev/docs/cli/better-auth) · [CLI: vitest](https://svelte.dev/docs/cli/vitest) · [CLI: playwright](https://svelte.dev/docs/cli/playwright)
+- Source, SvelteKit 3.1.1: [cookie defaults (`cookie.js`)](https://github.com/sveltejs/kit/blob/main/packages/kit/src/runtime/server/cookie.js) · [CSRF and remote-function checks (`csrf.js`)](https://github.com/sveltejs/kit/blob/main/packages/kit/src/runtime/server/csrf.js) · [`trustedOrigins: ['*']` at build (`exports/vite/index.js`)](https://github.com/sveltejs/kit/blob/main/packages/kit/src/exports/vite/index.js)
 - Elsewhere: [Supabase SSR client](https://supabase.com/docs/guides/auth/server-side/creating-a-client) · [npm: @sveltejs/kit versions](https://www.npmjs.com/package/@sveltejs/kit?activeTab=versions)
 - Advisories: [CVE-2026-82258](https://github.com/sveltejs/kit/security/advisories/GHSA-hgv7-v322-mmgr) · [CVE-2026-40073](https://github.com/sveltejs/kit/security/advisories/GHSA-2crg-3p73-43xp) · [CVE-2025-67647](https://github.com/sveltejs/kit/security/advisories/GHSA-j62c-4x62-9r35) · [Svelte spread-attribute XSS](https://github.com/sveltejs/svelte/security/advisories/GHSA-pr6f-5x2q-rwfp) · [Svelte `<svelte:element>`](https://github.com/sveltejs/svelte/security/advisories/GHSA-m56q-vw4c-c2cp) · [Svelte `<option>`](https://github.com/sveltejs/svelte/security/advisories/GHSA-h7h7-mm68-gmrc) · [Svelte contenteditable](https://github.com/sveltejs/svelte/security/advisories/GHSA-phwv-c562-gvmh)

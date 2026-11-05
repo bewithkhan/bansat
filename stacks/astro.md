@@ -22,8 +22,12 @@ works; Astro 7 (June 2026) moved to Vite 8 and a Rust compiler.
   check against `base` (CVE-2026-84376) and spoofed URL headers (CVE-2025-64525). Use middleware to load the session
   into `locals`, never to decide access by matching `context.url.pathname`. Since 6.0, `Astro.url.pathname` may be
   partly decoded and differ from the raw request path.
-- **Caches skip middleware.** On Vercel with ISR, middleware runs only on a cache miss: don't cache signed-in routes,
-  or set `middlewareMode: 'edge'` or `exclude` them.
+- **Caches skip middleware.** Route caching (stable since 7.0: a `cache` provider plus `routeRules`, or
+  `Astro.cache.set()`) serves hits without your code: the adapters' CDN providers answer from the edge without calling
+  the server function, and the memory provider ignores `Cookie` when it splits entries by `Vary`. Never cache
+  signed-in or per-user routes through `routeRules` or `Astro.cache`, and call `Astro.cache.set(false)` on
+  personalised responses that a rule would otherwise cache. On Vercel with ISR, middleware likewise runs only on a
+  cache miss: keep signed-in routes out of ISR (`exclude`), or set `middlewareMode: 'edge'`.
 - **Server islands** run as their own requests: check the session inside the island component. Their props travel
   encrypted in the URL with a key made per build, so set `ASTRO_KEY` (from `astro create-key`) in the build
   environment for rolling or multi-region deploys.
@@ -52,8 +56,8 @@ test('another tenant is denied', async ({ request }) => {
 - Sessions (`Astro.session`, `context.session`) are stored on the server through a driver; the Node, Cloudflare and
   Netlify adapters set one up. The cookie, `astro-session`, defaults to `httpOnly`, `secure` and `sameSite: 'lax'`.
   Sessions work only on on-demand routes.
-- Session drivers are configured at build time and any environment variables they use are inlined into the build. Put
-  a driver that needs a secret, such as a Redis URL, in its own entrypoint file so it reads the secret at runtime.
+- Astro bakes a session driver's settings, and any environment variable they read, into the build output. A driver
+  that needs a secret, such as a Redis URL, belongs in its own entrypoint file, which reads it when the server runs.
 - There's no rate limiting: add 6.6's limits in middleware or at the host.
 
 ## Secrets
@@ -80,7 +84,8 @@ test('another tenant is denied', async ({ request }) => {
   `[{}]` trusts every host. Bodies are capped at 1 MB for actions (`security.actionBodySizeLimit`) and server islands.
 - **XSS**: Astro escapes expressions. `set:html` doesn't, so pass it only sanitised HTML (6.4); `set:text` escapes.
   `is:inline` scripts are left as written. 2026 brought XSS fixes in `define:vars` (CVE-2026-41067), spread
-  attributes, slot names and view transitions, the last in 7.3.2: patch quickly (7.6).
+  attributes, slot names, view transitions and JSX/MDX `<script>` and `<style>` content (CVE-2026-114128, 7.3.2), then
+  a View Transitions CSS injection fix in 7.3.3 (CVE-2026-114127): patch quickly (7.6).
 - **CSP**: `security.csp` hashes Astro's own scripts and styles and writes the policy, plus your `directives`, into a
   `<meta http-equiv>` tag on each page. It doesn't run in `astro dev` (test with `build` and `preview`), external
   scripts need hashes you supply, `<ClientRouter />` and Shiki aren't supported, and `'unsafe-inline'` in a directive
@@ -96,8 +101,8 @@ test('another tenant is denied', async ({ request }) => {
 - `<script>` tags are processed and bundled by default, npm imports included. A `src` pointing at a CDN, or
   `is:inline`, skips that: keep third-party code out of both.
 - Remote images go through your server's `/_image` endpoint, limited to `image.domains` and `image.remotePatterns`.
-  That endpoint had SSRF bugs (CVE-2025-55303, CVE-2025-59837) and remote code execution when optimising AVIF files
-  (fixed in 7.2.8 with Sharp 0.35.4): keep the patterns narrow and patch.
+  That endpoint had SSRF and XSS bugs (CVE-2025-59837, CVE-2025-55303) and remote code execution when optimising AVIF
+  files (fixed in 7.2.8 with Sharp 0.35.4): keep the patterns narrow and patch.
 
 ## Consent
 
@@ -105,8 +110,11 @@ test('another tenant is denied', async ({ request }) => {
   `<script>` in the base layout; it runs on prerendered and on-demand pages alike.
 - Never paste a vendor snippet as an `is:inline` script into a layout: it runs before any choice.
 - `@astrojs/partytown` moves third-party scripts into a web worker, but they still contact the vendor, so gate them
-  the same way. `@astrojs/vercel`'s `webAnalytics` option, when enabled, injects Vercel's analytics script into every
-  page: that's analytics under 9.8 and 9.10.
+  the same way.
+- Vercel Web Analytics is analytics under 9.8 and 9.10, either way you add it: `@astrojs/vercel`'s `webAnalytics`
+  option (for `@vercel/analytics` 1.3.x or earlier) injects the script into every page, and from 1.4 you add Vercel's
+  `<Analytics />` component. Both load from your own domain under `/_vercel/insights/`, so the 9.9 host test won't
+  see them: gate either one, and assert no `/_vercel/` request before consent.
 
 ## Logging
 
@@ -147,8 +155,8 @@ test('another tenant is denied', async ({ request }) => {
 
 ## Sources
 
-- Astro: [Actions](https://docs.astro.build/en/guides/actions/) · [Middleware](https://docs.astro.build/en/guides/middleware/) · [On-demand rendering](https://docs.astro.build/en/guides/on-demand-rendering/) · [Server islands](https://docs.astro.build/en/guides/server-islands/) · [Sessions](https://docs.astro.build/en/guides/sessions/) · [Authentication](https://docs.astro.build/en/guides/authentication/) · [Environment variables](https://docs.astro.build/en/guides/environment-variables/)
+- Astro: [Actions](https://docs.astro.build/en/guides/actions/) · [Middleware](https://docs.astro.build/en/guides/middleware/) · [On-demand rendering](https://docs.astro.build/en/guides/on-demand-rendering/) · [Server islands](https://docs.astro.build/en/guides/server-islands/) · [Route caching](https://docs.astro.build/en/guides/caching/) · [Cache provider reference](https://docs.astro.build/en/reference/cache-provider-reference/) · [Sessions](https://docs.astro.build/en/guides/sessions/) · [Authentication](https://docs.astro.build/en/guides/authentication/) · [Environment variables](https://docs.astro.build/en/guides/environment-variables/)
 - [Configuration: security, csp, session, env](https://docs.astro.build/en/reference/configuration-reference/) · [Directives (set:html, is:inline)](https://docs.astro.build/en/reference/directives-reference/) · [Scripts](https://docs.astro.build/en/guides/client-side-scripts/) · [Fonts](https://docs.astro.build/en/guides/fonts/) · [Partytown](https://docs.astro.build/en/guides/integrations-guide/partytown/) · [Testing](https://docs.astro.build/en/guides/testing/)
 - [Node adapter](https://docs.astro.build/en/guides/integrations-guide/node/) · [Vercel adapter](https://docs.astro.build/en/guides/integrations-guide/vercel/) · [Upgrade to v7](https://docs.astro.build/en/guides/upgrade-to/v7/) · [Upgrade to v6](https://docs.astro.build/en/guides/upgrade-to/v6/) · [Older docs (unmaintained)](https://docs.astro.build/en/upgrade-astro/)
-- Elsewhere: [Supabase SSR client](https://supabase.com/docs/guides/auth/server-side/creating-a-client) · [Vercel function regions](https://vercel.com/docs/functions/configuring-functions/region) · [MDN: frame-ancestors](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/frame-ancestors) · [npm: astro versions](https://www.npmjs.com/package/astro?activeTab=versions)
-- Advisories: [CVE-2025-64765](https://github.com/withastro/astro/security/advisories/GHSA-ggxq-hp9w-j794) · [CVE-2025-66202](https://github.com/withastro/astro/security/advisories/GHSA-whqg-ppgf-wp8c) · [CVE-2026-59731](https://github.com/withastro/astro/security/advisories/GHSA-vj59-8hwv-xxmv) · [CVE-2026-84376](https://github.com/withastro/astro/security/advisories/GHSA-376h-93r7-7g6f) · [CVE-2025-64525](https://github.com/withastro/astro/security/advisories/GHSA-hr2q-hp5q-x767) · [CVE-2026-73423](https://github.com/withastro/astro/security/advisories/GHSA-8mv7-9c27-98vc) · [CVE-2026-41067](https://github.com/withastro/astro/security/advisories/GHSA-j687-52p2-xcff) · [AVIF RCE](https://github.com/withastro/astro/security/advisories/GHSA-26w7-cxv4-gfx2) · [CVE-2025-55303](https://github.com/withastro/astro/security/advisories/GHSA-xf8x-j4p2-f749) · [CVE-2025-59837](https://github.com/withastro/astro/security/advisories/GHSA-qcpr-679q-rhm2) · [CVE-2026-102984](https://github.com/withastro/astro/security/advisories/GHSA-qh8j-hqjv-7m4x) · [CVE-2026-33768](https://github.com/withastro/astro/security/advisories/GHSA-mr6q-rp88-fx84) · [CVE-2026-54300](https://github.com/withastro/astro/security/advisories/GHSA-529g-xq4f-cw38)
+- Elsewhere: [Supabase SSR client](https://supabase.com/docs/guides/auth/server-side/creating-a-client) · [Vercel function regions](https://vercel.com/docs/functions/configuring-functions/region) · [MDN: frame-ancestors](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/frame-ancestors) · [npm: astro versions](https://www.npmjs.com/package/astro?activeTab=versions) · [Vercel Web Analytics quickstart](https://vercel.com/docs/analytics/quickstart)
+- Advisories: [CVE-2025-64765](https://github.com/withastro/astro/security/advisories/GHSA-ggxq-hp9w-j794) · [CVE-2025-66202](https://github.com/withastro/astro/security/advisories/GHSA-whqg-ppgf-wp8c) · [CVE-2026-59731](https://github.com/withastro/astro/security/advisories/GHSA-vj59-8hwv-xxmv) · [CVE-2026-84376](https://github.com/withastro/astro/security/advisories/GHSA-376h-93r7-7g6f) · [CVE-2025-64525](https://github.com/withastro/astro/security/advisories/GHSA-hr2q-hp5q-x767) · [CVE-2026-73423](https://github.com/withastro/astro/security/advisories/GHSA-8mv7-9c27-98vc) · [CVE-2026-41067](https://github.com/withastro/astro/security/advisories/GHSA-j687-52p2-xcff) · [CVE-2026-114128](https://github.com/withastro/astro/security/advisories/GHSA-98hj-9722-w3j8) · [CVE-2026-114127](https://github.com/withastro/astro/security/advisories/GHSA-mpr7-6m5w-76rw) · [AVIF RCE](https://github.com/withastro/astro/security/advisories/GHSA-26w7-cxv4-gfx2) · [CVE-2025-55303](https://github.com/withastro/astro/security/advisories/GHSA-xf8x-j4p2-f749) · [CVE-2025-59837](https://github.com/withastro/astro/security/advisories/GHSA-qcpr-679q-rhm2) · [CVE-2026-102984](https://github.com/withastro/astro/security/advisories/GHSA-qh8j-hqjv-7m4x) · [CVE-2026-33768](https://github.com/withastro/astro/security/advisories/GHSA-mr6q-rp88-fx84) · [CVE-2026-54300](https://github.com/withastro/astro/security/advisories/GHSA-529g-xq4f-cw38)

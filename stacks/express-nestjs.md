@@ -16,12 +16,12 @@ them.
   query by the tenant taken from the session (5.4), never from the request body.
 - **NestJS**: guards run after all middleware and before interceptors and pipes, and unlike middleware they know which
   handler is next. Register them globally (`APP_GUARD`) so a new route is protected by default.
-- **`@nestjs/authorization`** (0.x, Nest 12 only) expresses rules as policies: classes whose methods answer "may this
-  user do this?", checked with `@Can(Policy, 'ability')`. Its global guard denies any handler that declares no check,
-  and logs those at startup. The docs say to put record checks in services after loading the record, filter lists in
-  the query, import `AuthenticationModule` before `AuthorizationModule`, and never cache responses by URL on
-  record-checked routes: a `CacheInterceptor` answers before the policy runs. `@Public()` and `@Can.Anyone()` are the
-  escape hatches; review each one.
+- **`@nestjs/authorization`** (0.x, Nest 12 only) keeps rules in `@Policy()` classes, one method per ability that
+  takes the user and allows only by returning `true`, checked with `@Can(Policy, 'ability')`. Its global guard denies
+  any handler that declares no check, and logs those at startup. The docs say to put record checks in services after
+  loading the record, filter lists in the query, import `AuthenticationModule` before `AuthorizationModule`, and
+  never cache responses by URL on record-checked routes: a `CacheInterceptor` answers before the policy runs.
+  `@Public()` and `@Can.Anyone()` are the escape hatches; review each one.
 - **Middleware is no boundary on Fastify**: path-scoped Nest middleware (`MiddlewareConsumer.forRoutes()`) was
   bypassed through URL encoding (CVE-2025-69211, CVE-2026-2293), `HEAD` requests (CVE-2026-33011), a trailing slash
   (CVE-2026-54281) and absolute-form request targets (fixed in 12.0.2 and 11.2.4). Put access checks in guards and
@@ -79,6 +79,12 @@ For plain Express, export the `app` and call `request(app)` the same way.
   variables. In 12, `validationSchema` takes any Standard Schema such as Zod, so a missing secret stops start-up.
 - Keep the Supabase secret key, database URL, session secret, JWT secret (32 bytes or more, from a secret manager) and
   TOTP encryption keys server-side and per environment (3.7).
+- **What you return is what leaks.** An ORM entity carries password hashes, tokens and fields the caller shouldn't
+  see; the Nest serialization docs say passwords must always be left out. Return DTOs. In Nest 12, bind
+  `StandardSchemaSerializerInterceptor` globally and give every handler a response schema with
+  `@SerializeOptions({ schema })`: Zod's `z.object()` drops undeclared fields, so it works as an allowlist, but
+  handlers without a schema pass through untouched. `ClassSerializerInterceptor` with `@Exclude()` applies only to
+  class instances. In Express, map rows to DTOs before `res.json()`.
 
 ## CSRF and XSS
 
@@ -89,8 +95,14 @@ For plain Express, export the `app` and call `request(app)` the same way.
 - **NestJS 12.1+**: call `app.enableCsrfProtection()` straight after `NestFactory.create()`. It allows `GET`, `HEAD`
   and `OPTIONS`, rejects unsafe requests whose `Sec-Fetch-Site` isn't `same-origin` or `none`, falls back to comparing
   `Origin` with `Host`, ignores `X-Forwarded-Host`, and runs before middleware and guards. `trustedOrigins` and
-  `exclude` are its escape hatches: exclude only signed webhooks (6.5). It doesn't check WebSocket upgrades, so check
-  `Origin` in gateways that use cookies.
+  `exclude` are its escape hatches: exclude only signed webhooks (6.5) and identity-provider callbacks that arrive as
+  cross-site form `POST`s (SAML, OAuth's `form_post`). It doesn't check WebSocket upgrades, so check `Origin` in
+  gateways that use cookies.
+- **CORS**: Express's `cors` middleware, which Nest's `enableCors()` also uses on Express (`@fastify/cors` on
+  Fastify), reflects whatever `Origin` arrives with `origin: true`, and with a RegExp such as `/example\.com$/` any
+  origin ending that way, `evil-example.com` included. With `credentials: true` and cookie sessions, such a site can
+  read signed-in responses. List exact origins, allow credentials only for them, never reflect, and put the same list
+  in Nest's `trustedOrigins`: its CSRF check doesn't trust CORS origins on its own.
 - **Validation**: `ValidationPipe` with `whitelist` and `forbidNonWhitelisted`, or, new in 12,
   `StandardSchemaValidationPipe` with `@Body({ schema })` and a `.strict()` Zod schema (3.8, 6.4).
 - **XSS**: send JSON with `res.json()` and `nosniff`. If you render HTML, the template engine's raw-output syntax
@@ -146,7 +158,8 @@ For plain Express, export the `app` and call `request(app)` the same way.
   `req.ip` (rate limits), `req.secure` (secure cookies) and `req.hostname` all depend on it.
 - Nest's CSRF check reads `Host` and ignores `X-Forwarded-Host`: keep `Host` intact at the proxy, or list the public
   origin in `trustedOrigins`.
-- Nest 12 runs on Node 20.19+ or 22.12+; its CLI needs 22.22.3+. Express 5 needs Node 18+.
+- Nest 12 runs on Node 20.19+ or 22.12+; its CLI's generators (`@nestjs/schematics`) need 22.22.3+ (22.x), 24.15+ or
+  26+. Express 5 needs Node 18+.
 - Never enable `@nestjs/devtools-integration` outside a developer's machine: it allowed remote code execution from any
   website the developer visited (CVE-2025-54782, fixed in 0.2.1).
 - Patch the middleware too: `multer` and `body-parser` had repeated denial-of-service fixes in 2025 and 2026, and
@@ -168,8 +181,8 @@ For plain Express, export the `app` and call `request(app)` the same way.
 
 ## Sources
 
-- Express: [Security best practices](https://expressjs.com/en/advanced/best-practice-security) · [Error handling](https://expressjs.com/en/5x/guide/error-handling) · [Behind proxies](https://expressjs.com/en/5x/guide/behind-proxies) · [Migrating to 5](https://expressjs.com/en/guide/migrating-5) · [express-session](https://expressjs.com/en/resources/middleware/session) · [morgan](https://expressjs.com/en/resources/middleware/morgan) · [FAQ](https://expressjs.com/en/5x/starter/faq) · [Support](https://expressjs.com/en/support) · [Security updates](https://expressjs.com/en/advanced/security-updates)
-- NestJS: [Authentication](https://docs.nestjs.com/security/authentication) · [Authorization](https://docs.nestjs.com/security/authorization) · [CSRF](https://docs.nestjs.com/security/csrf) · [Security headers](https://docs.nestjs.com/security/helmet) · [Rate limiting](https://docs.nestjs.com/security/rate-limiting) · [Guards](https://docs.nestjs.com/guards) · [Configuration](https://docs.nestjs.com/application/configuration) · [Validation](https://docs.nestjs.com/application/validation)
+- Express: [Security best practices](https://expressjs.com/en/advanced/best-practice-security) · [Error handling](https://expressjs.com/en/5x/guide/error-handling) · [Behind proxies](https://expressjs.com/en/5x/guide/behind-proxies) · [Migrating to 5](https://expressjs.com/en/guide/migrating-5) · [express-session](https://expressjs.com/en/resources/middleware/session) · [cors](https://expressjs.com/en/resources/middleware/cors) · [morgan](https://expressjs.com/en/resources/middleware/morgan) · [FAQ](https://expressjs.com/en/5x/starter/faq) · [Support](https://expressjs.com/en/support) · [Security updates](https://expressjs.com/en/advanced/security-updates)
+- NestJS: [Authentication](https://docs.nestjs.com/security/authentication) · [Authorization](https://docs.nestjs.com/security/authorization) · [CSRF](https://docs.nestjs.com/security/csrf) · [CORS](https://docs.nestjs.com/security/cors) · [Serialization](https://docs.nestjs.com/application/serialization) · [Security headers](https://docs.nestjs.com/security/helmet) · [Rate limiting](https://docs.nestjs.com/security/rate-limiting) · [Guards](https://docs.nestjs.com/guards) · [Configuration](https://docs.nestjs.com/application/configuration) · [Validation](https://docs.nestjs.com/application/validation)
 - [Logger](https://docs.nestjs.com/application/logger) · [Exception filters](https://docs.nestjs.com/exception-filters) · [Testing](https://docs.nestjs.com/fundamentals/testing) · [Migration guide (11 to 12)](https://docs.nestjs.com/migration-guide)
 - Elsewhere: [npm: csurf](https://www.npmjs.com/package/csurf) · [EJS](https://ejs.co/) · [Pug interpolation](https://pugjs.org/language/interpolation.html) · [Handlebars expressions](https://handlebarsjs.com/guide/expressions.html) · [Node.js `--env-file`](https://nodejs.org/api/cli.html#--env-filefile) · [npm: express versions](https://www.npmjs.com/package/express?activeTab=versions)
 - Advisories: [CVE-2025-69211](https://github.com/nestjs/nest/security/advisories/GHSA-8wpr-639p-ccrj) · [CVE-2026-2293](https://github.com/nestjs/nest/security/advisories/GHSA-r4wm-x892-vjmx) · [CVE-2026-33011](https://github.com/nestjs/nest/security/advisories/GHSA-wf42-42fg-fg84) · [CVE-2026-54281](https://github.com/nestjs/nest/security/advisories/GHSA-6v32-fjc9-9qf6) · [Absolute-form bypass](https://github.com/nestjs/nest/security/advisories/GHSA-9c5c-9qcx-q35q) · [CVE-2025-54782](https://github.com/nestjs/nest/security/advisories/GHSA-85cg-cmq5-qjm7) · [path-to-regexp ReDoS](https://github.com/pillarjs/path-to-regexp/security/advisories/GHSA-j3q9-mxjg-w52f) · [body-parser DoS](https://github.com/expressjs/body-parser/security/advisories/GHSA-27r3-jxmh-p828) · [multer DoS](https://github.com/expressjs/multer/security/advisories/GHSA-q7qp-rjg7-q26m)

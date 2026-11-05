@@ -47,9 +47,9 @@ it('rejects a write to another organisation', async () => {
 ## Authentication
 
 - Next.js ships no auth. The reference uses Supabase Auth through `@supabase/ssr`: Supabase's SSR guide has the
-  Next.js code, and 7.1 the rules (refresh in Proxy, `getClaims()` or `getUser()` on the server, never
-  `getSession()`). The docs also list NextAuth.js, Better Auth, Clerk and WorkOS; their hand-rolled example uses
-  `jose` or `iron-session` with an `httpOnly`, `secure`, `sameSite: 'lax'`, `path: '/'` cookie holding IDs only (7.5).
+  Next.js code (it refreshes the session in Proxy), and 7.1 the rules (`getClaims()` or `getUser()` on the server,
+  never `getSession()`). The docs also list NextAuth.js, Better Auth, Clerk and WorkOS; their hand-rolled example uses
+  `jose` or `iron-session` with an `httpOnly`, `secure`, `sameSite: 'lax'`, `path: '/'` cookie (7.1) holding IDs only.
 - Since 16, `cookies()`, `headers()`, `params` and `searchParams` are async only.
 - There's no rate limiting or lockout: apply 6.6 to the sign-in, magic-link and reset actions, by account and by IP.
 
@@ -68,14 +68,17 @@ it('rejects a write to another organisation', async () => {
 - **Server Actions** are POST only, and `Origin` must match `Host` (or `X-Forwarded-Host`). Proxy and CDN hosts go in
   `experimental.serverActions.allowedOrigins`; never add `'null'` (CVE-2026-27978: requests from sandboxed iframes
   passed until 16.1.7). The body limit is 1 MB (`bodySizeLimit`).
-- **Route Handlers** get no check: verify `Origin` on state-changing methods yourself (7.4).
+- **Route Handlers** get no check (Next.js's security post says CSRF protection there is manual): verify `Origin` on
+  state-changing methods yourself (7.4).
 - **XSS**: React escapes output. Use `dangerouslySetInnerHTML` only with sanitised HTML (6.4) or a `TrustedHTML`
   value, and never put untrusted data in `beforeInteractive` scripts (CVE-2026-44580).
-- **CSP nonce** (7.4): generate it per request in `proxy.ts` and set it on the request's `Content-Security-Policy`
-  header; Next.js reads it there and adds it to its own scripts and to `<Script nonce>`. Overwrite any inbound CSP
-  header (CVE-2026-44581 reflected malformed ones into cached HTML). Nonces force dynamic rendering: no static pages,
-  ISR, CDN caching or Partial Prerendering. Experimental `sri` gives hash-based CSP for static pages. `'unsafe-eval'`
-  is for development only.
+- **CSP nonce** (7.4): generate it per request in `proxy.ts` and set the same policy on the request and on the
+  response. Next.js reads the nonce from the request's `Content-Security-Policy` header (or, failing that,
+  `-Report-Only`) and adds it to its own scripts and to `<Script nonce>`; the browser sees and enforces the response
+  header. In 7.4's report-only phase, set `Content-Security-Policy-Report-Only` on both and delete any inbound
+  `Content-Security-Policy` request header. Always overwrite inbound CSP headers (CVE-2026-44581 reflected malformed
+  ones into cached HTML). Nonces force dynamic rendering: no static pages, ISR, CDN caching or Partial Prerendering.
+  Experimental `sri` gives hash-based CSP for static pages. `'unsafe-eval'` is for development only.
 - Set the other 7.4 headers with `headers()` in `next.config`, plus `poweredByHeader: false`.
 
 ## Fonts and assets
@@ -84,9 +87,9 @@ it('rejects a write to another organisation', async () => {
   Google (9.9); `next/font/local` serves your own files. The trap is a pasted `fonts.googleapis.com` `<link>` or CSS
   `@import`, which bypasses it.
 - `next/image` fetches remote images on your server, only from `images.remotePatterns`; keep that to your own storage.
-  The optimiser is server attack surface: in 2026 it had an SSRF (CVE-2026-94483, fixed in 16.3.8) and remote code
-  execution through `sharp` on AVIF (fixed in 16.3.3) and SVG files (16.4.1, with `sharp` 0.35.5+). Since 16, local
-  IPs are blocked unless `images.dangerouslyAllowLocalIP` is set.
+  The optimiser is server attack surface: in 2026 it had an SSRF in 16.x (CVE-2026-94483, fixed in 16.3.8) and remote
+  code execution through `sharp` on AVIF (fixed in 16.3.3 and 15.5.24) and SVG files (16.4.1 and 15.5.28, with
+  `sharp` 0.35.5+). Since 16, local IPs are blocked unless `images.dangerouslyAllowLocalIP` is set.
 - An `assetPrefix` CDN goes into the CSP and the register (3.6).
 
 ## Consent
@@ -100,6 +103,11 @@ it('rejects a write to another organisation', async () => {
 - `@next/third-parties` (experimental) offers `GoogleTagManager` (which loads `gtm.js` from `googletagmanager.com`)
   and `GoogleAnalytics`; neither checks consent. Mount them inside the gate, with Consent Mode defaulting to denied
   (9.7).
+- **Vercel Web Analytics and Speed Insights** (`<Analytics />`, `<SpeedInsights />`) load their scripts from your own
+  domain in production (`/_vercel/insights/script.js`, `/_vercel/speed-insights/script.js`) and send page views to
+  Vercel, so the 9.9 host test and the CSP allowlist never flag them. They're analytics under 9.8 and 9.10: render
+  them inside the gate, or record the UK analytics exemption with its opt-out (9.8, item 9) and gate them for EU
+  visitors. List them in the register (3.6), and assert that no `/_vercel/` request happens before consent.
 - The docs suggest `beforeInteractive` for cookie consent managers, but one served from its vendor's CDN is a
   third-party request before consent. Prefer 9.7's first-party module, or self-host the manager's script (3.6).
 - Keep the gate on the client: reading the consent cookie with `cookies()` in a layout makes every route under it
@@ -148,9 +156,10 @@ export function ConsentedScript({ purpose, src }: { purpose: ConsentPurpose; src
 - **Vercel** (3.1): Functions run in `iad1` (Washington, D.C.) by default for new projects; set `regions` in
   `vercel.json` or in project settings to `lhr1` or `fra1` (ADR-005). Store secrets as the Secret type (7.4, case
   F-14).
-- **Self-hosting**: `next start` or `output: 'standalone'` behind a reverse proxy that pins the `Host` header
-  (CVE-2026-64649 turned attacker-chosen Host headers into SSRF through Server Actions on custom servers) and strips
-  `x-middleware-subrequest`.
+- **Self-hosting**: `next start` or `output: 'standalone'` behind a reverse proxy that strips
+  `x-middleware-subrequest`. On a custom server, pin `Host` and `X-Forwarded-Host` at the proxy: CVE-2026-64649
+  turned attacker-chosen Host headers into SSRF through Server Actions (fixed in 15.5.21 and 16.2.11; `next start`
+  and standalone have pinned the host themselves since 14.2).
 - With several instances, share the encryption key and a cache handler. New builds usually get new action IDs, so
   deploy in a rolling fashion and treat "Failed to find Server Action" as a retry.
 - Keep Next.js's `Cache-Control: private, no-cache, no-store` on dynamic pages, and make any CDN respect it.
@@ -170,10 +179,11 @@ export function ConsentedScript({ purpose, src }: { purpose: ConsentPurpose; src
 
 ## Sources
 
-- Next.js: [Data security](https://nextjs.org/docs/app/guides/data-security) · [Server Actions](https://nextjs.org/docs/app/guides/server-actions) · [Authentication](https://nextjs.org/docs/app/guides/authentication) · [Auth with Cache Components](https://nextjs.org/docs/app/guides/authentication-with-cache-components) · [proxy.js](https://nextjs.org/docs/app/api-reference/file-conventions/proxy) · [Upgrading to 16](https://nextjs.org/docs/app/guides/upgrading/version-16)
+- Next.js: [How to think about security in Next.js (CSRF in Route Handlers)](https://nextjs.org/blog/security-nextjs-server-components-actions) · [Data security](https://nextjs.org/docs/app/guides/data-security) · [Server Actions](https://nextjs.org/docs/app/guides/server-actions) · [Authentication](https://nextjs.org/docs/app/guides/authentication) · [Auth with Cache Components](https://nextjs.org/docs/app/guides/authentication-with-cache-components) · [proxy.js](https://nextjs.org/docs/app/api-reference/file-conventions/proxy) · [Upgrading to 16](https://nextjs.org/docs/app/guides/upgrading/version-16)
 - [Environment variables](https://nextjs.org/docs/app/guides/environment-variables) · [`env`](https://nextjs.org/docs/app/api-reference/config/next-config-js/env) · [`serverActions`](https://nextjs.org/docs/app/api-reference/config/next-config-js/serverActions) · [CSP](https://nextjs.org/docs/app/guides/content-security-policy) · [`headers`](https://nextjs.org/docs/app/api-reference/config/next-config-js/headers) · [`poweredByHeader`](https://nextjs.org/docs/app/api-reference/config/next-config-js/poweredByHeader)
 - [Font](https://nextjs.org/docs/app/api-reference/components/font) · [Image](https://nextjs.org/docs/app/api-reference/components/image) · [Script](https://nextjs.org/docs/app/api-reference/components/script) · [Third-party libraries](https://nextjs.org/docs/app/guides/third-party-libraries) · [instrumentation.js](https://nextjs.org/docs/app/api-reference/file-conventions/instrumentation) · [error.js](https://nextjs.org/docs/app/api-reference/file-conventions/error) · [`logging`](https://nextjs.org/docs/app/api-reference/config/next-config-js/logging)
 - [Vitest](https://nextjs.org/docs/app/guides/testing/vitest) · [Playwright](https://nextjs.org/docs/app/guides/testing/playwright) · [Self-hosting](https://nextjs.org/docs/app/guides/self-hosting) · [Static exports](https://nextjs.org/docs/app/guides/static-exports) · [Support policy](https://nextjs.org/support-policy)
-- Elsewhere: [React `dangerouslySetInnerHTML`](https://react.dev/reference/react-dom/components/common) · [MDN: frame-ancestors](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/frame-ancestors) · [`server-only` source](https://cdn.jsdelivr.net/npm/server-only/index.js) · [Vercel function regions](https://vercel.com/docs/functions/configuring-functions/region) · [Supabase SSR client](https://supabase.com/docs/guides/auth/server-side/creating-a-client)
+- Elsewhere: [React `dangerouslySetInnerHTML`](https://react.dev/reference/react-dom/components/common) · [MDN: frame-ancestors](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/frame-ancestors) · [`server-only` source](https://cdn.jsdelivr.net/npm/server-only/index.js) · [Vercel function regions](https://vercel.com/docs/functions/configuring-functions/region) · [Supabase SSR client](https://supabase.com/docs/guides/auth/server-side/creating-a-client) · [Vercel Web Analytics quickstart](https://vercel.com/docs/analytics/quickstart) · [Vercel Web Analytics privacy](https://vercel.com/docs/analytics/privacy-policy) · [Speed Insights quickstart](https://vercel.com/docs/speed-insights/quickstart) · [`@vercel/analytics` (npm)](https://www.npmjs.com/package/@vercel/analytics)
+- Source, Next.js 16.4.5: [nonce read from the request's CSP header](https://github.com/vercel/next.js/blob/v16.4.5/packages/next/src/server/app-render/get-script-nonce-from-header.tsx)
 - Proxy bypasses: [CVE-2025-29927](https://github.com/vercel/next.js/security/advisories/GHSA-f82v-jwr5-mffw) · [CVE-2026-44575](https://github.com/vercel/next.js/security/advisories/GHSA-267c-6grr-h53f) · [CVE-2026-45109](https://github.com/vercel/next.js/security/advisories/GHSA-26hh-7cqf-hhc6) · [CVE-2026-44573](https://github.com/vercel/next.js/security/advisories/GHSA-36qx-fr4f-26g5) · [CVE-2026-44574](https://github.com/vercel/next.js/security/advisories/GHSA-492v-c6pp-mqqv) · [CVE-2026-64642](https://github.com/vercel/next.js/security/advisories/GHSA-6gpp-xcg3-4w24)
 - Other advisories: [CVE-2026-64643](https://github.com/vercel/next.js/security/advisories/GHSA-955p-x3mx-jcvp) · [CVE-2026-27978](https://github.com/vercel/next.js/security/advisories/GHSA-mq59-m269-xvcx) · [CVE-2026-44580](https://github.com/vercel/next.js/security/advisories/GHSA-gx5p-jg67-6x7h) · [CVE-2026-44581](https://github.com/vercel/next.js/security/advisories/GHSA-ffhc-5mcf-pf4q) · [CVE-2026-64649](https://github.com/vercel/next.js/security/advisories/GHSA-89xv-2m56-2m9x) · [CVE-2026-94483](https://github.com/vercel/next.js/security/advisories/GHSA-cjq9-62q9-8jv4) · [AVIF RCE](https://github.com/vercel/next.js/security/advisories/GHSA-2xp9-vwfh-vxw4) · [SVG RCE](https://github.com/vercel/next.js/security/advisories/GHSA-2464-fhr4-w9xw) · [CVE-2025-55182](https://github.com/facebook/react/security/advisories/GHSA-fv66-9v8q-g76r)

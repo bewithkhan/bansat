@@ -1,10 +1,10 @@
 # Nuxt
 
-> **Group:** Frontend and full-stack · **Covers:** Nuxt 4 (4.6) on Nitro 2, Vue 3 and Node 22.22.3+; Nuxt 3 reached end of life on 31 July 2026, and Nuxt 5 (Nitro 3) is scheduled for Q4 2026 · **Checked:** 2026-11-05 against the official docs
+> **Group:** Frontend and full-stack · **Covers:** Nuxt 4 (4.6.3 or later; 4.6.4 is current) on Nitro 2 (h3 v1), Vue 3 and Node 22.22.3+ (22.x), 24.15+ or 26+; Nuxt 3 reached end of life on 31 July 2026, and Nuxt 5 (Nitro 3) is scheduled for Q4 2026 · **Checked:** 2026-11-05 against the official docs
 
 What changes from Next.js: server code is Nitro event handlers in `server/`, not Server Actions; route middleware is a
-Vue navigation guard, never protection; Nuxt has no built-in CSRF check; headers and CSP come from the `nuxt-security`
-module; fonts and third-party scripts have official modules (`@nuxt/fonts`, `@nuxt/scripts`).
+Vue navigation guard, never protection; Nuxt 4 has no built-in CSRF check; headers and CSP come from the
+`nuxt-security` module; fonts and third-party scripts have official modules (`@nuxt/fonts`, `@nuxt/scripts`).
 
 ## Access and the isolation test
 
@@ -16,35 +16,37 @@ module; fonts and third-party scripts have official modules (`@nuxt/fonts`, `@nu
   route rule run in the Vue app, on the server for the first render and again in the browser. The Nuxt docs say
   plainly that without server-side protection your data can still be accessed. 2026 showed it: route middleware didn't
   run for `.server.vue` pages fetched through `/__nuxt_island/page_*` (CVE-2026-47200), `appMiddleware` rules were
-  skipped for mixed-case paths (CVE-2026-53721, CVE-2026-71315) and percent-encoded paths (CVE-2026-114131), and dot
-  segments slipped past path checks in `server/middleware` (CVE-2026-119200, 4.6.0–4.6.2). Never authorise by matching
-  a path.
+  skipped for mixed-case paths (CVE-2026-53721, CVE-2026-71315) and percent-encoded paths (CVE-2026-114131), the
+  server-side `redirect` and `headers` rules for case variants (CVE-2026-114132, fixed in 4.6.2), and dot segments
+  slipped past path checks in `server/middleware` (CVE-2026-119200, 4.6.0–4.6.2). Never authorise by matching a path.
 - **Everything the server fetches for a page is in the HTML.** Data from `useFetch`, `useAsyncData` and `useState` is
-  serialised into the `__NUXT_DATA__` payload, so return DTOs; `serialize: false` (4.6) keeps a result out of the
-  payload.
+  serialised into the `__NUXT_DATA__` payload, so return DTOs. `serialize: false` (4.6) keeps a result out of the
+  payload, but the browser refetches it when a component renders it, so it doesn't replace a DTO.
 - **Don't cache signed-in pages.** With `cache`, `swr` or `isr` route rules, Nuxt served one user's SSR payload to
   other users, signed in or not (CVE-2026-71316, fixed in 4.5.1). Use them for public pages only.
 - **Server islands** take their props from the URL and skip route middleware: check the session inside the island, and
   keep personal data out of props, which end up in logs, CDN caches and `Referer` headers.
 - **RLS** works as in the reference when queries go through the Supabase client with the user's session (Supabase's
   SSR guide has a Nuxt version); a direct Drizzle or Prisma connection needs data-layer scoping (ADR-002, 5.4).
-- **Isolation test**, with `@nuxt/test-utils/e2e`, which builds and starts the app (`signIn` is your fixture that
-  returns a session cookie for a seeded user):
+- **Isolation test** in `test/e2e/isolation.test.ts`, with `@nuxt/test-utils/e2e`, which builds and starts the app
+  (`signIn` is your fixture that returns a session cookie for a seeded user). With `nuxt-security`'s `csrf` on
+  (below), nuxt-csurf answers a write that lacks its token with 403 before your handler runs, so a status-only check
+  would pass with no authorisation at all. Take the token from a rendered page, and assert the handler's 6.3 `code`:
 
 ```ts
-// test/e2e/isolation.test.ts: user A must not read or change org B's task (5.4)
 import { describe, expect, it } from 'vitest';
-import { setup, url } from '@nuxt/test-utils/e2e';
+import { fetch, setup } from '@nuxt/test-utils/e2e'; // fetch() adds the test server's host and port
 import { ORG_B_TASK, signIn } from '../fixtures';
-
-describe('tenant isolation', async () => {
+describe('tenant isolation', async () => { // user A must not read or change org B's task (5.4)
   await setup({ server: true });
   it('denies another tenant', async () => {
-    const headers = { cookie: await signIn('user-a'), 'content-type': 'application/json' };
-    const task = url(`/api/tasks/${ORG_B_TASK}`); // url() adds the test server's host and port
-    expect([403, 404]).toContain((await fetch(task, { headers })).status);
-    const write = await fetch(task, { method: 'PATCH', headers, body: '{"title":"x"}' });
-    expect([403, 404]).toContain(write.status);
+    const session = await signIn('user-a'), page = await fetch('/', { headers: { cookie: session } });
+    const secret = page.headers.getSetCookie().find((c) => /^(__Host-)?csrf=/.test(c))?.split(';')[0]; // nuxt-csurf
+    const token = /name="csrf-token" content="([^"]+)"/.exec(await page.text())?.[1] ?? '';
+    const headers = { cookie: `${session}; ${secret}`, 'csrf-token': token, 'content-type': 'application/json' };
+    expect([403, 404]).toContain((await fetch(`/api/tasks/${ORG_B_TASK}`, { headers })).status);
+    const write = await fetch(`/api/tasks/${ORG_B_TASK}`, { method: 'PATCH', headers, body: '{"title":"x"}' });
+    expect(['FORBIDDEN', 'NOT_FOUND']).toContain((await write.json()).code); // the handler's 6.3 body, not CSRF's
   });
 });
 ```
@@ -54,6 +56,9 @@ describe('tenant isolation', async () => {
 - Nuxt 4.6 has sealed-cookie sessions in `nuxt/server` (`useSession`, `getSession`, `updateSession`, `clearSession`):
   the cookie `nuxt-session` is `httpOnly`, `secure` and `sameSite: 'lax'` by default, sealed with a key derived from
   `NUXT_APP_SECRET`, and limited to 4 KB.
+- Import those helpers, and `defineEventHandler`, from `nuxt/server` explicitly. In server code, the auto-imported
+  names of the same spelling are h3's own helpers: they use an `h3` cookie and their own config, and can't unseal a
+  Nuxt session.
 - The Nuxt docs' auth recipe uses `nuxt-auth-utils`: `setUserSession`, `requireUserSession`, `clearUserSession`,
   scrypt password hashing (`hashPassword`, `verifyPassword`, `passwordNeedsRehash`), OAuth providers and WebAuthn
   passkeys. The session's `user` data can be read by the browser through an API call, so put server-only values under
@@ -80,15 +85,16 @@ describe('tenant isolation', async () => {
 
 ## CSRF and XSS
 
-- **CSRF**: neither Nuxt nor h3 checks the origin of state-changing requests, unlike Server Actions. Enable
-  `nuxt-security`'s `csrf: true` (it wraps `nuxt-csurf`, off by default, and gives you `useCsrfFetch`), or reject
-  unsafe methods whose `Origin` isn't yours in a server middleware. Keep session cookies `SameSite=Lax`. Escape hatch:
-  `csurf: false` in a route rule.
+- **CSRF**: neither Nuxt 4 nor h3 v1 checks the origin of state-changing requests, unlike Server Actions; recheck
+  when you move to Nuxt 5 (h3 v2). Enable `nuxt-security`'s `csrf` (it wraps `nuxt-csurf`, off by default, and gives
+  you `useCsrfFetch`), or reject unsafe methods whose `Origin` isn't yours in a server middleware. nuxt-csurf checks
+  only `POST`, `PUT` and `PATCH` by default, so pass `csrf: { methodsToProtect: ['POST', 'PUT', 'PATCH', 'DELETE'] }`.
+  Keep session cookies `SameSite=Lax`. Escape hatch: `csurf: false` in a route rule.
 - **XSS**: Vue escapes text and attribute bindings. The escape hatches are `v-html`, `innerHTML` in render functions,
   user-controlled `:href` or `:src` (block `javascript:` URLs), user-controlled styles, and compiling templates at
   runtime (`vue.runtimeCompiler`), which turned server-island props into remote code execution (CVE-2026-71320). Use
-  `useHeadSafe` for user input in the head. `navigateTo` and `<NuxtLink>` had `javascript:` URL fixes through 2026,
-  the last in 4.6.0 (CVE-2026-114130).
+  `useHeadSafe` for user input in the head; until 4.6.2 it didn't sanitise inside server islands (CVE-2026-114133).
+  `navigateTo` and `<NuxtLink>` had `javascript:` URL fixes through 2026, the last in 4.6.0 (CVE-2026-114130).
 - **CSP**: `nuxt-security` sets nonces with `'strict-dynamic'` for server-rendered pages, and SHA hashes in a `<meta>`
   tag for generated pages. Its defaults are looser than 7.4 (`font-src 'self' https: data:`, and `https:` in
   `style-src`), so set the directives to the 7.4 policy and start with `contentSecurityPolicyReportOnly: true`.
@@ -135,23 +141,28 @@ describe('tenant isolation', async () => {
   `createPage`. Its Playwright runner is `@nuxt/test-utils/playwright`.
 - Run the 9.9 test against `nuxt build` and `nuxt preview`. With first-party mode on, also assert that no
   `/_scripts/p/` request happens before consent, because the vendor's host never appears.
-- Check that state-changing routes refuse a foreign `Origin`, and that the CSP nonce is on every script.
+- Check that state-changing routes refuse a request without the CSRF token (and a foreign `Origin`, if you check it
+  yourself), and that the CSP nonce is on every script.
 
 ## Deployment
 
 - Nitro presets: `node-server` (`node .output/server/index.mjs`), `vercel`, `netlify`, `cloudflare`, or static files
   with `nuxt generate`. Vercel runs functions in `iad1` by default for new projects: set the region to `lhr1` or
   `fra1` (ADR-005).
-- Set headers with `nuxt-security` or `routeRules` `headers`. A site from `nuxt generate` can't send headers, so its
-  CSP is a `<meta>` tag without `frame-ancestors`; set the rest at the host.
-- Keep the dev server off shared networks: unauthenticated Nuxt DevTools RPC allowed command execution on the
-  developer's machine (CVE-2026-71319, fixed in `@nuxt/devtools` 3.3.1).
+- Set headers with `nuxt-security` or `routeRules` `headers`, on 4.6.3 or later: earlier 4.x releases skipped
+  server-side route rules for case-variant or dot-segment paths (above). A site from `nuxt generate` can't send
+  headers, so its CSP is a `<meta>` tag without `frame-ancestors`; set the rest at the host.
+- Update `@nuxt/devtools` to 3.3.1 or later, or set `devtools: { enabled: false }`. Before 3.3.1 its RPC had no
+  authentication, so any website the developer visited could open the dev server's HMR WebSocket and run commands on
+  their machine (CVE-2026-71319). `nuxt` pulls DevTools through a `^3` range, so a reinstall or lockfile refresh
+  fixes it; Nuxt 4.6 already requires 3.4.
 - Move off Nuxt 3, which gets no security fixes since 31 July 2026. Nuxt 4 stays supported for at least six months
   after Nuxt 5 ships.
 
 ## Limits
 
-- No CSRF check, no Server-Action-style RPC, and route middleware isn't protection: every rule lives in the handler.
+- No CSRF check in Nuxt 4, no Server-Action-style RPC, and route middleware isn't protection: every rule lives in
+  the handler.
 - Path matching between vue-router, Nitro and route rules has diverged repeatedly (the 2026 bypasses above), so patch
   quickly (7.6).
 - Sealed-cookie sessions are limited to 4 KB and can't be revoked server-side on their own.
@@ -162,7 +173,7 @@ describe('tenant isolation', async () => {
 
 - Nuxt: [Runtime config](https://nuxt.com/docs/4.x/guide/going-further/runtime-config) · [Server imports and sessions](https://nuxt.com/docs/4.x/guide/going-further/server-imports) · [Sessions and authentication](https://nuxt.com/docs/4.x/guide/recipes/sessions-and-authentication) · [Middleware](https://nuxt.com/docs/4.x/directory-structure/app/middleware) · [server/](https://nuxt.com/docs/4.x/directory-structure/server) · [State management](https://nuxt.com/docs/4.x/getting-started/state-management) · [useFetch](https://nuxt.com/docs/4.x/api/composables/use-fetch)
 - [Server components](https://nuxt.com/docs/4.x/guide/concepts/server-components) · [useHeadSafe](https://nuxt.com/docs/4.x/api/composables/use-head-safe) · [.env](https://nuxt.com/docs/4.x/directory-structure/env) · [Error handling](https://nuxt.com/docs/4.x/getting-started/error-handling) · [Testing](https://nuxt.com/docs/4.x/getting-started/testing) · [Deployment](https://nuxt.com/docs/4.x/getting-started/deployment) · [Roadmap and support](https://nuxt.com/docs/4.x/community/roadmap)
-- Modules: [Nuxt Fonts](https://nuxt.com/modules/fonts) · [How Nuxt Fonts works](https://nuxt.com/modules/fonts/advanced) · [Nuxt Fonts configuration](https://nuxt.com/modules/fonts/configuration) · [Nuxt Scripts consent](https://scripts.nuxt.com/docs/guides/consent) · [Nuxt Scripts first-party mode](https://scripts.nuxt.com/docs/guides/first-party) · [nuxt-auth-utils](https://github.com/atinux/nuxt-auth-utils)
+- Modules: [Nuxt Fonts](https://nuxt.com/modules/fonts) · [How Nuxt Fonts works](https://nuxt.com/modules/fonts/advanced) · [Nuxt Fonts configuration](https://nuxt.com/modules/fonts/configuration) · [Nuxt Scripts consent](https://scripts.nuxt.com/docs/guides/consent) · [Nuxt Scripts first-party mode](https://scripts.nuxt.com/docs/guides/first-party) · [nuxt-auth-utils](https://github.com/atinux/nuxt-auth-utils) · [nuxt-csurf (defaults, token in `<meta>`)](https://github.com/Morgbn/nuxt-csurf) · [nuxt-csurf CSRF middleware](https://github.com/Morgbn/nuxt-csurf/blob/master/src/runtime/server/middleware/csrf.ts) · [npm: nuxt versions and engines](https://www.npmjs.com/package/nuxt?activeTab=versions)
 - nuxt-security: [Configuration and defaults](https://nuxt-security.vercel.app/getting-started/configuration) · [CSP](https://nuxt-security.vercel.app/headers/csp) · [CSRF](https://nuxt-security.vercel.app/middleware/csrf) · [Rate limiter](https://nuxt-security.vercel.app/middleware/rate-limiter)
 - Elsewhere: [Vue security guide](https://vuejs.org/guide/best-practices/security.html) · [MDN: frame-ancestors](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/frame-ancestors) · [Supabase SSR client](https://supabase.com/docs/guides/auth/server-side/creating-a-client) · [Vercel function regions](https://vercel.com/docs/functions/configuring-functions/region)
-- Advisories: [CVE-2026-47200](https://github.com/nuxt/nuxt/security/advisories/GHSA-hg3f-28rg-4jxj) · [CVE-2026-53721](https://github.com/nuxt/nuxt/security/advisories/GHSA-mm7m-92g8-7m47) · [CVE-2026-71315](https://github.com/nuxt/nuxt/security/advisories/GHSA-hxvh-4h3w-prp9) · [CVE-2026-114131](https://github.com/nuxt/nuxt/security/advisories/GHSA-6gq8-jgmh-3ffp) · [CVE-2026-119200](https://github.com/nuxt/nuxt/security/advisories/GHSA-9v7c-q64q-vv33) · [CVE-2026-71316](https://github.com/nuxt/nuxt/security/advisories/GHSA-wm8w-6qjm-cv43) · [CVE-2026-71320](https://github.com/nuxt/nuxt/security/advisories/GHSA-9473-5f9j-94wq) · [CVE-2026-114130](https://github.com/nuxt/nuxt/security/advisories/GHSA-jjm6-p2m9-9w4x) · [CVE-2026-71319](https://github.com/nuxt/nuxt/security/advisories/GHSA-279x-mwfv-vcqv)
+- Advisories: [CVE-2026-47200](https://github.com/nuxt/nuxt/security/advisories/GHSA-hg3f-28rg-4jxj) · [CVE-2026-53721](https://github.com/nuxt/nuxt/security/advisories/GHSA-mm7m-92g8-7m47) · [CVE-2026-71315](https://github.com/nuxt/nuxt/security/advisories/GHSA-hxvh-4h3w-prp9) · [CVE-2026-114131](https://github.com/nuxt/nuxt/security/advisories/GHSA-6gq8-jgmh-3ffp) · [CVE-2026-114132](https://github.com/nuxt/nuxt/security/advisories/GHSA-vjh5-4x84-xrqp) · [CVE-2026-119200](https://github.com/nuxt/nuxt/security/advisories/GHSA-9v7c-q64q-vv33) · [CVE-2026-114133](https://github.com/nuxt/nuxt/security/advisories/GHSA-xfq5-w38q-pc2x) · [CVE-2026-71316](https://github.com/nuxt/nuxt/security/advisories/GHSA-wm8w-6qjm-cv43) · [CVE-2026-71320](https://github.com/nuxt/nuxt/security/advisories/GHSA-9473-5f9j-94wq) · [CVE-2026-114130](https://github.com/nuxt/nuxt/security/advisories/GHSA-jjm6-p2m9-9w4x) · [CVE-2026-71319](https://github.com/nuxt/nuxt/security/advisories/GHSA-279x-mwfv-vcqv)

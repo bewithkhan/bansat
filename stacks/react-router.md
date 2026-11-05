@@ -54,8 +54,9 @@ test('another tenant is denied', async ({ request }) => {
   storages: `createCookieSessionStorage` (everything in the cookie, size-limited), `createMemorySessionStorage`,
   `createFileSessionStorage` from `@react-router/node`, or `createSessionStorage` over your database.
 - Create cookies with `httpOnly: true`, `secure: true`, `sameSite: 'lax'`, a `maxAge` and `secrets`. Rotate secrets by
-  adding the new one at the front of the array. The docs describe signing, which proves integrity but doesn't hide the
-  contents, so a cookie session holds an ID, never personal data.
+  adding the new one at the front of the array. The docs describe signing, and the source shows it: the value is
+  base64-encoded JSON with an HMAC-SHA256 signature, which proves integrity but doesn't hide the contents, so a cookie
+  session holds an ID, never personal data.
 - Always sign: `createFileSessionStorage` with an unsigned cookie allowed path traversal on the server
   (CVE-2025-61686, critical, fixed in `@react-router/node` 7.9.4).
 - After any change, `commitSession()` and send its `Set-Cookie`. Start a new session at sign-in, and on sign-out
@@ -140,14 +141,18 @@ const { pipe } = renderToPipeableStream(
 - React Server Components support is unstable and had its own CSRF bypass (fixed in 7.18.2 and 8.3.0); Server Actions
   exist only there.
 - The origin check covers UI routes only; resource routes and your own API need theirs.
-- Cookie sessions are signed, not encrypted, and limited by cookie size.
-- 2026 brought more than a dozen advisories, from XSS and open redirects to denial of service: patch quickly (7.6).
-  7.x still gets releases (7.18.5 on 27 October 2026), but we couldn't find a published end date.
+- Cookie sessions are signed, not encrypted, and their `commitSession` throws once the cookie passes 4 KB.
+- 2026 brought more than a dozen advisories, from XSS and open redirects to denial of service and constructor
+  injection: the vendored turbo-stream allowed unauthenticated remote code execution in framework mode when the app
+  already had a prototype-pollution bug (CVE-2026-42211, fixed in 7.14.2), and SSR hydration allowed constructor
+  injection (CVE-2026-53666, fixed in 7.18.0). Patch quickly (7.6); on 7.x, be on 7.18.5 (27 October 2026). 7.x still
+  gets releases, but we couldn't find a published end date.
 
 ## Sources
 
 - React Router: [Security](https://reactrouter.com/how-to/security) · [Middleware](https://reactrouter.com/how-to/middleware) · [Sessions and cookies](https://reactrouter.com/explanation/sessions-and-cookies) · [.server modules](https://reactrouter.com/api/framework-conventions/server-modules) · [react-router.config.ts](https://reactrouter.com/api/framework-conventions/react-router.config.ts) · [Headers](https://reactrouter.com/how-to/headers)
 - [Error reporting](https://reactrouter.com/how-to/error-reporting) · [Error boundaries and sanitisation](https://reactrouter.com/how-to/error-boundary) · [Testing](https://reactrouter.com/start/framework/testing) · [Deploying](https://reactrouter.com/start/framework/deploying) · [Upgrading from v7](https://reactrouter.com/upgrading/v7) · [Changelog](https://github.com/remix-run/react-router/blob/main/CHANGELOG.md)
 - Docs source for the pages above, React Router 8.5: [remix-run/react-router `docs/`](https://github.com/remix-run/react-router/tree/main/docs) · [Default template `root.tsx`](https://github.com/remix-run/react-router-templates/blob/main/default/app/root.tsx)
+- Source, React Router 8.5.1: [cookie encoding and signing (`cookies.ts`)](https://github.com/remix-run/react-router/blob/main/packages/react-router/lib/server-runtime/cookies.ts) · [HMAC-SHA256 (`crypto.ts`)](https://github.com/remix-run/react-router/blob/main/packages/react-router/lib/server-runtime/crypto.ts) · [4 KB limit (`cookieStorage.ts`)](https://github.com/remix-run/react-router/blob/main/packages/react-router/lib/server-runtime/sessions/cookieStorage.ts)
 - Elsewhere: [Vite env variables](https://vite.dev/guide/env-and-mode) · [React `dangerouslySetInnerHTML`](https://react.dev/reference/react-dom/components/common) · [Supabase SSR client](https://supabase.com/docs/guides/auth/server-side/creating-a-client) · [Vercel function regions](https://vercel.com/docs/functions/configuring-functions/region)
-- Advisories: [CVE-2026-22030](https://github.com/remix-run/react-router/security/advisories/GHSA-h5cw-625j-3rxh) · [CVE-2026-53663](https://github.com/remix-run/react-router/security/advisories/GHSA-84g9-w2xq-vcv6) · [RSC CSRF bypass](https://github.com/remix-run/react-router/security/advisories/GHSA-qwww-vcr4-c8h2) · [CVE-2025-61686](https://github.com/remix-run/react-router/security/advisories/GHSA-9583-h5hc-x8cw) · [CVE-2025-31137](https://github.com/remix-run/react-router/security/advisories/GHSA-4q56-crqp-v477) · [CVE-2025-59057](https://github.com/remix-run/react-router/security/advisories/GHSA-3cgp-3xvw-98x8) · [CVE-2026-22029](https://github.com/remix-run/react-router/security/advisories/GHSA-2w69-qvjg-hvjx) · [CVE-2025-68470](https://github.com/remix-run/react-router/security/advisories/GHSA-9jcx-v3wj-wh4m) · [CVE-2026-40181](https://github.com/remix-run/react-router/security/advisories/GHSA-2j2x-hqr9-3h42) · [CVE-2026-53669](https://github.com/remix-run/react-router/security/advisories/GHSA-wrjc-x8rr-h8h6)
+- Advisories: [CVE-2026-22030](https://github.com/remix-run/react-router/security/advisories/GHSA-h5cw-625j-3rxh) · [CVE-2026-53663](https://github.com/remix-run/react-router/security/advisories/GHSA-84g9-w2xq-vcv6) · [RSC CSRF bypass](https://github.com/remix-run/react-router/security/advisories/GHSA-qwww-vcr4-c8h2) · [CVE-2025-61686](https://github.com/remix-run/react-router/security/advisories/GHSA-9583-h5hc-x8cw) · [CVE-2025-31137](https://github.com/remix-run/react-router/security/advisories/GHSA-4q56-crqp-v477) · [CVE-2025-59057](https://github.com/remix-run/react-router/security/advisories/GHSA-3cgp-3xvw-98x8) · [CVE-2026-22029](https://github.com/remix-run/react-router/security/advisories/GHSA-2w69-qvjg-hvjx) · [CVE-2025-68470](https://github.com/remix-run/react-router/security/advisories/GHSA-9jcx-v3wj-wh4m) · [CVE-2026-40181](https://github.com/remix-run/react-router/security/advisories/GHSA-2j2x-hqr9-3h42) · [CVE-2026-53669](https://github.com/remix-run/react-router/security/advisories/GHSA-wrjc-x8rr-h8h6) · [CVE-2026-42211](https://github.com/remix-run/react-router/security/advisories/GHSA-49rj-9fvp-4h2h) · [CVE-2026-53666](https://github.com/remix-run/react-router/security/advisories/GHSA-337j-9hxr-rhxg)
