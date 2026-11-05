@@ -1,5 +1,5 @@
-// Generates the site's pages from the repo: the framework modules, the blueprint, the changelog and
-// the tested-examples guide. Mermaid diagrams are drawn here as inline SVG, so the pages ship no
+// Generates the site's pages from the repo: the framework modules, the stack profiles, the blueprint, the
+// changelog and the tested-examples guide. Mermaid diagrams are drawn here as inline SVG, so the pages ship no
 // diagram script and make no requests for one. Run by `npm run build`; the output is not committed.
 import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join, posix } from 'node:path';
@@ -194,7 +194,7 @@ function writePage(slug, { title, description, label, order, editPath, body }) {
   writeFileSync(path, `${frontmatter}${body}\n`);
 }
 
-for (const dir of ['framework', 'methods', 'project', 'laws']) rmSync(join(DOCS, dir), { recursive: true, force: true });
+for (const dir of ['framework', 'methods', 'project', 'laws', 'stacks']) rmSync(join(DOCS, dir), { recursive: true, force: true });
 
 try {
   for (const page of pages) {
@@ -218,8 +218,28 @@ try {
     const { title, body } = await transform(read(source), source);
     writePage(slug, { title, description: `${title}. From the Bansat repository.`, label, order, editPath: source, body });
   }
+  // SCR-04: the stack profiles, an index page from stacks/README.md and one page per profile, in the README's order.
+  const stacks = [];
+  if (existsSync(join(REPO, 'stacks/README.md'))) {
+    const index = read('stacks/README.md');
+    const ids = [...index.matchAll(/\]\(([a-z0-9-]+)\.md\)/g)].map((m) => m[1]).filter((id) => existsSync(join(REPO, `stacks/${id}.md`)));
+    const known = new Set(ids);
+    // Links between profiles stay on the site; links to other repo files go to GitHub, as elsewhere.
+    const local = (body) =>
+      body.replace(/\]\(https:\/\/github\.com\/bewithkhan\/bansat\/blob\/main\/stacks\/([a-z0-9-]+)\.md(#[^)]*)?\)/g, (m, id, hash = '') =>
+        known.has(id) ? `](${BASE}stacks/${id}/${hash})` : m,
+      );
+    const { title, body } = await transform(index, 'stacks/README.md');
+    writePage('stacks/index', { title, description: 'What changes from the reference stack on 24 frameworks and platforms.', label: 'Overview', order: 0, editPath: 'stacks/README.md', body: local(body) });
+    for (const [n, id] of ids.entries()) {
+      const source = `stacks/${id}.md`;
+      const page = await transform(read(source), source);
+      writePage(`stacks/${id}`, { title: page.title, description: `${page.title}: what changes from Bansat's reference stack, from access control to the platform's limits.`, label: page.title, order: n + 1, editPath: source, body: local(page.body) });
+      stacks.push(id);
+    }
+  }
   const tracker = await writeTracker({ repo: REPO, docs: DOCS, site: SITE, base: BASE, transform });
-  console.log(`Generated ${pages.length + project.length} pages and ${diagramCount} diagrams, and the law tracker: ${tracker.count} jurisdictions, ${tracker.changes} changes.`);
+  console.log(`Generated ${pages.length + project.length} pages and ${diagramCount} diagrams, ${stacks.length} stack profiles, and the law tracker: ${tracker.count} jurisdictions, ${tracker.changes} changes.`);
 } finally {
   await browser?.close();
 }
