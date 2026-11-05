@@ -1,0 +1,4 @@
+# LF line endings everywhere, so the generated framework file and its --check
+# stay identical on every platform (Git on Windows would otherwise check out CRLF).
+* text=auto eol=lf
+*.png binary
