@@ -15,3 +15,9 @@ jurisdictions:
     official_domains: [boe.es, aepd.es, digital.gob.es, congreso.es]
   ie:
     official_domains: [irishstatutebook.ie, lawreform.ie, dataprotection.ie, gov.ie]
+  ch:
+    official_domains: [fedlex.admin.ch, edoeb.admin.ch, admin.ch]
+  "no":
+    official_domains: [datatilsynet.no, nkom.no, forbrukertilsynet.no, stortinget.no]
+  tr:
+    official_domains: [kvkk.gov.tr, ticaret.gov.tr]

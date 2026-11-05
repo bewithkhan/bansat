@@ -1,0 +1,130 @@
+# Switzerland. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+# Fedlex links point to its static file store, because the main Fedlex pages need JavaScript.
+# The English texts are unofficial translations; German, French and Italian are authoritative.
+id: ch
+name: Switzerland
+tier: full
+laws:
+  - name: Federal Act on Data Protection (FADP)
+    citation: SR 235.1, Federal Act of 25 September 2020
+    official_url: https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html
+    status: in-force
+    in_force_from: "2023-09-01"
+    notes: The revised Act replaced the Data Protection Act of 19 June 1992. It protects personal data of natural persons only. Its latest change of substance, on 1 April 2025, lets the FDPIC pass breach reports to the national cybersecurity centre with the controller's consent.
+  - name: Data Protection Ordinance (DPO)
+    citation: SR 235.11, Ordinance of 31 August 2022
+    official_url: https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/568/20251201/en/html/fedlex-data-admin-ch-eli-cc-2022-568-20251201-en-html.html
+    status: in-force
+    in_force_from: "2023-09-01"
+    notes: Details on data security, breach reports, records, the list of countries with adequate protection (Annex 1) and FDPIC fees. Amended with effect from 1 December 2025, mainly on logging by federal bodies and how adequacy is assessed.
+  - name: Telecommunications Act (TCA)
+    citation: SR 784.10, Federal Act of 30 April 1997
+    official_url: https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/1997/2187_2187_2187/20260601/de/html/fedlex-data-admin-ch-eli-cc-1997-2187_2187_2187-20260601-de-html-3.html
+    status: in-force
+    in_force_from: "1998-01-01"
+    notes: Article 45c, in force since 1 April 2007, covers cookies and other processing of data on users' devices. The link is the German text.
+  - name: Federal Act on Unfair Competition (Unfair Competition Act, UCA)
+    citation: SR 241, Federal Act of 19 December 1986
+    official_url: https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/1988/223_223_223/20250101/en/html/fedlex-data-admin-ch-eli-cc-1988-223_223_223-20250101-en-html-3.html
+    status: in-force
+    in_force_from: "1988-03-01"
+    notes: Article 3(1)(o), in force since 1 April 2007, covers spam. Letters (u) to (w) cover telemarketing.
+  - name: No AI-specific law yet (planned rules to ratify the Council of Europe AI Convention)
+    citation: Federal Council decision of 12 February 2025, with a consultation draft due by the end of 2026
+    official_url: https://www.bj.admin.ch/de/kuenstliche-intelligenz
+    status: none
+    notes: The Federal Council chose targeted changes to existing laws, covering transparency, data protection, non-discrimination and supervision. No consultation draft had been published by 5 November 2026.
+regulators:
+  - name: Federal Data Protection and Information Commissioner (FDPIC)
+    url: https://www.edoeb.admin.ch/en
+obligations:
+  scope:
+    summary: The FADP covers personal data of natural persons processed by private persons and federal bodies. It applies to anything that has an effect in Switzerland, even if it starts abroad. A private controller based abroad must appoint a Swiss representative if it processes data of people in Switzerland on a large scale, regularly and with a high risk, in connection with offering them goods or services or monitoring their behaviour.
+    source:
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_2
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_3
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_14
+  lawful_bases:
+    summary: Unlike federal bodies, which need a basis in law, private persons need no legal basis to process data. They must follow the processing principles, and any breach of personality rights, such as processing against someone's express wishes, is unlawful unless justified by consent, an overriding private or public interest, or the law. Consent must be explicit for sensitive data and high-risk profiling.
+    source:
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_6
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_30
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_31
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_34
+  consent_age:
+    summary: The FADP sets no age for consent. Under the Civil Code, a minor who has capacity of judgement exercises strictly personal rights on their own. Capacity of judgement depends on the ability to act rationally, not on a fixed age. For a child who lacks it, the legal representative acts.
+    source:
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/24/233_245_233/20260701/en/html/fedlex-data-admin-ch-eli-cc-24-233_245_233-20260701-en-html.html#art_16
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/24/233_245_233/20260701/en/html/fedlex-data-admin-ch-eli-cc-24-233_245_233-20260701-en-html.html#art_19_c
+  children:
+    summary: The FADP has no child-specific rules, so the general rules apply. A Federal Act on communication platforms and search engines is pending. On 14 October 2026 the Federal Council added duties for very large platforms and search engines to assess and reduce risks to minors, and a ban on showing minors ads based on profiling. The dispatch to Parliament is due by June 2027.
+    source:
+      - https://www.admin.ch/de/newnsb/NMn5s24l8NjQ
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html
+  cookies:
+    summary: Storing or reading data on users' devices is allowed if users are told about it and its purpose and that they can refuse, unless it's for providing or billing a telecoms service. This is an opt-out rule. The FDPIC's cookie guidelines (January 2025, updated October 2025) say explicit consent is needed when cookies involve sensitive data or high-risk profiling, which cross-site third-party tracking can reach. Refusing must not take much more effort than accepting.
+    source:
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/1997/2187_2187_2187/20260601/de/html/fedlex-data-admin-ch-eli-cc-1997-2187_2187_2187-20260601-de-html-3.html#art_45_c
+      - https://www.edoeb.admin.ch/dam/en/sd-web/brLL9rM3ny9d/Leitfaden%20des%20ED%C3%96B%20betreffend%20Datenbearbeitungen%20mittels%20Cookies%20und%20%C3%A4hnlichen%20Technologien%20V.%201.1%20vom%2006.10.2025_EN.pdf
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_6
+  marketing:
+    summary: Mass advertising by email, SMS or other telecoms needs prior consent, the correct sender and a simple, free way to refuse. A seller that got a customer's contact details in a sale, and offered a way to refuse, may advertise its own similar products to them without consent. Advertising calls must respect the phone directory's no-advertising note, which also covers people with no entry, and show a registered number. Wilful breaches are crimes, prosecuted on complaint.
+    source:
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/1988/223_223_223/20250101/en/html/fedlex-data-admin-ch-eli-cc-1988-223_223_223-20250101-en-html-3.html#art_3
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/1988/223_223_223/20250101/en/html/fedlex-data-admin-ch-eli-cc-1988-223_223_223-20250101-en-html-3.html#art_23
+  breach_notice:
+    summary: Report a breach likely to cause a high risk to people's personality or fundamental rights to the FDPIC as quickly as possible. There's no fixed deadline, and details can follow in stages through its portal. Processors tell the controller as quickly as possible. Tell the people affected when it's needed to protect them or the FDPIC asks. Keep breach records for at least two years. Since 1 April 2025, critical infrastructure operators must also report certain cyberattacks to the Federal Office for Cybersecurity within 24 hours.
+    source:
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_24
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/568/20251201/en/html/fedlex-data-admin-ch-eli-cc-2022-568-20251201-en-html.html#art_15
+      - https://www.edoeb.admin.ch/dam/en/sd-web/T64CAUyvAMcF/1_2%20Leitfaden%20des%20ED%C3%96B%20betreffend%20die%20Meldung%20von%20Datensicherheitsverletzungen%20und%20Information%20der%20Betroffenen%20nach%20Art.%2024%20DSG_EN.pdf
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/232/20251001/de/html/fedlex-data-admin-ch-eli-cc-2022-232-20251001-de-html-1.html#art_74_e
+  registration_or_fees:
+    summary: Private controllers don't register or pay a fee. They keep a record of processing activities, unless they have fewer than 250 employees and don't process large volumes of sensitive data or do high-risk profiling. Only federal bodies report their records to the FDPIC. The FDPIC charges CHF 150 to 250 an hour for some services, such as opinions on codes of conduct, approving clauses or binding corporate rules, and DPIA consultations.
+    source:
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_12
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/568/20251201/en/html/fedlex-data-admin-ch-eli-cc-2022-568-20251201-en-html.html#art_24
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_59
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/568/20251201/en/html/fedlex-data-admin-ch-eli-cc-2022-568-20251201-en-html.html#art_44
+      - https://www.edoeb.admin.ch/en/reporting-portals
+  dpo:
+    summary: Private controllers may appoint a data protection officer but don't have to. If the officer is independent, has the expertise and no conflicting tasks, and their contact details are published and notified to the FDPIC, the controller can consult the officer instead of the FDPIC after a high-risk DPIA. Federal bodies must appoint one.
+    source:
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_10
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_23
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/568/20251201/en/html/fedlex-data-admin-ch-eli-cc-2022-568-20251201-en-html.html#art_25
+      - https://www.edoeb.admin.ch/en/reporting-portals
+  transfers:
+    summary: Data may go to countries on the Federal Council's list (Annex 1 of the Ordinance), which includes the EU and EEA states and the UK, and since 15 September 2024 US organisations certified under the Swiss-US Data Privacy Framework. Otherwise use a safeguard, such as standard clauses the FDPIC recognises (the EU SCCs, adapted for Swiss law), binding corporate rules, or other clauses notified to the FDPIC first. A few exceptions apply, such as explicit consent.
+    source:
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_16
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_17
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/568/20251201/en/html/fedlex-data-admin-ch-eli-cc-2022-568-20251201-en-html.html#annex_1
+      - https://www.edoeb.admin.ch/en/cross-border-transfer-of-personal-data
+      - https://www.edoeb.admin.ch/dam/en/sd-web/smvG75WY5Vsi/%C3%9Cbermittlung%20von%20Personendaten%20-%20SCC_EN.pdf
+  dpia:
+    summary: Carry out a DPIA before processing likely to cause a high risk, such as large-scale sensitive data or systematic large-scale monitoring of public areas. If a high risk remains despite the planned measures, ask the FDPIC first. It has two months to object, or three for complex cases. A private controller can consult its data protection officer instead. A certified system or a qualifying code of conduct can replace the DPIA.
+    source:
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_22
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_23
+  automated_decisions_ai:
+    summary: Tell people about decisions based solely on automated processing that have legal effects or a considerable adverse effect on them. On request, let them give their view and have a person review the decision, unless it's tied to a contract and their request is met, or they explicitly consented. The FDPIC says the FADP applies directly to AI. There's no AI-specific law yet. The Federal Council plans targeted changes to ratify the Council of Europe AI Convention, with a consultation draft due by the end of 2026.
+    source:
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_21
+      - https://www.edoeb.admin.ch/en/ai-and-data-protection
+      - https://www.bj.admin.ch/de/kuenstliche-intelligenz
+  penalties:
+    summary: The FDPIC doesn't fine. It can order processing to change or stop and data to be deleted. Cantonal authorities can fine responsible individuals up to CHF 250,000 for wilful breaches of duties to inform and cooperate, the transfer and processor rules, minimum data security, professional secrecy and FDPIC rulings, mostly on complaint. A business is fined instead only for amounts up to CHF 50,000, when finding the person responsible would be disproportionate.
+    source:
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_51
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_60
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_61
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_64
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_65
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry, checked against official sources with AI assistance.
