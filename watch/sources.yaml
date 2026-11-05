@@ -24,4 +24,4 @@ jurisdictions:
   fr:
     official_domains: [legifrance.gouv.fr, cnil.fr, conseil-constitutionnel.fr, assemblee-nationale.fr, senat.fr]
   it:
-    official_domains: [normattiva.it, gazzettaufficiale.it, garanteprivacy.it]
+    official_domains: [normattiva.it, gazzettaufficiale.it, garanteprivacy.it, acn.gov.it, agid.gov.it]

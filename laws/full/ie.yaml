@@ -22,7 +22,7 @@ laws:
     official_url: https://www.irishstatutebook.ie/eli/2026/act/31/enacted/en/html
     status: in-force
     in_force_from: "2026-07-31"
-    notes: Signed into law on 21 July 2026 and commenced on 31 July 2026 (S.I. No. 403 of 2026). Gives further effect to the EU AI Act. It set up the AI Office of Ireland and the enforcement and fines system for market surveillance authorities, which are named in S.I. No. 366 of 2025, as amended by S.I. No. 405 of 2026.
+    notes: Signed into law on 21 July 2026. Gives further effect to the EU AI Act. S.I. No. 403 of 2026 commenced it on 31 July 2026, except the parts of s.78 that add Coimisiún na Meán and the Data Protection Commission to the authorities using its adjudication and fines system. S.I. No. 404 of 2026 made 31 July 2026 the establishment day of the AI Office of Ireland. Market surveillance authorities are named in S.I. No. 366 of 2025, as amended by S.I. No. 405 of 2026.
 regulators:
   - name: Data Protection Commission (DPC)
     url: https://www.dataprotection.ie
@@ -66,10 +66,11 @@ obligations:
       - https://www.irishstatutebook.ie/eli/2011/si/336/made/en/print
       - https://www.dataprotection.ie/en/faqs/direct-marketing
   breach_notice:
-    summary: The GDPR rule applies. Report a breach to the DPC within 72 hours using its online form, unless it's unlikely to risk people's rights, and tell the people affected without undue delay when the risk is high. Record every breach, including why you decided not to report one. Telecoms and internet providers also report under Reg. 4 of S.I. 336/2011, within 24 hours where feasible under EU Regulation 611/2013.
+    summary: The GDPR rule applies. Report a breach to the DPC without undue delay and, where feasible, within 72 hours, using its online form, unless it's unlikely to risk people's rights, and tell the people affected without undue delay when the risk is high. Record every breach, including why you decided not to report one. Telecoms and internet providers also report under Reg. 4 of S.I. 336/2011, within 24 hours where feasible under EU Regulation 611/2013.
     value: 72
     source:
       - https://www.dataprotection.ie/en/organisations/know-your-obligations/breach-notification
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
       - https://www.irishstatutebook.ie/eli/2011/si/336/made/en/print
       - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32013R0611
   registration_or_fees:
@@ -92,28 +93,34 @@ obligations:
       - https://www.irishstatutebook.ie/eli/2018/act/7/section/37/enacted/en/html
       - https://revisedacts.lawreform.ie/eli/2018/act/7/revised/en/html
   dpia:
-    summary: The GDPR rule applies. The DPC's list (November 2018) always requires a DPIA for large-scale profiling with significant effects, large-scale special category or criminal data, and large-scale monitoring of public places. Ten more types need one where screening shows likely high risk, such as profiling children for marketing, tracking location or behaviour, biometric or genetic data with other criteria, and combining datasets. Review a DPIA after three years at most.
+    summary: The GDPR rule applies. The DPC's list (November 2018) always requires a DPIA for systematic and extensive profiling with significant effects, large-scale special category or criminal data, and large-scale monitoring of public places. Ten more types need one where screening shows likely high risk, such as profiling children for marketing, tracking location or behaviour, large-scale profiling, biometric or genetic data with other criteria, and combining datasets. Re-assessing a DPIA after three years, or sooner if things change, is good practice (Article 29 Working Party, cited by the DPC).
     source:
       - https://www.dataprotection.ie/en/organisations/know-your-obligations/data-protection-impact-assessments
       - https://www.dataprotection.ie/sites/default/files/uploads/2018-11/Data-Protection-Impact-Assessment.pdf
   automated_decisions_ai:
-    summary: GDPR Art. 22 applies. Ireland also allows solely automated decisions authorised by law if they grant the person's request, or if the person can make representations, ask for human review and appeal (s.57). The EU AI Act applies directly. The Regulation of Artificial Intelligence Act 2026 set up the AI Office of Ireland, which has coordinated it since the start of August 2026. Sector regulators supervise, such as the DPC for certain banned practices and high-risk uses, and the Workplace Relations Commission for AI at work.
+    summary: GDPR Art. 22 applies. Ireland also allows solely automated decisions authorised by law if they grant the person's request, or if the person can make representations, ask for human review and appeal (s.57). The EU AI Act applies directly. The Regulation of Artificial Intelligence Act 2026 set up the AI Office of Ireland, which has coordinated it since 31 July 2026. Sector regulators supervise, such as the DPC for certain banned practices and high-risk uses, and the Workplace Relations Commission for AI at work.
     source:
       - https://www.irishstatutebook.ie/eli/2018/act/7/section/57/enacted/en/html
       - https://aioffice.gov.ie/about-us/
       - https://enterprise.gov.ie/en/what-we-do/innovation-research-development/artificial-intelligence/eu-ai-act/
       - https://aioffice.gov.ie/national-competent-authorities/
+      - https://enterprise.gov.ie/en/legislation/regulation-of-artificial-intelligence-act.html
+      - https://enterprise.gov.ie/en/legislation/si-no-404-of-2026.html
   penalties:
-    summary: GDPR fines apply, up to €20 million or 4% of worldwide turnover. Fines on public bodies that don't act as undertakings are capped at €1 million (s.141). A fine can be appealed within 28 days to the Circuit Court (up to €75,000) or the High Court, and an unappealed fine needs Circuit Court confirmation (ss.142 and 143). Marketing offences under the ePrivacy Regulations go to court, with fines up to €5,000 per message on summary conviction or €250,000 for a company on indictment.
+    summary: GDPR fines reach €20 million or 4% of worldwide turnover, capped at €1 million for public bodies that don't act as undertakings (s.141). Appeal within 28 days to the Circuit Court (fines up to €75,000) or the High Court; an unappealed fine needs Circuit Court confirmation (ss.142, 143). ePrivacy marketing offences go to court, with fines up to €5,000 per message summarily or €250,000 for a company on indictment. Most AI Act fines are set by independent adjudicators and take effect once the High Court confirms them (2026 Act, Part 6); the Central Bank and the CCPC use their own procedures.
     source:
       - https://revisedacts.lawreform.ie/eli/2018/act/7/section/141/revised/en/html
       - https://www.irishstatutebook.ie/eli/2018/act/7/section/142/enacted/en/html
       - https://www.irishstatutebook.ie/eli/2018/act/7/section/143/enacted/en/html
       - https://www.irishstatutebook.ie/eli/2011/si/336/made/en/print
       - https://www.irishstatutebook.ie/eli/2010/act/8/section/3/enacted/en/html
+      - https://www.irishstatutebook.ie/eli/2026/act/31/section/105/enacted/en/html
+      - https://www.irishstatutebook.ie/eli/2026/act/31/section/114/enacted/en/html
+      - https://www.irishstatutebook.ie/eli/2026/act/31/section/133/enacted/en/html
+      - https://www.irishstatutebook.ie/eli/2026/act/31/section/136/enacted/en/html
 checked:
   date: "2026-11-05"
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

@@ -27,7 +27,7 @@ laws:
     official_url: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02024R1689-20260727
     status: in-force
     in_force_from: "2024-08-01"
-    notes: Applies in stages. Bans and AI literacy from 2 February 2025, general-purpose AI model rules from 2 August 2025, most other rules (including transparency) from 2 August 2026, and high-risk rules from 2 December 2027 or 2 August 2028.
+    notes: Applies in stages. Bans and AI literacy from 2 February 2025, general-purpose AI model rules from 2 August 2025, most other rules (including transparency) from 2 August 2026, two more bans and output marking for older generative systems from 2 December 2026, and high-risk rules from 2 December 2027 or 2 August 2028.
   - name: Digital Omnibus on AI
     citation: Regulation (EU) 2026/1744
     official_url: https://eur-lex.europa.eu/eli/reg/2026/1744/oj
@@ -67,11 +67,13 @@ obligations:
       - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
       - https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/legal-grounds-processing-data/are-there-any-specific-safeguards-data-about-children_en
   children:
-    summary: Children merit specific protection, especially in marketing and profiling (Recital 38). Write information for them in clear, plain language (Art. 12), weigh their interests heavily in legitimate interests tests (Art. 6(1)(f)), and erase on request data collected through online services offered to them (Art. 17(1)(f)). Online platforms mustn't show profiling-based ads to users they're reasonably certain are minors (DSA Art. 28). The Commission's EU KIDS Act proposal of 17 September 2026 would stop under-15s opening their own social media accounts and require age checks. It isn't law yet.
+    summary: Children need extra protection, notably in marketing and profiling (Recital 38). Use clear, plain language with them (Art. 12), weigh their interests heavily in legitimate interests tests (Art. 6(1)(f)), and erase on request data from online services offered to them (Art. 17(1)(f)). Platforms open to minors must protect their privacy, safety and security, with no profiling-based ads to users they're reasonably sure are minors (DSA Art. 28; guidelines presented 14 July 2025). A pending EU KIDS Act proposal (17 September 2026) would stop under-15s opening their own social media accounts.
     source:
       - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
       - https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/legal-grounds-processing-data/are-there-any-specific-safeguards-data-about-children_en
       - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022R2065
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:C_202505519
+      - https://digital-strategy.ec.europa.eu/en/news/commission-presents-guidelines-and-age-verification-app-prototype-safer-online-space-children
       - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A52026PC0681
   cookies:
     summary: Storing or reading information on a user's device, including cookies, tracking pixels and device identifiers, needs prior consent to the GDPR standard after clear and full information, unless it's strictly necessary to carry a communication or provide a service the user explicitly asked for (ePrivacy Art. 5(3)). Each member state applies this through its own law and regulator. The pending Digital Omnibus would move these rules into the GDPR for personal data, exempt some audience measurement and security uses, and make sites honour automated browser consent signals.
@@ -85,11 +87,13 @@ obligations:
       - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02002L0058-20091219
       - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
   breach_notice:
-    summary: Report a personal data breach to the supervisory authority without undue delay and, where feasible, within 72 hours of becoming aware of it, unless it's unlikely to risk people's rights. Tell the people affected without undue delay when the risk to them is high. Processors must tell the controller without undue delay, and every breach must be documented. The pending Digital Omnibus would require reports only for high-risk breaches, within 96 hours, through a single reporting point.
+    summary: Report a personal data breach to the supervisory authority without undue delay and, where feasible, within 72 hours of becoming aware of it, unless it's unlikely to risk people's rights, and tell those affected without undue delay if the risk to them is high. Processors must tell the controller, and every breach must be documented. Public telecoms and internet providers also notify under ePrivacy Art. 4(3), within 24 hours of detection where feasible (Regulation 611/2013). The pending Digital Omnibus would limit GDPR reports to high-risk breaches, within 96 hours, via one reporting point.
     value: 72
     source:
       - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
       - https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/obligations/what-data-breach-and-what-do-we-have-do-case-data-breach_en
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02002L0058-20091219
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32013R0611
       - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:52025PC0837
       - https://data.consilium.europa.eu/doc/document/ST-14756-2026-INIT/en/pdf
   registration_or_fees:
@@ -123,15 +127,17 @@ obligations:
       - https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-27
       - https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act
   automated_decisions_ai:
-    summary: People have the right not to be subject to decisions based solely on automated processing, including profiling, with legal or similarly significant effects, unless needed for a contract, authorised by law or based on explicit consent, with safeguards such as human intervention (GDPR Art. 22). The AI Act applies in stages, with bans since 2 February 2025, general-purpose AI model duties since 2 August 2025, transparency duties (Art. 50) since 2 August 2026, and high-risk rules from 2 December 2027 (Annex III) and 2 August 2028 (Annex I).
+    summary: Solely automated decisions with legal or similarly significant effects must be needed for a contract, authorised by law or explicitly consented to, with safeguards such as human intervention (GDPR Art. 22). AI Act bans apply from 2 February 2025, general-purpose AI model duties from 2 August 2025 and transparency duties from 2 August 2026. From 2 December 2026 it bans AI for non-consensual sexual deepfakes or child sexual abuse material, and generative systems marketed earlier must mark their output. High-risk rules start on 2 December 2027 (Annex III) and 2 August 2028 (Annex I).
     source:
       - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
       - https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en
       - https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act
       - https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-113
+      - https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-5
       - https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50
+      - https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-111
   penalties:
-    summary: GDPR fines reach €20 million or 4% of worldwide annual turnover, whichever is higher, for breaches of the principles, lawful bases, people's rights or transfer rules, and €10 million or 2% for other duties (Art. 83). Cookie and e-marketing breaches are fined under national law. AI Act fines reach €35 million or 7% for banned practices, €15 million or 3% for most other duties and €7.5 million or 1% for misleading information, with the lower figure for SMEs (Art. 99). The Commission can fine general-purpose AI model providers up to €15 million or 3% (Art. 101).
+    summary: GDPR fines reach €20 million or 4% of worldwide annual turnover, whichever is higher, for breaches of the principles, lawful bases, people's rights or transfer rules, and €10 million or 2% for other duties (Art. 83). National law sets cookie and e-marketing fines. AI Act fines reach €35 million or 7% for banned practices, €15 million or 3% for most other duties and €7.5 million or 1% for misleading information. SMEs, and small mid-caps outside banned practices, get the lower figure (Art. 99). The Commission can fine general-purpose AI model providers up to €15 million or 3% (Art. 101).
     source:
       - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
       - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02002L0058-20091219
@@ -142,4 +148,4 @@ checked:
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

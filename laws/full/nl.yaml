@@ -17,18 +17,18 @@ laws:
     official_url: https://wetten.overheid.nl/BWBR0009950/
     status: in-force
     in_force_from: "1998-12-15"
-    notes: Article 11.7a covers cookies and similar technologies, and article 11.7 covers spam and telemarketing. Since 1 July 2026 an amendment made through the Energiewet removed the existing-customer exception for telemarketing calls.
+    notes: Article 11.7a covers cookies and similar technologies, article 11.7 covers spam and telemarketing, and article 11.3a covers breach notices by telecoms providers. Since 1 July 2026 an amendment made through the Energiewet (Kamerstukken 36378), together with a 2025 repair act (Kamerstukken 36776), removed the existing-customer exception for telemarketing calls.
   - name: Verzamelwet gegevensbescherming
     citation: Wet van 10 juni 2026, Stb. 2026, 154 (Kamerstukken 36264)
-    official_url: https://zoek.officielebekendmakingen.nl/stb-2026-196.html
+    official_url: https://zoek.officielebekendmakingen.nl/stb-2026-154.pdf
     status: in-force
     in_force_from: "2026-09-01"
-    notes: Amends the UAVG and other laws. In force from 1 September 2026, except a new UAVG exception for statutory audits (Article I, part I), which waits for a follow-up bill. The link is the decree that set the start date.
+    notes: Amends the UAVG and other laws. In force from 1 September 2026 (decree in Stb. 2026, 196), except a new UAVG exception for statutory audits (Article I, part I), which waits for a follow-up bill.
   - name: Uitvoeringswet AI-verordening (bill)
     citation: Draft bill, public consultation opened 20 April 2026
     official_url: https://www.rdi.nl/actueel/nieuws/2026/04/20/toezicht-ai-balans-veiligheid-en-innovatie
     status: draft
-    notes: Would set up national supervision under the EU AI Act, with the RDI and the AP as coordinating supervisors working with sector supervisors. As far as we could check, it wasn't law by 5 November 2026.
+    notes: Would set up national supervision under the EU AI Act, with the RDI and the AP as coordinating supervisors working with sector supervisors, and the RDI as single point of contact. As far as we could check, it wasn't law by 5 November 2026.
 regulators:
   - name: Autoriteit Persoonsgegevens (AP), the data protection authority and coordinating supervisor for algorithms and AI
     url: https://www.autoriteitpersoonsgegevens.nl/en
@@ -66,19 +66,21 @@ obligations:
       - https://wetten.overheid.nl/jci1.3:c:BWBR0009950&hoofdstuk=15&paragraaf=15.1&artikel=15.1
       - https://www.autoriteitpersoonsgegevens.nl/en/themes/internet-and-smart-devices/cookies
   marketing:
-    summary: Email and other electronic messages, automated calls and faxes for commercial, ideological or charitable purposes need prior consent (art. 11.7 Telecommunicatiewet). The soft opt-in still covers email to customers about your own similar products, with an opt-out at collection and in every message. Telemarketing calls to individuals also need consent. Since 1 July 2026 firms can't call existing customers without consent. Only charities, certain lotteries and periodical publishers keep a limited exception. The ACM enforces.
+    summary: Commercial, ideological or charitable electronic messages, automated calls and faxes need prior consent (art. 11.7 Telecommunicatiewet). The soft opt-in covers messages to customers about your similar products, with an opt-out at collection and in each message. Since 1 July 2026, telemarketing calls to individuals need consent, existing customers included; only charities, some lotteries and periodical publishers have limited exceptions. Businesses, and people contacted in their work, need no consent at contact details they made known for such messages (art. 11.7(3)). The ACM enforces.
     source:
       - https://wetten.overheid.nl/jci1.3:c:BWBR0009950&hoofdstuk=11&paragraaf=11.1&artikel=11.7
       - https://wetten.overheid.nl/BWBR0009950/2026-08-15/0/Hoofdstuk11/Paragraaf11.1/Artikel11.7/informatie
       - https://www.acm.nl/nl/verkoop-aan-consumenten/reclame-en-verleiden/verkoop-telemarketing
       - https://www.acm.nl/nl/verkoop-aan-consumenten/reclame-en-verleiden/spam-voorkomen-uw-reclame
   breach_notice:
-    summary: The GDPR rule applies. Report a breach to the AP without undue delay and within 72 hours, unless it's unlikely to risk people's rights, and tell affected people without undue delay when the risk to them is high. Financial firms under the Wft don't have to notify affected people under Art. 34 GDPR (art. 42 UAVG).
+    summary: The GDPR rule applies. Report a breach to the AP without undue delay and, where feasible, within 72 hours, unless it's unlikely to risk people's rights, and tell affected people without undue delay when the risk to them is high. Financial firms under the Wft don't have to notify affected people under Art. 34 GDPR (art. 42 UAVG). Public telecoms and internet providers must also notify the AP without delay (art. 11.3a Telecommunicatiewet), within 24 hours of detection where feasible (Regulation 611/2013), and tell those affected when their privacy is likely to suffer.
     value: 72
     source:
       - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
       - https://wetten.overheid.nl/jci1.3:c:BWBR0040940&hoofdstuk=4&artikel=42
       - https://www.autoriteitpersoonsgegevens.nl/en/themes/security/data-breaches
+      - https://wetten.overheid.nl/jci1.3:c:BWBR0009950&hoofdstuk=11&paragraaf=11.1&artikel=11.3a
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32013R0611
   registration_or_fees:
     summary: There's no registration and no fee. If you have a data protection officer, publish their contact details and send them to the AP (Art. 37(7) GDPR).
     source:
@@ -94,15 +96,17 @@ obligations:
       - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
       - https://wetten.overheid.nl/BWBR0040940/
   dpia:
-    summary: Carry out a DPIA before high-risk processing (Art. 35 GDPR). The AP's list names 17 kinds of processing that always need one, including covert investigations, blacklists, fraud detection, credit scoring, camera surveillance, employee monitoring, location data, profiling and biometric data.
+    summary: Carry out a DPIA before high-risk processing (Art. 35 GDPR). The AP's list (November 2019) names 17 types that need one, most only when large-scale or systematic, such as fraud detection, credit scoring, camera surveillance, employee monitoring, and location, health or biometric data. Three apply on other conditions, namely blacklists shared with third parties, sensitive data shared in partnerships with public bodies, and systematic, extensive profiling. The list isn't exhaustive, so other high-risk processing can need a DPIA too.
     source:
       - https://zoek.officielebekendmakingen.nl/stcrt-2019-64418.html
   automated_decisions_ai:
-    summary: Art. 22 GDPR applies. The UAVG lifts the ban for automated decisions not based on profiling when they're needed for a legal obligation or a public-interest task, with safeguards. For controllers that aren't public bodies, those include human intervention and the right to give one's view and to contest (art. 40). The AP coordinates oversight of algorithms and AI. An AI Act implementation bill went to public consultation on 20 April 2026, with the RDI and AP as coordinating supervisors. As far as we could check, it wasn't law by 5 November 2026.
+    summary: Art. 22 GDPR applies. The UAVG lifts the ban for automated decisions not based on profiling when needed for a legal obligation or a public-interest task, with safeguards; for controllers that aren't public bodies, these include human intervention and the right to give one's view and to contest (art. 40). The EU AI Act applies directly, but by 5 November 2026 the Netherlands still hadn't set its AI Act supervisors or penalties in law, due by 2 August 2025. A draft bill consulted on from 20 April 2026 would make the RDI the single point of contact, coordinating with the AP.
     source:
       - https://wetten.overheid.nl/jci1.3:c:BWBR0040940&hoofdstuk=4&artikel=40
       - https://www.autoriteitpersoonsgegevens.nl/en/themes/algorithms-ai/eu-ai-act
       - https://www.rdi.nl/actueel/nieuws/2026/04/20/toezicht-ai-balans-veiligheid-en-innovatie
+      - https://zoek.officielebekendmakingen.nl/kst-22112-4318.pdf
+      - https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act
   penalties:
     summary: GDPR fines apply, up to €20 million or 4% of worldwide annual turnover, and the AP may also fine public bodies (art. 18 UAVG). The AP sets GDPR fines with the EDPB's guidelines, and its 2023 fining policy covers other cases. Since 1 September 2026 it must publish its sanction decisions (art. 21b UAVG). The ACM can fine cookie, spam and telemarketing breaches up to €900,000 or 1% of turnover, doubled for a repeat offence within five years.
     source:
@@ -116,4 +120,4 @@ checked:
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

@@ -26,7 +26,7 @@ laws:
     official_url: https://www.legislation.gov.uk/ukpga/2025/18/contents
     status: in-force
     in_force_from: "2025-06-19"
-    notes: Amends the three laws above, in stages. Most data protection and PECR changes took effect on 5 February 2026, the complaints duty on 19 June 2026, and the Information Commission replaced the ICO on 30 September 2026.
+    notes: Amends the three laws above, in stages. Most data protection and PECR changes took effect on 5 February 2026. From 19 June 2026, controllers must make it easy for people to complain to them about data protection infringements, for example with an online form, acknowledge each complaint within 30 days and, without undue delay, respond and report the outcome (DPA 2018 s.164A). The Information Commission replaced the ICO on 30 September 2026.
 regulators:
   - name: Information Commission (successor to the Information Commissioner's Office since 30 September 2026)
     url: https://ico.org.uk
@@ -37,7 +37,7 @@ obligations:
       - https://www.legislation.gov.uk/eur/2016/679/article/3
       - https://www.legislation.gov.uk/eur/2016/679/article/27
   lawful_bases:
-    summary: Six lawful bases (Art. 6). Since 5 February 2026, a short list of "recognised legitimate interests" needs no balancing test, such as preventing crime, safeguarding children and vulnerable adults, emergencies and national security. Commercial analytics and marketing aren't on the list.
+    summary: Seven lawful bases since 5 February 2026 (Art. 6(1)). The new one, recognised legitimate interests, covers only the purposes listed in Annex 1, such as preventing or detecting crime, safeguarding children and vulnerable adults, emergencies and national security, and needs no balancing test. Direct marketing, intra-group sharing for internal admin and network security are named only as examples of ordinary legitimate interests, which still need one. Public authorities can't use either legitimate interests basis for their tasks.
     source:
       - https://www.legislation.gov.uk/eur/2016/679/article/6
       - https://www.legislation.gov.uk/eur/2016/679/annex/1
@@ -53,7 +53,7 @@ obligations:
       - https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/childrens-information/childrens-code-guidance-and-resources/
       - https://www.legislation.gov.uk/ukpga/2025/18/section/81
   cookies:
-    summary: Storing or reading information on a device needs consent after clear information. Exceptions are what's strictly necessary for a service the user asked for and, since 5 February 2026, analytics used only to improve the service and adapting a site's appearance or functions, as long as people get clear information and a free, simple way to object.
+    summary: Storing or reading information on a device needs consent after clear and comprehensive information, and consent can be given through browser or other software settings. No consent is needed to carry a communication or for what's strictly necessary for a service the user asked for. Since 5 February 2026 it's also not needed for analytics used only to improve the service, adapting a site's appearance or functions, or locating a user whose device calls for emergency help. For analytics and appearance, people must get clear information and a free, simple way to object.
     source:
       - https://www.legislation.gov.uk/uksi/2003/2426/regulation/6
       - https://www.legislation.gov.uk/uksi/2003/2426/schedule/A1
@@ -62,7 +62,7 @@ obligations:
     source:
       - https://www.legislation.gov.uk/uksi/2003/2426/regulation/22
   breach_notice:
-    summary: Report a personal data breach to the regulator without undue delay and within 72 hours of becoming aware of it, unless it's unlikely to risk people's rights. Tell the people affected without undue delay when the risk to them is high.
+    summary: Report a personal data breach to the regulator without undue delay and, where feasible, within 72 hours of becoming aware of it, unless it's unlikely to risk people's rights. Tell the people affected without undue delay when the risk to them is high.
     value: 72
     source:
       - https://www.legislation.gov.uk/eur/2016/679/article/33
@@ -87,18 +87,20 @@ obligations:
       - https://www.legislation.gov.uk/eur/2016/679/article/35
       - https://www.legislation.gov.uk/eur/2016/679/article/36
   automated_decisions_ai:
-    summary: Since 5 February 2026, significant decisions based solely on automated processing are allowed with safeguards. People must be told about them and be able to make representations, get human intervention and contest the decision. Stricter limits apply when special category data is used.
+    summary: Since 5 February 2026, significant decisions based solely on automated processing are allowed with safeguards. People must be told about them and be able to make representations, get human intervention and contest the decision. If special category data is used, the decision must be based entirely on data the person explicitly consented to, or be needed for a contract or required or authorised by law with a substantial public interest condition met (Art. 22B). No solely automated significant decision can rely on recognised legitimate interests.
     source:
       - https://www.legislation.gov.uk/eur/2016/679/article/22A
+      - https://www.legislation.gov.uk/eur/2016/679/article/22B
       - https://www.legislation.gov.uk/eur/2016/679/article/22C
   penalties:
-    summary: Fines up to £17.5 million or 4% of worldwide annual turnover, whichever is higher, for the most serious UK GDPR infringements, and up to £8.7 million or 2% for others. Since 5 February 2026, PECR breaches are fined under the same powers.
+    summary: Fines up to £17.5 million or 4% of worldwide annual turnover, whichever is higher, for the most serious UK GDPR infringements, and up to £8.7 million or 2% for others. Since 5 February 2026, PECR breaches are fined under the same powers, up to £17.5 million or 4% for rules including security, cookies, traffic and location data, and marketing, and up to £8.7 million or 2% for other PECR rules.
     source:
       - https://www.legislation.gov.uk/ukpga/2018/12/section/157
       - https://www.legislation.gov.uk/uksi/2003/2426/schedule/1
+      - https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/02/statement-on-the-commencement-of-the-data-use-and-access-act-duaa/
 checked:
   date: "2026-11-05"
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
