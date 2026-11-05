@@ -5,3 +5,5 @@
 jurisdictions:
   uk:
     official_domains: [legislation.gov.uk, ico.org.uk, gov.uk]
+  eu:
+    official_domains: [europa.eu]

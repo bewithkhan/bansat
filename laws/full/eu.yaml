@@ -1,0 +1,145 @@
+# European Union. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: eu
+name: European Union
+tier: full
+laws:
+  - name: General Data Protection Regulation (GDPR)
+    citation: Regulation (EU) 2016/679
+    official_url: https://eur-lex.europa.eu/eli/reg/2016/679/oj
+    status: in-force
+    in_force_from: "2016-05-24"
+    notes: Has applied since 25 May 2018. It also applies in Iceland, Liechtenstein and Norway through the EEA Agreement. Member states add their own rules where the GDPR lets them.
+  - name: GDPR Procedural Regulation
+    citation: Regulation (EU) 2025/2518
+    official_url: https://eur-lex.europa.eu/eli/reg/2025/2518/oj
+    status: in-force
+    in_force_from: "2026-01-01"
+    notes: Applies from 2 April 2027. Sets common procedures for regulators handling cross-border complaints and investigations, such as time limits and the right to be heard.
+  - name: ePrivacy Directive
+    citation: Directive 2002/58/EC, as amended by Directive 2009/136/EC
+    official_url: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02002L0058-20091219
+    status: in-force
+    in_force_from: "2002-07-31"
+    notes: Cookies and similar technologies (Art. 5(3)) and electronic marketing (Art. 13). As a directive, it applies through each member state's own law. The 2009 amendments, which made cookies need consent, had to be in national law by 25 May 2011.
+  - name: Artificial Intelligence Act (AI Act)
+    citation: Regulation (EU) 2024/1689, as amended by Regulation (EU) 2026/1744
+    official_url: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02024R1689-20260727
+    status: in-force
+    in_force_from: "2024-08-01"
+    notes: Applies in stages. Bans and AI literacy from 2 February 2025, general-purpose AI model rules from 2 August 2025, most other rules (including transparency) from 2 August 2026, and high-risk rules from 2 December 2027 or 2 August 2028.
+  - name: Digital Omnibus on AI
+    citation: Regulation (EU) 2026/1744
+    official_url: https://eur-lex.europa.eu/eli/reg/2026/1744/oj
+    status: in-force
+    in_force_from: "2026-07-27"
+    notes: Amends the AI Act. Delays high-risk rules to 2 December 2027 (Annex III uses such as hiring, credit and education) and 2 August 2028 (AI in Annex I products), bans AI that makes non-consensual intimate content or child sexual abuse material from 2 December 2026, and softens the AI literacy duty.
+  - name: Digital Omnibus (proposal)
+    citation: COM(2025) 837 final, procedure 2025/0360(COD)
+    official_url: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:52025PC0837
+    status: draft
+    notes: Commission proposal of 19 November 2025 to amend the GDPR, the ePrivacy Directive and other data laws. The Council agreed its negotiating position on 21 October 2026, and Parliament's committees hadn't voted by 5 November 2026. It isn't law yet.
+regulators:
+  - name: European Data Protection Board (EDPB), which issues EU-wide guidance and settles disputes between national authorities
+    url: https://www.edpb.europa.eu/
+  - name: National data protection authorities, which enforce the GDPR (listed by the EDPB)
+    url: https://www.edpb.europa.eu/about-edpb/about-edpb/members_en
+  - name: European AI Office (European Commission), which supervises general-purpose AI models under the AI Act
+    url: https://digital-strategy.ec.europa.eu/en/policies/ai-office
+obligations:
+  scope:
+    summary: The GDPR covers personal data processed in the context of an EU establishment, wherever the processing happens, and by organisations outside the EU that offer goods or services to people in the EU or monitor their behaviour there (Art. 3). Purely personal or household use is outside it. The GDPR also applies in Iceland, Liechtenstein and Norway through the EEA Agreement. The AI Act covers providers placing AI systems or general-purpose AI models on the EU market, deployers in the EU, and non-EU providers and deployers whose AI output is used in the EU.
+    source:
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+      - https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-32018-territorial-scope-gdpr-article-3-version_en
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:22018D1022
+      - https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-2
+  lawful_bases:
+    summary: Every use of personal data needs one of six lawful bases (Art. 6), namely consent, contract, legal obligation, vital interests, public task or legitimate interests. Processing special category data, such as health, biometric or ethnic origin data, is banned unless an Art. 9(2) condition also applies, such as explicit consent. Consent must be a clear, free, specific and informed choice, so silence and pre-ticked boxes don't count. The pending Digital Omnibus would confirm that AI development and operation can rely on legitimate interests, with safeguards.
+    source:
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:52025PC0837
+      - https://oeil.europarl.europa.eu/oeil/en/procedure-file?reference=2025/0360(COD)
+  consent_age:
+    summary: When an online service offered directly to a child relies on consent, the GDPR default is that children can consent for themselves from 16. Member states may set a lower age, but not below 13, so it ranges from 13 to 16 (see each member state's entry). Below that age a parent must give or authorise consent, and you must make reasonable efforts to check it.
+    value: 16
+    source:
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+      - https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/legal-grounds-processing-data/are-there-any-specific-safeguards-data-about-children_en
+  children:
+    summary: Children merit specific protection, especially in marketing and profiling (Recital 38). Write information for them in clear, plain language (Art. 12), weigh their interests heavily in legitimate interests tests (Art. 6(1)(f)), and erase on request data collected through online services offered to them (Art. 17(1)(f)). Online platforms mustn't show profiling-based ads to users they're reasonably certain are minors (DSA Art. 28). The Commission's EU KIDS Act proposal of 17 September 2026 would stop under-15s opening their own social media accounts and require age checks. It isn't law yet.
+    source:
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+      - https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/legal-grounds-processing-data/are-there-any-specific-safeguards-data-about-children_en
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022R2065
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A52026PC0681
+  cookies:
+    summary: Storing or reading information on a user's device, including cookies, tracking pixels and device identifiers, needs prior consent to the GDPR standard after clear and full information, unless it's strictly necessary to carry a communication or provide a service the user explicitly asked for (ePrivacy Art. 5(3)). Each member state applies this through its own law and regulator. The pending Digital Omnibus would move these rules into the GDPR for personal data, exempt some audience measurement and security uses, and make sites honour automated browser consent signals.
+    source:
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02002L0058-20091219
+      - https://www.edpb.europa.eu/system/files/2024-10/edpb_guidelines_202302_technical_scope_art_53_eprivacydirective_v2_en_0.pdf
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:52025PC0837
+  marketing:
+    summary: Marketing emails and texts to individuals need prior consent, except for the soft opt-in (contact details obtained in a sale, your own similar products, and a free, easy opt-out when collected and in every message). Automated calls and faxes need consent, and for other calls each member state chooses opt-in or opt-out. Don't hide the sender's identity. Protection for business recipients is set nationally (ePrivacy Art. 13). People can object to direct marketing at any time, and you must then stop (GDPR Art. 21).
+    source:
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02002L0058-20091219
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+  breach_notice:
+    summary: Report a personal data breach to the supervisory authority without undue delay and, where feasible, within 72 hours of becoming aware of it, unless it's unlikely to risk people's rights. Tell the people affected without undue delay when the risk to them is high. Processors must tell the controller without undue delay, and every breach must be documented. The pending Digital Omnibus would require reports only for high-risk breaches, within 96 hours, through a single reporting point.
+    value: 72
+    source:
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+      - https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/obligations/what-data-breach-and-what-do-we-have-do-case-data-breach_en
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:52025PC0837
+      - https://data.consilium.europa.eu/doc/document/ST-14756-2026-INIT/en/pdf
+  registration_or_fees:
+    summary: There's no EU-level registration or fee under the GDPR (see each member state's entry). A non-EU organisation covered because it targets or monitors people in the EU must name a representative in writing in a member state where those people are, unless its processing is occasional, low-risk and excludes large-scale special category or criminal data (Art. 27). Under the AI Act, non-EU providers of general-purpose AI models need an EU authorised representative (Art. 54), and Annex III high-risk AI systems must be registered in an EU database under the high-risk rules (Art. 49).
+    source:
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+      - https://www.edpb.europa.eu/sites/default/files/files/file1/edpb_guidelines_3_2018_territorial_scope_after_public_consultation_en_1.pdf
+      - https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-54
+      - https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-49
+  dpo:
+    summary: Appoint a data protection officer if you're a public authority or body, or if your core activities involve large-scale regular and systematic monitoring of people, such as online tracking, or large-scale processing of special category or criminal offence data (Art. 37). Member states may require one in more cases (see national entries). Publish the DPO's contact details and give them to the supervisory authority.
+    source:
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+      - https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/obligations/data-protection-officers/does-my-companyorganisation-need-have-data-protection-officer-dpo_en
+  transfers:
+    summary: Personal data can leave the EEA only under an adequacy decision, appropriate safeguards such as the 2021 standard contractual clauses (with a documented check of the destination's laws) or binding corporate rules, or a listed exception (Art. 44–49). Recent adequacy decisions cover the European Patent Organisation (July 2025), the UK (renewed December 2025) and Brazil (January 2026). US organisations in the EU–US Data Privacy Framework are covered. The General Court upheld it in Latombe (T-553/23, 3 September 2025), and the appeal (C-703/25 P) was still pending on 5 November 2026.
+    source:
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32021D0914
+      - https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/adequacy-decisions_en
+      - https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/eu-us-data-transfers_en
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:62023TJ0553
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:62025CN0703
+    secondary:
+      - https://datalenk.com/blog/latombe-v-commission-data-privacy-framework
+  dpia:
+    summary: Carry out a data protection impact assessment before processing likely to be high risk, such as systematic, extensive profiling with legal or similar effects, large-scale special category or criminal data, or large-scale monitoring of public areas (Art. 35). National authorities publish lists of other cases. Consult the authority first if a high risk remains after mitigation (Art. 36). From 2 December 2027, some deployers of high-risk AI, such as public bodies, credit scorers and life or health insurers, must also assess its impact on fundamental rights (AI Act Art. 27).
+    source:
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+      - https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/obligations/when-data-protection-impact-assessment-dpia-required_en
+      - https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-27
+      - https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act
+  automated_decisions_ai:
+    summary: People have the right not to be subject to decisions based solely on automated processing, including profiling, with legal or similarly significant effects, unless needed for a contract, authorised by law or based on explicit consent, with safeguards such as human intervention (GDPR Art. 22). The AI Act applies in stages, with bans since 2 February 2025, general-purpose AI model duties since 2 August 2025, transparency duties (Art. 50) since 2 August 2026, and high-risk rules from 2 December 2027 (Annex III) and 2 August 2028 (Annex I).
+    source:
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+      - https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/dealing-citizens/are-there-restrictions-use-automated-decision-making_en
+      - https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act
+      - https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-113
+      - https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50
+  penalties:
+    summary: GDPR fines reach €20 million or 4% of worldwide annual turnover, whichever is higher, for breaches of the principles, lawful bases, people's rights or transfer rules, and €10 million or 2% for other duties (Art. 83). Cookie and e-marketing breaches are fined under national law. AI Act fines reach €35 million or 7% for banned practices, €15 million or 3% for most other duties and €7.5 million or 1% for misleading information, with the lower figure for SMEs (Art. 99). The Commission can fine general-purpose AI model providers up to €15 million or 3% (Art. 101).
+    source:
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02002L0058-20091219
+      - https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-99
+      - https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-101
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry, checked against official sources with AI assistance.
