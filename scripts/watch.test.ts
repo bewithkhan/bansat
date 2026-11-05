@@ -201,7 +201,8 @@ try {
   ie.watch = [{ url: 'https://www.dataprotection.ie/en/news-media/latest-news', type: 'html', selector: '.view-content', language: 'en' }];
   writeFileSync(join(dir, 'laws/full/ie.yaml'), stringify(ie));
 
-  const fixtures = (name: string, files: Record<string, string>, index: Record<string, string | { status: number }>): string => {
+  type Answer = string | { status: number };
+  const fixtures = (name: string, files: Record<string, string>, index: Record<string, Answer | Answer[]>): string => {
     const f = join(dir, `fixtures-${name}`);
     mkdirSync(f, { recursive: true });
     for (const [file, body] of Object.entries(files)) writeFileSync(join(f, file), body);
@@ -246,9 +247,22 @@ try {
     const { out, status } = run(broken, statePath);
     assert.equal(status, 0, out);
     assert.match(out, /1 source failed/);
-    assert.match(out, /\| `ie` \| https:\/\/www\.dataprotection\.ie\/en\/news-media\/latest-news \| HTTP 403 \|/);
+    assert.match(out, /\| `ie` \| https:\/\/www\.dataprotection\.ie\/en\/news-media\/latest-news \| HTTP 403 \(3 tries\) \|/);
     const state = JSON.parse(readFileSync(statePath, 'utf8'));
     assert.ok(state.sources[`${ieUrl} .view-content`], 'the last good snapshot was dropped');
+  });
+
+  test('a request refused at random is tried again, and the source counts as loaded', () => {
+    const flaky = fixtures('flaky', { 'feed.xml': atom([NEW_ENTRY, OLD_ENTRY]), 'page.html': html(['Fine for a retailer']), 'ie.html': ieHtml }, { [FEED]: [{ status: 503 }, 'feed.xml'], [PAGE]: [{ status: 403 }, { status: 429 }, 'page.html'], [ieUrl]: 'ie.html' });
+    const { out, status } = run(flaky, statePath);
+    assert.equal(status, 0, out);
+    assert.match(out, /0 sources failed; 3 unchanged/);
+  });
+
+  test("a missing page isn't tried again", () => {
+    const gone = fixtures('gone', { 'feed.xml': atom([NEW_ENTRY, OLD_ENTRY]), 'page.html': html(['Fine for a retailer']), 'ie.html': ieHtml }, { [FEED]: 'feed.xml', [PAGE]: 'page.html', [ieUrl]: [{ status: 404 }, 'ie.html'] });
+    const { out } = run(gone, statePath);
+    assert.match(out, /\| HTTP 404 \|/);
   });
 
   test('a page robots.txt disallows is not fetched, and is reported', () => {

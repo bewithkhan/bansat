@@ -533,7 +533,7 @@ The registry's history lives in git. The watch's state is a single workflow arti
 | T-B3 | Elevation of privilege | A workflow token is misused | Least privilege (NFR-SEC-01); actions pinned by SHA; no secrets printed | Workflow review |
 | T-B4 | Tampering | Supply chain in site or script dependencies | Lockfile, Dependabot, `npm audit` in CI | CI |
 | T-B5 | Tampering | XSS through registry text on the site | Text rendered escaped; Markdown sanitised; CSP `default-src 'self'` in a `<meta>` tag | Playwright |
-| T-B6 | Denial of service | The watch hammers a source | Weekly runs, one request per source, an identifying user agent, robots.txt respected | Unit test |
+| T-B6 | Denial of service | The watch hammers a source | Weekly runs, one request per source (two spaced retries only when it fails), an identifying user agent, robots.txt and Crawl-delay respected | Unit test |
 
 ---
 
