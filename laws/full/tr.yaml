@@ -25,9 +25,22 @@ laws:
     status: in-force
     in_force_from: "2015-05-01"
     notes: Covers commercial electronic messages. Details are in the Regulation on Commercial Communication and Commercial Electronic Messages, amended on 4 January 2020 for the Message Management System (İYS). The link is the Ministry of Trade's guidance.
+  - name: Law No. 7578 amending the Social Services Law and certain laws (social network rules in Internet Law No. 5651)
+    citation: Law No. 7578 (Official Gazette 1 May 2026, No. 33240)
+    official_url: https://cdn.tbmm.gov.tr/KKBSPublicFile/D28/Y4/KanunMetni/9bf93173-7648-4771-ab36-0e45666c423d.htm
+    status: in-force
+    in_force_from: "2026-11-01"
+    notes: Adds social network rules to Internet Law No. 5651 (Additional Article 4) that apply from 1 November 2026, six months after publication. Providers may not serve children under 15, must check ages, offer a separate service for 15- to 17-year-olds and give parents control tools. It also adds age-rating and parental-control rules for online game platforms. Its other articles took effect on 1 May 2026. The link is the text the TBMM adopted on 22 April 2026.
+  - name: No AI-specific law yet
+    citation: None adopted. Law No. 6698 covers personal data processed with AI
+    official_url: https://www.kvkk.gov.tr/Icerik/8547/uretken-yapay-zeka-ve-kisisel-verilerin-korunmasi-rehberi-15-soruda
+    status: none
+    notes: No AI law has been adopted, so the Authority assesses AI, including generative AI, under Law No. 6698. The link is its generative AI guide of 24 November 2025.
 regulators:
   - name: Personal Data Protection Authority (Kişisel Verileri Koruma Kurumu, KVKK) and its Board
     url: https://www.kvkk.gov.tr/
+  - name: Presidency of Cyber Security (Siber Güvenlik Başkanlığı), for cyber incident reports and internet content complaints
+    url: https://www.turkiye.gov.tr/cumhurbaskanligi-siber-guvenlik-baskanligi
   - name: Ministry of Trade, for commercial electronic messages
     url: https://ticaret.gov.tr/ic-ticaret/ticari-elektronik-iletiler
 obligations:
