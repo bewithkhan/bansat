@@ -18,6 +18,7 @@
 </p>
 
 <p align="center">
+  <a href="https://bewithkhan.github.io/bansat/"><b>Read it online</b></a> ·
   <a href="#install-in-60-seconds"><b>Install</b></a> ·
   <a href="#see-it-work"><b>See it work</b></a> ·
   <a href="#the-17-launch-traps"><b>17 launch traps</b></a> ·
@@ -207,7 +208,7 @@ Viral compliance threads get some of this wrong. Bansat sticks to what the law a
 
 ## What's in the blueprint
 
-15 parts and 5 appendices, about 3,500 lines of Markdown, split into [modules](framework/README.md) so Claude reads only the parts each step needs. `reference/bansat-framework.md` has the whole framework in one file.
+15 parts and 5 appendices, about 3,500 lines of Markdown, split into [modules](framework/README.md) so Claude reads only the parts each step needs. `reference/bansat-framework.md` has the whole framework in one file, and you can [read it online](https://bewithkhan.github.io/bansat/) as a searchable site with no cookies or trackers, rebuilt from this repo on every merge.
 
 Planning with a PRD, TRD, app flow, UI/UX brief, backend schema and implementation plan? They're all here, as parts of one blueprint that can't contradict itself: the [map](framework/how-to-use.md#where-the-usual-planning-documents-live) shows where each one lives.
 

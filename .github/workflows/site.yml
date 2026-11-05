@@ -1,0 +1,74 @@
+# Builds and tests the documentation site on pull requests that touch it, and publishes it to
+# GitHub Pages from main (https://bewithkhan.github.io/bansat/). Only the deploy job can write,
+# and only to Pages. Third-party actions are pinned to a full commit SHA (the tag is in the comment).
+name: Site
+
+on:
+  pull_request:
+    paths:
+      - 'framework/**'
+      - 'docs/**'
+      - 'CHANGELOG.md'
+      - 'examples/README.md'
+      - 'scripts/modules.ts'
+      - 'site/**'
+      - '.github/workflows/site.yml'
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: site-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  build:
+    name: Build and test the site
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: site
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - run: npm ci
+      - name: Install Chromium (it draws the diagrams and runs the tests)
+        run: npx playwright install --with-deps chromium
+      - name: Build the pages from the repo
+        run: npm run build
+      - name: No cookies, no third-party requests, no broken links, no axe violations, search works
+        run: npm test
+      - name: Keep the site for the deploy job
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: site/dist
+
+  deploy:
+    name: Publish to GitHub Pages
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

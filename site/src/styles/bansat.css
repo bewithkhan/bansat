@@ -1,0 +1,81 @@
+/* The Bansat look: navy ground, a light-blue accent, Space Grotesk headings and IBM Plex Mono code,
+   all self-hosted. Starlight's colour scale runs from --sl-color-white (text) to --sl-color-black (page). */
+
+:root {
+  --sl-font: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Noto Naskh Arabic', sans-serif;
+  --sl-font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --bansat-heading-font: 'Space Grotesk', var(--sl-font);
+
+  /* Dark theme (Starlight's default) */
+  --sl-color-accent-low: #0b2a4d;
+  --sl-color-accent: #2b7cd3;
+  --sl-color-accent-high: #c3d8f3;
+  --sl-color-white: #ffffff;
+  --sl-color-gray-1: #eef5ff;
+  --sl-color-gray-2: #c3d8f3;
+  --sl-color-gray-3: #9cb8dc;
+  --sl-color-gray-4: #5b7ba3;
+  --sl-color-gray-5: #1d4673;
+  --sl-color-gray-6: #0f2f55;
+  --sl-color-black: #081f3a;
+}
+
+:root[data-theme='light'] {
+  --sl-color-accent-low: #d9e9fb;
+  --sl-color-accent: #0b5cad;
+  --sl-color-accent-high: #0b2a4d;
+  --sl-color-white: #081f3a;
+  --sl-color-gray-1: #0b2a4d;
+  --sl-color-gray-2: #12426f;
+  --sl-color-gray-3: #355d88;
+  --sl-color-gray-4: #5f7fa6;
+  --sl-color-gray-5: #c3d8f3;
+  --sl-color-gray-6: #eef5ff;
+  --sl-color-gray-7: #f6faff;
+  --sl-color-black: #ffffff;
+}
+
+h1,
+h2,
+h3,
+.sl-markdown-content :is(h2, h3, h4),
+.hero h1 {
+  font-family: var(--bansat-heading-font);
+  letter-spacing: -0.01em;
+}
+
+/* Diagrams are drawn at build time; give them a light card so they read in both themes. */
+.bansat-diagram {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: #ffffff;
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+.bansat-diagram svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* Wide tables scroll inside a focusable wrapper (added by the rehype plugin in astro.config.mjs),
+   so keyboard users can scroll them too. */
+.sl-markdown-content .bansat-table {
+  overflow-x: auto;
+}
+.sl-markdown-content .bansat-table > table:not(:where(.not-content *)) {
+  display: table;
+  overflow: visible;
+}
+.sl-markdown-content .bansat-table:focus-visible {
+  outline: 2px solid var(--sl-color-accent-high);
+  outline-offset: 2px;
+}
+
+/* WCAG 2.5.3 (label in name): the search button is named "Search", so don't also show the
+   keyboard hint as part of its visible label. Ctrl+K and Cmd+K still open search. */
+button[data-open-modal] kbd {
+  display: none;
+}
