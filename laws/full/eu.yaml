@@ -39,6 +39,11 @@ laws:
     official_url: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:52025PC0837
     status: draft
     notes: Commission proposal of 19 November 2025 to amend the GDPR, the ePrivacy Directive and other data laws. The Council agreed its negotiating position on 21 October 2026, and Parliament's committees hadn't voted by 5 November 2026. It isn't law yet.
+  - name: Medical devices simplification (proposal)
+    citation: COM(2025) 1023 final, procedure 2025/0404(COD)
+    official_url: https://publications.europa.eu/resource/cellar/aeac54e6-dbdd-11f0-8da2-01aa75ed71a1.0001.03/DOC_1
+    status: draft
+    notes: Commission proposal of 16 December 2025 to simplify the medical devices and in vitro diagnostics regulations. It would also move both to Section B of AI Act Annex I, so the AI Act's high-risk requirements would no longer apply directly to AI in those devices, and the Commission could set AI rules under the medical devices regulations instead. On 5 November 2026 it was still awaiting a vote in Parliament's committee. It isn't law yet.
 regulators:
   - name: European Data Protection Board (EDPB), which issues EU-wide guidance and settles disputes between national authorities
     url: https://www.edpb.europa.eu/
@@ -149,6 +154,8 @@ checked:
   date: "2026-11-05"
   status: ai-checked
 history:
+  - date: "2026-11-05"
+    summary: Added the pending proposal COM(2025) 1023, which would move the medical devices and in vitro diagnostics regulations to Section B of AI Act Annex I. Law Watch's Cellar query listed it as proposing to amend the AI Act. Checked against the proposal's text on publications.europa.eu and its procedure file, 2025/0404(COD).
   - date: "2026-11-05"
     summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
 watch:
