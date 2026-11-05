@@ -21,7 +21,7 @@ laws:
     official_url: https://www.revisor.mn.gov/statutes/cite/325M.30
     status: in-force
     in_force_from: "2025-07-01"
-    notes: Transparency duties for social media platforms with more than 10,000 monthly active Minnesota account holders. A mental health warning label duty (section 325M.335) was added from 1 July 2026.
+    notes: Transparency duties for social media platforms with more than 10,000 monthly active Minnesota account holders. A mental health warning label duty (section 325M.335) was added from 1 July 2026. NetChoice challenged it in NetChoice v. Ellison (D. Minn., filed 29 April 2026), and news reports quote the Attorney General's office as agreeing not to enforce it until the court rules on a motion to dismiss. We couldn't open an official copy of the court record, so check it before relying on the duty.
   - name: Stop harms from addictive social media
     citation: Minn. Stat. 325M.40 (Laws 2026, ch. 111, HF 4138)
     official_url: https://www.revisor.mn.gov/statutes/cite/325M.40
@@ -51,10 +51,13 @@ obligations:
       - https://www.revisor.mn.gov/statutes/cite/325M.11
       - https://www.revisor.mn.gov/statutes/cite/325M.16
   children:
-    summary: Since 1 July 2026, covered social media platforms must show a mental health warning label each time a user opens them. From 1 July 2027, platforms with 10,000+ account holders (or $1 billion revenue) must estimate users' age, get verifiable parental consent for accounts of children aged 15 or under, keep those accounts at the most private settings, and show them no addictive features or targeted ads.
+    summary: Since 1 July 2026, covered social media platforms must show a mental health warning label each time a user opens them, though that duty is challenged in court (see the law note). From 1 July 2027, platforms with 10,000+ account holders (or $1 billion revenue) must estimate users' age, get verifiable parental consent for accounts of children aged 15 or under, keep those accounts at the most private settings, and show them no addictive features or targeted ads.
     source:
       - https://www.revisor.mn.gov/statutes/cite/325M.335
       - https://www.revisor.mn.gov/statutes/cite/325M.40
+    secondary:
+      - https://www.kttc.com/2026/07/01/minnesota-will-not-yet-enforce-new-law-requiring-mental-health-warnings-social-media-amid-lawsuit/
+      - https://netchoice.org/netchoice-v-ellison-minnesota-censorship-labels/
   cookies:
     summary: No cookie-consent rule. Controllers must honour opt-out preference signals such as Global Privacy Control for targeted advertising and sale, and may use an IP address to judge Minnesota residence. Opt-out requests needn't be authenticated. A clear opt-out method, such as a link labelled "Your Opt-Out Rights", must also be offered outside the privacy notice.
     source:

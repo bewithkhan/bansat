@@ -27,7 +27,7 @@ laws:
     official_url: https://nebraskalegislature.gov/laws/statutes.php?statute=86-1701
     status: in-force
     in_force_from: "2026-07-01"
-    notes: Challenged in NetChoice v. Hilgers (D. Neb. No. 4:26-cv-3149); the court ruled on 27 June 2026. We couldn't open an official copy of the ruling, so we can't confirm what it decided or whether it was appealed.
+    notes: Challenged in NetChoice v. Hilgers (D. Neb. No. 4:26-cv-3149). The plaintiff's published copy of the court's order of 27 June 2026 shows a preliminary injunction against the age-verification and parental-consent duties (LB 383 § 28(1)(a) and (2)); the duty to let parents view a minor's posts and messages, and the rest of the Act, may still be enforced. We couldn't open an official copy, so check the court record, and any appeal, before relying on this.
   - name: Conversational Artificial Intelligence Safety Act
     citation: Neb. Rev. Stat. 86-1801 to 86-1807 (Laws 2026, LB 525)
     official_url: https://nebraskalegislature.gov/laws/statutes.php?statute=86-1801
@@ -64,14 +64,13 @@ obligations:
       - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1102
       - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1112
   children:
-    summary: Since 18 July 2026 the design code covers online businesses earning most revenue online with over $25 million revenue or data of 50,000+ people. For known minors they need high-privacy defaults, minimal data, no targeted ads, no night or school-hour notifications, parental tools and account deletion within 15 days. The social media act requires age checks, parental consent and supervision tools for under-18 accounts opened from 1 July 2026, but a federal court ruled on a challenge to it on 27 June 2026; check that ruling first (see laws).
+    summary: Since 18 July 2026 the design code covers online businesses earning most revenue online with over $25 million revenue or data of 50,000+ people. For known minors they need high-privacy defaults, minimal data, no targeted ads, no night or school-hour notifications, parental tools and account deletion within 15 days. The social media act requires age checks, parental consent and supervision tools for under-18 accounts opened from 1 July 2026, but the plaintiff's copy of a court order of 27 June 2026 shows the age-check and consent duties blocked for now (see laws).
     source:
       - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1302
       - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1305
       - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1311
       - https://nebraskalegislature.gov/laws/statutes.php?statute=86-1702
       - https://nebraskalegislature.gov/laws/statutes.php?statute=86-1703
-      - https://www.opn.ca6.uscourts.gov/opinions.pdf/26a0250p-06.pdf
     secondary:
       - https://netchoice.org/wp-content/uploads/2026/06/NE_Granting-PI-in-Part-and-Denying-in-Part.pdf
   cookies:
