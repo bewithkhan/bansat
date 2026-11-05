@@ -2,6 +2,13 @@
 
 All notable changes to Bansat (بنسټ). Each release is a git tag, and the install command in the README is pinned to one, so the skill's instructions only change when you choose to update.
 
+## v2.3.1 (2026-11-05)
+
+- **Documentation site.** The framework, the method profiles, the v3 blueprint and this changelog are now searchable pages at https://bewithkhan.github.io/bansat/, rebuilt from the repo on every merge. They set no cookies and make no third-party requests, and CI checks every page for both, plus broken links and accessibility (axe, WCAG 2.2 AA).
+- **Fixed:**
+  - The UK regulator is now the Information Commission, which took over from the ICO on 30 September 2026. Its website is still ico.org.uk (9.1).
+  - The skill's routing table loads the chosen method profile(s), so an outer and an inner method can both be read.
+
 ## v2.3.0 (2026-11-05)
 
 - **Delivery questions (0.4).** Eight questions on team size, number of teams, how settled the requirements are, what's fixed, the contract, any need for formal evidence, the kind of work, and any method already in use.

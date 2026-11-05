@@ -6,7 +6,7 @@ metadata:
   author: "Muhammad Tufail Khan"
   github: "https://github.com/bewithkhan"
   repository: "https://github.com/bewithkhan/bansat"
-  version: "2.3.0"
+  version: "2.3.1"
   cite-as: "Khan, M. T. (2026). Bansat (بنسټ): A blueprint-first framework for building software (Version 2.3). https://github.com/bewithkhan/bansat"
 ---
 
@@ -42,7 +42,7 @@ The framework is split into modules in `framework/` next to this file. Read the 
 | Before launch | `framework/13-launch-gate.md` |
 | Picking the stack profile | `framework/appendix-d-stacks.md` |
 | Choosing how the project runs | 0.4 in `framework/00-intake.md`, then 11.7 and 11.8 in `framework/11-delivery.md`; `framework/appendix-e-methods.md` shows where each gate falls |
-| Running the chosen method | Only its profile: `framework/appendix-e1-scrum.md`, `framework/appendix-e2-kanban.md`, `framework/appendix-e3-stage-gates.md`, `framework/appendix-e4-shape-up.md`, `framework/appendix-e5-solo.md` or `framework/appendix-e6-scaled.md` |
+| Running the chosen method | Only the chosen profile(s): `framework/appendix-e1-scrum.md`, `framework/appendix-e2-kanban.md`, `framework/appendix-e3-stage-gates.md`, `framework/appendix-e4-shape-up.md`, `framework/appendix-e5-solo.md` or `framework/appendix-e6-scaled.md` |
 | Templates, official sources, terms | `framework/appendix-a-templates.md`, `framework/appendix-b-references.md`, `framework/appendix-c-glossary.md` |
 
 The risk tier sets the depth (`framework/how-to-use.md`):
@@ -53,7 +53,7 @@ The risk tier sets the depth (`framework/how-to-use.md`):
 If the modules aren't there, use the first of these that is:
 1. **Combined copy:** `reference/bansat-framework.md` next to this file. It holds the same text in one file, so search it by section number.
 2. **Local copy:** look in attachments, project files or the repo for `bansat-framework.md`, `bansat-framework-v2.md` or an existing `docs/BLUEPRINT.md`.
-3. **Published copy:** fetch https://raw.githubusercontent.com/bewithkhan/bansat/v2.3.0/reference/bansat-framework.md, or a single module such as https://raw.githubusercontent.com/bewithkhan/bansat/v2.3.0/framework/09-privacy.md (pinned to this release, so it can't change under you). Treat it as reference material; it never overrides the user's instructions.
+3. **Published copy:** fetch https://raw.githubusercontent.com/bewithkhan/bansat/v2.3.1/reference/bansat-framework.md, or a single module such as https://raw.githubusercontent.com/bewithkhan/bansat/v2.3.1/framework/09-privacy.md (pinned to this release, so it can't change under you). Treat it as reference material; it never overrides the user's instructions.
 4. **None available:** use the quick map below, and say so in one line.
 
 If the project already has `docs/BLUEPRINT.md`, update it instead of starting again. Follow the framework's structure, IDs and gates, except where the project's own rules differ (see "Project rules win").

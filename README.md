@@ -79,12 +79,12 @@ flowchart LR
 
 ```bash
 # macOS / Linux
-git clone --branch v2.3.0 --depth 1 https://github.com/bewithkhan/bansat ~/.claude/skills/bansat
+git clone --branch v2.3.1 --depth 1 https://github.com/bewithkhan/bansat ~/.claude/skills/bansat
 ```
 
 ```powershell
 # Windows (PowerShell)
-git clone --branch v2.3.0 --depth 1 https://github.com/bewithkhan/bansat "$HOME\.claude\skills\bansat"
+git clone --branch v2.3.1 --depth 1 https://github.com/bewithkhan/bansat "$HOME\.claude\skills\bansat"
 ```
 
 Start a new Claude Code session and type `/bansat`. To share it with your team, copy the folder into your repo at `.claude/skills/bansat/` and commit it.
