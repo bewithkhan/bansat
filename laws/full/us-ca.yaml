@@ -1,0 +1,170 @@
+# California. Read together with the US federal entry (us-federal). Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: us-ca
+name: California
+tier: full
+applies_with: [us-federal]
+laws:
+  - name: California Consumer Privacy Act (CCPA), as amended by the California Privacy Rights Act (CPRA)
+    citation: Cal. Civil Code §§ 1798.100–1798.199.100
+    official_url: https://cppa.ca.gov/pdf/20260101_ccpa_statute.pdf
+    status: in-force
+    in_force_from: "2020-01-01"
+    notes: The CPRA (Proposition 24) amendments apply from 1 January 2023. The link is CalPrivacy's copy of the text in force on 1 January 2026. A duty for browsers to offer an opt-out preference signal starts on 1 January 2027.
+  - name: CCPA Regulations
+    citation: Cal. Code Regs., tit. 11, § 7000 et seq.
+    official_url: https://cppa.ca.gov/regulations/pdf/ccpa_statute_eff_20260101.pdf
+    status: in-force
+    in_force_from: "2023-03-29"
+    notes: Amended from 1 January 2026 with rules on risk assessments, cybersecurity audits and automated decisionmaking technology that phase in up to 2030. In November 2026 CalPrivacy's board was asked to open formal rulemaking on further opt-out preference signal rules.
+  - name: Delete Act (data broker registration and deletion)
+    citation: Cal. Civil Code §§ 1798.99.80–1798.99.89 (SB 362, 2023)
+    official_url: https://cppa.ca.gov/regulations/pdf/data_broker_reg_delete_act_statute_eff_20260101.pdf
+    status: in-force
+    in_force_from: "2024-01-01"
+    notes: CalPrivacy runs the data broker registry and the Delete Request and Opt-out Platform (DROP), open to consumers since 1 January 2026.
+  - name: Data breach notification law
+    citation: Cal. Civil Code § 1798.82 (businesses), amended by SB 446 (Stats. 2025, ch. 319)
+    official_url: https://oag.ca.gov/privacy/databreach/reporting
+    status: in-force
+    in_force_from: "2003-07-01"
+    notes: SB 446 added fixed notice deadlines from 1 January 2026.
+  - name: California Age-Appropriate Design Code Act
+    citation: Cal. Civil Code §§ 1798.99.28–1798.99.40 (AB 2273, 2022)
+    official_url: https://cdn.ca9.uscourts.gov/datastore/opinions/2026/03/12/25-2366.pdf
+    status: in-force
+    in_force_from: "2024-07-01"
+    notes: Partly enjoined in NetChoice v. Bonta. The link is the Ninth Circuit's 12 March 2026 ruling, which lifted the block on most of the Act. The case continues in the district court.
+  - name: Protecting Our Kids from Social Media Addiction Act
+    citation: Cal. Health & Safety Code § 27000 et seq. (SB 976, 2024)
+    official_url: https://www.oag.ca.gov/sb976
+    status: in-force
+    in_force_from: "2025-01-01"
+    notes: Its like-count default, notification limits and annual disclosure duty are enjoined. Age assurance applies from 1 January 2027 under Attorney General regulations, proposed in May 2026.
+  - name: Digital Age Assurance Act
+    citation: Cal. Civil Code § 1798.500 et seq. (AB 1043, Stats. 2025, ch. 675)
+    official_url: https://apcp.assembly.ca.gov/media/1140
+    status: enacted
+    in_force_from: "2027-01-01"
+    notes: The link is the Assembly committee's April 2026 analysis of AB 1856, which describes this Act. AB 1856, signed in 2026, amends it; check the final text.
+  - name: Companion chatbots law
+    citation: SB 243 (Stats. 2025, ch. 677)
+    official_url: https://apcp.assembly.ca.gov/media/1026
+    status: in-force
+    in_force_from: "2026-01-01"
+    notes: Operators must disclose that the bot is artificial and have protocols for users who express suicidal thoughts or self-harm. The link is the Assembly committee's 2025 legislative summary.
+  - name: Online services likely to be accessed by children
+    citation: AB 2246 (2026)
+    official_url: https://sjud.senate.ca.gov/media/2302
+    status: enacted
+    notes: Signed in 2026, per CalPrivacy's 6 November 2026 legislative update. A revised design code without an impact-assessment duty. The link is the June 2026 Senate analysis; check the final text and start date.
+  - name: Covered platforms age restriction
+    citation: AB 1709 (2026)
+    official_url: https://sjud.senate.ca.gov/media/2336
+    status: enacted
+    notes: Signed in 2026, per CalPrivacy's 6 November 2026 legislative update. Limits addictive features for users under 16 on social media. The link is the June 2026 Senate analysis; check the final text and start date.
+regulators:
+  - name: California Privacy Protection Agency (CalPrivacy)
+    url: https://privacy.ca.gov/about-us/about-calprivacy/
+  - name: California Attorney General
+    url: https://oag.ca.gov/privacy/ccpa
+obligations:
+  scope:
+    summary: The CCPA covers for-profit businesses that do business in California, collect California residents' personal information and meet one of three tests. They have annual gross revenue above $26,625,000 (the 2025 inflation-adjusted figure), buy, sell or share data on 100,000 or more consumers or households a year, or earn half their revenue from selling or sharing data. Employee, job applicant and B2B data have been covered since 2023. HIPAA, GLBA and FCRA-regulated data are largely exempt. Non-profits generally aren't covered.
+    source:
+      - https://cppa.ca.gov/pdf/20260101_ccpa_statute.pdf
+      - https://cppa.ca.gov/regulations/cpi_adjustment.html
+      - https://oag.ca.gov/privacy/ccpa
+  lawful_bases:
+    summary: No GDPR-style lawful bases. Give notice at or before collection, keep collection and use reasonably necessary and proportionate, and honour rights to know, delete, correct, opt out of sale or sharing, and limit use of sensitive data. There's no opt-in for sensitive data, but people can limit it to what the service needs. Don't penalise people for using their rights. Whatever their size, sites and apps collecting Californians' data must post a privacy policy (CalOPPA). SB 923, signed in 2026, extends deletion to data from any source; check its start date.
+    source:
+      - https://cppa.ca.gov/pdf/20260101_ccpa_statute.pdf
+      - https://oag.ca.gov/privacy/ccpa
+      - https://oag.ca.gov/privacy/privacy-laws
+      - https://cppa.ca.gov/meetings/materials/20260806_07_12_1791b7.pdf
+      - https://cppa.ca.gov/meetings/materials/20261105_06_05_leg_update.pdf
+  consent_age:
+    summary: A business can't sell or share the data of a consumer it knows is under 16 without opt-in consent, from the consumer if 13 to 15 or from a parent if under 13. Wilfully disregarding age counts as knowing it. From 1 January 2027 the Digital Age Assurance Act has operating systems send age-bracket signals that developers must request and treat as actual knowledge of a user's age.
+    value: 13
+    source:
+      - https://cppa.ca.gov/pdf/20260101_ccpa_statute.pdf
+      - https://cppa.ca.gov/regulations/pdf/ccpa_statute_eff_20260101.pdf
+      - https://apcp.assembly.ca.gov/media/1140
+      - https://sjud.senate.ca.gov/media/2336
+  children:
+    summary: The Age-Appropriate Design Code is partly in effect. After the Ninth Circuit's March 2026 ruling, its impact-assessment, data-use and dark-pattern rules stay blocked, while coverage, age estimation and high-privacy defaults are no longer blocked; the case continues. SB 976 bars addictive feeds for minors without parental consent, and courts refused to block that in 2025 and 2026; appeals are pending. AB 2246 (a revised design code) and AB 1709 (under-16s and addictive features) were signed in 2026.
+    source:
+      - https://cdn.ca9.uscourts.gov/datastore/opinions/2026/03/12/25-2366.pdf
+      - https://cdn.ca9.uscourts.gov/datastore/opinions/2025/09/09/25-146.pdf
+      - https://www.govinfo.gov/content/pkg/USCOURTS-cand-5_25-cv-09789/pdf/USCOURTS-cand-5_25-cv-09789-1.pdf
+      - https://www.oag.ca.gov/sb976
+      - https://cppa.ca.gov/meetings/materials/20261105_06_05_leg_update.pdf
+      - https://sjud.senate.ca.gov/media/2302
+      - https://sjud.senate.ca.gov/media/2336
+    secondary:
+      - https://www.cooley.com/news/insight/2026/2026-03-30-netchoice-v-bonta-ninth-circuit-narrows-injunction-against-californias-ageappropriate-design-code-act
+  cookies:
+    summary: No cookie-consent rule. People can opt out of "sharing" for cross-context behavioural advertising. A business that sells or shares data must treat an opt-out preference signal such as Global Privacy Control as a valid opt-out (under regulations in force since March 2023) and, since 1 January 2026, show on its site whether it honoured the signal. From 1 January 2027 browsers must offer such a signal. SB 690, signed in 2026, curbs private lawsuits over website and app tracking under the California Invasion of Privacy Act.
+    source:
+      - https://cppa.ca.gov/regulations/pdf/ccpa_statute_eff_20260101.pdf
+      - https://cppa.ca.gov/regulations/pdf/20230329_final_regs_text.pdf
+      - https://cppa.ca.gov/regulations/pdf/ccpa_updates_cyber_risk_admt_appr_text.pdf
+      - https://cppa.ca.gov/pdf/20260101_ccpa_statute.pdf
+      - https://oag.ca.gov/privacy/ccpa
+      - https://cppa.ca.gov/meetings/materials/20261105_06_05_leg_update.pdf
+      - https://apcp.assembly.ca.gov/media/1212
+  marketing:
+    summary: Email, texts and calls rely mainly on federal CAN-SPAM and the TCPA (see us-federal). The CCPA opt-out of selling or sharing also reaches marketing data flows. Under the Shine the Light law (Civil Code 1798.83), a business that gives customers' personal information to others for their direct marketing must, on request, say what it shared and with whom, or offer a free opt-out. Sites and apps directed to minors can't market products minors can't legally buy.
+    source:
+      - https://oag.ca.gov/privacy/privacy-laws
+      - https://oag.ca.gov/privacy/ccpa
+  breach_notice:
+    summary: Since 1 January 2026, notify affected California residents within 30 calendar days of discovering or being told of a breach of their unencrypted personal information, subject to delays for law enforcement or to determine the scope and restore the system. If more than 500 residents are notified, send the Attorney General a sample notice within 15 days of notifying them.
+    value: 30
+    source:
+      - https://oag.ca.gov/privacy/databreach/reporting
+      - https://apcp.assembly.ca.gov/media/1026
+      - https://apcp.assembly.ca.gov/media/971
+    secondary:
+      - https://www.mvalaw.com/data-points/california-amends-data-breach-notification-requirements
+  registration_or_fees:
+    summary: Data brokers, businesses that sell data about consumers they have no direct relationship with, must register with CalPrivacy each January and pay a fee ($6,000 for 2026). Since 1 August 2026 they must check DROP at least every 45 days and delete matching data, and every 30 days from 1 January 2027 (AB 883). Missing registration costs $200 a day, and so does each unprocessed deletion request. Independent audits start in 2028.
+    source:
+      - https://cppa.ca.gov/data_brokers
+      - https://cppa.ca.gov/regulations/pdf/data_broker_reg_delete_act_statute_eff_20260101.pdf
+      - https://privacy.ca.gov/data-brokers/
+      - https://privacy.ca.gov/drop/
+  dpo:
+    summary: No data protection officer requirement. Under the 2026 regulations, a member of executive management must certify completed cybersecurity audits and submit risk assessment information to CalPrivacy, and audit reports go to the executive responsible for cybersecurity.
+    source:
+      - https://cppa.ca.gov/regulations/pdf/ccpa_statute_eff_20260101.pdf
+  transfers:
+    summary: State law doesn't restrict transfers outside the US. Disclosures to service providers, contractors and third parties need contracts with set terms, such as specified purposes and the right to check compliance. Federal rules on foreign adversaries are in us-federal.
+    source:
+      - https://cppa.ca.gov/regulations/pdf/ccpa_statute_eff_20260101.pdf
+  dpia:
+    summary: Since 1 January 2026, do a risk assessment before selling or sharing data, processing sensitive data, using automated decisionmaking technology for significant decisions, making certain automated inferences about workers, students or people in sensitive locations, or training such technology. Assess processing already under way by 31 December 2027 and send a summary and attestation to CalPrivacy by 1 April 2028. Businesses over the audit thresholds also need annual cybersecurity audits, first certified on 1 April 2028, 2029 or 2030 by revenue.
+    source:
+      - https://cppa.ca.gov/regulations/pdf/ccpa_statute_eff_20260101.pdf
+      - https://www.cppa.ca.gov/announcements/2025/20250923.html
+  automated_decisions_ai:
+    summary: From 1 January 2027, businesses using automated decisionmaking technology for significant decisions about finance, housing, education, employment or healthcare must give a pre-use notice, an opt-out or human appeal, and access to how it was used. SB 243 has governed companion chatbots since 2026, AB 2013 requires generative AI training-data disclosures, and SB 53 covers frontier AI developers. SB 947, signed in 2026, regulates automated decisions in employment.
+    source:
+      - https://cppa.ca.gov/regulations/pdf/ccpa_statute_eff_20260101.pdf
+      - https://www.cppa.ca.gov/announcements/2025/20250923.html
+      - https://apcp.assembly.ca.gov/media/1026
+      - https://cppa.ca.gov/meetings/materials/20261105_06_05.pdf
+      - https://cppa.ca.gov/meetings/materials/20261105_06_05_leg_update.pdf
+      - https://cppa.ca.gov/meetings/materials/20260806_07_12_1791b7.pdf
+  penalties:
+    summary: CalPrivacy (administrative fines) and the Attorney General (civil suits) enforce the CCPA, up to $2,663 per violation or $7,988 if intentional or involving known under-16s (2025 adjusted figures). There's no right to cure, though CalPrivacy may allow time to cure. The only private right of action is for breaches caused by unreasonable security, at $107 to $799 per consumer per incident or actual damages, after 30 days' notice to cure for statutory damages.
+    source:
+      - https://cppa.ca.gov/regulations/cpi_adjustment.html
+      - https://cppa.ca.gov/pdf/20260101_ccpa_statute.pdf
+      - https://oag.ca.gov/privacy/ccpa
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry, checked against official sources with AI assistance.

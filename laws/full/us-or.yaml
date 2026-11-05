@@ -1,0 +1,100 @@
+# Oregon (United States). Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: us-or
+name: Oregon
+tier: full
+applies_with: [us-federal]
+laws:
+  - name: Oregon Consumer Privacy Act (OCPA)
+    citation: ORS 646A.570 to 646A.589
+    official_url: https://www.oregonlegislature.gov/bills_laws/ors/ors646A.html
+    status: in-force
+    in_force_from: "2024-07-01"
+    notes: Applies to non-profits from 1 July 2025. 2025 amendments cover car makers and, from 1 January 2026, ban selling precise geolocation data and the data of under-16s.
+  - name: Oregon Consumer Information Protection Act
+    citation: ORS 646A.600 to 646A.628
+    official_url: https://www.oregonlegislature.gov/bills_laws/ors/ors646A.html
+    status: in-force
+    in_force_from: "2007-10-01"
+    notes: Data security and breach notification.
+  - name: Data broker registration
+    citation: ORS 646A.593
+    official_url: https://www.oregonlegislature.gov/bills_laws/ors/ors646A.html
+    status: in-force
+    in_force_from: "2024-01-01"
+  - name: Artificial intelligence companions (SB 1546)
+    citation: Oregon Laws 2026, chapter 85
+    official_url: https://www.oregonlegislature.gov/bills_laws/lawsstatutes/2026orLaw0085.pdf
+    status: enacted
+    in_force_from: "2027-01-01"
+regulators:
+  - name: Oregon Department of Justice (Consumer Protection)
+    url: https://www.doj.state.or.us/consumer-protection/id-theft-data-breaches/privacy/
+obligations:
+  scope:
+    summary: Applies to businesses that operate in Oregon or serve its residents and, in a year, process data of 100,000 or more consumers (not counting payment-only data), or of 25,000 or more while earning 25% or more of revenue from selling data. Non-profits are covered since 1 July 2025, and car makers that process vehicle data are covered whatever their size. Public bodies, insurers and GLBA and HIPAA data are exempt. Employees and B2B contacts aren't consumers.
+    source:
+      - https://www.oregonlegislature.gov/bills_laws/ors/ors646A.html
+      - https://www.doj.state.or.us/consumer-protection/for-businesses/privacy-law-faqs-for-nonprofits/
+  lawful_bases:
+    summary: There are no GDPR-style lawful bases. Controllers give a privacy notice and honour rights to access, get a list of specific third parties that received data, correct, delete (including derived data), port data, and opt out of targeted advertising, sale and significant-decision profiling. Opt-in consent is needed for sensitive data, such as health, national origin, transgender or non-binary status, crime victim status, and precise geolocation. Selling precise geolocation data is banned since 1 January 2026.
+    source:
+      - https://www.oregonlegislature.gov/bills_laws/ors/ors646A.html
+      - https://www.doj.state.or.us/consumer-protection/for-businesses/privacy-law-faqs-for-businesses/
+  consent_age:
+    summary: A child is under 13, and a known child's sensitive data must be handled under COPPA, with parental consent. Since 1 January 2026, if a controller knows or wilfully disregards that a consumer is under 16, it can't sell their data or use it for targeted advertising or significant profiling, even with consent.
+    value: 13
+    source:
+      - https://www.oregonlegislature.gov/bills_laws/ors/ors646A.html
+      - https://www.doj.state.or.us/consumer-protection/for-businesses/privacy-law-faqs-for-businesses/
+  children:
+    summary: Children's data is sensitive data, and the under-16 bans on sale, targeted advertising and significant profiling apply since 1 January 2026. From 1 January 2027, AI companion operators that know or have reason to believe a user is a minor must stop the companion claiming to be human or simulating romance, remind the user every three hours to take a break, and block sexual content.
+    source:
+      - https://www.oregonlegislature.gov/bills_laws/ors/ors646A.html
+      - https://www.oregonlegislature.gov/bills_laws/lawsstatutes/2026orLaw0085.pdf
+  cookies:
+    summary: There's no cookie-consent rule. Consumers can opt out of targeted advertising and sale through a clear link, and since 1 January 2026 controllers must honour universal opt-out signals such as Global Privacy Control. Signals can't be on by default.
+    source:
+      - https://www.doj.state.or.us/consumer-protection/for-businesses/privacy-law-faqs-for-businesses/
+      - https://www.oregonlegislature.gov/bills_laws/ors/ors646A.html
+  marketing:
+    summary: Email marketing relies on federal CAN-SPAM, and calls and texts also follow the federal TCPA. Oregon adds limits for sales calls and texts. Stop when the person asks, call only between 8am and 8pm, make no more than three attempts in 24 hours without an existing business relationship, and never misrepresent who is calling or why.
+    source:
+      - https://www.oregonlegislature.gov/bills_laws/ors/ors646.html
+  breach_notice:
+    summary: Notify affected consumers in the most expeditious manner possible and no later than 45 days after discovering a breach. If more than 250 Oregon consumers are affected, notify the Department of Justice too. If more than 1,000, also tell the nationwide credit bureaus. Vendors must tell the business within 10 days.
+    value: 45
+    source:
+      - https://www.oregonlegislature.gov/bills_laws/ors/ors646A.html
+      - https://www.doj.state.or.us/consumer-protection/id-theft-data-breaches/data-breaches/
+  registration_or_fees:
+    summary: Data brokers that collect and sell or license brokered personal data about Oregon residents must register with the Department of Consumer and Business Services and pay a fee set by rule. Penalties are $500 per violation or day, up to $10,000 a year. The OCPA itself has no registration or fee.
+    source:
+      - https://www.oregonlegislature.gov/bills_laws/ors/ors646A.html
+  dpo:
+    summary: There's no requirement to appoint a data protection officer.
+    source:
+      - https://www.oregonlegislature.gov/bills_laws/ors/ors646A.html
+  transfers:
+    summary: Oregon law sets no restrictions on transferring personal data abroad; federal rules are in us-federal.
+    source:
+      - https://www.oregonlegislature.gov/bills_laws/ors/ors646A.html
+  dpia:
+    summary: Document a data protection assessment for each processing activity with a heightened risk of harm, including targeted advertising, sensitive data, sale and risky profiling. The Attorney General can require assessments relevant to an investigation and must keep them confidential.
+    source:
+      - https://www.oregonlegislature.gov/bills_laws/ors/ors646A.html
+  automated_decisions_ai:
+    summary: Consumers can opt out of profiling for decisions with legal or similarly significant effects. From 1 January 2027, AI companion operators must say the user is talking to AI when it could be mistaken for a person, run a suicide and self-harm protocol that refers users to 988, and publish yearly reports. People harmed can sue for $1,000 per violation or actual damages.
+    source:
+      - https://www.oregonlegislature.gov/bills_laws/ors/ors646A.html
+      - https://www.oregonlegislature.gov/bills_laws/lawsstatutes/2026orLaw0085.pdf
+  penalties:
+    summary: The Attorney General enforces alone, with civil penalties up to $7,500 per violation and injunctions, and must sue within five years. The 30-day cure period ended for most controllers on 1 January 2026. There's no private right of action.
+    source:
+      - https://www.oregonlegislature.gov/bills_laws/ors/ors646A.html
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry, checked against official sources with AI assistance.

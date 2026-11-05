@@ -1,0 +1,131 @@
+# Utah (United States). Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: us-ut
+name: Utah
+tier: full
+applies_with: [us-federal]
+laws:
+  - name: Utah Consumer Privacy Act (UCPA)
+    citation: Utah Code Title 13, Chapter 61
+    official_url: https://le.utah.gov/xcode/Title13/Chapter61/C13-61_2022050420231231.html
+    status: in-force
+    in_force_from: "2023-12-31"
+    notes: A right to correct was added from 1 July 2026. A new Part 5 on motor vehicle data starts on 1 January 2027.
+  - name: Protection of Personal Information Act
+    citation: Utah Code Title 13, Chapter 44
+    official_url: https://le.utah.gov/xcode/Title13/Chapter44/C13-44_1800010118000101.html
+    status: in-force
+    in_force_from: "2007-01-01"
+    notes: Data security and breach notification.
+  - name: Utah Commercial Email Act
+    citation: Utah Code Title 13, Chapter 65
+    official_url: https://le.utah.gov/xcode/Title13/Chapter65/C13-65_2023050320230503.html
+    status: in-force
+    in_force_from: "2023-05-03"
+  - name: Generative Artificial Intelligence, Consumer Disclosures and Enforcement
+    citation: Utah Code Title 13, Chapter 77
+    official_url: https://le.utah.gov/xcode/Title13/Chapter77/C13-77_2025050820250508.html
+    status: in-force
+    in_force_from: "2025-05-07"
+  - name: Artificial Intelligence Policy Act
+    citation: Utah Code Title 13, Chapter 72
+    official_url: https://le.utah.gov/xcode/Title13/Chapter72/C13-72_2024050120240501.html
+    status: in-force
+    in_force_from: "2024-05-01"
+    notes: Creates the Office of Artificial Intelligence Policy, a learning laboratory and regulatory mitigation agreements. Scheduled for repeal on 1 July 2027.
+  - name: App Store Accountability Act
+    citation: Utah Code Title 13, Chapter 76
+    official_url: https://le.utah.gov/xcode/Title13/Chapter76/C13-76_2025050720250507.html
+    status: in-force
+    in_force_from: "2025-05-07"
+    notes: After 2026 amendments, the developer duties and private lawsuits start on 6 May 2027.
+  - name: Utah Digital Choice Act
+    citation: Utah Code Title 13, Chapter 81
+    official_url: https://le.utah.gov/xcode/Title13/Chapter81/C13-81_2026070120250507.html
+    status: in-force
+    in_force_from: "2026-07-01"
+    notes: Data portability and interoperability for social media services.
+  - name: Utah Minor Protection in Social Media Act
+    citation: Utah Code Title 13, Chapter 71
+    official_url: https://le.utah.gov/xcode/Title13/Chapter71/C13-71_2024100120240501.html
+    status: in-force
+    in_force_from: "2024-10-01"
+regulators:
+  - name: Utah Division of Consumer Protection
+    url: https://dcp.utah.gov/
+  - name: Office of the Utah Attorney General
+    url: https://attorneygeneral.utah.gov/
+obligations:
+  scope:
+    summary: Applies to businesses that operate in Utah or target its residents, have annual revenue of $25 million or more, and either process data of 100,000 or more consumers a year or get over half their revenue from selling data of 25,000 or more. Government, tribes, universities, non-profits, HIPAA covered entities and GLBA financial institutions are exempt. Employees and B2B contacts aren't consumers. From 1 January 2027 it also covers car makers that collect data through vehicles.
+    source:
+      - https://le.utah.gov/xcode/Title13/Chapter61/C13-61-S102_2024050120240501.html
+      - https://le.utah.gov/xcode/Title13/Chapter61/C13-61-S102_2026050620270101.html
+      - https://le.utah.gov/xcode/Title13/Chapter61/C13-61-S101_2026050620260506.html
+  lawful_bases:
+    summary: There are no GDPR-style lawful bases. Controllers give a privacy notice and honour rights to access, delete data the consumer provided, port data, correct it (since 1 July 2026), and opt out of targeted advertising and sale. There's no profiling opt-out. Sensitive data needs clear notice and a chance to opt out, rather than opt-in consent; a known child's data follows COPPA.
+    source:
+      - https://le.utah.gov/xcode/Title13/Chapter61/C13-61-S201_2026070120250507.html
+      - https://le.utah.gov/xcode/Title13/Chapter61/C13-61-S302_2022050420231231.html
+  consent_age:
+    summary: A child is under 13, and a known child's data must be processed under COPPA, with verifiable parental consent. The UCPA has no teen opt-in rule for targeted advertising or sale.
+    value: 13
+    source:
+      - https://le.utah.gov/xcode/Title13/Chapter61/C13-61-S101_2026050620260506.html
+      - https://le.utah.gov/xcode/Title13/Chapter61/C13-61-S302_2022050420231231.html
+  children:
+    summary: The Minor Protection in Social Media Act requires age assurance and maximum-privacy defaults for minors' accounts, but a federal court blocked it in September 2024 and Utah's appeal was pending when last checked. Under the App Store Accountability Act, from 6 May 2027 app developers must check app store age categories and parental consent, use them only for safety and compliance, and can't enforce terms against minors without that consent.
+    source:
+      - https://le.utah.gov/xcode/Title13/Chapter71/C13-71-S202_2024100120240501.html
+      - https://le.utah.gov/xcode/Title13/Chapter76/C13-76-S202_2026031820260318.html
+    secondary:
+      - https://netchoice.org/netchoice-v-reyes/
+  cookies:
+    summary: There's no cookie-consent rule. Consumers can opt out of targeted advertising and sale, and a controller that does either must clearly explain how. The UCPA doesn't require honouring a universal opt-out signal such as Global Privacy Control.
+    source:
+      - https://le.utah.gov/xcode/Title13/Chapter61/C13-61-S302_2022050420231231.html
+      - https://le.utah.gov/xcode/Title13/Chapter61/C13-61-S201_2026070120250507.html
+  marketing:
+    summary: On top of federal CAN-SPAM, the Utah Commercial Email Act bans commercial email sent from Utah or to a Utah address that uses a third party's domain without permission, forged headers or misleading subject lines. Email providers and recipients can sue for actual damages plus $1,000 per email. Calls and texts are governed by the federal TCPA.
+    source:
+      - https://le.utah.gov/xcode/Title13/Chapter65/C13-65-S201_2024050120240501.html
+      - https://le.utah.gov/xcode/Title13/Chapter65/C13-65-S202_2023050320230503.html
+  breach_notice:
+    summary: After a breach, investigate promptly. If misuse for identity theft or fraud has happened or is likely, notify affected Utah residents in the most expedient time possible without unreasonable delay. If 500 or more residents are affected, also notify the Attorney General and the Utah Cyber Center, and the nationwide credit bureaus if 1,000 or more. Fines are up to $2,500 per consumer and $100,000 in total in most cases.
+    source:
+      - https://le.utah.gov/xcode/Title13/Chapter44/C13-44-S202_2024050120240501.html
+      - https://le.utah.gov/xcode/Title13/Chapter44/C13-44-S301_2025050720250507.html
+  registration_or_fees:
+    summary: The UCPA requires no registration or fee.
+    source:
+      - https://le.utah.gov/xcode/Title13/Chapter61/C13-61_2022050420231231.html
+  dpo:
+    summary: There's no requirement to appoint a data protection officer.
+    source:
+      - https://le.utah.gov/xcode/Title13/Chapter61/C13-61_2022050420231231.html
+  transfers:
+    summary: Utah law sets no restrictions on transferring personal data abroad; federal rules are in us-federal.
+    source:
+      - https://le.utah.gov/xcode/Title13/Chapter61/C13-61_2022050420231231.html
+  dpia:
+    summary: The UCPA doesn't require data protection assessments.
+    source:
+      - https://le.utah.gov/xcode/Title13/Chapter61/C13-61_2022050420231231.html
+  automated_decisions_ai:
+    summary: The UCPA has no right to opt out of profiling. If a consumer clearly asks, a business using generative AI must say they're talking to AI, and licensed professionals must disclose it upfront in high-risk interactions (clear disclosure throughout is a safe harbour). Fines are up to $2,500 per violation. The AI Policy Act runs an AI learning lab and regulatory agreements until its repeal on 1 July 2027.
+    source:
+      - https://le.utah.gov/xcode/Title13/Chapter77/C13-77-S103_2025050720250507.html
+      - https://le.utah.gov/xcode/Title13/Chapter77/C13-77-S104_2025050720250507.html
+      - https://le.utah.gov/xcode/Title13/Chapter77/C13-77-S105_2025050720250507.html
+      - https://le.utah.gov/xcode/Title13/Chapter72/C13-72-S201_2026050620260506.html
+  penalties:
+    summary: The Division of Consumer Protection takes complaints and refers cases, and the Attorney General enforces alone. Before suing, the Attorney General must give 30 days' notice to cure, and this right to cure doesn't expire. Penalties are up to $7,500 per violation plus actual damages to consumers. There's no private right of action.
+    source:
+      - https://le.utah.gov/xcode/Title13/Chapter61/C13-61-S402_2022050420231231.html
+      - https://le.utah.gov/xcode/Title13/Chapter61/C13-61-S305_2022050420231231.html
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry, checked against official sources with AI assistance.

@@ -1,0 +1,102 @@
+# Indiana, United States. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact. Read together with us-federal.
+id: us-in
+name: Indiana
+tier: full
+applies_with: [us-federal]
+laws:
+  - name: Indiana Consumer Data Protection Act
+    citation: IC 24-15, added by P.L. 94-2023 (Senate Enrolled Act 5)
+    official_url: https://iga.in.gov/laws/2025/ic/titles/24#24-15
+    status: in-force
+    in_force_from: "2026-01-01"
+    notes: Passed in 2023. The Attorney General has enforced it since 1 January 2026.
+  - name: Disclosure of Security Breach law
+    citation: IC 24-4.9
+    official_url: https://iga.in.gov/laws/2025/ic/titles/24#24-4.9
+    status: in-force
+    in_force_from: "2006-07-01"
+    notes: P.L. 171-2022 added the 45-day outer limit for telling people about a breach.
+regulators:
+  - name: Indiana Attorney General (Consumer Protection Division)
+    url: https://www.in.gov/attorneygeneral/consumer-protection-division/
+obligations:
+  scope:
+    summary: Applies to businesses that operate in Indiana or target its residents and, in a calendar year, control or process personal data of at least 100,000 Indiana residents, or of 25,000 while earning over 50% of gross revenue from selling personal data. Government, financial institutions, HIPAA covered entities, nonprofits, higher education and public utilities are exempt. People acting as employees or in a business context aren't covered.
+    source:
+      - https://www.in.gov/attorneygeneral/files/Indiana-Consumer-Data-Protection_Consumer-Bill-of-Rights_CDPCBOR.pdf
+      - https://iga.in.gov/laws/2025/ic/titles/24#24-15-1
+  lawful_bases:
+    summary: No GDPR-style lawful bases. Give a clear privacy notice and honour rights to confirm processing, get a copy or summary of data the person provided, correct it, delete, port it, and opt out of targeted advertising, sale and profiling. Answer within 45 days (one 45-day extension) and offer an appeal, decided within 60 days. Sensitive data needs opt-in consent. Collect only what's reasonably necessary for the purposes you disclosed.
+    source:
+      - https://www.in.gov/attorneygeneral/files/Indiana-Consumer-Data-Protection_Consumer-Bill-of-Rights_CDPCBOR.pdf
+  consent_age:
+    summary: A child is under 13. A controller that knows it's processing a child's data needs a parent's consent, given as COPPA requires, and parents can use the child's rights. There's no separate teen consent rule.
+    value: 13
+    source:
+      - https://www.in.gov/attorneygeneral/files/Indiana-Consumer-Data-Protection_Consumer-Bill-of-Rights_CDPCBOR.pdf
+  children:
+    summary: All data about a known child is sensitive data, so it can only be processed with parental consent under COPPA. The act sets no extra rules for teenagers.
+    source:
+      - https://www.in.gov/attorneygeneral/files/Indiana-Consumer-Data-Protection_Consumer-Bill-of-Rights_CDPCBOR.pdf
+  cookies:
+    summary: No cookie-consent rule. Controllers that sell personal data or use it for targeted advertising must say so in the privacy notice and let people opt out. Opt-outs are made by request to each controller. The act has no authorised-agent route and no duty to honour universal opt-out signals such as Global Privacy Control.
+    source:
+      - https://www.in.gov/attorneygeneral/files/Indiana-Consumer-Data-Protection_Consumer-Bill-of-Rights_CDPCBOR.pdf
+      - https://iga.in.gov/laws/2025/ic/titles/24#24-15-3
+  marketing:
+    summary: Adds to CAN-SPAM and the TCPA. Telephone solicitors must register with the Attorney General before doing business in Indiana and buy the state Do Not Call list ($750 a year, updated quarterly). Sales calls and texts to listed home, mobile or VoIP numbers are banned, with exemptions such as express requests and, for some sectors, existing customers.
+    source:
+      - https://www.in.gov/attorneygeneral/consumer-protection-division/id-theft-prevention/do-not-call/telephone-solicitors/
+      - https://www.in.gov/attorneygeneral/consumer-protection-division/id-theft-prevention/do-not-call/faqs/
+  breach_notice:
+    summary: Tell affected Indiana residents without unreasonable delay, and within 45 days of discovery, when unencrypted personal information was or may have been taken and could lead to identity theft or fraud. Tell the Attorney General whenever residents are notified, and the national credit reporting agencies when more than 1,000 people are notified.
+    value: 45
+    source:
+      - https://www.in.gov/attorneygeneral/consumer-protection-division/id-theft-prevention/security-breaches/security-breach-faqs-and-notification-form-for-businesses/
+      - https://iga.in.gov/laws/2025/ic/titles/24#24-4.9-3
+    secondary:
+      - https://law.justia.com/codes/indiana/title-24/article-4-9/chapter-3/section-24-4-9-3-3/
+      - https://law.justia.com/codes/indiana/title-24/article-4-9/chapter-3/section-24-4-9-3-1/
+  registration_or_fees:
+    summary: No data protection registration or fee, and no data broker registry. Telephone solicitors register separately (see marketing).
+    source:
+      - https://iga.in.gov/laws/2025/ic/titles/24#24-15
+      - https://www.in.gov/attorneygeneral/consumer-protection-division/id-theft-prevention/do-not-call/telephone-solicitors/
+  dpo:
+    summary: No duty to appoint a data protection officer.
+    source:
+      - https://iga.in.gov/laws/2025/ic/titles/24#24-15
+  transfers:
+    summary: Indiana law doesn't restrict sending personal data outside the state or the US. Federal rules are in us-federal.
+    source:
+      - https://iga.in.gov/laws/2025/ic/titles/24#24-15
+  dpia:
+    summary: Do and document a data protection impact assessment for targeted advertising, selling personal data, risky profiling, sensitive data and other high-risk processing. It covers processing activities created after 31 December 2025. The Attorney General can demand it in an investigation, and it stays confidential.
+    source:
+      - https://iga.in.gov/laws/2025/ic/titles/24#24-15-6
+    secondary:
+      - https://law.justia.com/codes/indiana/title-24/article-15/chapter-6/section-24-15-6-1/
+      - https://law.justia.com/codes/indiana/title-24/article-15/chapter-6/
+  automated_decisions_ai:
+    summary: People can opt out of profiling, meaning automated evaluation or prediction of things like their finances, health, interests, behaviour or movements, used for decisions with legal or similarly significant effects. Profiling with a foreseeable risk of unfair treatment or other substantial harm also needs an impact assessment.
+    source:
+      - https://www.in.gov/attorneygeneral/files/Indiana-Consumer-Data-Protection_Consumer-Bill-of-Rights_CDPCBOR.pdf
+      - https://iga.in.gov/laws/2025/ic/titles/24#24-15-3
+    secondary:
+      - https://law.justia.com/codes/indiana/title-24/article-15/chapter-3/section-24-15-3-1/
+  penalties:
+    summary: The Attorney General enforces alone. Before suing it must give 30 days' written notice; if the business cures and confirms in writing, no action follows. This right to cure doesn't expire. Civil penalties up to $7,500 per violation, plus injunctions and investigation costs. No private right of action.
+    source:
+      - https://iga.in.gov/laws/2025/ic/titles/24#24-15-10
+      - https://www.in.gov/attorneygeneral/files/Indiana-Consumer-Data-Protection_Consumer-Bill-of-Rights_CDPCBOR.pdf
+    secondary:
+      - https://law.justia.com/codes/indiana/title-24/article-15/chapter-10/section-24-15-10-2/
+      - https://law.justia.com/codes/indiana/title-24/article-15/chapter-10/section-24-15-10-3/
+      - https://law.justia.com/codes/indiana/title-24/article-15/chapter-10/
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry, checked against official sources with AI assistance.

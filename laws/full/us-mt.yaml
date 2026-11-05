@@ -1,0 +1,93 @@
+# Montana (United States). Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: us-mt
+name: Montana
+tier: full
+applies_with: [us-federal]
+laws:
+  - name: Montana Consumer Data Privacy Act (MCDPA)
+    citation: Mont. Code Ann. §§ 30-14-2801 to 30-14-2820
+    official_url: https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/sections_index.html
+    status: in-force
+    in_force_from: "2024-10-01"
+    notes: SB 297 (2025 Mont. Laws ch. 567) lowered the thresholds, added protections for minors and removed the cure period from 1 October 2025.
+  - name: Computer security breach
+    citation: Mont. Code Ann. § 30-14-1704
+    official_url: https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0170/section_0040/0300-0140-0170-0040.html
+    status: in-force
+    in_force_from: "2006-03-01"
+regulators:
+  - name: Montana Department of Justice, Office of Consumer Protection
+    url: https://dojmt.gov/
+obligations:
+  scope:
+    summary: Since 1 October 2025, applies to businesses that operate in Montana or target its residents and process data of 25,000 or more consumers (not counting payment-only data), or of 15,000 or more while earning over 25% of revenue from selling data. The minors' rules apply regardless of size. Most non-profits are covered. Government, universities, banks, credit unions, insurers, HIPAA covered entities and GLBA data are exempt. Employees and B2B contacts aren't consumers.
+    source:
+      - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0030/0300-0140-0280-0030.html
+      - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0040/0300-0140-0280-0040.html
+      - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0020/0300-0140-0280-0020.html
+      - https://mca.legmt.gov/bills/mca/title_0010/chapter_0020/part_0020/section_0010/0010-0020-0020-0010.html
+  lawful_bases:
+    summary: There are no GDPR-style lawful bases. Controllers give a privacy notice and honour rights to access, correct, delete and port data, and to opt out of targeted advertising, sale and automated decisions with significant effects, within 45 days. Access responses must flag, not reveal, items like Social Security numbers and passwords. Sensitive data needs opt-in consent, and withdrawn consent must be acted on within 45 days.
+    source:
+      - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0080/0300-0140-0280-0080.html
+      - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0120/0300-0140-0280-0120.html
+  consent_age:
+    summary: A child is under 13, and a known child's sensitive data must be handled under COPPA, with parental consent. Controllers that know or wilfully disregard that a consumer is 13 to 15 need that consumer's consent for targeted advertising or sale. For all minors under 18, broader consent rules apply since 1 October 2025 (see children).
+    value: 13
+    source:
+      - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0020/0300-0140-0280-0020.html
+      - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0120/0300-0140-0280-0120.html
+  children:
+    summary: Since 1 October 2025, online services that know or wilfully disregard that a user is under 18 must take reasonable care to avoid heightened risk of harm. Without the minor's consent (a parent's if under 13), they can't use the data for targeted ads, sale or significant profiling, use engagement-extending design features, or collect precise geolocation. Consent flows can't be manipulative, adults' unsolicited messages need safeguards, and risky services need an assessment.
+    source:
+      - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0110/0300-0140-0280-0110.html
+      - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0190/0300-0140-0280-0190.html
+  cookies:
+    summary: There's no cookie-consent rule. Consumers can opt out of targeted advertising and sale through a clear link, and since 1 January 2025 controllers must honour opt-out preference signals such as Global Privacy Control. Signals can't be on by default.
+    source:
+      - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0090/0300-0140-0280-0090.html
+      - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0120/0300-0140-0280-0120.html
+  marketing:
+    summary: Email marketing relies on federal CAN-SPAM, and calls and texts on the federal TCPA. Montana also bans automated calls that play recorded sales messages unless a live operator first gets the person's permission, with narrow exceptions such as order updates, and fines up to $2,500.
+    source:
+      - https://mca.legmt.gov/bills/mca/title_0450/chapter_0080/part_0020/section_0160/0450-0080-0020-0160.html
+  breach_notice:
+    summary: Notify affected Montana residents without unreasonable delay when unencrypted personal information was or is reasonably believed to have been acquired. At the same time, send an electronic copy of the notice, with the date and method of sending, to the Attorney General's Office of Consumer Protection.
+    source:
+      - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0170/section_0040/0300-0140-0170-0040.html
+  registration_or_fees:
+    summary: The MCDPA requires no registration or fee.
+    source:
+      - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/sections_index.html
+  dpo:
+    summary: There's no requirement to appoint a data protection officer.
+    source:
+      - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/sections_index.html
+  transfers:
+    summary: Montana law sets no restrictions on transferring personal data abroad; federal rules are in us-federal.
+    source:
+      - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/sections_index.html
+  dpia:
+    summary: Document a data protection assessment for targeted advertising, sale, sensitive data and risky profiling, and for online services with a heightened risk of harm to minors. The Attorney General can request assessments through a civil investigative demand.
+    source:
+      - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0140/0300-0140-0280-0140.html
+      - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0190/0300-0140-0280-0190.html
+      - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0170/0300-0140-0280-0170.html
+  automated_decisions_ai:
+    summary: Consumers can opt out of profiling in furtherance of automated decisions with legal or similarly significant effects; since 1 October 2025 this isn't limited to solely automated decisions. The MCDPA has no other AI rules.
+    source:
+      - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0080/0300-0140-0280-0080.html
+  penalties:
+    summary: The Attorney General enforces alone, using its consumer protection powers. Violations also breach the Montana Consumer Protection Act, with civil penalties up to $7,500 per violation and injunctions. Since 1 October 2025 there's no right to cure. There's no private right of action.
+    source:
+      - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0170/0300-0140-0280-0170.html
+      - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0200/0300-0140-0280-0200.html
+    secondary:
+      - https://fpf.org/blog/amendments-to-the-montana-consumer-data-privacy-act-bring-big-changes-to-big-sky-country/
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry, checked against official sources with AI assistance.

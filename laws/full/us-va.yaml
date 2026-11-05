@@ -1,0 +1,101 @@
+# Virginia (United States). Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: us-va
+name: Virginia
+tier: full
+applies_with: [us-federal]
+laws:
+  - name: Virginia Consumer Data Protection Act (VCDPA)
+    citation: Va. Code §§ 59.1-575 to 59.1-584
+    official_url: https://law.lis.virginia.gov/vacodefull/title59.1/chapter53/
+    status: in-force
+    in_force_from: "2023-01-01"
+    notes: Amended in 2024 (known children under 13), 2025 (social media time limit for under-16s) and 2026 (ban on selling precise geolocation data from 1 July 2026).
+  - name: Breach of personal information notification
+    citation: Va. Code § 18.2-186.6
+    official_url: https://law.lis.virginia.gov/vacode/title18.2/chapter6/section18.2-186.6/
+    status: in-force
+    in_force_from: "2008-07-01"
+  - name: Virginia Telephone Privacy Protection Act
+    citation: Va. Code § 59.1-510 et seq.
+    official_url: https://law.lis.virginia.gov/vacodefull/title59.1/chapter44/
+    status: in-force
+    in_force_from: "2001-07-01"
+    notes: Sales calls and, since a 2025 amendment, sales texts.
+regulators:
+  - name: Office of the Attorney General of Virginia (Consumer Protection Section)
+    url: https://www.oag.state.va.us/consumer-protection/index.php
+obligations:
+  scope:
+    summary: Applies to businesses that operate in Virginia or target its residents and, in a calendar year, control or process data of 100,000 or more consumers, or of 25,000 or more while getting over half their gross revenue from selling personal data. Government bodies, non-profits, universities, GLBA financial institutions and HIPAA covered entities are exempt. Consumers are residents acting in a personal or household role, so employees and B2B contacts aren't covered.
+    source:
+      - https://law.lis.virginia.gov/vacode/title59.1/chapter53/section59.1-576/
+      - https://law.lis.virginia.gov/vacode/title59.1/chapter53/section59.1-575/
+  lawful_bases:
+    summary: There are no GDPR-style lawful bases. Controllers give a privacy notice and honour rights to access, correct, delete and port data, and to opt out of targeted advertising, sale and significant-decision profiling, within 45 days. Sensitive data needs opt-in consent. Since 1 July 2026 selling precise geolocation data is banned. Separately, the Consumer Protection Act bans obtaining, disclosing or selling reproductive or sexual health information without consent.
+    source:
+      - https://law.lis.virginia.gov/vacode/title59.1/chapter53/section59.1-577/
+      - https://law.lis.virginia.gov/vacode/title59.1/chapter53/section59.1-578/
+      - https://law.lis.virginia.gov/vacode/title59.1/chapter17/section59.1-200/
+      - https://www.oag.state.va.us/consumer-protection/files/tips-and-info/Virginia-Consumer-Data-Protection-Act-Summary-7-1-26.pdf
+  consent_age:
+    summary: A child is anyone under 13. A known child's data is sensitive data and must be handled under COPPA, so a parent must consent before it's used for targeted advertising, sale or significant profiling. The VCDPA has no teen opt-in rule for advertising or sale; a separate social media time limit covers under-16s (see children).
+    value: 13
+    source:
+      - https://law.lis.virginia.gov/vacode/title59.1/chapter53/section59.1-575/
+      - https://law.lis.virginia.gov/vacode/title59.1/chapter53/section59.1-578/
+  children:
+    summary: Without a parent's COPPA consent, controllers can't use a known child's data for targeted ads, sale or significant profiling, process it beyond what the service needs, or collect precise geolocation (which also needs a visible signal). Services directed to known children need a data protection assessment. A 2025 rule limiting under-16s to one hour a day per social media service, unless a parent agrees, has been blocked by a federal court since February 2026 while Virginia appeals.
+    source:
+      - https://law.lis.virginia.gov/vacode/title59.1/chapter53/section59.1-578/
+      - https://law.lis.virginia.gov/vacode/title59.1/chapter53/section59.1-580/
+      - https://law.lis.virginia.gov/vacode/title59.1/chapter53/section59.1-577.1/
+    secondary:
+      - https://netchoice.org/wp-content/uploads/2026/02/Virginia-PI-Opinion_Granted.pdf
+      - https://netchoice.org/netchoice-v-miyares-virginia/
+  cookies:
+    summary: There's no cookie-consent rule. Consumers can opt out of targeted advertising, and a controller that uses it must say so clearly and explain how to opt out. The VCDPA doesn't require honouring a universal opt-out signal such as Global Privacy Control.
+    source:
+      - https://law.lis.virginia.gov/vacode/title59.1/chapter53/section59.1-578/
+      - https://law.lis.virginia.gov/vacode/title59.1/chapter53/section59.1-577/
+  marketing:
+    summary: Email marketing relies on federal CAN-SPAM. The Virginia Telephone Privacy Protection Act adds rules for sales calls and, since a 2025 amendment, sales texts. Calls and texts only between 8am and 9pm without prior consent, none to numbers on the National Do Not Call Registry, and a STOP or UNSUBSCRIBE reply must be honoured for 10 years. People can sue for $500 to $5,000 per violation.
+    source:
+      - https://law.lis.virginia.gov/vacodefull/title59.1/chapter44/
+  breach_notice:
+    summary: Tell the Attorney General and affected Virginia residents without unreasonable delay when unencrypted personal information is accessed and acquired and is believed to cause identity theft or fraud. If you notify more than 1,000 people at once, also tell the Attorney General and the nationwide credit bureaus about the notices. The Attorney General can fine up to $150,000 per breach.
+    source:
+      - https://law.lis.virginia.gov/vacode/title18.2/chapter6/section18.2-186.6/
+  registration_or_fees:
+    summary: The VCDPA requires no registration, fee or data broker registration.
+    source:
+      - https://law.lis.virginia.gov/vacodefull/title59.1/chapter53/
+  dpo:
+    summary: There's no requirement to appoint a data protection officer.
+    source:
+      - https://law.lis.virginia.gov/vacodefull/title59.1/chapter53/
+  transfers:
+    summary: Virginia law sets no restrictions on transferring personal data abroad; federal rules are in us-federal.
+    source:
+      - https://law.lis.virginia.gov/vacodefull/title59.1/chapter53/
+  dpia:
+    summary: Document a data protection assessment for targeted advertising, sale, sensitive data, risky profiling and other heightened-risk processing, and for any online service directed to known children. The Attorney General can demand assessments in an investigation, and they stay confidential.
+    source:
+      - https://law.lis.virginia.gov/vacode/title59.1/chapter53/section59.1-580/
+  automated_decisions_ai:
+    summary: Consumers can opt out of profiling used for decisions with legal or similarly significant effects, such as on credit, housing, insurance, education, jobs, health care or basic necessities. Virginia has no general AI law. In 2026, bills on AI companion chatbots and minors didn't pass and were sent to a legislative commission for study.
+    source:
+      - https://law.lis.virginia.gov/vacode/title59.1/chapter53/section59.1-577/
+      - https://law.lis.virginia.gov/vacode/title59.1/chapter53/section59.1-575/
+      - https://dls.virginia.gov/commissions/jcots/Materials/2026_AI_Chatbots_Report.pdf
+  penalties:
+    summary: The Attorney General enforces alone. Before suing it must give 30 days' notice to cure, and this right to cure doesn't expire. Civil penalties are up to $7,500 per violation, plus injunctions and expenses. There's no private right of action under the VCDPA, but people can sue over the reproductive health rule under the Consumer Protection Act, for $500 or actual damages ($1,000 or triple if wilful).
+    source:
+      - https://law.lis.virginia.gov/vacode/title59.1/chapter53/section59.1-584/
+      - https://law.lis.virginia.gov/vacode/title59.1/chapter17/section59.1-204/
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry, checked against official sources with AI assistance.

@@ -1,0 +1,107 @@
+# Maryland. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: us-md
+name: Maryland
+tier: full
+applies_with: [us-federal]
+laws:
+  - name: Maryland Online Data Privacy Act
+    citation: Md. Code, Com. Law 14-4701 to 14-4714 (2024 Md. Laws chs. 454 and 455)
+    official_url: https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4701&enactments=false
+    status: in-force
+    in_force_from: "2025-10-01"
+    notes: It doesn't apply to processing before 1 April 2026. Amended by 2026 Md. Laws ch. 874 (HB 711) from 1 July 2026.
+  - name: Maryland Personal Information Protection Act
+    citation: Md. Code, Com. Law 14-3501 to 14-3508 (2007 Md. Laws ch. 531)
+    official_url: https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-3504&enactments=false
+    status: in-force
+    in_force_from: "2008-01-01"
+  - name: Maryland Age-Appropriate Design Code Act (Maryland Kids Code)
+    citation: Md. Code, Com. Law 14-4801 to 14-4813 (2024 Md. Laws chs. 460 and 461)
+    official_url: https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4801&enactments=false
+    status: in-force
+    in_force_from: "2024-10-01"
+regulators:
+  - name: Office of the Attorney General, Consumer Protection Division
+    url: https://oag.maryland.gov/resources-info/Pages/data-privacy.aspx
+obligations:
+  scope:
+    summary: Applies to businesses active in Maryland or targeting its residents that in the previous year handled data of 35,000+ Maryland consumers (not counting payment-only data), or 10,000+ while earning over 20% of gross revenue from selling data. Non-profits are covered. Government, GLBA financial institutions and insurance-business data are exempt, and HIPAA-protected health information is excluded. Employees and B2B contacts aren't consumers.
+    source:
+      - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4702&enactments=false
+      - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4703&enactments=false
+      - https://oag.maryland.gov/resources-info/Pages/data-privacy.aspx
+  lawful_bases:
+    summary: No GDPR-style lawful bases, but strict minimisation. Collect only what's reasonably necessary and proportionate to provide a product or service the consumer asked for. Collect or use sensitive data only when strictly necessary for that product or service, and never sell it, even with consent; since 1 July 2026 this includes data used to infer a sensitive trait. Consumers can access, correct, delete and port data and opt out of targeted advertising, sale and profiling, with replies due within 45 days (extendable by 45).
+    source:
+      - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4707&enactments=false
+      - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4705&enactments=false
+      - https://mgaleg.maryland.gov/2026RS/Chapters_noln/CH_874_hb0711t.pdf
+      - https://oag.maryland.gov/resources-info/Pages/data-privacy.aspx
+  consent_age:
+    summary: A child is under 13 (as in COPPA), and a child's data is sensitive data. A controller must not sell personal data of anyone under 18, or use it for targeted advertising, if it knew or should have known their age. This ban has no consent exception. The Kids Code treats everyone under 18 as a child.
+    value: 13
+    source:
+      - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4701&enactments=false
+      - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4707&enactments=false
+      - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4801&enactments=false
+  children:
+    summary: The Kids Code covers for-profit online services likely to be used by under-18s, if they have $25 million+ revenue, buy, receive, sell or share data of 50,000+ people a year, or earn half their revenue from selling data. They must act in children's best interests, set high-privacy defaults, avoid profiling and precise geolocation by default, and complete a data protection impact assessment for each such product, for existing products by 1 April 2026.
+    source:
+      - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4801&enactments=false
+      - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4804&enactments=false
+      - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4805&enactments=false
+      - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4806&enactments=false
+  cookies:
+    summary: No cookie-consent rule. Controllers must disclose targeted advertising and sale prominently and offer a secure way to opt out. The law names a clear opt-out link and, from 1 October 2025, honouring an opt-out preference signal such as Global Privacy Control as ways to do this, and says recognising signals approved by other states counts as compliance. Geofences within 1,750 feet of mental health or reproductive health facilities, used to track or message people about their health, are banned.
+    source:
+      - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4707&enactments=false
+      - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4704&enactments=false
+  marketing:
+    summary: Under the Stop the Spam Calls Act, automated or prerecorded sales calls and texts need the recipient's prior express written consent. Sales calls are banned between 8 p.m. and 8 a.m. and limited to three a day on the same subject, and caller ID must not be hidden; recipients can sue for up to $500 or their actual damages. Commercial email must not use false origin details or misleading subject lines.
+    source:
+      - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4502&enactments=false
+      - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4503&enactments=false
+      - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-3002&enactments=false
+  breach_notice:
+    summary: Investigate promptly. Unless misuse is unlikely, notify affected Maryland residents as soon as reasonably practicable and within 45 days of discovering the breach, and notify the Attorney General before telling them, whatever the number affected. A service provider must tell the data owner within 10 days. Keep records of a no-notice decision for 3 years.
+    value: 45
+    source:
+      - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-3504&enactments=false
+  registration_or_fees:
+    summary: No registration or fee. Bills to create a Maryland data broker registry did not pass in 2025 or 2026.
+    source:
+      - https://mgaleg.maryland.gov/mgawebsite/Legislation/Details/sb0904?ys=2025RS
+      - https://mgaleg.maryland.gov/mgawebsite/Legislation/Details/sb0616?ys=2026RS
+      - https://mgaleg.maryland.gov/mgawebsite/Legislation/Details/hb1220?ys=2026RS
+  dpo:
+    summary: No duty to appoint a data protection officer.
+    source:
+      - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4707&enactments=false
+  transfers:
+    summary: No cross-border transfer rules (federal rules are in us-federal). Processors need a binding contract. Since 1 July 2026, a controller must not knowingly sell personal data to a government unit that supported civil immigration enforcement in the previous 6 months, and the exceptions for answering subpoenas or helping law enforcement don't cover such units unless they bring a valid court warrant.
+    source:
+      - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4708&enactments=false
+      - https://mgaleg.maryland.gov/2026RS/Chapters_noln/CH_874_hb0711t.pdf
+  dpia:
+    summary: Controllers must regularly conduct and document an assessment of each processing activity with a heightened risk of harm (targeted advertising, sale, sensitive data or risky profiling), including one for each algorithm used, weighing necessity and proportionality. This applies to processing from 1 October 2025. The Attorney General's Division can require assessments.
+    source:
+      - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4710&enactments=false
+  automated_decisions_ai:
+    summary: Consumers can opt out of profiling for solely automated decisions with legal or similarly significant effects, and profiling with foreseeable risks needs an assessment covering each algorithm. Controllers must not process data in ways that unlawfully discriminate. We found no Maryland AI law with duties for private businesses generally.
+    source:
+      - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4705&enactments=false
+      - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4710&enactments=false
+  penalties:
+    summary: The Attorney General's Consumer Protection Division enforces under the Consumer Protection Act, with civil penalties up to $10,000 per violation and $25,000 for repeats. For violations on or before 1 April 2027 it may offer at least 60 days to cure. Consumers can't sue under the privacy act. Kids Code penalties are up to $2,500 per affected child for negligent and $7,500 for intentional violations.
+    source:
+      - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4713&enactments=false
+      - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4714&enactments=false
+      - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=13-410&enactments=false
+      - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4808&enactments=false
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry, checked against official sources with AI assistance.

@@ -1,0 +1,180 @@
+# United States (federal rules). Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact. State entries (us-xx) apply with this one.
+id: us-federal
+name: United States (federal)
+tier: full
+laws:
+  - name: Federal Trade Commission Act, section 5
+    citation: 15 U.S.C. 45
+    official_url: https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap2-subchapI-sec45.htm
+    status: in-force
+    in_force_from: "1914-09-26"
+    notes: Bans unfair or deceptive acts or practices, the FTC's main power over privacy and data security. The wording on unfair or deceptive practices dates from a 1938 amendment.
+  - name: Children's Online Privacy Protection Act (COPPA) and COPPA Rule
+    citation: 15 U.S.C. 6501–6506; 16 CFR Part 312, as amended at 90 FR 16918 (22 April 2025)
+    official_url: https://www.ecfr.gov/current/title-16/chapter-I/subchapter-C/part-312
+    status: in-force
+    in_force_from: "2000-04-21"
+    notes: The amended Rule took effect on 23 June 2025, and most of its changes had to be complied with by 22 April 2026.
+  - name: CAN-SPAM Act of 2003
+    citation: 15 U.S.C. 7701–7713; 16 CFR Part 316
+    official_url: https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap103-sec7704.htm
+    status: in-force
+    in_force_from: "2004-01-01"
+    notes: Rules for commercial email.
+  - name: Telephone Consumer Protection Act (TCPA)
+    citation: 47 U.S.C. 227; 47 CFR 64.1200
+    official_url: https://www.govinfo.gov/content/pkg/USCODE-2024-title47/html/USCODE-2024-title47-chap5-subchapII-partI-sec227.htm
+    status: in-force
+    in_force_from: "1992-12-20"
+    notes: Rules for marketing calls and texts, enforced by the FCC, state attorneys general and private lawsuits.
+  - name: HIPAA Privacy, Security and Breach Notification Rules
+    citation: Pub. L. 104-191, as amended by the HITECH Act; 45 CFR Parts 160 and 164
+    official_url: https://www.hhs.gov/hipaa/for-professionals/privacy/laws-regulations/index.html
+    status: in-force
+    in_force_from: "2003-04-14"
+    notes: Applies only to health plans, health care clearinghouses, providers that carry out standard electronic transactions, and their business associates. A proposal to tighten the Security Rule, issued in December 2024, is still pending.
+  - name: Gramm-Leach-Bliley Act (GLBA), Title V
+    citation: 15 U.S.C. 6801–6809; Regulation P (12 CFR Part 1016); FTC Safeguards Rule (16 CFR Part 314)
+    official_url: https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap94-subchapI-sec6802.htm
+    status: in-force
+    in_force_from: "2000-11-13"
+    notes: Applies to financial institutions, defined by their activities, including many non-bank lenders, brokers and tax preparers. The privacy rules took effect on 13 November 2000, with full compliance required from 1 July 2001.
+  - name: Protecting Americans' Data from Foreign Adversaries Act of 2024
+    citation: Pub. L. 118-50, div. I; 15 U.S.C. 9901
+    official_url: https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap123-sec9901.htm
+    status: in-force
+    in_force_from: "2024-06-23"
+  - name: DOJ Data Security Program (bulk sensitive data rule)
+    citation: 28 CFR Part 202 (90 FR 1636, 8 January 2025), under Executive Order 14117
+    official_url: https://www.justice.gov/nsd/data-security
+    status: in-force
+    in_force_from: "2025-04-08"
+    notes: Due diligence, audit and reporting duties apply from 6 October 2025.
+  - name: TAKE IT DOWN Act
+    citation: Pub. L. 119-12
+    official_url: https://www.govinfo.gov/content/pkg/PLAW-119publ12/html/PLAW-119publ12.htm
+    status: in-force
+    in_force_from: "2025-05-19"
+    notes: Platforms hosting user content had until 19 May 2026 to set up a notice-and-removal process for non-consensual intimate images, including AI-generated ones.
+  - name: Children and Teens' Online Privacy Protection Act (COPPA 2.0)
+    citation: S. 836, 119th Congress
+    official_url: https://www.govinfo.gov/content/pkg/BILLS-119s836es/html/BILLS-119s836es.htm
+    status: draft
+    notes: Passed the Senate on 5 March 2026 and awaits House action. It would extend COPPA's protections to teens aged 13 to 16. Not law.
+regulators:
+  - name: Federal Trade Commission (FTC)
+    url: https://www.ftc.gov
+  - name: Federal Communications Commission (FCC), for the TCPA
+    url: https://www.fcc.gov
+  - name: Department of Health and Human Services, Office for Civil Rights (HIPAA)
+    url: https://www.hhs.gov/hipaa/index.html
+  - name: Department of Justice, National Security Division (Data Security Program)
+    url: https://www.justice.gov/nsd/data-security
+obligations:
+  scope:
+    summary: There is no comprehensive federal privacy law, and none had been enacted by late October 2026. Federal rules are sectoral and apply alongside state laws. The FTC Act covers most businesses, but not banks, common carriers or most non-profits. COPPA covers online services directed to children under 13, or that know a user is under 13. HIPAA covers health plans, clearinghouses, providers that carry out standard electronic transactions, and their business associates. GLBA covers financial institutions. CAN-SPAM and the TCPA cover marketing emails, calls and texts.
+    source:
+      - https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap2-subchapI-sec45.htm
+      - https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap2-subchapI-sec44.htm
+      - https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap91-sec6501.htm
+      - https://www.ecfr.gov/current/title-16/chapter-I/subchapter-C/part-312
+      - https://www.hhs.gov/hipaa/for-professionals/privacy/laws-regulations/index.html
+      - https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap94-subchapI-sec6802.htm
+      - https://www.govinfo.gov/content/pkg/USCODE-2024-title47/html/USCODE-2024-title47-chap5-subchapII-partI-sec227.htm
+      - https://www.govinfo.gov/bulkdata/PLAW/119/public
+  lawful_bases:
+    summary: There are no GDPR-style lawful bases. Under the FTC Act, data practices must not be deceptive or unfair, so privacy notices must be accurate and promises kept. Sector laws add consent rules. COPPA needs verifiable parental consent. HIPAA needs written authorisation for uses beyond treatment, payment and health care operations, such as most marketing. GLBA financial institutions must give notice and a chance to opt out before sharing data with unaffiliated third parties. The TCPA needs prior express written consent for marketing robocalls and robotexts.
+    source:
+      - https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap2-subchapI-sec45.htm
+      - https://www.ecfr.gov/current/title-16/chapter-I/subchapter-C/part-312
+      - https://www.hhs.gov/hipaa/for-professionals/privacy/laws-regulations/index.html
+      - https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap94-subchapI-sec6802.htm
+      - https://www.govinfo.gov/content/pkg/CFR-2025-title47-vol3/pdf/CFR-2025-title47-vol3-sec64-1200.pdf
+  consent_age:
+    summary: COPPA treats anyone under 13 as a child. Services directed to children, or that know a user is under 13, need verifiable parental consent before collecting the child's personal information, apart from narrow exceptions. Since 22 April 2026, disclosing a child's data to third parties, for example for targeted advertising, needs a separate parental consent unless the disclosure is integral to the service. There is no federal teen rule yet.
+    value: 13
+    source:
+      - https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap91-sec6501.htm
+      - https://www.ecfr.gov/current/title-16/chapter-I/subchapter-C/part-312
+      - https://www.federalregister.gov/documents/2025/04/22/2025-05904/childrens-online-privacy-protection-rule
+  children:
+    summary: The amended COPPA Rule (in effect 23 June 2025, compliance by 22 April 2026) adds biometric and government-issued identifiers to personal information. It requires a written children's information security program with annual risk assessments, and a written data retention policy published in the privacy notice, with no indefinite retention. Mixed-audience services can age-screen users before collecting data. COPPA 2.0, which passed the Senate in March 2026, and the Kids Online Safety Act are still bills.
+    source:
+      - https://www.ecfr.gov/current/title-16/chapter-I/subchapter-C/part-312
+      - https://www.federalregister.gov/documents/2025/04/22/2025-05904/childrens-online-privacy-protection-rule
+      - https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s836.xml
+      - https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s1748.xml
+  cookies:
+    summary: There is no federal cookie-consent rule. On services directed to children, cookies and other persistent identifiers count as personal information under COPPA, so using them for behavioural advertising or profiling needs verifiable parental consent; uses limited to supporting internal operations are exempt. HIPAA-covered entities must not let tracking technologies disclose health information without authorisation. Video services generally need separate, informed consent before disclosing what an identifiable person watched. Misleading statements about tracking breach the FTC Act.
+    source:
+      - https://www.ecfr.gov/current/title-16/chapter-I/subchapter-C/part-312
+      - https://www.ftc.gov/business-guidance/resources/complying-coppa-frequently-asked-questions
+      - https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/hipaa-online-tracking/index.html
+      - https://www.govinfo.gov/content/pkg/USCODE-2024-title18/html/USCODE-2024-title18-partI-chap121-sec2710.htm
+      - https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap2-subchapI-sec45.htm
+  marketing:
+    summary: Commercial email is opt-out under CAN-SPAM. Don't use false headers or misleading subject lines, identify the message as an ad, include a valid postal address and a working opt-out, and honour opt-outs within 10 business days. Under the TCPA, marketing calls and texts made with an autodialer or an artificial or prerecorded voice, including an AI-generated voice, need prior express written consent. Respect the National Do Not Call Registry and the 8 a.m. to 9 p.m. calling hours, and honour a revocation made by any reasonable means within 10 business days.
+    source:
+      - https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap103-sec7704.htm
+      - https://www.ftc.gov/business-guidance/resources/can-spam-act-compliance-guide-business
+      - https://www.govinfo.gov/content/pkg/CFR-2025-title47-vol3/pdf/CFR-2025-title47-vol3-sec64-1200.pdf
+      - https://docs.fcc.gov/public/attachments/FCC-24-17A1.pdf
+  breach_notice:
+    summary: There is no general federal breach law; state laws apply. HIPAA covered entities must notify affected people without unreasonable delay and within 60 days of discovery, plus HHS, and the media if over 500 people in a state are affected. Health apps and other personal health record vendors outside HIPAA follow the FTC Health Breach Notification Rule, with the same 60-day limit and the FTC told too if 500 or more people are affected. Non-bank financial institutions must tell the FTC within 30 days of finding a breach of unencrypted data on 500 or more consumers.
+    source:
+      - https://www.hhs.gov/hipaa/for-professionals/breach-notification/index.html
+      - https://www.ftc.gov/business-guidance/resources/complying-ftcs-health-breach-notification-rule-0
+      - https://www.ftc.gov/business-guidance/resources/ftc-safeguards-rule-what-your-business-needs-know
+  registration_or_fees:
+    summary: There is no federal registration or fee for processing personal data; data broker registries, where they exist, are state rules. Telemarketers calling consumers must pay to access the National Do Not Call Registry. The first five area codes are free, then it costs $85 per area code a year, up to $23,425. The DOJ data rule adds reports in some cases, such as reporting a rejected offer of a prohibited transaction.
+    source:
+      - https://www.ecfr.gov/current/title-16/chapter-I/subchapter-C/part-310/section-310.8
+      - https://www.justice.gov/nsd/data-security
+  dpo:
+    summary: There is no federal data protection officer requirement. HIPAA covered entities must name a privacy official and a contact for complaints, and covered entities and business associates must name a security official. The FTC Safeguards Rule requires financial institutions to name a Qualified Individual to run their information security program. The COPPA Rule's security program must name the employees who coordinate it.
+    source:
+      - https://www.hhs.gov/hipaa/for-professionals/privacy/laws-regulations/index.html
+      - https://www.govinfo.gov/content/pkg/CFR-2025-title45-vol2/pdf/CFR-2025-title45-vol2-sec164-308.pdf
+      - https://www.ftc.gov/business-guidance/resources/ftc-safeguards-rule-what-your-business-needs-know
+      - https://www.ecfr.gov/current/title-16/chapter-I/subchapter-C/part-312
+  transfers:
+    summary: There is no general limit on sending data abroad. Since 23 June 2024 data brokers may not sell or give access to Americans' sensitive data to China, Russia, Iran or North Korea, or to entities they control (FTC-enforced). Since 8 April 2025 the DOJ rule bans data brokerage and bulk genomic data deals with China (including Hong Kong and Macau), Cuba, Iran, North Korea, Russia, Venezuela and covered persons, and allows vendor, employment and investment deals with them only under CISA security controls. Bulk thresholds start above 100 people for genomic data.
+    source:
+      - https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap123-sec9901.htm
+      - https://www.justice.gov/nsd/data-security
+      - https://www.federalregister.gov/documents/2025/01/08/2024-31486/preventing-access-to-us-sensitive-personal-data-and-government-related-data-by-countries-of-concern
+      - https://www.govinfo.gov/content/pkg/CFR-2025-title28-vol2/pdf/CFR-2025-title28-vol2-sec202-601.pdf
+      - https://www.govinfo.gov/content/pkg/CFR-2025-title28-vol2/pdf/CFR-2025-title28-vol2-sec202-208.pdf
+      - https://www.govinfo.gov/content/pkg/CFR-2025-title28-vol2/pdf/CFR-2025-title28-vol2-sec202-205.pdf
+  dpia:
+    summary: There is no general federal impact assessment duty. HIPAA requires an accurate and thorough security risk analysis, the FTC Safeguards Rule a written risk assessment, and the COPPA Rule annual risk assessments for children's data. Since 6 October 2025, firms in restricted transactions under the DOJ rule need a written data compliance program and an independent audit every year. A proposal to tighten the HIPAA Security Rule, with asset inventories, encryption and multi-factor authentication, is still pending.
+    source:
+      - https://www.govinfo.gov/content/pkg/CFR-2025-title45-vol2/pdf/CFR-2025-title45-vol2-sec164-308.pdf
+      - https://www.ftc.gov/business-guidance/resources/ftc-safeguards-rule-what-your-business-needs-know
+      - https://www.ecfr.gov/current/title-16/chapter-I/subchapter-C/part-312
+      - https://www.federalregister.gov/documents/2025/01/08/2024-31486/preventing-access-to-us-sensitive-personal-data-and-government-related-data-by-countries-of-concern
+      - https://www.hhs.gov/hipaa/for-professionals/security/hipaa-security-rule-nprm/factsheet/index.html
+  automated_decisions_ai:
+    summary: There is no comprehensive federal AI law and no general right to contest automated decisions. If a decision on credit, insurance, a job or housing relies on a consumer report, FCRA requires an adverse action notice, and creditors must give the reasons for refusing credit (ECOA). The FTC Act covers deceptive AI claims. AI-generated voices are artificial voices under the TCPA. Platforms must remove reported non-consensual intimate images, including AI deepfakes, within 48 hours. Executive Order 14365 (December 2025) targets state AI laws but doesn't itself override them.
+    source:
+      - https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap41-subchapIII-sec1681m.htm
+      - https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap41-subchapIV-sec1691.htm
+      - https://docs.fcc.gov/public/attachments/FCC-24-17A1.pdf
+      - https://www.govinfo.gov/content/pkg/PLAW-119publ12/html/PLAW-119publ12.htm
+      - https://www.govinfo.gov/content/pkg/FR-2025-12-16/pdf/2025-23092.pdf
+  penalties:
+    summary: Knowing breaches of FTC rules such as COPPA, CAN-SPAM or the Health Breach Notification Rule, and breaches of FTC orders, can cost up to $53,088 each; under CAN-SPAM each email counts. State attorneys general can sue under COPPA and the TCPA, and people can sue under the TCPA for $500 per call or text, or up to $1,500 if wilful. HIPAA penalties depend on culpability and reach $2,190,294 per violation, and per year for identical violations. DOJ-rule breaches carry civil penalties up to the greater of $368,136 or twice the transaction value, and up to $1 million and 20 years in prison.
+    source:
+      - https://www.ecfr.gov/current/title-16/chapter-I/subchapter-A/part-1/subpart-L/section-1.98
+      - https://www.ftc.gov/business-guidance/resources/can-spam-act-compliance-guide-business
+      - https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap91-sec6504.htm
+      - https://www.govinfo.gov/content/pkg/USCODE-2024-title47/html/USCODE-2024-title47-chap5-subchapII-partI-sec227.htm
+      - https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-A/part-102/section-102.3
+      - https://www.govinfo.gov/content/pkg/CFR-2025-title28-vol2/pdf/CFR-2025-title28-vol2-sec202-1301.pdf
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry, checked against official sources with AI assistance.

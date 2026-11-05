@@ -1,0 +1,94 @@
+# Rhode Island, United States. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact. Read together with us-federal.
+id: us-ri
+name: Rhode Island
+tier: full
+applies_with: [us-federal]
+laws:
+  - name: Rhode Island Data Transparency and Privacy Protection Act
+    citation: R.I. Gen. Laws ch. 6-48.1 (P.L. 2024, ch. 430 and ch. 453)
+    official_url: https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/INDEX.htm
+    status: in-force
+    in_force_from: "2026-01-01"
+  - name: Identity Theft Protection Act of 2015
+    citation: R.I. Gen. Laws ch. 11-49.3 (P.L. 2015, ch. 138 and ch. 148)
+    official_url: https://webserver.rilegislature.gov/Statutes/TITLE11/11-49.3/INDEX.htm
+    status: in-force
+    in_force_from: "2016-06-26"
+    notes: Data security and breach notification. Each of the two identical 2015 acts took effect one year after its passage.
+regulators:
+  - name: Rhode Island Attorney General
+    url: https://riag.ri.gov/
+obligations:
+  scope:
+    summary: Two layers. Any commercial website or internet service provider doing business in Rhode Island, whatever its size, must name a controller and, if it sells personal data, disclose what it collects and every third party it has sold or may sell to. The full duties apply to for-profit businesses that last year handled data of 35,000 customers (not counting payment-only data), or 10,000 while earning over 20% of revenue from data sales. Government, nonprofits, higher education, GLBA and HIPAA entities are exempt, and employee data is out of scope.
+    source:
+      - https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-3.htm
+      - https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-4.htm
+  lawful_bases:
+    summary: No GDPR-style lawful bases. Customers can confirm and access, correct, delete, get a portable copy, and opt out of targeted advertising, sale and solely automated significant profiling. Reply within 45 days (one 45-day extension), free once a year, and decide appeals within 60 days. Sensitive data needs opt-in consent, consent must be easy to revoke, and processing must stop within 15 days of revocation.
+    source:
+      - https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-5.htm
+      - https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-6.htm
+      - https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-4.htm
+  consent_age:
+    summary: A child is under 13, as in COPPA. Processing a known child's sensitive data needs consent and must follow COPPA, and parents can use the child's rights. There's no teen consent rule.
+    value: 13
+    source:
+      - https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-2.htm
+      - https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-4.htm
+  children:
+    summary: Data collected from a known child is sensitive data and must be handled under COPPA. Meeting COPPA's verifiable parental consent rules counts as compliance. The act sets no extra rules for teenagers.
+    source:
+      - https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-2.htm
+      - https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-4.htm
+  cookies:
+    summary: No cookie-consent rule. Controllers must clearly disclose sales and targeted advertising and honour opt-outs, including from a verified authorised agent. Opt-out requests needn't be authenticated, though a documented suspicion of fraud allows refusal. The act has no duty to honour universal opt-out signals such as Global Privacy Control.
+    source:
+      - https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-3.htm
+      - https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-6.htm
+  marketing:
+    summary: Adds to CAN-SPAM and the TCPA. Telephone sellers must register with the Attorney General 10 days before soliciting ($100 a year). Text-message ads to Rhode Island mobiles are banned unless there's an existing relationship and a way to opt out. Prerecorded sales messages need consent or a live operator first, and sales calls are allowed only 9 a.m. to 6 p.m. on weekdays and 10 a.m. to 5 p.m. on Saturdays.
+    source:
+      - https://webserver.rilegislature.gov/Statutes/TITLE5/5-61/5-61-3.htm
+      - https://webserver.rilegislature.gov/Statutes/TITLE5/5-61/5-61-3.5.htm
+      - https://webserver.rilegislature.gov/Statutes/TITLE5/5-61/5-61-3.4.htm
+      - https://webserver.rilegislature.gov/Statutes/TITLE5/5-61/5-61-2.htm
+  breach_notice:
+    summary: Tell affected Rhode Island residents in the most expedient time possible and within 45 calendar days of confirming a breach that poses a significant risk of identity theft. If more than 500 residents are notified, also tell the Attorney General and the major credit reporting agencies, without delaying the notices to residents. Penalties reach $100 per record, or $200 for knowing and wilful violations.
+    value: 45
+    source:
+      - https://webserver.rilegislature.gov/Statutes/TITLE11/11-49.3/11-49.3-4.htm
+      - https://webserver.rilegislature.gov/Statutes/TITLE11/11-49.3/11-49.3-5.htm
+  registration_or_fees:
+    summary: No data protection registration or fee, and no data broker registry. Telephone sellers register separately (see marketing).
+    source:
+      - https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/INDEX.htm
+  dpo:
+    summary: No duty to appoint a data protection officer.
+    source:
+      - https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/INDEX.htm
+  transfers:
+    summary: Rhode Island law doesn't restrict sending personal data outside the state or the US. Federal rules are in us-federal.
+    source:
+      - https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/INDEX.htm
+  dpia:
+    summary: Do and document a data protection assessment for each high-risk activity, including targeted advertising, selling personal data, risky profiling and sensitive data. It applies to processing activities created or generated after 1 January 2026. The Attorney General can require it in an investigation, and it stays confidential.
+    source:
+      - https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-7.htm
+  automated_decisions_ai:
+    summary: People can opt out of profiling that feeds solely automated decisions with legal or similarly significant effects, such as on lending, housing, insurance, education, jobs, health care or access to essential goods. Risky profiling also needs a data protection assessment.
+    source:
+      - https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-5.htm
+      - https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-2.htm
+  penalties:
+    summary: The Attorney General has sole enforcement, with no notice-and-cure period. A violation is a deceptive trade practice, with civil penalties up to $10,000 per violation. Intentionally disclosing personal data in breach of the act, or to a shell company set up to get around it, costs $100 to $500 per disclosure. No private right of action.
+    source:
+      - https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-8.htm
+      - https://webserver.rilegislature.gov/Statutes/TITLE6/6-13.1/6-13.1-8.htm
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry, checked against official sources with AI assistance.

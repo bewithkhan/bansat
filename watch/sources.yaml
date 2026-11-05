@@ -25,3 +25,59 @@ jurisdictions:
     official_domains: [legifrance.gouv.fr, cnil.fr, conseil-constitutionnel.fr, assemblee-nationale.fr, senat.fr]
   it:
     official_domains: [normattiva.it, gazzettaufficiale.it, garanteprivacy.it, acn.gov.it, agid.gov.it]
+  br:
+    official_domains: [planalto.gov.br, gov.br, in.gov.br, camara.leg.br, senado.leg.br, lexml.gov.br, europa.eu]
+  ca:
+    official_domains: [laws-lois.justice.gc.ca, priv.gc.ca, crtc.gc.ca, parl.ca]
+  ca-qc:
+    official_domains: [legisquebec.gouv.qc.ca, cai.gouv.qc.ca, assnat.qc.ca]
+  mx:
+    official_domains: [dof.gob.mx, diputados.gob.mx, gob.mx, buengobierno.gob.mx, segob.gob.mx]
+  us-al:
+    official_domains: [legislature.state.al.us, alabamaag.gov]
+  us-ca:
+    official_domains: [leginfo.legislature.ca.gov, cppa.ca.gov, privacy.ca.gov, oag.ca.gov, assembly.ca.gov, senate.ca.gov, uscourts.gov, govinfo.gov, calcivilrights.ca.gov]
+  us-co:
+    official_domains: [colorado.gov, coag.gov]
+  us-ct:
+    official_domains: [cga.ct.gov, ct.gov]
+  us-de:
+    official_domains: [delcode.delaware.gov, legis.delaware.gov, attorneygeneral.delaware.gov, governor.delaware.gov]
+  us-federal:
+    official_domains: [ftc.gov, ecfr.gov, govinfo.gov, federalregister.gov, congress.gov, uscode.house.gov, fcc.gov, hhs.gov, justice.gov, consumerfinance.gov, cisa.gov, whitehouse.gov, uscourts.gov, supremecourt.gov]
+  us-ia:
+    official_domains: [legis.iowa.gov, iowaattorneygeneral.gov]
+  us-in:
+    official_domains: [in.gov]
+  us-ky:
+    official_domains: [legislature.ky.gov, ag.ky.gov]
+  us-la:
+    official_domains: [legis.la.gov, ag.louisiana.gov, govinfo.gov]
+  us-md:
+    official_domains: [mgaleg.maryland.gov, oag.maryland.gov, marylandattorneygeneral.gov]
+  us-mn:
+    official_domains: [revisor.mn.gov, ag.state.mn.us]
+  us-mt:
+    official_domains: [legmt.gov, dojmt.gov, mt.gov]
+  us-ne:
+    official_domains: [nebraskalegislature.gov, protectthegoodlife.nebraska.gov, ago.nebraska.gov]
+  us-nh:
+    official_domains: [gc.nh.gov, gencourt.state.nh.us, doj.nh.gov]
+  us-nj:
+    official_domains: [njleg.state.nj.us, njoag.gov, njconsumeraffairs.gov]
+  us-ok:
+    official_domains: [oklegislature.gov, okhouse.gov, oklahoma.gov]
+  us-or:
+    official_domains: [oregonlegislature.gov, state.or.us, oregon.gov]
+  us-ri:
+    official_domains: [rilegislature.gov, riag.ri.gov]
+  us-tn:
+    official_domains: [capitol.tn.gov, tn.gov, nist.gov]
+  us-tx:
+    official_domains: [capitol.texas.gov, legis.texas.gov, texasattorneygeneral.gov, sos.state.tx.us]
+  us-ut:
+    official_domains: [le.utah.gov, utah.gov]
+  us-va:
+    official_domains: [virginia.gov, state.va.us]
+  us-vt:
+    official_domains: [legislature.vermont.gov, ago.vermont.gov]

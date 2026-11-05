@@ -1,0 +1,125 @@
+# Nebraska. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: us-ne
+name: Nebraska
+tier: full
+applies_with: [us-federal]
+laws:
+  - name: Data Privacy Act
+    citation: Neb. Rev. Stat. 87-1101 to 87-1130 (Laws 2024, LB 1074)
+    official_url: https://nebraskalegislature.gov/laws/statutes.php?statute=87-1101
+    status: in-force
+    in_force_from: "2025-01-01"
+  - name: Financial Data Protection and Consumer Notification of Data Security Breach Act of 2006
+    citation: Neb. Rev. Stat. 87-801 to 87-808 (Laws 2006, LB 876)
+    official_url: https://nebraskalegislature.gov/laws/statutes.php?statute=87-803
+    status: in-force
+    in_force_from: "2006-07-14"
+  - name: Age-Appropriate Online Design Code Act
+    citation: Neb. Rev. Stat. 87-1301 to 87-1311 (Laws 2025, LB 504; Laws 2026, LB 838)
+    official_url: https://nebraskalegislature.gov/laws/statutes.php?statute=87-1301
+    status: in-force
+    in_force_from: "2026-01-01"
+    notes: LB 838 widened which services are covered and added duties from 18 July 2026. The Attorney General can seek civil penalties from 1 July 2026.
+  - name: Parental Rights in Social Media Act
+    citation: Neb. Rev. Stat. 86-1701 to 86-1705 (Laws 2025, LB 383)
+    official_url: https://nebraskalegislature.gov/laws/statutes.php?statute=86-1701
+    status: in-force
+    in_force_from: "2026-07-01"
+  - name: Conversational Artificial Intelligence Safety Act
+    citation: Neb. Rev. Stat. 86-1801 to 86-1807 (Laws 2026, LB 525)
+    official_url: https://nebraskalegislature.gov/laws/statutes.php?statute=86-1801
+    status: enacted
+    in_force_from: "2027-07-01"
+  - name: Agricultural Data Privacy Act
+    citation: Neb. Rev. Stat. 87-1401 to 87-1410 (Laws 2026, LB 525)
+    official_url: https://nebraskalegislature.gov/laws/statutes.php?statute=87-1401
+    status: in-force
+    in_force_from: "2026-07-18"
+    notes: For farm data. Selling agricultural data needs the producer's separate written consent, and new contracts from 1 January 2027 must say so.
+regulators:
+  - name: Nebraska Attorney General
+    url: https://protectthegoodlife.nebraska.gov/data-privacy-homepage
+obligations:
+  scope:
+    summary: Applies to anyone doing business in Nebraska, or making products used by residents, who processes or sells personal data and isn't a small business under the federal SBA standard. There's no consumer-count threshold. Small businesses still need consent to sell sensitive data. Non-profits, colleges, the state, GLBA financial institutions, HIPAA-regulated bodies and some utilities are exempt. Employees and B2B contacts aren't consumers.
+    source:
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1103
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1118
+      - https://protectthegoodlife.nebraska.gov/data-privacy-homepage
+  lawful_bases:
+    summary: No GDPR-style lawful bases. Controllers give a privacy notice and honour rights to access, correct, delete and port data and to opt out of targeted advertising, sale and profiling for significant decisions, within 45 days (extendable once by 45). Sensitive data needs opt-in consent. Offer at least two ways to make requests, including one on your website if you have one.
+    source:
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1107
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1108
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1111
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1112
+  consent_age:
+    summary: A child is under 13. A known child's sensitive data must be processed as COPPA requires, and a parent or guardian exercises the child's rights. The privacy act has no teen rule, but the design code and the social media act protect all minors under 18.
+    value: 13
+    source:
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1102
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1112
+  children:
+    summary: Since 18 July 2026 the design code covers online businesses earning most revenue online with over $25 million revenue or data of 50,000+ people. For known minors they need high-privacy defaults, minimal data, no targeted ads, no night or school-hour notifications, parental tools and account deletion within 15 days. Since 1 July 2026, social media must verify age and get verified parental consent for under-18 accounts.
+    source:
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1302
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1305
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1311
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=86-1703
+  cookies:
+    summary: No cookie-consent rule. If you sell data or use it for targeted advertising, say so clearly and explain how to opt out. Consumers can opt out through an authorised agent, including a browser setting or device signal such as Global Privacy Control. Honour it if you can verify the consumer, unless an exception applies, such as not processing such signals under other states' laws.
+    source:
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1114
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1111
+  marketing:
+    summary: Automated dialling-announcing devices used for telephone sales need a Public Service Commission permit, and their calls to homes are limited to 8 a.m. to 9 p.m. Unsolicited fax ads are banned. The design code bars ads for products such as tobacco, alcohol and gambling to known minors. Email and text marketing otherwise follow federal CAN-SPAM and the TCPA.
+    source:
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=86-250
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=86-248
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=86-245
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1308
+  breach_notice:
+    summary: After a prompt, good-faith investigation, notify affected Nebraska residents as soon as possible and without unreasonable delay if misuse has occurred or is reasonably likely. Notify the Attorney General no later than the residents, whatever the number affected. Since 2025, a private business can't be held liable in a class action over a cybersecurity event unless it was wilful, wanton or grossly negligent.
+    source:
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=87-803
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1201
+  registration_or_fees:
+    summary: The privacy law has no registration or fee, and we found no Nebraska data broker registry. Automated dialling devices for telephone sales need a Public Service Commission permit.
+    source:
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1101
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=86-250
+  dpo:
+    summary: The privacy act has no data protection officer duty. A service covered by the design code must name one or more officers responsible for complying with it.
+    source:
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1309
+  transfers:
+    summary: No cross-border transfer rules (federal rules are in us-federal). Processors must work under a contract that sets instructions, confidentiality, deletion and audit terms.
+    source:
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1115
+  dpia:
+    summary: Controllers must document an assessment of targeted advertising, sale, sensitive data, risky profiling and any other high-risk processing, weighing benefits against risks. The Attorney General can obtain assessments through a civil investigative demand; they stay confidential.
+    source:
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1116
+  automated_decisions_ai:
+    summary: Consumers can opt out of profiling (solely automated processing) for decisions with legal or similarly significant effects. From 1 July 2027, chatbot operators must disclose AI to minors, block sexual content and human-like claims for them, adopt self-harm protocols and not claim to provide mental health care; penalties run from $1,000 per violation up to $500,000 per operator.
+    source:
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1107
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1102
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=86-1803
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=86-1807
+  penalties:
+    summary: Only the Attorney General enforces. A 30-day notice and cure applies before any action, with no end date. Civil penalties are up to $7,500 per violation, plus injunctions and costs. There's no private right of action. Design code violations can cost up to $50,000 each, and social media act violations up to $2,500 each, with a private right of action for actual damages.
+    source:
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1122
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1124
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1125
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1309
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=86-1704
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=86-1705
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry, checked against official sources with AI assistance.

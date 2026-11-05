@@ -1,0 +1,93 @@
+# Alabama, United States. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact. Read together with us-federal.
+id: us-al
+name: Alabama
+tier: full
+applies_with: [us-federal]
+laws:
+  - name: Alabama Personal Data Protection Act
+    citation: HB 351 (2026 Regular Session)
+    official_url: https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB351-enr.pdf
+    status: enacted
+    in_force_from: "2027-05-01"
+    notes: Passed by both houses on 7 April 2026 and reported signed in April 2026. Takes effect on 1 May 2027.
+  - name: Alabama Data Breach Notification Act of 2018
+    citation: Act 2018-396 (SB 318)
+    official_url: https://www.alabamaag.gov/wp-content/uploads/2026/05/Act-2018-396.pdf
+    status: in-force
+    in_force_from: "2018-06-01"
+    notes: Also requires reasonable security measures for sensitive personal information.
+  - name: App Store Accountability Act
+    citation: HB 161 (2026 Regular Session)
+    official_url: https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB161-enr.pdf
+    status: enacted
+    in_force_from: "2027-01-01"
+    notes: Age verification and parental consent duties for app stores and app developers.
+regulators:
+  - name: Alabama Attorney General
+    url: https://www.alabamaag.gov/data-breach-notification/
+obligations:
+  scope:
+    summary: From 1 May 2027, applies to businesses that operate in Alabama or target its residents and either control or process personal data of more than 25,000 consumers (not counting payment-only data) or earn over 25% of gross revenue from selling personal data. Exemptions cover political subdivisions, higher education, financial institutions and GLBA data, HIPAA covered entities, businesses with under 500 staff and nonprofits with under 100 staff that don't sell data, and political committees. Employee data is out of scope.
+    source:
+      - https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB351-enr.pdf
+  lawful_bases:
+    summary: No GDPR-style lawful bases. Give a clear privacy notice and honour rights to confirm and access, correct, delete, get a portable copy, and opt out of targeted advertising, sale and solely automated significant decisions. Reply within 45 days (one 45-day extension), free once a year. There's no appeal step. Sensitive data needs opt-in consent, and consent must be as easy to withdraw as to give.
+    source:
+      - https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB351-enr.pdf
+  consent_age:
+    summary: A child is under 13; a known child's data must be processed in line with COPPA. If a controller knows a consumer is 13 to 15, it needs their consent before using their data for targeted advertising or selling it.
+    value: 13
+    source:
+      - https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB351-enr.pdf
+  children:
+    summary: Under the privacy act, a known child's data is sensitive and follows COPPA, and known 13 to 15-year-olds must opt in to targeted ads and sales. From 1 January 2027, the App Store Accountability Act makes app stores verify age and get parental consent for minors. Developers must check age category and consent through the app store, tell it about significant app changes, and may not enforce terms against a minor without parental consent.
+    source:
+      - https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB351-enr.pdf
+      - https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB161-enr.pdf
+  cookies:
+    summary: No cookie-consent rule. From May 2027, controllers that sell personal data or use it for targeted advertising must disclose it and put a clear opt-out link on their website. The act mentions opt-out preference signals but doesn't expressly require controllers to honour them.
+    source:
+      - https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB351-enr.pdf
+  marketing:
+    summary: Adds to CAN-SPAM and the TCPA. Under the Alabama Telemarketing Act, anyone making commercial telephone solicitations needs a yearly licence from the Attorney General ($500, plus $50 for each salesperson). Failing to register is a felony.
+    source:
+      - https://www.alabamaag.gov/licensing-registration/alabama-telemarketing-act/
+  breach_notice:
+    summary: Tell affected individuals as fast as possible and within 45 days of determining that a breach of sensitive personal information is reasonably likely to cause substantial harm. If more than 1,000 people are notified, also tell the Attorney General within 45 days and the nationwide credit reporting agencies. Service providers must tell their client within 10 days.
+    value: 45
+    source:
+      - https://www.alabamaag.gov/data-breach-notification/
+      - https://www.alabamaag.gov/wp-content/uploads/2026/05/Act-2018-396.pdf
+  registration_or_fees:
+    summary: No data protection registration or fee, and no data broker registry. Telephone sellers are licensed separately (see marketing).
+    source:
+      - https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB351-enr.pdf
+      - https://www.alabamaag.gov/licensing-registration/alabama-telemarketing-act/
+  dpo:
+    summary: No duty to appoint a data protection officer.
+    source:
+      - https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB351-enr.pdf
+  transfers:
+    summary: Alabama law doesn't restrict sending personal data outside the state or the US. Federal rules are in us-federal.
+    source:
+      - https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB351-enr.pdf
+  dpia:
+    summary: None. Unlike most state privacy laws, Alabama's act doesn't require data protection assessments.
+    source:
+      - https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB351-enr.pdf
+  automated_decisions_ai:
+    summary: People can opt out of profiling that feeds solely automated significant decisions, meaning decisions on credit or lending, housing, insurance, education, criminal justice, jobs, health care or basic necessities.
+    source:
+      - https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB351-enr.pdf
+  penalties:
+    summary: The Attorney General enforces. It must send a notice of violation first, and a business that corrects it within 45 days and confirms in writing can't be sued. The cure right doesn't expire. Courts can impose civil penalties up to $15,000 per violation. The act creates no private right of action. Breach-notice failures can cost up to $5,000 a day, and wilful or reckless ones face penalties capped at $500,000 per breach.
+    source:
+      - https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB351-enr.pdf
+      - https://www.alabamaag.gov/wp-content/uploads/2026/05/Act-2018-396.pdf
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry, checked against official sources with AI assistance.

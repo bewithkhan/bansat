@@ -1,0 +1,102 @@
+# Connecticut (United States). Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: us-ct
+name: Connecticut
+tier: full
+applies_with: [us-federal]
+laws:
+  - name: Connecticut Data Privacy Act (CTDPA)
+    citation: Conn. Gen. Stat. §§ 42-515 to 42-526
+    official_url: https://www.cga.ct.gov/2026/sup/chap_743jj.htm
+    status: in-force
+    in_force_from: "2023-07-01"
+    notes: Public Act 25-113 made major changes from 1 July 2026, including lower thresholds, more sensitive data, new profiling rights, impact assessments and a ban on targeted ads and sales to under-18s.
+  - name: Online services and minors (part of the CTDPA chapter)
+    citation: Conn. Gen. Stat. §§ 42-528 to 42-529e
+    official_url: https://www.cga.ct.gov/2026/sup/chap_743jj.htm
+    status: in-force
+    in_force_from: "2024-10-01"
+    notes: Expanded by Public Act 25-113 from 1 July 2026.
+  - name: Breach of security concerning computerized data containing personal information
+    citation: Conn. Gen. Stat. § 36a-701b
+    official_url: https://www.cga.ct.gov/current/pub/chap_669.htm
+    status: in-force
+    in_force_from: "2006-01-01"
+  - name: An Act Concerning Online Safety (Public Act 26-15)
+    citation: Conn. Public Act No. 26-15 (Substitute Senate Bill 5, 2026)
+    official_url: https://www.cga.ct.gov/2026/ACT/PA/PDF/2026PA-00015-R00SB-00005-PA.PDF
+    status: in-force
+    in_force_from: "2026-10-01"
+    notes: AI and online safety rules in stages. Content provenance and parts of the employment rules from 1 October 2026, AI companions from 1 January 2027, and duties for automated employment decision tools deployed from 1 October 2027.
+regulators:
+  - name: Connecticut Office of the Attorney General (Privacy and Data Security Section)
+    url: https://portal.ct.gov/ag/sections/privacy/the-connecticut-data-privacy-act
+obligations:
+  scope:
+    summary: Since 1 July 2026, applies to businesses that operate in Connecticut or target its residents and, in the previous year, processed data of 35,000 or more consumers, processed any sensitive data, or offered personal data for sale. Consumer health data controllers are covered whatever their size, non-profits included. Government, other non-profits, universities and HIPAA covered entities are exempt, and GLBA is now a data-level exemption. Employees and B2B contacts aren't consumers.
+    source:
+      - https://www.cga.ct.gov/2026/sup/chap_743jj.htm
+      - https://portal.ct.gov/ag/sections/privacy/the-connecticut-data-privacy-act
+  lawful_bases:
+    summary: There are no GDPR-style lawful bases. Controllers give a privacy notice and honour rights to access (including inferences), correct, delete and port data, to opt out of targeted advertising, sale and significant profiling, and to get a list of third parties the data was sold to. Opt-in consent is needed to process or sell sensitive data and for new purposes. Since 1 July 2026, privacy notices must say whether personal data is used to train large language models.
+    source:
+      - https://www.cga.ct.gov/2026/sup/chap_743jj.htm
+  consent_age:
+    summary: A child is under 13, and a known child's data is sensitive data handled under COPPA, with parental consent. Since 1 July 2026, controllers that know or wilfully disregard that a consumer is 13 to 17 can't use their data for targeted advertising or sell it, even with consent.
+    value: 13
+    source:
+      - https://www.cga.ct.gov/2026/sup/chap_743jj.htm
+  children:
+    summary: Online services that know or wilfully disregard that a user is under 18 owe a duty of reasonable care against heightened risk of harm. They can't use engagement-extending design features, must block unsolicited adult messages by default, may collect precise geolocation only when strictly necessary, and need consent for significant profiling. Data protection and impact assessments are required. From 2027, AI companions need protections for minors, and a 2028 rule restricts algorithmic feeds for minors.
+    source:
+      - https://www.cga.ct.gov/2026/sup/chap_743jj.htm
+      - https://www.cga.ct.gov/2026/ACT/PA/PDF/2026PA-00015-R00SB-00005-PA.PDF
+    secondary:
+      - https://www.ropesgray.com/en/insights/alerts/2026/06/connecticut-enacts-sweeping-ai-law-covering-employment-healthcare-and-online-safety
+  cookies:
+    summary: There's no cookie-consent rule. Consumers can opt out of targeted advertising and sale, and since 1 January 2025 controllers must honour opt-out preference signals such as Global Privacy Control. Signals can't be on by default.
+    source:
+      - https://portal.ct.gov/ag/sections/privacy/the-connecticut-data-privacy-act
+      - https://www.cga.ct.gov/2026/sup/chap_743jj.htm
+  marketing:
+    summary: Email marketing relies on federal CAN-SPAM, and calls and texts on the federal TCPA. Connecticut also has its own telemarketing law (Conn. Gen. Stat. chapter 743m), so check it before running sales calls or texts.
+    source:
+      - https://www.cga.ct.gov/current/pub/title_42.htm
+  breach_notice:
+    summary: Notify affected Connecticut residents without unreasonable delay and no later than 60 days after discovering a breach, and notify the Attorney General no later than the residents, using its online form. If Social Security or taxpayer ID numbers were exposed, offer at least 24 months of identity theft prevention services. Failing to comply is an unfair trade practice.
+    value: 60
+    source:
+      - https://portal.ct.gov/ag/sections/privacy/reporting-a-data-breach
+      - https://www.cga.ct.gov/current/pub/chap_669.htm
+  registration_or_fees:
+    summary: The CTDPA requires no registration or fee.
+    source:
+      - https://www.cga.ct.gov/2026/sup/chap_743jj.htm
+  dpo:
+    summary: There's no requirement to appoint a data protection officer.
+    source:
+      - https://www.cga.ct.gov/2026/sup/chap_743jj.htm
+  transfers:
+    summary: Connecticut law sets no restrictions on transferring personal data abroad; federal rules are in us-federal.
+    source:
+      - https://www.cga.ct.gov/2026/sup/chap_743jj.htm
+  dpia:
+    summary: Document a data protection assessment for targeted advertising, sale, sensitive data and risky profiling. Since 1 August 2026, profiling for significant decisions also needs an impact assessment covering purpose, data, performance, limits and monitoring. Services offered to minors need a data protection assessment, plus an impact assessment if they profile. The Attorney General can require assessments, which stay confidential.
+    source:
+      - https://www.cga.ct.gov/2026/sup/chap_743jj.htm
+  automated_decisions_ai:
+    summary: Since 1 July 2026, consumers can opt out of profiling for any automated decision with significant effects and, where feasible, question the result, learn the reason and review the data used. Public Act 26-15 adds AI rules in stages, such as notices for automated employment decision tools deployed from 1 October 2027, AI companion safety duties from 1 January 2027, and content provenance for large generative AI providers.
+    source:
+      - https://www.cga.ct.gov/2026/sup/chap_743jj.htm
+      - https://www.cga.ct.gov/2026/ACT/PA/PDF/2026PA-00015-R00SB-00005-PA.PDF
+  penalties:
+    summary: The Attorney General enforces alone, treating violations as unfair trade practices, with civil penalties up to $5,000 per wilful violation and injunctions. The mandatory 60-day cure period ended on 31 December 2024; since then the Attorney General may offer one. There's no private right of action.
+    source:
+      - https://www.cga.ct.gov/current/pub/chap_743jj.htm
+      - https://www.cga.ct.gov/current/pub/chap_735a.htm
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry, checked against official sources with AI assistance.
