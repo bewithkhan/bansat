@@ -50,9 +50,13 @@ words in any case, count, and unrelated news changes nothing:
 
 ## How it behaves
 
-- **One request per source per run**, at most one per second to each site, with the user agent
-  `Bansat-LawWatch/1.0 (+https://github.com/bewithkhan/bansat)`. It reads each site's `robots.txt` first, and a page
-  that robots.txt disallows is reported as failing, not fetched.
+- **One request per source per run**, at most one per second to each site (or the site's `Crawl-delay`, up to a
+  minute), with the user agent `Bansat-LawWatch/1.0 (+https://github.com/bewithkhan/bansat)`. It reads each site's
+  `robots.txt` first, and a page that robots.txt disallows is reported as failing, not fetched.
+- **Two retries, then failing.** A request that times out, hits a network error or gets HTTP 403, 408, 429 or 5xx is
+  tried again 5 and 15 seconds later (or after the site's `Retry-After`, up to a minute). Some official sites sit
+  behind load balancers that refuse a share of requests at random; a source only goes in the failing issue when all
+  three tries fail. A 404 or an oversized page isn't retried.
 - **State without commits.** Between runs the state lives in a workflow artifact (`law-watch-state`, kept 90 days),
   so the watch never commits to the repo. It holds a hash plus each item's title, link and date, never page text
   (BR-05). With no earlier state, a run sets a baseline and opens no change issues.

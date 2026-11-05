@@ -115,3 +115,9 @@ checked:
 history:
   - date: "2026-11-05"
     summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
+watch:
+  - url: https://www.tn.gov/attorneygeneral/news.html
+    type: html
+    selector: 'ul.stories'
+    keywords: [privacy, data, personal information, breach, children, minors, kids, teens, social media, AI, artificial intelligence, chatbot, chatbots, app, apps, app store, online, tech, technology, cyber, cybersecurity, robocall, robocalls, telemarketing, biometric, location, surveillance, tracking]
+    language: en
