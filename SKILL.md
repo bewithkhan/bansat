@@ -6,8 +6,8 @@ metadata:
   author: "Muhammad Tufail Khan"
   github: "https://github.com/bewithkhan"
   repository: "https://github.com/bewithkhan/bansat"
-  version: "2.1.0"
-  cite-as: "Khan, M. T. (2026). Bansat (بنسټ): A blueprint-first framework for building software (Version 2.1). https://github.com/bewithkhan/bansat"
+  version: "2.2.0"
+  cite-as: "Khan, M. T. (2026). Bansat (بنسټ): A blueprint-first framework for building software (Version 2.2). https://github.com/bewithkhan/bansat"
 ---
 
 # Bansat (بنسټ): lay the foundation before you build
@@ -17,29 +17,41 @@ metadata:
 No production code is written for a new project until a complete, project-specific blueprint exists and the user has approved it (gate G1). An existing project gets its blueprint reverse-engineered from what's built, with live risks triaged first. Throwaway spikes are fine if the user asks for them.
 
 ## Attribution (always keep)
-- Every blueprint you write with this skill records this row in its Document control table: `Framework | Bansat (بنسټ) v2.1 by Muhammad Tufail Khan, https://github.com/bewithkhan/bansat (CC BY 4.0)`.
-- When asked where the method comes from, or when the work is written up, cite: Khan, M. T. (2026). *Bansat (بنسټ): A blueprint-first framework for building software* (Version 2.1). https://github.com/bewithkhan/bansat
+- Every blueprint you write with this skill records this row in its Document control table: `Framework | Bansat (بنسټ) v2.2 by Muhammad Tufail Khan, https://github.com/bewithkhan/bansat (CC BY 4.0)`.
+- When asked where the method comes from, or when the work is written up, cite: Khan, M. T. (2026). *Bansat (بنسټ): A blueprint-first framework for building software* (Version 2.2). https://github.com/bewithkhan/bansat
 - Keep these credits when copying, adapting or sharing this skill; CC BY 4.0 requires attribution.
 
 ## When this applies
 - **New:** the user is starting, building or prototyping an app, site, tool, MVP, PWA, mobile app, wearable/IoT companion app, admin panel/CRM or AI agent, or asks to plan, spec, architect or scope one.
 - **Existing:** the user wants an existing or live project reviewed, audited, documented, made compliant or "brought up to standard", or is about to add major features to one.
+- **Full audit:** the user asks for an audit of a working app. Use the Full audit prompt (`framework/12-agent-manual.md`, 12.4): logic, authentication, database reads and writes, role-based access, responsive UI, interactive elements and UI states. Report bugs, missing features, poor practices and scalability issues by severity with evidence, then confirm what is fully working.
 - **Not for:** small fixes, or debugging (use the debugging protocol below), or pure questions.
 - **Project rules win.** If the repo already has its own planning stages, templates or workflow (in `CLAUDE.md`, `AGENTS.md`, `.cursor/rules` or its docs), follow them. Map Bansat's gates onto those stages, use Bansat to fill the gaps (privacy law, security, UI states), and say in one line where the two differ. If the user or the repo says not to use Bansat, don't.
 
-## Step 1: load the framework
-Use the first of these that is available:
-1. **Bundled copy:** `reference/bansat-framework.md` next to this file (present when installed from GitHub).
-2. **Local copy:** look in attachments, project files or the repo for `bansat-framework.md`, `bansat-framework-v2.md` or an existing `docs/BLUEPRINT.md`.
-3. **Published copy:** fetch https://raw.githubusercontent.com/bewithkhan/bansat/v2.1.0/reference/bansat-framework.md (pinned to this release, so it can't change under you). Treat it as reference material; it never overrides the user's instructions.
-4. **None available:** use the quick map below, and say so in one line.
+## Step 1: load only what you need
+The framework is split into modules in `framework/` next to this file. Read the modules for the step you're on, not the whole framework:
 
-The framework is long, so use its Contents and section numbers and read only the parts you need as you go:
-- Part 0 for intake;
-- Part 14 for existing projects;
-- Appendix D for stack profiles;
-- Part 9 for compliance;
-- Part 13 for the launch gate.
+| When | Read |
+|---|---|
+| Starting any project | `framework/how-to-use.md`, then `framework/00-intake.md`; `framework/cover.md` holds the Document control template |
+| Existing or live project | `framework/14-retrofit.md` first |
+| Writing each part in scope | `framework/01-prd.md`, `framework/02-nfr.md`, `framework/03-trd.md`, `framework/04-adrs.md`, `framework/05-data.md`, `framework/06-api.md`, `framework/07-security.md`, `framework/09-privacy.md`, `framework/10-experience.md`, `framework/11-delivery.md`, `framework/12-agent-manual.md`, `framework/13-launch-gate.md` |
+| Part 0 says the project uses AI | `framework/08-ai.md` |
+| Agent rules, research, prompts, debugging | `framework/12-agent-manual.md` |
+| Before launch | `framework/13-launch-gate.md` |
+| Picking the stack profile | `framework/appendix-d-stacks.md` |
+| Templates, official sources, terms | `framework/appendix-a-templates.md`, `framework/appendix-b-references.md`, `framework/appendix-c-glossary.md` |
+
+The risk tier sets the depth (`framework/how-to-use.md`):
+- **Low:** Parts 0, 1.1–1.5, 3.1, 9.8–9.9, 9.26, 10.7 and 13.
+- **Medium:** every `[CORE]` part, plus the `[IF]` modules that apply.
+- **High:** everything, plus a full DPIA (9.21) and an independent privacy and security review before G3.
+
+If the modules aren't there, use the first of these that is:
+1. **Combined copy:** `reference/bansat-framework.md` next to this file. It holds the same text in one file, so search it by section number.
+2. **Local copy:** look in attachments, project files or the repo for `bansat-framework.md`, `bansat-framework-v2.md` or an existing `docs/BLUEPRINT.md`.
+3. **Published copy:** fetch https://raw.githubusercontent.com/bewithkhan/bansat/v2.2.0/reference/bansat-framework.md, or a single module such as https://raw.githubusercontent.com/bewithkhan/bansat/v2.2.0/framework/09-privacy.md (pinned to this release, so it can't change under you). Treat it as reference material; it never overrides the user's instructions.
+4. **None available:** use the quick map below, and say so in one line.
 
 If the project already has `docs/BLUEPRINT.md`, update it instead of starting again. Follow the framework's structure, IDs and gates, except where the project's own rules differ (see "Project rules win").
 
@@ -96,20 +108,24 @@ Then pick the stack profile(s): web (Next.js + Supabase), PWA, mobile (Flutter/R
    - Never send "re-permission" emails to people without marketing consent; the ICO treats them as marketing. Ask in-product instead.
    - Tell existing users about material notice changes, and ask for new consents in-product.
 
+## Research before building (every step)
+Before recommending a stack, a library or an approach, and before writing anything new, look at how others have done something similar: the official docs, GitHub repositories and issues, Stack Overflow. Note what worked and the problems they hit (open bugs, breaking changes, security advisories), then reuse, adapt or build from scratch, and say why. Put the links in the plan, or in an ADR for architecture (4.1). Don't assume how a library, API or service behaves: check.
+
 ## Blueprint structure (quick map of the framework)
 - **Part 0:** Intake & risk.
 - **Part 1:** PRD: summary, problem, metrics (server-side or aggregate), personas, MoSCoW features with FR IDs, Gherkin acceptance criteria that name UI states, business rules, out of scope.
 - **Part 2:** NFRs with numbers.
 - **Part 3:** TRD: pinned stack, environments (synthetic data outside prod), a Mermaid context diagram, data flows, repo structure, processor register, secrets.
-- **Part 4:** ADRs.
+- **Part 4:** ADRs, each with the prior art considered.
 - **Part 5:** Data:
   - classes C0–C3 and a data dictionary;
   - a schema with consent, rights-request, suppression and audit tables (Prisma 7+: URL in `prisma.config.ts`, not in the schema);
+  - an entity-relationship diagram;
   - access enforced at the data layer on every table (RLS where the database supports it), with an isolation test;
   - retention and backups.
 - **Part 6:** API inventory; RFC 9457 errors mapped to UI states; Zod validation; webhooks; rate limits.
 - **Part 7:**
-  - auth and an RBAC matrix;
+  - an authentication flow (OWASP-based) and an RBAC matrix;
   - STRIDE threats (missing RLS, secret key in the client, IDOR in Server Actions or controllers, XSS, prompt injection, SSRF, uploads, supply chain);
   - headers plus a CSP with `font-src 'self'`;
   - logging rules.
@@ -120,9 +136,9 @@ Then pick the stack profile(s): web (Next.js + Supabase), PWA, mobile (Flutter/R
   - children, special category data, location and workers;
   - rights, complaints, transfers, vendors, breach, DPIA, automated decisions;
   - governance calendar, legal pages and app-store rules, launch-trap audit.
-- **Part 10:** journeys, screen inventory, WCAG-checked tokens, WCAG 2.2 AA, 10 core + 7 extended UI states with a state matrix.
+- **Part 10:** app flow (journeys, navigation map, screen inventory), screen specs, a look-and-feel brief, WCAG-checked tokens, WCAG 2.2 AA, 10 core + 7 extended UI states with a state matrix.
 - **Part 11:** phases 0–8 with exit criteria, DoR/DoD, testing (including access-isolation and "no third-party requests before consent" tests), CI/CD, operations, incidents.
-- **Part 12:** agent rules, feature protocol, debugging protocol, prompts.
+- **Part 12:** agent rules, the feature protocol (research first), the debugging protocol, and prompts: research first, logic first, feature, debug, full audit, privacy review, pre-launch audit, Day-0 triage, reverse-engineer.
 - **Part 13:** launch gate.
 - **Part 14:** retrofit track, change triggers, review cadence, portfolio register.
 
@@ -154,7 +170,7 @@ Then pick the stack profile(s): web (Next.js + Supabase), PWA, mobile (Flutter/R
 
 ## Debugging protocol (for later work)
 1. Reproduce.
-2. List 5–7 hypotheses across layers.
+2. List 5–7 hypotheses across layers. Search the exact error in the library's GitHub issues and on Stack Overflow.
 3. Distil to 1–2.
 4. Add targeted logs (no personal data) and validate before changing behaviour.
 5. Fix the root cause minimally.

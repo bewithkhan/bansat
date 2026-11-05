@@ -1,0 +1,79 @@
+# Checks every pull request and every push to main. Read-only: it needs no secrets.
+# Third-party actions are pinned to a full commit SHA (the tag is in the comment).
+name: Validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  framework:
+    name: Framework, skill and hook
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+      - name: The combined framework file is up to date
+        run: node scripts/build-framework.ts --check
+      - name: SKILL.md is valid and loads every module
+        run: node scripts/check-skill.ts
+      - name: The examples match the framework's samples
+        run: node scripts/check-examples.ts
+      - name: The G1 hook works
+        run: node hooks/bansat-g1-guard.test.mjs
+
+  examples:
+    name: Tested examples
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+        ports:
+          - 5432:5432
+    defaults:
+      run:
+        working-directory: examples
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: examples/package-lock.json
+      - run: npm ci
+      - name: The samples type-check
+        run: npm run typecheck
+      - name: The schema and RLS policies isolate tenants
+        run: npm run test:rls
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Nothing loads before consent
+        run: npm run test:privacy
+      - name: The privacy test catches a leak
+        run: npm run test:privacy:leak

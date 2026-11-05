@@ -1,12 +1,13 @@
+<!-- Bansat framework, generated from framework/*.md by scripts/build-framework.ts (https://github.com/bewithkhan/bansat). If you copied this file to start a project blueprint, you can delete this line. -->
 # Bansat (بنسټ): Master Project Framework
 
 *Bansat* is Pashto for **foundation**: lay it before you build.
 
 **Product · Architecture · Design · Security · Privacy & Compliance · Delivery**
 
-Created by **Muhammad Tufail Khan** ([github.com/bewithkhan](https://github.com/bewithkhan)) · Framework version **2.1** · Legal position checked **4 November 2026** against official sources, with AI assistance (not yet reviewed by a lawyer) · Supersedes *Comprehensive App Development Framework & Master Blueprint* (v1)
+Created by **Muhammad Tufail Khan** ([github.com/bewithkhan](https://github.com/bewithkhan)) · Framework version **2.2** · Legal position checked **4 November 2026** against official sources, with AI assistance (not yet reviewed by a lawyer) · Supersedes *Comprehensive App Development Framework & Master Blueprint* (v1)
 
-> **Cite as:** Khan, M. T. (2026). *Bansat (بنسټ): A blueprint-first framework for building software* (Version 2.1). https://github.com/bewithkhan/bansat
+> **Cite as:** Khan, M. T. (2026). *Bansat (بنسټ): A blueprint-first framework for building software* (Version 2.2). https://github.com/bewithkhan/bansat
 > Text and templates: **CC BY 4.0**. Code samples: **MIT**. Keep this credit when you copy, adapt or share the framework.
 
 This is the single source of truth for **every project, new or existing**. For a new project, complete it **before any code is generated**. For an existing or live project, use the **retrofit track (Part 14)**: reverse-engineer the blueprint from what's built, triage the live risks first, then close the gaps. Either way, it turns your product into decisions that an AI coding agent (Claude, Cursor, Lovable, Bolt, Copilot) can build from without guessing. Privacy and security are built in from the first commit rather than bolted on after launch: UK GDPR, PECR, EU GDPR, Nigeria's NDPA 2023 and GAID 2025, and the EU AI Act.
@@ -27,13 +28,13 @@ This is the single source of truth for **every project, new or existing**. For a
 | Privacy contact / DPO | {{NAME, privacy@DOMAIN}} |
 | Repository | {{URL}} |
 | Last updated · Next review | {{YYYY-MM-DD}} · {{YYYY-MM-DD}} |
-| Framework | Bansat (بنسټ) v2.1 by Muhammad Tufail Khan, https://github.com/bewithkhan/bansat (CC BY 4.0) |
+| Framework | Bansat (بنسټ) v2.2 by Muhammad Tufail Khan, https://github.com/bewithkhan/bansat (CC BY 4.0) |
 
 **Revision history**
 
 | Version | Date | Author | Summary |
 |---|---|---|---|
-| 0.1 | {{YYYY-MM-DD}} | {{NAME}} | First draft from framework v2.1 |
+| 0.1 | {{YYYY-MM-DD}} | {{NAME}} | First draft from framework v2.2 |
 
 **Gate approvals**
 
@@ -45,6 +46,21 @@ This is the single source of truth for **every project, new or existing**. For a
 | G4 Post-launch review | | | |
 
 > **Only a person signs a gate.** An AI agent never fills in this table. With the optional G1 hook from the Bansat repo (`hooks/bansat-g1-guard.mjs`), Claude Code refuses code edits until the G1 row names an approver and a date.
+
+### What changed in v2.2
+
+To re-check an existing blueprint, update its Framework row to v2.2 and add the new research rule to your agent rules file (12.1). The rows marked ★ change how you work.
+
+| Area | Change |
+|---|---|
+| Research first ★ | Before building anything new, look at how others have done it: official docs, GitHub repositories and issues, Stack Overflow. Note the problems they hit, then reuse, adapt or build, and say why (12.1, 12.2 step 0, 12.3, the ADR template in 4.1, Definition of Ready in 11.2). |
+| Prompts ★ | New prompts: Research first, Logic first and Full audit. The Debug prompt now carries the whole method on its own: 5–7 possible sources, distilled to 1–2, with logs to confirm before any fix (12.4). |
+| App flow | A navigation map (screen → action → next screen, and the state each failure shows) sits alongside the journey diagram (10.1, 10.3). The screen template adds Layout and Actions lines (10.4). |
+| Design brief | A look-and-feel brief to fill in before choosing tokens (10.5). |
+| Diagrams | An authentication flow based on the OWASP cheat sheets (7.1), and an entity-relationship diagram of the reference schema (5.3). |
+| UI states | The typed pattern now covers forms as well: validation (S9) and success (S10) (10.7). |
+| Privacy test ★ | The "Reject all" check now records requests from the start, so a leak fired by the click itself fails it (9.9). Copy the new version into your tests. |
+| Tested code | The framework is split into modules (`framework/` in the repo) and this file is generated from them. The code samples run in CI from `examples/`, and CI fails if a sample in the text and its tested copy differ. |
 
 ### What changed in v2.1
 
@@ -115,6 +131,22 @@ Then add the matching **stack profile** from Appendix D (web, PWA, mobile, weara
 5. **Trace everything.** Requirements carry IDs (`FR-`, `NFR-`, `BR-`, `SCR-`, `API-`, `DATA-`, `ROPA-`, `ADR-`, `RISK-`, `TEST-`). Every `FR` links to its screens, endpoints, data, tests and processing record (Appendix A6).
 6. **Treat examples as illustrations.** The worked example throughout is **TaskFlow AI** from v1: a team workspace with AI standups. Replace it with your own content.
 7. **Your project's rules win.** If the repo already has its own planning stages, templates or agent workflow (in `CLAUDE.md`, `AGENTS.md` or its docs), follow those. Map these gates onto its stages, use this framework to fill the gaps, and note where the two differ.
+8. **Research before you build.** For anything new, look at how others have done something similar (official docs, GitHub repositories and issues, Stack Overflow) and the problems they hit, before making assumptions or building from scratch (12.2, step 0).
+
+### Where the usual planning documents live
+
+Many builders plan with six documents plus decision records and prompts. In Bansat they're parts of one blueprint, so they can't contradict each other:
+
+| Document | Where it lives |
+|---|---|
+| Product requirements (PRD) | Part 1, with the numbers in Part 2 |
+| Technical requirements (TRD) | Part 3 |
+| Architecture decision records (ADRs) | Part 4 |
+| App flow | 10.1 journey diagram, 10.2 key flows, 10.3 screen inventory and navigation map |
+| UI/UX design brief | 10.4 screen specs, 10.5 look-and-feel brief and design system, 10.6 accessibility, 10.7 UI states |
+| Backend schema | Part 5: data dictionary, entity-relationship diagram, schema, access rules; Part 6: API |
+| Implementation plan | 11.1 phased plan, with 11.2 Definition of Ready and Done |
+| Prompts for agents | 12.4: research first, logic first, feature, debug, full audit and more |
 
 ### Depth by risk tier
 
@@ -186,7 +218,6 @@ Answer every question. Each **Yes** switches on the linked module.
 - **Low** otherwise.
 
 **Result:** Tier {{Low / Medium / High}} · DPIA required {{Y/N}} · Modules in scope: {{list}}
-
 
 ---
 
@@ -325,7 +356,6 @@ Every NFR needs a number and a way to verify it. Defaults below are sensible sta
 | NFR-OBS-01 | Observability | Error alerting | Alert when the error rate exceeds {{2%}} over 5 min | Alert test |
 | NFR-MNT-01 | Maintainability | Code quality | TypeScript strict; zero lint errors; ≥ {{80%}} coverage of domain logic | CI |
 | NFR-COST-01 | Cost | Budgets | Infrastructure ≤ {{£X}}/month; AI ≤ {{£Y}}/month, with alerts at 50/80/100% | Billing alerts |
-
 
 ---
 
@@ -470,7 +500,8 @@ Rules:
 ADR-NNN — {{Title}}
 Status: Proposed | Accepted | Superseded by ADR-NNN        Date: {{YYYY-MM-DD}}   Review by: {{date}}
 Context: {{forces, constraints, options considered}}
-Decision: {{what we will do}}
+Prior art: {{how others solved this (docs, GitHub repos and issues, Stack Overflow, with links) and the problems they hit}}
+Decision: {{what we will do: reuse, adapt or build, and why}}
 Consequences: (+) {{benefits}}   (−) {{costs, risks, follow-ups}}
 Privacy & security impact: {{new data, vendors, transfers; RoPA/DPIA updates needed}}
 ```
@@ -483,14 +514,13 @@ Privacy & security impact: {{new data, vendors, transfers; RoPA/DPIA updates nee
 
 **ADR-003 — Mandatory UI-state architecture and systematic debugging.** *Context:* missing states and guessed bug fixes produce dead ends and regressions. *Decision:* every screen implements the applicable states from 10.7, proven by its state matrix, and all bug work follows the protocol in 12.3. *Consequences:* (+) no dead ends and verifiable fixes. (−) More upfront work per screen.
 
-**ADR-004 — Privacy-by-default front end.** *Context:* third-party fonts, CDNs, pixels and widgets disclose visitors' IP addresses and behaviour before any consent (9.9). *Decision:* the browser contacts only first-party and strictly necessary hosts until consent is given. Fonts and libraries are self-hosted or bundled. Non-essential scripts load only through the consent-gated loader (9.8). A CSP allowlist and an automated test enforce this. *Consequences:* (+) compliant by construction, and faster pages. (−) Every new vendor goes through the register (3.6).
+**ADR-004 — Privacy-by-default front end.** *Context:* third-party fonts, CDNs, pixels and widgets disclose visitors' IP addresses and behaviour before any consent (9.9). *Decision:* the browser contacts only first-party and strictly necessary hosts until consent is given. Fonts and libraries are self-hosted or bundled. Non-essential scripts load only through the consent-gated loader (9.7). A CSP allowlist and an automated test enforce this. *Consequences:* (+) compliant by construction, and faster pages. (−) Every new vendor goes through the register (3.6).
 
 **ADR-005 — Data residency.** *Decision:* the primary database, storage and functions run in {{UK/EU}} regions. Any processor outside the UK/EU needs a recorded transfer mechanism (9.17). *Consequences:* (+) simpler transfers and customer trust. (−) Some vendor choices are ruled out.
 
 **ADR-006 — AI provider & data handling.** *Decision:* use providers with a signed DPA that contractually exclude training on your data, with a stated retention period and a region choice where available. Send minimised, redacted inputs. Validate structured outputs. Pin model IDs. *Consequences:* (+) predictable cost and compliance. (−) Model upgrades need an eval run (8.5).
 
 **ADR-007 — Email architecture.** *Decision:* separate transactional and marketing streams, with marketing sent from a subdomain (e.g. `news.{{domain}}`). A global suppression list is the source of truth, and SPF, DKIM and DMARC are set on all sending domains. *Consequences:* (+) deliverability, and unsubscribes are honoured everywhere. (−) Two templates and two configurations to maintain.
-
 
 ---
 
@@ -524,6 +554,81 @@ Changes from v1:
 - `creator` and `author` become `SetNull`, so deleting a user no longer fails or wipes team content.
 - New tables: consent evidence, marketing suppressions, rights requests and complaints, audit log, and an AI usage ledger.
 - The date of birth is never stored; only the age-check result is.
+
+**Entity relationships.** The backend schema at a glance, showing keys and the fields that matter for privacy. Keep it in step with the Prisma schema below; `SetNull` relations keep team content when a person is erased.
+
+```mermaid
+erDiagram
+  profiles ||--o{ memberships : "has"
+  organizations ||--o{ memberships : "has"
+  organizations ||--o{ tasks : "owns"
+  profiles |o--o{ tasks : "creates (SetNull)"
+  profiles |o--o{ tasks : "is assigned (SetNull)"
+  tasks ||--o{ comments : "has"
+  organizations ||--o{ comments : "scopes"
+  profiles |o--o{ comments : "writes (SetNull)"
+  profiles |o--o{ consent_records : "gives"
+  profiles |o--o{ data_subject_requests : "makes"
+  organizations |o--o{ audit_logs : "records"
+  organizations ||--o{ ai_generations : "meters"
+  profiles {
+    uuid id PK "same as the auth user ID"
+    text email UK "C2"
+    enum age_status "the result, never the date of birth"
+    timestamp deletion_requested_at
+  }
+  organizations {
+    uuid id PK
+    varchar slug UK
+    timestamp deleted_at "soft delete"
+  }
+  memberships {
+    uuid id PK
+    uuid user_id FK
+    uuid organization_id FK
+    enum role "OWNER, ADMIN or MEMBER"
+  }
+  tasks {
+    uuid id PK
+    uuid organization_id FK
+    uuid creator_id FK "nullable"
+    uuid assignee_id FK "nullable"
+    varchar description "C2, nullable"
+  }
+  comments {
+    uuid id PK
+    uuid organization_id FK "copied from the task for simple RLS"
+    uuid task_id FK
+    uuid author_id FK "nullable"
+  }
+  consent_records {
+    uuid id PK
+    uuid profile_id FK "nullable before sign-up"
+    enum purpose
+    boolean granted
+    text notice_version
+  }
+  marketing_suppressions {
+    text email_hash PK "SHA-256, kept after erasure"
+  }
+  data_subject_requests {
+    uuid id PK
+    uuid profile_id FK "nullable"
+    enum type
+    timestamp due_at
+  }
+  audit_logs {
+    uuid id PK
+    uuid organization_id FK "nullable"
+    uuid actor_id "nullable"
+  }
+  ai_generations {
+    uuid id PK
+    uuid organization_id FK
+    int input_tokens
+    int output_tokens
+  }
+```
 
 ```prisma
 // prisma/schema.prisma — privacy-aware reference schema (example: TaskFlow AI)
@@ -1063,7 +1168,6 @@ Use RFC 9457 *Problem Details*. The `code` field drives the UI state (10.7), and
 | Public forms (waitlist, contact) | 10 per hour per IP; bot protection only on these forms | 429 |
 | Exports | 3 per day per user | 429 |
 
-
 ---
 
 <a id="p7"></a>
@@ -1081,6 +1185,47 @@ Use RFC 9457 *Problem Details*. The `code` field drives the UI state (10.7), and
 - **No account enumeration:** sign-in, sign-up and reset give the same response whether or not the account exists.
 - **Recovery:** verified email only. Notify the user when the email, MFA or sign-in method changes.
 - **Passwords (if used):** check against breached-password lists, allow paste and password managers (WCAG 3.3.8), set no composition rules beyond length ≥ 12, and rate-limit attempts.
+
+**Authentication flow.** Adapt it to your provider (Supabase Auth, Auth.js, Clerk, Firebase, Laravel Sanctum, Django) and keep the rules in the notes, which follow the OWASP Authentication and Session Management cheat sheets (Appendix B).
+
+```mermaid
+sequenceDiagram
+  actor U as User
+  participant App as Browser or app
+  participant S as Server entry point
+  participant Auth as Auth provider
+  participant DB as Database
+  U->>App: Sign up or sign in with an email link, OAuth or a passkey
+  App->>S: Submit, rate-limited per account and per IP
+  S->>Auth: Verify
+  alt Verified
+    Auth-->>S: User ID and tokens
+    opt OWNER or ADMIN in a large workspace
+      S->>U: Ask for the second factor
+    end
+    S-->>App: A new session in Secure, SameSite cookies, HttpOnly where the provider allows
+  else Unknown account or wrong credentials
+    S-->>App: The same message, status and timing either way
+  end
+  App->>S: Request with the session cookie
+  S->>S: Validate the session, then check the role (7.2)
+  S->>DB: Query scoped to the user and tenant
+  DB-->>S: Only the rows the access rules allow
+  S-->>App: Data, or 401 for S8 and 403 for S7
+  Note over App,S: Near expiry, refresh silently with a rotating refresh token
+  U->>App: Delete account, change email, export or change roles
+  App->>U: Re-authenticate first, then rotate the session
+  U->>App: Sign out
+  App->>S: Sign-out request
+  S->>Auth: Revoke the session and refresh token on the server
+  S-->>App: Clear the cookies, local drafts and caches
+  Note over S,Auth: An access token issued before sign-out stays valid until it expires
+```
+
+- A new session ID is issued at sign-in and whenever privileges change, so an old or planted one can't be reused.
+- Cookies are `Secure`, with `SameSite=Lax` or `Strict` and no `Domain` attribute. Make them `HttpOnly` where your provider allows. Some SSR clients, Supabase's among them, keep the session in cookies that browser code reads, so a strict CSP (7.4) and short-lived tokens carry more of the weight.
+- Sign-out revokes the session and refresh token on the server; deleting the cookie alone isn't enough. An access token issued before sign-out stays valid until it expires, so keep tokens short-lived, and before a sensitive action check the session with the provider on the server (with Supabase, `getClaims()` or `getUser()`, never `getSession()`).
+- Errors and timing are the same whether or not the account exists, and repeated failures are throttled per account, not only per IP.
 
 ### 7.2 Authorisation
 
@@ -1243,7 +1388,6 @@ Logs are structured, carry a correlation ID, are kept for the periods in 5.6, an
 - Per-user and per-workspace quotas; a monthly spend cap with alerts at 50/80/100%; hard stop at the cap.
 - Cache identical requests where that's safe. Use the smallest model that passes the evals.
 - Wrap AI behind a feature flag so the rest of the app works without it (S15). Configure a fallback model only after it passes the same evals.
-
 
 ---
 
@@ -1555,12 +1699,12 @@ for (const path of PAGES) {
 }
 
 test('nothing non-essential loads after "Reject all"', async ({ page }) => {
+  const hosts = recordThirdPartyHosts(page); // record from the start, so a leak from the click itself counts
   await page.goto('/');
   await page.getByRole('button', { name: 'Reject all' }).click();
-  const hosts = recordThirdPartyHosts(page);
   await page.reload({ waitUntil: 'networkidle' });
   await page.waitForTimeout(1500);
-  expect([...hosts], 'third-party hosts contacted after rejecting').toEqual([]);
+  expect([...hosts], 'third-party hosts contacted before or after rejecting').toEqual([]);
 });
 ```
 
@@ -1925,7 +2069,6 @@ Run this before G2 and again before G3. Each row needs evidence.
 | "IP addresses are personal data." | Correct in practice: both the NDPA (s.65) and the GDPR (Art. 4(1)) treat online identifiers as personal data. |
 | "Anyone under 18 needs parental consent." | Under the NDPA, yes, when you rely on consent, with limited exceptions (s.31). UK and EU thresholds for consenting to online services are 13–16. Build to your markets, or make the service 18+ (9.12). |
 
-
 ---
 
 <a id="p10"></a>
@@ -1933,18 +2076,23 @@ Run this before G2 and again before G3. Each row needs evidence.
 
 ### 10.1 Primary user journey
 
+The **app flow** is this journey diagram, the key flows in 10.2 and the navigation map in 10.3. Together they show every screen, how people move between them, and where each failure leads.
+
 ```mermaid
 flowchart TD
   A[Landing page] --> B{Cookie choice made?}
   B -- No --> C[Consent banner: Accept all, Reject all, Manage]
   C --> D
-  B -- Yes --> D[Sign up or log in]
-  D --> E[Age check]
+  B -- Yes --> D{New or returning?}
+  D -- Sign up --> E[Age check]
+  D -- Log in --> D1[Log in]
+  D1 -- Has a workspace --> I[Workspace board]
+  D1 -- No workspace yet --> H[Onboarding: create or join a workspace]
   E -- Below the minimum age --> E1[Blocked, or parental consent flow]
   E -- Meets the age rule --> F[Account details and optional marketing opt-in]
   F --> G[Verify email]
-  G --> H[Onboarding: create or join a workspace]
-  H --> I[Workspace board]
+  G --> H
+  H --> I
   I --> J[Task detail and comments]
   I --> K[Generate AI standup]
   K --> K1[Review AI output] --> K2[Copy or export Markdown]
@@ -1991,11 +2139,37 @@ Also diagram: **session expiry and draft restore** (S8), **data export** (async 
 | SCR-09 | `/settings/privacy` | Privacy centre | Self | Export / delete | C2 | None | **Never** |
 | SCR-10 | `/legal/privacy` · `/legal/cookies` · `/legal/terms` | Legal pages | Public | — | C0 | Aggregate | If consented |
 
+**Navigation map.** One row per action that moves the user, so no screen is a dead end and every failure lands on a designed state (10.7):
+
+| From | Action | Goes to | If it fails |
+|---|---|---|---|
+| SCR-01 Landing | Sign up | SCR-02 Sign-up | — |
+| SCR-01 Landing | Log in | SCR-03 Log in | — |
+| SCR-02 Sign-up | Create account | The age check, then a "Check your email" panel; verifying the email opens SCR-04 | S9 field errors · S3 with Retry · below the minimum age, the block or parental-consent flow (10.1) |
+| SCR-03 Log in | Sign in | The last workspace (SCR-05), or SCR-04 if there's none | S9 · the same message for any unknown account (7.1) · S13 after repeated tries |
+| SCR-04 Onboarding | Create or join a workspace | SCR-05 Board | S9 (slug taken) · S11 (invite expired) |
+| SCR-05 Board | Open a task | SCR-06 Task detail, as a modal with its own URL | S11 if it was deleted |
+| SCR-06 Task detail | Comment | The comment appears in place (S10) | S9 · S3 with the text kept |
+| SCR-06 Task detail | Close (Esc or Back) | SCR-05, with focus back on the task | — |
+| SCR-05 Board | Generate standup | SCR-07 Standup | S13 quota · S15 if AI is switched off |
+| SCR-07 Standup | Generate | S14 progress, then the result; Copy gives S10 | S3 · S5, then Cancel · S13 |
+| SCR-05 Board | Settings, then Members | SCR-08 Members | S7 for a MEMBER |
+| SCR-08 Members | Invite member | S10 "Invite sent" | S9 · S3 |
+| Any signed-in screen | Account menu, then Privacy | SCR-09 Privacy centre | S8 |
+| SCR-09 Privacy centre | Export my data | S14, then an email with an expiring download link (10.2) | S13 (3 exports a day, 6.6) · S3 |
+| SCR-09 Privacy centre | Delete account | S16 confirmation, re-authentication, then the 30-day flow in 10.2 | S8 if the session has expired |
+| Any screen | A footer link | SCR-10 Legal pages; "Cookie settings" reopens the consent choices (9.8) | — |
+| Any signed-in screen | Sign out | SCR-01, with the session revoked and local drafts and caches cleared (7.1) | — |
+| Any screen | The session expires | A sign-in modal, then back to the same place with the draft | S8 |
+| Any screen | An unknown or deleted route | S11 with a link back | — |
+
 ### 10.4 Screen specification template
 
 ```text
 SCR-NN — {{Screen name}}                         Route: {{ }}     Access: {{roles}}
 Purpose & primary action: {{ }}
+Layout: {{regions, e.g. header · sidebar · main · detail panel; what moves or collapses on mobile}}
+Actions → next: {{each action → the screen or result it leads to (navigation map, 10.3), and the state on failure}}
 Components: {{ }}              Data (DATA- refs, classes): {{ }}       API: {{API- refs}}
 States (10.7): S1 {{…}} · S2 {{…}} · S3 {{…}} · … (or N/A + reason)
 Copy: title, empty-state text, error text, success text (10.5 content rules)
@@ -2005,6 +2179,21 @@ Responsive: 320 / 768 / 1280 behaviour
 ```
 
 ### 10.5 Design system
+
+**Look-and-feel brief.** Fill this in before choosing tokens. It's the design brief that a designer or an agent works from, and it settles taste questions before they turn into rework:
+
+```text
+Personality: {{three words, e.g. calm · precise · friendly}}
+Audience & context: {{who, on which devices, how often, in what setting}}
+References: {{2–3 products whose look or flow you like, and exactly what you like about each}}
+Avoid: {{styles, patterns or clichés to stay away from}}
+Density: compact | comfortable          Theme: dark first | light first | follow the system
+Brand assets: {{logo, existing colours and fonts, or "none yet"}}
+Type & icons: {{UI and code typefaces (self-hosted, 9.9), one icon set, illustration or photo style}}
+Voice & tone: {{e.g. plain and warm, British English, no exclamation marks in errors}}
+Motion: none | subtle (150–250 ms) | expressive          Accessibility: WCAG 2.2 AA (not negotiable)
+Design first: {{the SCR- IDs that set the pattern for the rest}}
+```
 
 **Principles:**
 - Calm and fast.
@@ -2130,8 +2319,37 @@ export type ViewState<T> =
   | { kind: 'notFound' }                                      // S11
   | { kind: 'rateLimited'; retryAfterSeconds: number };       // S13
 
+// Forms and mutations: S9 and S10 belong to the form, not to the view around it
+export type FormState<Field extends string> =
+  | { kind: 'editing' }
+  | { kind: 'submitting' }                                      // S2 inline progress
+  | { kind: 'invalid'; errors: Partial<Record<Field, string>> } // S9: the inputs are kept
+  | { kind: 'failed'; code: AppErrorCode; ref: string; retryAfterSeconds?: number } // S3, S7, S8, S13
+  | { kind: 'succeeded'; message: string; undo?: () => void };  // S10
+
 export function assertNever(x: never): never {
   throw new Error(`Unhandled view state: ${JSON.stringify(x)}`);
+}
+
+// The status line under a form: what happened, then what to do next (10.5 content rules)
+export function formStatus<Field extends string>(state: FormState<Field>): string | null {
+  switch (state.kind) {
+    case 'editing':    return null;
+    case 'submitting': return 'Saving…';
+    case 'invalid':    return 'Check the highlighted fields.'; // focus moves to the first error
+    case 'failed':     return failureMessage(state.code, state.ref, state.retryAfterSeconds);
+    case 'succeeded':  return state.message;
+    default:           return assertNever(state);
+  }
+}
+
+function failureMessage(code: AppErrorCode, ref: string, retryAfterSeconds?: number): string {
+  switch (code) {
+    case 'FORBIDDEN':       return "You don't have permission to do this. Ask an admin for access."; // S7
+    case 'UNAUTHENTICATED': return 'Your session ended for security. Sign in again to continue. We kept your draft.'; // S8
+    case 'RATE_LIMITED':    return `Too many attempts. Try again in ${retryAfterSeconds ?? 60} seconds.`; // S13
+    default:                return `We couldn't save your changes. Try again. Ref ${ref}`; // S3
+  }
 }
 
 // ---- usage: the compiler fails the build if a new state is added but not handled ----
@@ -2154,7 +2372,6 @@ export function TaskBoardView({ state, onRetry }: { state: ViewState<Task[]>; on
 ```
 
 Map API errors to states using the table in 6.3. Keep shared state components in `components/states/` so every screen uses the same pieces.
-
 
 ---
 
@@ -2233,6 +2450,7 @@ Each phase ends with exit criteria. Don't start the next phase until they're met
 - [ ] The API is defined (6.2).
 - [ ] Privacy impact is noted: new data? new vendor? consent needed?
 - [ ] The design exists, if there's UI.
+- [ ] Prior art is checked for anything new: how others built it and the problems they hit (12.2, step 0).
 - [ ] The test approach is agreed.
 
 **Done (per story):**
@@ -2324,6 +2542,10 @@ Paste this into `CLAUDE.md`, `AGENTS.md`, `.cursor/rules` or your Lovable/Bolt p
 Source of truth: docs/BLUEPRINT.md. If a request conflicts with it, stop and say so before writing code.
 
 ## Always
+- Research before building anything new: check the official docs, GitHub (repositories, issues,
+  discussions) and Stack Overflow for how others did it and the problems they hit. Prefer a maintained
+  library or a documented pattern, and say in the plan what you found and why you're reusing,
+  adapting or building from scratch.
 - Reference blueprint IDs (FR-, API-, SCR-, ADR-) in plans, commits and PRs.
 - Validate every input on the server with the shared Zod schemas, and re-check authentication and
   authorisation inside every server entry point (Server Action, route handler, controller, function).
@@ -2347,12 +2569,14 @@ Source of truth: docs/BLUEPRINT.md. If a request conflicts with it, stop and say
 - Add tracking, marketing email or new personal-data fields without updating the RoPA, data dictionary
   and privacy notice.
 - Install a package you haven't confirmed exists, is maintained and is the one intended.
+- Assume how a library, API or service behaves. Check its docs, source or issue tracker first.
 - Guess at a bug fix. Follow the debugging protocol (BLUEPRINT 12.3).
 ```
 
 ### 12.2 Feature implementation protocol
 
-1. **Plan:** list the files to change, the actions or endpoints, schema and RLS changes, UI states, tests, privacy impact and blueprint IDs. Wait for approval on anything that isn't trivial.
+0. **Research:** before planning anything new, look for prior art: the official docs, GitHub repositories, issues and discussions, and Stack Overflow. Note how others built it, which approach held up, and the problems they hit (open bugs, breaking changes, security advisories). Prefer a maintained library or a documented pattern over writing from scratch; if you do build from scratch, say why. Put the links in the plan, and in an ADR for anything architectural (4.1).
+1. **Plan:** list the files to change, the actions or endpoints, schema and RLS changes, UI states, tests, privacy impact, blueprint IDs and what step 0 found. Wait for approval on anything that isn't trivial.
 2. **Build in vertical slices:** schema → server → UI → tests, one small commit each.
 3. **Verify:** typecheck, lint, unit, integration and E2E tests; privacy test; axe.
 4. **Self-review:** go through the DoD (11.2), the PR template (11.4) and the threat list (7.3) for the changed surface.
@@ -2369,7 +2593,7 @@ Follow-ups / risks: …
 ### 12.3 Systematic debugging protocol
 
 1. **Reproduce:** exact steps, environment, expected vs actual, the full error text, and the first bad commit if known (`git bisect`).
-2. **Reflect:** list **5–7 plausible root causes** across the layers: UI state, client cache, network, auth/session, RLS/permissions, server logic, data, third party, configuration/environment.
+2. **Reflect:** list **5–7 plausible root causes** across the layers: UI state, client cache, network, auth/session, RLS/permissions, server logic, data, third party, configuration/environment. Search the exact error text in the library's GitHub issues and on Stack Overflow: a known bug, a breaking change or a documented fix is a hypothesis in its own right.
 3. **Distil:** narrow to the **1–2 most likely** causes, with the evidence for and against each.
 4. **Instrument & validate:** add targeted logs, breakpoints or assertions that confirm or reject each hypothesis **before changing behaviour**. Debug logs contain no personal data or secrets, and are tagged `[DEBUG-<id>]` for removal.
 5. **Fix the root cause:** the smallest change that addresses the confirmed cause. No unrelated refactors. No masking the symptom: no swallowed errors, disabled checks or arbitrary timeouts.
@@ -2383,13 +2607,15 @@ Follow-ups / risks: …
 
 - **Kick-off:** "Read `docs/BLUEPRINT.md`. Summarise the scope (FR list), risk tier, compliance modules in scope, data classes and state matrix. List every unresolved `{{placeholder}}` and any contradictions. Don't write code yet."
 - **Fill the blueprint:** "Here's my idea: … Draft Parts 0–2 of the blueprint. Ask me at most 5 questions, and only where a wrong guess would be costly."
-- **Feature:** "Implement FR-0XX following BLUEPRINT 12.2. Start with the plan (files, actions, schema/RLS, UI states S1–S17 that apply, tests, privacy impact) and wait for my approval."
-- **Debug:** "Follow the debugging protocol (BLUEPRINT 12.3) for: <symptom>. Do steps 1–4 first and show me the hypotheses and the logs you'll add. Don't change behaviour until a hypothesis is confirmed."
+- **Research first:** "Before we build [feature or component], research prior art. Search the official docs, GitHub (repositories, issues and discussions) and Stack Overflow for how others have built something similar. Summarise the two or three best approaches and the problems people hit with each, with links. Then recommend whether to reuse a maintained library, adapt a pattern or build from scratch, and why. Don't write code yet."
+- **Logic first:** "Before writing code for FR-0XX, write the logic out in plain steps: inputs, business rules (BR-), the data read and written, who may do it (7.2), edge cases and failure modes, and the UI state each one leads to (10.7). Flag anything the blueprint doesn't settle and ask me. Don't write code until I confirm."
+- **Feature:** "Implement FR-0XX following BLUEPRINT 12.2. Start with the research and the plan (files, actions, schema/RLS, UI states S1–S17 that apply, tests, privacy impact) and wait for my approval."
+- **Debug:** "[Describe the symptom.] Follow the debugging protocol (BLUEPRINT 12.3). Reflect on 5–7 different possible sources of the problem, distil those down to the 1–2 most likely, and add logs to validate your assumptions before we move on to the actual code fix. Show me the hypotheses and the logs first."
+- **Full audit:** "Audit the app end to end against `docs/BLUEPRINT.md`. Check that logic, authentication, database reads and writes, and role-based access work correctly, and that the UI is responsive and interactive elements behave as expected, including every applicable UI state (10.7). Identify and report any bugs, missing features, poor practices or scalability issues, each with a severity and evidence (file and line, test or screenshot). Provide a clear summary of the issues found, and confirm what is fully working. Don't change code until I approve the fixes."
 - **Privacy review:** "Act as a privacy reviewer. Using BLUEPRINT Part 9, audit this diff for new personal data, lawful basis, consent gating, third-party requests, logging, retention and impact on rights. Output findings by severity, each with a fix."
 - **Pre-launch audit:** "Run the Launch Gate (BLUEPRINT Part 13) against the codebase and the staging URL. For every item, give pass / fail / unknown with evidence (file, test or screenshot). Blockers first."
 - **Day-0 triage (live project):** "Run the Day-0 triage (BLUEPRINT 14.2) on this repo and the live URL {{url}}. Report T1–T11 as pass / fail / unknown with evidence, critical failures first. Don't change any code until I approve the fixes."
 - **Reverse-engineer (existing project):** "This repo is an existing project. Following BLUEPRINT 14.3, inventory screens, routes and actions, the data model, access rules, third-party services, browser and device requests, cookies and storage, emails, AI calls and background jobs. Draft `docs/BLUEPRINT.md` as-is, and log every difference from the blueprint standard in the gap register (14.4) with a severity. Don't change code."
-
 
 ---
 
@@ -2454,7 +2680,6 @@ Every item must be ✅, or N/A with a reason. Any open ⛔ item means **no launc
 | Product | | Go / No-go | |
 | Engineering & security | | Go / No-go | |
 | Privacy | | Go / No-go | |
-
 
 ---
 
@@ -2568,7 +2793,7 @@ The blueprint lives in the repo (`docs/BLUEPRINT.md`) and **changes in the same 
 - **Quarterly:** launch-trap audit (9.26) and cookie scan.
 - **Annually:** full review, plus a framework-version check.
 
-**Framework versioning:** each project blueprint records `Framework: Bansat v2.1`. When this master framework changes (a law, a guideline, a better pattern), its revision history lists what to re-check. Apply that list to each project at its next monthly review.
+**Framework versioning:** each project blueprint records `Framework: Bansat v2.2`. When this master framework changes (a law, a guideline, a better pattern), its revision history lists what to re-check. Apply that list to each project at its next monthly review.
 
 ### 14.6 Portfolio register
 
@@ -2577,7 +2802,6 @@ If you run several projects, keep one row per project and review it monthly.
 | Project | Stage (idea / build / beta / live) | Users & markets | Risk tier | Track | Blueprint (none / partial / complete) | Day-0 triage | Open critical gaps | Next review |
 |---|---|---|---|---|---|---|---|---|
 | {{ }} | | | | | | | | |
-
 
 ---
 
@@ -2671,11 +2895,12 @@ Check these sources again before each launch; guidance changes.
 **Technical**
 - Prisma 7 configuration: https://pris.ly/d/config-datasource
 - Next.js fonts (self-hosting): https://nextjs.org/docs/app/getting-started/fonts
-- Supabase Row Level Security: https://supabase.com/docs/guides/database/postgres/row-level-security
+- Supabase Row Level Security: https://supabase.com/docs/guides/database/postgres/row-level-security · server-side auth: https://supabase.com/docs/guides/auth/server-side/nextjs · signing out: https://supabase.com/docs/guides/auth/signout
 - Microsoft Clarity consent: https://learn.microsoft.com/en-us/clarity/setup-and-installation/consent-management
 - Hotjar data suppression: https://help.hotjar.com/hc/en-us/articles/36819956605329-How-to-Suppress-Text-Images-Videos-and-User-Input-from-Collected-Data
 - WCAG 2.2: https://www.w3.org/TR/WCAG22/
 - OWASP ASVS: https://owasp.org/www-project-application-security-verification-standard/ · OWASP Top 10 for LLM Applications: https://owasp.org/www-project-top-10-for-large-language-model-applications/
+- OWASP Cheat Sheet Series, Authentication: https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html · Session Management: https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html
 - RFC 8058 (one-click unsubscribe): https://www.rfc-editor.org/rfc/rfc8058 · RFC 9457 (Problem Details): https://www.rfc-editor.org/rfc/rfc9457 · RFC 9116 (security.txt): https://www.rfc-editor.org/rfc/rfc9116
 - Gmail sender guidelines: https://support.google.com/a/answer/81126
 
@@ -2706,8 +2931,6 @@ Check these sources again before each launch; guidance changes.
 | **RPO / RTO** | The maximum acceptable data loss / time to restore after an incident |
 | **Soft opt-in** | The UK/EU exception allowing marketing to existing customers about similar products, with an opt-out every time |
 | **Special category data** | Health, biometric (for ID), genetic, sex life/orientation, religion, ethnicity, political opinions, trade-union membership |
-
-
 
 ---
 

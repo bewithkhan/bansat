@@ -1,0 +1,14 @@
+{
+  "name": "bansat",
+  "private": true,
+  "description": "Bansat (بنسټ): a blueprint-first framework for building software, by Muhammad Tufail Khan.",
+  "license": "CC-BY-4.0 AND MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "build": "node scripts/build-framework.ts && node scripts/check-examples.ts --write",
+    "check": "node scripts/build-framework.ts --check && node scripts/check-skill.ts && node scripts/check-examples.ts && node hooks/bansat-g1-guard.test.mjs"
+  }
+}
