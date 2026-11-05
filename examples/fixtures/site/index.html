@@ -19,7 +19,7 @@
   <button type="button" id="reject">Reject all</button>
 </section>
 <script type="module">
-  // The framework's consent loader (9.8), served from lib/privacy/consent.ts.
+  // The framework's consent loader (9.7), served from lib/privacy/consent.ts.
   import { loadWhenConsented, saveConsent } from '/lib/privacy/consent.js';
   loadWhenConsented('analytics', 'https://analytics.vendor.invalid/script.js');
   const all = (granted) => ({ analytics: granted, replay: granted, marketing: granted });

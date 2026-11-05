@@ -12,7 +12,12 @@ All notable changes to Bansat (بنسټ). Each release is a git tag, and the ins
 - **Where the usual documents live.** How to use maps the PRD, TRD, app flow, UI/UX brief, backend schema and implementation plan to their parts.
 - **Modules.** The framework is split into `framework/`, one file per part, and the skill reads only the modules each step needs. `reference/bansat-framework.md` is generated from them, so links and older installs keep working.
 - **Tested examples, in CI.** `examples/` runs the framework's code: the Prisma schema and RLS policies on a real Postgres, the consent loader and privacy test in Chromium, and the UI-state types. CI fails if a sample in the framework and its tested copy differ ([issue #1](https://github.com/bewithkhan/bansat/issues/1), point 2).
-- **Fixed:** the Debug prompt's `<symptom>` placeholder was hidden when GitHub rendered it.
+- **Fixed:**
+  - The privacy test's "Reject all" check now records requests from the start, so a leak fired by the click itself fails it (9.9). Copy the new version into your tests.
+  - The journey diagram sends returning users straight to their workspace, matching the navigation map (10.1).
+  - The authentication notes say when cookies can't be `HttpOnly` (some SSR clients, Supabase's among them, read them in the browser) and that an access token stays valid until it expires after sign-out (7.1).
+  - The consent loader is in 9.7, not 9.8 (ADR-004); Part 13 has 16 blocking checks, not 17 (README).
+  - The Debug prompt's `<symptom>` placeholder was hidden when GitHub rendered it.
 
 **Re-checking an existing blueprint:** update the Framework row in Document control to v2.2, and add the research rule to your agent rules file (12.1).
 

@@ -25,10 +25,10 @@ for (const path of PAGES) {
 }
 
 test('nothing non-essential loads after "Reject all"', async ({ page }) => {
+  const hosts = recordThirdPartyHosts(page); // record from the start, so a leak from the click itself counts
   await page.goto('/');
   await page.getByRole('button', { name: 'Reject all' }).click();
-  const hosts = recordThirdPartyHosts(page);
   await page.reload({ waitUntil: 'networkidle' });
   await page.waitForTimeout(1500);
-  expect([...hosts], 'third-party hosts contacted after rejecting').toEqual([]);
+  expect([...hosts], 'third-party hosts contacted before or after rejecting').toEqual([]);
 });

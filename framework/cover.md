@@ -58,6 +58,7 @@ To re-check an existing blueprint, update its Framework row to v2.2 and add the 
 | Design brief | A look-and-feel brief to fill in before choosing tokens (10.5). |
 | Diagrams | An authentication flow based on the OWASP cheat sheets (7.1), and an entity-relationship diagram of the reference schema (5.3). |
 | UI states | The typed pattern now covers forms as well: validation (S9) and success (S10) (10.7). |
+| Privacy test ★ | The "Reject all" check now records requests from the start, so a leak fired by the click itself fails it (9.9). Copy the new version into your tests. |
 | Tested code | The framework is split into modules (`framework/` in the repo) and this file is generated from them. The code samples run in CI from `examples/`, and CI fails if a sample in the text and its tested copy differ. |
 
 ### What changed in v2.1

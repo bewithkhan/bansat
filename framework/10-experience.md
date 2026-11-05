@@ -10,13 +10,16 @@ flowchart TD
   A[Landing page] --> B{Cookie choice made?}
   B -- No --> C[Consent banner: Accept all, Reject all, Manage]
   C --> D
-  B -- Yes --> D[Sign up or log in]
-  D --> E[Age check]
+  B -- Yes --> D{New or returning?}
+  D -- Sign up --> E[Age check]
+  D -- Log in --> D1[Log in]
+  D1 -- Has a workspace --> I[Workspace board]
+  D1 -- No workspace yet --> H[Onboarding: create or join a workspace]
   E -- Below the minimum age --> E1[Blocked, or parental consent flow]
   E -- Meets the age rule --> F[Account details and optional marketing opt-in]
   F --> G[Verify email]
-  G --> H[Onboarding: create or join a workspace]
-  H --> I[Workspace board]
+  G --> H
+  H --> I
   I --> J[Task detail and comments]
   I --> K[Generate AI standup]
   K --> K1[Review AI output] --> K2[Copy or export Markdown]
@@ -68,14 +71,22 @@ Also diagram: **session expiry and draft restore** (S8), **data export** (async 
 | From | Action | Goes to | If it fails |
 |---|---|---|---|
 | SCR-01 Landing | Sign up | SCR-02 Sign-up | — |
-| SCR-02 Sign-up | Create account | "Check your email" panel, then SCR-04 after verifying | S9 field errors · S3 with Retry · the age block or parental-consent flow (10.1) if below the minimum age |
+| SCR-01 Landing | Log in | SCR-03 Log in | — |
+| SCR-02 Sign-up | Create account | The age check, then a "Check your email" panel; verifying the email opens SCR-04 | S9 field errors · S3 with Retry · below the minimum age, the block or parental-consent flow (10.1) |
 | SCR-03 Log in | Sign in | The last workspace (SCR-05), or SCR-04 if there's none | S9 · the same message for any unknown account (7.1) · S13 after repeated tries |
 | SCR-04 Onboarding | Create or join a workspace | SCR-05 Board | S9 (slug taken) · S11 (invite expired) |
 | SCR-05 Board | Open a task | SCR-06 Task detail, as a modal with its own URL | S11 if it was deleted |
+| SCR-06 Task detail | Comment | The comment appears in place (S10) | S9 · S3 with the text kept |
+| SCR-06 Task detail | Close (Esc or Back) | SCR-05, with focus back on the task | — |
 | SCR-05 Board | Generate standup | SCR-07 Standup | S13 quota · S15 if AI is switched off |
-| SCR-07 Standup | Generate | S14 progress, then the result; Copy gives S10 | S3 · S5 then Cancel · S13 |
-| SCR-08 Members | Invite member | S10 "Invite sent" | S7 for MEMBER · S9 |
-| SCR-09 Privacy centre | Delete account | Re-authenticate, then the confirmation in 10.2 | S16 confirmation · S8 |
+| SCR-07 Standup | Generate | S14 progress, then the result; Copy gives S10 | S3 · S5, then Cancel · S13 |
+| SCR-05 Board | Settings, then Members | SCR-08 Members | S7 for a MEMBER |
+| SCR-08 Members | Invite member | S10 "Invite sent" | S9 · S3 |
+| Any signed-in screen | Account menu, then Privacy | SCR-09 Privacy centre | S8 |
+| SCR-09 Privacy centre | Export my data | S14, then an email with an expiring download link (10.2) | S13 (3 exports a day, 6.6) · S3 |
+| SCR-09 Privacy centre | Delete account | S16 confirmation, re-authentication, then the 30-day flow in 10.2 | S8 if the session has expired |
+| Any screen | A footer link | SCR-10 Legal pages; "Cookie settings" reopens the consent choices (9.8) | — |
+| Any signed-in screen | Sign out | SCR-01, with the session revoked and local drafts and caches cleared (7.1) | — |
 | Any screen | The session expires | A sign-in modal, then back to the same place with the draft | S8 |
 | Any screen | An unknown or deleted route | S11 with a link back | — |
 
@@ -240,7 +251,7 @@ export type FormState<Field extends string> =
   | { kind: 'editing' }
   | { kind: 'submitting' }                                      // S2 inline progress
   | { kind: 'invalid'; errors: Partial<Record<Field, string>> } // S9: the inputs are kept
-  | { kind: 'failed'; code: AppErrorCode; ref: string }         // S3 (S7, S8, S13 map from code)
+  | { kind: 'failed'; code: AppErrorCode; ref: string; retryAfterSeconds?: number } // S3, S7, S8, S13
   | { kind: 'succeeded'; message: string; undo?: () => void };  // S10
 
 export function assertNever(x: never): never {
@@ -253,9 +264,18 @@ export function formStatus<Field extends string>(state: FormState<Field>): strin
     case 'editing':    return null;
     case 'submitting': return 'Saving…';
     case 'invalid':    return 'Check the highlighted fields.'; // focus moves to the first error
-    case 'failed':     return `We couldn't save your changes. Try again. Ref ${state.ref}`;
+    case 'failed':     return failureMessage(state.code, state.ref, state.retryAfterSeconds);
     case 'succeeded':  return state.message;
     default:           return assertNever(state);
+  }
+}
+
+function failureMessage(code: AppErrorCode, ref: string, retryAfterSeconds?: number): string {
+  switch (code) {
+    case 'FORBIDDEN':       return "You don't have permission to do this. Ask an admin for access."; // S7
+    case 'UNAUTHENTICATED': return 'Your session ended for security. Sign in again to continue. We kept your draft.'; // S8
+    case 'RATE_LIMITED':    return `Too many attempts. Try again in ${retryAfterSeconds ?? 60} seconds.`; // S13
+    default:                return `We couldn't save your changes. Try again. Ref ${ref}`; // S3
   }
 }
 

@@ -28,29 +28,54 @@ if (!match) {
 const frontmatter = match[1] ?? '';
 const body = skill.slice(match[0].length);
 
-// A deliberately small parser: top-level "key: value" lines and one level of indented
-// "  key: value" lines under a "key:" line. Anything else is reported, not guessed at.
-const unquote = (value: string): string => {
-  const v = value.trim();
-  return v.length >= 2 && v.startsWith('"') && v.endsWith('"') ? v.slice(1, -1).replace(/\\"/g, '"') : v;
-};
+// A deliberately small, strict parser for the shape SKILL.md uses: top-level "key: value" lines,
+// and one level of "  key: value" lines under "metadata:". Anything a YAML parser could read
+// differently (an unquoted ": " or " #", a leading indicator, a duplicate key, a metadata value
+// that YAML would turn into a number or boolean) is reported rather than guessed at.
+type Scalar = { text: string; quoted: boolean } | { error: string };
+function scalar(raw: string): Scalar {
+  const v = raw.trim();
+  if (/^"(?:[^"\\]|\\.)*"$/.test(v)) return { text: v.slice(1, -1).replace(/\\(.)/g, '$1'), quoted: true };
+  if (/^'(?:[^']|'')*'$/.test(v)) return { text: v.slice(1, -1).replace(/''/g, "'"), quoted: true };
+  if (/^[[\]{},&*!|>'"%@`#]|^[-?] /.test(v) || v.includes(': ') || v.includes(' #') || v.endsWith(':')) {
+    return { error: 'quote it: YAML would read this unquoted value differently' };
+  }
+  return { text: v, quoted: false };
+}
+const NOT_A_STRING = /^(?:true|false|yes|no|on|off|null|~|[-+]?(?:\d[\d_]*)?\.?\d+(?:e[-+]?\d+)?|0x[\da-f]+|0o[0-7]+)$/i;
+
 const fields = new Map<string, string>();
 const metadata = new Map<string, string>();
 let parent = '';
 for (const line of frontmatter.split('\n')) {
   if (!line.trim()) continue;
-  const top = /^([A-Za-z][\w-]*):(.*)$/.exec(line);
-  const nested = /^ {2}([A-Za-z][\w-]*):(.*)$/.exec(line);
-  if (top) {
-    const key = top[1] ?? '';
-    const value = top[2] ?? '';
-    parent = value.trim() ? '' : key;
-    fields.set(key, unquote(value));
-  } else if (nested && parent === 'metadata') {
-    metadata.set(nested[1] ?? '', unquote(nested[2] ?? ''));
-  } else {
+  const top = /^([A-Za-z][\w-]*):(?: (.*))?$/.exec(line);
+  const nested = /^ {2}([A-Za-z][\w-]*):(?: (.*))?$/.exec(line);
+  const [key, raw, target, where] = top
+    ? [top[1] ?? '', top[2] ?? '', fields, 'frontmatter']
+    : nested && parent === 'metadata'
+      ? [nested[1] ?? '', nested[2] ?? '', metadata, 'metadata']
+      : ['', '', null, ''];
+  if (!target) {
     problem(`SKILL.md frontmatter: can't read the line "${line}"`);
+    continue;
   }
+  if (target.has(key)) problem(`SKILL.md ${where}: "${key}" appears more than once`);
+  if (top) parent = raw.trim() ? '' : key;
+  if (!raw.trim()) {
+    if (!(top && key === 'metadata')) problem(`SKILL.md ${where}: "${key}" has no value`);
+    target.set(key, '');
+    continue;
+  }
+  const value = scalar(raw);
+  if ('error' in value) {
+    problem(`SKILL.md ${where}: "${key}": ${value.error}`);
+    continue;
+  }
+  if (where === 'metadata' && !value.quoted && NOT_A_STRING.test(value.text)) {
+    problem(`SKILL.md metadata: "${key}" must be a string (the spec says so), so quote "${value.text}"`);
+  }
+  target.set(key, value.text);
 }
 for (const key of fields.keys()) {
   if (!ALLOWED_FIELDS.includes(key)) problem(`SKILL.md frontmatter: "${key}" isn't a field the spec allows`);
@@ -65,7 +90,9 @@ if (description.length < 1 || description.length > 1024) {
   problem(`SKILL.md description must be 1-1024 characters (it's ${description.length})`);
 }
 const compatibility = fields.get('compatibility');
-if (compatibility !== undefined && compatibility.length > 500) problem('SKILL.md compatibility is over 500 characters');
+if (compatibility !== undefined && (compatibility.length < 1 || compatibility.length > 500)) {
+  problem('SKILL.md compatibility must be 1-500 characters when present');
+}
 const bodyLines = body.split('\n').length;
 if (bodyLines > 500) problem(`SKILL.md body is ${bodyLines} lines; the spec recommends under 500`);
 
@@ -108,6 +135,7 @@ expectIn(`${FRAMEWORK_DIR}/cover.md`, /Framework version \*\*([\d.]+)\*\*/g, min
 expectIn(`${FRAMEWORK_DIR}/cover.md`, /\(Version ([\d.]+)\)/g, minor, 'citation version');
 expectIn('SKILL.md', /\(Version ([\d.]+)\)/g, minor, 'citation version');
 expectIn('SKILL.md', /Bansat \(بنسټ\) v([\d.]+) by Muhammad Tufail Khan/g, minor, 'attribution row');
+expectIn(`${FRAMEWORK_DIR}/cover.md`, /Bansat \(بنسټ\) v([\d.]+) by Muhammad Tufail Khan/g, minor, 'Framework row');
 
 if (problems.length) {
   console.error(`check-skill: ${problems.length} problem(s)\n- ${problems.join('\n- ')}`);

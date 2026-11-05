@@ -20,7 +20,7 @@ export type FormState<Field extends string> =
   | { kind: 'editing' }
   | { kind: 'submitting' }                                      // S2 inline progress
   | { kind: 'invalid'; errors: Partial<Record<Field, string>> } // S9: the inputs are kept
-  | { kind: 'failed'; code: AppErrorCode; ref: string }         // S3 (S7, S8, S13 map from code)
+  | { kind: 'failed'; code: AppErrorCode; ref: string; retryAfterSeconds?: number } // S3, S7, S8, S13
   | { kind: 'succeeded'; message: string; undo?: () => void };  // S10
 
 export function assertNever(x: never): never {
@@ -33,9 +33,18 @@ export function formStatus<Field extends string>(state: FormState<Field>): strin
     case 'editing':    return null;
     case 'submitting': return 'Saving…';
     case 'invalid':    return 'Check the highlighted fields.'; // focus moves to the first error
-    case 'failed':     return `We couldn't save your changes. Try again. Ref ${state.ref}`;
+    case 'failed':     return failureMessage(state.code, state.ref, state.retryAfterSeconds);
     case 'succeeded':  return state.message;
     default:           return assertNever(state);
+  }
+}
+
+function failureMessage(code: AppErrorCode, ref: string, retryAfterSeconds?: number): string {
+  switch (code) {
+    case 'FORBIDDEN':       return "You don't have permission to do this. Ask an admin for access."; // S7
+    case 'UNAUTHENTICATED': return 'Your session ended for security. Sign in again to continue. We kept your draft.'; // S8
+    case 'RATE_LIMITED':    return `Too many attempts. Try again in ${retryAfterSeconds ?? 60} seconds.`; // S13
+    default:                return `We couldn't save your changes. Try again. Ref ${ref}`; // S3
   }
 }
 

@@ -7,13 +7,13 @@ The framework is the source. `scripts/check-examples.ts` copies each sample out 
 | File | Framework | How it's tested |
 |---|---|---|
 | `prisma/schema.prisma` | 5.3 | Prisma generates the tables from it, in a real Postgres |
-| `prisma.config.ts` | 5.3 | Type-checked; Prisma loads it for every command |
+| `prisma.config.ts` | 5.3 | Type-checked; `prisma db execute` creates the tables through its connection |
 | `supabase/policies/001_rls.sql` | 5.4 | Applied to those tables, then 13 access checks: reads, writes, roles, tenant isolation, anonymous access |
 | `tests/rls/tenant_isolation.sql` | 5.4 | Must fail with a row-level security error |
 | `tests/rls/tables_without_rls.sql` | 14.2 | Must find nothing after the policies, and must find a table that has no RLS |
-| `lib/privacy/consent.ts` | 9.8 | Type-checked, then run in Chromium: a vendor script loads only after "Accept all", and each choice is logged |
+| `lib/privacy/consent.ts` | 9.7 | Type-checked, then run in Chromium: a vendor script loads only after "Accept all", nothing third-party loads after "Reject all", and each choice is logged |
 | `tests/privacy/no-third-party-before-consent.spec.ts` | 9.9 | Passes on clean pages, and must fail on a page that loads a third-party font before consent |
-| `lib/ui/view-state.tsx` | 10.7 | Type-checked strictly; an unhandled state fails the build |
+| `lib/ui/view-state.tsx` | 10.7 | Type-checked strictly. `tests/types/exhaustive-states.ts` leaves states out on purpose and must fail to compile, so the claim that a missed state fails the build is itself tested |
 
 ## Run it
 
@@ -26,7 +26,9 @@ npx playwright install chromium
 npm test
 ```
 
-`npm test` runs the type-check, the RLS tests and the privacy tests. The RLS tests use `DATABASE_URL` if it's set, and otherwise start a temporary Postgres with `embedded-postgres`. Either way, they create a throwaway database and drop it afterwards. Never point `DATABASE_URL` at production.
+`npm test` runs the type-check, the RLS tests and the privacy tests. The RLS tests use `DATABASE_URL` if it's set, and otherwise start a temporary Postgres with `embedded-postgres`. Either way, they create a throwaway database and drop it afterwards, along with any of Supabase's roles (`anon`, `authenticated`, `service_role`) they had to create. Never point `DATABASE_URL` at production.
+
+Running as root, for example in a container? Postgres won't run as root, so the temporary Postgres runs as a separate `postgres` user, which needs read access to the folders above `node_modules`. If it can't get it, set `DATABASE_URL` instead.
 
 To run one part: `npm run typecheck`, `npm run test:rls`, `npm run test:privacy` or `npm run test:privacy:leak`.
 

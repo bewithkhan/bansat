@@ -61,7 +61,7 @@ The gates are the point. At each one, Claude is instructed to stop and wait for 
 
 - **G1:** no production code until you approve the blueprint.
 - **G2:** no real personal data, not even a waitlist email, until the privacy basics are live: the notice, processing records, consent capture, processor contracts, access-isolation tests and the ICO fee.
-- **G3:** no launch while any of the 17 blocking checks is red.
+- **G3:** no launch while any of the 16 blocking checks is red.
 
 A skill can only instruct Claude, not force it. For a hard stop at G1, add the [optional G1 hook](#make-g1-a-hard-stop-optional): it refuses Claude's code edits until a person signs the blueprint.
 
@@ -226,7 +226,7 @@ Planning with a PRD, TRD, app flow, UI/UX brief, backend schema and implementati
 | **10** Experience | The app flow and a navigation map, a look-and-feel brief, WCAG 2.2 AA, contrast-checked design tokens, and 17 mandatory UI states for every screen |
 | **11** Delivery | 9 phases with exit criteria, a Definition of Done, RLS, privacy and E2E tests, CI/CD, incidents |
 | **12** Agent manual | Rules for `CLAUDE.md` or `AGENTS.md` (research before building), a feature protocol, an 8-step debugging protocol, and prompts for research, logic, debugging and full audits |
-| **13** Launch gate | 37 go/no-go checks; any one of the 17 blocking checks stops the launch |
+| **13** Launch gate | 37 go/no-go checks; any one of the 16 blocking checks stops the launch |
 | **14** Retrofit | Day-0 triage, reverse-engineering, a gap register, a review cadence and a portfolio register |
 | **A–D** Appendices | Templates (DPIA, LIA, breach log and more), references, a glossary and 9 stack profiles |
 

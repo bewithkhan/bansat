@@ -25,7 +25,7 @@ Check these sources again before each launch; guidance changes.
 **Technical**
 - Prisma 7 configuration: https://pris.ly/d/config-datasource
 - Next.js fonts (self-hosting): https://nextjs.org/docs/app/getting-started/fonts
-- Supabase Row Level Security: https://supabase.com/docs/guides/database/postgres/row-level-security
+- Supabase Row Level Security: https://supabase.com/docs/guides/database/postgres/row-level-security · server-side auth: https://supabase.com/docs/guides/auth/server-side/nextjs · signing out: https://supabase.com/docs/guides/auth/signout
 - Microsoft Clarity consent: https://learn.microsoft.com/en-us/clarity/setup-and-installation/consent-management
 - Hotjar data suppression: https://help.hotjar.com/hc/en-us/articles/36819956605329-How-to-Suppress-Text-Images-Videos-and-User-Input-from-Collected-Data
 - WCAG 2.2: https://www.w3.org/TR/WCAG22/

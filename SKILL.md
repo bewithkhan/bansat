@@ -35,7 +35,7 @@ The framework is split into modules in `framework/` next to this file. Read the 
 |---|---|
 | Starting any project | `framework/how-to-use.md`, then `framework/00-intake.md`; `framework/cover.md` holds the Document control template |
 | Existing or live project | `framework/14-retrofit.md` first |
-| Writing each part in scope | `framework/01-prd.md`, `framework/02-nfr.md`, `framework/03-trd.md`, `framework/04-adrs.md`, `framework/05-data.md`, `framework/06-api.md`, `framework/07-security.md`, `framework/09-privacy.md`, `framework/10-experience.md`, `framework/11-delivery.md` |
+| Writing each part in scope | `framework/01-prd.md`, `framework/02-nfr.md`, `framework/03-trd.md`, `framework/04-adrs.md`, `framework/05-data.md`, `framework/06-api.md`, `framework/07-security.md`, `framework/09-privacy.md`, `framework/10-experience.md`, `framework/11-delivery.md`, `framework/12-agent-manual.md`, `framework/13-launch-gate.md` |
 | Part 0 says the project uses AI | `framework/08-ai.md` |
 | Agent rules, research, prompts, debugging | `framework/12-agent-manual.md` |
 | Before launch | `framework/13-launch-gate.md` |
@@ -45,7 +45,7 @@ The framework is split into modules in `framework/` next to this file. Read the 
 The risk tier sets the depth (`framework/how-to-use.md`):
 - **Low:** Parts 0, 1.1–1.5, 3.1, 9.8–9.9, 9.26, 10.7 and 13.
 - **Medium:** every `[CORE]` part, plus the `[IF]` modules that apply.
-- **High:** everything, including a full DPIA (9.21).
+- **High:** everything, plus a full DPIA (9.21) and an independent privacy and security review before G3.
 
 If the modules aren't there, use the first of these that is:
 1. **Combined copy:** `reference/bansat-framework.md` next to this file. It holds the same text in one file, so search it by section number.

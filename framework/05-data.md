@@ -67,7 +67,7 @@ erDiagram
     uuid organization_id FK
     uuid creator_id FK "nullable"
     uuid assignee_id FK "nullable"
-    varchar description "C2"
+    varchar description "C2, nullable"
   }
   comments {
     uuid id PK
@@ -94,7 +94,7 @@ erDiagram
   audit_logs {
     uuid id PK
     uuid organization_id FK "nullable"
-    uuid actor_id
+    uuid actor_id "nullable"
   }
   ai_generations {
     uuid id PK

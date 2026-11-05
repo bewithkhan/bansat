@@ -1,11 +1,13 @@
 // Runs the framework's access-isolation tests (BLUEPRINT 5.4) against a real Postgres:
 //   1. creates a throwaway database, with Supabase's roles and auth.uid() stubbed;
-//   2. creates the tables from prisma/schema.prisma (prisma migrate diff), then applies
+//   2. creates the tables from prisma/schema.prisma (prisma migrate diff, applied with
+//      prisma db execute through the connection in prisma.config.ts), then applies
 //      supabase/policies/001_rls.sql;
 //   3. seeds two organisations and checks what each user can read and write.
 //
 // Uses DATABASE_URL if it's set (CI uses a Postgres service container). Otherwise it starts a
-// temporary local Postgres with embedded-postgres. Never point DATABASE_URL at production.
+// temporary local Postgres with embedded-postgres. Either way it drops the database, and any
+// role it had to create, when it finishes. Never point DATABASE_URL at production.
 import { spawnSync } from 'node:child_process';
 import { randomBytes } from 'node:crypto';
 import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
@@ -17,12 +19,14 @@ import pg from 'pg';
 
 const here = (path) => fileURLToPath(new URL(path, import.meta.url));
 const read = (path) => readFileSync(here(path), 'utf8');
+const PRISMA_CLI = here('../../node_modules/prisma/build/index.js');
 
 const A = '00000000-0000-0000-0000-00000000000a'; // MEMBER of org A
 const B = '00000000-0000-0000-0000-00000000000b'; // OWNER of org B
 const C = '00000000-0000-0000-0000-00000000000c'; // OWNER of org A
 const ORG_A = '00000000-0000-0000-0000-0000000000a0';
 const ORG_B = '00000000-0000-0000-0000-0000000000b0';
+const API_ROLES = { anon: 'nologin', authenticated: 'nologin', service_role: 'nologin bypassrls' };
 
 let passed = 0;
 let failed = 0;
@@ -31,6 +35,34 @@ function check(name, ok, detail = '') {
   else failed++;
   console.log(`${ok ? 'PASS' : 'FAIL'}  ${name}${ok || !detail ? '' : `  (${detail})`}`);
 }
+
+let embedded;
+let embeddedDir;
+let admin;
+let db;
+let dbName;
+const createdRoles = [];
+
+// Anything uncaught (embedded-postgres reports some start-up failures this way, and a closed
+// output pipe raises EPIPE) stops the temporary Postgres and exits, without hanging.
+let exiting = false;
+process.on('uncaughtException', (error) => {
+  if (exiting) return;
+  exiting = true;
+  setTimeout(() => process.exit(1), 5000).unref();
+  if (error.code !== 'EPIPE') {
+    console.error(`SETUP ERROR  ${error.message}`);
+    if (error.code === 'EACCES') {
+      console.error(
+        'Postgres could not run its binaries. When you run as root, the temporary Postgres runs as a ' +
+          'separate "postgres" user, which needs read access to every folder above node_modules. ' +
+          'Run as a normal user, or set DATABASE_URL to a Postgres you control.',
+      );
+    }
+  }
+  const stop = embedded ? embedded.stop().catch(() => {}) : Promise.resolve();
+  stop.finally(() => process.exit(1));
+});
 
 const freePort = () =>
   new Promise((resolvePort, reject) => {
@@ -43,47 +75,57 @@ const freePort = () =>
     });
   });
 
-// --- 1. A throwaway database ---
-let adminUrl = process.env.DATABASE_URL;
-let embedded;
-let embeddedDir;
-if (!adminUrl) {
-  const { default: EmbeddedPostgres } = await import('embedded-postgres');
-  const port = await freePort();
-  embeddedDir = mkdtempSync(join(tmpdir(), 'bansat-pg-'));
-  embedded = new EmbeddedPostgres({
-    databaseDir: embeddedDir,
-    user: 'postgres',
-    password: 'postgres',
-    port,
-    persistent: false,
-    createPostgresUser: process.getuid?.() === 0, // Postgres refuses to run as root
-    onLog: () => {},
+function prisma(args, { input, url } = {}) {
+  const result = spawnSync(process.execPath, [PRISMA_CLI, ...args], {
+    cwd: here('../..'),
+    env: { ...process.env, DIRECT_URL: url, PRISMA_HIDE_UPDATE_MESSAGE: '1' },
+    encoding: 'utf8',
+    input,
   });
-  await embedded.initialise();
-  await embedded.start();
-  adminUrl = `postgresql://postgres:postgres@127.0.0.1:${port}/postgres`;
-  console.log(`Started a temporary Postgres on port ${port}`);
+  if (result.status !== 0) throw new Error(`prisma ${args.slice(0, 2).join(' ')} failed:\n${result.stderr || result.stdout}`);
+  return result.stdout;
 }
 
-const dbName = `bansat_rls_${randomBytes(4).toString('hex')}`;
-const testUrl = new URL(adminUrl);
-testUrl.pathname = `/${dbName}`;
-const admin = new pg.Client({ connectionString: adminUrl });
-await admin.connect();
-await admin.query(`create database ${dbName}`);
-const db = new pg.Client({ connectionString: testUrl.toString() });
-
 try {
+  // --- 1. A throwaway database ---
+  let adminUrl = process.env.DATABASE_URL;
+  if (!adminUrl) {
+    const { default: EmbeddedPostgres } = await import('embedded-postgres');
+    const port = await freePort();
+    embeddedDir = mkdtempSync(join(tmpdir(), 'bansat-pg-'));
+    embedded = new EmbeddedPostgres({
+      databaseDir: embeddedDir,
+      user: 'postgres',
+      password: 'postgres',
+      port,
+      persistent: false,
+      createPostgresUser: process.getuid?.() === 0, // Postgres refuses to run as root
+      onLog: () => {},
+    });
+    await embedded.initialise();
+    await embedded.start();
+    adminUrl = `postgresql://postgres:postgres@127.0.0.1:${port}/postgres`;
+    console.log(`Started a temporary Postgres on port ${port}`);
+  }
+
+  admin = new pg.Client({ connectionString: adminUrl });
+  await admin.connect();
+  dbName = `bansat_rls_${randomBytes(4).toString('hex')}`;
+  await admin.query(`create database ${dbName}`);
+  const testUrl = new URL(adminUrl);
+  testUrl.pathname = `/${dbName}`;
+  db = new pg.Client({ connectionString: testUrl.toString() });
   await db.connect();
 
-  // Supabase's API roles and auth.uid(), so the policies run unchanged.
+  // Supabase's API roles (cluster-wide, so only created if missing) and auth.uid().
+  for (const [role, options] of Object.entries(API_ROLES)) {
+    const { rowCount } = await db.query('select 1 from pg_roles where rolname = $1', [role]);
+    if (rowCount === 0) {
+      await db.query(`create role ${role} ${options}`);
+      createdRoles.push(role);
+    }
+  }
   await db.query(`
-    do $$ begin
-      if not exists (select from pg_roles where rolname = 'anon') then create role anon nologin; end if;
-      if not exists (select from pg_roles where rolname = 'authenticated') then create role authenticated nologin; end if;
-      if not exists (select from pg_roles where rolname = 'service_role') then create role service_role nologin bypassrls; end if;
-    end $$;
     create schema if not exists auth;
     create or replace function auth.uid() returns uuid language sql stable as $$
       select nullif(coalesce(current_setting('request.jwt.claim.sub', true),
@@ -91,18 +133,11 @@ try {
     grant usage on schema auth to anon, authenticated;`);
 
   // --- 2. Tables from the Prisma schema, then the policies ---
-  const prisma = spawnSync(
-    process.execPath,
-    [here('../../node_modules/prisma/build/index.js'), 'migrate', 'diff', '--from-empty', '--to-schema', 'prisma/schema.prisma', '--script'],
-    {
-      cwd: here('../..'),
-      env: { ...process.env, DIRECT_URL: testUrl.toString(), PRISMA_HIDE_UPDATE_MESSAGE: '1' },
-      encoding: 'utf8',
-    },
-  );
-  if (prisma.status !== 0) throw new Error(`prisma migrate diff failed:\n${prisma.stderr}`);
-  await db.query(prisma.stdout);
-  check('the Prisma schema creates its tables', true);
+  const ddl = prisma(['migrate', 'diff', '--from-empty', '--to-schema', 'prisma/schema.prisma', '--script'], { url: testUrl.toString() });
+  prisma(['db', 'execute', '--stdin'], { input: ddl, url: testUrl.toString() });
+  const models = (read('../../prisma/schema.prisma').match(/^model /gm) ?? []).length;
+  const { rows: tables } = await db.query(`select count(*)::int n from pg_tables where schemaname = 'public'`);
+  check(`the Prisma schema creates its ${models} tables, through prisma.config.ts`, tables[0].n === models, `${tables[0].n} tables`);
 
   // Supabase grants table privileges to its API roles; RLS is what limits them.
   await db.query(`grant usage on schema public to anon, authenticated;
@@ -146,7 +181,7 @@ try {
   let r = await as(A, `select count(*)::int n from tasks where organization_id = $1`, [ORG_B]);
   check("a member can't read another organisation's tasks", count(r) === 0, JSON.stringify(r));
   r = await as(A, `select count(*)::int n from tasks`);
-  check('a member reads only their own organisation\'s tasks', count(r) === 1, JSON.stringify(r));
+  check("a member reads only their own organisation's tasks", count(r) === 1, JSON.stringify(r));
   r = await as(A, insertTask, [ORG_B, A]);
   check("a member can't create a task in another organisation", rlsError(r), r.error ?? 'no error');
   r = await as(A, insertTask, [ORG_A, A]);
@@ -188,9 +223,14 @@ try {
   console.error(`SETUP ERROR  ${error.message}`);
   failed++;
 } finally {
-  await db.end().catch(() => {});
-  await admin.query(`drop database if exists ${dbName} with (force)`).catch(() => {});
-  await admin.end().catch(() => {});
+  await db?.end().catch(() => {});
+  if (admin) {
+    if (dbName) await admin.query(`drop database if exists ${dbName} with (force)`).catch(() => {});
+    for (const role of createdRoles) {
+      await admin.query(`drop role if exists ${role}`).catch((error) => console.error(`Couldn't drop role ${role}: ${error.message}`));
+    }
+    await admin.end().catch(() => {});
+  }
   if (embedded) await embedded.stop().catch(() => {});
   if (embeddedDir) rmSync(embeddedDir, { recursive: true, force: true });
   console.log(`\n${passed} passed, ${failed} failed`);

@@ -31,7 +31,7 @@ sequenceDiagram
     opt OWNER or ADMIN in a large workspace
       S->>U: Ask for the second factor
     end
-    S-->>App: New session ID in Secure, HttpOnly, SameSite cookies
+    S-->>App: A new session in Secure, SameSite cookies, HttpOnly where the provider allows
   else Unknown account or wrong credentials
     S-->>App: The same message, status and timing either way
   end
@@ -47,11 +47,12 @@ sequenceDiagram
   App->>S: Sign-out request
   S->>Auth: Revoke the session and refresh token on the server
   S-->>App: Clear the cookies, local drafts and caches
+  Note over S,Auth: An access token issued before sign-out stays valid until it expires
 ```
 
 - A new session ID is issued at sign-in and whenever privileges change, so an old or planted one can't be reused.
-- Cookies are `Secure` and `HttpOnly`, with `SameSite=Lax` or `Strict` and no `Domain` attribute.
-- Sign-out ends the session on the server. Deleting the cookie alone is not enough.
+- Cookies are `Secure`, with `SameSite=Lax` or `Strict` and no `Domain` attribute. Make them `HttpOnly` where your provider allows. Some SSR clients, Supabase's among them, keep the session in cookies that browser code reads, so a strict CSP (7.4) and short-lived tokens carry more of the weight.
+- Sign-out revokes the session and refresh token on the server; deleting the cookie alone isn't enough. An access token issued before sign-out stays valid until it expires, so keep tokens short-lived, and before a sensitive action check the session with the provider on the server (with Supabase, `getClaims()` or `getUser()`, never `getSession()`).
 - Errors and timing are the same whether or not the account exists, and repeated failures are throttled per account, not only per IP.
 
 ### 7.2 Authorisation
