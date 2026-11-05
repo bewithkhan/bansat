@@ -11,7 +11,7 @@ laws:
     official_url: https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html
     status: in-force
     in_force_from: "2023-09-01"
-    notes: The revised Act replaced the Data Protection Act of 19 June 1992. It protects personal data of natural persons only. Its latest change of substance, on 1 April 2025, lets the FDPIC pass breach reports to the national cybersecurity centre with the controller's consent.
+    notes: The revised Act replaced the Data Protection Act of 19 June 1992. It protects personal data of natural persons only. Its latest change of substance, on 1 April 2025, lets the FDPIC pass breach reports to the Federal Office for Cybersecurity with the controller's consent. The English translation still uses that office's old name, National Cyber Security Centre.
   - name: Data Protection Ordinance (DPO)
     citation: SR 235.11, Ordinance of 31 August 2022
     official_url: https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/568/20251201/en/html/fedlex-data-admin-ch-eli-cc-2022-568-20251201-en-html.html
@@ -31,10 +31,10 @@ laws:
     in_force_from: "1988-03-01"
     notes: Article 3(1)(o), in force since 1 April 2007, covers spam. Letters (u) to (w) cover telemarketing.
   - name: No AI-specific law yet (planned rules to ratify the Council of Europe AI Convention)
-    citation: Federal Council decision of 12 February 2025, with a consultation draft due by the end of 2026
+    citation: Federal Council decision of 12 February 2025. A consultation draft, first due by the end of 2026, is now expected in spring 2027
     official_url: https://www.bj.admin.ch/de/kuenstliche-intelligenz
     status: none
-    notes: The Federal Council chose targeted changes to existing laws, covering transparency, data protection, non-discrimination and supervision. No consultation draft had been published by 5 November 2026.
+    notes: The Federal Council chose targeted changes to existing laws, covering transparency, data protection, non-discrimination and supervision. On 23 September 2026 SECO's SME portal said the consultation draft would be prepared in spring 2027. No draft had been published by 5 November 2026.
 regulators:
   - name: Federal Data Protection and Information Commissioner (FDPIC)
     url: https://www.edoeb.admin.ch/en
@@ -46,7 +46,7 @@ obligations:
       - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_3
       - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_14
   lawful_bases:
-    summary: Unlike federal bodies, which need a basis in law, private persons need no legal basis to process data. They must follow the processing principles, and any breach of personality rights, such as processing against someone's express wishes, is unlawful unless justified by consent, an overriding private or public interest, or the law. Consent must be explicit for sensitive data and high-risk profiling.
+    summary: Unlike federal bodies, which need a basis in law, private persons need no legal basis to process data. They must follow the processing principles. Processing that breaches someone's personality rights, for example by going against their express wishes, is allowed only with the person's consent, where a law permits it, or where a private or public interest outweighs theirs. Consent must be explicit for sensitive data and high-risk profiling.
     source:
       - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_6
       - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_30
@@ -58,7 +58,7 @@ obligations:
       - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/24/233_245_233/20260701/en/html/fedlex-data-admin-ch-eli-cc-24-233_245_233-20260701-en-html.html#art_16
       - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/24/233_245_233/20260701/en/html/fedlex-data-admin-ch-eli-cc-24-233_245_233-20260701-en-html.html#art_19_c
   children:
-    summary: The FADP has no child-specific rules, so the general rules apply. A Federal Act on communication platforms and search engines is pending. On 14 October 2026 the Federal Council added duties for very large platforms and search engines to assess and reduce risks to minors, and a ban on showing minors ads based on profiling. The dispatch to Parliament is due by June 2027.
+    summary: The FADP has no child-specific rules, so the general rules apply. A Federal Act on communication platforms and search engines is pending. On 14 October 2026 the Federal Council decided to add to the draft duties for very large platforms and search engines to assess and reduce risks to minors, and a ban on showing minors ads based on profiling. The dispatch to Parliament is due by the end of June 2027.
     source:
       - https://www.admin.ch/de/newnsb/NMn5s24l8NjQ
       - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html
@@ -74,14 +74,15 @@ obligations:
       - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/1988/223_223_223/20250101/en/html/fedlex-data-admin-ch-eli-cc-1988-223_223_223-20250101-en-html-3.html#art_3
       - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/1988/223_223_223/20250101/en/html/fedlex-data-admin-ch-eli-cc-1988-223_223_223-20250101-en-html-3.html#art_23
   breach_notice:
-    summary: Report a breach likely to cause a high risk to people's personality or fundamental rights to the FDPIC as quickly as possible. There's no fixed deadline, and details can follow in stages through its portal. Processors tell the controller as quickly as possible. Tell the people affected when it's needed to protect them or the FDPIC asks. Keep breach records for at least two years. Since 1 April 2025, critical infrastructure operators must also report certain cyberattacks to the Federal Office for Cybersecurity within 24 hours.
+    summary: Report a breach likely to cause a high risk to people's personality or fundamental rights to the FDPIC as quickly as possible, in stages if needed; there's no fixed deadline. Processors tell the controller as quickly as possible. Tell those affected if needed to protect them or the FDPIC asks. Keep breach records at least two years. Since 1 April 2025, critical infrastructure operators and others, such as Swiss cloud, search engine and data centre providers and some makers of software the operators use, must report certain cyberattacks to the Federal Office for Cybersecurity within 24 hours.
     source:
       - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_24
       - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/568/20251201/en/html/fedlex-data-admin-ch-eli-cc-2022-568-20251201-en-html.html#art_15
       - https://www.edoeb.admin.ch/dam/en/sd-web/T64CAUyvAMcF/1_2%20Leitfaden%20des%20ED%C3%96B%20betreffend%20die%20Meldung%20von%20Datensicherheitsverletzungen%20und%20Information%20der%20Betroffenen%20nach%20Art.%2024%20DSG_EN.pdf
       - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/232/20251001/de/html/fedlex-data-admin-ch-eli-cc-2022-232-20251001-de-html-1.html#art_74_e
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/232/20251001/de/html/fedlex-data-admin-ch-eli-cc-2022-232-20251001-de-html-1.html#art_74_b
   registration_or_fees:
-    summary: Private controllers don't register or pay a fee. They keep a record of processing activities, unless they have fewer than 250 employees and don't process large volumes of sensitive data or do high-risk profiling. Only federal bodies report their records to the FDPIC. The FDPIC charges CHF 150 to 250 an hour for some services, such as opinions on codes of conduct, approving clauses or binding corporate rules, and DPIA consultations.
+    summary: Private controllers don't register or pay a fee. They keep a record of processing activities, unless they have fewer than 250 employees and don't process large volumes of sensitive data or do high-risk profiling. Only federal bodies report their records to the FDPIC. The FDPIC charges CHF 150 to 250 an hour for some services, such as opinions on codes of conduct, approving clauses or binding corporate rules, and DPIA consultations, plus up to 50% for exceptionally extensive, complex or urgent work, or up to 100% if the payer can use the service commercially.
     source:
       - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_12
       - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/568/20251201/en/html/fedlex-data-admin-ch-eli-cc-2022-568-20251201-en-html.html#art_24
@@ -109,22 +110,26 @@ obligations:
       - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_22
       - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_23
   automated_decisions_ai:
-    summary: Tell people about decisions based solely on automated processing that have legal effects or a considerable adverse effect on them. On request, let them give their view and have a person review the decision, unless it's tied to a contract and their request is met, or they explicitly consented. The FDPIC says the FADP applies directly to AI. There's no AI-specific law yet. The Federal Council plans targeted changes to ratify the Council of Europe AI Convention, with a consultation draft due by the end of 2026.
+    summary: Tell people about decisions based solely on automated processing that have legal effects or a considerable adverse effect on them. On request, let them give their view and have a person review the decision, unless it's tied to a contract and their request is met, or they explicitly consented. The FDPIC says the FADP applies directly to AI. There's no AI-specific law yet. The Federal Council plans targeted changes to ratify the Council of Europe AI Convention. A consultation draft, first due by the end of 2026, is now expected in spring 2027.
     source:
       - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_21
       - https://www.edoeb.admin.ch/en/ai-and-data-protection
       - https://www.bj.admin.ch/de/kuenstliche-intelligenz
+      - https://www.kmu.admin.ch/de/bis-anfang-2027-soll-ein-vorentwurf-zur-ki-regulierung-ausgearbeitet-werden
   penalties:
-    summary: The FDPIC doesn't fine. It can order processing to change or stop and data to be deleted. Cantonal authorities can fine responsible individuals up to CHF 250,000 for wilful breaches of duties to inform and cooperate, the transfer and processor rules, minimum data security, professional secrecy and FDPIC rulings, mostly on complaint. A business is fined instead only for amounts up to CHF 50,000, when finding the person responsible would be disproportionate.
+    summary: The FDPIC doesn't fine. It can order processing to change or stop and data to be deleted. Cantonal authorities can fine responsible individuals up to CHF 250,000 for wilful breaches of duties to inform and cooperate, the transfer and processor rules, minimum data security, professional secrecy and FDPIC rulings, mostly on complaint. A business is fined instead only for amounts up to CHF 50,000, when finding the person responsible would be disproportionate. Since 1 October 2025, wilfully ignoring a ruling of the Federal Office for Cybersecurity can be fined up to CHF 100,000.
     source:
       - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_51
       - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_60
       - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_61
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_62
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_63
       - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_64
+      - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/232/20251001/de/html/fedlex-data-admin-ch-eli-cc-2022-232-20251001-de-html-1.html#art_74_h
       - https://www.fedlex.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2022/491/20250707/en/html/fedlex-data-admin-ch-eli-cc-2022-491-20250707-en-html.html#art_65
 checked:
   date: "2026-11-05"
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

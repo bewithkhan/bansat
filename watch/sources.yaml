@@ -18,9 +18,9 @@ jurisdictions:
   ch:
     official_domains: [fedlex.admin.ch, edoeb.admin.ch, admin.ch]
   "no":
-    official_domains: [datatilsynet.no, nkom.no, forbrukertilsynet.no, stortinget.no]
+    official_domains: [datatilsynet.no, nkom.no, forbrukertilsynet.no, stortinget.no, finanstilsynet.no]
   tr:
-    official_domains: [kvkk.gov.tr, ticaret.gov.tr]
+    official_domains: [kvkk.gov.tr, ticaret.gov.tr, tbmm.gov.tr, aile.gov.tr, turkiye.gov.tr]
   fr:
     official_domains: [legifrance.gouv.fr, cnil.fr, conseil-constitutionnel.fr, assemblee-nationale.fr, senat.fr]
   it:

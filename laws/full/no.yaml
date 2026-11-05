@@ -40,7 +40,7 @@ regulators:
     url: https://www.forbrukertilsynet.no/english
 obligations:
   scope:
-    summary: The GDPR applies as Norwegian law through the Personal Data Act. It covers processing in the context of a controller or processor established in Norway, and by organisations outside the EEA that offer goods or services to people in Norway or monitor their behaviour there. Those need a representative in the EEA. Svalbard and Jan Mayen are covered only if a regulation extends the Act. Journalism and academic, artistic or literary expression are largely exempt.
+    summary: The GDPR applies as Norwegian law through the Personal Data Act. It covers processing in the context of a controller or processor established in Norway, and by organisations outside the EEA that offer goods or services to people in Norway or monitor their behaviour there. Those need a representative in the EEA. The government can apply the Act to Svalbard and Jan Mayen by regulation. Journalism and academic, artistic or literary expression are largely exempt.
     source:
       - https://stortinget.no/no/Saker-og-publikasjoner/Vedtak/Beslutninger/Lovvedtak/2017-2018/vedtak-201718-054/
       - https://www.datatilsynet.no/regelverk-og-verktoy/lover-og-regler/om-personopplysningsloven-og-nar-den-gjelder/
@@ -50,11 +50,12 @@ obligations:
       - https://stortinget.no/no/Saker-og-publikasjoner/Vedtak/Beslutninger/Lovvedtak/2017-2018/vedtak-201718-054/
       - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504
   consent_age:
-    summary: When an information society service offered directly to a child relies on consent, children can consent for themselves from 13. Below that, a parent must consent. For other processing, Datatilsynet's view is that a parent usually consents until 18, unless the child is mature enough to understand the processing in question.
+    summary: When an information society service offered directly to a child relies on consent, children can consent for themselves from 13. Below that, a parent must consent. Norway's EEA notification of September 2025 says the 13 doesn't apply to providers established in another EEA state, and proposes raising the age to 15 for all providers serving children in Norway. That change is pending. For other processing, Datatilsynet's view is that a parent usually consents until 18, unless the child is mature enough to understand the processing in question.
     value: 13
     source:
       - https://stortinget.no/no/Saker-og-publikasjoner/Vedtak/Beslutninger/Lovvedtak/2017-2018/vedtak-201718-054/
       - https://www.datatilsynet.no/personvern-pa-ulike-omrader/skole-barn-unge/samtykkje-fra-mindrearige/
+      - https://technical-regulation-information-system.ec.europa.eu/da/notification/27273/print
   children:
     summary: The GDPR's protections for children apply. Datatilsynet's guidance notes other ages in Norwegian law, such as 15 for joining associations and 16 for seeking health care alone. A social media age limit is planned but isn't law yet. The draft bill, notified under the EEA procedure for technical rules in May 2026, would let children use social media from the year they turn 16, with platforms checking ages.
     source:
@@ -74,11 +75,15 @@ obligations:
       - https://www.forbrukertilsynet.no/lov-og-rett/veiledninger-og-retningslinjer/forbrukertilsynets-veiledning-markedsforing-via-e-post-sms-o-l
       - https://www.forbrukertilsynet.no/vi-jobber-med/telefonsalg-uonsket-reklame
   breach_notice:
-    summary: The GDPR rule applies. Report a personal data breach to Datatilsynet without undue delay and within 72 hours of becoming aware of it, unless it's unlikely to risk people's rights. Tell the people affected without undue delay when the risk to them is high.
+    summary: The GDPR rule applies. Report a personal data breach to Datatilsynet without undue delay and within 72 hours of becoming aware of it, unless it's unlikely to risk people's rights. Tell the people affected without undue delay when the risk to them is high. Since 1 October 2025, the Digital Security Act also requires online marketplaces, search engines and cloud services based in Norway to report incidents that significantly affect their service without undue delay, or risk a fine. Those based outside the EEA need a representative in Norway, or in another EEA state where they offer services.
     value: 72
     source:
       - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504
       - https://www.datatilsynet.no/rettigheter-og-plikter/virksomhetenes-plikter/avvik/
+      - https://stortinget.no/globalassets/pdf/lovvedtak/2023-2024/vedtak-202324-015.pdf
+      - https://www.finanstilsynet.no/nyhetsarkiv/nyheter/2025/informasjon-om-digitalsikkerhetsloven-i-finanssektoren/
+    secondary:
+      - https://schjodt.com/news/norways-digital-security-act-now-in-effect
   registration_or_fees:
     summary: There's no general registration or fee. An organisation that appoints a data protection officer, whether it must or chooses to, has to register the officer's contact details with Datatilsynet through an Altinn form.
     source:
@@ -109,8 +114,9 @@ obligations:
       - https://nkom.no/ki
     secondary:
       - https://www.digi.no/artikler/nye-eu-regler-for-ki-norge-og-eos-henger-enna-langt-etter/575266
+      - https://www.altinget.no/artikkel/ny-forsinkelse-for-ki-loven
   penalties:
-    summary: Datatilsynet can fine up to EUR 20 million or 4% of worldwide annual turnover under the GDPR. In Norway it can fine public bodies too, and set a daily coercive fine until an order is met. Appeals go to the Privacy Appeals Board (Personvernnemnda). Forbrukertilsynet can impose infringement fines for breaking the marketing rules.
+    summary: Datatilsynet can fine up to EUR 20 million or 4% of worldwide annual turnover under the GDPR. Norwegian law applies the EUR 10 million or 2% tier to breaches of GDPR Articles 10 and 24 too. Datatilsynet can fine public bodies, and set a daily coercive fine until an order is met. Appeals go to the Privacy Appeals Board (Personvernnemnda). Forbrukertilsynet can impose infringement fines for breaking the marketing rules.
     source:
       - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504
       - https://stortinget.no/no/Saker-og-publikasjoner/Vedtak/Beslutninger/Lovvedtak/2017-2018/vedtak-201718-054/
@@ -120,4 +126,4 @@ checked:
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
