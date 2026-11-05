@@ -129,3 +129,11 @@ checked:
 history:
   - date: "2026-11-05"
     summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
+watch:
+  - url: https://www.datatilsynet.no/aktuelt/
+    type: html
+    selector: "#_jsPagesResult ul.item-list"
+    language: "no"
+  - url: https://www.forbrukertilsynet.no/feed
+    type: rss
+    language: nb-NO

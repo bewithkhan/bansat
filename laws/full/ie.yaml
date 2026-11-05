@@ -126,3 +126,20 @@ checked:
 history:
   - date: "2026-11-05"
     summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
+watch:
+  - url: https://www.irishstatutebook.ie/eli/isbc/2018_7.html
+    type: html
+    selector: "#act table.post2006"
+    language: en
+  - url: https://www.irishstatutebook.ie/eli/isbc/2026_31.html
+    type: html
+    selector: "#act table.post2006"
+    language: en
+  - url: https://www.dataprotection.ie/en/news-media/latest-news
+    type: html
+    selector: ".view-id-news_3 .view-content"
+    language: en
+  - url: https://aioffice.gov.ie/news-and-updates/
+    type: html
+    selector: ".news-list__items"
+    language: en

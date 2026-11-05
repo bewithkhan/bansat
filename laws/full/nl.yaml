@@ -123,3 +123,15 @@ checked:
 history:
   - date: "2026-11-05"
     summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
+watch:
+  - url: https://www.autoriteitpersoonsgegevens.nl/feed/article/rss.xml
+    type: rss
+    language: nl
+  - url: https://wetten.overheid.nl/BWBR0040940/informatie
+    type: html
+    selector: "#tab-wijzigingenoverzicht table"
+    language: nl
+  - url: https://wetten.overheid.nl/BWBR0009950/informatie
+    type: html
+    selector: "#tab-wijzigingenoverzicht table"
+    language: nl

@@ -133,3 +133,20 @@ checked:
 history:
   - date: "2026-11-05"
     summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
+watch:
+  - url: https://www.kvkk.gov.tr/Icerik/2015/Duyurular
+    type: html
+    selector: "main section.news"
+    language: tr
+  - url: https://www.kvkk.gov.tr/Icerik/6649/Personal-Data-Protection-Law
+    type: html
+    selector: ".news__detail-article"
+    language: en
+  - url: https://www.kvkk.gov.tr/Icerik/5257/yonetmelikler
+    type: html
+    selector: "main .members__item"
+    language: tr
+  - url: https://www.kvkk.gov.tr/Icerik/5258/tebligler
+    type: html
+    selector: "main .members__item"
+    language: tr
