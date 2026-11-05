@@ -382,7 +382,7 @@ Each profile covers: where to enforce access (and the isolation test), authentic
 | Group | Profiles |
 |---|---|
 | Backend | Laravel, Django, FastAPI, Rails, Spring Boot, ASP.NET Core, Express / NestJS |
-| Frontend & full-stack | Next.js (the current reference), Nuxt, SvelteKit, Angular, React Router 7 (formerly Remix), Astro |
+| Frontend & full-stack | Next.js (the current reference), Nuxt, SvelteKit, Angular, React Router (formerly Remix; version 8 since June 2026), Astro |
 | Mobile | Flutter, React Native / Expo, Swift (iOS), Kotlin (Android) |
 | No-code & BaaS | Lovable, Bolt, Bubble, Webflow, Firebase, Supabase, Appwrite |
 

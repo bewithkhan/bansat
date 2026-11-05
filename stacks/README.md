@@ -7,7 +7,7 @@ the site shows each one as a page.
 | Group | Profiles |
 |---|---|
 | Backend | [Laravel](laravel.md), [Django](django.md), [FastAPI](fastapi.md), [Rails](rails.md), [Spring Boot](spring-boot.md), [ASP.NET Core](aspnet-core.md), [Express and NestJS](express-nestjs.md) |
-| Frontend and full-stack | [Next.js](nextjs.md) (the reference), [Nuxt](nuxt.md), [SvelteKit](sveltekit.md), [Angular](angular.md), [React Router 7](react-router.md), [Astro](astro.md) |
+| Frontend and full-stack | [Next.js](nextjs.md) (the reference), [Nuxt](nuxt.md), [SvelteKit](sveltekit.md), [Angular](angular.md), [React Router](react-router.md) (formerly Remix), [Astro](astro.md) |
 | Mobile | [Flutter](flutter.md), [React Native and Expo](react-native-expo.md), [Swift (iOS)](swift-ios.md), [Kotlin (Android)](kotlin-android.md) |
 | No-code and BaaS | [Lovable](lovable.md), [Bolt](bolt.md), [Bubble](bubble.md), [Webflow](webflow.md), [Firebase](firebase.md), [Supabase](supabase.md), [Appwrite](appwrite.md) |
 
