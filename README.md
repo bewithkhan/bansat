@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="https://agentskills.io"><img alt="Agent Skill: SKILL.md" src="https://img.shields.io/badge/Agent_Skill-SKILL.md-0B3D91?style=flat-square"></a>
-  <img alt="Framework v2.0" src="https://img.shields.io/badge/framework-v2.0-1F6FEB?style=flat-square">
+  <img alt="Framework v2.1" src="https://img.shields.io/badge/framework-v2.1-1F6FEB?style=flat-square">
   <img alt="Laws checked 4 Nov 2026" src="https://img.shields.io/badge/laws_checked-4_Nov_2026-2EA44F?style=flat-square">
   <img alt="Covers UK GDPR, EU GDPR, EU AI Act and NDPA" src="https://img.shields.io/badge/covers-UK_GDPR_%C2%B7_EU_GDPR_%C2%B7_EU_AI_Act_%C2%B7_NDPA-555555?style=flat-square">
   <a href="#licence"><img alt="Licence: CC BY 4.0 and MIT" src="https://img.shields.io/badge/licence-CC_BY_4.0_%2B_MIT-blue?style=flat-square"></a>
@@ -56,11 +56,13 @@ flowchart TB
     NEW --> SHIP
 ```
 
-The gates are the point:
+The gates are the point. At each one, Claude is instructed to stop and wait for you:
 
 - **G1:** no production code until you approve the blueprint.
-- **G2:** no real personal data, not even a waitlist email, until the privacy basics are live: the notice, processing records, consent capture, processor contracts, RLS tests and the ICO fee.
+- **G2:** no real personal data, not even a waitlist email, until the privacy basics are live: the notice, processing records, consent capture, processor contracts, access-isolation tests and the ICO fee.
 - **G3:** no launch while any of the 17 blocking checks is red.
+
+A skill can only instruct Claude, not force it. For a hard stop at G1, add the [optional G1 hook](#make-g1-a-hard-stop-optional): it refuses Claude's code edits until a person signs the blueprint.
 
 **Already built something?** The retrofit track triages the live risks within 48 hours, reverse-engineers the blueprint from your code, and turns every gap into a fix with a deadline:
 
@@ -71,23 +73,62 @@ flowchart LR
 
 ## Install in 60 seconds
 
-**Claude Code** (terminal or VS Code). Install it once and use it in every project:
+**Claude Code** (terminal or VS Code). Install it once and use it in every project. Installs are pinned to a release, so the skill's instructions never change without you choosing to update:
 
 ```bash
 # macOS / Linux
-git clone https://github.com/bewithkhan/bansat ~/.claude/skills/bansat
+git clone --branch v2.1.0 --depth 1 https://github.com/bewithkhan/bansat ~/.claude/skills/bansat
 ```
 
 ```powershell
 # Windows (PowerShell)
-git clone https://github.com/bewithkhan/bansat "$HOME\.claude\skills\bansat"
+git clone --branch v2.1.0 --depth 1 https://github.com/bewithkhan/bansat "$HOME\.claude\skills\bansat"
 ```
 
-Start a new Claude Code session and type `/bansat`. To update, run `git pull` in that folder. To share it with your team, copy the folder into your repo at `.claude/skills/bansat/` and commit it.
+Start a new Claude Code session and type `/bansat`. To share it with your team, copy the folder into your repo at `.claude/skills/bansat/` and commit it.
+
+**Updating:** read the [changelog](CHANGELOG.md), then switch the folder to the release you want (replace `vX.Y.Z`; on Windows, use `"$HOME\.claude\skills\bansat"` as the path):
+
+```bash
+git -C ~/.claude/skills/bansat fetch --depth 1 origin tag vX.Y.Z
+git -C ~/.claude/skills/bansat checkout vX.Y.Z
+```
 
 **Claude apps** (web and desktop): add it as a skill in your Claude settings. See [Use skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude).
 
 **Any other agent:** `SKILL.md` follows the open [Agent Skills](https://agentskills.io) format, so skills-compatible agents can load it as it is. For Cursor, Copilot, Lovable, Bolt or anything else that reads a rules file, give the agent `reference/bansat-framework.md` and paste its [Part 12.1 agent rules](reference/bansat-framework.md#p12) into `AGENTS.md`, `.cursor/rules` or your project knowledge.
+
+### Make G1 a hard stop (optional)
+
+The skill tells Claude to stop at G1, but an agent can still skip a step. This Claude Code hook makes it a hard stop in a new project. Until a person signs the G1 row in `docs/BLUEPRINT.md`, Claude's file edits outside `docs/`, `spikes/` and `.claude/` are refused, and Claude can't sign the row itself. It needs Node.js 18 or later.
+
+1. Copy the hook into the project:
+   ```bash
+   mkdir -p .claude/hooks && cp ~/.claude/skills/bansat/hooks/bansat-g1-guard.mjs .claude/hooks/
+   ```
+   On Windows (PowerShell): `New-Item -ItemType Directory -Force .claude\hooks; Copy-Item "$HOME\.claude\skills\bansat\hooks\bansat-g1-guard.mjs" .claude\hooks\`
+2. Add this to the project's `.claude/settings.json`, merged with any hooks you already have:
+   ```json
+   {
+     "hooks": {
+       "PreToolUse": [
+         {
+           "matcher": "Write|Edit|MultiEdit|NotebookEdit",
+           "hooks": [
+             {
+               "type": "command",
+               "command": "node",
+               "args": ["${CLAUDE_PROJECT_DIR}/.claude/hooks/bansat-g1-guard.mjs"]
+             }
+           ]
+         }
+       ]
+     }
+   }
+   ```
+3. When you approve the blueprint, fill in the G1 row yourself, for example `| G1 Blueprint approved | Your Name | 2026-11-05 | |`.
+
+The hook guards Claude's file-editing tools, not shell commands, so treat it as a guard rail rather than a sandbox. Its tests run with `node hooks/bansat-g1-guard.test.mjs`.
 
 ## See it work
 
@@ -137,7 +178,7 @@ These are the failures that get vibe-coded apps fined, breached or rejected by t
 | 2 | Fonts from `fonts.googleapis.com` or any CDN | Visitor IP addresses go to a third party with no lawful basis. German courts have awarded damages. |
 | 3 | Session replay or heatmaps load before consent | A consent breach, and recordings can capture personal data |
 | 4 | A "we launched" email with no unsubscribe, sender identity or address | Breaches UK PECR, US CAN-SPAM and the NDPA, and fails Gmail and Yahoo sender rules |
-| 5 | RLS off, or the secret key in the client | Anyone can read or write your database: a breach, with 72-hour deadlines |
+| 5 | RLS off (or unscoped queries), or the secret key in the client | Anyone can read or write your database: a breach, with 72-hour deadlines |
 | 6 | A template or AI-written privacy policy | It doesn't match what the app does, so it breaches transparency rules |
 | 7 | Ad or analytics pixels in the root layout | Data shared with ad platforms before consent |
 | 8 | User data sent to an LLM with no disclosure or DPA | Transparency, transfer and contract breaches, and possible training on your data |
@@ -191,7 +232,7 @@ One Markdown file: 15 parts and 4 appendices, about 2,800 lines. Claude reads on
 | | PRD template | Asking the AI | **Bansat** |
 |---|:---:|:---:|:---:|
 | Product, architecture, security, privacy and UX in one plan | Product only | Patchy | ✅ |
-| Gates that block code, data and launch until you approve | ❌ | ❌ | ✅ G0–G4 |
+| Gates Claude stops at until you approve | ❌ | ❌ | ✅ G0–G4, plus an optional G1 hook |
 | Laws cited to the section, and checked on a stated date | ❌ | Unverified | ✅ 4 Nov 2026 |
 | Code samples tested before release | ❌ | Untested | ✅ |
 | A track for apps that are already live | ❌ | ❌ | ✅ Day-0 triage |
@@ -206,6 +247,8 @@ The code in the framework was run before release:
 - The **Supabase RLS policies** pass 14 tenant-isolation tests on a real Postgres database, and an audit query finds any table left without RLS.
 - The **TypeScript UI-state pattern** compiles in strict mode, and the build fails if a screen forgets a state.
 - The **Playwright privacy test** passes on a clean page and fails as soon as a page contacts a third party before consent.
+
+These test files aren't in the repo yet. They're coming in an `examples/` folder with CI, so you can check the claims yourself ([issue #1](https://github.com/bewithkhan/bansat/issues/1)). The G1 hook's tests are already here: `node hooks/bansat-g1-guard.test.mjs`.
 
 <details>
 <summary><b>Laws and standards covered</b> (checked 4 November 2026)</summary>
@@ -224,7 +267,7 @@ The code in the framework was run before release:
 - Pointers for India, South Africa, Kenya and Pakistan
 - Standards: WCAG 2.2 AA · OWASP ASVS · OWASP Top 10 for LLM Applications · STRIDE · RFC 9457 · RFC 9116 · RFC 2119
 
-Laws change. Re-check anything you rely on before launch; see the [disclaimer](#disclaimer).
+**How this was checked:** the legal sections were researched and checked against official sources (the legislation, regulator guidance and court decisions listed in Appendix B of the framework) with AI assistance, as of 4 November 2026. No lawyer has reviewed them yet. Laws change, so re-check anything you rely on before launch; see the [disclaimer](#disclaimer).
 
 </details>
 
@@ -245,6 +288,8 @@ Laws change. Re-check anything you rely on before launch; see the [disclaimer](#
 | D8 AI agents and clinical prototypes | Synthetic data until reviewed, a medical-device check, a human in the loop |
 | D9 Hardware with no personal data | Which parts apply, and when a sensor switches privacy on |
 
+Using Laravel, Rails, Django or a database without RLS, such as MySQL? The same rules apply: access is enforced in the data layer instead, and every controller re-checks authorisation. A dedicated profile for these stacks is on the way.
+
 </details>
 
 ## FAQ
@@ -254,7 +299,7 @@ Laws change. Re-check anything you rely on before launch; see the [disclaimer](#
 
 <br>
 
-No. It summarises the law and regulator guidance as of 4 November 2026, cites the sections, and says when to get a qualified review: health, children, biometrics, worker monitoring or large-scale tracking.
+No. It summarises the law and regulator guidance as of 4 November 2026, cites the sections, and says when to get a qualified review: health, children, biometrics, worker monitoring or large-scale tracking. The legal sections were checked against official sources with AI assistance, and no lawyer has reviewed them yet.
 
 </details>
 
@@ -272,7 +317,16 @@ It scales with risk. A low-risk project fills in only the essentials: intake, th
 
 <br>
 
-No. The framework is one Markdown file you can fill in by hand or with any AI agent. Claude Code just does the most for you: it screens your idea, writes the blueprint and holds the gates.
+No. The framework is one Markdown file you can fill in by hand or with any AI agent. Claude Code just does the most for you: it screens your idea, writes the blueprint and stops at each gate.
+
+</details>
+
+<details>
+<summary><b>My team already has its own process.</b></summary>
+
+<br>
+
+Your process wins. If your repo's `CLAUDE.md`, `AGENTS.md` or docs set out their own planning stages or templates, Bansat follows them, maps its gates onto your stages, and fills the gaps it covers best: privacy law, security and UI states.
 
 </details>
 
@@ -307,14 +361,14 @@ It lives in your repo as `docs/BLUEPRINT.md` and changes in the same pull reques
 
 Use GitHub's **Cite this repository** button, or:
 
-> Khan, M. T. (2026). *Bansat (بنسټ): A blueprint-first framework for building software* (Version 2.0) [Computer software]. GitHub. https://github.com/bewithkhan/bansat
+> Khan, M. T. (2026). *Bansat (بنسټ): A blueprint-first framework for building software* (Version 2.1) [Computer software]. GitHub. https://github.com/bewithkhan/bansat
 
 ```bibtex
 @misc{khan2026bansat,
   author       = {Khan, Muhammad Tufail},
   title        = {Bansat: A blueprint-first framework for building software},
   year         = {2026},
-  note         = {Version 2.0},
+  note         = {Version 2.1},
   howpublished = {\url{https://github.com/bewithkhan/bansat}}
 }
 ```
@@ -344,7 +398,7 @@ Keep the credit line in anything you copy or adapt (CC BY 4.0).
 
 ## Disclaimer
 
-Bansat summarises laws and regulator guidance as of 4 November 2026. It is not legal advice. Check the current rules before you launch, and get a qualified review for high-risk processing.
+Bansat summarises laws and regulator guidance as of 4 November 2026. It is not legal advice. The legal sections were checked against official sources with AI assistance and have not been reviewed by a lawyer. Check the current rules before you launch, and get a qualified review for high-risk processing.
 
 ---
 

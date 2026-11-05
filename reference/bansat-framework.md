@@ -4,14 +4,14 @@
 
 **Product · Architecture · Design · Security · Privacy & Compliance · Delivery**
 
-Created by **Muhammad Tufail Khan** ([github.com/bewithkhan](https://github.com/bewithkhan)) · Framework version **2.0** · Legal position checked **4 November 2026** · Supersedes *Comprehensive App Development Framework & Master Blueprint* (v1)
+Created by **Muhammad Tufail Khan** ([github.com/bewithkhan](https://github.com/bewithkhan)) · Framework version **2.1** · Legal position checked **4 November 2026** against official sources, with AI assistance (not yet reviewed by a lawyer) · Supersedes *Comprehensive App Development Framework & Master Blueprint* (v1)
 
-> **Cite as:** Khan, M. T. (2026). *Bansat (بنسټ): A blueprint-first framework for building software* (Version 2.0). https://github.com/bewithkhan/bansat
+> **Cite as:** Khan, M. T. (2026). *Bansat (بنسټ): A blueprint-first framework for building software* (Version 2.1). https://github.com/bewithkhan/bansat
 > Text and templates: **CC BY 4.0**. Code samples: **MIT**. Keep this credit when you copy, adapt or share the framework.
 
 This is the single source of truth for **every project, new or existing**. For a new project, complete it **before any code is generated**. For an existing or live project, use the **retrofit track (Part 14)**: reverse-engineer the blueprint from what's built, triage the live risks first, then close the gaps. Either way, it turns your product into decisions that an AI coding agent (Claude, Cursor, Lovable, Bolt, Copilot) can build from without guessing. Privacy and security are built in from the first commit rather than bolted on after launch: UK GDPR, PECR, EU GDPR, Nigeria's NDPA 2023 and GAID 2025, and the EU AI Act.
 
-> **Not legal advice.** This framework summarises the law and regulator guidance as at the date above. Laws change; the EU's Digital Omnibus, for example, is still being negotiated. For high-risk processing (health, children, biometrics, worker monitoring, large-scale tracking), get a qualified review before launch.
+> **Not legal advice.** This framework summarises the law and regulator guidance as at the date above. Its legal sections were checked against the official sources in Appendix B with AI assistance, and no lawyer has reviewed them yet. Laws change; the EU's Digital Omnibus, for example, is still being negotiated. For high-risk processing (health, children, biometrics, worker monitoring, large-scale tracking), get a qualified review before launch.
 
 ---
 
@@ -27,13 +27,13 @@ This is the single source of truth for **every project, new or existing**. For a
 | Privacy contact / DPO | {{NAME, privacy@DOMAIN}} |
 | Repository | {{URL}} |
 | Last updated · Next review | {{YYYY-MM-DD}} · {{YYYY-MM-DD}} |
-| Framework | Bansat (بنسټ) v2.0 by Muhammad Tufail Khan, https://github.com/bewithkhan/bansat (CC BY 4.0) |
+| Framework | Bansat (بنسټ) v2.1 by Muhammad Tufail Khan, https://github.com/bewithkhan/bansat (CC BY 4.0) |
 
 **Revision history**
 
 | Version | Date | Author | Summary |
 |---|---|---|---|
-| 0.1 | {{YYYY-MM-DD}} | {{NAME}} | First draft from framework v2.0 |
+| 0.1 | {{YYYY-MM-DD}} | {{NAME}} | First draft from framework v2.1 |
 
 **Gate approvals**
 
@@ -43,6 +43,20 @@ This is the single source of truth for **every project, new or existing**. For a
 | G2 Data-ready | | | |
 | G3 Release candidate | | | |
 | G4 Post-launch review | | | |
+
+> **Only a person signs a gate.** An AI agent never fills in this table. With the optional G1 hook from the Bansat repo (`hooks/bansat-g1-guard.mjs`), Claude Code refuses code edits until the G1 row names an approver and a date.
+
+### What changed in v2.1
+
+From reviewer feedback ([issue #1](https://github.com/bewithkhan/bansat/issues/1)). To re-check an existing blueprint, update its Framework row to v2.1 and look at the rows marked ★.
+
+| Area | Change |
+|---|---|
+| Gates | Described as instructions the agent follows. An optional Claude Code hook makes G1 a hard stop, and only a person may sign a gate (Document control). |
+| Data access ★ | The rule is now "enforce per-user and per-tenant access at the data layer, with RLS where the database supports it" (5.4, 7.2, 9.26, Part 13, 14.2). Databases without RLS, such as MySQL, use scoped queries and policies with the same isolation tests. |
+| Server entry points ★ | Authorisation is re-checked in every server entry point (Server Action, route handler, controller, function), not only in Server Actions (12.1). |
+| Your process | A project's own rules, `CLAUDE.md` workflow and planning stages take priority; this framework fills the gaps (How to use, item 7). |
+| Legal review | The header and the disclaimer say how the law was checked, and that no lawyer has reviewed it yet. |
 
 ### What changed from framework v1
 
@@ -100,6 +114,7 @@ Then add the matching **stack profile** from Appendix D (web, PWA, mobile, weara
 4. **Use the keywords.** **MUST**, **SHOULD** and **MAY** follow RFC 2119.
 5. **Trace everything.** Requirements carry IDs (`FR-`, `NFR-`, `BR-`, `SCR-`, `API-`, `DATA-`, `ROPA-`, `ADR-`, `RISK-`, `TEST-`). Every `FR` links to its screens, endpoints, data, tests and processing record (Appendix A6).
 6. **Treat examples as illustrations.** The worked example throughout is **TaskFlow AI** from v1: a team workspace with AI standups. Replace it with your own content.
+7. **Your project's rules win.** If the repo already has its own planning stages, templates or agent workflow (in `CLAUDE.md`, `AGENTS.md` or its docs), follow those. Map these gates onto its stages, use this framework to fill the gaps, and note where the two differ.
 
 ### Depth by risk tier
 
@@ -115,7 +130,7 @@ Then add the matching **stack profile** from Appendix D (web, PWA, mobile, weara
 |---|---|---|
 | **G0 Idea** | Writing this blueprint | Part 0 and 1.1–1.3 drafted |
 | **G1 Blueprint approved** | Production code (throwaway spikes are allowed earlier) | All in-scope sections complete; ADRs accepted; DPIA screening done; no `{{` left in scope |
-| **G2 Data-ready** | Collecting **any** real personal data, including waitlists and beta testers | Privacy notice live; RoPA and lawful bases recorded; consent capture working; processor DPAs signed; RLS tests passing; ICO fee paid (UK controller) |
+| **G2 Data-ready** | Collecting **any** real personal data, including waitlists and beta testers | Privacy notice live; RoPA and lawful bases recorded; consent capture working; processor DPAs signed; data-access isolation tests (RLS where supported) passing; ICO fee paid (UK controller) |
 | **G3 Release candidate** | Public launch | Part 11 testing complete; every Part 13 item green, or N/A with a reason |
 | **G4 Post-launch** | The next major scope | 30-day review: metrics against targets, incidents, rights requests, compliance calendar running |
 
@@ -809,6 +824,8 @@ Missing or wrong RLS is the most common data-exposure bug in AI-generated Supaba
 - Never trust `user_metadata`, which users can edit, in policies.
 - Never ship the secret or service-role key to the client.
 
+> **No RLS in your database?** MySQL, MariaDB and SQLite have no row-level security. Enforce the same rules in the data layer: scope every query by tenant and user (for example Laravel global scopes and Policies, Rails Pundit policy scopes, or Django custom managers), allow no raw query that skips the scope, and keep the same isolation tests: as anonymous, as a member, and as another tenant.
+
 ```sql
 -- supabase/policies/001_rls.sql — run after the Prisma migration that creates the tables.
 
@@ -1068,7 +1085,7 @@ Use RFC 9457 *Problem Details*. The `code` field drives the UI state (10.7), and
 ### 7.2 Authorisation
 
 Deny by default. Enforce at three layers:
-1. **Database:** RLS (5.4).
+1. **Database:** RLS (5.4), or the same rules enforced in the data layer where the database has no RLS.
 2. **Server:** `assertCan(user, action, resource)` in the data-access layer.
 3. **UI:** hide or disable controls. This is a convenience, never protection.
 
@@ -1092,7 +1109,7 @@ Use STRIDE (Spoofing, Tampering, Repudiation, Information disclosure, Denial of 
 
 | ID | Threat | Scenario | Mitigation | Test |
 |---|---|---|---|---|
-| T-01 | Information disclosure | RLS missing, or a policy uses `using (true)` | RLS on every table; review every policy; tenant-isolation tests | 5.4 |
+| T-01 | Information disclosure | RLS missing, a policy uses `using (true)`, or queries aren't scoped | RLS on every table (data-layer scoping where the database has none); review every policy; tenant-isolation tests | 5.4 |
 | T-02 | Elevation of privilege | The secret key is shipped in a `NEXT_PUBLIC_` variable or the client bundle | Secrets server-only; CI scans the bundle for key patterns | CI |
 | T-03 | Elevation of privilege | IDOR: a Server Action trusts an `orgId` or `taskId` sent by the client | Re-derive tenancy on the server; `assertCan()` on every action | Integration |
 | T-04 | Tampering | XSS through comments, Markdown or AI output | Allowlist sanitiser; CSP with nonces; no unsanitised HTML | E2E + DAST |
@@ -1883,7 +1900,7 @@ Run this before G2 and again before G3. Each row needs evidence.
 | 2 | **Fonts from `fonts.googleapis.com`** (or any CDN) | Visitor IP addresses go to a third party with no basis; German courts have awarded damages; under the NDPA it's an unrecorded transfer (s.41) | Self-host (`next/font`, `@fontsource`); `font-src 'self'` | Privacy test (9.9) + CSP |
 | 3 | **Session replay or heatmaps load without consent** | A PECR/ePrivacy/GAID consent breach, and recordings may capture personal data | Consent-gated loader, strictest masking, excluded pages (9.10) | Test + review staging recordings |
 | 4 | **"We launched" email with no unsubscribe, sender identity or address** | Breaches PECR regs 22–23 (UK), CAN-SPAM (US) and NDPA s.36 + GAID Art. 18 (Nigeria); fails Gmail and Yahoo sender rules | Compliant template, one-click unsubscribe, suppression list (9.11) | Seed-inbox test; check the headers |
-| 5 | **RLS off, or the secret key in the client** | Anyone can read or write your database: a breach with 72-hour deadlines | RLS on every table; keys server-only; bundle scan (5.4, 7.3) | RLS tests in CI |
+| 5 | **RLS off (or unscoped queries), or the secret key in the client** | Anyone can read or write your database: a breach with 72-hour deadlines | RLS on every table (data-layer scoping where there's no RLS); keys server-only; bundle scan (5.4, 7.3) | Isolation tests in CI |
 | 6 | **A template or AI-written privacy policy** that doesn't match reality | Breaches transparency (Arts. 13–14; NDPA s.27) and misleads users | Generate it from the RoPA; review on every release | Checklist 9.6 |
 | 7 | **Ad or analytics pixels in the root layout** | Consent breach; data shared with ad platforms | Consent loader; Consent Mode set to denied by default | Privacy test |
 | 8 | **User data sent to an LLM** without disclosure or a DPA | Transparency, transfer and processor-contract breaches; possible training on your data | ADR-006; DPA; redaction; notice wording | Vendor register |
@@ -2300,7 +2317,7 @@ Run a blameless post-incident review within 5 working days (Appendix A7), and tr
 
 ### 12.1 Rules file
 
-Paste this into `CLAUDE.md`, `AGENTS.md`, `.cursor/rules` or your Lovable/Bolt project knowledge:
+Paste this into `CLAUDE.md`, `AGENTS.md`, `.cursor/rules` or your Lovable/Bolt project knowledge. Rules are instructions an agent can still skip; in Claude Code, the optional G1 hook from the Bansat repo turns G1 into a hard stop.
 
 ```markdown
 # Agent rules for {{APP_NAME}}
@@ -2309,10 +2326,11 @@ Source of truth: docs/BLUEPRINT.md. If a request conflicts with it, stop and say
 ## Always
 - Reference blueprint IDs (FR-, API-, SCR-, ADR-) in plans, commits and PRs.
 - Validate every input on the server with the shared Zod schemas, and re-check authentication and
-  authorisation inside every Server Action and route handler.
+  authorisation inside every server entry point (Server Action, route handler, controller, function).
 - Implement every applicable UI state from the screen's state matrix (BLUEPRINT 10.7).
 - Write or update tests with every change; run typecheck, lint and tests before saying "done".
-- Make every schema change a migration; keep RLS enabled on every table; add RLS tests for new tables.
+- Make every schema change a migration; keep data-layer access rules on every table (RLS where the
+  database supports it); add isolation tests for new tables.
 - Keep secrets server-side. Only NEXT_PUBLIC_* values reach the browser, and they are never secrets.
 - Use synthetic data in development, tests and previews.
 - On an existing project, work from the gap register (BLUEPRINT 14.4), highest severity first, and keep
@@ -2324,7 +2342,8 @@ Source of truth: docs/BLUEPRINT.md. If a request conflicts with it, stop and say
   Fonts are self-hosted with next/font.
 - Log, or send to analytics / error tracking / AI providers: passwords, tokens, magic links, email
   addresses, special category data, children's data or payment data.
-- Disable RLS, security headers, tests, lint rules or type checks to make something work.
+- Disable RLS or access scoping, security headers, tests, lint rules or type checks to make something work.
+- Sign a gate (G1–G4) in docs/BLUEPRINT.md. Only a person approves a gate.
 - Add tracking, marketing email or new personal-data fields without updating the RoPA, data dictionary
   and privacy notice.
 - Install a package you haven't confirmed exists, is maintained and is the one intended.
@@ -2391,7 +2410,7 @@ Every item must be ✅, or N/A with a reason. Any open ⛔ item means **no launc
 - [ ] ⛔ A backup **restore** has been tested; a rollback has been tested
 
 **C. Security**
-- [ ] ⛔ RLS enabled on every table, with tenant-isolation tests passing (5.4)
+- [ ] ⛔ Access enforced at the data layer on every table (RLS where the database supports it), with tenant-isolation tests passing (5.4)
 - [ ] ⛔ No secrets in the repo or the client bundle (scans clean)
 - [ ] ⛔ No critical dependency vulnerabilities; high ones have a plan
 - [ ] Security headers in place and the CSP **enforced** (7.4)
@@ -2465,7 +2484,7 @@ After R2, all new scope follows the normal Definition of Done (11.2) and gates.
 | # | Check | How to check | If it fails |
 |---|---|---|---|
 | T1 | **Exposed secrets** | Scan the git history (gitleaks), the built client bundle and any mobile binaries for secret or service keys. Check public-prefixed variables (`NEXT_PUBLIC_`, `VITE_`, `EXPO_PUBLIC_`). | Rotate immediately, purge from history and review access logs (9.20) |
-| T2 | **Database access rules** | Supabase: run the query below and review every policy (5.4). Firebase: confirm Security Rules aren't test-mode rules (`allow read, write: if true`) and test them with the emulator. | Lock down today; assess exposure (T11) |
+| T2 | **Database access rules** | Supabase: run the query below and review every policy (5.4). Firebase: confirm Security Rules aren't test-mode rules (`allow read, write: if true`) and test them with the emulator. MySQL or another database without RLS: confirm every query runs through a tenant scope and an authorisation policy, and test it (5.4). | Lock down today; assess exposure (T11) |
 | T3 | **Storage buckets** | List the buckets and confirm user uploads are private and served through signed URLs | Make them private; invalidate public links |
 | T4 | **Third-party requests before consent** | Run the 9.9 Playwright test against the live site (`use.baseURL` = production URL; `ALLOWED_HOSTS` = your domains) | Remove or consent-gate fonts, CDNs and pixels this week |
 | T5 | **Tracking & replay** | Inventory analytics, replay, pixels and A/B tools | Switch off anything non-essential until consent gating ships; delete recordings collected without consent |
@@ -2516,7 +2535,7 @@ Work from **evidence, not memory**. Record the as-is state in each section, and 
 
 **Severity → deadline:**
 - **Critical:** live exposure of personal data or secrets; tracking or marketing without a lawful basis; children's or special category data without safeguards. Fix within **days** (R1).
-- **High:** missing rights features or DPAs; an inaccurate privacy notice; no RLS tests; no breach plan. Fix within **2–4 weeks**.
+- **High:** missing rights features or DPAs; an inaccurate privacy notice; no access-isolation (RLS) tests; no breach plan. Fix within **2–4 weeks**.
 - **Medium:** missing UI states on key journeys, accessibility failures, incomplete retention jobs. Fix within **1–2 months**.
 - **Low:** documentation and polish. Backlog.
 
@@ -2536,7 +2555,7 @@ The blueprint lives in the repo (`docs/BLUEPRINT.md`) and **changes in the same 
 | When you… | Update |
 |---|---|
 | Add or change a feature | FR and acceptance criteria (1.5–1.6), screens and state matrix (10.3, 10.7), API (6.2), tests |
-| Add a data field or table | Data dictionary (5.2), RoPA (9.3), privacy notice (9.6), RLS and its test (5.4), retention (5.6) |
+| Add a data field or table | Data dictionary (5.2), RoPA (9.3), privacy notice (9.6), access rule (RLS where supported) and its isolation test (5.4), retention (5.6) |
 | Add a vendor, SDK, script, font or embed | Processor register (3.6), cookie register (9.8), CSP (7.4), DPA (9.18), consent loader |
 | Launch in a new country | Laws (9.1), registrations (9.2), transfers (9.17), notice |
 | Serve a new group (children, patients, workers) | Re-run the Part 0 screening; DPIA (9.21) |
@@ -2549,7 +2568,7 @@ The blueprint lives in the repo (`docs/BLUEPRINT.md`) and **changes in the same 
 - **Quarterly:** launch-trap audit (9.26) and cookie scan.
 - **Annually:** full review, plus a framework-version check.
 
-**Framework versioning:** each project blueprint records `Framework: Bansat v2.0`. When this master framework changes (a law, a guideline, a better pattern), its revision history lists what to re-check. Apply that list to each project at its next monthly review.
+**Framework versioning:** each project blueprint records `Framework: Bansat v2.1`. When this master framework changes (a law, a guideline, a better pattern), its revision history lists what to re-check. Apply that list to each project at its next monthly review.
 
 ### 14.6 Portfolio register
 
@@ -2696,6 +2715,8 @@ Check these sources again before each launch; guidance changes.
 ## Appendix D — Stack & project-type profiles
 
 Use these with Part 3. Each profile lists what changes from the web reference stack. A project can match several profiles; a mobile app for a wearable, for example, uses D3 and D4.
+
+Other server stacks (Laravel, Rails, Django, Express) keep the same rules. Enforce access in the data layer where the database has no RLS (5.4), and treat controllers and route handlers like Server Actions: re-check authorisation in each one. A dedicated profile for these stacks is planned.
 
 ### D1 Web app (Next.js + Supabase): the reference
 
