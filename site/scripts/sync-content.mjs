@@ -6,6 +6,7 @@ import { dirname, join, posix } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from '@playwright/test';
 import { MODULES } from '../../scripts/modules.ts';
+import { writeTracker } from './laws.mjs';
 
 const SITE = fileURLToPath(new URL('..', import.meta.url));
 const REPO = join(SITE, '..');
@@ -193,7 +194,7 @@ function writePage(slug, { title, description, label, order, editPath, body }) {
   writeFileSync(path, `${frontmatter}${body}\n`);
 }
 
-for (const dir of ['framework', 'methods', 'project']) rmSync(join(DOCS, dir), { recursive: true, force: true });
+for (const dir of ['framework', 'methods', 'project', 'laws']) rmSync(join(DOCS, dir), { recursive: true, force: true });
 
 try {
   for (const page of pages) {
@@ -217,7 +218,8 @@ try {
     const { title, body } = await transform(read(source), source);
     writePage(slug, { title, description: `${title}. From the Bansat repository.`, label, order, editPath: source, body });
   }
-  console.log(`Generated ${pages.length + project.length} pages and ${diagramCount} diagrams.`);
+  const tracker = await writeTracker({ repo: REPO, docs: DOCS, site: SITE, base: BASE, transform });
+  console.log(`Generated ${pages.length + project.length} pages and ${diagramCount} diagrams, and the law tracker: ${tracker.count} jurisdictions, ${tracker.changes} changes.`);
 } finally {
   await browser?.close();
 }

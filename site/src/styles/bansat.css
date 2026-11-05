@@ -79,3 +79,71 @@ h3,
 button[data-open-modal] kbd {
   display: none;
 }
+
+/* Law tracker: status badges, the index filters and its empty state. */
+.bansat-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.bansat-badge,
+.bansat-fresh {
+  display: inline-block;
+  padding: 0.125rem 0.625rem;
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 999px;
+  font-size: var(--sl-text-sm);
+  color: var(--sl-color-gray-2);
+}
+.bansat-fresh.is-stale {
+  border-color: var(--sl-color-orange);
+  color: var(--sl-color-orange-high);
+  font-weight: 600;
+}
+.bansat-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.75rem 1rem;
+  margin-top: 1.5rem;
+}
+.sl-markdown-content .bansat-filters * {
+  margin: 0;
+}
+.bansat-filters label {
+  display: block;
+  margin-bottom: 0.25rem !important;
+  font-size: var(--sl-text-sm);
+  color: var(--sl-color-gray-2);
+}
+.bansat-filters input,
+.bansat-filters select,
+.bansat-filters button {
+  height: 2.375rem;
+}
+.sl-markdown-content .bansat-table td,
+.sl-markdown-content .bansat-table th {
+  vertical-align: top;
+}
+.bansat-nowrap,
+.bansat-table .bansat-fresh {
+  white-space: nowrap;
+}
+.bansat-filters input,
+.bansat-filters select,
+.bansat-filters button,
+.bansat-empty button {
+  font: inherit;
+  padding: 0.375rem 0.625rem;
+  border: 1px solid var(--sl-color-gray-4);
+  border-radius: 0.375rem;
+  background: var(--sl-color-black);
+  color: var(--sl-color-white);
+}
+.bansat-filters button,
+.bansat-empty button {
+  cursor: pointer;
+}
+.bansat-count {
+  color: var(--sl-color-gray-2);
+}
