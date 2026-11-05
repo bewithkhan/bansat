@@ -1,0 +1,7 @@
+# Official domains for each jurisdiction in the law registry (blueprint 5.4). Every source cited in
+# laws/ must be on one of its jurisdiction's domains, or on a domain of an entry it applies_with,
+# unless it's listed under `secondary`. Subdomains count (www.legislation.gov.uk is legislation.gov.uk).
+# Phase 4 adds the feeds and pages that Law Watch checks each week.
+jurisdictions:
+  uk:
+    official_domains: [legislation.gov.uk, ico.org.uk, gov.uk]

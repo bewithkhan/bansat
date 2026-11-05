@@ -1,0 +1,407 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/bewithkhan/bansat/blob/main/laws/schema.json",
+  "title": "Bansat law registry entry",
+  "description": "One jurisdiction's data protection and privacy rules (blueprint 5.2). Facts are summarised in Bansat's own words and every full-tier claim links to an official source (BR-02).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "tier",
+    "laws",
+    "regulators",
+    "checked",
+    "history"
+  ],
+  "properties": {
+    "id": {
+      "description": "ISO 3166-1 alpha-2 code (with uk for the United Kingdom), a region code (eu), or a sub-national code (us-ca, ae-difc). Matches the file name.",
+      "type": "string",
+      "pattern": "^[a-z]{2}(-[a-z0-9]{2,10})?$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 80
+    },
+    "tier": {
+      "enum": [
+        "full",
+        "basic"
+      ]
+    },
+    "applies_with": {
+      "description": "Other entries that also apply, read together with this one: an EU member state lists eu; a US state lists us-federal.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/id"
+      },
+      "uniqueItems": true
+    },
+    "laws": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/law"
+      }
+    },
+    "regulators": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/regulator"
+      }
+    },
+    "obligations": {
+      "$ref": "#/$defs/obligations"
+    },
+    "checked": {
+      "$ref": "#/$defs/checked"
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/historyItem"
+      }
+    },
+    "watch": {
+      "description": "What Law Watch checks each week for this entry (added in Phase 4).",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/watchItem"
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "tier": {
+            "const": "full"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "obligations"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "tier": {
+            "const": "basic"
+          }
+        }
+      },
+      "then": {
+        "not": {
+          "anyOf": [
+            {
+              "required": [
+                "obligations"
+              ]
+            },
+            {
+              "required": [
+                "watch"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z]{2}(-[a-z0-9]{2,10})?$"
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "format": "date"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://"
+    },
+    "text": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 600
+    },
+    "law": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "citation",
+        "official_url",
+        "status"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 160
+        },
+        "citation": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 200
+        },
+        "official_url": {
+          "$ref": "#/$defs/url"
+        },
+        "status": {
+          "enum": [
+            "in-force",
+            "enacted",
+            "draft",
+            "none"
+          ]
+        },
+        "in_force_from": {
+          "$ref": "#/$defs/date"
+        },
+        "notes": {
+          "$ref": "#/$defs/text"
+        }
+      },
+      "if": {
+        "properties": {
+          "status": {
+            "const": "in-force"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "in_force_from"
+        ]
+      }
+    },
+    "regulator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "url"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 160
+        },
+        "url": {
+          "$ref": "#/$defs/url"
+        }
+      }
+    },
+    "obligation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "summary",
+        "source"
+      ],
+      "properties": {
+        "summary": {
+          "$ref": "#/$defs/text"
+        },
+        "value": {
+          "description": "An optional machine-readable value, such as the digital consent age (16) or the breach deadline in hours (72).",
+          "type": [
+            "number",
+            "string",
+            "boolean"
+          ]
+        },
+        "source": {
+          "description": "Official sources only: legislation, a gazette, a regulator or a court (BR-02).",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/url"
+          },
+          "uniqueItems": true
+        },
+        "secondary": {
+          "description": "Leads such as trackers or law-firm notes. Never the only source.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/url"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "obligations": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scope",
+        "lawful_bases",
+        "consent_age",
+        "children",
+        "cookies",
+        "marketing",
+        "breach_notice",
+        "registration_or_fees",
+        "dpo",
+        "transfers",
+        "dpia",
+        "automated_decisions_ai",
+        "penalties"
+      ],
+      "properties": {
+        "scope": {
+          "$ref": "#/$defs/obligation"
+        },
+        "lawful_bases": {
+          "$ref": "#/$defs/obligation"
+        },
+        "consent_age": {
+          "$ref": "#/$defs/obligation"
+        },
+        "children": {
+          "$ref": "#/$defs/obligation"
+        },
+        "cookies": {
+          "$ref": "#/$defs/obligation"
+        },
+        "marketing": {
+          "$ref": "#/$defs/obligation"
+        },
+        "breach_notice": {
+          "$ref": "#/$defs/obligation"
+        },
+        "registration_or_fees": {
+          "$ref": "#/$defs/obligation"
+        },
+        "dpo": {
+          "$ref": "#/$defs/obligation"
+        },
+        "transfers": {
+          "$ref": "#/$defs/obligation"
+        },
+        "dpia": {
+          "$ref": "#/$defs/obligation"
+        },
+        "automated_decisions_ai": {
+          "$ref": "#/$defs/obligation"
+        },
+        "penalties": {
+          "$ref": "#/$defs/obligation"
+        }
+      }
+    },
+    "checked": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "date",
+        "status"
+      ],
+      "properties": {
+        "date": {
+          "$ref": "#/$defs/date"
+        },
+        "status": {
+          "enum": [
+            "ai-checked",
+            "human-reviewed",
+            "lawyer-reviewed"
+          ]
+        },
+        "by": {
+          "description": "GitHub username, required above ai-checked.",
+          "type": "string",
+          "pattern": "^[A-Za-z0-9-]{1,39}$"
+        }
+      },
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "human-reviewed",
+              "lawyer-reviewed"
+            ]
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "by"
+        ]
+      }
+    },
+    "historyItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "date",
+        "summary"
+      ],
+      "properties": {
+        "date": {
+          "$ref": "#/$defs/date"
+        },
+        "summary": {
+          "$ref": "#/$defs/text"
+        },
+        "pr": {
+          "$ref": "#/$defs/url"
+        }
+      }
+    },
+    "watchItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "url",
+        "type",
+        "language"
+      ],
+      "properties": {
+        "url": {
+          "$ref": "#/$defs/url"
+        },
+        "type": {
+          "enum": [
+            "rss",
+            "atom",
+            "html",
+            "api"
+          ]
+        },
+        "selector": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "language": {
+          "type": "string",
+          "pattern": "^[a-z]{2,3}(-[A-Za-z0-9]{2,8})?$"
+        }
+      },
+      "if": {
+        "properties": {
+          "type": {
+            "const": "html"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "selector"
+        ]
+      }
+    }
+  }
+}
