@@ -27,7 +27,7 @@
 
 | Gate | Approver | Date | Notes |
 |---|---|---|---|
-| G1 Blueprint approved | | | |
+| G1 Blueprint approved | Muhammad Tufail Khan | 2026-11-05 | |
 | G2 Data-ready | | | Not needed: Bansat collects no personal data (Part 9) |
 | G3 Release candidate | | | |
 | G4 Post-launch review | | | |
