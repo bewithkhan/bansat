@@ -1,20 +1,27 @@
 # Blueprint: Bansat v3 — Law Watch and every stack
 
-**Status: Draft, awaiting G1.** No production code is written until the owner signs G1 in the table below.
+**Status: In review, awaiting G1.** No production code is written until the owner signs G1 in the table below.
 
 ## Document control
 
 | Field | Value |
 |---|---|
 | Project | Bansat v3: Law Watch, a public law tracker, and stack profiles for every major framework |
-| Blueprint version | 0.1 |
-| Status | Draft |
+| Blueprint version | 0.2 |
+| Status | In review: awaiting G1 |
 | Accountable owner | Muhammad Tufail Khan, maintainer |
 | Data controller | Muhammad Tufail Khan (sole maintainer). Bansat itself collects no personal data (Part 9). |
-| Privacy contact | {{EMAIL for privacy questions, or "open a GitHub issue"}} |
+| Privacy contact | Open a GitHub issue: https://github.com/bewithkhan/bansat/issues |
 | Repository | https://github.com/bewithkhan/bansat |
 | Last updated · Next review | 2026-11-05 · when G1 is signed |
 | Framework | Bansat (بنسټ) v2.1 by Muhammad Tufail Khan, https://github.com/bewithkhan/bansat (CC BY 4.0) |
+
+**Revision history**
+
+| Version | Date | Author | Summary |
+|---|---|---|---|
+| 0.1 | 2026-11-05 | Muhammad Tufail Khan | First draft |
+| 0.2 | 2026-11-05 | Muhammad Tufail Khan | Open questions answered: full-tier list confirmed; AI summaries off (£0); site at bewithkhan.github.io/bansat; no lawyer reviewer; GitHub settings and the weekly Claude task agreed; privacy contact through GitHub issues |
 
 **Gate approvals**
 
@@ -40,7 +47,7 @@
 | Platforms | The GitHub repo (skill, framework, law data), GitHub Actions, a Claude scheduled task, and a static website on GitHub Pages |
 | Markets | Global: builders and visitors anywhere. The maintainer is in the UK. |
 | B2C, B2B or internal | Free public resource (CC BY 4.0 text, MIT code) |
-| Target launch · Budget cap | {{date}} · hosting £0 (GitHub Pages); optional AI API spend {{£/month}}, with a hard cap |
+| Target launch · Budget cap | Not fixed: each phase ships when it passes review · £0: hosting on GitHub Pages, no AI API spend (FR-11 off) |
 
 ### 0.2 Screening
 
@@ -98,7 +105,7 @@ It also adds **stack profiles** for 24 frameworks and platforms, and splits the 
 | Basic-tier entries checked in the last 180 days | 100% |
 | Median days from detection to merged update | ≤ 14 |
 | Watch alerts that turn out to be real changes | ≥ 30% (fewer means the watch list is too noisy) |
-| Entries upgraded to human-reviewed or lawyer-reviewed | Rising each quarter |
+| Entries upgraded to human-reviewed | Rising each quarter |
 
 ### 1.4 Users & personas
 
@@ -115,7 +122,7 @@ It also adds **stack profiles** for 24 frameworks and platforms, and splits the 
 |---|---|---|
 | FR-01 | **Law registry:** one YAML file per jurisdiction, validated against a JSON Schema in CI | Must |
 | FR-02 | **Two tiers:** full (37 markets plus US states) and basic (every other country with a law) | Must |
-| FR-03 | **Review status** on every entry: `ai-checked`, `human-reviewed` or `lawyer-reviewed`, each with a date | Must |
+| FR-03 | **Review status** on every entry: `ai-checked`, or `human-reviewed` once you've checked it, each with a date. `lawyer-reviewed` stays in the schema but unused, because no lawyer is involved, and the site says so. | Must |
 | FR-04 | **Modular framework:** split into parts, with laws and stacks as modules; the single combined file is still generated for compatibility | Must |
 | FR-05 | **Skill loading:** the skill loads the jurisdictions from Part 0 screening and the matching stack profiles, and re-verifies entries older than 90 days | Must |
 | FR-06 | **Watch (GitHub Action):** weekly fetch of watched official feeds and pages; detects changes; opens or updates one "possible change" issue per jurisdiction | Must |
@@ -123,7 +130,7 @@ It also adds **stack profiles** for 24 frameworks and platforms, and splits the 
 | FR-08 | **Public tracker site:** country index with search and filters, country pages, a changes feed, method and disclaimer pages, and a "report a change" link. No cookies or analytics. | Must |
 | FR-09 | **Stack profiles:** 7 backend, 6 frontend and full-stack, 4 mobile, 7 no-code and BaaS (Part 3.8) | Must |
 | FR-10 | History of changes per jurisdiction, and an Atom feed of changes on the site | Should |
-| FR-11 | Optional AI summary of each detected change in the GitHub Action (off by default; needs an API key) | Should |
+| FR-11 | AI summary of each detected change in the GitHub Action | Won't (decided 2026-11-05: off, £0 budget) |
 | FR-12 | `examples/` folder with the framework's tested code, run in CI (issue #1, point 2) | Should |
 | FR-13 | Site interface translations (Pashto, Urdu, Arabic first) | Could |
 | FR-14 | Email digests | Won't: they'd mean collecting email addresses. Watch the repo or use the Atom feed instead. |
@@ -190,10 +197,10 @@ N/A: free, with no payments.
 |---|---|---|
 | A-01 | Assumption | GitHub Actions and GitHub Pages stay free for public repositories. |
 | A-02 | Assumption | Claude scheduled tasks are available on your plan, and a weekly run fits its limits. |
-| A-03 | Constraint | This Claude session can push branches and open pull requests, but can't push tags, and may be refused when pushing workflow files. You add the workflow files once in GitHub's web editor (or grant the permission), and create release tags in the Releases page. |
+| A-03 | Constraint | This Claude session can push branches and open pull requests, but can't push tags, and may be refused when pushing workflow files. You add the workflow files once in GitHub's web editor (or grant the permission), and create release tags in the Releases page. You agreed to make these changes as each phase needs them (2026-11-05). |
 | A-04 | Constraint | GitHub disables scheduled workflows in a public repo after 60 days without activity. The weekly pull requests keep the repo active, and the watch reports if its own schedule stops. |
 | A-05 | Constraint | Some official sources have no feed, block automated fetching, or publish only in other languages. Those are checked by the Claude task, translations are flagged, and the entry says so. |
-| A-06 | Dependency | GitHub (hosting, Actions, Pages, Issues) and Anthropic (Claude scheduled task; optional API for FR-11). |
+| A-06 | Dependency | GitHub (hosting, Actions, Pages, Issues) and Anthropic (the weekly Claude scheduled task). |
 
 ### 1.10 Out of scope
 
@@ -214,7 +221,7 @@ Legal advice; accounts and comments on the site; email collection; paid tiers; c
 | NFR-A11Y-01 | Accessibility | Site standard | WCAG 2.2 AA | axe in CI + manual check |
 | NFR-REL-01 | Reliability | Watch failures | Reported in one "[watch] Source failing" issue; never silent | Watch tests |
 | NFR-SEC-01 | Security | Workflow token permissions | `contents: read`, `issues: write` only; third-party actions pinned to a commit SHA | Workflow review |
-| NFR-COST-01 | Cost | Running cost | Hosting £0; AI API ≤ {{£/month}} with a hard cap, or £0 with FR-11 off | Billing alerts |
+| NFR-COST-01 | Cost | Running cost | £0: GitHub Pages hosting and no AI API (FR-11 off); the Claude task runs within your plan | The repo holds no API-key secret |
 
 ---
 
@@ -237,9 +244,9 @@ Legal advice; accounts and comments on the site; email collection; paid tiers; c
 |---|---|---|
 | Local | Run scripts, build the site | Public data only |
 | CI (pull requests) | Validate laws, build the framework, test the site | Public data only |
-| Production | `main` → GitHub Pages; tagged releases for the skill | Public data only |
+| Production | `main` → GitHub Pages at https://bewithkhan.github.io/bansat/; tagged releases for the skill | Public data only |
 
-No secrets except an optional `ANTHROPIC_API_KEY` in the repo's Actions secrets (FR-11).
+No secrets: FR-11 is off, so there's no API key.
 
 ### 3.3 System context
 
@@ -294,7 +301,7 @@ docs/BLUEPRINT.md            this file
 | Vendor | Purpose | Personal data | Terms |
 |---|---|---|---|
 | GitHub | Repo, Actions, Pages, Issues | GitHub processes its own visitor logs and account data as an independent controller | GitHub Terms and Privacy Statement |
-| Anthropic | Claude scheduled task; optional API (FR-11) | None sent: public legal text only | Your Claude plan terms; API terms for FR-11 |
+| Anthropic | The weekly Claude scheduled task | None sent: public legal text only | Your Claude plan terms |
 
 Fonts are self-hosted. The site loads nothing from a third party.
 
@@ -321,7 +328,6 @@ Each profile covers: where to enforce access (and the isolation test), authentic
 | Name | Where | Purpose |
 |---|---|---|
 | `GITHUB_TOKEN` | Actions (automatic) | Open and update watch issues; permissions limited per NFR-SEC-01 |
-| `ANTHROPIC_API_KEY` | Actions secret, optional | FR-11 summaries; budget cap in the Anthropic console |
 
 ---
 
@@ -404,7 +410,7 @@ The registry's history lives in git. Watch snapshots older than 12 months are pr
 | API-B2 | Watch issue | Title `[watch] Possible change: <name> — <source>`; labels `watch`, `jurisdiction:<id>`; body: the new items or diff, links, detected date. One open issue per jurisdiction and source. |
 | API-B3 | Verify pull request | Branch `law/<id>-<YYYY-MM-DD>`; title `Update <name>: <one-line change>`; template: what changed, sources, confidence, review checklist; links the watch issue |
 | API-B4 | Skill module contract | File paths and fields as in 3.5 and 5.2; the skill ignores unknown fields |
-| API-B5 | Site routes | `/` index · `/country/<id>/` · `/changes/` with Atom at `/changes.xml` · `/stacks/<id>/` · `/about/` (method, review status, disclaimer, privacy and accessibility statements) |
+| API-B5 | Site routes, under https://bewithkhan.github.io/bansat/ | `/` index · `/country/<id>/` · `/changes/` with Atom at `/changes.xml` · `/stacks/<id>/` · `/about/` (method, review status, disclaimer, privacy and accessibility statements) |
 
 ---
 
@@ -428,7 +434,7 @@ The registry's history lives in git. Watch snapshots older than 12 months are pr
 | ID | Feature | Inputs | Output | Human in the loop | Fallback |
 |---|---|---|---|---|---|
 | AI-B1 | Verify task (weekly Claude scheduled task) | Watch issues, official pages, current entries | A pull request with YAML changes and sources, or a no-change comment | The maintainer reviews every pull request | The issue stays open |
-| AI-B2 | Change summary (optional, in the Action) | The detected diff | A short summary in the issue | The maintainer reads it as a lead only | Raw diff only |
+| AI-B2 | Change summary in the Action | — | — | — | Not used: FR-11 is off |
 
 ### 8.2 Data protection for AI
 
@@ -461,7 +467,7 @@ Every entry and page says when AI assistance was used and shows the review statu
 ### 8.7 Cost
 
 - The weekly Claude task runs within your plan.
-- FR-11 is off unless you add an API key with a hard monthly cap.
+- FR-11 is off, so there's no API cost.
 
 ---
 
@@ -470,6 +476,8 @@ Every entry and page says when AI assistance was used and shows the review statu
 - **No personal data collected:** no accounts, forms, cookies, analytics, pixels or third-party requests. Fonts and assets are self-hosted. This is checked by the framework's privacy test in CI (NFR-PRIV-01).
 - **GitHub Pages:** GitHub processes visitors' technical data (such as IP addresses in its logs) to run its service, under GitHub's Privacy Statement. The site's privacy note says this plainly and links to it.
 - **Contributions:** made on GitHub under GitHub's terms. Personal details from issues are never copied into the registry.
+- **Privacy questions:** open a GitHub issue. The site's privacy note says so.
+- **Review:** the maintainer reviews every change; no lawyer is involved. The method page says this, and no entry is ever labelled `lawyer-reviewed`.
 - **Copyright:** we summarise in our own words and link to the source. Official texts are never copied in bulk.
 - **Disclaimers:** every page says it isn't legal advice, and shows the last-checked date and review status.
 - **Launch-trap audit (framework 9.26) for the site:** traps 2, 3, 7 and 12 can't occur (no third-party fonts, replay, pixels or cookies); 5, 9, 13 and 14 don't apply (no database, accounts, staging data or uploads).
@@ -516,15 +524,15 @@ All other states are N/A: there are no accounts, forms, uploads or long-running 
 | Phase | Work | Exit criteria |
 |---|---|---|
 | **0 Blueprint** | This document | **G1 signed** |
-| **1 Restructure** | Split the framework into `framework/`, generate the combined file, update the skill to load modules (3.7), add `examples/` with CI (FR-12) | The generated file matches v2.1 except for intended changes; the skill loads the right modules in tests; CI green |
+| **1 Restructure** | Split the framework into `framework/`, generate the combined file, update the skill to load modules (3.7), add `examples/` with CI (FR-12). You turn on branch protection for `main`, set up so you can still merge your own pull requests. | The generated file matches v2.1 except for intended changes; the skill loads the right modules in tests; CI green |
 | **2 Law registry** | Schema; full-tier entries in batches (Europe, Americas, Middle East & Africa, Asia-Pacific); basic-tier entries for every other country with a law. Each batch is its own pull request. | Every full-tier claim sourced; every entry dated and labelled; CI validation green; you've reviewed each batch |
 | **3 Stack profiles** | The 24 profiles in 3.8, in pull requests by group | Each profile reviewed; the skill picks the right one |
-| **4 Law Watch** | `watch/sources.yaml`; the watch Action (you add the workflow file, A-03); the weekly Claude task (created as a scheduled task) | A dry run on a known past change produces the right issue and pull request; failure reporting works |
-| **5 Public site** | Astro site on GitHub Pages (you enable Pages in Settings) | Privacy test green (zero third-party requests), axe clean, Lighthouse budgets met |
+| **4 Law Watch** | `watch/sources.yaml`; the watch Action (you add the workflow file, A-03); the weekly Claude task (created as a scheduled task; approved 2026-11-05) | A dry run on a known past change produces the right issue and pull request; failure reporting works |
+| **5 Public site** | Astro site on GitHub Pages at https://bewithkhan.github.io/bansat/ (you enable Pages in Settings) | Privacy test green (zero third-party requests), axe clean, Lighthouse budgets met |
 | **6 Launch v3.0.0** | README, CHANGELOG, release, announcement | Part 13 all green → **G3** |
 | **7 First 30 days** | Watch the alerts, the review backlog and staleness | 30-day review → **G4** |
 
-**Proposed full-tier list (please confirm or trim):**
+**Full-tier list (confirmed 2026-11-05):**
 - **Europe:** EU (GDPR, ePrivacy, AI Act), Germany, France, Ireland, Netherlands, Italy, Spain, UK, Switzerland, Norway, Turkey.
 - **Americas:** US federal, each US state with a comprehensive privacy law (the exact list is confirmed in Phase 2), Canada (with Quebec), Brazil, Mexico.
 - **Middle East & Africa:** UAE (federal, DIFC and ADGM), Saudi Arabia, Qatar, Israel, Nigeria, South Africa, Kenya, Egypt.
@@ -577,15 +585,17 @@ These go in `watch/verify-prompt.md`:
 | Weekly | Watch runs; the Claude task verifies and opens pull requests; you review them |
 | Monthly | Staleness sweep: anything past its window gets a pull request or a stale badge |
 | Quarterly | Full review of the full tier; prune noisy watch sources; upgrade entries to human-reviewed where someone has checked them |
-| Annually | Framework version review; invite lawyer reviewers for the most-used markets |
+| Annually | Framework version review, and a fresh look at the full-tier list |
 
 ---
 
-## Open questions and what's missing for G1
+## Decisions (answered 2026-11-05)
 
-1. **Full-tier list:** confirm or trim the list in Part 11.
-2. **AI API budget for FR-11:** leave it off (£0), or set a monthly cap: {{£/month}}.
-3. **Custom domain** for the site, or `bewithkhan.github.io/bansat`: {{domain}}.
-4. **Reviewers:** anyone besides you who can review legal changes, especially lawyers, to upgrade entries beyond `ai-checked`.
-5. **GitHub settings you'll need to change:** enable Pages, add branch protection on `main`, add the workflow files (A-03), and allow the weekly Claude task to run.
-6. **Privacy contact:** an email address for privacy questions, or "open a GitHub issue".
+1. **Full-tier list:** confirmed as listed in Part 11.
+2. **AI summaries in the Action (FR-11):** off, with a £0 budget.
+3. **Site address:** https://bewithkhan.github.io/bansat/ (no custom domain).
+4. **Reviewers:** you review every change, on a regular schedule. No lawyer is involved, so entries go no higher than `human-reviewed`.
+5. **GitHub settings:** agreed. You enable Pages, protect `main` and add the workflow files as each phase needs them, and the weekly Claude task is approved.
+6. **Privacy contact:** open a GitHub issue.
+
+**What's left for G1:** your signature in the Gate approvals table at the top.
