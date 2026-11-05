@@ -147,3 +147,12 @@ button[data-open-modal] kbd {
 .bansat-count {
   color: var(--sl-color-gray-2);
 }
+
+/* Long pages (NFR-PERF-01): the browser skips laying out tables, diagrams and code blocks until they come near the
+   screen. Their content stays in the page, so find-in-page, search and screen readers still reach it. */
+.sl-markdown-content .bansat-table,
+.sl-markdown-content .bansat-diagram,
+.sl-markdown-content .expressive-code {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 320px;
+}

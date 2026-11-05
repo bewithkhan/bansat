@@ -49,6 +49,8 @@ jobs:
         run: npm run build
       - name: No cookies, no third-party requests, no broken links, no axe violations, search works
         run: npm test
+      - name: Performance budgets (NFR-PERF-01), with Lighthouse's mobile profile
+        run: npm run perf
       - name: Keep the site for the deploy job
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0

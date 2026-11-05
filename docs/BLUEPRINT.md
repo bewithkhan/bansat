@@ -277,7 +277,7 @@ Legal advice; accounts and comments on the site; email collection; paid tiers; c
 | NFR-DETECT-01 | Detection | Watched sources polled | Weekly, on Monday at 06:23 UTC (off the hour, because scheduled runs are delayed at the start of the hour, 3.10); a change surfaces as an issue within 7 days | Watch run logs |
 | NFR-ACC-01 | Accuracy | Full-tier legal claims with an official source | 100% | Schema check fails CI otherwise |
 | NFR-PRIV-01 | Privacy | Cookies and third-party requests on the site | Zero | Playwright privacy test (framework 9.9) |
-| NFR-PERF-01 | Performance | Site Core Web Vitals at p75 on mobile | LCP ≤ 2.5 s · INP ≤ 200 ms · CLS ≤ 0.1; ≤ 50 KB JS on country pages | Lighthouse CI |
+| NFR-PERF-01 | Performance | Site Core Web Vitals at p75 on mobile | LCP ≤ 2.5 s · INP ≤ 200 ms · CLS ≤ 0.1; ≤ 50 KB JS on country pages | Lighthouse's mobile profile in CI (`npm run perf` in `site/`) on four pages: LCP, CLS, and Total Blocking Time ≤ 200 ms as the lab stand-in for INP |
 | NFR-A11Y-01 | Accessibility | Site standard | WCAG 2.2 AA | axe in CI + manual check |
 | NFR-REL-01 | Reliability | Watch failures | Reported in one "[watch] Source failing" issue; never silent | Watch tests |
 | NFR-SEC-01 | Security | Workflow token permissions | Least privilege per workflow: validate `contents: read`; watch adds `issues: write`, and `actions: read` for its own state artifact; the site deploy job adds `pages: write` and `id-token: write`. Third-party actions are pinned to a commit SHA. | Workflow review |
@@ -646,7 +646,7 @@ All other states are N/A: there are no accounts, forms, uploads or long-running 
 | **2 Law registry** (in progress: Europe and Americas merged, 5 Nov 2026) | Schema; full-tier entries in batches (Europe, Americas, Middle East & Africa, Asia-Pacific); basic-tier entries for every other country with a law. Each batch is its own pull request. | Every full-tier claim sourced; every entry dated and labelled; CI validation green; you've reviewed each batch |
 | **3 Stack profiles** | The 24 profiles in 3.8, in pull requests by group | Each profile reviewed; the skill picks the right one |
 | **4 Law Watch** (in progress: the watch, its tests and the verify prompt, 5 Nov 2026) | `watch/sources.yaml`; the watch Action (you add the workflow file, A-03); the weekly Claude task (created as a scheduled task; approved 2026-11-05) | A dry run on a known past change produces the right issue and pull request; failure reporting works |
-| **5 Law tracker pages** | The tracker screens (SCR-01 to SCR-06) on the site built in Phase 1c | Privacy test green (zero third-party requests), axe clean, Lighthouse budgets met |
+| **5 Law tracker pages** (in progress: SCR-01 to SCR-03, SCR-05, SCR-06 and the performance budgets done 5 Nov 2026; SCR-04 comes with Phase 3) | The tracker screens (SCR-01 to SCR-06) on the site built in Phase 1c | Privacy test green (zero third-party requests), axe clean, Lighthouse budgets met |
 | **6 Launch v3.0.0** | README, CHANGELOG, release, announcement | Part 13 all green → **G3** |
 | **7 First 30 days** | Watch the alerts, the review backlog and staleness | 30-day review → **G4** |
 | **R Research paper** (alongside Phases 2–5) | A research plan agreed with the co-authors; the experiment harness, specifications and checks in `research/` (FR-22); the runs; the paper on arXiv (cs.SE, cross-listed to cs.CR) | The co-authors sign off the plan before any run and the manuscript before submission; every reference checked against its source; nothing unchecked left in the text |
