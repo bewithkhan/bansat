@@ -1,0 +1,119 @@
+# Ireland. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: ie
+name: Ireland
+tier: full
+applies_with: [eu]
+laws:
+  - name: Data Protection Act 2018
+    citation: No. 7 of 2018
+    official_url: https://www.irishstatutebook.ie/eli/2018/act/7/enacted/en/html
+    status: in-force
+    in_force_from: "2018-05-25"
+    notes: Gives further effect to the GDPR and sets up the Data Protection Commission. Section 30, an offence for profiling or marketing to children, has never been commenced. The Law Reform Commission publishes an up-to-date consolidated text.
+  - name: ePrivacy Regulations 2011
+    citation: S.I. No. 336 of 2011, European Communities (Electronic Communications Networks and Services) (Privacy and Electronic Communications) Regulations 2011
+    official_url: https://www.irishstatutebook.ie/eli/2011/si/336/made/en/print
+    status: in-force
+    in_force_from: "2011-07-01"
+    notes: Cookies (Reg. 5) and electronic marketing (Reg. 13), enforced by the Data Protection Commission.
+  - name: Regulation of Artificial Intelligence Act 2026
+    citation: No. 31 of 2026
+    official_url: https://www.irishstatutebook.ie/eli/2026/act/31/enacted/en/html
+    status: in-force
+    in_force_from: "2026-07-31"
+    notes: Signed into law on 21 July 2026 and commenced on 31 July 2026 (S.I. No. 403 of 2026). Gives further effect to the EU AI Act. It set up the AI Office of Ireland and the enforcement and fines system for market surveillance authorities, which are named in S.I. No. 366 of 2025, as amended by S.I. No. 405 of 2026.
+regulators:
+  - name: Data Protection Commission (DPC)
+    url: https://www.dataprotection.ie
+  - name: AI Office of Ireland (Oifig IS na hÉireann), which coordinates the AI Act and is the single point of contact
+    url: https://aioffice.gov.ie
+obligations:
+  scope:
+    summary: The GDPR applies directly. The Data Protection Act 2018 sets up the Data Protection Commission (DPC) and adds national rules to the GDPR in Part 3. Part 5 covers processing for law enforcement. For cross-border processing, the DPC is the lead authority for organisations whose main EU establishment is in Ireland.
+    source:
+      - https://www.irishstatutebook.ie/eli/2018/act/7/enacted/en/html
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+  lawful_bases:
+    summary: The GDPR's six lawful bases apply. Ireland adds that processing is lawful where necessary and proportionate for a function given by law or the Constitution (s.38). Using data for a new purpose is also lawful where needed for security, crime prevention or legal claims (s.41). Special category data can be processed on national grounds such as employment, legal claims, insurance and health (ss.45 to 54), with suitable and specific safeguards (s.36).
+    source:
+      - https://revisedacts.lawreform.ie/eli/2018/act/7/section/38/revised/en/html
+      - https://www.irishstatutebook.ie/eli/2018/act/7/section/41/enacted/en/html
+      - https://revisedacts.lawreform.ie/eli/2018/act/7/section/45/revised/en/html
+      - https://revisedacts.lawreform.ie/eli/2018/act/7/section/36/revised/en/html
+  consent_age:
+    summary: When an online service offered directly to a child relies on consent, children can consent for themselves from 16. Below that, a parent must give or authorise consent. Preventative and counselling services don't count as online services for this rule (s.31). The consolidated Act shows no change to the age.
+    value: 16
+    source:
+      - https://www.irishstatutebook.ie/eli/2018/act/7/section/31/enacted/en/html
+      - https://revisedacts.lawreform.ie/eli/2018/act/7/section/31/revised/en/html
+  children:
+    summary: A child is anyone under 18 (s.29). Data collected through an online service offered to someone as a child must be erased on request without undue delay (s.33). The section 30 offence for direct marketing, profiling or micro-targeting of children has never been commenced. The DPC's Fundamentals (December 2021) apply to services aimed at or likely to be used by children, with a floor of protection, no profiling or marketing unless clearly in the child's best interests, and DPIAs.
+    source:
+      - https://www.irishstatutebook.ie/eli/2018/act/7/section/29/enacted/en/html
+      - https://www.irishstatutebook.ie/eli/2018/act/7/section/33/enacted/en/html
+      - https://revisedacts.lawreform.ie/eli/2018/act/7/section/1/revised/en/html
+      - https://www.dataprotection.ie/en/dpc-guidance/fundamentals-child-oriented-approach-data-processing
+  cookies:
+    summary: Storing or reading information on a device needs consent after clear and comprehensive information, except for sending a communication or what's strictly necessary for a service the user asked for (Reg. 5). The DPC's guidance asks for GDPR-standard consent, no pre-ticked boxes or consent by scrolling, consent for analytics, and a reject option as prominent as accept. A stored consent choice should last no more than six months. Ignoring a DPC enforcement notice is an offence.
+    source:
+      - https://www.irishstatutebook.ie/eli/2011/si/336/made/en/print
+      - https://www.dataprotection.ie/en/dpc-guidance/guidance-cookies-and-other-tracking-technologies
+      - https://www.dataprotection.ie/sites/default/files/uploads/2020-04/Guidance%20note%20on%20cookies%20and%20other%20tracking%20technologies.pdf
+  marketing:
+    summary: Marketing emails and texts to individuals need consent (Reg. 13). The soft opt-in covers your own similar products only if the sale was in the last 12 months, with a free, easy opt-out at collection and in every message. Live calls are allowed unless the person objected or is on the National Directory Database opt-out register, but calls to mobiles need consent. Work emails about the recipient's work are allowed unless they object. Each unlawful message is a separate offence.
+    source:
+      - https://www.irishstatutebook.ie/eli/2011/si/336/made/en/print
+      - https://www.dataprotection.ie/en/faqs/direct-marketing
+  breach_notice:
+    summary: The GDPR rule applies. Report a breach to the DPC within 72 hours using its online form, unless it's unlikely to risk people's rights, and tell the people affected without undue delay when the risk is high. Record every breach, including why you decided not to report one. Telecoms and internet providers also report under Reg. 4 of S.I. 336/2011, within 24 hours where feasible under EU Regulation 611/2013.
+    value: 72
+    source:
+      - https://www.dataprotection.ie/en/organisations/know-your-obligations/breach-notification
+      - https://www.irishstatutebook.ie/eli/2011/si/336/made/en/print
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32013R0611
+  registration_or_fees:
+    summary: There's no registration and no annual fee, as the 2018 Act repealed the old register (s.7). Organisations that appoint a data protection officer must send the DPO's contact details to the DPC through its online form. The DPC may set fees, with the Minister's consent, only for authorising transfer clauses, approving binding corporate rules, or manifestly unfounded or excessive requests (s.28).
+    source:
+      - https://revisedacts.lawreform.ie/eli/2018/act/7/section/7/revised/en/html
+      - https://revisedacts.lawreform.ie/eli/2018/act/7/section/28/revised/en/html
+      - https://www.dataprotection.ie/en/dpos/who-needs-dpo
+  dpo:
+    summary: The GDPR cases apply, namely public bodies and core activities with large-scale systematic monitoring or large-scale special category or criminal data. The Minister can require DPOs in more cases by regulation (s.34), but the consolidated Act records none. Appointing a DPO when not required is one of the listed "suitable and specific measures" (s.36). Send your DPO's contact details to the DPC.
+    source:
+      - https://www.dataprotection.ie/en/dpos/who-needs-dpo
+      - https://www.irishstatutebook.ie/eli/2018/act/7/section/34/enacted/en/html
+      - https://revisedacts.lawreform.ie/eli/2018/act/7/section/36/revised/en/html
+      - https://revisedacts.lawreform.ie/eli/2018/act/7/revised/en/html
+  transfers:
+    summary: The GDPR transfer rules apply. Use an adequacy decision first, then safeguards such as standard contractual clauses or binding corporate rules, then the listed exceptions. The Minister can restrict transfers of some data categories for important public policy reasons where there's no adequacy decision (s.37), but the consolidated Act records no such regulations. Contact the DPC before applying for approval of binding corporate rules.
+    source:
+      - https://www.dataprotection.ie/en/organisations/international-transfers/transfers-personal-data-third-countries-or-international-organisations
+      - https://www.irishstatutebook.ie/eli/2018/act/7/section/37/enacted/en/html
+      - https://revisedacts.lawreform.ie/eli/2018/act/7/revised/en/html
+  dpia:
+    summary: The GDPR rule applies. The DPC's list (November 2018) always requires a DPIA for large-scale profiling with significant effects, large-scale special category or criminal data, and large-scale monitoring of public places. Ten more types need one where screening shows likely high risk, such as profiling children for marketing, tracking location or behaviour, biometric or genetic data with other criteria, and combining datasets. Review a DPIA after three years at most.
+    source:
+      - https://www.dataprotection.ie/en/organisations/know-your-obligations/data-protection-impact-assessments
+      - https://www.dataprotection.ie/sites/default/files/uploads/2018-11/Data-Protection-Impact-Assessment.pdf
+  automated_decisions_ai:
+    summary: GDPR Art. 22 applies. Ireland also allows solely automated decisions authorised by law if they grant the person's request, or if the person can make representations, ask for human review and appeal (s.57). The EU AI Act applies directly. The Regulation of Artificial Intelligence Act 2026 set up the AI Office of Ireland, which has coordinated it since the start of August 2026. Sector regulators supervise, such as the DPC for certain banned practices and high-risk uses, and the Workplace Relations Commission for AI at work.
+    source:
+      - https://www.irishstatutebook.ie/eli/2018/act/7/section/57/enacted/en/html
+      - https://aioffice.gov.ie/about-us/
+      - https://enterprise.gov.ie/en/what-we-do/innovation-research-development/artificial-intelligence/eu-ai-act/
+      - https://aioffice.gov.ie/national-competent-authorities/
+  penalties:
+    summary: GDPR fines apply, up to €20 million or 4% of worldwide turnover. Fines on public bodies that don't act as undertakings are capped at €1 million (s.141). A fine can be appealed within 28 days to the Circuit Court (up to €75,000) or the High Court, and an unappealed fine needs Circuit Court confirmation (ss.142 and 143). Marketing offences under the ePrivacy Regulations go to court, with fines up to €5,000 per message on summary conviction or €250,000 for a company on indictment.
+    source:
+      - https://revisedacts.lawreform.ie/eli/2018/act/7/section/141/revised/en/html
+      - https://www.irishstatutebook.ie/eli/2018/act/7/section/142/enacted/en/html
+      - https://www.irishstatutebook.ie/eli/2018/act/7/section/143/enacted/en/html
+      - https://www.irishstatutebook.ie/eli/2011/si/336/made/en/print
+      - https://www.irishstatutebook.ie/eli/2010/act/8/section/3/enacted/en/html
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry, checked against official sources with AI assistance.

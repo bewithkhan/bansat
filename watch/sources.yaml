@@ -11,3 +11,7 @@ jurisdictions:
     official_domains: [gesetze-im-internet.de, recht.bund.de, bfdi.bund.de, datenschutzkonferenz-online.de, bundestag.de, bundesregierung.de, bundesnetzagentur.de]
   nl:
     official_domains: [wetten.overheid.nl, officielebekendmakingen.nl, autoriteitpersoonsgegevens.nl, acm.nl, rdi.nl]
+  es:
+    official_domains: [boe.es, aepd.es, digital.gob.es, congreso.es]
+  ie:
+    official_domains: [irishstatutebook.ie, lawreform.ie, dataprotection.ie, gov.ie]
