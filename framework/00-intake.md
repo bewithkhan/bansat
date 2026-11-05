@@ -53,7 +53,7 @@ These decide how the project runs (11.7). There are no wrong answers, and you ca
 
 | # | Question | Answer |
 |---|---|---|
-| D1 | How many people will build it? | {{1 · 2–9 · 10–50 · more than 50}} |
+| D1 | How many people will build it? | {{1 · 2–10 · 11–50 · more than 50}} |
 | D2 | How many teams work on the same product? | {{1 · 2–8 · more than 8}} |
 | D3 | How settled are the requirements? | {{fixed and well understood · mostly known · still being discovered}} |
 | D4 | What's fixed: the date, the budget or the scope? | {{any of them, or none}} |
@@ -62,4 +62,4 @@ These decide how the project runs (11.7). There are no wrong answers, and you ca
 | D7 | Is the work mostly planned features, or a stream of requests and fixes? | {{planned features · a stream · both}} |
 | D8 | Does the organisation already use a method you're expected to follow? | {{its name, or no}} |
 
-**Result:** Method {{…}} (11.7) · Reason {{one sentence}} · Recorded in ADR-{{NNN}}
+**Result:** Outer method {{the organisation's method, E3, or none}} · Inner method {{…}} (11.7) · Reason {{one sentence}} · Recorded in ADR-{{NNN}}

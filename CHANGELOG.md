@@ -4,11 +4,11 @@ All notable changes to Bansat (بنسټ). Each release is a git tag, and the ins
 
 ## v2.3.0 (2026-11-05)
 
-- **Delivery questions (0.4).** Eight questions on team size, number of teams, how settled the requirements are, what's fixed, the contract and any need for formal evidence.
-- **Choosing a method (11.7).** A picker turns those answers into a method, reading each answer on its own rather than adding up a score. It's hybrid by default (the blueprint up front, an iterative build after G1), it combines an outer and an inner method when both apply, and the choice goes in an ADR.
+- **Delivery questions (0.4).** Eight questions on team size, number of teams, how settled the requirements are, what's fixed, the contract, any need for formal evidence, the kind of work, and any method already in use.
+- **Choosing a method (11.7).** A picker turns those answers into a method in two steps, reading each answer on its own rather than adding up a score: an outer method for approvals when a client, contract, auditor or the organisation needs one, then an inner method for the build, with a default when nothing else fits. It's hybrid by default (the blueprint up front, an iterative build after G1), and the choice goes in an ADR.
 - **Method profiles (Appendix E).** Scrum, Kanban, stage gates (the PRINCE2® method and the *PMBOK® Guide*), Shape Up, a solo loop, and scaled methods (LeSS and SAFe®). Each one says when it fits, how it commonly fails, and where every gate (G0–G4) and Bansat document falls. The methods are summarised in Bansat's own words, with links to their official sources: their texts are ShareAlike or all rights reserved, and several names are trademarks.
 - **Project-management toolkit (11.8).** RACI, RAID log, stakeholder map, status report, change request, a Mermaid timeline, and forecasting from throughput, each with the way it usually goes wrong.
-- **Skill.** It asks the delivery questions, loads only the chosen profile, and reports the method and the reason in its summary.
+- **Skill.** For new and existing projects, it asks the delivery questions, loads only the chosen profile(s), and reports the method and the reason in its summary.
 
 **Re-checking an existing blueprint:** update the Framework row to v2.3, answer the delivery questions (0.4), and record your method in an ADR.
 

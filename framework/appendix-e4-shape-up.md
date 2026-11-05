@@ -3,7 +3,7 @@
 
 **What it is:** Basecamp's method for product teams. Senior people shape the work before it's scheduled, teams get a fixed amount of time to build it, and the scope bends to fit the time. Source: [Shape Up](https://basecamp.com/shapeup) by Ryan Singer, free to read online.
 
-**Fits:** a product team that controls its own roadmap, with no client deadline; work that can be cut down to fit a fixed time. **Doesn't fit:** client contracts with fixed scope (E3), a stream of small reactive requests (E2), or a team too small to give anyone time for shaping.
+**Fits:** a product team that controls its own roadmap, where the scope can flex (a launch date is fine; a fixed list of features isn't); work that can be cut down to fit a fixed time. **Doesn't fit:** client contracts with fixed scope (E3), a stream of small reactive requests (E2), or a team too small to give anyone time for shaping.
 
 **The method, in brief:**
 - **Cycles:** six weeks of building, then a two-week cool-down with nothing scheduled, for fixes, exploration and planning.

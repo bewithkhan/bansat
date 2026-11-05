@@ -55,13 +55,13 @@ Each phase ends with exit criteria. Don't start the next phase until they're met
 - 6.4 Backup restore drill and a breach tabletop exercise.
 - **Exit:** no open critical or high issues.
 
-**Phase 7 — Launch**
+**Phase 7 — Launch readiness**
 - 7.1 Every item in the **Launch gate (Part 13)** is green. Regulator admin done: ICO fee, NDPC if you're a DCPMI, EU representative if needed.
 - 7.2 Deploy to production behind feature flags. Dashboards, alerts and the status page go live.
-- **Exit → G3.**
+- **Exit → G3**, which unlocks the public launch.
 
-**Phase 8 — First 30 days**
-- 8.1 Daily review of errors, performance, AI cost and feedback. Triage weekly.
+**Phase 8 — Launch & first 30 days**
+- 8.1 Turn the feature flags on for everyone. Then review errors, performance, AI cost and feedback daily, and triage weekly.
 - 8.2 Hold the G4 review and start the compliance calendar (9.24).
 
 ### 11.2 Definition of Ready & Definition of Done
@@ -160,17 +160,30 @@ Bansat's phases (11.1) and gates (G0–G4) work with any method. The gates say w
 
 **Hybrid by default.** Bansat is already a hybrid: the blueprint is agreed up front, to G1, and the build after it is iterative. Most projects then use Scrum or Kanban for the build.
 
-| If the answers say | Use | Why |
+Choose in two steps.
+
+**Step 1: the outer method, for approvals.** Take the first row that applies. If neither does, Bansat's gates are the only approvals; go to step 2.
+
+| If the answers say | Outer method | Why |
 |---|---|---|
 | D8 names a method the organisation uses | That method, with Bansat's gates mapped onto it | Your project's rules win (How to use, item 7) |
-| D5 is a fixed-price client, D4 fixes both the date and the scope, or D6 is yes | Stage gates (E3), with iterative builds inside each stage | The client or auditor approves stages, and G0–G4 already are stage boundaries |
-| D2 is two or more teams on one product | A scaled method (E6): one backlog, one Product Owner, one Definition of Done | Several teams need one view of the product; start with as little structure as possible |
-| D1 is one person | The solo loop (E5) | There are no team events to run alone, but the gates still apply |
-| D7 is mostly a stream of requests and fixes, or the project is a live retrofit (Part 14) | Kanban (E2) | Flow suits work that arrives unpredictably, and the gap register becomes the board |
-| D3 is still being discovered, with one team of two to nine | Scrum (E1) | Short Sprints and reviews suit complex work where you learn by building |
-| A product team sets its own appetite, has no client deadline, and D3 is mostly known | Shape Up (E4) | Fixed time and variable scope, with shaping done up front |
+| D5 is a fixed-price client, D4 fixes both the date and the scope, or D6 is yes | Stage gates (E3) | The client or auditor approves stages, and G0–G4 already are stage boundaries |
 
-Work down the table and take the first row that applies. When two rows apply, combine them: the outer method handles approvals with the client or organisation (usually E3), and the inner one runs the build (E1, E2 or E5). For example, a freelancer on a fixed-price contract uses stage gates with the client and the solo loop inside each stage.
+**Step 2: the inner method, for the build.** Take the first row that applies.
+
+| If the answers say | Inner method | Why |
+|---|---|---|
+| D2 is two or more teams on one product, or D1 is more than 10 (split them into teams of 10 or fewer, then use this row) | A scaled method (E6) as a coordination layer around Scrum (E1), or around one shared Kanban board (E2) when D7 is a stream or it's a retrofit | Several teams need one backlog, one Product Owner and one Definition of Done; start with as little structure as possible |
+| D1 is one person | The solo loop (E5), on a Kanban board (E2) when D7 is a stream or it's a retrofit | There are no team events to run alone, but the gates still apply |
+| D7 is mostly a stream of requests and fixes, or the project is a live retrofit (Part 14) | Kanban (E2) | Flow suits work that arrives unpredictably, and the gap register becomes the board |
+| D3 is still being discovered | Scrum (E1) | Short Sprints and reviews suit complex work where you learn by building |
+| D5 is your own product, D4 doesn't fix the scope, D3 is mostly known, and someone senior can spend part of each cycle shaping the next | Shape Up (E4) | Fixed time and variable scope, with the shaping done up front |
+| None of the above | Scrum (E1); when D7 is both, keep part of each Sprint for the stream | A safe default for one team; revisit it at G4 |
+
+For example:
+- A freelancer on a fixed-price contract: stage gates with the client (step 1), and the solo loop inside each stage (step 2).
+- Three teams on a fixed-price contract: stage gates outside, and a scaled method around Scrum inside.
+- Two teams on a live retrofit: no outer method, and one shared Kanban board with E6's single backlog and Definition of Done.
 
 ### 11.8 Project-management toolkit
 
@@ -180,7 +193,7 @@ Each tool comes with the way it usually goes wrong. Keep them in the repo next t
 
 | Decision or deliverable | Owner | Developer | Designer | Client | DPO / privacy lead |
 |---|---|---|---|---|---|
-| Sign G1 (blueprint approved) | A | C | C | C | C |
+| Sign G1 (blueprint approved) | A, R | C | C | C | C |
 | Privacy notice (9.6) | A | C | I | C | R |
 | Release to production (G3) | A | R | I | C | C |
 | {{ }} | | | | | |
@@ -217,7 +230,7 @@ Top 3 RAID items: {{IDs}}
 
 *How it goes wrong:* the "watermelon" report, green on the outside and red inside. Every colour needs evidence, amber is information rather than failure, and the honest headline is always which gate you're working towards and what's left for it.
 
-**Change request** (anything that changes scope, time, cost, quality, risk, or privacy and security):
+**Change request** (anything that changes scope, time, cost, quality, risk, or privacy and security). The issue types and steps follow PRINCE2®-style issue and change control:
 
 ```text
 CR-NNN — {{title}}                 Raised by: {{ }}   Date: {{ }}
@@ -249,9 +262,9 @@ gantt
   Phase 5 AI features :p5, after p4, 14d
   section Launch
   Phase 6 hardening and QA :p6, after p5, 14d
-  G3 release candidate :milestone, g3, after p6, 0d
-  Phase 7 launch :p7, after g3, 3d
-  Phase 8 first 30 days :p8, after p7, 30d
+  Phase 7 launch readiness :p7, after p6, 5d
+  G3 release candidate :milestone, g3, after p7, 0d
+  Phase 8 launch and first 30 days :p8, after g3, 30d
   G4 post-launch review :milestone, g4, after p8, 0d
 ```
 

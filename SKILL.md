@@ -24,7 +24,7 @@ No production code is written for a new project until a complete, project-specif
 ## When this applies
 - **New:** the user is starting, building or prototyping an app, site, tool, MVP, PWA, mobile app, wearable/IoT companion app, admin panel/CRM or AI agent, or asks to plan, spec, architect or scope one.
 - **Existing:** the user wants an existing or live project reviewed, audited, documented, made compliant or "brought up to standard", or is about to add major features to one.
-- **Running the project:** the user asks how to run or manage it (Scrum, Kanban, sprints, stage gates, PRINCE2, Shape Up, a RACI, a status report). Use 0.4, 11.7 and 11.8, then only the chosen profile in Appendix E.
+- **Running the project:** the user asks how to run or manage it (Scrum, Kanban, sprints, stage gates, PRINCE2®, Shape Up, a RACI, a status report). Use 0.4, 11.7 and 11.8, then only the chosen profile(s) in Appendix E.
 - **Full audit:** the user asks for an audit of a working app. Use the Full audit prompt (`framework/12-agent-manual.md`, 12.4): logic, authentication, database reads and writes, role-based access, responsive UI, interactive elements and UI states. Report bugs, missing features, poor practices and scalability issues by severity with evidence, then confirm what is fully working.
 - **Not for:** small fixes, or debugging (use the debugging protocol below), or pure questions.
 - **Project rules win.** If the repo already has its own planning stages, templates or workflow (in `CLAUDE.md`, `AGENTS.md`, `.cursor/rules` or its docs), follow them. Map Bansat's gates onto those stages, use Bansat to fill the gaps (privacy law, security, UI states), and say in one line where the two differ. If the user or the repo says not to use Bansat, don't.
@@ -72,7 +72,7 @@ Then pick the stack profile(s): web (Next.js + Supabase), PWA, mobile (Flutter/R
 1. Restate the idea in one sentence. Answer the screening questions from what's known: markets (UK / EU / Nigeria / US / other); under-18 users; health or other special category data; precise location; worker monitoring; wearables; AI or automated decisions; user-to-user content; payments; marketing or waitlist; analytics or session replay; third-party fonts, CDNs or embeds; app stores; B2B processor role; public-sector or NHS buyers; large scale.
 2. Ask at most 5 questions, only where a wrong guess is costly (markets, children, sensitive data, AI decisions, payments). Otherwise assume, and flag each assumption.
 3. Set the risk tier. **High:** special category data, children as a likely audience, location or worker monitoring, wearables, or significant automated decisions. **Medium:** accounts, analytics, marketing or a B2B processor role. **Low:** otherwise. High means a DPIA is mandatory.
-4. Answer the delivery questions (0.4) and choose the method (11.7): read each answer on its own, take the first row of the 11.7 table that applies, combine an outer and an inner method when two apply, and record the choice in an ADR. Then load only that method's profile (Appendix E).
+4. Answer the delivery questions (0.4) and choose the method (11.7) in two steps: an outer method for approvals (step 1, when a client, contract, auditor or the organisation needs one), then an inner method for the build (step 2, the first row that applies). Read each answer on its own and record the choice in an ADR. Then load only the chosen profile(s) in Appendix E.
 5. Write `docs/BLUEPRINT.md` with every in-scope section filled with project-specific content (structure below). Use `{{…}}` only for facts only the user can supply.
 
 ## Step 3B: existing project (retrofit)
@@ -97,17 +97,18 @@ Then pick the stack profile(s): web (Next.js + Supabase), PWA, mobile (Flutter/R
    - a click-through of every screen under throttling, offline mode, an expired session and a low-privilege role.
 
    Draft the blueprint as-is, and write retroactive ADRs.
-3. **Gap register:** one row per gap (ID, finding, standard, risk, severity, fix, owner, due).
+3. **Delivery method:** answer the delivery questions (0.4) and choose the method (11.7), as in Step 3A. A live retrofit usually runs on Kanban (E2), with the gap register as the board.
+4. **Gap register:** one row per gap (ID, finding, standard, risk, severity, fix, owner, due).
    - **Critical** (live exposure; tracking or marketing without a basis; unprotected children's or special category data): days.
    - **High:** 2–4 weeks.
    - **Medium:** 1–2 months.
    - **Low:** backlog.
-4. **Remediation sprints:**
+5. **Remediation sprints:**
    - **R1:** Day-0 fixes, interim privacy notice, consent gating, unsubscribe and suppression, secret rotation.
    - **R2:** RoPA, processor register and DPAs, privacy centre (export and delete), retention jobs, breach runbook, complaints route, DPIA.
    - **R3:** access-isolation (RLS), privacy and E2E tests in CI; state-matrix gaps; accessibility; headers and CSP.
    - **R4:** the rest, through normal delivery.
-5. **Retrofit realities to state plainly:**
+6. **Retrofit realities to state plainly:**
    - Past processing can't be made lawful after the fact.
    - Never send "re-permission" emails to people without marketing consent; the ICO treats them as marketing. Ask in-product instead.
    - Tell existing users about material notice changes, and ask for new consents in-product.
@@ -195,6 +196,6 @@ The legal facts in the framework were checked against official sources, with AI 
 - **Existing project:**
   - the Day-0 triage results (critical items first);
   - the as-is `docs/BLUEPRINT.md`;
-  - the gap register and the R1–R3 plan.
+  - the gap register, the R1–R3 plan, and the delivery method and why.
 - Then stop and wait for approval before changing code.
 - **Only the user signs a gate.** The user approves G1 by filling in the G1 row (approver and date) in the blueprint's Gate approvals table. Never fill in that table yourself, even when the user says "approved" in chat: ask them to sign the row. If the project uses the optional G1 hook (`.claude/hooks/bansat-g1-guard.mjs`), code edits are refused until they do.

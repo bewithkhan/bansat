@@ -53,8 +53,8 @@ To re-check an existing blueprint, update its Framework row to v2.3, answer the 
 
 | Area | Change |
 |---|---|
-| Delivery questions ★ | Eight questions on team size, teams, how settled the requirements are, what's fixed, the contract and evidence needs (0.4). |
-| Choosing a method ★ | A picker recommends a method from those answers, hybrid by default, and the choice goes in an ADR (11.7). |
+| Delivery questions ★ | Eight questions on team size, teams, how settled the requirements are, what's fixed, the contract, evidence needs, the kind of work and any method already in use (0.4). |
+| Choosing a method ★ | A picker recommends an outer method for approvals, when one is needed, and an inner method for the build. It's hybrid by default, and the choice goes in an ADR (11.7). |
 | Method profiles | Scrum, Kanban, stage gates (the PRINCE2® method and the *PMBOK® Guide*), Shape Up, a solo loop and scaled methods, each showing where G0–G4 and Bansat's documents fall (Appendix E). |
 | Toolkit | RACI, RAID log, stakeholder map, status report, change request, a Mermaid timeline, and forecasting from throughput, each with the way it usually goes wrong (11.8). |
 
@@ -237,7 +237,7 @@ These decide how the project runs (11.7). There are no wrong answers, and you ca
 
 | # | Question | Answer |
 |---|---|---|
-| D1 | How many people will build it? | {{1 · 2–9 · 10–50 · more than 50}} |
+| D1 | How many people will build it? | {{1 · 2–10 · 11–50 · more than 50}} |
 | D2 | How many teams work on the same product? | {{1 · 2–8 · more than 8}} |
 | D3 | How settled are the requirements? | {{fixed and well understood · mostly known · still being discovered}} |
 | D4 | What's fixed: the date, the budget or the scope? | {{any of them, or none}} |
@@ -246,7 +246,7 @@ These decide how the project runs (11.7). There are no wrong answers, and you ca
 | D7 | Is the work mostly planned features, or a stream of requests and fixes? | {{planned features · a stream · both}} |
 | D8 | Does the organisation already use a method you're expected to follow? | {{its name, or no}} |
 
-**Result:** Method {{…}} (11.7) · Reason {{one sentence}} · Recorded in ADR-{{NNN}}
+**Result:** Outer method {{the organisation's method, E3, or none}} · Inner method {{…}} (11.7) · Reason {{one sentence}} · Recorded in ADR-{{NNN}}
 
 ---
 
@@ -2461,13 +2461,13 @@ Each phase ends with exit criteria. Don't start the next phase until they're met
 - 6.4 Backup restore drill and a breach tabletop exercise.
 - **Exit:** no open critical or high issues.
 
-**Phase 7 — Launch**
+**Phase 7 — Launch readiness**
 - 7.1 Every item in the **Launch gate (Part 13)** is green. Regulator admin done: ICO fee, NDPC if you're a DCPMI, EU representative if needed.
 - 7.2 Deploy to production behind feature flags. Dashboards, alerts and the status page go live.
-- **Exit → G3.**
+- **Exit → G3**, which unlocks the public launch.
 
-**Phase 8 — First 30 days**
-- 8.1 Daily review of errors, performance, AI cost and feedback. Triage weekly.
+**Phase 8 — Launch & first 30 days**
+- 8.1 Turn the feature flags on for everyone. Then review errors, performance, AI cost and feedback daily, and triage weekly.
 - 8.2 Hold the G4 review and start the compliance calendar (9.24).
 
 ### 11.2 Definition of Ready & Definition of Done
@@ -2566,17 +2566,30 @@ Bansat's phases (11.1) and gates (G0–G4) work with any method. The gates say w
 
 **Hybrid by default.** Bansat is already a hybrid: the blueprint is agreed up front, to G1, and the build after it is iterative. Most projects then use Scrum or Kanban for the build.
 
-| If the answers say | Use | Why |
+Choose in two steps.
+
+**Step 1: the outer method, for approvals.** Take the first row that applies. If neither does, Bansat's gates are the only approvals; go to step 2.
+
+| If the answers say | Outer method | Why |
 |---|---|---|
 | D8 names a method the organisation uses | That method, with Bansat's gates mapped onto it | Your project's rules win (How to use, item 7) |
-| D5 is a fixed-price client, D4 fixes both the date and the scope, or D6 is yes | Stage gates (E3), with iterative builds inside each stage | The client or auditor approves stages, and G0–G4 already are stage boundaries |
-| D2 is two or more teams on one product | A scaled method (E6): one backlog, one Product Owner, one Definition of Done | Several teams need one view of the product; start with as little structure as possible |
-| D1 is one person | The solo loop (E5) | There are no team events to run alone, but the gates still apply |
-| D7 is mostly a stream of requests and fixes, or the project is a live retrofit (Part 14) | Kanban (E2) | Flow suits work that arrives unpredictably, and the gap register becomes the board |
-| D3 is still being discovered, with one team of two to nine | Scrum (E1) | Short Sprints and reviews suit complex work where you learn by building |
-| A product team sets its own appetite, has no client deadline, and D3 is mostly known | Shape Up (E4) | Fixed time and variable scope, with shaping done up front |
+| D5 is a fixed-price client, D4 fixes both the date and the scope, or D6 is yes | Stage gates (E3) | The client or auditor approves stages, and G0–G4 already are stage boundaries |
 
-Work down the table and take the first row that applies. When two rows apply, combine them: the outer method handles approvals with the client or organisation (usually E3), and the inner one runs the build (E1, E2 or E5). For example, a freelancer on a fixed-price contract uses stage gates with the client and the solo loop inside each stage.
+**Step 2: the inner method, for the build.** Take the first row that applies.
+
+| If the answers say | Inner method | Why |
+|---|---|---|
+| D2 is two or more teams on one product, or D1 is more than 10 (split them into teams of 10 or fewer, then use this row) | A scaled method (E6) as a coordination layer around Scrum (E1), or around one shared Kanban board (E2) when D7 is a stream or it's a retrofit | Several teams need one backlog, one Product Owner and one Definition of Done; start with as little structure as possible |
+| D1 is one person | The solo loop (E5), on a Kanban board (E2) when D7 is a stream or it's a retrofit | There are no team events to run alone, but the gates still apply |
+| D7 is mostly a stream of requests and fixes, or the project is a live retrofit (Part 14) | Kanban (E2) | Flow suits work that arrives unpredictably, and the gap register becomes the board |
+| D3 is still being discovered | Scrum (E1) | Short Sprints and reviews suit complex work where you learn by building |
+| D5 is your own product, D4 doesn't fix the scope, D3 is mostly known, and someone senior can spend part of each cycle shaping the next | Shape Up (E4) | Fixed time and variable scope, with the shaping done up front |
+| None of the above | Scrum (E1); when D7 is both, keep part of each Sprint for the stream | A safe default for one team; revisit it at G4 |
+
+For example:
+- A freelancer on a fixed-price contract: stage gates with the client (step 1), and the solo loop inside each stage (step 2).
+- Three teams on a fixed-price contract: stage gates outside, and a scaled method around Scrum inside.
+- Two teams on a live retrofit: no outer method, and one shared Kanban board with E6's single backlog and Definition of Done.
 
 ### 11.8 Project-management toolkit
 
@@ -2586,7 +2599,7 @@ Each tool comes with the way it usually goes wrong. Keep them in the repo next t
 
 | Decision or deliverable | Owner | Developer | Designer | Client | DPO / privacy lead |
 |---|---|---|---|---|---|
-| Sign G1 (blueprint approved) | A | C | C | C | C |
+| Sign G1 (blueprint approved) | A, R | C | C | C | C |
 | Privacy notice (9.6) | A | C | I | C | R |
 | Release to production (G3) | A | R | I | C | C |
 | {{ }} | | | | | |
@@ -2623,7 +2636,7 @@ Top 3 RAID items: {{IDs}}
 
 *How it goes wrong:* the "watermelon" report, green on the outside and red inside. Every colour needs evidence, amber is information rather than failure, and the honest headline is always which gate you're working towards and what's left for it.
 
-**Change request** (anything that changes scope, time, cost, quality, risk, or privacy and security):
+**Change request** (anything that changes scope, time, cost, quality, risk, or privacy and security). The issue types and steps follow PRINCE2®-style issue and change control:
 
 ```text
 CR-NNN — {{title}}                 Raised by: {{ }}   Date: {{ }}
@@ -2655,9 +2668,9 @@ gantt
   Phase 5 AI features :p5, after p4, 14d
   section Launch
   Phase 6 hardening and QA :p6, after p5, 14d
-  G3 release candidate :milestone, g3, after p6, 0d
-  Phase 7 launch :p7, after g3, 3d
-  Phase 8 first 30 days :p8, after p7, 30d
+  Phase 7 launch readiness :p7, after p6, 5d
+  G3 release candidate :milestone, g3, after p7, 0d
+  Phase 8 launch and first 30 days :p8, after g3, 30d
   G4 post-launch review :milestone, g4, after p8, 0d
 ```
 
@@ -3204,16 +3217,16 @@ Parts 3–7 as written.
 <a id="appe"></a>
 ## Appendix E — Delivery method profiles
 
-Bansat's gates (G0–G4) say **what must be true** before a project moves on. A delivery method says **how the team works** in between. The two fit together: choose the method in 11.7, then read only its profile.
+Bansat's gates (G0–G4) say **what must be true** before a project moves on. A delivery method says **how the team works** in between. The two fit together: choose the method in 11.7, then read only the profiles it names (an outer method for approvals and an inner one for the build can both apply).
 
 | Profile | Use it for |
 |---|---|
 | [E1 Scrum](#appe1) | One team on complex work, where you learn as you build |
 | [E2 Kanban](#appe2) | A steady stream of requests and fixes, live apps and retrofits |
-| [E3 Stage gates](#appe3) | Fixed-price client work, and anything that needs formal approval at each stage |
-| [E4 Shape Up](#appe4) | A product team that sets its own appetite, with no external deadline |
+| [E3 Stage gates](#appe3) | Fixed-price client work, a hard date with fixed scope, and anything that needs formal approval at each stage |
+| [E4 Shape Up](#appe4) | A product team that owns its roadmap, where the scope can flex to fit the time |
 | [E5 Solo loop](#appe5) | One person building on their own |
-| [E6 Scaled methods](#appe6) | Several teams on one product |
+| [E6 Scaled methods](#appe6) | Several teams on one product: LeSS, or SAFe® where the organisation already runs it |
 
 **Where each gate falls:**
 
@@ -3222,8 +3235,8 @@ Bansat's gates (G0–G4) say **what must be true** before a project moves on. A 
 | **G0 Idea** | A draft Product Goal | The first item, "Write the blueprint", enters the board | The start-up request | A shaped pitch | An idea note | A product vision and one backlog |
 | **G1 Blueprint approved** | Before the first Sprint; the FR list seeds the Product Backlog | The blueprint item is done, so build items may start | The end of initiation: the project is authorised | The first bet on a cycle | You sign the G1 row before writing production code | Before the first product-level Sprint, or PI Planning |
 | **G2 Data-ready** | A Product Backlog item that must be Done before any real personal data | A policy: nothing that collects real data passes "Ready to release" before G2 | A stage boundary before real data | In the cycle's scope before real users | A checklist before the first real user | A shared Definition of Done item for every team |
-| **G3 Release candidate** | A release decision at a Sprint Review: the Increment meets the Definition of Done and Part 13 is green | The release policy on the "Release" column | The last stage boundary before launch | The end of the cycle that ships | Launch-day checklist | The release of the integrated increment |
-| **G4 Post-launch** | A Retrospective plus the 30-day review | A service delivery review with the flow measures | Closing the project, then the benefits review | The cool-down after launch | The 30-day review | An overall retrospective across teams |
+| **G3 Release candidate** | Whenever an Increment meets the Definition of Done and Part 13 is green; don't wait for a Sprint Review | The release policy on the "Release" column | The last stage boundary before launch | The end of the cycle that ships | Launch-day checklist | The release of the integrated increment |
+| **G4 Post-launch** | A Retrospective plus the 30-day review | A review of the four flow measures, plus the 30-day review | Closing the project, then the benefits review | The cool-down after launch | The 30-day review | An overall retrospective across teams |
 
 **The same documents in every method:**
 - The FR list (1.5) becomes backlog items, work items, products or pitches.
@@ -3233,8 +3246,8 @@ Bansat's gates (G0–G4) say **what must be true** before a project moves on. A 
 - Part 13 is the release criterion, whatever the method.
 
 **Sources, licences and trademarks.** Each profile summarises its method in Bansat's own words and links to the official source. None of their text is copied, because the Scrum Guide is CC BY-SA 4.0, the Kanban Guide names both CC BY 4.0 and CC BY-SA, and the others are all rights reserved.
-- PRINCE2® is a registered trademark of the PeopleCert group.
-- *PMBOK® Guide* is a registered mark of the Project Management Institute, Inc.
+- PRINCE2® and PRINCE2 Agile® are registered trademarks of the PeopleCert group.
+- PMBOK® is a registered mark of Project Management Institute, Inc.
 - SAFe® and Scaled Agile Framework® are registered trademarks of Scaled Agile, Inc.
 - The Scrum Guide™ is by Ken Schwaber and Jeff Sutherland.
 - Shape Up is © 37signals LLC, and the LeSS rules are © The LeSS Company B.V.
@@ -3249,8 +3262,8 @@ Bansat's gates (G0–G4) say **what must be true** before a project moves on. A 
 **Fits:** one team of up to about ten people; requirements that will change as you learn; a product owner who can decide quickly. **Doesn't fit:** fixed-scope contracts with no room to reorder work (use E3, with Scrum inside each stage), a stream of unplanned requests (E2), or one person on their own (E5).
 
 **The framework, in brief:**
-- **People:** one Scrum Team with three accountabilities. The Product Owner (one person, not a committee) orders the work. The Scrum Master helps the team use Scrum well. The Developers build each Increment.
-- **Events:** the Sprint (one month or less, back to back) contains Sprint Planning, a 15-minute Daily Scrum, the Sprint Review and the Sprint Retrospective. For a one-month Sprint the time-boxes are 8 hours for planning, 4 for the review and 3 for the retrospective; shorter Sprints get shorter events.
+- **People:** one Scrum Team with three accountabilities. The Product Owner (a single person, never a group) orders the work. The Scrum Master helps the team use Scrum well. The Developers build each Increment.
+- **Events:** the Sprint (one month or less, back to back) contains Sprint Planning, a 15-minute Daily Scrum, the Sprint Review and the Sprint Retrospective. For a one-month Sprint the time-boxes are 8 hours for planning, 4 for the review and 3 for the retrospective; shorter Sprints usually get shorter events.
 - **Artefacts, each with a commitment:** the Product Backlog and its Product Goal, the Sprint Backlog and its Sprint Goal, and the Increment and its Definition of Done.
 - The Guide calls the framework immutable: running only parts of it isn't Scrum.
 
@@ -3258,12 +3271,14 @@ Bansat's gates (G0–G4) say **what must be true** before a project moves on. A 
 
 | Bansat | In Scrum |
 |---|---|
+| G0 | A draft Product Goal |
 | The FR list (1.5) and its acceptance criteria (1.6) | Product Backlog items, ordered by the Product Owner |
 | The product's purpose and metrics (1.1, 1.3) | The Product Goal |
 | Definition of Done (11.2), state matrix (10.7), privacy test (9.9) | Part of the team's Definition of Done |
 | Definition of Ready (11.2) | A Bansat add-on: the Scrum Guide doesn't have one, so treat it as a team agreement, not a rule |
 | G1 | Before the first Sprint; the blueprint is what the first Sprint Planning works from |
-| G2 and G3 | Inspected at a Sprint Review; G3 is a release decision once Part 13 is green |
+| G2 | A Product Backlog item that must be Done before any real personal data comes in |
+| G3 | Signed whenever an Increment meets the Definition of Done and Part 13 is green. Don't hold it for the Sprint Review: in Scrum, the review isn't a gate for releasing |
 | G4 | A Retrospective, plus the 30-day review (11.1, Phase 8) |
 
 **Agent notes:** keep each backlog item to one FR (or a slice of one) with its blueprint IDs; put the Sprint Goal in the PR descriptions for that Sprint; never mark an item done until the Definition of Done is met, tests included.
@@ -3275,7 +3290,7 @@ Bansat's gates (G0–G4) say **what must be true** before a project moves on. A 
 
 **Measures:** the Increment against the Product Goal; escaped defects and Part 13 failures; flow measures (E2) if you want forecasts. Velocity and story points aren't part of Scrum; if you use them, see 11.8.
 
-**Related:** the [Scrum Guide Expansion Pack](https://scrumexpansion.org/scrum-guide-expanded/) (first published June 2025) is a companion by some of Scrum's practitioners. It adds roles and a split Definition of Done, departs from the 2020 Guide in places, and isn't endorsed by Scrum.org. Read the 2020 Guide first.
+**Related:** the [Scrum Guide Expansion Pack](https://scrumexpansion.org/scrum-guide-expanded/), by John Coleman, Ralph Jocham and Jeff Sutherland (one of Scrum's two creators), first published in 2025, adapts and extends the 2020 Guide and marks each place where it departs from it. Read the 2020 Guide first.
 
 ---
 
@@ -3288,7 +3303,7 @@ Bansat's gates (G0–G4) say **what must be true** before a project moves on. A 
 
 **The strategy, in brief:**
 - **Three practices:** define and visualise the workflow; actively manage the items in it; improve the workflow.
-- **A Definition of Workflow** states the work items, where work starts and finishes, the states in between, how work in progress (WIP) is limited, the explicit policies, and a **service level expectation** (SLE): how long an item should take, with a probability, such as "85% of items in 8 days or less".
+- **A Definition of Workflow** states the work items, where work starts and finishes, the states in between, how work in progress (WIP) is limited, the explicit policies, and a **service level expectation** (SLE): how long an item should take, with a probability, such as "90% of items within 12 days".
 - **Four flow measures:** WIP (started, not finished), throughput (finished per week), work item age (time since an unfinished item started) and cycle time (start to finish).
 - There are no required roles or meetings. The Kanban Method from [Kanban University](https://kanban.university/kanban-guide/) is a different, larger body of practice, with change-management principles, a set of cadences and optional roles.
 
@@ -3296,13 +3311,14 @@ Bansat's gates (G0–G4) say **what must be true** before a project moves on. A 
 
 | Bansat | In Kanban |
 |---|---|
+| G0 | The first item, "Write the blueprint", enters the board |
 | FRs, gap register rows (14.4), bugs | Work items on the board |
 | Definition of Ready and Done (11.2) | The policies for entering and leaving the board |
 | G1 | The "Write the blueprint" item is done before any build item starts |
 | G2 | A policy: no item that collects real personal data passes "Ready to release" before G2 |
 | G3 | The release policy on the "Release" column: Part 13 green |
-| G4 | A service delivery review of the four flow measures, plus the 30-day review |
-| Severity in the gap register (14.4) | Classes of service: Critical items go first, with their own SLE |
+| G4 | A regular review of the four flow measures, plus the 30-day review |
+| Severity in the gap register (14.4) | A separate SLE for Critical items, which go first |
 
 **Agent notes:** take the oldest item in progress before starting a new one; respect the WIP limit; say when an item has aged past the SLE rather than starting something else.
 
@@ -3317,11 +3333,11 @@ Bansat's gates (G0–G4) say **what must be true** before a project moves on. A 
 
 **What it is:** the project runs in stages, and a decision-maker approves each stage before the next one starts. Bansat's own gates already work this way. Two widely used sources describe it: the PRINCE2® method (7th edition, 2023, from [PeopleCert](https://www.peoplecert.org/news-and-announcements/2023/prince2-receives-major-update)) and the *PMBOK® Guide* (8th edition, 2025, from [PMI](https://www.pmi.org/standards/pmbok)).
 
-**Fits:** fixed-price or fixed-scope client contracts; public-sector and regulated work that needs evidence of control (D6); work with hard external dates. **Doesn't fit:** discovery work where the requirements are still unknown, unless each stage builds iteratively inside (the usual hybrid).
+**Fits:** fixed-price or fixed-scope client contracts; public-sector and regulated work that needs evidence of control (D6); work with a hard date and fixed scope. **Doesn't fit:** discovery work where the requirements are still unknown, unless each stage builds iteratively inside (the usual hybrid).
 
 **The methods, in brief:**
 - **The PRINCE2® method, 7th edition:**
-  - Seven principles: continued business justification, learn from experience, defined roles and responsibilities, manage by stages, manage by exception, focus on products, and tailor to suit the project.
+  - Seven principles: ensure continued business justification; learn from experience; define roles, responsibilities and relationships; manage by stages; manage by exception; focus on products; and tailor to suit the project.
   - Seven practices: business case, organising, plans, quality, risk, issues and progress.
   - Seven processes, from starting up a project to closing it.
   - The 7th edition added people as an integrated element.
@@ -3352,7 +3368,7 @@ Both are tailored to the project's size and risk, and neither has to be heavy.
 
 **Measures:** stage tolerances for time, cost and scope agreed at each boundary; Part 13 status; benefits against 1.3 after launch.
 
-PRINCE2® is a registered trademark of the PeopleCert group. *PMBOK® Guide* is a registered mark of the Project Management Institute, Inc. Both are summarised here in Bansat's own words; read the originals for the detail.
+PRINCE2® is a registered trademark of the PeopleCert group. PMBOK® is a registered mark of Project Management Institute, Inc. Both are summarised here in Bansat's own words; read the originals for the detail.
 
 ---
 
@@ -3361,7 +3377,7 @@ PRINCE2® is a registered trademark of the PeopleCert group. *PMBOK® Guide* is 
 
 **What it is:** Basecamp's method for product teams. Senior people shape the work before it's scheduled, teams get a fixed amount of time to build it, and the scope bends to fit the time. Source: [Shape Up](https://basecamp.com/shapeup) by Ryan Singer, free to read online.
 
-**Fits:** a product team that controls its own roadmap, with no client deadline; work that can be cut down to fit a fixed time. **Doesn't fit:** client contracts with fixed scope (E3), a stream of small reactive requests (E2), or a team too small to give anyone time for shaping.
+**Fits:** a product team that controls its own roadmap, where the scope can flex (a launch date is fine; a fixed list of features isn't); work that can be cut down to fit a fixed time. **Doesn't fit:** client contracts with fixed scope (E3), a stream of small reactive requests (E2), or a team too small to give anyone time for shaping.
 
 **The method, in brief:**
 - **Cycles:** six weeks of building, then a two-week cool-down with nothing scheduled, for fixes, exploration and planning.
@@ -3402,7 +3418,7 @@ Shape Up is © 37signals LLC, all rights reserved, and is summarised here in Ban
 
 **The loop:**
 - **Weekly plan (30 minutes):** pick one to three FRs that meet the Definition of Ready (11.2), and write one sentence on what "done this week" means.
-- **Build:** one item at a time (a WIP limit of one), in vertical slices: schema, server, UI, tests (12.2). Commit and open small PRs, even to yourself.
+- **Build:** one item at a time (a WIP limit of one), in vertical slices: schema, server, UI, tests (12.2). Commit and open small PRs, even to yourself. For a stream of requests or a retrofit, keep the items on a simple Kanban board (E2).
 - **Weekly review (30 minutes):**
   - Demo what works to yourself, or better, to a likely user.
   - Update the blueprint and the gap register.
@@ -3413,6 +3429,7 @@ Shape Up is © 37signals LLC, all rights reserved, and is summarised here in Ban
 
 | Bansat | In the solo loop |
 |---|---|
+| G0 | An idea note: Part 0 and 1.1–1.3, however rough |
 | G1 | You sign the G1 row before writing production code. Signing your own gate is fine; skipping it isn't. |
 | G2 | A checklist before the first real user, waitlists included |
 | G3 | Part 13 green on launch day |
@@ -3434,22 +3451,25 @@ Shape Up is © 37signals LLC, all rights reserved, and is summarised here in Ban
 - [LeSS](https://less.works/less/rules/index) (Large-Scale Scrum) keeps Scrum's simplicity and scales it.
 - SAFe® ([Scaled Agile Framework®](https://framework.scaledagile.com/safe-6-0-configurations)) adds roles, levels and planning events for large organisations.
 
-**Fits:** two or more teams on the same product (D2); an organisation that already runs a scaled framework (D8), in which case use theirs. **Doesn't fit:** one team. Scaling adds coordination cost, so don't start here unless you must.
+**Fits:** two or more teams on the same product (D2); an organisation that already runs a scaled framework (D8), in which case use theirs. It's a coordination layer around Scrum (E1), or around one shared Kanban board (E2) for a stream or a retrofit. **Doesn't fit:** one team. Scaling adds coordination cost, so don't start here unless you must.
+
+**Which one:** LeSS for 2–8 Scrum teams sharing one Product Owner and one backlog (LeSS Huge above 8). SAFe® when the organisation already runs it (D8), or needs portfolio governance across several Agile Release Trains of 50–125 people each.
 
 **The methods, in brief:**
 - **LeSS:**
   - For 2–8 teams: one Product Owner, one Product Backlog, one Definition of Done, one product-level Sprint and one shippable increment, plus an Overall Retrospective across teams.
-  - LeSS Huge, for more than 8 teams, splits the backlog into requirement areas of 4–8 teams, each with an Area Product Owner.
+  - LeSS Huge, for more than 8 teams, keeps one Product Backlog, grouped into requirement areas of 4–8 teams, each with an Area Product Owner.
 - **SAFe® 6.0:**
   - Four configurations: Essential, Large Solution, Portfolio and Full.
   - Teams of teams called Agile Release Trains, generally 50–125 people.
   - A planning event every 8–12 weeks, usually over two days.
-  - In June 2026 Scaled Agile added guidance on AI-native teams, alongside the core framework.
+  - In June 2026 Scaled Agile released AI-Native SAFe® in early access: a new version of the framework that sits alongside Core SAFe rather than replacing it.
 
 **Where Bansat fits:**
 
 | Bansat | Across several teams |
 |---|---|
+| G0 | A product vision and one backlog |
 | The blueprint | One blueprint for the product, owned by one person; teams add to it through pull requests |
 | The FR list | One product backlog, not one per team |
 | Definition of Done (11.2), state matrix (10.7), privacy test (9.9) | One shared Definition of Done for every team |
@@ -3460,7 +3480,7 @@ Shape Up is © 37signals LLC, all rights reserved, and is summarised here in Ban
 
 **Agent notes:** check that a change in one team's area doesn't break another team's FRs or access rules (5.4); flag cross-team dependencies in the RAID log (11.8).
 
-**How it commonly fails:** scaling before one team works well; one backlog per team, so nobody sees the whole product; and, as Scrum's co-creator Ken Schwaber [argued about SAFe](https://kenschwaber.wordpress.com/2013/08/06/unsafe-at-any-speed/), top-down, large-batch planning that controls risk through predictability rather than learning.
+**How it commonly fails:** scaling before one team works well; one backlog per team, so nobody sees the whole product; and, as Scrum's co-creator Ken Schwaber [argued about SAFe](https://kenschwaber.wordpress.com/2013/08/06/unsafe-at-any-speed/) in 2013, a one-size-fits-all process imposed from above, when the people doing the work should decide how to do it.
 
 **Measures:** the flow measures (E2) for the whole product, not per team; integration failures; Part 13 status for the integrated release.
 

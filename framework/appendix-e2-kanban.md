@@ -7,7 +7,7 @@
 
 **The strategy, in brief:**
 - **Three practices:** define and visualise the workflow; actively manage the items in it; improve the workflow.
-- **A Definition of Workflow** states the work items, where work starts and finishes, the states in between, how work in progress (WIP) is limited, the explicit policies, and a **service level expectation** (SLE): how long an item should take, with a probability, such as "85% of items in 8 days or less".
+- **A Definition of Workflow** states the work items, where work starts and finishes, the states in between, how work in progress (WIP) is limited, the explicit policies, and a **service level expectation** (SLE): how long an item should take, with a probability, such as "90% of items within 12 days".
 - **Four flow measures:** WIP (started, not finished), throughput (finished per week), work item age (time since an unfinished item started) and cycle time (start to finish).
 - There are no required roles or meetings. The Kanban Method from [Kanban University](https://kanban.university/kanban-guide/) is a different, larger body of practice, with change-management principles, a set of cadences and optional roles.
 
@@ -15,13 +15,14 @@
 
 | Bansat | In Kanban |
 |---|---|
+| G0 | The first item, "Write the blueprint", enters the board |
 | FRs, gap register rows (14.4), bugs | Work items on the board |
 | Definition of Ready and Done (11.2) | The policies for entering and leaving the board |
 | G1 | The "Write the blueprint" item is done before any build item starts |
 | G2 | A policy: no item that collects real personal data passes "Ready to release" before G2 |
 | G3 | The release policy on the "Release" column: Part 13 green |
-| G4 | A service delivery review of the four flow measures, plus the 30-day review |
-| Severity in the gap register (14.4) | Classes of service: Critical items go first, with their own SLE |
+| G4 | A regular review of the four flow measures, plus the 30-day review |
+| Severity in the gap register (14.4) | A separate SLE for Critical items, which go first |
 
 **Agent notes:** take the oldest item in progress before starting a new one; respect the WIP limit; say when an item has aged past the SLE rather than starting something else.
 

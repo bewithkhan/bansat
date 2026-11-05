@@ -141,9 +141,9 @@ Two more come first, in v2.3 and Phase 1c (decided 2026-11-05):
 | FR-13 | Site interface translations (Pashto, Urdu, Arabic first) | Could |
 | FR-14 | Email digests | Won't: they'd mean collecting email addresses. Watch the repo or use the Atom feed instead. |
 | FR-15 | **Delivery method picker:** Part 0 asks how the project will run (team size and number of teams, how settled the requirements are, fixed deadline, budget or scope, contract type, evidence an auditor or client needs), and 11.7 recommends a method with its reason. Hybrid by default: Bansat's gates up front, an iterative build after G1. | Must |
-| FR-16 | **Method profiles** (Appendix E): Scrum, Kanban, stage gates (in the style of PRINCE2 and the PMBOK Guide), Shape Up, a solo loop, and scaled methods (SAFe, LeSS). Each one maps G0–G4 and Bansat's documents onto the method's roles, events and artefacts, and says when it fits, how it commonly fails, and where its official source is. | Must |
+| FR-16 | **Method profiles** (Appendix E): Scrum, Kanban, stage gates (in the style of PRINCE2® and the *PMBOK® Guide*), Shape Up, a solo loop, and scaled methods (SAFe®, LeSS). Each one maps G0–G4 and Bansat's documents onto the method's roles, events and artefacts, and says when it fits, how it commonly fails, and where its official source is. | Must |
 | FR-17 | **Project-management toolkit** (11.8): RACI, RAID log, stakeholder map, status report, change request, a Mermaid timeline, and estimation and forecasting | Must |
-| FR-18 | **The skill loads only the chosen method profile**, as it does for stacks (3.7) | Must |
+| FR-18 | **The skill loads only the chosen method profile(s)**, as it does for stacks (3.7) | Must |
 | FR-19 | **Documentation site:** the framework, method profiles, this blueprint and the changelog as searchable pages at https://bewithkhan.github.io/bansat/, rebuilt from the repo on every merge to `main`, with no cookies, analytics or third-party requests | Must |
 | FR-20 | **Wiki off:** the repository Wiki stays disabled, so nobody lands on an empty or stale copy of the docs (done 2026-11-05) | Must |
 
@@ -699,7 +699,7 @@ These go in `watch/verify-prompt.md`:
 4. **Reviewers:** you review every change, on a regular schedule. No lawyer is involved, so entries go no higher than `human-reviewed`.
 5. **GitHub settings:** agreed. You enable Pages, protect `main` and add the workflow files as each phase needs them, and the weekly Claude task is approved.
 6. **Privacy contact:** open a GitHub issue.
-7. **Delivery methods (2026-11-05):** cover Scrum and Kanban, stage gates, Shape Up and a solo loop, and scaled methods (SAFe, LeSS); build a picker, profiles and a toolkit; ship as v2.3, before the law registry.
+7. **Delivery methods (2026-11-05):** cover Scrum and Kanban, stage gates, Shape Up and a solo loop, and scaled methods (SAFe®, LeSS); build a picker, profiles and a toolkit; ship as v2.3, before the law registry.
 8. **Site and Wiki (2026-11-05):** build the documentation site now (Phase 1c); turn the Wiki off (done).
 
 **G1:** signed by Muhammad Tufail Khan on 2026-11-05, in the Gate approvals table at the top.

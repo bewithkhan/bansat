@@ -26,6 +26,6 @@ The framework is split into one file per part, so the skill (and you) can read o
 | [appendix-c-glossary.md](appendix-c-glossary.md) | Glossary | As needed |
 | [appendix-d-stacks.md](appendix-d-stacks.md) | Stack and project-type profiles | After Part 0, for the project's stack |
 | [appendix-e-methods.md](appendix-e-methods.md) | Delivery method profiles: where each gate falls in every method, sources and trademarks | After 11.7 |
-| [appendix-e1-scrum.md](appendix-e1-scrum.md) · [e2-kanban](appendix-e2-kanban.md) · [e3-stage-gates](appendix-e3-stage-gates.md) · [e4-shape-up](appendix-e4-shape-up.md) · [e5-solo](appendix-e5-solo.md) · [e6-scaled](appendix-e6-scaled.md) | One profile per method family | Only the one 11.7 chose |
+| [appendix-e1-scrum.md](appendix-e1-scrum.md) · [e2-kanban](appendix-e2-kanban.md) · [e3-stage-gates](appendix-e3-stage-gates.md) · [e4-shape-up](appendix-e4-shape-up.md) · [e5-solo](appendix-e5-solo.md) · [e6-scaled](appendix-e6-scaled.md) | One profile per method family | Only the ones 11.7 chose (an outer and an inner method can both apply) |
 
 **Editing:** change a module, then run `node scripts/build-framework.ts` and commit both. Every module except `cover.md` starts with an `<a id="…"></a>` anchor and a heading (`##` for a part or appendix, `###` for a section of Appendix E), so links in the combined file keep working. Section numbers (5.4, 10.7, 12.3) are the same in both forms.
