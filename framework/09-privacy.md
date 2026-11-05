@@ -438,6 +438,7 @@ Unsubscribe in one click: {{link}} · Email preferences: {{link}} · Privacy not
   - Segregated tables with app-level encryption where feasible.
   - Owner-only RLS, plus explicitly shared carers.
   - Access logging and UK/EU residency.
+  - Passkeys or MFA for every account that can see this data, and re-authentication before any download or export (7.1).
   - No analytics, replay or error-monitoring payloads on these screens.
   - AI only with DPIA approval and provider assurances.
   - Short retention.
@@ -548,6 +549,8 @@ The legal duty (UK/EU Art. 32; NDPA s.39) is met through Part 7. Keep evidence: 
 
 T0 is the moment you become aware of the breach.
 
+Treat a credible claim as a possible breach: a researcher's report, your data offered for sale, or a ransom note. Open a breach-log entry, preserve evidence and start checking at once, and contain as soon as the claim checks out. T0, and the 72-hour clock, starts when you're reasonably sure personal data was compromised, so keep the check short. Record the outcome even if you rule it out.
+
 | When | Step |
 |---|---|
 | **T0** | Contain: revoke keys, disable the feature, block access. Preserve evidence. Open an entry in the **breach log**. Record *every* breach, even unreported ones (Art. 33(5); NDPA s.40(8)). |
@@ -616,7 +619,7 @@ See 5.6. The schedule is enforced by jobs and tests, disclosed in the privacy no
 | DPIA review | Annual or on change | {{ }} | {{ }} |
 | Vendor, DPA and sub-processor review | Annual | {{ }} | {{ }} |
 | Cookie scan and register update | Quarterly, and on every release that adds a script | {{ }} | {{ }} |
-| Access review (admin, DB, providers) | Quarterly | {{ }} | {{ }} |
+| Access review (admin, DB, providers, leavers, third-party app grants) | Quarterly | {{ }} | {{ }} |
 | Backup restore drill | Quarterly | {{ }} | {{ }} |
 | DAST / pen test | Before launch; then annually | {{ }} | {{ }} |
 | Breach tabletop exercise | Annual | {{ }} | {{ }} |

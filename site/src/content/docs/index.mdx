@@ -1,8 +1,9 @@
 ---
-title: Bansat (بنسټ)
+title: Lay the foundation before you build
 description: A blueprint-first framework and Claude Agent Skill by Muhammad Tufail Khan. Your AI writes the plan a senior team would, then waits for your approval.
 template: splash
 hero:
+  title: Bansat (بنسټ)
   tagline: Your AI can build an app in a weekend. Bansat makes sure it's one you can actually launch.
   actions:
     - text: Start here
@@ -38,7 +39,7 @@ import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
 For Claude Code, clone the latest release into your skills folder and type `/bansat`:
 
 ```bash
-git clone --branch v2.3.1 --depth 1 https://github.com/bewithkhan/bansat ~/.claude/skills/bansat
+git clone --branch v2.4.0 --depth 1 https://github.com/bewithkhan/bansat ~/.claude/skills/bansat
 ```
 
 In the Claude apps, add it as a skill. Any other agent can read the framework as Markdown.
@@ -48,6 +49,7 @@ In the Claude apps, add it as a skill. Any other agent can read the framework as
 <CardGrid>
   <LinkCard title="How to use it" href="/bansat/framework/how-to-use/" description="Tracks, depth by risk tier, the gates, and where the usual planning documents live." />
   <LinkCard title="Part 0: intake and risk" href="/bansat/framework/parts/00-intake/" description="The screening and delivery questions every project starts with." />
+  <LinkCard title="Breach casebook" href="/bansat/casebook/" description="20 documented incidents from 2025 and 2026, each mapped to the checks that catch its class of failure." />
   <LinkCard title="Delivery methods" href="/bansat/methods/" description="Where each gate falls in Scrum, Kanban, stage gates, Shape Up, a solo loop and scaled methods." />
   <LinkCard title="Tested examples" href="/bansat/project/tested-examples/" description="The framework's code, run in CI: the schema, the access rules, the consent loader and the privacy test." />
 </CardGrid>

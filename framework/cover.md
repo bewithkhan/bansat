@@ -4,9 +4,9 @@
 
 **Product · Architecture · Design · Security · Privacy & Compliance · Delivery**
 
-Created by **Muhammad Tufail Khan** ([github.com/bewithkhan](https://github.com/bewithkhan)) · Framework version **2.3** · Legal position checked **4 November 2026** against official sources, with AI assistance (not yet reviewed by a lawyer) · Supersedes *Comprehensive App Development Framework & Master Blueprint* (v1)
+Created by **Muhammad Tufail Khan** ([github.com/bewithkhan](https://github.com/bewithkhan)) · Framework version **2.4** · Legal position checked **4 November 2026** against official sources, with AI assistance (not yet reviewed by a lawyer) · Supersedes *Comprehensive App Development Framework & Master Blueprint* (v1)
 
-> **Cite as:** Khan, M. T. (2026). *Bansat (بنسټ): A blueprint-first framework for building software* (Version 2.3). https://github.com/bewithkhan/bansat
+> **Cite as:** Khan, M. T. (2026). *Bansat (بنسټ): A blueprint-first framework for building software* (Version 2.4). https://github.com/bewithkhan/bansat
 > Text and templates: **CC BY 4.0**. Code samples: **MIT**. Keep this credit when you copy, adapt or share the framework.
 
 This is the single source of truth for **every project, new or existing**. For a new project, complete it **before any code is generated**. For an existing or live project, use the **retrofit track (Part 14)**: reverse-engineer the blueprint from what's built, triage the live risks first, then close the gaps. Either way, it turns your product into decisions that an AI coding agent (Claude, Cursor, Lovable, Bolt, Copilot) can build from without guessing. Privacy and security are built in from the first commit rather than bolted on after launch: UK GDPR, PECR, EU GDPR, Nigeria's NDPA 2023 and GAID 2025, and the EU AI Act.
@@ -27,13 +27,13 @@ This is the single source of truth for **every project, new or existing**. For a
 | Privacy contact / DPO | {{NAME, privacy@DOMAIN}} |
 | Repository | {{URL}} |
 | Last updated · Next review | {{YYYY-MM-DD}} · {{YYYY-MM-DD}} |
-| Framework | Bansat (بنسټ) v2.3 by Muhammad Tufail Khan, https://github.com/bewithkhan/bansat (CC BY 4.0) |
+| Framework | Bansat (بنسټ) v2.4 by Muhammad Tufail Khan, https://github.com/bewithkhan/bansat (CC BY 4.0) |
 
 **Revision history**
 
 | Version | Date | Author | Summary |
 |---|---|---|---|
-| 0.1 | {{YYYY-MM-DD}} | {{NAME}} | First draft from framework v2.3 |
+| 0.1 | {{YYYY-MM-DD}} | {{NAME}} | First draft from framework v2.4 |
 
 **Gate approvals**
 
@@ -45,6 +45,18 @@ This is the single source of truth for **every project, new or existing**. For a
 | G4 Post-launch review | | | |
 
 > **Only a person signs a gate.** An AI agent never fills in this table. With the optional G1 hook from the Bansat repo (`hooks/bansat-g1-guard.mjs`), Claude Code refuses code edits until the G1 row names an approver and a date.
+
+### What changed in v2.4
+
+To re-check an existing blueprint, update its Framework row to v2.4; copy the new rules into your agent rules file (12.1); run Day-0 triage T11 (14.2) on live projects; check the new launch-gate items, two of them blocking (Part 13); and change any reference to Day-0 triage T11 "Was anything exposed?" to T12.
+
+| Area | Change |
+|---|---|
+| Breach casebook ★ | 20 documented incidents and regulators' decisions from 2025 and 2026, each mapped to the checks that catch its class of failure (Appendix F). |
+| AI coding agents ★ | The agent works with development keys only, asks before destructive commands, never switches off its own approval prompts, and treats text it reads in tool results, issues and error reports as data (12.1, T-13, T-14, Day-0 triage T11). |
+| CI/CD and connected apps | Pinned actions, read-only workflow tokens, trusted publishing with 2FA and aged dependency updates; integration tokens and third-party app grants (7.4, T-15, T-16). |
+| Launch gate | Three new checks, two of them blocking: no default passwords or test accounts, no open data stores, and agent and CI credentials (Part 13). |
+| Other checks | No default passwords or test accounts at launch (7.1); nothing that stores data open to the internet (7.4); backups kept apart (5.7); report triage (7.6); credible claims treated as possible breaches (9.20); passkeys or MFA for special category data (9.13); leavers' access removed the same day (7.4); uploaded code never run outside a sandbox (T-07); secrets stored as write-only values (7.4); agents in AI features get the least access that works (8.4). |
 
 ### What changed in v2.3
 
@@ -118,4 +130,4 @@ From reviewer feedback ([issue #1](https://github.com/bewithkhan/bansat/issues/1
 - [Part 12 — AI coding agent operating manual](#p12)
 - [Part 13 — Launch readiness gate](#p13)
 - [Part 14 — Existing & live projects: retrofit track and keeping every blueprint current](#p14)
-- [Appendix A — Templates](#appa) · [Appendix B — References](#appb) · [Appendix C — Glossary](#appc) · [Appendix D — Stack & project-type profiles](#appd) · [Appendix E — Delivery method profiles](#appe)
+- [Appendix A — Templates](#appa) · [Appendix B — References](#appb) · [Appendix C — Glossary](#appc) · [Appendix D — Stack & project-type profiles](#appd) · [Appendix E — Delivery method profiles](#appe) · [Appendix F — Breach casebook](#appf)

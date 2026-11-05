@@ -7,7 +7,7 @@
 | Field | Value |
 |---|---|
 | Project | Bansat v3: Law Watch, a public law tracker, and stack profiles for every major framework |
-| Blueprint version | 0.4 |
+| Blueprint version | 0.5 (scope added after G1; approved when its pull request is merged, BR-01) |
 | Status | Approved for build (G1 signed 2026-11-05) |
 | Accountable owner | Muhammad Tufail Khan, maintainer |
 | Data controller | Muhammad Tufail Khan (sole maintainer). Bansat itself collects no personal data (Part 9). |
@@ -24,6 +24,7 @@
 | 0.2 | 2026-11-05 | Muhammad Tufail Khan | Open questions answered: full-tier list confirmed; AI summaries off (£0); site at bewithkhan.github.io/bansat; no lawyer reviewer; GitHub settings and the weekly Claude task agreed; privacy contact through GitHub issues |
 | 0.3 | 2026-11-05 | Muhammad Tufail Khan | Refinement after G1, no change of scope: status approved; prior art for each component (3.10), which led to three corrections: the ICO is watched as a page because no official news feed could be confirmed (1.6), the watch runs off the hour (NFR-DETECT-01), and the verify task stays off sites whose terms forbid it (Part 12); research-first rule for the verify task (Part 12); repository structure as built in Phase 1 (3.5) |
 | 0.4 | 2026-11-05 | Muhammad Tufail Khan | Scope added after G1, decided by the owner on 2026-11-05: delivery methods in v2.3 (FR-15 to FR-18), a documentation site now (FR-19), and the Wiki turned off (FR-20). New phases 1b and 1c (Part 11), ADR-B8 and ADR-B9, prior art for both (3.10) |
+| 0.5 | 2026-11-05 | Muhammad Tufail Khan | Scope added, decided by the owner on 2026-11-05: a breach casebook in the framework, on the site and in the README (FR-21), and a research paper on the whole of Bansat with an experiment, whose harness and results are published (FR-22). New phase 1d and research workstream R (Part 11), BR-10, Decisions 9 and 10 |
 
 **Gate approvals**
 
@@ -87,6 +88,11 @@ Two more come first, in v2.3 and Phase 1c (decided 2026-11-05):
 4. **Delivery methods:** Part 0 asks how the project will run, and 11.7 recommends a method: Scrum, Kanban, stage gates, Shape Up, a solo loop or a scaled method. A profile for each shows where Bansat's gates and documents sit in that method, and Part 11 gains a project-management toolkit.
 5. **A documentation site** on GitHub Pages, built from the framework modules, so anyone can read and search Bansat without a GitHub account. The law tracker (item 3) joins the same site in Phase 5.
 
+And two that show what Bansat is worth (decided 2026-11-05):
+
+6. **A breach casebook:** real, documented incidents from 2025 onwards, from apps built with AI tools to large companies and regulators' fines, each mapped to the Bansat checks that catch that kind of failure.
+7. **A research paper** on the whole of Bansat: what it is, how it fits an individual, a startup or a large organisation, and an experiment comparing apps an AI agent builds with and without it. It's planned with the co-authors in a separate research plan.
+
 ### 1.2 Problem & evidence
 
 - Issue #1: a reviewer running Bansat on a Laravel/MySQL app found Postgres-only assumptions, and pointed out that one large file is hard for an agent to search.
@@ -146,6 +152,8 @@ Two more come first, in v2.3 and Phase 1c (decided 2026-11-05):
 | FR-18 | **The skill loads only the chosen method profile(s)**, as it does for stacks (3.7) | Must |
 | FR-19 | **Documentation site:** the framework, method profiles, this blueprint and the changelog as searchable pages at https://bewithkhan.github.io/bansat/, rebuilt from the repo on every merge to `main`, with no cookies, analytics or third-party requests | Must |
 | FR-20 | **Wiki off:** the repository Wiki stays disabled, so nobody lands on an empty or stale copy of the docs (done 2026-11-05) | Must |
+| FR-21 | **Breach casebook** (Appendix F): documented incidents from January 2025 onwards, each with what happened (from primary sources), the root cause, its failure class, the size of the organisation, and the Bansat sections, launch traps and tests that catch that class; a page on the site; a README section | Must |
+| FR-22 | **Research artifact:** the experiment's app specifications, harness, checks and results in `research/`, published before the paper, so anyone can rerun it and check its numbers | Should |
 
 ### 1.6 Acceptance criteria
 
@@ -205,6 +213,16 @@ Feature: Method profiles (FR-16)
     Then it shows where each gate (G0 to G4) and each Bansat document sits in that method
     And it links to the method's official source and copies none of its text (BR-09)
 
+Feature: Breach casebook (FR-21)
+  Scenario: A case is added
+    Given an incident with a primary source: the organisation's statement, a regulator's decision, a court record, a CVE record or the original researcher's report
+    When it's added to Appendix F
+    Then it states the facts as reported, with dates and sources
+    And it names the failure class and the Bansat checks that catch it, without claiming Bansat would have prevented the incident
+  Scenario: A fact is disputed
+    Given the organisation disputes a reported fact
+    Then the case says so and links both sides
+
 Feature: Documentation site (FR-19)
   Scenario: A merge to main
     When a change to framework/ is merged
@@ -226,6 +244,7 @@ Feature: Documentation site (FR-19)
 - **BR-07** Fetching respects robots.txt and each site's terms. A source that forbids automated access is checked by hand or by the Claude task instead.
 - **BR-08** Contributors are credited in the entry's history and in the release notes.
 - **BR-09** Method sources are linked and summarised in Bansat's own words. Nothing is copied from the Scrum Guide, the Kanban Guide, PRINCE2®, the *PMBOK® Guide*, Shape Up, SAFe® or LeSS. Trademark notices appear at first mention, and no SAFe name appears in a heading (3.10).
+- **BR-10** Each casebook case rests on primary sources: the organisation's own statement, a regulator, a court, a CVE record or the researcher who found the problem. News only corroborates. A case states what was reported and the class of failure, blames no one beyond the sources, names no private individuals except the researchers it credits, and gives no exploit detail beyond what the primary source published. Bansat's checks are described as catching that class of failure, never as a guarantee that they'd have prevented the incident.
 
 ### 1.8 Monetisation
 
@@ -622,12 +641,14 @@ All other states are N/A: there are no accounts, forms, uploads or long-running 
 | **1 Restructure** (done: v2.2.0, 5 Nov 2026) | Split the framework into `framework/`, generate the combined file, update the skill to load modules (3.7), add `examples/` with CI (FR-12). You turn on branch protection for `main`, set up so you can still merge your own pull requests. | The generated file matches v2.1 except for intended changes; the skill loads the right modules in tests; CI green |
 | **1b Delivery methods** (done: v2.3.0, 5 Nov 2026) | Part 0 delivery questions; 11.7 choosing a method; 11.8 toolkit; Appendix E profiles for Scrum, Kanban, stage gates, Shape Up, a solo loop and scaled methods; the skill loads the chosen profile(s); release v2.3.0 | The three picker scenarios in 1.6 give the expected method; each profile maps G0–G4 and copies no source text (BR-09); independent review done; CI green |
 | **1c Documentation site** | A Starlight site generated from `framework/`, this blueprint and the changelog; a Pages deploy workflow; the privacy test and axe run against the built site in CI. Pages is switched on in Settings (Decision 5). | Live at https://bewithkhan.github.io/bansat/; privacy test green (no cookies, no third-party requests); axe clean; search works with no network |
+| **1d Breach casebook** (done: v2.4.0, 5 Nov 2026) | Appendix F: 15–20 documented cases with a root-cause taxonomy and the size of each organisation; a site page; a README section; posts to share | Every case has a primary source and passes an independent check; no claim goes beyond the sources (BR-10); CI green |
 | **2 Law registry** | Schema; full-tier entries in batches (Europe, Americas, Middle East & Africa, Asia-Pacific); basic-tier entries for every other country with a law. Each batch is its own pull request. | Every full-tier claim sourced; every entry dated and labelled; CI validation green; you've reviewed each batch |
 | **3 Stack profiles** | The 24 profiles in 3.8, in pull requests by group | Each profile reviewed; the skill picks the right one |
 | **4 Law Watch** | `watch/sources.yaml`; the watch Action (you add the workflow file, A-03); the weekly Claude task (created as a scheduled task; approved 2026-11-05) | A dry run on a known past change produces the right issue and pull request; failure reporting works |
 | **5 Law tracker pages** | The tracker screens (SCR-01 to SCR-06) on the site built in Phase 1c | Privacy test green (zero third-party requests), axe clean, Lighthouse budgets met |
 | **6 Launch v3.0.0** | README, CHANGELOG, release, announcement | Part 13 all green → **G3** |
 | **7 First 30 days** | Watch the alerts, the review backlog and staleness | 30-day review → **G4** |
+| **R Research paper** (alongside Phases 2–5) | A research plan agreed with the co-authors; the experiment harness, specifications and checks in `research/` (FR-22); the runs; the paper on arXiv (cs.SE, cross-listed to cs.CR) | The co-authors sign off the plan before any run and the manuscript before submission; every reference checked against its source; nothing unchecked left in the text |
 
 **Full-tier list (confirmed 2026-11-05):**
 - **Europe:** EU (GDPR, ePrivacy, AI Act), Germany, France, Ireland, Netherlands, Italy, Spain, UK, Switzerland, Norway, Turkey.
@@ -701,5 +722,7 @@ These go in `watch/verify-prompt.md`:
 6. **Privacy contact:** open a GitHub issue.
 7. **Delivery methods (2026-11-05):** cover Scrum and Kanban, stage gates, Shape Up and a solo loop, and scaled methods (SAFe®, LeSS); build a picker, profiles and a toolkit; ship as v2.3, before the law registry.
 8. **Site and Wiki (2026-11-05):** build the documentation site now (Phase 1c); turn the Wiki off (done).
+9. **Breach casebook (2026-11-05):** in the framework (Appendix F), on the site and in the README.
+10. **Research paper (2026-11-05):** on the whole of Bansat, with an experiment; written with the owner's PhD supervisor(s) as co-authors; planned in a separate research plan that the co-authors agree before any experiment runs, then posted to arXiv.
 
 **G1:** signed by Muhammad Tufail Khan on 2026-11-05, in the Gate approvals table at the top.

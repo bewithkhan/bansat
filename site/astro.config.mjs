@@ -20,9 +20,9 @@ export default defineConfig({
         './src/styles/bansat.css',
       ],
       sidebar: [
-        { label: 'Start here', items: [{ label: 'Home', link: '/' }, { slug: 'framework/cover' }, { slug: 'framework/how-to-use' }] },
+        { label: 'Start here', items: [{ label: 'Home', link: '/' }, { slug: 'framework/cover' }, { slug: 'framework/how-to-use' }, { slug: 'casebook', label: 'Breach casebook' }] },
         { label: 'Framework', items: [{ autogenerate: { directory: 'framework/parts' } }] },
-        { label: 'Appendices', items: [{ autogenerate: { directory: 'framework/appendices' } }] },
+        { label: 'Appendices', items: [{ autogenerate: { directory: 'framework/appendices' } }, { slug: 'casebook' }] },
         { label: 'Delivery methods', items: [{ autogenerate: { directory: 'methods' } }] },
         { label: 'Project', items: [{ autogenerate: { directory: 'project' } }] },
       ],

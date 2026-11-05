@@ -110,6 +110,7 @@ Each phase ends with exit criteria. Don't start the next phase until they're met
 - **Migrations:** `prisma migrate deploy` runs in the release step. Changes are backwards-compatible, using expand → migrate → contract (5.5).
 - **Feature flags** for risky features. Releases use semantic versioning with a changelog.
 - **Rollback:** redeploy the previous build and fix the database forwards. Practise it once before launch.
+- **Pipeline security:** pinned actions, read-only tokens, no secrets for untrusted pull requests, and deploys a person approves (7.4).
 
 **PR template** (`.github/pull_request_template.md`):
 

@@ -11,7 +11,7 @@ authors:
   - family-names: "Khan"
     given-names: "Muhammad Tufail"
     # orcid: "https://orcid.org/0000-0000-0000-0000"   (add yours to link the citation to your ORCID record)
-version: "2.3.1"
+version: "2.4.0"
 date-released: "2026-11-05"
 license:
   - CC-BY-4.0

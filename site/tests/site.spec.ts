@@ -44,7 +44,7 @@ for (const path of PAGES) {
   });
 }
 
-for (const path of ['/bansat/', '/bansat/framework/parts/07-security/', '/bansat/methods/', '/bansat/methods/scrum/', '/bansat/project/blueprint/']) {
+for (const path of ['/bansat/', '/bansat/casebook/', '/bansat/framework/parts/07-security/', '/bansat/methods/', '/bansat/methods/scrum/', '/bansat/project/blueprint/']) {
   test(`axe finds no WCAG 2.2 AA violations: ${path}`, async ({ page }) => {
     await page.goto(path);
     const results = await new AxeBuilder({ page })
