@@ -8,7 +8,7 @@ import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parse, stringify } from 'yaml';
-import { changeText, compare, extract, failureText, loadSources, robotsAllows, robotsCrawlDelay, type Source, type WatchItem } from './watch-lib.ts';
+import { changeText, compare, decode, extract, failureText, keywordPattern, loadSources, robotsAllows, robotsCrawlDelay, type Source, type WatchItem } from './watch-lib.ts';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const WATCH = join(ROOT, 'scripts/watch.ts');
@@ -96,6 +96,53 @@ test("a response that isn't the feed type it should be fails", () => {
 test('SPARQL results become items with their URI as the link', () => {
   const { items } = extract({ url: 'https://publications.europa.eu/webapi/rdf/sparql', type: 'api', language: 'en' }, sparql);
   assert.deepEqual(items, [{ title: 'GDPR consolidated · 2016-05-04', link: 'http://publications.europa.eu/resource/celex/32016R0679' }]);
+});
+
+const officeFeed = (titles: string[]): string =>
+  `<?xml version="1.0"?><rss version="2.0"><channel><title>Attorney General news</title>${titles.map((t, i) => `<item><title>${t}</title><link>https://ago.example.gov/news/${i}</link></item>`).join('')}</channel></rss>`;
+const agItem: WatchItem = { url: 'https://ago.example.gov/rss/news', type: 'rss', keywords: ['privacy', 'data', 'children', 'AI', 'social media'], language: 'en' };
+
+test('with keywords, only matching items count, as whole words in any case', () => {
+  const { items } = extract(agItem, officeFeed(['AG sues app over children\'s data', 'Highway contract fraud charges', 'New AI chatbot rules for minors', 'Database of road closures', 'Officer said the case is closed', 'Social  Media age checks begin']));
+  assert.deepEqual(items.map((i) => i.title), ["AG sues app over children's data", 'New AI chatbot rules for minors', 'Social Media age checks begin']);
+  assert.equal(keywordPattern(['AI']).test('said'), false);
+  // Soft hyphens inside words (one Attorney General's site uses them) don't hide a keyword.
+  assert.deepEqual(extract(agItem, officeFeed(['Pri\u00ADva\u00ADcy settlement'])).items.map((i) => i.title), ['Privacy settlement']);
+  assert.equal(keywordPattern(['données personnelles']).test('Les DONNÉES personnelles des élèves'), true);
+});
+
+test('with keywords, unrelated news changes nothing, and relevant news is reported', () => {
+  const before = extract(agItem, officeFeed(['Highway contract fraud charges']));
+  const unrelated = extract(agItem, officeFeed(['Tax scam warning', 'Highway contract fraud charges']));
+  assert.equal(compare({ ...before, checked: '2026-11-02' }, unrelated).kind, 'same');
+  const relevant = extract(agItem, officeFeed(['Settlement over location data sales', 'Tax scam warning', 'Highway contract fraud charges']));
+  const result = compare({ ...before, checked: '2026-11-02' }, relevant);
+  assert.equal(result.kind, 'changed');
+  assert.deepEqual(result.newItems.map((i) => i.title), ['Settlement over location data sales']);
+});
+
+test("a JSON list of documents, like the Federal Register's, gives each title, link and date", () => {
+  const body = JSON.stringify({ count: 2, results: [
+    { document_number: '2026-01234', title: "Children's Online Privacy Protection Rule", html_url: 'https://www.federalregister.gov/documents/2026/01/16/2026-01234/childrens-online-privacy-protection-rule', publication_date: '2026-01-16', type: 'Rule' },
+    { document_number: '2025-09876', title: 'Telemarketing Sales Rule', html_url: 'https://www.federalregister.gov/documents/2025/05/02/2025-09876/telemarketing-sales-rule', publication_date: '2025-05-02', type: 'Proposed Rule' },
+  ] });
+  const { items } = extract({ url: 'https://www.federalregister.gov/api/v1/documents.json?conditions%5Bcfr%5D%5Btitle%5D=16', type: 'api', language: 'en' }, body);
+  assert.deepEqual(items[0], { title: "Children's Online Privacy Protection Rule", link: 'https://www.federalregister.gov/documents/2026/01/16/2026-01234/childrens-online-privacy-protection-rule', date: '2026-01-16' });
+  assert.equal(items.length, 2);
+});
+
+test('a JSON news list gives links from newsUrl or @id fields', () => {
+  const ok = JSON.stringify({ totalCount: 711, items: [{ newsUrl: '/oag/news/newsroom/2026/october/settlement.html', title: 'Settlement over app data', lastModified: 'Oct 30, 2026' }] });
+  assert.deepEqual(extract({ url: 'https://oklahoma.gov/content/sok-wcm/en/oag/news/newsroom/jcr:content/responsivegrid-second/newslisting.json', type: 'api', language: 'en' }, ok).items, [{ title: 'Settlement over app data', link: 'https://oklahoma.gov/oag/news/newsroom/2026/october/settlement.html', date: 'Oct 30, 2026' }]);
+  const plone = JSON.stringify({ items: [{ '@id': 'https://www.gov.br/anpd/pt-br/assuntos/noticias/nova-resolucao', title: 'ANPD publica nova resolução', effective: '2026-10-20T10:00:00' }] });
+  assert.equal(extract({ url: 'https://www.gov.br/anpd/++api++/pt-br/assuntos/noticias/@search', type: 'api', language: 'pt-BR' }, plone).items[0].link, 'https://www.gov.br/anpd/pt-br/assuntos/noticias/nova-resolucao');
+});
+
+test('pages are decoded with the charset they declare', () => {
+  const latin1 = Uint8Array.from([...'<html><head><meta charset="iso-8859-1"></head><body>Reforma à Lei</body></html>'].map((c) => c.charCodeAt(0)));
+  assert.match(decode(latin1, 'text/html'), /Reforma à Lei/);
+  assert.match(decode(latin1, 'text/html; charset=ISO-8859-1'), /Reforma à Lei/);
+  assert.match(decode(new TextEncoder().encode('<p>Protección de datos</p>'), 'text/html'), /Protección de datos/);
 });
 
 test('a first sighting sets a baseline; the same content is unchanged; a new entry is reported', () => {

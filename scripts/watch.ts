@@ -25,6 +25,7 @@ import {
   USER_AGENT,
   changeText,
   compare,
+  decode,
   emptyState,
   extract,
   failureText,
@@ -59,6 +60,7 @@ const ACCEPT: Record<string, string> = {
 
 type Response = { ok: true; body: string } | { ok: false; error: string };
 
+
 // In fixture mode, index.json maps each URL (and each host's robots.txt) to a file, or to {"status": 404}.
 const fixtureIndex: Record<string, string | { status: number }> = fixtures ? JSON.parse(readFileSync(join(fixtures, 'index.json'), 'utf8')) : {};
 
@@ -74,9 +76,9 @@ async function get(url: string, accept: string): Promise<Response & { status?: n
     if (!response.ok) return { ok: false, error: `HTTP ${response.status}`, status: response.status };
     const length = Number(response.headers.get('content-length') ?? 0);
     if (length > MAX_BYTES) return { ok: false, error: `response too large (${length} bytes)` };
-    const body = await response.text();
-    if (body.length > MAX_BYTES) return { ok: false, error: `response too large (${body.length} characters)` };
-    return { ok: true, body };
+    const bytes = new Uint8Array(await response.arrayBuffer());
+    if (bytes.length > MAX_BYTES) return { ok: false, error: `response too large (${bytes.length} bytes)` };
+    return { ok: true, body: decode(bytes, response.headers.get('content-type') ?? '') };
   } catch (error) {
     return { ok: false, error: error instanceof Error ? (error.name === 'TimeoutError' ? 'timed out after 30 s' : error.message) : String(error) };
   }

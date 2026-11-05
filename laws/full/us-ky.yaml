@@ -89,3 +89,8 @@ checked:
 history:
   - date: "2026-11-05"
     summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
+watch:
+  - url: https://apps.legislature.ky.gov/law/statutes/chapter.aspx?id=39092
+    type: html
+    selector: '#Panel1 .heading_text:contains("Kentucky Consumer Data Protection Act") + br + ul'
+    language: en

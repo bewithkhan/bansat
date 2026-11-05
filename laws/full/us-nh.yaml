@@ -100,3 +100,8 @@ checked:
 history:
   - date: "2026-11-05"
     summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
+watch:
+  - url: https://gc.nh.gov/rsa/html/LII/507-H/507-H-mrg.htm
+    type: html
+    selector: 'body'
+    language: en

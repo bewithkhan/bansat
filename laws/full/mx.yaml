@@ -99,3 +99,21 @@ checked:
 history:
   - date: "2026-11-05"
     summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
+watch:
+  - url: https://www.diputados.gob.mx/LeyesBiblio/ref/lfpdppp.htm
+    type: html
+    selector: 'section.bg-accent'
+    language: es
+  - url: https://www.diputados.gob.mx/LeyesBiblio/regla.htm
+    type: html
+    selector: 'tr:has(a[href="regley/Reg_LFPDPPP.pdf"]) > td:nth-child(n+2)'
+    language: es
+  - url: https://www.diputados.gob.mx/LeyesBiblio/ref/lfpc.htm
+    type: html
+    selector: 'section.bg-accent'
+    language: es
+  - url: https://www.gob.mx/buengobierno/archivo/prensa
+    type: html
+    selector: '#prensa'
+    keywords: [datos personales, protección de datos, privacidad, LFPDPPP, derechos ARCO, inteligencia artificial]
+    language: es
