@@ -17,6 +17,9 @@ Every item must be ✅, or N/A with a reason. Any open ⛔ item means **no launc
 **C. Security**
 - [ ] ⛔ Access enforced at the data layer on every table (RLS where the database supports it), with tenant-isolation tests passing (5.4)
 - [ ] ⛔ No secrets in the repo or the client bundle (scans clean)
+- [ ] ⛔ No default or shared passwords, and no test or demo accounts in production (7.1)
+- [ ] ⛔ No database, cache, search index or log store reachable from the internet without authentication (scan clean) (7.4)
+- [ ] Coding agents and CI hold no production or account-wide credentials; production changes go through CI/CD with approval; CI/CD hardened (7.4, 12.1)
 - [ ] ⛔ No critical dependency vulnerabilities; high ones have a plan
 - [ ] Security headers in place and the CSP **enforced** (7.4)
 - [ ] MFA for admins and provider consoles; rate limits on auth, AI and forms

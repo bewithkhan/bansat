@@ -33,6 +33,11 @@ Check these sources again before each launch; guidance changes.
 - OWASP Cheat Sheet Series, Authentication: https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html · Session Management: https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html
 - RFC 8058 (one-click unsubscribe): https://www.rfc-editor.org/rfc/rfc8058 · RFC 9457 (Problem Details): https://www.rfc-editor.org/rfc/rfc9457 · RFC 9116 (security.txt): https://www.rfc-editor.org/rfc/rfc9116
 - Gmail sender guidelines: https://support.google.com/a/answer/81126
+- OWASP Top 10 for Agentic Applications (2026): https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/
+- GitHub Actions secure use (pinned actions, token permissions, `pull_request_target`): https://docs.github.com/en/actions/reference/security/secure-use
+- npm trusted publishing: https://docs.npmjs.com/trusted-publishers · requiring 2FA for publishing: https://docs.npmjs.com/requiring-2fa-for-package-publishing-and-settings-modification
+- Dependabot `cooldown`: https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference#cooldown- · Renovate `minimumReleaseAge`: https://docs.renovatebot.com/configuration-options/#minimumreleaseage
+- Third-party app access: Google Workspace: https://knowledge.workspace.google.com/admin/apps/control-which-apps-access-google-workspace-data · Microsoft Entra user consent: https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/configure-user-consent
 
 **Delivery methods** (Appendix E; summarised, not copied)
 - Scrum Guide (2020): https://scrumguides.org/scrum-guide.html · Kanban Guide (2025.5): https://kanbanguides.org/the-kanban-guide/

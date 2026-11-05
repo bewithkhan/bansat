@@ -438,6 +438,7 @@ Unsubscribe in one click: {{link}} · Email preferences: {{link}} · Privacy not
   - Segregated tables with app-level encryption where feasible.
   - Owner-only RLS, plus explicitly shared carers.
   - Access logging and UK/EU residency.
+  - Passkeys or MFA for every account that can see this data, and re-authentication before any download or export (7.1).
   - No analytics, replay or error-monitoring payloads on these screens.
   - AI only with DPIA approval and provider assurances.
   - Short retention.
@@ -547,6 +548,8 @@ The legal duty (UK/EU Art. 32; NDPA s.39) is met through Part 7. Keep evidence: 
 ### 9.20 Personal data breach response
 
 T0 is the moment you become aware of the breach.
+
+Treat a credible claim as a possible breach: a researcher's report, your data offered for sale, or a ransom note. Start the T0 steps and the assessment at once, and record the outcome in the breach log even if you rule it out.
 
 | When | Step |
 |---|---|

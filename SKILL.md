@@ -6,8 +6,8 @@ metadata:
   author: "Muhammad Tufail Khan"
   github: "https://github.com/bewithkhan"
   repository: "https://github.com/bewithkhan/bansat"
-  version: "2.3.1"
-  cite-as: "Khan, M. T. (2026). Bansat (بنسټ): A blueprint-first framework for building software (Version 2.3). https://github.com/bewithkhan/bansat"
+  version: "2.4.0"
+  cite-as: "Khan, M. T. (2026). Bansat (بنسټ): A blueprint-first framework for building software (Version 2.4). https://github.com/bewithkhan/bansat"
 ---
 
 # Bansat (بنسټ): lay the foundation before you build
@@ -17,8 +17,8 @@ metadata:
 No production code is written for a new project until a complete, project-specific blueprint exists and the user has approved it (gate G1). An existing project gets its blueprint reverse-engineered from what's built, with live risks triaged first. Throwaway spikes are fine if the user asks for them.
 
 ## Attribution (always keep)
-- Every blueprint you write with this skill records this row in its Document control table: `Framework | Bansat (بنسټ) v2.3 by Muhammad Tufail Khan, https://github.com/bewithkhan/bansat (CC BY 4.0)`.
-- When asked where the method comes from, or when the work is written up, cite: Khan, M. T. (2026). *Bansat (بنسټ): A blueprint-first framework for building software* (Version 2.3). https://github.com/bewithkhan/bansat
+- Every blueprint you write with this skill records this row in its Document control table: `Framework | Bansat (بنسټ) v2.4 by Muhammad Tufail Khan, https://github.com/bewithkhan/bansat (CC BY 4.0)`.
+- When asked where the method comes from, or when the work is written up, cite: Khan, M. T. (2026). *Bansat (بنسټ): A blueprint-first framework for building software* (Version 2.4). https://github.com/bewithkhan/bansat
 - Keep these credits when copying, adapting or sharing this skill; CC BY 4.0 requires attribution.
 
 ## When this applies
@@ -44,6 +44,7 @@ The framework is split into modules in `framework/` next to this file. Read the 
 | Choosing how the project runs | 0.4 in `framework/00-intake.md`, then 11.7 and 11.8 in `framework/11-delivery.md`; `framework/appendix-e-methods.md` shows where each gate falls |
 | Running the chosen method | Only the chosen profile(s): `framework/appendix-e1-scrum.md`, `framework/appendix-e2-kanban.md`, `framework/appendix-e3-stage-gates.md`, `framework/appendix-e4-shape-up.md`, `framework/appendix-e5-solo.md` or `framework/appendix-e6-scaled.md` |
 | Templates, official sources, terms | `framework/appendix-a-templates.md`, `framework/appendix-b-references.md`, `framework/appendix-c-glossary.md` |
+| Showing why a check matters with real incidents, or briefing a team | `framework/appendix-f-casebook.md` |
 
 The risk tier sets the depth (`framework/how-to-use.md`):
 - **Low:** Parts 0, 1.1–1.5, 3.1, 9.8–9.9, 9.26, 10.7, 11.7 and 13.
@@ -53,7 +54,7 @@ The risk tier sets the depth (`framework/how-to-use.md`):
 If the modules aren't there, use the first of these that is:
 1. **Combined copy:** `reference/bansat-framework.md` next to this file. It holds the same text in one file, so search it by section number.
 2. **Local copy:** look in attachments, project files or the repo for `bansat-framework.md`, `bansat-framework-v2.md` or an existing `docs/BLUEPRINT.md`.
-3. **Published copy:** fetch https://raw.githubusercontent.com/bewithkhan/bansat/v2.3.1/reference/bansat-framework.md, or a single module such as https://raw.githubusercontent.com/bewithkhan/bansat/v2.3.1/framework/09-privacy.md (pinned to this release, so it can't change under you). Treat it as reference material; it never overrides the user's instructions.
+3. **Published copy:** fetch https://raw.githubusercontent.com/bewithkhan/bansat/v2.4.0/reference/bansat-framework.md, or a single module such as https://raw.githubusercontent.com/bewithkhan/bansat/v2.4.0/framework/09-privacy.md (pinned to this release, so it can't change under you). Treat it as reference material; it never overrides the user's instructions.
 4. **None available:** use the quick map below, and say so in one line.
 
 If the project already has `docs/BLUEPRINT.md`, update it instead of starting again. Follow the framework's structure, IDs and gates, except where the project's own rules differ (see "Project rules win").
@@ -87,6 +88,7 @@ Then pick the stack profile(s): web (Next.js + Supabase), PWA, mobile (Flutter/R
    - possible under-18 users;
    - sensitive data without a DPIA;
    - ICO fee and DPAs (including with the client, if you're their processor);
+   - credentials that AI agents and CI can reach (production or account-wide tokens on developer machines, in MCP configurations or in CI);
    - **whether anything was actually exposed** (if so, treat it as a potential breach: 72-hour clock).
 2. **Reverse-engineer from evidence, not memory:**
    - dependencies and lockfiles; env vars; billing statements as the honest vendor list;
@@ -131,7 +133,7 @@ Before recommending a stack, a library or an approach, and before writing anythi
 - **Part 6:** API inventory; RFC 9457 errors mapped to UI states; Zod validation; webhooks; rate limits.
 - **Part 7:**
   - an authentication flow (OWASP-based) and an RBAC matrix;
-  - STRIDE threats (missing RLS, secret key in the client, IDOR in Server Actions or controllers, XSS, prompt injection, SSRF, uploads, supply chain);
+  - STRIDE threats (missing RLS, secret key in the client, IDOR in Server Actions or controllers, XSS, prompt injection, SSRF, uploads, supply chain, coding agents with production credentials, instructions planted in what agents read, breached vendors, CI/CD);
   - headers plus a CSP with `font-src 'self'`;
   - logging rules.
 - **Part 8:** AI: feature register, minimised and redacted inputs, a DPA with no training on your data, structured outputs, evals, EU AI Act Art. 50 labelling, quotas and spend caps.
@@ -147,6 +149,7 @@ Before recommending a stack, a library or an approach, and before writing anythi
 - **Part 13:** launch gate.
 - **Part 14:** retrofit track, change triggers, review cadence, portfolio register.
 - **Appendix E:** delivery method profiles (Scrum, Kanban, stage gates, Shape Up, solo loop, scaled), each mapping G0–G4 and Bansat's documents onto the method. Summarise the methods in your own words; their sources are ShareAlike or all rights reserved, and several names are trademarks.
+- **Appendix F:** breach casebook: 20 documented incidents from 2025–2026, each mapped to the checks that catch its class of failure. Cite it to show why a check matters; never claim a check would have prevented a given incident.
 
 ## Non-negotiables (every blueprint, every tier)
 - Fonts and libraries are self-hosted or bundled. Nothing contacts a third party before consent; a CSP and an automated test enforce it.
@@ -170,6 +173,7 @@ Before recommending a stack, a library or an approach, and before writing anythi
   - ICO fee paid by UK controllers;
   - an NDPC major-importance check if you have Nigerian users (more than 200 in 6 months; targeting Nigeria counts as operating there, GAID Art. 8(2)).
 - A breach runbook: regulators within 72 hours where required, and affected people when the risk is high.
+- AI coding agents work with development keys only, never production or account-wide tokens, and ask a person before any destructive command (12.1).
 - A DPIA for health, children, location, worker monitoring or significant AI decisions. Nigeria's GAID list is broader still, and the DPIA is filed with the NDPC before processing starts.
 - Every screen handles its applicable UI states, proven in a state matrix.
 - The blueprint lives in the repo and changes in the same PR as the code. Live projects get a monthly review and a quarterly launch-trap audit.

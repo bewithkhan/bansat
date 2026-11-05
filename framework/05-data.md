@@ -558,5 +558,6 @@ Defaults to adjust per project. Deletion is implemented as code (scheduled jobs 
 ### 5.7 Backups & disaster recovery
 
 - Turn on automated daily backups. Add point-in-time recovery if RPO < 24 h. Backups stay encrypted and in-region.
+- Keep backups apart from what they protect: in a separate account or project, or as provider backups that deleting the database, volume or project can't remove. Turn on deletion protection where the provider offers it, and prefer delayed (soft) deletion for production resources.
 - Run a **quarterly restore drill** into a scratch project: record the time taken and any problems, and re-apply the deletion log afterwards.
 - Keep a runbook (11.5) for DB restore, key rotation and rollback.

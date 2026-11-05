@@ -32,4 +32,5 @@ export const MODULES = [
   'appendix-e4-shape-up.md',
   'appendix-e5-solo.md',
   'appendix-e6-scaled.md',
+  'appendix-f-casebook.md',
 ] as const;

@@ -48,10 +48,12 @@ const LABELS = {
   'appendix-b-references.md': 'B · References',
   'appendix-c-glossary.md': 'C · Glossary',
   'appendix-d-stacks.md': 'D · Stack profiles',
+  'appendix-f-casebook.md': 'F · Breach casebook',
 };
 
 function slugFor(file) {
   if (METHOD_PAGES[file]) return METHOD_PAGES[file][0];
+  if (file === 'appendix-f-casebook.md') return 'casebook';
   if (file === 'cover.md' || file === 'how-to-use.md') return `framework/${file.replace(/\.md$/, '')}`;
   if (file.startsWith('appendix-')) return `framework/appendices/${file.replace(/\.md$/, '')}`;
   return `framework/parts/${file.replace(/\.md$/, '')}`;

@@ -2,6 +2,20 @@
 
 All notable changes to Bansat (بنسټ). Each release is a git tag, and the install command in the README is pinned to one, so the skill's instructions only change when you choose to update.
 
+## v2.4.0 (2026-11-05)
+
+- **Breach casebook (Appendix F).** Twenty documented incidents and regulators' decisions from January 2025 to October 2026, from apps built with AI tools to the largest platforms, each mapped to the Bansat checks that catch its class of failure. Every case rests on a primary source (the organisation's own statement, a regulator, a CVE record or the researcher who found the problem), records any dispute, and was checked against its sources by an independent review. It's also a page on the [site](https://bewithkhan.github.io/bansat/casebook/).
+- **Checks the casebook found missing:**
+  - **AI coding agents (12.1, T-13, T-14).** Development keys only, never production or account-wide tokens; a person confirms every destructive command; approval prompts and sandboxes stay on; and text the agent reads (tool and MCP results, issues, error reports, web pages) is data, not instructions. A new paragraph says how to back the rules with limits the agent can't argue its way past.
+  - **CI/CD and publishing (7.4, T-16).** Pinned actions, read-only workflow tokens by default, no secrets for untrusted pull requests, trusted publishing with 2FA, lockfile installs with install scripts only where they're needed, and new versions left to age (Dependabot `cooldown`, Renovate `minimumReleaseAge`).
+  - **Connected apps (7.4, T-15).** The narrowest scopes, integration tokens encrypted and rotated, and only reviewed third-party apps on staff Google Workspace or Microsoft 365 accounts.
+  - **And:** no default passwords or test accounts at launch (7.1); nothing that stores data reachable from the internet without authentication (7.4); secrets marked as sensitive in the platform (7.4); leavers' access removed the same day (7.4); uploaded code, scripts and templates never run outside a sandbox (T-07); backups kept apart from what they protect (5.7); a set time to triage security reports (7.6); credible claims of stolen data treated as possible breaches (9.20); passkeys or MFA for special category data (9.13); agents in AI features get the least access that works (8.4).
+- **Launch gate (Part 13).** 40 checks, 18 of them blocking, with new ones for default passwords and test accounts, open data stores, and agent and CI credentials.
+- **Day-0 triage (14.2).** A new T11 lists the credentials AI agents and CI can reach. "Was anything exposed?" is now T12.
+- **References (Appendix B).** The OWASP Top 10 for Agentic Applications, GitHub's secure-use guide for Actions, npm trusted publishing and 2FA, Dependabot and Renovate release-age settings, and the Google Workspace and Microsoft Entra controls for third-party apps.
+
+**Re-checking an existing blueprint:** update the Framework row to v2.4, copy the new rules into your agent rules file (12.1), and run Day-0 triage T11 on live projects.
+
 ## v2.3.1 (2026-11-05)
 
 - **Documentation site.** The framework, the method profiles, the v3 blueprint and this changelog are now searchable pages at https://bewithkhan.github.io/bansat/, rebuilt from the repo on every merge. They set no cookies and make no third-party requests, and CI checks every page for both, plus broken links and accessibility (axe, WCAG 2.2 AA).

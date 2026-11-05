@@ -33,7 +33,8 @@ After R2, all new scope follows the normal Definition of Done (11.2) and gates.
 | T8 | **Children** | Could under-18s be using it (students, learner drivers, families, pupils)? | Decide the position (9.12); add an age check at next sign-in if needed |
 | T9 | **Sensitive data** | Health, location, religion, biometrics or other C3 data present? Is there a DPIA? | Start the DPIA (9.21); restrict access; stop sending it to AI or analytics |
 | T10 | **Registration & contracts** | ICO fee paid; DPAs with processors; a DPA with your client if you're their processor (9.2) | Pay and sign this week |
-| T11 | **Was anything exposed?** | If T1–T3 failed, check access logs for unauthorised access | Treat it as a potential breach (9.20). The 72-hour clock runs from when you become aware a breach has occurred. |
+| T11 | **Credentials agents and CI can reach** | List the tokens and keys on developer machines, in AI agent and MCP configurations, and in CI secrets, with each one's scope | Replace production and account-wide tokens with scoped, short-lived ones; move production changes into CI/CD with approval (12.1) |
+| T12 | **Was anything exposed?** | If T1–T3 or T11 failed, check access logs for unauthorised access | Treat it as a potential breach (9.20). The 72-hour clock runs from when you become aware a breach has occurred. |
 
 **Find tables without RLS** (Supabase SQL editor):
 
@@ -108,7 +109,7 @@ The blueprint lives in the repo (`docs/BLUEPRINT.md`) and **changes in the same 
 - **Quarterly:** launch-trap audit (9.26) and cookie scan.
 - **Annually:** full review, plus a framework-version check.
 
-**Framework versioning:** each project blueprint records `Framework: Bansat v2.3`. When this master framework changes (a law, a guideline, a better pattern), its revision history lists what to re-check. Apply that list to each project at its next monthly review.
+**Framework versioning:** each project blueprint records `Framework: Bansat v2.4`. When this master framework changes (a law, a guideline, a better pattern), its revision history lists what to re-check. Apply that list to each project at its next monthly review.
 
 ### 14.6 Portfolio register
 

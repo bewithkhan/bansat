@@ -12,6 +12,7 @@
 - **MFA:** TOTP or passkey, required for OWNER/ADMIN roles in workspaces with {{> 5}} members and for any internal admin console.
 - **No account enumeration:** sign-in, sign-up and reset give the same response whether or not the account exists.
 - **Recovery:** verified email only. Notify the user when the email, MFA or sign-in method changes.
+- **No default or shared credentials:** every person and service has its own. Before launch, remove or disable test, demo and seed accounts in production; none of them may reach real data.
 - **Passwords (if used):** check against breached-password lists, allow paste and password managers (WCAG 3.3.8), set no composition rules beyond length ≥ 12, and rate-limit attempts.
 
 **Authentication flow.** Adapt it to your provider (Supabase Auth, Auth.js, Clerk, Firebase, Laravel Sanctum, Django) and keep the rules in the notes, which follow the OWASP Authentication and Session Management cheat sheets (Appendix B).
@@ -88,13 +89,17 @@ Use STRIDE (Spoofing, Tampering, Repudiation, Information disclosure, Denial of 
 | T-04 | Tampering | XSS through comments, Markdown or AI output | Allowlist sanitiser; CSP with nonces; no unsanitised HTML | E2E + DAST |
 | T-05 | Tampering | Prompt injection in task or comment text that the AI reads | Treat content as data; no side-effect tools without user confirmation; validate output (8.4) | Eval set |
 | T-06 | Information disclosure | SSRF through link previews, URL imports or webhook targets | Allowlist schemes and hosts; block private IP ranges; timeouts | Unit |
-| T-07 | Tampering | Malicious or oversized uploads | Type and size checks; private buckets; signed URLs; scan shared files | Integration |
+| T-07 | Tampering | Malicious or oversized uploads, including files that carry code, scripts or templates | Type and size checks; private buckets; signed URLs; scan shared files; never run code, scripts or templates from uploads outside an isolated sandbox with no credentials | Integration |
 | T-08 | Spoofing | Credential stuffing or magic-link abuse | Rate limits, MFA, short-lived single-use links | E2E |
 | T-09 | Denial of service | AI or export endpoints used to run up costs | Auth required; quotas; spend caps (8.7) | Load test |
 | T-10 | Information disclosure | Third-party scripts, fonts or replay tools leak data | ADR-004; consent-gated loader; CSP | Privacy test (9.9) |
 | T-11 | Information disclosure | Verbose errors or stack traces reach the client | Generic messages + `ref`; details only in logs | E2E |
 | T-12 | Tampering | Supply chain: malicious, typosquatted or AI-hallucinated packages | Check that a package exists and is maintained before installing; lockfile; automated updates; audit in CI | CI |
-| {{T-13}} | {{ }} | {{ }} | {{ }} | {{ }} |
+| T-13 | Elevation of privilege | A coding agent, or malware driving one, uses production or account-wide credentials it can reach on a developer's machine or in CI, and deletes or changes production | Development keys only where agents run; production changes through CI/CD with approval; confirmation before destructive commands; backups kept apart (5.7); see 12.1 | Day-0 triage T11 + restore drill |
+| T-14 | Tampering | Instructions planted in content the coding agent reads (tool or MCP results, issues, error reports, web pages) make it run code or install packages | Content is data (12.1); approval before commands and installs; MCP servers and tools with the narrowest access; agent sandboxed | Review of agent permission settings |
+| T-15 | Information disclosure | A vendor or connected app is breached, and its tokens or its copy of your data are used | Narrowest scopes; tokens encrypted server-side and rotated; staff accounts accept only reviewed apps; IDs, not personal data, to vendors (5.1); revoke at the first sign of compromise (7.4) | Quarterly vendor and grant review |
+| T-16 | Tampering | CI/CD or publishing compromise: a workflow runs untrusted code with secrets, or a stolen token publishes a malicious release | Pinned actions; read-only workflow tokens by default; no secrets for untrusted pull requests; trusted publishing with 2FA; new versions left to age (7.4) | CI configuration review |
+| {{T-17}} | {{ }} | {{ }} | {{ }} | {{ }} |
 
 ### 7.4 Security controls baseline
 
@@ -128,6 +133,21 @@ upgrade-insecure-requests
   - Provider encryption at rest.
   - App-level encryption for C3 fields where feasible.
 - [ ] **Least privilege:** separate DB roles for migrations and runtime; production access only through MFA; quarterly access review.
+- [ ] **Leavers:** remove a person's access to every system on the day they leave, including SaaS tools, and rotate any credential they shared. The quarterly access review confirms it.
+- [ ] **Network exposure:** no database, cache, search index, queue or log store is reachable from the internet without authentication. Where a provider exposes one by design (Supabase, Firebase), its access rules do the protecting (5.4). Scan your public hostnames and IP ranges for open services before launch.
+- [ ] **Secrets storage:** secrets live in the platform's secret store, marked as sensitive so they can't be read back, with a separate set for each environment (3.2).
+- [ ] **CI/CD and publishing:**
+  - pin third-party actions to a full commit SHA;
+  - set workflow tokens to read-only by default, and raise permissions per job;
+  - never give untrusted pull-request code your secrets (avoid `pull_request_target`, and never check out the pull request's code in it);
+  - publish packages through trusted publishing (OIDC) with 2FA, not long-lived tokens;
+  - install with `npm ci` from the lockfile, and allow install scripts only for packages that need them;
+  - let new dependency versions age a few days before adopting them (Dependabot `cooldown`, Renovate `minimumReleaseAge`).
+- [ ] **Integrations and connected apps:**
+  - request the narrowest OAuth scopes;
+  - store the tokens you hold for customers' systems encrypted, server-side and apart from code and CI;
+  - rotate them, alert on unusual use, and revoke them at the first sign that a vendor is compromised;
+  - for your own team, allow only reviewed third-party apps to connect to Google Workspace or Microsoft 365 accounts, and review the grants quarterly.
 - [ ] **Scanning in CI:** secrets (gitleaks), dependencies (`npm audit` plus Dependabot or Renovate), static analysis (CodeQL or Semgrep). Run DAST (OWASP ZAP baseline) against staging before launch.
 - [ ] **Pen test** before launch for High-tier projects, then annually.
 - [ ] **Assurance for B2B and public-sector buyers:** Cyber Essentials (UK); ISO 27001 or SOC 2 when enterprise buyers ask.
@@ -144,4 +164,5 @@ Logs are structured, carry a correlation ID, are kept for the periods in 5.6, an
 
 - **Patch windows:** critical within {{7 days}}, high within {{30 days}}. Update dependencies weekly.
 - **Disclosure:** publish `/.well-known/security.txt` (RFC 9116) with `Contact` and `Expires`.
+- **Report triage:** acknowledge a security report within {{2 working days}} and triage it within {{5}}. Check it against the current design and access rules, not old documentation, and never close one as "intended" or "out of scope" without a review by whoever owns that part of the system. A report that could involve personal data starts a breach assessment (9.20).
 - **Secret leaks:** rotate the secret immediately, purge it from git history, review the access logs and assess whether it's a breach (9.20).
