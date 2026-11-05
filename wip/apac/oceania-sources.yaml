@@ -1,0 +1,12 @@
+# Official domains for each jurisdiction in this batch (blueprint 5.4). Every source cited in
+# laws/ must be on one of its jurisdiction's domains, unless it's listed under `secondary`.
+# Subdomains count (consultations.ag.gov.au is ag.gov.au).
+jurisdictions:
+  my:
+    official_domains: [pdp.gov.my, mcmc.gov.my, nacsa.gov.my, mydigital.gov.my, ai.gov.my]
+  ph:
+    official_domains: [privacy.gov.ph, judiciary.gov.ph]
+  au:
+    official_domains: [legislation.gov.au, oaic.gov.au, esafety.gov.au, acma.gov.au, ag.gov.au, homeaffairs.gov.au, industry.gov.au]
+  nz:
+    official_domains: [legislation.govt.nz, privacy.org.nz, dia.govt.nz, gazette.govt.nz, parliament.nz]

@@ -1,0 +1,150 @@
+# Indonesia. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: id
+name: Indonesia
+tier: full
+laws:
+  - name: Personal Data Protection Law (UU PDP)
+    citation: Law No. 27 of 2022 (State Gazette 2022 No. 196)
+    official_url: https://jdih.komdigi.go.id/produk_hukum/view/id/832/t/undangundang+nomor+27+tahun+2022
+    status: in-force
+    in_force_from: "2022-10-17"
+    notes: In force on promulgation (Art. 76); controllers and processors had two years from 17 October 2022 to comply (Art. 74). The Constitutional Court reads the DPO triggers in Art. 53(1) as alternatives (Decision 151/PUU-XXII/2024, 30 July 2025). The supervisory agency that the Law requires (Art. 58) had not been formed by early November 2026, and only it can impose administrative sanctions.
+  - name: Government Regulation implementing the PDP Law
+    citation: Government Regulation (PP) No. 33 of 2026 (State Gazette 2026 No. 88), enacted and promulgated on 16 July 2026
+    official_url: https://static.banyumaskab.go.id/website/file/peraturan_pemerintah_no._33_tahun_2026_100926115902.pdf
+    status: enacted
+    in_force_from: "2027-01-16"
+    notes: Applies six months after promulgation (Art. 225); 16 January 2027 is our count from 16 July 2026. Details consent, legitimate interests, children's data, automated decisions, breach notice, impact assessments, DPOs, transfers and fines, and leaves more detail to rules of the future agency. The link is a copy certified by the State Secretariat and published by the Banyumas regency government.
+  - name: Government Regulation on Electronic Systems and Transactions (PP PSTE)
+    citation: Government Regulation (PP) No. 71 of 2019
+    official_url: https://jdih.komdigi.go.id/produk_hukum/view/id/695/t/peraturan+pemerintah+nomor+71+tahun+2019
+    status: in-force
+    in_force_from: "2019-10-10"
+    notes: In force on promulgation. Requires electronic system operators to register and sets where public and private systems may store data. Existing data protection rules stay in force as far as they are consistent with the PDP Law (PDP Law Art. 75).
+  - name: Ministerial Regulation on Private Scope Electronic System Operators
+    citation: Regulation of the Minister of Communication and Informatics No. 5 of 2020, as amended by No. 10 of 2021
+    official_url: https://jdih.komdigi.go.id/produk_hukum/view/id/759/t/peraturan+menteri+komunikasi+dan+informatika+nomor+5+tahun+2020
+    status: in-force
+    in_force_from: "2020-11-24"
+    notes: In force on promulgation. Private scope operators must register before their system is used.
+  - name: Second amendment to the Electronic Information and Transactions Law (ITE Law)
+    citation: Law No. 1 of 2024, amending Law No. 11 of 2008
+    official_url: https://jdih.komdigi.go.id/produk_hukum/view/id/884/t/undangundang+nomor+1+tahun+2024
+    status: in-force
+    in_force_from: "2024-01-02"
+    notes: In force on promulgation. Adds a duty for electronic system operators to protect children who use or access their systems (Art. 16A), backed by administrative sanctions (Art. 16B).
+  - name: Government Regulation on Governance of Electronic Systems in Child Protection (PP Tunas)
+    citation: Government Regulation (PP) No. 17 of 2025 (State Gazette 2025 No. 36)
+    official_url: https://jdih.komdigi.go.id/produk_hukum/view/id/965/t/peraturan+pemerintah+nomor+17+tahun+2025
+    status: in-force
+    in_force_from: "2025-03-27"
+    notes: In force on promulgation (Art. 50). Operators have two years from promulgation to adjust (Art. 49). Implemented by Ministerial Regulation No. 9 of 2026.
+  - name: Ministerial Regulation implementing PP 17/2025
+    citation: Regulation of the Minister of Communication and Digital Affairs No. 9 of 2026 (State Bulletin 2026 No. 163)
+    official_url: https://jdih.komdigi.go.id/produk_hukum/view/id/1007/t/peraturan+menteri+komunikasi+dan+digital+nomor+9+tahun+2026
+    status: in-force
+    in_force_from: "2026-03-06"
+    notes: In force on promulgation (Art. 63). Treats social media as high-risk by default and requires deactivation of accounts of children under 16 (Art. 30). The ministry began phased enforcement on 28 March 2026, starting with large platforms.
+  - name: Law on Adjustment of Criminal Penalties
+    citation: Law No. 1 of 2026 (State Gazette 2026 No. 1)
+    official_url: https://www.peraturan.go.id/files/uu-no-1-tahun-2026.pdf
+    status: in-force
+    in_force_from: "2026-01-02"
+    notes: In force on 2 January 2026 (Art. IX). Converts fines in laws outside the Criminal Code into the Code's fine categories according to the prison term, for laws not listed in its annex (Arts. II and VIII). See penalties.
+  - name: Draft Presidential Regulations on AI ethics and on the national AI roadmap 2026-2029
+    citation: Draft Presidential Regulations (Rancangan Peraturan Presiden), finalised between ministries on 5 May 2026
+    official_url: https://jdih.komdigi.go.id/berita/view/116
+    status: draft
+    notes: Sent for the President's signature after the May 2026 meetings. Pending, not law.
+regulators:
+  - name: Ministry of Communication and Digital Affairs (Komdigi), which supervises electronic system operators; the PDP Law's own agency has not been formed yet
+    url: https://www.komdigi.go.id/
+obligations:
+  scope:
+    summary: The PDP Law applies to every person, public body and international organisation acting in Indonesia, and to those outside Indonesia whose acts have legal effect in Indonesia or on Indonesian citizens abroad (Art. 2). Purely personal or household processing is excluded. Some data subject rights don't apply for defence and security, law enforcement, the public interest in running the state, financial sector supervision, or statistics and research (Art. 15). Specific data includes health, biometric, genetic, criminal record, children's and personal financial data (Art. 4).
+    source:
+      - https://jdih.komdigi.go.id/produk_hukum/view/id/832/t/undangundang+nomor+27+tahun+2022
+  lawful_bases:
+    summary: Every processing needs a basis, namely explicit valid consent for specific purposes, a contract, a legal obligation, vital interests, a public task, or other legitimate interests weighed against the person's rights (Art. 20). Before asking for consent, explain the legal basis, purposes, data, retention and rights (Art. 21), and be able to prove consent (Art. 24). From 16 January 2027, consent must be free, informed, specific and unambiguous, and legitimate interests need a documented balancing assessment (PP 33/2026 Arts. 32-36, 53-54).
+    source:
+      - https://jdih.komdigi.go.id/produk_hukum/view/id/832/t/undangundang+nomor+27+tahun+2022
+      - https://static.banyumaskab.go.id/website/file/peraturan_pemerintah_no._33_tahun_2026_100926115902.pdf
+  consent_age:
+    summary: Processing a child's personal data needs consent from a parent or guardian (PDP Law Art. 25). A child is anyone under 18 (PP 17/2025 Art. 1); PP 33/2026 adds "and unmarried". From 16 January 2027, controllers must also take steps to identify children, verify the parent's consent using available technology, and plan the handover when a child comes of age (PP 33/2026 Art. 38).
+    value: 18
+    unit: years
+    source:
+      - https://jdih.komdigi.go.id/produk_hukum/view/id/832/t/undangundang+nomor+27+tahun+2022
+      - https://jdih.komdigi.go.id/produk_hukum/view/id/965/t/peraturan+pemerintah+nomor+17+tahun+2025
+      - https://static.banyumaskab.go.id/website/file/peraturan_pemerintah_no._33_tahun_2026_100926115902.pdf
+  children:
+    summary: Electronic system operators must protect children who use their services (ITE Law Art. 16A). They must state a minimum age, check children's ages in proportion to risk, and give parents supervision tools. With parental consent, under-13s may have accounts only on low-risk services made for children, 13 to 15-year-olds only on low-risk services, and 16 and 17-year-olds on others (PP 17/2025 Arts. 20-22; Ministerial Regulation 9/2026 Art. 29). Social media are high-risk by default and must deactivate under-16 accounts, enforced in phases since 28 March 2026 (Art. 30).
+    source:
+      - https://jdih.komdigi.go.id/produk_hukum/view/id/884/t/undangundang+nomor+1+tahun+2024
+      - https://jdih.komdigi.go.id/produk_hukum/view/id/965/t/peraturan+pemerintah+nomor+17+tahun+2025
+      - https://jdih.komdigi.go.id/produk_hukum/view/id/1007/t/peraturan+menteri+komunikasi+dan+digital+nomor+9+tahun+2026
+      - https://www.setneg.go.id/baca/index/lindungi_anak_di_ranah_digital_kemkomdigi_terbitkan_aturan_teknis_pp_tunas
+  cookies:
+    summary: There is no cookie-specific rule. Cookies and similar tools that process personal data need a basis under Art. 20, usually explicit consent given after the information required by Art. 21, and the controller must be able to prove that consent (Art. 24). From 16 January 2027, consent may not be obtained deceptively, and refusing it may not reduce a service unless the service needs the data (PP 33/2026 Art. 35).
+    source:
+      - https://jdih.komdigi.go.id/produk_hukum/view/id/832/t/undangundang+nomor+27+tahun+2022
+      - https://static.banyumaskab.go.id/website/file/peraturan_pemerintah_no._33_tahun_2026_100926115902.pdf
+  marketing:
+    summary: Marketing that uses personal data needs a PDP Law basis, usually consent, and people can withdraw consent at any time (Arts. 9, 20); stop processing within 3 x 24 hours of a withdrawal (Art. 40). From 16 January 2027, when consent covers offers of goods or services, tell people clearly which third parties will receive their data, what kind of offers they will get, and how to withdraw and complain if offers continue afterwards (PP 33/2026 Art. 35).
+    source:
+      - https://jdih.komdigi.go.id/produk_hukum/view/id/832/t/undangundang+nomor+27+tahun+2022
+      - https://static.banyumaskab.go.id/website/file/peraturan_pemerintah_no._33_tahun_2026_100926115902.pdf
+  breach_notice:
+    summary: If personal data protection fails, notify the people affected and the PDP agency in writing within 3 x 24 hours, saying what data was exposed, when and how, and what is being done; in some cases tell the public too (PDP Law Art. 46). From 16 January 2027 the clock starts when the failure is known with certainty, notices must name the DPO or a contact, and processors must tell controllers at the first opportunity (PP 33/2026 Arts. 114-118). The agency doesn't exist yet. Electronic system operators must also tell data owners in writing (PP 71/2019 Art. 14).
+    value: 72
+    unit: hours
+    source:
+      - https://jdih.komdigi.go.id/produk_hukum/view/id/832/t/undangundang+nomor+27+tahun+2022
+      - https://static.banyumaskab.go.id/website/file/peraturan_pemerintah_no._33_tahun_2026_100926115902.pdf
+      - https://jdih.komdigi.go.id/produk_hukum/view/id/695/t/peraturan+pemerintah+nomor+71+tahun+2019
+  registration_or_fees:
+    summary: There is no data protection registration or fee. Electronic system operators, including private ones whose websites or apps are used or offered in Indonesia, must register with the ministry through the OSS online licensing system before users start using the system (PP 71/2019 Art. 6; Ministerial Regulation 5/2020). Controllers must keep records of all their processing (PDP Law Art. 31).
+    source:
+      - https://jdih.komdigi.go.id/produk_hukum/view/id/695/t/peraturan+pemerintah+nomor+71+tahun+2019
+      - https://jdih.komdigi.go.id/produk_hukum/view/id/759/t/peraturan+menteri+komunikasi+dan+informatika+nomor+5+tahun+2020
+      - https://jdih.komdigi.go.id/produk_hukum/view/id/832/t/undangundang+nomor+27+tahun+2022
+  dpo:
+    summary: Controllers and processors must appoint a data protection officer when processing for public services, when core activities need regular and systematic large-scale monitoring, or when core activities involve large-scale processing of specific or criminal data (Art. 53). Since the Constitutional Court's ruling of 30 July 2025, any one of these is enough. The officer can come from inside or outside the organisation and is chosen for professional skill and knowledge of law and practice. From 16 January 2027, PP 33/2026 sets the officer's tasks and independence (Arts. 142-147).
+    source:
+      - https://jdih.komdigi.go.id/produk_hukum/view/id/832/t/undangundang+nomor+27+tahun+2022
+      - https://s.mkri.id/public/content/infoumum/undang/pdf/Anotasi_151_UU%20No.%2027%20thn%202022%20PDP%20-hype.pdf
+      - https://static.banyumaskab.go.id/website/file/peraturan_pemerintah_no._33_tahun_2026_100926115902.pdf
+  transfers:
+    summary: Transfer personal data abroad only if the recipient's country protects it at least as well as Indonesia; failing that, under adequate and binding safeguards; failing both, with the person's consent (Art. 56). From 16 January 2027, the agency will list adequate countries and set standard contract clauses, binding corporate rules are also allowed, and controllers must assess the transfer and its risks and inform people beforehand (PP 33/2026 Arts. 160-171). Public scope electronic systems must keep data in Indonesia unless the technology isn't available there (PP 71/2019 Arts. 20-21).
+    source:
+      - https://jdih.komdigi.go.id/produk_hukum/view/id/832/t/undangundang+nomor+27+tahun+2022
+      - https://static.banyumaskab.go.id/website/file/peraturan_pemerintah_no._33_tahun_2026_100926115902.pdf
+      - https://jdih.komdigi.go.id/produk_hukum/view/id/695/t/peraturan+pemerintah+nomor+71+tahun+2019
+  dpia:
+    summary: Carry out a data protection impact assessment for high-risk processing, which includes automated decisions with legal or significant effects, specific data, large-scale processing, systematic evaluation, scoring or monitoring, matching or combining datasets, new technologies, and processing that limits people's rights (PDP Law Art. 34). From 16 January 2027 it must come before processing, test necessity and proportionality, assess risks, set and document safeguards, be reviewed when risks change, and take account of the DPO's advice (PP 33/2026 Arts. 120-122).
+    source:
+      - https://jdih.komdigi.go.id/produk_hukum/view/id/832/t/undangundang+nomor+27+tahun+2022
+      - https://static.banyumaskab.go.id/website/file/peraturan_pemerintah_no._33_tahun_2026_100926115902.pdf
+  automated_decisions_ai:
+    summary: People can object to decisions based only on automated processing, including profiling, that have legal or significant effects (PDP Law Art. 10). From 16 January 2027, controllers need a way to handle objections, must explain the technology and its consequences, and, if an objection is upheld, must offer processing with human involvement; they may refuse only where there's no significant effect and the system is highly accurate with safeguards (PP 33/2026 Arts. 93-96). Two draft Presidential Regulations on AI were sent for signature in May 2026 and are not yet law.
+    source:
+      - https://jdih.komdigi.go.id/produk_hukum/view/id/832/t/undangundang+nomor+27+tahun+2022
+      - https://static.banyumaskab.go.id/website/file/peraturan_pemerintah_no._33_tahun_2026_100926115902.pdf
+      - https://jdih.komdigi.go.id/berita/view/116
+    secondary:
+      - https://www.cnbcindonesia.com/tech/20261030162941-37-781009/ri-atur-ai-sesuai-risiko-komdigi-beberkan-isi-regulasinya
+  penalties:
+    summary: The PDP agency can warn, suspend processing, order deletion and fine up to 2% of annual revenue or receipts for each violation variable (Art. 57), but it has not been formed yet. Unlawfully obtaining, disclosing or using others' personal data carries up to 4 or 5 years' prison and falsifying it up to 6 years (Arts. 67-68). Since 2 January 2026, Law 1/2026 converts fines set beside prison terms into Criminal Code categories by length of term, which puts these offences in categories IV and V instead of the Rp4-6 billion in the PDP Law (Law 1/2026 Arts. II(5), VIII).
+    source:
+      - https://jdih.komdigi.go.id/produk_hukum/view/id/832/t/undangundang+nomor+27+tahun+2022
+      - https://www.peraturan.go.id/files/uu-no-1-tahun-2026.pdf
+      - https://www.dpr.go.id/kegiatan-dpr/berita/Taufiq-R-Abdullah-Desak-Pemerintah-Segera-Bentuk-Badan-Pelindungan-Data-Pribadi-70409
+    secondary:
+      - https://www.hukumku.id/post/denda-uu-pdp-alami-penyesuaian-apa-implikasi-hukum-pasca-kuhp-baru
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry, checked against official sources with AI assistance.

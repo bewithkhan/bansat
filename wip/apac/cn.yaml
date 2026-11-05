@@ -1,0 +1,201 @@
+# China. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: cn
+name: China
+tier: full
+laws:
+  - name: Personal Information Protection Law (PIPL)
+    citation: 中华人民共和国个人信息保护法, adopted by the NPC Standing Committee on 20 August 2021
+    official_url: https://www.cac.gov.cn/2021-08/20/c_1631050028355286.htm
+    status: in-force
+    in_force_from: "2021-11-01"
+    notes: In force from 1 November 2021 (Art. 74). The link is the CAC's copy of the text published by the NPC.
+  - name: Cybersecurity Law
+    citation: 中华人民共和国网络安全法 (2016), as amended by the NPC Standing Committee Decision of 28 October 2025
+    official_url: https://www.cac.gov.cn/2025-12/29/c_1768735112911946.htm
+    status: in-force
+    in_force_from: "2017-06-01"
+    notes: The 2025 amendments apply from 1 January 2026. They add state support and ethics rules for AI (Art. 20), require personal information handling to follow the PIPL and Civil Code (Art. 42), raise fines and allow sanctions such as asset freezes on overseas actors that endanger China's cybersecurity (Art. 77).
+  - name: Network Data Security Management Regulations (NDSMR)
+    citation: 网络数据安全管理条例, State Council Decree No. 790 of 24 September 2024
+    official_url: https://www.gov.cn/zhengce/content/202409/content_6977766.htm
+    status: in-force
+    in_force_from: "2025-01-01"
+    notes: Implements the Cybersecurity Law, Data Security Law and PIPL for network data, with rules on privacy notices, consent, portability, overseas representatives, important data and large platforms.
+  - name: Provisions on Promoting and Regulating Cross-border Data Flows
+    citation: 促进和规范数据跨境流动规定, CAC Order No. 16
+    official_url: https://www.cac.gov.cn/2024-03/22/c_1712776611775634.htm
+    status: in-force
+    in_force_from: "2024-03-22"
+    notes: In force on publication, 22 March 2024 (Art. 14). Where they differ, it prevails over the 2022 security assessment measures and the 2023 standard contract measures (Art. 13).
+  - name: Measures on the Standard Contract for Outbound Transfer of Personal Information
+    citation: 个人信息出境标准合同办法, CAC Order No. 13
+    official_url: https://www.cac.gov.cn/2023-02/24/c_1678884830036813.htm
+    status: in-force
+    in_force_from: "2023-06-01"
+  - name: Measures for Certification of Outbound Transfer of Personal Information
+    citation: 个人信息出境认证办法, CAC and SAMR Order No. 20 of 14 October 2025
+    official_url: https://www.cac.gov.cn/2025-10/17/c_1762449728720008.htm
+    status: in-force
+    in_force_from: "2026-01-01"
+    notes: Certificates last three years. Overseas processors apply through their representative in China.
+  - name: Measures for Personal Information Protection Compliance Audits
+    citation: 个人信息保护合规审计管理办法, CAC Order No. 18
+    official_url: https://www.cac.gov.cn/2025-02/14/c_1741233507681519.htm
+    status: in-force
+    in_force_from: "2025-05-01"
+  - name: Provisions on Simplified Personal Information Protection Measures for Small Processors
+    citation: 小型个人信息处理者个人信息保护简化措施规定, CAC and MPS Order No. 25 of 22 July 2026
+    official_url: https://www.cac.gov.cn/2026-07/24/c_1786638889704872.htm
+    status: in-force
+    in_force_from: "2026-09-01"
+    notes: For processors handling personal information of fewer than 100,000 people. They allow simpler notices, impact assessments and audits, and no penalty for minor first violations that are promptly corrected.
+  - name: Measures for National Cybersecurity Incident Reporting
+    citation: 国家网络安全事件报告管理办法, CAC, 11 September 2025
+    official_url: https://www.cac.gov.cn/2025-09/15/c_1759583017717009.htm
+    status: in-force
+    in_force_from: "2025-11-01"
+  - name: Measures for the Security Management of Facial Recognition Technology Applications
+    citation: 人脸识别技术应用安全管理办法, CAC and MPS Order No. 19
+    official_url: https://www.cac.gov.cn/2025-03/21/c_1744174262156096.htm
+    status: in-force
+    in_force_from: "2025-06-01"
+  - name: Measures for Network Data Security Risk Assessment
+    citation: 网络数据安全风险评估办法, CAC, MIIT and MPS Order No. 24 of 18 June 2026
+    official_url: https://www.cac.gov.cn/2026-06/18/c_1783525609815499.htm
+    status: in-force
+    in_force_from: "2026-08-20"
+    notes: Processors of important data must assess risks every year and report within 20 business days. Other processors are encouraged to do so at least every three years.
+  - name: Regulations on the Protection of Minors Online
+    citation: 未成年人网络保护条例, State Council Decree No. 766
+    official_url: https://www.gov.cn/gongbao/2023/issue_10806/202311/content_6913813.html
+    status: in-force
+    in_force_from: "2024-01-01"
+  - name: Provisions on the Online Protection of Children's Personal Information
+    citation: 儿童个人信息网络保护规定, CAC Order No. 4
+    official_url: https://www.cac.gov.cn/2019-08/23/c_1124913903.htm
+    status: in-force
+    in_force_from: "2019-10-01"
+    notes: Children here are under 14 (Art. 2).
+  - name: Interim Measures for the Management of Generative AI Services
+    citation: 生成式人工智能服务管理暂行办法, Order No. 15 of the CAC and six other departments
+    official_url: https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm
+    status: in-force
+    in_force_from: "2023-08-15"
+  - name: Measures for Labelling AI-Generated Synthetic Content
+    citation: 人工智能生成合成内容标识办法, 国信办通字〔2025〕2号 (CAC, MIIT, MPS and NRTA)
+    official_url: https://www.cac.gov.cn/2025-03/14/c_1743654684782215.htm
+    status: in-force
+    in_force_from: "2025-09-01"
+  - name: Interim Measures for AI Anthropomorphic Interactive Services
+    citation: 人工智能拟人化互动服务管理暂行办法, Order No. 21 of the CAC and four other departments, 10 April 2026
+    official_url: https://www.cac.gov.cn/2026-04/10/c_1777558395078289.htm
+    status: in-force
+    in_force_from: "2026-07-15"
+    notes: Covers AI services that simulate a human personality for ongoing emotional interaction, such as companions. Customer service, Q&A, work, study and research assistants without ongoing emotional interaction are excluded (Art. 2).
+  - name: Provisions on Communications Short Message Services
+    citation: 通信短信息服务管理规定, MIIT Order No. 74 of 9 February 2026
+    official_url: https://www.gov.cn/gongbao/2026/issue_12766/202605/content_7070600.html
+    status: in-force
+    in_force_from: "2026-05-01"
+    notes: Internet services that deliver SMS-like messages to phones follow the same rules (Art. 41).
+  - name: Draft Provisions on the Collection and Use of Personal Information by Internet Applications
+    citation: 互联网应用程序个人信息收集使用规定（征求意见稿）, CAC, 10 January 2026
+    official_url: https://www.cac.gov.cn/2026-01/10/c_1769603446094128.htm
+    status: draft
+    notes: Consultation closed on 9 February 2026. Would set detailed duties for apps, SDKs, app stores and device makers, such as itemised SDK lists, asking for permissions only when a feature is used, a switch to turn off personalised recommendations and account deletion within 15 business days. Not law.
+regulators:
+  - name: Cyberspace Administration of China (CAC), which coordinates personal information protection and supervision
+    url: https://www.cac.gov.cn/
+  - name: Ministry of Industry and Information Technology (MIIT), for telecoms and SMS
+    url: https://www.miit.gov.cn/
+obligations:
+  scope:
+    summary: The PIPL covers handling of individuals' personal information in China, and handling abroad of information about people in China when it aims to offer them products or services or analyses their behaviour (Art. 3). Purely personal or household use is excluded (Art. 72). The Network Data Security Management Regulations apply on the same basis and add liability for processing abroad that harms China's national security, public interest or the rights of its citizens or organisations (Art. 2).
+    source:
+      - https://www.cac.gov.cn/2021-08/20/c_1631050028355286.htm
+      - https://www.gov.cn/zhengce/content/202409/content_6977766.htm
+  lawful_bases:
+    summary: "Seven bases (PIPL Art. 13): consent; a contract with the person, or HR management under lawful rules; legal duties; public health emergencies or protecting life and property; news reporting in the public interest; information already lawfully public, within reason; and others set by law. There is no legitimate-interest basis. Consent must be informed, voluntary and explicit, can be withdrawn, and must be sought again if purposes change. Separate consent is needed to give data to another processor, publish it, process sensitive data or send it abroad (Arts. 23, 25, 29, 39)."
+    source:
+      - https://www.cac.gov.cn/2021-08/20/c_1631050028355286.htm
+  consent_age:
+    summary: Personal information of children under 14 is sensitive personal information (PIPL Art. 28). Processing it needs the consent of a parent or other guardian, and the processor must adopt dedicated processing rules for it (Art. 31). The Network Data Security Management Regulations repeat both duties (Arts. 21 and 22).
+    value: 14
+    unit: years
+    source:
+      - https://www.cac.gov.cn/2021-08/20/c_1631050028355286.htm
+      - https://www.gov.cn/zhengce/content/202409/content_6977766.htm
+  children:
+    summary: The 2019 CAC provisions require separate rules and user agreements for under-14s' data, a designated person in charge, and guardian consent with an option to refuse. Under the 2024 minors regulations, processors must audit their handling of minors' data every year and report to the CAC and others, and tell minors and guardians about leaks; games, livestream, video and social services need a minors mode with time, spending and content controls. Since 15 July 2026, AI companion services may not offer virtual partner or relative relationships to minors.
+    source:
+      - https://www.cac.gov.cn/2019-08/23/c_1124913903.htm
+      - https://www.gov.cn/gongbao/2023/issue_10806/202311/content_6913813.html
+      - https://www.cac.gov.cn/2026-04/10/c_1777558395078289.htm
+  cookies:
+    summary: There is no cookie-specific rule. Collecting personal information through cookies, SDKs or device identifiers needs PIPL notice and a legal basis, usually consent, and only what's necessary. Providers of network products or services that can collect user information must tell users and get consent (Cybersecurity Law Art. 24). Privacy rules must list the information collected and the recipients it's given to (NDSMR Art. 21). A January 2026 CAC draft would add itemised SDK lists for apps; it isn't law yet.
+    source:
+      - https://www.cac.gov.cn/2021-08/20/c_1631050028355286.htm
+      - https://www.cac.gov.cn/2025-12/29/c_1768735112911946.htm
+      - https://www.gov.cn/zhengce/content/202409/content_6977766.htm
+      - https://www.cac.gov.cn/2026-01/10/c_1769603446094128.htm
+  marketing:
+    summary: Commercial SMS may go only to people who agreed to or asked for them. Since 1 May 2026, SMS providers must get proof of that from senders, show the sender's real identity, offer an easy opt-out in each message and stop after a refusal (MIIT Order No. 74, Arts. 19 to 23). Messages or ads pushed by automated decision-making need an option not based on personal traits or an easy way to refuse (PIPL Art. 24), and platforms must offer a switch to turn off personalised recommendations (NDSMR Art. 42).
+    source:
+      - https://www.gov.cn/gongbao/2026/issue_12766/202605/content_7070600.html
+      - https://www.cac.gov.cn/2021-08/20/c_1631050028355286.htm
+      - https://www.gov.cn/zhengce/content/202409/content_6977766.htm
+  breach_notice:
+    summary: If personal information is or may be leaked, altered or lost, act at once and notify the authorities and the people affected, saying what data, why, the likely harm, the remedies and a contact (PIPL Art. 57). People needn't be told if the remedies prevent harm, unless the authority says so. The PIPL sets no deadline. Since 1 November 2025, incidents graded relatively major or above, such as a leak of 1 million people's data, must be reported to the provincial CAC within 4 hours (1 hour for critical infrastructure), with a review within 30 days of closing.
+    source:
+      - https://www.cac.gov.cn/2021-08/20/c_1631050028355286.htm
+      - https://www.cac.gov.cn/2025-09/15/c_1759583017717009.htm
+  registration_or_fees:
+    summary: No general registration or fee, but set filings. Processors of 1 million or more people's data report their protection officer to the city-level CAC within 30 business days. Overseas processors under PIPL Art. 3(2) report their representative. Standard contracts are filed with the provincial CAC within 10 business days. Users of face recognition holding 100,000 or more people's face data file within 30 business days. Generative AI services with public-opinion attributes, and AI companion services, need algorithm filing.
+    source:
+      - https://www.cac.gov.cn/2025-07/18/c_1754553420421538.htm
+      - https://www.gov.cn/zhengce/content/202409/content_6977766.htm
+      - https://www.cac.gov.cn/2023-02/24/c_1678884830036813.htm
+      - https://www.cac.gov.cn/2025-03/21/c_1744174262156096.htm
+      - https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm
+      - https://www.cac.gov.cn/2026-04/10/c_1777558395078289.htm
+  dpo:
+    summary: Processors of 1 million or more people's personal information must appoint a personal information protection officer, publish the officer's contact details and report them (PIPL Art. 52; Audit Measures Art. 12). Existing processors had to report by 29 August 2025. Processors of more than 10 million people's data also need a network data security officer from management and a security unit (NDSMR Arts. 28 and 30). Overseas processors covered by PIPL Art. 3(2) need a dedicated body or representative in China (Art. 53).
+    source:
+      - https://www.cac.gov.cn/2021-08/20/c_1631050028355286.htm
+      - https://www.cac.gov.cn/2025-02/14/c_1741233507681519.htm
+      - https://www.cac.gov.cn/2025-07/18/c_1754553420421538.htm
+      - https://www.gov.cn/zhengce/content/202409/content_6977766.htm
+  transfers:
+    summary: Tell people, get separate consent and assess the impact first. Transfers needed for a contract with the person (such as cross-border shopping or bookings), HR or emergencies need nothing more; nor, for processors that aren't critical information infrastructure (CII) operators, do under 100,000 people's non-sensitive data a year. For 100,000 to under 1 million people (or under 10,000 sensitive), use the CAC standard contract or certification. Above that, for important data, or for CII operators, pass a CAC security assessment; CII operators store such data in China.
+    source:
+      - https://www.cac.gov.cn/2021-08/20/c_1631050028355286.htm
+      - https://www.cac.gov.cn/2024-03/22/c_1712776611775634.htm
+      - https://www.cac.gov.cn/2025-10/17/c_1762449728720008.htm
+      - https://www.gov.cn/zhengce/content/202409/content_6977766.htm
+  dpia:
+    summary: Assess the impact beforehand, and keep records for three years, when processing sensitive data, making automated decisions, entrusting, sharing or publishing data, sending it abroad, or doing anything else with a major effect on people (PIPL Arts. 55 and 56). Audit compliance regularly; processors of over 10 million people's data at least every two years. Since 1 September 2026, processors of under 100,000 people's data may use simplified forms and audit every five years. Important-data processors assess risks yearly.
+    source:
+      - https://www.cac.gov.cn/2021-08/20/c_1631050028355286.htm
+      - https://www.cac.gov.cn/2025-02/14/c_1741233507681519.htm
+      - https://www.cac.gov.cn/2026-07/24/c_1786638889704872.htm
+      - https://www.cac.gov.cn/2026-06/18/c_1783525609815499.htm
+  automated_decisions_ai:
+    summary: Automated decisions must be transparent and fair, with no unreasonable price discrimination; people can ask for an explanation of decisions with a major effect on them and refuse purely automated ones (PIPL Art. 24). Generative AI services need lawful training data and must protect user inputs; AI content must carry visible labels and metadata tags (since 1 September 2025). AI companions must tell users they're AI, remind them every 2 hours, and not train on sensitive chat data without separate consent. No general AI law yet; the State Council's 2026 plan calls for one.
+    source:
+      - https://www.cac.gov.cn/2021-08/20/c_1631050028355286.htm
+      - https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm
+      - https://www.cac.gov.cn/2025-03/14/c_1743654684782215.htm
+      - https://www.cac.gov.cn/2026-04/10/c_1777558395078289.htm
+      - https://www.gov.cn/zhengce/content/202605/content_7068345.htm
+  penalties:
+    summary: For PIPL breaches, orders, warnings, confiscation of gains, suspension of apps, and fines up to RMB 1 million if not corrected; in serious cases up to RMB 50 million or 5% of the previous year's turnover, business suspension or licence revocation, and RMB 100,000 to 1 million for managers responsible, who can be barred from senior roles (Art. 66). Violations go on credit records, and processors must pay damages unless they prove they weren't at fault (Arts. 67 and 69). Since 1 January 2026, Cybersecurity Law fines reach RMB 10 million.
+    source:
+      - https://www.cac.gov.cn/2021-08/20/c_1631050028355286.htm
+      - https://www.cac.gov.cn/2025-12/29/c_1768735112911946.htm
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry, checked against official sources with AI assistance.

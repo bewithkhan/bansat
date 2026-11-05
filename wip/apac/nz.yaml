@@ -1,0 +1,109 @@
+# New Zealand. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: nz
+name: New Zealand
+tier: full
+laws:
+  - name: Privacy Act 2020
+    citation: 2020 No 31 (version as at 8 October 2026)
+    official_url: https://www.legislation.govt.nz/act/public/2020/31/en/latest/
+    status: in-force
+    in_force_from: "2020-12-01"
+    notes: Most of the Act came into force on 1 December 2020 (s.2). Its information privacy principles (IPPs) are in s.22; IPP 3A was added from 1 May 2026.
+  - name: Privacy Amendment Act 2025
+    citation: 2025 No 53
+    official_url: https://www.legislation.govt.nz/act/public/2025/53/en/latest/
+    status: in-force
+    in_force_from: "2025-09-24"
+    notes: Assented to on 23 September 2025 and in force in two stages (s.2). Part 2, smaller changes such as the IPP 3 heading and some access and correction rules, applied from 24 September 2025. Part 1, the new IPP 3A on telling people when their information is collected from someone else, applied from 1 May 2026, but not to information collected before that date (s.25A). Both stages now apply.
+  - name: Biometric Processing Privacy Code 2025
+    citation: Issued 21 July 2025 under s.32 of the Privacy Act 2020; Amendment No 1 in force 1 May 2026
+    official_url: https://www.privacy.org.nz/assets/Codes-of-Practice-2020/Biometric-Processing-Privacy-Code-2025_1-May-2026.pdf
+    status: in-force
+    in_force_from: "2025-11-03"
+    notes: Applies from 3 November 2025 to biometric processing that began on or after that date, and from 3 August 2026 to processing that began before it (Gazette notice 2025-sl4213). The transition period has ended, so it now applies to all biometric processing. Amendment No 1 added rule 3A to match IPP 3A.
+  - name: Unsolicited Electronic Messages Act 2007
+    citation: 2007 No 7
+    official_url: https://www.legislation.govt.nz/act/public/2007/7/en/latest/
+    status: in-force
+    in_force_from: "2007-09-05"
+    notes: Assented to on 5 March 2007; the Act came into force 6 months later (s.2), so the date is derived. The Department of Internal Affairs enforces it.
+  - name: Social Media (Age-Restricted Users) Bill
+    citation: Member's Bill 216-1
+    official_url: https://bills.parliament.nz/v/6/68155b1b-c18c-40cb-94ec-08de11d86e7a
+    status: draft
+    notes: Introduced on 22 October 2025 to regulate access to social media by people under 16. It has not had its first reading. Not law.
+regulators:
+  - name: Office of the Privacy Commissioner (OPC)
+    url: https://www.privacy.org.nz/
+  - name: Department of Internal Affairs (DIA), for spam
+    url: https://www.dia.govt.nz/Spam
+obligations:
+  scope:
+    summary: The Act applies to New Zealand agencies wherever they act, to overseas agencies for what they do in the course of carrying on business in New Zealand, and to individuals not ordinarily resident in New Zealand for information collected or held while there (s.4). An overseas agency can be carrying on business without a place of business, payment or profit motive. There is no small-business exemption. Individuals handling information only for personal or domestic affairs are largely outside the IPPs (s.27).
+    source:
+      - https://www.legislation.govt.nz/act/public/2020/31/en/latest/
+  lawful_bases:
+    summary: The Act has no lawful bases; the IPPs apply instead. Collect personal information only for a lawful purpose connected with your functions and only if necessary for it (IPP 1), usually from the person (IPP 2), and tell them about the collection (IPP 3). Since 1 May 2026, when you collect it from someone else, take reasonable steps to tell the person as soon as reasonably practicable (IPP 3A). Use and disclose it only for the purpose you got it for, a directly related one, or another listed exception (IPPs 10-11).
+    source:
+      - https://www.legislation.govt.nz/act/public/2020/31/en/latest/
+      - https://www.privacy.org.nz/privacy-principles/3a/
+  consent_age:
+    summary: The Act sets no age for consent, and most processing doesn't rely on consent. Collecting information from children and young people must be fair and not unreasonably intrusive (IPP 4).
+    source:
+      - https://www.legislation.govt.nz/act/public/2020/31/en/latest/
+  children:
+    summary: Apart from the extra care IPP 4 requires when collecting from children and young people, the Act has no child-specific rules. The OPC's Children's Privacy Project publishes guidance, for example on photography and on schools. A member's bill to restrict social media for under-16s (Bill 216-1) was introduced in October 2025 and has not had its first reading.
+    source:
+      - https://www.legislation.govt.nz/act/public/2020/31/en/latest/
+      - https://www.privacy.org.nz/focus-areas/children-and-young-people-policy-project/
+      - https://bills.parliament.nz/v/6/68155b1b-c18c-40cb-94ec-08de11d86e7a
+  cookies:
+    summary: There is no cookie-specific law. The IPPs apply when cookies or trackers collect personal information. Have a lawful purpose and collect only what you need (IPP 1), tell people about the collection (IPP 3), and, since 1 May 2026, take reasonable steps to tell them when you get their information from another organisation (IPP 3A).
+    source:
+      - https://www.legislation.govt.nz/act/public/2020/31/en/latest/
+      - https://www.privacy.org.nz/privacy-principles/3a/
+  marketing:
+    summary: Commercial electronic messages, such as emails and texts, with a New Zealand link need the recipient's consent, which can be express, reasonably inferred, or deemed when a business address was published without a no-spam statement and the message is relevant to the person's role (UEMA ss.4, 9). Messages must identify the sender accurately and include a free, working unsubscribe, which takes effect 5 working days after it's used (ss.9-11). The DIA enforces the Act.
+    source:
+      - https://www.legislation.govt.nz/act/public/2007/7/en/latest/
+      - https://www.dia.govt.nz/Spam
+  breach_notice:
+    summary: Notify the Privacy Commissioner, and affected people or the public, as soon as practicable after becoming aware of a privacy breach that has caused, or is likely to cause, serious harm (ss.112-115). In assessing harm, consider the sensitivity of the information, any security protecting it, who may have it and steps taken to reduce the risk (s.113). Failing to notify the Commissioner without reasonable excuse is an offence with a fine of up to $10,000 (s.118).
+    source:
+      - https://www.legislation.govt.nz/act/public/2020/31/en/latest/
+      - https://www.privacy.org.nz/responsibilities/privacy-breaches/
+  registration_or_fees:
+    summary: None. There is no registration with, or fee payable to, the Privacy Commissioner.
+    source:
+      - https://www.legislation.govt.nz/act/public/2020/31/en/latest/
+  dpo:
+    summary: Every agency, other than an individual acting for personal or domestic purposes, must appoint one or more privacy officers, from inside or outside the agency, to encourage compliance with the IPPs, deal with requests, work with the Commissioner on investigations and make sure the agency complies with the Act (s.201).
+    source:
+      - https://www.legislation.govt.nz/act/public/2020/31/en/latest/
+  transfers:
+    summary: Disclose personal information to a foreign person or entity only if the person authorises it after being told it may not get comparable protection, the recipient is subject to the Act, the recipient is subject to comparable privacy laws, a prescribed binding scheme or a prescribed country's laws, or the recipient is otherwise required to give comparable safeguards, for example by contract (IPP 12).
+    source:
+      - https://www.legislation.govt.nz/act/public/2020/31/en/latest/
+  dpia:
+    summary: The Act doesn't require privacy impact assessments, but the OPC recommends one before using AI tools. Under the Biometric Processing Privacy Code, before collecting biometric information you must be satisfied that the processing is for a lawful purpose, necessary and effective, with no less intrusive alternative, has reasonable safeguards and is proportionate to its impacts (rule 1). A trial of up to 6 months, extendable once, can defer the necessity test.
+    source:
+      - https://www.privacy.org.nz/resources-and-learning/a-z-topics/ai/
+      - https://www.privacy.org.nz/assets/Codes-of-Practice-2020/Biometric-Processing-Privacy-Code-2025_1-May-2026.pdf
+  automated_decisions_ai:
+    summary: There is no automated-decision or AI-specific law. The OPC says the IPPs apply at every stage of using AI, from training data to acting on outputs, including accuracy checks before use (IPP 8). The Biometric Processing Privacy Code bars using biometric information for categorisation, such as inferring emotion or personality, unless an exception applies, and allows inferring health information only with the person's express authorisation (rule 10).
+    source:
+      - https://www.privacy.org.nz/resources-and-learning/a-z-topics/ai/
+      - https://www.privacy.org.nz/assets/Codes-of-Practice-2020/Biometric-Processing-Privacy-Code-2025_1-May-2026.pdf
+      - https://www.legislation.govt.nz/act/public/2020/31/en/latest/
+  penalties:
+    summary: Offences under the Act, such as failing to notify a notifiable breach or impersonating someone to get their information, carry fines of up to $10,000 (ss.118, 212). The Commissioner can issue compliance notices (s.123), and the Human Rights Review Tribunal can award damages, including for humiliation and injury to feelings (s.103). Under the UEMA, courts can order pecuniary penalties of up to $200,000 for individuals and $500,000 for organisations.
+    source:
+      - https://www.legislation.govt.nz/act/public/2020/31/en/latest/
+      - https://www.legislation.govt.nz/act/public/2007/7/en/latest/
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry, checked against official sources with AI assistance.

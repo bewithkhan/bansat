@@ -1,0 +1,137 @@
+# Australia. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: au
+name: Australia
+tier: full
+laws:
+  - name: Privacy Act 1988, including the Australian Privacy Principles (APPs)
+    citation: Act No. 119, 1988 (Compilation No. 104, 4 June 2026)
+    official_url: https://www.legislation.gov.au/C2004A03712/2026-06-04/2026-06-04/text/original/pdf
+    status: in-force
+    in_force_from: "1989-01-01"
+    notes: The Notifiable Data Breaches scheme in Part IIIC has applied since 22 February 2018 (Attorney-General's Department). The Office of the Australian Information Commissioner (OAIC) enforces the Act.
+  - name: Privacy and Other Legislation Amendment Act 2024
+    citation: Act No. 128, 2024
+    official_url: https://www.legislation.gov.au/C2024A00128/asmade/2024-12-10/text/original/pdf
+    status: in-force
+    in_force_from: "2024-12-11"
+    notes: Assented to on 10 December 2024 and in force in stages (s.2). From 11 December 2024, most of Schedule 1 (the children's code duty, security, overseas transfers, breach declarations, tiered penalties and new OAIC powers) and the doxxing offences (Schedule 3). From 10 June 2025, the statutory tort for serious invasions of privacy (Schedule 2). From 10 December 2026, the automated-decision rules for privacy policies (Schedule 1, Part 15).
+  - name: Spam Act 2003
+    citation: Act No. 129, 2003
+    official_url: https://www.legislation.gov.au/C2004A01214/2016-03-10/2016-03-10/text/original/pdf
+    status: in-force
+    in_force_from: "2004-04-10"
+    notes: The rules on sending commercial electronic messages took effect on 10 April 2004; the rest of the Act on 12 December 2003. The Australian Communications and Media Authority (ACMA) enforces it.
+  - name: Do Not Call Register Act 2006
+    citation: Act No. 88, 2006
+    official_url: https://www.legislation.gov.au/C2006A00088/2021-09-01/2021-09-01/text/original/pdf
+    status: in-force
+    in_force_from: "2007-05-31"
+    notes: The ban on unsolicited telemarketing calls to registered numbers (Part 2) applies from 31 May 2007.
+  - name: Online Safety Act 2021
+    citation: Act No. 76, 2021 (Compilation No. 4, 12 September 2026)
+    official_url: https://www.legislation.gov.au/C2021A00076/2026-09-12/2026-09-12/text/original/pdf
+    status: in-force
+    in_force_from: "2022-01-23"
+    notes: Part 4A, the social media minimum age added by Act No. 127 of 2024, applies from 10 December 2025 (Ministerial instrument F2025N00628). Act No. 83 of 2026 doubled its penalties and added examination powers from 12 September 2026. The eSafety Commissioner enforces the Act and its registered industry codes.
+  - name: Cyber Security Act 2024
+    citation: Act No. 98, 2024
+    official_url: https://www.legislation.gov.au/C2024A00098/asmade/2024-11-29/text/original/pdf
+    status: in-force
+    in_force_from: "2024-11-30"
+    notes: Parts 1 and 4 applied from 30 November 2024. The ransomware payment reporting duty (Part 3) has applied since 30 May 2025 (Home Affairs), with a $3 million turnover threshold set by the Cyber Security (Ransomware Payment Reporting) Rules 2025.
+  - name: Children's Online Privacy Code
+    citation: APP code to be made by the Information Commissioner under s.26GC of the Privacy Act 1988
+    official_url: https://www.oaic.gov.au/privacy/privacy-registers/privacy-codes/childrens-online-privacy-code
+    status: draft
+    notes: The OAIC consulted on an exposure draft from March to June 2026 and says the final code must be registered by 10 December 2026. It will bind social media, messaging, gaming and other online services likely to be accessed by children. Not yet in force.
+  - name: Privacy Amendment (Personal Data Protection) Bill 2026
+    citation: Exposure draft, Attorney-General's Department
+    official_url: https://consultations.ag.gov.au/rights-and-protections/privacy-reform/
+    status: draft
+    notes: The next stage of Privacy Act reform, released for consultation from 31 August to 18 September 2026. It covers fair and reasonable handling of personal information, consent, notice and direct marketing, and remains subject to government decisions. Not law.
+regulators:
+  - name: Office of the Australian Information Commissioner (OAIC)
+    url: https://www.oaic.gov.au/
+  - name: eSafety Commissioner, for online safety and the social media minimum age
+    url: https://www.esafety.gov.au/industry/codes
+  - name: Australian Communications and Media Authority (ACMA), for spam, telemarketing and SMS sender IDs
+    url: https://www.acma.gov.au/scams-spam-and-telemarketing
+obligations:
+  scope:
+    summary: The Privacy Act binds Australian Government agencies and private organisations, including overseas organisations that carry on business in Australia, which have an "Australian link" (s.5B). Businesses with annual turnover of $3,000,000 or less are exempt as small businesses (s.6D), unless, for example, they provide health services and hold health information, trade in personal information, or are Commonwealth contractors. Other exemptions cover employee records and individuals acting in a personal capacity.
+    source:
+      - https://www.legislation.gov.au/C2004A03712/2026-06-04/2026-06-04/text/original/pdf
+  lawful_bases:
+    summary: The APPs don't use lawful bases. Collect personal information only if reasonably necessary for your functions or activities, by lawful and fair means, and sensitive information only with consent unless an exception applies (APP 3). Use or disclose it for the purpose you collected it for, or a secondary purpose the person consented to or would reasonably expect, or under another exception (APP 6). Tell people about the collection (APP 5) and keep a clear privacy policy (APP 1).
+    source:
+      - https://www.legislation.gov.au/C2004A03712/2026-06-04/2026-06-04/text/original/pdf
+  consent_age:
+    summary: The Privacy Act sets no age for consent. It defines a child as anyone under 18 (s.6), and the Children's Online Privacy Code, still a draft, will set how the APPs apply to children online. Separately, from 10 December 2025, age-restricted social media platforms must take reasonable steps to stop Australian children under 16 from having accounts (Online Safety Act s.63D).
+    source:
+      - https://www.legislation.gov.au/C2004A03712/2026-06-04/2026-06-04/text/original/pdf
+      - https://www.legislation.gov.au/C2021A00076/2026-09-12/2026-09-12/text/original/pdf
+  children:
+    summary: Since 10 December 2025, age-restricted social media platforms must take reasonable steps to keep under-16s off (Online Safety Act Part 4A). They can't insist on government ID or Digital ID without a reasonable alternative, and must destroy age-check data after use. eSafety's age-restricted material codes, aimed at pornography and similar material, apply to search engines and hosting from 27 December 2025, and to app stores, social media, messaging and other services from 9 March 2026. The Children's Online Privacy Code is still a draft.
+    source:
+      - https://www.legislation.gov.au/C2021A00076/2026-09-12/2026-09-12/text/original/pdf
+      - https://www.legislation.gov.au/F2025N00628/asmade/2025-07-29/text/original/pdf
+      - https://www.esafety.gov.au/industry/codes
+      - https://www.oaic.gov.au/privacy/privacy-registers/privacy-codes/childrens-online-privacy-code
+  cookies:
+    summary: There is no cookie-specific law. The APPs apply when cookies, pixels or similar tools collect personal information, which can include IP addresses or hashed emails a platform can match to someone. OAIC guidance on tracking pixels says to collect the minimum needed (APP 3), get consent, generally opt-in, before sensitive information is collected or shared, explain the tracking in privacy policies and notices (APPs 1 and 5) and give a simple opt-out from targeted ads (APP 7).
+    source:
+      - https://www.oaic.gov.au/privacy/privacy-guidance-for-organisations-and-government-agencies/organisations/tracking-pixels-and-privacy-obligations
+      - https://www.legislation.gov.au/C2004A03712/2026-06-04/2026-06-04/text/original/pdf
+  marketing:
+    summary: Commercial emails, texts and other electronic messages with an Australian link need the recipient's consent, express or inferred, accurate sender details and a working unsubscribe; an unsubscribe takes effect within 5 business days (Spam Act 2003, ss.16-18 and Sch. 2). Don't make telemarketing calls to numbers on the Do Not Call Register without consent. Direct marketing with personal information must follow APP 7, including a simple opt-out. From 1 July 2026, texts sent under a business name need that sender ID registered with ACMA.
+    source:
+      - https://www.legislation.gov.au/C2004A01214/2016-03-10/2016-03-10/text/original/pdf
+      - https://www.legislation.gov.au/C2006A00088/2021-09-01/2021-09-01/text/original/pdf
+      - https://www.legislation.gov.au/C2004A03712/2026-06-04/2026-06-04/text/original/pdf
+      - https://www.acma.gov.au/sms-sender-id-register
+  breach_notice:
+    summary: If you suspect an eligible data breach, one likely to cause serious harm, assess it and take reasonable steps to finish within 30 days. Once there are reasonable grounds to believe one occurred, notify the OAIC and affected people as soon as practicable (Part IIIC). Separately, since 30 May 2025, businesses with annual turnover over $3 million, and some critical infrastructure entities, must report a ransomware or cyber extortion payment within 72 hours (Cyber Security Act 2024, s.27).
+    source:
+      - https://www.legislation.gov.au/C2004A03712/2026-06-04/2026-06-04/text/original/pdf
+      - https://www.oaic.gov.au/privacy/notifiable-data-breaches/about-the-notifiable-data-breaches-scheme
+      - https://www.legislation.gov.au/C2024A00098/asmade/2024-11-29/text/original/pdf
+      - https://www.legislation.gov.au/F2025L00278/asmade/2025-02-27/text/original/pdf
+      - https://www.homeaffairs.gov.au/cyber-security-subsite/files/factsheet-ransomware-payment-reporting.pdf
+  registration_or_fees:
+    summary: None under the Privacy Act; there is no registration with, or fee payable to, the OAIC. Separate registers can apply, such as ACMA's SMS Sender ID Register for branded text messages from 1 July 2026.
+    source:
+      - https://www.legislation.gov.au/C2004A03712/2026-06-04/2026-06-04/text/original/pdf
+      - https://www.acma.gov.au/sms-sender-id-register
+  dpo:
+    summary: Private organisations don't have to appoint a data protection officer. Every APP entity must take reasonable steps to put in place practices, procedures and systems that ensure it complies with the APPs and can deal with inquiries and complaints (APP 1.2).
+    source:
+      - https://www.legislation.gov.au/C2004A03712/2026-06-04/2026-06-04/text/original/pdf
+  transfers:
+    summary: Before disclosing personal information to an overseas recipient, take reasonable steps to make sure it won't breach the APPs; you can be held accountable for what the recipient does (APP 8.1, s.16C). Exceptions include a reasonable belief that the recipient is bound by a substantially similar, enforceable law or binding scheme, informed consent, and disclosures required by Australian law (APP 8.2). Since 11 December 2024, regulations can prescribe countries or schemes (APP 8.3), but the Privacy Regulations 2025 prescribe none.
+    source:
+      - https://www.legislation.gov.au/C2004A03712/2026-06-04/2026-06-04/text/original/pdf
+      - https://www.legislation.gov.au/F2025L01377/asmade/2025-11-13/text/original/pdf
+  dpia:
+    summary: Not mandatory for private organisations, but the OAIC recommends a privacy impact assessment for projects that handle personal information, including tracking pixels, as a way to meet APP 1.2. Australian Government agencies must do one for every high privacy risk project under the Privacy (Australian Government Agencies – Governance) APP Code 2017, and the OAIC can direct an agency to provide one.
+    source:
+      - https://www.oaic.gov.au/privacy/privacy-guidance-for-organisations-and-government-agencies/privacy-impact-assessments/guide-to-undertaking-privacy-impact-assessments
+      - https://www.oaic.gov.au/privacy/privacy-guidance-for-organisations-and-government-agencies/organisations/tracking-pixels-and-privacy-obligations
+  automated_decisions_ai:
+    summary: From 10 December 2026, privacy policies must list the kinds of personal information used, and the kinds of decisions made, by computer programs that make, or do things substantially and directly related to making, decisions that could significantly affect people's rights or interests (APPs 1.7-1.9). Breaches can lead to infringement notices. Until then no specific rule applies. There is no AI-specific law; the December 2025 National AI Plan relies on existing laws and a new AI Safety Institute.
+    source:
+      - https://www.legislation.gov.au/C2024A00128/asmade/2024-12-10/text/original/pdf
+      - https://www.industry.gov.au/publications/national-ai-plan/keep-australians-safe
+  penalties:
+    summary: A serious interference with privacy carries up to $2,500,000 for individuals and, for companies, the greatest of $50,000,000, three times the benefit gained or 30% of adjusted turnover (s.13G). Other interferences carry up to 2,000 penalty units, five times that for companies (s.13H; Regulatory Powers Act s.82(5)), and some APP breaches up to 200 penalty units, with infringement notices (s.13K). Since 10 June 2025 people can sue for serious invasions of privacy. Spam and social media age breaches carry separate penalties.
+    source:
+      - https://www.legislation.gov.au/C2004A03712/2026-06-04/2026-06-04/text/original/pdf
+      - https://www.legislation.gov.au/C2014A00093/2024-03-20/2024-03-20/text/original/pdf
+      - https://www.oaic.gov.au/privacy/your-privacy-rights/more-privacy-rights/statutory-tort-for-serious-invasions-of-privacy
+      - https://www.legislation.gov.au/C2026A00083/asmade/2026-09-11/text/original/pdf
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry, checked against official sources with AI assistance.
