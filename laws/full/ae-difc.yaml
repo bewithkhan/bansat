@@ -10,7 +10,7 @@ laws:
     official_url: https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/data-protection-law.pdf
     status: in-force
     in_force_from: "2020-07-01"
-    notes: "In force on 1 July 2020 (Art. 4). The 2025 amendment law, enacted on 8 July 2025, came into force on 15 July 2025, the fifth business day after enactment. It added a private right of action (Art. 64A), reworded the territorial scope (Art. 6) and the rule on sharing data with public authorities (Art. 28), and raised some Schedule 2 fines. The linked text is DIFC's consolidated version of July 2025."
+    notes: "In force on 1 July 2020 (Art. 4). The 2025 amendment law, enacted on 8 July 2025, came into force on 15 July 2025, the fifth business day after enactment. Art. 64A replaced and expanded the old Art. 64(1) compensation route. Art. 6(3) lost its 'occasional basis' carve-out and its 'means or personnel in the DIFC' test. Art. 28 on public authority requests was reworded. Schedule 2 fines rose for Art. 20 (DPIA) from USD 20,000 to 50,000 and Art. 28 from USD 10,000 to 50,000. The linked text is DIFC's consolidated version of July 2025."
   - name: Data Protection Regulations
     citation: DIFC Data Protection Regulations, Consolidated Version No. 2
     official_url: https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/data-protection-regulation.pdf
@@ -21,18 +21,20 @@ laws:
     citation: DIFC Consultation Paper No. 3 of 2026
     official_url: https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/consultation-paper.pdf
     status: draft
-    notes: "Published 18 June 2026. Proposes tighter Regulation 10 duties for an 'AI-native' DIFC, including a new Safety principle, clearer certification and Autonomous Systems Officer duties, and a new Regulation 11 letting the Commissioner recognise certification schemes. Comments closed on 18 July 2026. Not in force."
+    notes: "Published in June 2026. Proposes tighter Regulation 10 duties for an 'AI-native' DIFC, including a new Safety principle, clearer certification and Autonomous Systems Officer duties, and a new Regulation 11 letting the Commissioner recognise certification schemes. Comments closed on 18 July 2026. No enactment had been announced by 5 November 2026, so it is not in force."
 regulators:
   - name: Commissioner of Data Protection (DIFC)
     url: https://www.difc.com/business/registrars-and-commissioners/commissioner-of-data-protection
 obligations:
   scope:
-    summary: "Applies to controllers and processors incorporated in the DIFC, wherever they process, and to any controller, processor or sub-processor processing in the DIFC as part of stable arrangements, whatever its place of incorporation (Art. 6, as amended from 15 July 2025). Purely personal or household processing is excluded. The federal PDPL doesn't apply to DIFC entities, but federal laws other than civil and commercial ones still apply here, such as the cybercrime law, the Child Digital Safety Law and the telemarketing rules (see ae)."
+    summary: "Applies to controllers and processors incorporated in the DIFC, wherever they process, and to any controller, processor or sub-processor processing in the DIFC as part of stable arrangements, whatever its place of incorporation (Art. 6, as amended from 15 July 2025). Purely personal or household processing is excluded. The federal PDPL doesn't apply to DIFC entities, but federal laws other than civil and commercial ones still apply here, such as the cybercrime law, the Child Digital Safety Law, the health data law and the telemarketing rules (see ae)."
     source:
       - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/data-protection-law.pdf
       - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/amendment-law-no-1-of-2025.pdf
       - https://uaelegislation.gov.ae/en/legislations/1972
       - https://uaelegislation.gov.ae/en/legislations/1981/download
+      - https://uaelegislation.gov.ae/en/legislations/1209/download
+      - https://uaelegislation.gov.ae/en/legislations/2519/download
   lawful_bases:
     summary: "Six lawful bases (Art. 10): consent, contract, legal obligation, vital interests, DIFC public tasks, and legitimate interests, which public authorities can't use. Preventing fraud and network security count as legitimate interests, and intra-group transfers for internal admin can be (Art. 13). Special category data also needs an Article 11 condition, such as explicit consent, employment or substantial public interest. Consent must be freely given, specific and as easy to withdraw as to give, and continuing consent should be checked and offered for re-affirmation periodically (Art. 12)."
     source:
@@ -94,14 +96,14 @@ obligations:
       - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/registrars-and-commissioners/regulation-10/difc-reg-10-accreditation-and-certification-framework.pdf
       - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/consultation-paper.pdf
   penalties:
-    summary: "The Commissioner can issue directions, warnings, reprimands and administrative fines up to the Schedule 2 maximum for each contravention, from USD 25,000 to USD 100,000 (USD 100,000 for breaching data subject rights), plus general fines not capped by Schedule 2 that reflect seriousness and harm. Courts can award compensation. Since 15 July 2025, people who suffer damage, including distress, can sue controllers and processors directly in the DIFC Courts (Art. 64A)."
+    summary: "The Commissioner can issue directions, warnings, reprimands and administrative fines up to the Schedule 2 maximum for each contravention, from USD 25,000 to USD 100,000 (USD 100,000 for breaching data subject rights), plus general fines not capped by Schedule 2 that reflect seriousness and harm. Since 15 July 2025, Art. 64A has replaced and expanded the old Art. 64(1) route to court compensation: people who suffer damage, including distress, can claim it from controllers and processors in the DIFC Courts. The 2025 amendments raised the Art. 20 and Art. 28 maximums to USD 50,000."
     source:
       - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/data-protection-law.pdf
-      - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/difc-laws-amendment-law-no-1-of-2025.pdf
+      - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/amendment-law-no-1-of-2025.pdf
       - https://mediaoffice.ae/en/news/2025/july/16-07/difc-announces-enactment-of-amendments-to-select-difc-legislation-through-difc-law-amendment-law
 checked:
   date: "2026-11-05"
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

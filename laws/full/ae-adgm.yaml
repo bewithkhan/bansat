@@ -10,30 +10,33 @@ laws:
     official_url: https://www.adgm.com/media/announcements/adgm-enacts-its-new-data-protection-regulations-2021
     status: in-force
     in_force_from: "2021-08-14"
-    notes: "Enacted on 11 February 2021 and published on 14 February 2021, replacing the 2015 Regulations. According to the ODP, they applied from 14 August 2021 to entities set up on or after 14 February 2021, and from 14 February 2022 to existing ones. The Fees and Fines Rules followed in July 2021. In September 2025 ADGM amended the DPR 2021 and made the Data Protection Regulations (Substantial Public Interest Conditions) Rules 2025."
+    notes: "Enacted on 11 February 2021 and published on 14 February 2021, replacing the 2015 Regulations. According to the ODP, they applied from 14 August 2021 to entities set up after 14 February 2021, and from 14 February 2022 to those set up on or before it. The Fees and Fines Rules followed in July 2021. Amendment No. 1 of 2022, enacted on 26 July 2022, ended SPVs' fee exemption. In September 2025 ADGM amended the DPR 2021 and made the Substantial Public Interest Conditions Rules 2025. All ODP guidance parts date from August or September 2021, before these changes."
 regulators:
   - name: Office of Data Protection, ADGM Registration Authority (headed by the Commissioner of Data Protection)
     url: https://www.adgm.com/operating-in-adgm/office-of-data-protection
 obligations:
   scope:
-    summary: "The DPR 2021 apply to processing in the context of an ADGM establishment (on Al Maryah or Al Reem Island), wherever it happens, and the ODP says they can reach firms outside ADGM whose processing is inextricably linked to one. Where data subjects live doesn't matter. Purely personal use and criminal law enforcement by public authorities are excluded. The federal PDPL doesn't apply to ADGM entities, but federal laws other than civil and commercial ones still do, such as the cybercrime and child digital safety laws and the telemarketing rules (see ae)."
+    summary: "The DPR 2021 apply to processing in the context of an ADGM establishment (on Al Maryah or Al Reem Island), wherever it happens, and the ODP says they can reach firms outside ADGM whose processing is inextricably linked to one. Where data subjects live doesn't matter. Purely personal use and criminal law enforcement by public authorities are excluded. The federal PDPL doesn't apply to ADGM entities, but federal laws other than civil and commercial ones still do, such as the cybercrime, child digital safety and health data laws and the telemarketing rules (see ae)."
     source:
       - https://assets.adgm.com/download/assets/ADGM+DPR+2021+Guidance+Part+1.pdf/b65534b2595411ef82c5a27efcbde115
+      - https://assets.adgm.com/download/assets/ADGM+Data+Protection+Regulations+2021+Updated.pdf/146aa34858b011efb99a36e29b0f3a63
       - https://www.adgm.com/about/jurisdiction/alreemisland
       - https://uaelegislation.gov.ae/en/legislations/1972
       - https://uaelegislation.gov.ae/en/legislations/1981/download
+      - https://uaelegislation.gov.ae/en/legislations/1209/download
+      - https://uaelegislation.gov.ae/en/legislations/2519/download
   lawful_bases:
     summary: "Six lawful bases (s. 5(1)): consent, contract, legal obligation, vital interests, public tasks or official authority, and legitimate interests, which must be balanced against the person's rights, especially a child's. Special category data also needs a section 7(2) condition, and some substantial public interest conditions need an appropriate policy document. Since September 2025 ADGM rules add conditions for insurance and for protecting children and adults at risk without consent. Consent must be freely given, specific, informed and unambiguous."
     source:
       - https://assets.adgm.com/download/assets/ADGM+DPR+2021+Guidance+Part+1.pdf/b65534b2595411ef82c5a27efcbde115
       - https://www.adgm.com/media/announcements/adgm-enacts-new-substantial-public-interest-rules-under-data-protection-regulations-2021
   consent_age:
-    summary: "The DPR 2021, as ODP guidance explains them, set no age at which a child can consent. The guidance treats a child as anyone under 18 when weighing legitimate interests and asks for especially clear communications with children. The federal under-13 parental consent rule for digital platforms, and the UAE age of majority of 18 Gregorian years, apply alongside (see ae)."
+    summary: "The DPR 2021, as ODP guidance explains them, set no age at which a child can consent. The guidance defines a child as a person under 18 when weighing legitimate interests (Part 1, para. 5.1.6) and asks for especially clear communications with children. The federal under-13 parental consent rule for digital platforms applies alongside (see ae). Federal civil laws, such as the Civil Transactions Law that sets the onshore age of majority, don't apply in financial free zones (Federal Law No. 8 of 2004, Art. 3(2))."
     source:
       - https://assets.adgm.com/download/assets/ADGM+DPR+2021+Guidance+Part+1.pdf/b65534b2595411ef82c5a27efcbde115
       - https://assets.adgm.com/download/assets/ADGM+DPR+2021+Guidance+Part+2.pdf/4dfcd0f4595511ef8933e27828504259
       - https://u.ae/en/information-and-services/social-affairs/Priority-groups/children/Childrens-digital-safety
-      - https://uaelegislation.gov.ae/en/news/the-uae-government-issues-a-federal-decree-law-promulgating-the-civil-transactions-law
+      - https://uaelegislation.gov.ae/en/legislations/1981/download
   children:
     summary: "There are no ADGM-specific children's online rules. Children's interests weigh heavily against a controller's legitimate interests, and communications with them must be especially clear. ADGM's 2025 rules let organisations process special category data without consent where needed to protect children or adults at risk of harm. The federal Child Digital Safety Law and social media age rules apply to platforms that operate in or target the UAE (see ae)."
     source:
@@ -60,19 +63,21 @@ obligations:
       - https://www.adgm.com/operating-in-adgm/office-of-data-protection/data-breach-notifications
       - https://assets.adgm.com/download/assets/ADGM+DPR+2021+Guidance+Part+5.pdf/fe422242595611efaa55be162688b39c
   registration_or_fees:
-    summary: "All ADGM entities that process personal data must register as data controllers and keep their Data Protection Register entry and data protection contact person up to date. The data protection fee is USD 300 on registration and USD 300 a year on renewal; paying the renewal after the one-month grace period adds a USD 450 fixed penalty."
+    summary: "All ADGM entities that process personal data must register as data controllers and keep their Data Protection Register entry and data protection contact person up to date. The data protection fee is USD 300 on registration and USD 300 a year on renewal; paying the renewal after the one-month grace period adds a USD 450 fixed penalty. Special purpose vehicles have had to pay the registration fee since 26 July 2022, when Amendment No. 1 of 2022 removed their exemption. ADGM made Fees Rules and Fines Rules under the DPR 2021 in July 2021."
     source:
       - https://www.adgm.com/operating-in-adgm/office-of-data-protection
       - https://www.adgm.com/operating-in-adgm/office-of-data-protection/fee-sections
       - https://assets.adgm.com/download/assets/ADGM+ODP+Circular+No+1+of+2025.pdf/d434729cd3fa11efb2e7560b7285278b
+      - https://assets.adgm.com/download/assets/ODP-Circular-1-2022.pdf/5b1ae810589811ef9135a2e9f1e62a6a
+      - https://adgm.com/media/announcements/adgm-makes-rules-under-new-data-protection-regulations-2021
       - https://assets.adgm.com/download/assets/ADGM+DPR+2021+Guidance+Part+3.pdf/12ba12da595611ef894152361f6b9c5e
   dpo:
-    summary: "Appoint a DPO if you're a public authority, or your core activities involve regular and systematic monitoring of people on a large scale, such as tracking and profiling, or large-scale processing of special category data. The DPO can be an employee or a contractor and needn't live in ADGM but must be easy to reach, must not hold a conflicting role, and their contact details should be in privacy notices. Record the DPO's appointment or departure in the Data Protection Register."
+    summary: "Appoint a DPO if you're a public authority (except courts acting in their judicial capacity), or your core activities involve regular and systematic monitoring of people on a large scale, such as tracking and profiling, or large-scale processing of special category data. The DPO can be an employee or a contractor and needn't live in ADGM but must be easy to reach, must not hold a conflicting role, and their contact details should be in privacy notices. Record the DPO's appointment or departure in the Data Protection Register."
     source:
       - https://assets.adgm.com/download/assets/ADGM+DPR+2021+Guidance+Part+3.pdf/12ba12da595611ef894152361f6b9c5e
       - https://assets.adgm.com/download/assets/ADGM+ODP+Circular+No+1+of+2025.pdf/d434729cd3fa11efb2e7560b7285278b
   transfers:
-    summary: "Transfers outside ADGM, including to the onshore UAE, need an adequate destination (the jurisdictions the European Commission recognises, plus the DIFC, the QFC, Israel and US firms in the EU-US Data Privacy Framework), appropriate safeguards such as ADGM standard contractual clauses, the ODP's addendum to the EU clauses or approved binding corporate rules, or a listed derogation, such as consent, a contract or legal claims. No transfer is too small to be covered."
+    summary: "Transfers outside ADGM, including to the onshore UAE, need an adequate destination (the jurisdictions the European Commission recognises, such as Israel, Canada for PIPEDA-covered recipients and US firms in the EU-US Data Privacy Framework, plus the DIFC and the QFC), appropriate safeguards such as ADGM standard contractual clauses, the ODP's addendum to the EU clauses or approved binding corporate rules, or a listed derogation, such as consent, a contract or legal claims. No transfer is too small to be covered."
     source:
       - https://www.adgm.com/operating-in-adgm/office-of-data-protection/jurisdictions
       - https://assets.adgm.com/download/assets/ADGM+DPR+2021+Guidance+Part+6.pdf/e743e728595711ef80b936e29b0f3a63
@@ -97,4 +102,4 @@ checked:
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

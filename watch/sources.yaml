@@ -94,7 +94,7 @@ jurisdictions:
   ae-adgm:
     official_domains: [adgm.com]
   sa:
-    official_domains: [sdaia.gov.sa, uqn.gov.sa, spa.gov.sa, cst.gov.sa, citc.gov.sa, mcit.gov.sa, my.gov.sa]
+    official_domains: [sdaia.gov.sa, uqn.gov.sa, spa.gov.sa, cst.gov.sa, citc.gov.sa, mcit.gov.sa, my.gov.sa, istitlaa.scbc.gov.sa]
   qa:
     official_domains: [almeezan.qa, almeezan.gov.qa, ncsa.gov.qa, qfc.qa, shura.qa]
   il:

@@ -15,7 +15,7 @@ laws:
     official_url: https://uaelegislation.gov.ae/en/legislations/2433
     status: in-force
     in_force_from: "2021-09-27"
-    notes: "In force the day after its publication in Official Gazette No. 712 (supplement) on 26 September 2021 (Art. 11), so 27 September 2021 (derived; the portal shows the same date). On 14 June 2026 the government approved a federal Artificial Intelligence and Data Authority that takes over the Data Office's functions."
+    notes: "In force the day after its publication in Official Gazette No. 712 (supplement) on 26 September 2021 (Art. 11), so 27 September 2021 (derived; the portal shows the same date). On 14 June 2026 the Cabinet approved an Artificial Intelligence and Data Authority to take over the Data Office's functions; no legislation transferring the Office's powers was on the federal legislation portal by 5 November 2026, which still lists this law as active and unamended."
   - name: Law on Countering Rumours and Cybercrimes
     citation: Federal Decree-Law No. 34 of 2021
     official_url: https://uaelegislation.gov.ae/en/legislations/1526
@@ -27,13 +27,13 @@ laws:
     official_url: https://uaelegislation.gov.ae/en/legislations/3912
     status: in-force
     in_force_from: "2026-01-01"
-    notes: "Issued 1 October 2025 and published in Official Gazette No. 809 (supplement 1) on 14 October 2025. The start date is the effective date the federal legislation portal lists. Applies to digital platforms and internet service providers that operate in the UAE or target users there, and to children's carers."
+    notes: "Issued 1 October 2025 and published in Official Gazette No. 809 (supplement 1) on 14 October 2025. The start date is the effective date the federal legislation portal lists. Applies to digital platforms and internet service providers that operate in the UAE or target users there, and to children's carers. Covered firms reportedly have until about 1 January 2027 to comply, extendable by the Cabinet, which is also to set the risk-based platform classification (reported by WAM and law firms; the official text couldn't be opened)."
   - name: Cabinet Resolution on children's access to social media platforms
     citation: Cabinet Resolution No. 106 of 2026
     official_url: https://uaelegislation.gov.ae/en/legislations/4506
     status: in-force
     in_force_from: "2026-06-30"
-    notes: "Issued 17 June 2026 and published in Official Gazette No. 826 on 29 June 2026. The start date is the effective date the federal legislation portal lists. Sets 15 as the minimum age for social media accounts; the government describes a gradual transition for platforms."
+    notes: "Issued 17 June 2026. Published in Official Gazette No. 826 on 29 June 2026 and in force the next day (Art. 9), so 30 June 2026 (derived; the portal shows the same date). Platforms have 12 months from then to comply (Art. 8(1)), so to about 30 June 2027 (derived). Sets 15 as the minimum age for social media accounts, with restricted accounts for those aged 15. Read from the Arabic text; the English download doesn't open."
   - name: Telemarketing Regulations
     citation: Cabinet Resolution No. 56 of 2024, with Cabinet Resolution No. 57 of 2024 on violations and penalties
     official_url: https://uaelegislation.gov.ae/en/legislations/2519
@@ -51,10 +51,10 @@ laws:
     official_url: https://uaelegislation.gov.ae/en/legislations/1209
     status: in-force
     in_force_from: "2019-05-06"
-    notes: "Article 31 starts it three months after publication. The portal gives Official Gazette No. 647 of 6 February 2019, so 6 May 2019 (derived), but lists 14 May 2019 as the effective date. Applies across the UAE, including free zones, and keeps the health data it covers outside the PDPL."
+    notes: "Article 31 starts it three months after publication. The portal gives Official Gazette No. 647 of 6 February 2019, the same date as the issue date, so 6 May 2019 (derived), but lists 14 May 2019 as the effective date. Either way it has applied since May 2019. Applies across the UAE, including free zones, and keeps the health data it covers outside the PDPL."
 regulators:
-  - name: Artificial Intelligence and Data Authority (approved 14 June 2026, taking over the functions of the UAE Data Office named in the PDPL)
-    url: https://uaecabinet.ae/en/news/mohammed-bin-rashid-approves-establishing-artificial-intelligence-and-data-authority
+  - name: UAE Data Office (PDPL supervisory authority, Decree-Law No. 44 of 2021; an AI and Data Authority approved on 14 June 2026 is to take over its functions)
+    url: https://uaelegislation.gov.ae/en/legislations/2433
   - name: Telecommunications and Digital Government Regulatory Authority (TDRA)
     url: https://tdra.gov.ae/en
 obligations:
@@ -69,22 +69,27 @@ obligations:
     source:
       - https://uaelegislation.gov.ae/en/legislations/1972
   consent_age:
-    summary: "The PDPL says nothing about children or legal capacity. Since 1 January 2026 the Child Digital Safety Law bars digital platforms from collecting or using the personal data of children under 13 unless a parent or guardian gives clear consent that is easy to withdraw, the use is clearly explained, and the data isn't used for targeted advertising or commercial purposes. Full legal capacity begins at 18 Gregorian years under the Civil Transactions Law in force since 1 June 2026, down from 21 lunar years."
+    summary: "The PDPL says nothing about children or legal capacity. The Child Digital Safety Law, in force since 1 January 2026, bars digital platforms from collecting or using the personal data of children under 13 unless a parent or guardian gives clear consent that is easy to withdraw, the use is clearly explained, and the data isn't used for targeted ads or commercial purposes; firms reportedly have until about 1 January 2027 to comply. Full legal capacity starts at 18 Gregorian years (Civil Transactions Law Art. 84(2), in force since 1 June 2026), down from 21 lunar years."
     value: 13
     unit: years
     source:
       - https://u.ae/en/information-and-services/social-affairs/Priority-groups/children/Childrens-digital-safety
       - https://uaelegislation.gov.ae/en/legislations/3912
       - https://uaelegislation.gov.ae/en/news/the-uae-government-issues-a-federal-decree-law-promulgating-the-civil-transactions-law
-      - https://uaelegislation.gov.ae/en/legislations/4011
+      - https://uaelegislation.gov.ae/ar/legislations/4011/download
+    secondary:
+      - https://www.lw.com/en/insights/uaes-child-digital-safety-law-what-every-digital-platform-and-isp-should-know
+      - https://sharjah24.ae/en/Articles/2025/12/26/a9
   children:
-    summary: "The Child Digital Safety Law covers platforms and internet service providers that operate in or target the UAE. Platforms must verify ages in line with a risk-based classification, set strong default privacy settings, offer parental controls and age ratings, filter and report harmful content, report child sexual abuse material at once, and keep children away from online gambling. Internet providers must filter content. Cabinet Resolution No. 106 of 2026 bars under-15s from creating, using or running social media accounts, and platforms must enforce this."
+    summary: "The Child Digital Safety Law makes platforms in or targeting the UAE check ages under a risk-based classification (reportedly still to be set by the Cabinet), set private defaults and parental controls, filter harmful content, report abuse material, block child gambling; internet providers filter content. Cabinet Resolution 106/2026 bars under-15s from social media accounts. Those aged 15 get restricted accounts (limits on content, strangers, private messaging, live streaming and feeds; time and parental controls). Guardian consent lifts neither. Platforms must comply by about 30 June 2027."
     source:
       - https://uaelegislation.gov.ae/en/news/uae-government-issues-a-federal-decree-law-on-child-digital-safety
       - https://u.ae/en/information-and-services/social-affairs/Priority-groups/children/Childrens-digital-safety
       - https://uaelegislation.gov.ae/en/legislations/4506
+      - https://uaelegislation.gov.ae/ar/legislations/4506/download
     secondary:
       - https://www.lw.com/en/insights/uaes-child-digital-safety-law-what-every-digital-platform-and-isp-should-know
+      - https://sharjah24.ae/en/Articles/2025/12/26/a9
       - https://www.lw.com/en/insights/2026/08/UAEs-Restrictions-on-Childrens-Access-to-Social-Media-What-Social-Media-Platforms-Should-Know
   cookies:
     summary: "There is no federal cookie rule. Where cookies or similar tools collect personal data, the PDPL applies, so consent is needed unless an Article 4 case fits. On platforms covered by the Child Digital Safety Law, children's accounts need strong default privacy settings, and data of under-13s can't be used for targeted advertising."
@@ -113,7 +118,7 @@ obligations:
     source:
       - https://uaelegislation.gov.ae/en/legislations/1972
   transfers:
-    summary: "Personal data can go abroad to countries whose data protection laws the Data Office approves as adequate, or under an agreement the UAE has joined. Otherwise a transfer needs a binding contract applying the PDPL's standards, the person's express consent, or another listed case, such as legal claims, a contract, judicial cooperation or the public interest; the Executive Regulations will add controls. Health data covered by Federal Law No. 2 of 2019 must be stored and processed in the UAE unless a health authority decision allows otherwise."
+    summary: "Personal data can go to countries whose data protection laws the Data Office approves, or under an agreement the UAE has joined. To a country with no data protection law, companies can transfer under a binding contract applying the PDPL's standards (Art. 23(1)(a)). Other routes are the person's express consent or a listed case, such as legal claims, a contract, judicial cooperation or the public interest; the Executive Regulations will add controls. Health data covered by Federal Law No. 2 of 2019 must be stored and processed in the UAE unless a health authority decision allows otherwise."
     source:
       - https://uaelegislation.gov.ae/en/legislations/1972
       - https://uaelegislation.gov.ae/en/legislations/1209/download
@@ -144,4 +149,4 @@ checked:
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
