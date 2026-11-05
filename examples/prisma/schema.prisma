@@ -1,0 +1,273 @@
+// prisma/schema.prisma — privacy-aware reference schema (example: TaskFlow AI)
+// Conventions: snake_case tables/columns (@@map/@map), UUID keys, UTC timestamps.
+// Data classes in comments: [C2] personal, [C3] sensitive — see 5.1.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql" // Prisma 7+: the connection URL lives in prisma.config.ts
+}
+
+/// One row per auth user. id = auth.users.id (set by a sign-up trigger).
+model Profile {
+  id                  String          @id @db.Uuid
+  email               String          @unique // [C2]
+  displayName         String          @map("display_name") // [C2]
+  avatarPath          String?         @map("avatar_path") // [C2] own storage bucket, never Gravatar
+  locale              String          @default("en-GB")
+  timezone            String          @default("Europe/London")
+  ageStatus           AgeStatus       @default(UNVERIFIED) @map("age_status") // store the result, not the DOB
+  ageCheckMethod      AgeCheckMethod? @map("age_check_method")
+  ageCheckedAt        DateTime?       @map("age_checked_at")
+  lastActiveAt        DateTime?       @map("last_active_at") // drives inactive-account deletion
+  deletionRequestedAt DateTime?       @map("deletion_requested_at") // starts the 30-day erasure grace period
+  createdAt           DateTime        @default(now()) @map("created_at")
+  updatedAt           DateTime        @updatedAt @map("updated_at")
+
+  memberships   Membership[]
+  assignedTasks Task[]               @relation("AssignedTasks")
+  createdTasks  Task[]               @relation("CreatedTasks")
+  comments      Comment[]
+  consents      ConsentRecord[]
+  requests      DataSubjectRequest[]
+
+  @@map("profiles")
+}
+
+model Organization {
+  id        String    @id @default(uuid()) @db.Uuid
+  name      String    @db.VarChar(120)
+  slug      String    @unique @db.VarChar(60)
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at") // soft delete; hard delete after 30 days
+
+  memberships   Membership[]
+  tasks         Task[]
+  comments      Comment[]
+  auditLogs     AuditLog[]
+  aiGenerations AiGeneration[]
+
+  @@map("organizations")
+}
+
+model Membership {
+  id             String   @id @default(uuid()) @db.Uuid
+  userId         String   @map("user_id") @db.Uuid
+  organizationId String   @map("organization_id") @db.Uuid
+  role           Role     @default(MEMBER)
+  createdAt      DateTime @default(now()) @map("created_at")
+
+  user         Profile      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, organizationId])
+  @@index([organizationId])
+  @@map("memberships")
+}
+
+model Task {
+  id             String     @id @default(uuid()) @db.Uuid
+  organizationId String     @map("organization_id") @db.Uuid
+  title          String     @db.VarChar(200)
+  description    String?    @db.VarChar(10000) // [C2] may mention people: never sent to analytics
+  status         TaskStatus @default(TODO)
+  priority       Priority   @default(MEDIUM)
+  aiSummary      String?    @map("ai_summary") // AI-generated: labelled in the UI (Part 8.6)
+  assigneeId     String?    @map("assignee_id") @db.Uuid
+  creatorId      String?    @map("creator_id") @db.Uuid // nullable so erasing a user keeps team content
+  createdAt      DateTime   @default(now()) @map("created_at")
+  updatedAt      DateTime   @updatedAt @map("updated_at")
+  deletedAt      DateTime?  @map("deleted_at")
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  assignee     Profile?     @relation("AssignedTasks", fields: [assigneeId], references: [id], onDelete: SetNull)
+  creator      Profile?     @relation("CreatedTasks", fields: [creatorId], references: [id], onDelete: SetNull)
+  comments     Comment[]
+
+  @@index([organizationId, status])
+  @@index([assigneeId])
+  @@map("tasks")
+}
+
+model Comment {
+  id             String    @id @default(uuid()) @db.Uuid
+  organizationId String    @map("organization_id") @db.Uuid // denormalised: simple, fast RLS
+  taskId         String    @map("task_id") @db.Uuid
+  authorId       String?   @map("author_id") @db.Uuid
+  content        String    @db.VarChar(5000) // [C2]
+  createdAt      DateTime  @default(now()) @map("created_at")
+  editedAt       DateTime? @map("edited_at")
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  task         Task         @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  author       Profile?     @relation(fields: [authorId], references: [id], onDelete: SetNull)
+
+  @@index([taskId, createdAt])
+  @@map("comments")
+}
+
+/// Append-only evidence of every consent decision (9.7). Never update rows; insert a new one.
+model ConsentRecord {
+  id            String         @id @default(uuid()) @db.Uuid
+  profileId     String?        @map("profile_id") @db.Uuid
+  anonymousId   String?        @map("anonymous_id") // random ID from the consent cookie, before sign-up
+  purpose       ConsentPurpose
+  granted       Boolean
+  noticeVersion String         @map("notice_version") // version of the notice shown
+  wording       String // exact text the person saw
+  source        ConsentSource
+  createdAt     DateTime       @default(now()) @map("created_at")
+
+  profile Profile? @relation(fields: [profileId], references: [id], onDelete: SetNull)
+
+  @@index([profileId, purpose, createdAt])
+  @@map("consent_records")
+}
+
+/// Minimal record kept after unsubscribe or erasure so the address is never emailed again.
+model MarketingSuppression {
+  emailHash String            @id @map("email_hash") // SHA-256 of the lower-cased, trimmed email
+  reason    SuppressionReason
+  createdAt DateTime          @default(now()) @map("created_at")
+
+  @@map("marketing_suppressions")
+}
+
+/// Rights requests and privacy complaints (9.15, 9.16).
+model DataSubjectRequest {
+  id             String    @id @default(uuid()) @db.Uuid
+  profileId      String?   @map("profile_id") @db.Uuid
+  requesterEmail String    @map("requester_email") // [C2]
+  type           DsrType
+  status         DsrStatus @default(RECEIVED)
+  jurisdiction   String? // e.g. "UK", "EU-IE", "NG"
+  receivedAt     DateTime  @default(now()) @map("received_at")
+  acknowledgedAt DateTime? @map("acknowledged_at")
+  dueAt          DateTime  @map("due_at") // one calendar month from receipt (UK/EU)
+  extendedTo     DateTime? @map("extended_to")
+  completedAt    DateTime? @map("completed_at")
+  outcomeNote    String?   @map("outcome_note") // no special category details
+
+  profile Profile? @relation(fields: [profileId], references: [id], onDelete: SetNull)
+
+  @@index([status, dueAt])
+  @@map("data_subject_requests")
+}
+
+/// Security and admin events. IDs only: no emails, names or content.
+model AuditLog {
+  id             String   @id @default(uuid()) @db.Uuid
+  organizationId String?  @map("organization_id") @db.Uuid
+  actorId        String?  @map("actor_id") @db.Uuid
+  action         String // e.g. "member.role_changed", "data.exported"
+  targetType     String?  @map("target_type")
+  targetId       String?  @map("target_id")
+  metadata       Json?
+  createdAt      DateTime @default(now()) @map("created_at")
+
+  organization Organization? @relation(fields: [organizationId], references: [id], onDelete: SetNull)
+
+  @@index([organizationId, createdAt])
+  @@map("audit_logs")
+}
+
+/// Usage and cost ledger for AI features. Prompts and outputs are NOT stored here.
+model AiGeneration {
+  id             String   @id @default(uuid()) @db.Uuid
+  organizationId String   @map("organization_id") @db.Uuid
+  requestedById  String?  @map("requested_by_id") @db.Uuid
+  feature        String // e.g. "standup_summary"
+  model          String // pinned model ID
+  promptVersion  String   @map("prompt_version")
+  inputTokens    Int      @map("input_tokens")
+  outputTokens   Int      @map("output_tokens")
+  status         String // "succeeded" | "failed" | "cancelled"
+  createdAt      DateTime @default(now()) @map("created_at")
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@index([organizationId, createdAt])
+  @@map("ai_generations")
+}
+
+enum Role {
+  OWNER
+  ADMIN
+  MEMBER
+}
+
+enum TaskStatus {
+  TODO
+  IN_PROGRESS
+  IN_REVIEW
+  DONE
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+enum AgeStatus {
+  UNVERIFIED
+  ADULT
+  MINOR_WITH_PARENTAL_CONSENT
+}
+
+enum AgeCheckMethod {
+  SELF_DECLARATION
+  AGE_ESTIMATION
+  ID_CHECK_VIA_PROVIDER
+  PARENT_VERIFIED
+}
+
+// Extend from your RoPA (9.3). One purpose per independent choice.
+enum ConsentPurpose {
+  ANALYTICS
+  SESSION_REPLAY
+  MARKETING_EMAIL
+  PRODUCT_UPDATES
+  PARENTAL
+  SPECIAL_CATEGORY_EXPLICIT
+}
+
+enum ConsentSource {
+  SIGNUP_FORM
+  WAITLIST_FORM
+  COOKIE_BANNER
+  PRIVACY_SETTINGS
+  DOUBLE_OPT_IN
+  PARENT_PORTAL
+}
+
+enum DsrType {
+  ACCESS
+  RECTIFICATION
+  ERASURE
+  RESTRICTION
+  OBJECTION
+  PORTABILITY
+  AUTOMATED_DECISION_REVIEW
+  COMPLAINT
+}
+
+enum DsrStatus {
+  RECEIVED
+  VERIFYING
+  IN_PROGRESS
+  EXTENDED
+  COMPLETED
+  REFUSED
+}
+
+enum SuppressionReason {
+  UNSUBSCRIBED
+  HARD_BOUNCE
+  SPAM_COMPLAINT
+  ERASURE_REQUEST
+}

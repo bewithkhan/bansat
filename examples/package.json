@@ -1,0 +1,25 @@
+{
+  "name": "bansat-examples",
+  "private": true,
+  "description": "The Bansat framework's code samples, run and tested.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "test:rls": "node tests/rls/run.mjs",
+    "test:privacy": "playwright test",
+    "test:privacy:leak": "node tests/privacy/expect-leak.mjs",
+    "test": "npm run typecheck && npm run test:rls && npm run test:privacy && npm run test:privacy:leak"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@types/node": "26.6.6",
+    "@types/react": "19.3.0",
+    "embedded-postgres": "18.6.0-beta.19",
+    "pg": "8.23.1",
+    "prisma": "7.10.1",
+    "typescript": "7.0.2"
+  }
+}

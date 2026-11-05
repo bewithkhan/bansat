@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leaky page · Fixture app</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 2rem; line-height: 1.5; }
+  .consent { border: 1px solid #71717a; padding: 1rem; max-width: 36rem; }
+  .consent button { font: inherit; padding: 0.5rem 1rem; margin-right: 0.5rem; }
+</style>
+<!-- Deliberately broken: a third-party font loads before any consent (the Google Fonts case in 9.9).
+     tests/privacy/expect-leak.mjs checks that the privacy test catches it. .invalid never resolves. -->
+<link rel="stylesheet" href="https://fonts.vendor.invalid/css2?family=Inter">
+</head>
+<body>
+<h1>Leaky page</h1>
+<nav><a href="/">Home</a> · <a href="/pricing/">Pricing</a> · <a href="/signup/">Sign up</a> · <a href="/login/">Log in</a></nav>
+<section class="consent" role="region" aria-label="Cookie choices">
+  <p>We'd like to use analytics to improve this site. Nothing loads until you choose.</p>
+  <button type="button" id="accept">Accept all</button>
+  <button type="button" id="reject">Reject all</button>
+</section>
+<script type="module">
+  // The framework's consent loader (9.8), served from lib/privacy/consent.ts.
+  import { loadWhenConsented, saveConsent } from '/lib/privacy/consent.js';
+  loadWhenConsented('analytics', 'https://analytics.vendor.invalid/script.js');
+  const all = (granted) => ({ analytics: granted, replay: granted, marketing: granted });
+  document.getElementById('accept').addEventListener('click', () => saveConsent(all(true)));
+  document.getElementById('reject').addEventListener('click', () => saveConsent(all(false)));
+</script>
+</body>
+</html>
