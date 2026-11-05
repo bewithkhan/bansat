@@ -71,7 +71,7 @@ A skill can only instruct Claude, not force it. For a hard stop at G1, add the [
 
 ```mermaid
 flowchart LR
-    E["Existing or live app"] --> T["Day-0 triage<br/>11 checks in 48 h"] --> R["As-is blueprint<br/>from the code"] --> GR["Gap register<br/>with deadlines"] --> S["Fix sprints<br/>R1 → R4"]
+    E["Existing or live app"] --> T["Day-0 triage<br/>12 checks in 48 h"] --> R["As-is blueprint<br/>from the code"] --> GR["Gap register<br/>with deadlines"] --> S["Fix sprints<br/>R1 → R4"]
 ```
 
 ## Install in 60 seconds
