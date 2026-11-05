@@ -81,3 +81,9 @@ jurisdictions:
     official_domains: [virginia.gov, state.va.us]
   us-vt:
     official_domains: [legislature.vermont.gov, ago.vermont.gov]
+  ng:
+    official_domains: [ndpc.gov.ng, ncc.gov.ng, nigeriarights.gov.ng, fmcide.gov.ng]
+  za:
+    official_domains: [inforegulator.org.za, gov.za, thencc.org.za]
+  ke:
+    official_domains: [odpc.go.ke, parliament.go.ke, ca.go.ke, klrc.go.ke]

@@ -1,0 +1,95 @@
+# Kenya. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: ke
+name: Kenya
+tier: full
+laws:
+  - name: Data Protection Act 2019
+    citation: Act No. 24 of 2019
+    official_url: https://libraryir.parliament.go.ke/items/e6af0768-bf1c-4ebc-a2f3-8bffaeba1832
+    status: in-force
+    in_force_from: "2019-11-25"
+    notes: Assented to on 8 November 2019. The commencement date is printed in the Kenya Law edition of the Act, which Parliament's library holds as Annex 3 of the ministry's bundle tabling the 2021 regulations. No amendment to the Act was found.
+  - name: Data Protection Regulations 2021 (General; Registration of Data Controllers and Data Processors; Complaints Handling Procedure and Enforcement)
+    citation: Legal Notices No. 263, 265 and 264 of 2021 (Kenya Gazette Supplement No. 236, 31 December 2021)
+    official_url: https://libraryir.parliament.go.ke/items/e6af0768-bf1c-4ebc-a2f3-8bffaeba1832
+    status: in-force
+    in_force_from: "2021-12-31"
+    notes: The date is the gazette's publication date, used because the General and Complaints regulations set no start date of their own. The registration duty applies six months after publication (LN 265 reg. 1(2)); its exact start date wasn't confirmed from an official source. The General Regulations don't apply to civil registration entities, which have their own 2020 regulations.
+regulators:
+  - name: Office of the Data Protection Commissioner (ODPC)
+    url: https://www.odpc.go.ke/
+  - name: Communications Authority of Kenya, for telecom marketing rules
+    url: https://www.ca.go.ke/
+obligations:
+  scope:
+    summary: The Act covers personal data in a record, processed by automated means or as part of a filing system, by controllers or processors established or ordinarily resident in Kenya, and by those outside Kenya that process data of people located in Kenya (s.4). It doesn't apply to purely personal or household processing, processing needed for national security or the public interest, or disclosures required by law or a court, but lawful processing, data minimisation, data quality and security still apply (s.51). Journalism, literature and art, and research, have their own exemptions (ss.52-53).
+    source:
+      - https://libraryir.parliament.go.ke/items/e6af0768-bf1c-4ebc-a2f3-8bffaeba1832
+  lawful_bases:
+    summary: Process personal data only with consent for specified purposes, or where needed for a contract, a legal obligation, vital interests, a public interest task or official authority, public functions, legitimate interests that don't unduly harm the person, or historical, statistical, journalistic, literary, artistic or scientific research (s.30). Consent must be express, unequivocal, free, specific and informed, can be withdrawn at any time, and you must prove it (ss.2, 32). Before asking, tell people who you are, each purpose, the data used and any automated decision-making (reg. 4).
+    source:
+      - https://libraryir.parliament.go.ke/items/e6af0768-bf1c-4ebc-a2f3-8bffaeba1832
+  consent_age:
+    summary: A child is anyone under 18 (Constitution, Art. 260). Processing a child's personal data needs a parent's or guardian's consent and must protect and advance the child's rights and best interests (s.33(1)).
+    value: 18
+    unit: years
+    source:
+      - https://klrc.go.ke/index.php/constitution-of-kenya/161-chapter-seventeen-general-provisions/429-260-interpretation
+      - https://libraryir.parliament.go.ke/items/e6af0768-bf1c-4ebc-a2f3-8bffaeba1832
+  children:
+    summary: Build in age verification and parental consent mechanisms, scaled to available technology, the volume of data, the share likely to be children's and the possible harm (s.33(2)-(3)). Services that only provide counselling or child protection to a child may not need parental consent (s.33(4)). Processing children's data is high risk and needs a DPIA (reg. 49(1)(e)). The Communications Authority's guidelines also tell its licensees to verify age for offers, adverts and promotions and to provide parental controls.
+    source:
+      - https://libraryir.parliament.go.ke/items/e6af0768-bf1c-4ebc-a2f3-8bffaeba1832
+      - https://www.ca.go.ke/sites/default/files/2025-03/Consumer%20Protection%20Guidelines%20and%20Customer%20Care%20Standards%202025.pdf
+  cookies:
+    summary: There is no cookie-specific law. Cookies and similar tools that process personal data need a lawful basis under section 30, usually consent, which must be express and informed (ss.2, 32; reg. 4). Showing ads to a logged-in user based on their personal data counts as direct marketing (reg. 14(2)(b)), which needs consent and a simple opt-out (reg. 15).
+    source:
+      - https://libraryir.parliament.go.ke/items/e6af0768-bf1c-4ebc-a2f3-8bffaeba1832
+  marketing:
+    summary: Commercial use of personal data, including direct marketing, needs express consent or legal authority (s.37). Market only with data you collected, after telling people it's a purpose and getting consent, with a free, simple opt-out in every message, including from all marketing (regs. 15-17). Stop third-party marketing within 7 days of a request (reg. 18). Telecom rules require prior consent for marketing by email, fax or automated calls (2010 regulations, reg. 17), and the Authority's guidelines allow SMS marketing only on opt-in, from 7 a.m. to 7 p.m. unless the customer agrees otherwise.
+    source:
+      - https://libraryir.parliament.go.ke/items/e6af0768-bf1c-4ebc-a2f3-8bffaeba1832
+      - https://www.ca.go.ke/sites/default/files/2023-06/Consumer-Protection-Regulations-2010-1.pdf
+      - https://www.ca.go.ke/sites/default/files/2025-03/Consumer%20Protection%20Guidelines%20and%20Customer%20Care%20Standards%202025.pdf
+  breach_notice:
+    summary: Where personal data has been accessed or acquired by an unauthorised person and there's a real risk of harm, notify the Data Commissioner without delay and within 72 hours of becoming aware, giving reasons if later (s.43). A real risk of harm exists, for example, when a name or ID number leaks with financial or health details, or an account name with its password (reg. 37). Tell affected people in writing within a reasonably practical period, unless safeguards such as encryption protect the data. Processors must tell the controller within 48 hours where practicable.
+    value: 72
+    unit: hours
+    source:
+      - https://libraryir.parliament.go.ke/items/e6af0768-bf1c-4ebc-a2f3-8bffaeba1832
+  registration_or_fees:
+    summary: Controllers and processors must register with the ODPC online (s.18). You're exempt if annual turnover or revenue is below KES 5 million and you have fewer than 10 employees, unless you process data for listed purposes such as health care, education, financial services, telecoms, direct marketing, transport (including ride-hailing apps), hospitality, gambling, CCTV or genetic data (reg. 13, Third Schedule). Certificates last 24 months. Registration fees are KES 4,000 (micro and small), 16,000 (medium) or 40,000 (large), with renewals at KES 2,000, 9,000 or 25,000 (Second Schedule).
+    source:
+      - https://libraryir.parliament.go.ke/items/e6af0768-bf1c-4ebc-a2f3-8bffaeba1832
+      - https://dataportal.odpc.go.ke/
+  dpo:
+    summary: The Act lets, rather than requires, controllers and processors appoint a data protection officer, for example where core activities involve regular and systematic monitoring or sensitive data (s.24). The officer can be staff with other duties if there's no conflict, a group can share one, and they need relevant qualifications. If you appoint one, publish their contact details on your website and send them to the Data Commissioner. The DPO advises on the law, monitors compliance, trains staff, advises on DPIAs and works with the regulator.
+    source:
+      - https://libraryir.parliament.go.ke/items/e6af0768-bf1c-4ebc-a2f3-8bffaeba1832
+  transfers:
+    summary: Transfer personal data abroad only with proof to the Data Commissioner of appropriate safeguards, under an adequacy decision, when strictly necessary (such as for a contract), or with explicit consent after being told of the risks (s.48; regs. 40-46). Malabo Convention ratification, a reciprocal agreement with Kenya or binding corporate rules count as safeguards; document each transfer (reg. 41). Sensitive data needs consent and safeguards (s.49). Data for primary or secondary health care, basic education and other state purposes must be processed or copied in Kenya (reg. 26).
+    source:
+      - https://libraryir.parliament.go.ke/items/e6af0768-bf1c-4ebc-a2f3-8bffaeba1832
+  dpia:
+    summary: Carry out a data protection impact assessment before processing likely to be high risk, consult the Data Commissioner if high risk remains, and submit the report 60 days before processing starts (s.31). High-risk processing includes automated decisions with significant effects, biometric or genetic data, sensitive, children's or vulnerable people's data, large-scale processing, combining datasets, monitoring public areas and new technologies (reg. 49). A template is in the Third Schedule. If the Commissioner doesn't respond within 60 days of submission, you may go ahead (reg. 52(3)).
+    value: 60
+    unit: days
+    source:
+      - https://libraryir.parliament.go.ke/items/e6af0768-bf1c-4ebc-a2f3-8bffaeba1832
+  automated_decisions_ai:
+    summary: People have the right not to be subject to decisions based solely on automated processing, including profiling, with legal or significant effects, unless the decision is needed for a contract, authorised by a law with safeguards, or based on consent (s.35). Tell the person in writing as soon as reasonably practicable; they can ask you to reconsider or to decide again with human involvement. Explain the logic and consequences, prevent errors and bias, and allow human intervention (reg. 22). No AI-specific law is in force.
+    source:
+      - https://libraryir.parliament.go.ke/items/e6af0768-bf1c-4ebc-a2f3-8bffaeba1832
+    secondary:
+      - https://www.wansom.ai/briefly/reports/africa-ai-data-protection-regulation-report-october-2026-2026-10-22
+  penalties:
+    summary: The Data Commissioner can issue a penalty notice for each breach, with an administrative fine of up to KES 5 million or, for an undertaking, 1% of the previous year's annual turnover, whichever is lower (ss.62-63), plus a daily fine of up to KES 10,000 until the breach is fixed (LN 264 reg. 20). Appeals go to the High Court (s.64). People can claim compensation for damage (s.65). Offences without a set penalty carry a fine of up to KES 3 million, up to 10 years' imprisonment, or both (s.73), including processing without registration (LN 265 reg. 18).
+    source:
+      - https://libraryir.parliament.go.ke/items/e6af0768-bf1c-4ebc-a2f3-8bffaeba1832
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry, checked against official sources with AI assistance.

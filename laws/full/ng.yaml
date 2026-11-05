@@ -1,0 +1,130 @@
+# Nigeria. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: ng
+name: Nigeria
+tier: full
+laws:
+  - name: Nigeria Data Protection Act 2023 (NDPA)
+    citation: Act No. 37 of 2023 (Official Gazette No. 119, Vol. 110, 1 July 2023)
+    official_url: https://ndpc.gov.ng/wp-content/uploads/2024/03/Nigeria_Data_Protection_Act_2023.pdf
+    status: in-force
+    in_force_from: "2023-06-12"
+    notes: The commencement date printed in the Act, the day the President assented. It set up the Nigeria Data Protection Commission (NDPC) in place of the Nigeria Data Protection Bureau. Where another law on processing personal data conflicts with it, the Act prevails (s.63).
+  - name: NDP Act General Application and Implementation Directive 2025 (GAID)
+    citation: NDPC/NDP ACT-GAID/01/2025, issued 20 March 2025
+    official_url: https://ndpc.gov.ng/wp-content/uploads/2025/07/NDP-ACT-GAID-2025-MARCH-20TH.pdf
+    status: in-force
+    in_force_from: "2025-09-19"
+    notes: The NDPC issued it on 20 March 2025 with a six-month lead-in, and its 2025 Annual Report says it came into force on 19 September 2025. On issuing it, the NDPC stopped applying the Nigeria Data Protection Regulation 2019 (Art. 3(3)). Schedule 7 reproduces the NDPC's December 2024 Guidance Notice on registration. If the GAID conflicts with the Act, the Act prevails (Art. 3(2)).
+  - name: Nigerian Communications (Consumer Code of Practice) Regulations 2024
+    citation: S.I. No. 24 of 2024 (Official Gazette No. 129, Vol. 111, 30 July 2024)
+    official_url: https://ncc.gov.ng/media/1203/view
+    status: in-force
+    in_force_from: "2024-07-29"
+    notes: Made by the Nigerian Communications Commission (NCC) for its licensees, such as mobile networks and value-added service providers, replacing the 2007 regulations. Its General Code covers unsolicited telemarketing calls and SMS. The date is the commencement date printed in the regulations, read from the NCC's scanned copy.
+  - name: Cybercrimes (Prohibition, Prevention, etc.) Act 2015, as amended in 2024
+    citation: Act No. 17 of 2015, amended by the Cybercrimes (Prohibition, Prevention, etc.) (Amendment) Act 2024
+    official_url: https://ncc.gov.ng/media/1085/view
+    status: in-force
+    in_force_from: "2015-05-15"
+    notes: The date is the 2015 Act's commencement. The signed copy in the NCC's compilation shows the President assented to the 2024 amendment on 28 February 2024; its commencement line is blank. Operators of computer systems or networks must report cyber attacks to ngCERT (s.21), and service providers must keep traffic and subscriber data for two years in line with the NDPA (s.38).
+  - name: National Digital Economy and E-Governance Bill
+    citation: National Digital Economy and E-Governance Bill 2025, before the National Assembly
+    official_url: https://fmcide.gov.ng/public-hearing-on-national-digital-economy-and-e-governance-bill-2025-holds-in-abuja/
+    status: draft
+    notes: A government bill that would, among other things, set a risk-based framework for emerging technologies such as AI. The National Assembly held a public hearing on it in November 2025. Pending, not law; no presidential assent was found by 5 November 2026.
+regulators:
+  - name: Nigeria Data Protection Commission (NDPC)
+    url: https://ndpc.gov.ng/
+  - name: Nigerian Communications Commission (NCC), for telecom marketing rules
+    url: https://ncc.gov.ng/
+obligations:
+  scope:
+    summary: The NDPA covers processing of personal data, automated or not, where the controller or processor is domiciled, resident or operating in Nigeria, where processing happens in Nigeria, or where a controller or processor elsewhere processes data of people in Nigeria (s.2). The GAID says targeting people in Nigeria counts (Art. 1(2), 8(2)). Purely personal or household use is excluded. For authorities' work on crime, public health emergencies and national security, public-interest journalism, education and art, and legal claims, most of Part V doesn't apply, but ss.24, 25, 32 and 40 still do (s.3).
+    source:
+      - https://ndpc.gov.ng/wp-content/uploads/2024/03/Nigeria_Data_Protection_Act_2023.pdf
+      - https://ndpc.gov.ng/wp-content/uploads/2025/07/NDP-ACT-GAID-2025-MARCH-20TH.pdf
+      - https://ndpc.gov.ng/wp-content/uploads/2026/06/NDPC-Annual-Report-2025-1.pdf
+  lawful_bases:
+    summary: Six lawful bases, including consent, contract, legal obligation and legitimate interests (s.25). Legitimate interests fail if they override people's rights or go beyond what they'd reasonably expect, and the GAID requires a legitimate interest assessment first (Art. 26, Schedule 8). The GAID requires consent for direct marketing, sensitive data, incompatible further processing, children's data, transfers to countries without an NDPC adequacy decision and solely automated significant decisions (Art. 18). Consent must be an affirmative act; silence and pre-ticked boxes don't count (s.26).
+    source:
+      - https://ndpc.gov.ng/wp-content/uploads/2024/03/Nigeria_Data_Protection_Act_2023.pdf
+      - https://ndpc.gov.ng/wp-content/uploads/2025/07/NDP-ACT-GAID-2025-MARCH-20TH.pdf
+  consent_age:
+    summary: A child is anyone under 18, as the Child's Rights Act 2003 defines it (NDPA s.65). To rely on consent for a child's data, get it from a parent or legal guardian (s.31(1)). The Act tells the NDPC to make regulations for children aged 13 and over who ask for online services themselves (s.31(5)), but none are published on its site as of November 2026, so treat everyone under 18 as needing parental consent.
+    value: 18
+    unit: years
+    source:
+      - https://ndpc.gov.ng/wp-content/uploads/2024/03/Nigeria_Data_Protection_Act_2023.pdf
+      - https://www.nigeriarights.gov.ng/files/childrightact.pdf
+      - https://ndpc.gov.ng/resources/
+  children:
+    summary: Verify age and parental consent with appropriate mechanisms that take account of available technology; a government-approved ID document counts as one (s.31(2)-(3)). Parental consent isn't needed for vital interests, for education, medical or social care by a professional bound by confidentiality, or for court proceedings (s.31(4)). Processing must also respect the Child's Rights Act (s.31(6)). The GAID treats minors as vulnerable, and a DPIA must be filed with the NDPC for processing that concerns vulnerable people (Art. 28(3)(e), Schedule 6).
+    source:
+      - https://ndpc.gov.ng/wp-content/uploads/2024/03/Nigeria_Data_Protection_Act_2023.pdf
+      - https://ndpc.gov.ng/wp-content/uploads/2025/07/NDP-ACT-GAID-2025-MARCH-20TH.pdf
+  cookies:
+    summary: Cookies and similar tracking tools need freely given, informed and specific consent, with a clear accept or reject choice, except necessary cookies for core functions such as security, network stability and accessibility that don't process sensitive or financial data (GAID Art. 19). The banner must be conspicuous and visible without scrolling, and must significantly cover the middle, left or right of the homepage; a notice at the bottom of the page counts as a lack of transparency (Art. 7(l)). Say who uses the cookies, why, and how to withdraw consent.
+    source:
+      - https://ndpc.gov.ng/wp-content/uploads/2025/07/NDP-ACT-GAID-2025-MARCH-20TH.pdf
+  marketing:
+    summary: Direct marketing needs consent (GAID Art. 18(1)(a)). People can object to direct marketing, including related profiling, at any time, and you must then stop (NDPA s.36(3)-(4)); withdrawing consent must be as easy as giving it (s.35). For calls and SMS, NCC licensees must respect the do-not-disturb choices people make with code 2442 and must not carry unsolicited SMS or calls that break the code. Sales calls must state the caller and purpose at the start, ring at most three times, and be tried at most twice a day (Consumer Code 2024, Schedule paras. 28-29).
+    source:
+      - https://ndpc.gov.ng/wp-content/uploads/2025/07/NDP-ACT-GAID-2025-MARCH-20TH.pdf
+      - https://ndpc.gov.ng/wp-content/uploads/2024/03/Nigeria_Data_Protection_Act_2023.pdf
+      - https://ncc.gov.ng/media/1203/view
+      - https://consumer.ncc.gov.ng/articles/111-do-not-disturb-dnd-service-in-nigeria
+  breach_notice:
+    summary: Tell the NDPC within 72 hours of becoming aware of a breach likely to risk people's rights and freedoms (s.40(2)), for example through its online breach portal. Tell affected people immediately, in plain language, when the risk is high (s.40(3); GAID Art. 33). Processors must tell the controller on becoming aware (s.40(1)). Details can follow in phases, and every breach must be recorded (s.40(8)-(9)). Separately, operators of computer systems must report cyber attacks and intrusions to ngCERT, through their sector CERT, within 72 hours of detection (Cybercrimes Act s.21).
+    value: 72
+    unit: hours
+    source:
+      - https://ndpc.gov.ng/wp-content/uploads/2024/03/Nigeria_Data_Protection_Act_2023.pdf
+      - https://ndpc.gov.ng/wp-content/uploads/2025/07/NDP-ACT-GAID-2025-MARCH-20TH.pdf
+      - https://services.ndpc.gov.ng/breach/
+      - https://ncc.gov.ng/media/1085/view
+    secondary:
+      - https://aluko-oyebode.com/insights/cybersecurity-incident-reporting-nigeria-2025/
+  registration_or_fees:
+    summary: Controllers and processors of major importance must register with the NDPC (s.44). The NDPC designates those operating in Nigeria (targeting counts) that process data of over 200 people in six months or work in listed sectors such as finance, health and e-commerce. Ultra-High pays ₦250,000 (over 5,000 people, or any fintech or public social media or email app), Extra-High ₦100,000 (1,000 to 5,000) and Ordinary-High ₦10,000 (200 to 1,000). Ultra- and Extra-High register once, then file a yearly audit return via a licensed DPCO (₦100,000 to ₦1,000,000); Ordinary-High renews yearly.
+    source:
+      - https://ndpc.gov.ng/wp-content/uploads/2024/03/Nigeria_Data_Protection_Act_2023.pdf
+      - https://ndpc.gov.ng/wp-content/uploads/2025/07/NDP-ACT-GAID-2025-MARCH-20TH.pdf
+      - https://ndpc.gov.ng/wp-content/uploads/2025/07/Updated-Guidance-Notice-on-Registtration-2024.pdf
+      - https://ndpc.gov.ng/faqs/
+  dpo:
+    summary: Controllers of major importance must designate a data protection officer with expert knowledge of data protection law (s.32), and the GAID extends this to processors of major importance (Art. 7(i)). The DPO can be staff or contracted, reports to management, can't be penalised for doing the job and compiles a semi-annual report (Art. 12-13). Publish the DPO's contact details and send them to the NDPC (Art. 11(2)). The NDPC verifies DPOs' credentials each year; since June 2026 a DPO needs at least 20 CPD points a year to stay verified.
+    source:
+      - https://ndpc.gov.ng/wp-content/uploads/2024/03/Nigeria_Data_Protection_Act_2023.pdf
+      - https://ndpc.gov.ng/wp-content/uploads/2025/07/NDP-ACT-GAID-2025-MARCH-20TH.pdf
+      - https://ndpc.gov.ng/wp-content/uploads/2026/06/Guidance-Notice-on-CPD-for-Data-Protection-Officers.pdf
+  transfers:
+    summary: Send personal data abroad only to a recipient bound by a law, binding corporate rules, contractual clauses, code of conduct or certification giving adequate protection, or on a s.43 ground such as informed consent to the risks, contract necessity or legal claims (ss.41-43). Record the basis and your adequacy assessment (s.41(2)). The GAID recognises NDPC adequacy decisions and NDPC-approved transfer instruments (Art. 45, Schedule 5), and the NDPC's FAQ says to get an instrument approved before transferring. A DPIA is mandatory for cross-border transfers (Art. 28(3)(o)).
+    source:
+      - https://ndpc.gov.ng/wp-content/uploads/2024/03/Nigeria_Data_Protection_Act_2023.pdf
+      - https://ndpc.gov.ng/wp-content/uploads/2025/07/NDP-ACT-GAID-2025-MARCH-20TH.pdf
+      - https://ndpc.gov.ng/faqs/
+  dpia:
+    summary: Do a data privacy impact assessment before processing likely to be high risk, and consult the NDPC if high risk remains (s.28). Under the GAID a DPIA is mandatory, filed with the NDPC before processing starts and signed by an NDPC-accredited DPO, for profiling, automated decisions, systematic monitoring, sensitive data, vulnerable people, new technologies, software or apps that track or communicate with people, digital financial services, health, e-commerce, education, hospitality, public CCTV and cross-border transfers (Art. 28, 31). Its outcome goes in the audit return.
+    source:
+      - https://ndpc.gov.ng/wp-content/uploads/2024/03/Nigeria_Data_Protection_Act_2023.pdf
+      - https://ndpc.gov.ng/wp-content/uploads/2025/07/NDP-ACT-GAID-2025-MARCH-20TH.pdf
+  automated_decisions_ai:
+    summary: People can refuse decisions based solely on automated processing, including profiling, with legal or similarly significant effects, unless needed for a contract, authorised by a written law with safeguards, or based on consent; offer human intervention, a chance to be heard and a way to contest (s.37). The GAID asks for consent first (Art. 18(1)(f)). Before deploying AI or other emerging technologies, do a DPIA covering disparate outcomes, consider testing in a low-risk environment and monitor continuously (Art. 43). No AI law yet; a bill with AI rules is pending.
+    source:
+      - https://ndpc.gov.ng/wp-content/uploads/2024/03/Nigeria_Data_Protection_Act_2023.pdf
+      - https://ndpc.gov.ng/wp-content/uploads/2025/07/NDP-ACT-GAID-2025-MARCH-20TH.pdf
+      - https://fmcide.gov.ng/public-hearing-on-national-digital-economy-and-e-governance-bill-2025-holds-in-abuja/
+    secondary:
+      - https://www.thisdaylive.com/2026/07/09/national-digital-economy-and-e-governance-act-2026-ready-in-weeks/
+  penalties:
+    summary: After an investigation the NDPC can order remedies, compensation and an account of profits, and impose a penalty of up to the greater of ₦10,000,000 or 2% of annual gross revenue in the preceding financial year for controllers and processors of major importance, or the greater of ₦2,000,000 or 2% for others (s.48). Failing to comply with a compliance order is an offence punishable by a fine up to the same cap, up to a year in prison, or both (s.49). People can sue for damages (s.51). In 2025 the NDPC fined MultiChoice ₦766.2 million.
+    source:
+      - https://ndpc.gov.ng/wp-content/uploads/2024/03/Nigeria_Data_Protection_Act_2023.pdf
+      - https://ndpc.gov.ng/nigeria-a-model-in-data-protection-ranked-1st-in-africa-says-ndpc-national-commissioner/
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry, checked against official sources with AI assistance.
