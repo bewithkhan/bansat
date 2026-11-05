@@ -9,7 +9,7 @@
 | Existing: built, with no real users yet | Retrofit, light | Part 14.3 |
 | Live: real users, customers or a client | Retrofit, urgent | **Part 14.2 Day-0 triage (within 48 hours)** |
 
-Then add the matching **stack profile** from Appendix D (web, PWA, mobile, wearable, admin/CRM, research, website, AI prototype, hardware).
+Then add the matching **stack profile** from Appendix D (web, PWA, mobile, wearable, admin/CRM, research, website, AI prototype, hardware), and the **delivery method** from Appendix E, chosen in 11.7.
 
 1. **Copy, don't edit the master.** For each project, copy this file to `docs/BLUEPRINT.md` in the repo, and keep the "Framework" credit row in Document control (CC BY 4.0 attribution). Paste Part 12.1 into `CLAUDE.md`, `AGENTS.md` or `.cursor/rules` (or your Lovable/Bolt project knowledge) so every agent session follows it.
 2. **Fill every `{{placeholder}}`.** Before each gate, search the file for `{{`. Nothing in scope may remain.
@@ -33,13 +33,14 @@ Many builders plan with six documents plus decision records and prompts. In Bans
 | UI/UX design brief | 10.4 screen specs, 10.5 look-and-feel brief and design system, 10.6 accessibility, 10.7 UI states |
 | Backend schema | Part 5: data dictionary, entity-relationship diagram, schema, access rules; Part 6: API |
 | Implementation plan | 11.1 phased plan, with 11.2 Definition of Ready and Done |
+| Delivery method and project management | 0.4 delivery questions, 11.7 choosing a method, 11.8 toolkit (RACI, RAID, status, change requests, timeline), Appendix E profiles |
 | Prompts for agents | 12.4: research first, logic first, feature, debug, full audit and more |
 
 ### Depth by risk tier
 
 | Tier (from Part 0) | Minimum to complete before build |
 |---|---|
-| **Low**: no accounts, little personal data | Parts 0, 1.1–1.5, 3.1, 9.8–9.9, 9.26, 10.7 and 13 |
+| **Low**: no accounts, little personal data | Parts 0, 1.1–1.5, 3.1, 9.8–9.9, 9.26, 10.7, 11.7 and 13 |
 | **Medium**: accounts, analytics, email, B2B | Every `[CORE]` section plus the `[IF]` modules that apply |
 | **High**: health or biometric data, children, location or worker monitoring, significant automated decisions, large scale | Everything, plus a full DPIA (9.21) and an independent privacy and security review before G3 |
 

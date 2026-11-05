@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="https://agentskills.io"><img alt="Agent Skill: SKILL.md" src="https://img.shields.io/badge/Agent_Skill-SKILL.md-0B3D91?style=flat-square"></a>
-  <img alt="Framework v2.2" src="https://img.shields.io/badge/framework-v2.2-1F6FEB?style=flat-square">
+  <img alt="Framework v2.3" src="https://img.shields.io/badge/framework-v2.3-1F6FEB?style=flat-square">
   <a href="https://github.com/bewithkhan/bansat/actions/workflows/validate.yml"><img alt="Tested examples: CI status" src="https://github.com/bewithkhan/bansat/actions/workflows/validate.yml/badge.svg?branch=main"></a>
   <img alt="Laws checked 4 Nov 2026" src="https://img.shields.io/badge/laws_checked-4_Nov_2026-2EA44F?style=flat-square">
   <img alt="Covers UK GDPR, EU GDPR, EU AI Act and NDPA" src="https://img.shields.io/badge/covers-UK_GDPR_%C2%B7_EU_GDPR_%C2%B7_EU_AI_Act_%C2%B7_NDPA-555555?style=flat-square">
@@ -78,12 +78,12 @@ flowchart LR
 
 ```bash
 # macOS / Linux
-git clone --branch v2.2.0 --depth 1 https://github.com/bewithkhan/bansat ~/.claude/skills/bansat
+git clone --branch v2.3.0 --depth 1 https://github.com/bewithkhan/bansat ~/.claude/skills/bansat
 ```
 
 ```powershell
 # Windows (PowerShell)
-git clone --branch v2.2.0 --depth 1 https://github.com/bewithkhan/bansat "$HOME\.claude\skills\bansat"
+git clone --branch v2.3.0 --depth 1 https://github.com/bewithkhan/bansat "$HOME\.claude\skills\bansat"
 ```
 
 Start a new Claude Code session and type `/bansat`. To share it with your team, copy the folder into your repo at `.claude/skills/bansat/` and commit it.
@@ -207,7 +207,7 @@ Viral compliance threads get some of this wrong. Bansat sticks to what the law a
 
 ## What's in the blueprint
 
-15 parts and 4 appendices, about 3,000 lines of Markdown, split into [modules](framework/README.md) so Claude reads only the parts each step needs. `reference/bansat-framework.md` has the whole framework in one file.
+15 parts and 5 appendices, about 3,500 lines of Markdown, split into [modules](framework/README.md) so Claude reads only the parts each step needs. `reference/bansat-framework.md` has the whole framework in one file.
 
 Planning with a PRD, TRD, app flow, UI/UX brief, backend schema and implementation plan? They're all here, as parts of one blueprint that can't contradict itself: the [map](framework/how-to-use.md#where-the-usual-planning-documents-live) shows where each one lives.
 
@@ -224,11 +224,11 @@ Planning with a PRD, TRD, app flow, UI/UX brief, backend schema and implementati
 | **8** AI features | A feature register with pinned models, data minimisation, evals, prompt-injection defences, EU AI Act labelling, spend caps |
 | **9** Privacy & compliance | 27 sections, from lawful bases, consent and cookies to children, marketing, rights, breaches and DPIAs |
 | **10** Experience | The app flow and a navigation map, a look-and-feel brief, WCAG 2.2 AA, contrast-checked design tokens, and 17 mandatory UI states for every screen |
-| **11** Delivery | 9 phases with exit criteria, a Definition of Done, RLS, privacy and E2E tests, CI/CD, incidents |
+| **11** Delivery | 9 phases with exit criteria, a Definition of Done, RLS, privacy and E2E tests, CI/CD, incidents, a delivery-method picker and a project-management toolkit (RACI, RAID log, status report, change requests, timeline, forecasting) |
 | **12** Agent manual | Rules for `CLAUDE.md` or `AGENTS.md` (research before building), a feature protocol, an 8-step debugging protocol, and prompts for research, logic, debugging and full audits |
 | **13** Launch gate | 37 go/no-go checks; any one of the 16 blocking checks stops the launch |
 | **14** Retrofit | Day-0 triage, reverse-engineering, a gap register, a review cadence and a portfolio register |
-| **A–D** Appendices | Templates (DPIA, LIA, breach log and more), references, a glossary and 9 stack profiles |
+| **A–E** Appendices | Templates (DPIA, LIA, breach log and more), references, a glossary, 9 stack profiles, and 6 delivery-method profiles: Scrum, Kanban, stage gates, Shape Up, a solo loop and scaled methods |
 
 ## Why not a PRD template, or just ask the AI?
 
@@ -239,6 +239,7 @@ Planning with a PRD, TRD, app flow, UI/UX brief, backend schema and implementati
 | Laws cited to the section, and checked on a stated date | ❌ | Unverified | ✅ 4 Nov 2026 |
 | Code samples tested, in CI | ❌ | Untested | ✅ `examples/` |
 | Looks at how others solved it before building | ❌ | Rarely | ✅ Research first |
+| Fits how you run the project (Scrum, Kanban, stage gates, Shape Up, solo) | ❌ | ❌ | ✅ A picker and 6 profiles |
 | A track for apps that are already live | ❌ | ❌ | ✅ Day-0 triage |
 | Every UI state designed and tested on every screen | ❌ | Happy path only | ✅ 17 states |
 | The same standard on every project, team and tool | Copy and paste | Per chat | ✅ One skill, one file |
@@ -366,14 +367,14 @@ It lives in your repo as `docs/BLUEPRINT.md` and changes in the same pull reques
 
 Use GitHub's **Cite this repository** button, or:
 
-> Khan, M. T. (2026). *Bansat (بنسټ): A blueprint-first framework for building software* (Version 2.2) [Computer software]. GitHub. https://github.com/bewithkhan/bansat
+> Khan, M. T. (2026). *Bansat (بنسټ): A blueprint-first framework for building software* (Version 2.3) [Computer software]. GitHub. https://github.com/bewithkhan/bansat
 
 ```bibtex
 @misc{khan2026bansat,
   author       = {Khan, Muhammad Tufail},
   title        = {Bansat: A blueprint-first framework for building software},
   year         = {2026},
-  note         = {Version 2.2},
+  note         = {Version 2.3},
   howpublished = {\url{https://github.com/bewithkhan/bansat}}
 }
 ```

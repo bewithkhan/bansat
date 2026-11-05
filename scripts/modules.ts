@@ -25,4 +25,11 @@ export const MODULES = [
   'appendix-b-references.md',
   'appendix-c-glossary.md',
   'appendix-d-stacks.md',
+  'appendix-e-methods.md',
+  'appendix-e1-scrum.md',
+  'appendix-e2-kanban.md',
+  'appendix-e3-stage-gates.md',
+  'appendix-e4-shape-up.md',
+  'appendix-e5-solo.md',
+  'appendix-e6-scaled.md',
 ] as const;

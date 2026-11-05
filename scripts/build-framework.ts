@@ -37,8 +37,9 @@ function buildFramework(): string {
   const parts = listed.map((file) => {
     const text = toLf(readFileSync(join(dir, file), 'utf8')).trim();
     if (!text) fail(`${FRAMEWORK_DIR}/${file} is empty`);
-    if (file !== 'cover.md' && !/^<a id="[a-z0-9-]+"><\/a>\n#{2} /.test(text)) {
-      fail(`${FRAMEWORK_DIR}/${file} must start with an <a id="..."></a> anchor line followed by a "## " heading`);
+    // Parts and appendices start with "## "; sections of an appendix kept in their own module (E1, E2…) with "### ".
+    if (file !== 'cover.md' && !/^<a id="[a-z0-9-]+"><\/a>\n#{2,3} /.test(text)) {
+      fail(`${FRAMEWORK_DIR}/${file} must start with an <a id="..."></a> anchor line followed by a "## " or "### " heading`);
     }
     return text;
   });
