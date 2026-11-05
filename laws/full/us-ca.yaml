@@ -16,7 +16,7 @@ laws:
     official_url: https://cppa.ca.gov/regulations/pdf/ccpa_statute_eff_20260101.pdf
     status: in-force
     in_force_from: "2023-03-29"
-    notes: Amended from 1 January 2026 with rules on risk assessments, cybersecurity audits and automated decisionmaking technology that phase in up to 2030. In November 2026 CalPrivacy's board was asked to open formal rulemaking on further opt-out preference signal rules.
+    notes: Amended from 1 January 2026 with rules on risk assessments, cybersecurity audits and automated decisionmaking technology that phase in up to 2030. CalPrivacy's board is due to consider, on 6 November 2026, starting formal rulemaking on further opt-out preference signal rules.
   - name: Delete Act (data broker registration and deletion)
     citation: Cal. Civil Code §§ 1798.99.80–1798.99.89 (SB 362, 2023)
     official_url: https://cppa.ca.gov/regulations/pdf/data_broker_reg_delete_act_statute_eff_20260101.pdf
@@ -30,11 +30,11 @@ laws:
     in_force_from: "2003-07-01"
     notes: SB 446 added fixed notice deadlines from 1 January 2026.
   - name: California Age-Appropriate Design Code Act
-    citation: Cal. Civil Code §§ 1798.99.28–1798.99.40 (AB 2273, 2022)
-    official_url: https://cdn.ca9.uscourts.gov/datastore/opinions/2026/03/12/25-2366.pdf
+    citation: Cal. Civil Code §§ 1798.99.28–1798.99.40 (AB 2273, Stats. 2022, ch. 320)
+    official_url: https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202120220AB2273
     status: in-force
     in_force_from: "2024-07-01"
-    notes: Partly enjoined in NetChoice v. Bonta. The link is the Ninth Circuit's 12 March 2026 ruling, which lifted the block on most of the Act. The case continues in the district court.
+    notes: A federal court blocked it in full in 2023, before it took effect, and again on remand. Since the Ninth Circuit's 12 March 2026 ruling only some provisions stay blocked, and the case continues in the district court. AB 2246 repeals and replaces it on 1 January 2027.
   - name: Protecting Our Kids from Social Media Addiction Act
     citation: Cal. Health & Safety Code § 27000 et seq. (SB 976, 2024)
     official_url: https://www.oag.ca.gov/sb976
@@ -42,27 +42,35 @@ laws:
     in_force_from: "2025-01-01"
     notes: Its like-count default, notification limits and annual disclosure duty are enjoined. Age assurance applies from 1 January 2027 under Attorney General regulations, proposed in May 2026.
   - name: Digital Age Assurance Act
-    citation: Cal. Civil Code § 1798.500 et seq. (AB 1043, Stats. 2025, ch. 675)
-    official_url: https://apcp.assembly.ca.gov/media/1140
+    citation: Cal. Civil Code § 1798.500 et seq. (AB 1043, Stats. 2025, ch. 675; amended by AB 1856, Stats. 2026, ch. 184)
+    official_url: https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1043
     status: enacted
     in_force_from: "2027-01-01"
-    notes: The link is the Assembly committee's April 2026 analysis of AB 1856, which describes this Act. AB 1856, signed in 2026, amends it; check the final text.
+    notes: From 1 January 2027 operating systems with an account setup ask for the user's age and send age-bracket signals to app stores and developers that request them. AB 1856 (Stats. 2026, ch. 184) amended it before it starts and bars requesting a signal unless a law requires it. Fines up to $2,500 per affected child, or $7,500 if intentional, in Attorney General suits.
   - name: Companion chatbots law
-    citation: SB 243 (Stats. 2025, ch. 677)
-    official_url: https://apcp.assembly.ca.gov/media/1026
+    citation: Cal. Bus. & Prof. Code § 22601 et seq. (SB 243, Stats. 2025, ch. 677)
+    official_url: https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB243
     status: in-force
     in_force_from: "2026-01-01"
-    notes: Operators must disclose that the bot is artificial and have protocols for users who express suicidal thoughts or self-harm. The link is the Assembly committee's 2025 legislative summary.
-  - name: Online services likely to be accessed by children
-    citation: AB 2246 (2026)
-    official_url: https://sjud.senate.ca.gov/media/2302
+    notes: Operators must disclose that the bot is artificial and have protocols for users who express suicidal thoughts or self-harm. From 1 January 2027 SB 1119 removes its separate duties for users known to be minors.
+  - name: Companion chatbots and children's safety (Adam's Law)
+    citation: Cal. Bus. & Prof. Code § 21810 et seq. (SB 1119, Stats. 2026, ch. 190)
+    official_url: https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119
     status: enacted
-    notes: Signed in 2026, per CalPrivacy's 6 November 2026 legislative update. A revised design code without an impact-assessment duty. The link is the June 2026 Senate analysis; check the final text and start date.
+    in_force_from: "2027-07-01"
+    notes: Mostly from 1 July 2027. Operators must check age through the Digital Age Assurance Act or give every user the child protections. Before launching or substantially changing a companion chatbot they must assess and reduce risks to under-18s, and children's use needs crisis protocols, parent-controlled defaults and no behavioural ads. Independent child safety audits are due by 1 January 2029, or before launch if later. Public prosecutors can seek up to $15,000 per affected child for intentional breaches, and a child harmed by certain breaches can sue.
+  - name: Online services likely to be accessed by children (revised design code)
+    citation: Cal. Civil Code § 1798.99.28 et seq. (AB 2246, Stats. 2026, ch. 187)
+    official_url: https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB2246
+    status: enacted
+    in_force_from: "2027-01-01"
+    notes: Repeals and replaces the 2022 design code from 1 January 2027, without its impact-assessment duty. Services likely to be accessed by under-18s must estimate age or protect all users, set high-privacy defaults, limit profiling, precise geolocation and dark patterns, and take reasonable steps against listed harms. Fines up to $5,000 per affected child, or $15,000 if intentional, in suits by the Attorney General or public prosecutors.
   - name: Covered platforms age restriction
-    citation: AB 1709 (2026)
-    official_url: https://sjud.senate.ca.gov/media/2336
+    citation: Cal. Bus. & Prof. Code §§ 22682–22686 (AB 1709, Stats. 2026, ch. 183)
+    official_url: https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1709
     status: enacted
-    notes: Signed in 2026, per CalPrivacy's 6 November 2026 legislative update. Limits addictive features for users under 16 on social media. The link is the June 2026 Senate analysis; check the final text and start date.
+    in_force_from: "2027-01-01"
+    notes: From 1 January 2027, covered platforms may not give under-16s addictive feeds, autoplay or other addictive features the Attorney General defines, must check age through the Digital Age Assurance Act first, and must delete under-16 accounts unless no addictive features are offered. Fines up to $50,000 per affected minor if knowing, $25,000 if negligent, in suits by the Attorney General or local prosecutors only.
 regulators:
   - name: California Privacy Protection Agency (CalPrivacy)
     url: https://privacy.ca.gov/about-us/about-calprivacy/
@@ -70,17 +78,20 @@ regulators:
     url: https://oag.ca.gov/privacy/ccpa
 obligations:
   scope:
-    summary: The CCPA covers for-profit businesses that do business in California, collect California residents' personal information and meet one of three tests. They have annual gross revenue above $26,625,000 (the 2025 inflation-adjusted figure), buy, sell or share data on 100,000 or more consumers or households a year, or earn half their revenue from selling or sharing data. Employee, job applicant and B2B data have been covered since 2023. HIPAA, GLBA and FCRA-regulated data are largely exempt. Non-profits generally aren't covered.
+    summary: The CCPA covers for-profit businesses doing business in California that collect residents' personal data and meet one test, revenue over $26,625,000 a year (2025 figure), buying, selling or sharing data on 100,000 or more consumers or households a year, or half their revenue from selling or sharing it. It covers employee, applicant and B2B data. HIPAA, GLBA and FCRA data are largely exempt; non-profits generally aren't covered. Apps keeping users' medical information, mental or reproductive health digital services and, from 2027, health chatbots fall under the medical privacy law (CMIA).
     source:
       - https://cppa.ca.gov/pdf/20260101_ccpa_statute.pdf
       - https://cppa.ca.gov/regulations/cpi_adjustment.html
       - https://oag.ca.gov/privacy/ccpa
+      - https://oag.ca.gov/privacy/privacy-laws
+      - https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1979
   lawful_bases:
-    summary: No GDPR-style lawful bases. Give notice at or before collection, keep collection and use reasonably necessary and proportionate, and honour rights to know, delete, correct, opt out of sale or sharing, and limit use of sensitive data. There's no opt-in for sensitive data, but people can limit it to what the service needs. Don't penalise people for using their rights. Whatever their size, sites and apps collecting Californians' data must post a privacy policy (CalOPPA). SB 923, signed in 2026, extends deletion to data from any source; check its start date.
+    summary: No GDPR-style lawful bases. Give notice at or before collection, keep collection and use reasonably necessary and proportionate, and honour rights to know, delete, correct, opt out of sale or sharing, and limit use of sensitive data. There's no opt-in for sensitive data. Don't penalise people for using their rights. Whatever their size, sites and apps collecting Californians' data must post a privacy policy (CalOPPA). From 1 January 2027 (SB 923) deletion covers data collected about a person from any source, and online-only businesses must offer a web form or portal for requests.
     source:
       - https://cppa.ca.gov/pdf/20260101_ccpa_statute.pdf
       - https://oag.ca.gov/privacy/ccpa
       - https://oag.ca.gov/privacy/privacy-laws
+      - https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB923
       - https://cppa.ca.gov/meetings/materials/20260806_07_12_1791b7.pdf
       - https://cppa.ca.gov/meetings/materials/20261105_06_05_leg_update.pdf
   consent_age:
@@ -90,28 +101,31 @@ obligations:
     source:
       - https://cppa.ca.gov/pdf/20260101_ccpa_statute.pdf
       - https://cppa.ca.gov/regulations/pdf/ccpa_statute_eff_20260101.pdf
+      - https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1043
+      - https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1856
       - https://apcp.assembly.ca.gov/media/1140
-      - https://sjud.senate.ca.gov/media/2336
   children:
-    summary: The Age-Appropriate Design Code is partly in effect. After the Ninth Circuit's March 2026 ruling, its impact-assessment, data-use and dark-pattern rules stay blocked, while coverage, age estimation and high-privacy defaults are no longer blocked; the case continues. SB 976 bars addictive feeds for minors without parental consent, and courts refused to block that in 2025 and 2026; appeals are pending. AB 2246 (a revised design code) and AB 1709 (under-16s and addictive features) were signed in 2026.
+    summary: The 2022 Age-Appropriate Design Code is partly in effect. After the Ninth Circuit's March 2026 ruling its impact-assessment, data-use, dark-pattern, policy-enforcement and 90-day cure provisions stay blocked, while age estimation and high-privacy defaults are not; the case continues. AB 2246 replaces it on 1 January 2027. SB 976 bars addictive feeds for minors without parental consent; courts have declined to block that, and appeals are pending. From 2027 AB 1709 bans addictive features for under-16s, and from 1 July 2027 SB 1119 adds child-safety rules for companion chatbots.
     source:
       - https://cdn.ca9.uscourts.gov/datastore/opinions/2026/03/12/25-2366.pdf
       - https://cdn.ca9.uscourts.gov/datastore/opinions/2025/09/09/25-146.pdf
       - https://www.govinfo.gov/content/pkg/USCOURTS-cand-5_25-cv-09789/pdf/USCOURTS-cand-5_25-cv-09789-1.pdf
       - https://www.oag.ca.gov/sb976
-      - https://cppa.ca.gov/meetings/materials/20261105_06_05_leg_update.pdf
-      - https://sjud.senate.ca.gov/media/2302
-      - https://sjud.senate.ca.gov/media/2336
+      - https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB2246
+      - https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB1709
+      - https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119
     secondary:
       - https://www.cooley.com/news/insight/2026/2026-03-30-netchoice-v-bonta-ninth-circuit-narrows-injunction-against-californias-ageappropriate-design-code-act
   cookies:
-    summary: No cookie-consent rule. People can opt out of "sharing" for cross-context behavioural advertising. A business that sells or shares data must treat an opt-out preference signal such as Global Privacy Control as a valid opt-out (under regulations in force since March 2023) and, since 1 January 2026, show on its site whether it honoured the signal. From 1 January 2027 browsers must offer such a signal. SB 690, signed in 2026, curbs private lawsuits over website and app tracking under the California Invasion of Privacy Act.
+    summary: No cookie-consent rule. People can opt out of "sharing" for cross-context behavioural advertising. A business that sells or shares data must treat an opt-out preference signal such as Global Privacy Control as a valid opt-out and, since 1 January 2026, show whether it honoured it. From 1 January 2027 browsers must offer such a signal, and apps and operating systems may not undo a user's privacy settings without consent (AB 2561). Also from then, only the Attorney General can sue over pen-register or trap-and-trace claims about website or app tracking (SB 690); wiretap claims remain.
     source:
       - https://cppa.ca.gov/regulations/pdf/ccpa_statute_eff_20260101.pdf
       - https://cppa.ca.gov/regulations/pdf/20230329_final_regs_text.pdf
       - https://cppa.ca.gov/regulations/pdf/ccpa_updates_cyber_risk_admt_appr_text.pdf
       - https://cppa.ca.gov/pdf/20260101_ccpa_statute.pdf
       - https://oag.ca.gov/privacy/ccpa
+      - https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB2561
+      - https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB690
       - https://cppa.ca.gov/meetings/materials/20261105_06_05_leg_update.pdf
       - https://apcp.assembly.ca.gov/media/1212
   marketing:
@@ -120,20 +134,22 @@ obligations:
       - https://oag.ca.gov/privacy/privacy-laws
       - https://oag.ca.gov/privacy/ccpa
   breach_notice:
-    summary: Since 1 January 2026, notify affected California residents within 30 calendar days of discovering or being told of a breach of their unencrypted personal information, subject to delays for law enforcement or to determine the scope and restore the system. If more than 500 residents are notified, send the Attorney General a sample notice within 15 days of notifying them.
+    summary: Since 1 January 2026, notify affected California residents within 30 calendar days of discovering or being told of a breach of their unencrypted personal information, subject to delays for law enforcement or to determine the scope and restore the system. If more than 500 residents are notified, send the Attorney General a sample notice within 15 days of notifying them. A business holding data it doesn't own must tell the owner immediately after discovery.
     value: 30
     unit: days
     source:
+      - https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB446
       - https://oag.ca.gov/privacy/databreach/reporting
       - https://apcp.assembly.ca.gov/media/1026
       - https://apcp.assembly.ca.gov/media/971
     secondary:
       - https://www.mvalaw.com/data-points/california-amends-data-breach-notification-requirements
   registration_or_fees:
-    summary: Data brokers, businesses that sell data about consumers they have no direct relationship with, must register with CalPrivacy each January and pay a fee ($6,000 for 2026). Since 1 August 2026 they must check DROP at least every 45 days and delete matching data, and every 30 days from 1 January 2027 (AB 883). Missing registration costs $200 a day, and so does each unprocessed deletion request. Independent audits start in 2028.
+    summary: Data brokers, businesses that sell data about consumers they have no direct relationship with, must register with CalPrivacy each January and pay a fee ($6,000 for 2026); one that starts mid-year registers the next January but meanwhile pays a DROP access fee. Since 1 August 2026 they must check DROP at least every 45 days and delete matching data, and every 30 days from 1 January 2027 (AB 883). Missing registration costs $200 a day, and so does each unprocessed deletion request. Independent audits start in 2028.
     source:
       - https://cppa.ca.gov/data_brokers
       - https://cppa.ca.gov/regulations/pdf/data_broker_reg_delete_act_statute_eff_20260101.pdf
+      - https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260AB883
       - https://privacy.ca.gov/data-brokers/
       - https://privacy.ca.gov/drop/
   dpo:
@@ -150,10 +166,13 @@ obligations:
       - https://cppa.ca.gov/regulations/pdf/ccpa_statute_eff_20260101.pdf
       - https://www.cppa.ca.gov/announcements/2025/20250923.html
   automated_decisions_ai:
-    summary: From 1 January 2027, businesses using automated decisionmaking technology for significant decisions about finance, housing, education, employment or healthcare must give a pre-use notice, an opt-out or human appeal, and access to how it was used. SB 243 has governed companion chatbots since 2026, AB 2013 requires generative AI training-data disclosures, and SB 53 covers frontier AI developers. SB 947, signed in 2026, regulates automated decisions in employment.
+    summary: From 1 January 2027, businesses using automated decisionmaking technology for significant decisions about finance, housing, education, employment or healthcare must give a pre-use notice, an opt-out or human appeal, and access to how it was used. Since 1 October 2025 Civil Rights Council rules apply anti-discrimination law to automated decision systems in employment, and from 1 July 2027 SB 947 bars employers relying solely on them to discipline or fire. SB 243 and SB 1119 cover companion chatbots, AB 2013 training-data disclosures and SB 53 frontier AI developers.
     source:
       - https://cppa.ca.gov/regulations/pdf/ccpa_statute_eff_20260101.pdf
       - https://www.cppa.ca.gov/announcements/2025/20250923.html
+      - https://calcivilrights.ca.gov/2025/06/30/civil-rights-council-secures-approval-for-regulations-to-protect-against-employment-discrimination-related-to-artificial-intelligence/
+      - https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB947
+      - https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119
       - https://apcp.assembly.ca.gov/media/1026
       - https://cppa.ca.gov/meetings/materials/20261105_06_05.pdf
       - https://cppa.ca.gov/meetings/materials/20261105_06_05_leg_update.pdf
@@ -169,4 +188,4 @@ checked:
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

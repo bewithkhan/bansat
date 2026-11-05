@@ -62,6 +62,11 @@ laws:
     official_url: https://www.govinfo.gov/content/pkg/BILLS-119s836es/html/BILLS-119s836es.htm
     status: draft
     notes: Passed the Senate on 5 March 2026 and awaits House action. It would extend COPPA's protections to teens aged 13 to 16. Not law.
+  - name: Kids Internet and Digital Safety Act (KIDS Act)
+    citation: H.R. 7757, 119th Congress
+    official_url: https://www.govinfo.gov/content/pkg/BILLS-119hr7757eh/html/BILLS-119hr7757eh.htm
+    status: draft
+    notes: Passed the House 267–117 on 29 June 2026 and was referred to the Senate Commerce Committee on 13 July 2026. It bundles House versions of the Kids Online Safety Act and COPPA 2.0 with AI chatbot disclosures for minors and age checks for sites where over a third of content is sexual material harmful to minors. Not law.
 regulators:
   - name: Federal Trade Commission (FTC)
     url: https://www.ftc.gov
@@ -73,21 +78,23 @@ regulators:
     url: https://www.justice.gov/nsd/data-security
 obligations:
   scope:
-    summary: There is no comprehensive federal privacy law, and none had been enacted by late October 2026. Federal rules are sectoral and apply alongside state laws. The FTC Act covers most businesses, but not banks, common carriers or most non-profits. COPPA covers online services directed to children under 13, or that know a user is under 13. HIPAA covers health plans, clearinghouses, providers that carry out standard electronic transactions, and their business associates. GLBA covers financial institutions. CAN-SPAM and the TCPA cover marketing emails, calls and texts.
+    summary: No comprehensive federal privacy law exists; the SECURE Data Act (H.R. 8413) has been in committee since 21 April 2026. Rules are sectoral and sit alongside state laws. The FTC Act covers most businesses, but not banks, common carriers or most non-profits. COPPA covers services directed to under-13s or that know a user is under 13. HIPAA covers health plans, clearinghouses, providers doing standard electronic transactions, and their business associates. 42 CFR Part 2 covers federally assisted substance use programs (revised rules from 16 February 2026). GLBA covers financial institutions.
     source:
       - https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap2-subchapI-sec45.htm
       - https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap2-subchapI-sec44.htm
       - https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap91-sec6501.htm
       - https://www.ecfr.gov/current/title-16/chapter-I/subchapter-C/part-312
       - https://www.hhs.gov/hipaa/for-professionals/privacy/laws-regulations/index.html
+      - https://www.govinfo.gov/content/pkg/FR-2024-02-16/html/2024-02544.htm
       - https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap94-subchapI-sec6802.htm
-      - https://www.govinfo.gov/content/pkg/USCODE-2024-title47/html/USCODE-2024-title47-chap5-subchapII-partI-sec227.htm
+      - https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr8413.xml
       - https://www.govinfo.gov/bulkdata/PLAW/119/public
   lawful_bases:
-    summary: There are no GDPR-style lawful bases. Under the FTC Act, data practices must not be deceptive or unfair, so privacy notices must be accurate and promises kept. Sector laws add consent rules. COPPA needs verifiable parental consent. HIPAA needs written authorisation for uses beyond treatment, payment and health care operations, such as most marketing. GLBA financial institutions must give notice and a chance to opt out before sharing data with unaffiliated third parties. The TCPA needs prior express written consent for marketing robocalls and robotexts.
+    summary: There are no GDPR-style lawful bases. Under the FTC Act, data practices must not be deceptive or unfair, so privacy notices must be accurate and promises kept. COPPA needs verifiable parental consent. HIPAA needs written authorisation for uses and disclosures the Privacy Rule doesn't otherwise permit or require, such as most marketing and any sale of health data. GLBA financial institutions must give notice and a chance to opt out before sharing data with unaffiliated third parties. The TCPA needs prior express written consent for marketing robocalls and robotexts.
     source:
       - https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap2-subchapI-sec45.htm
       - https://www.ecfr.gov/current/title-16/chapter-I/subchapter-C/part-312
+      - https://www.govinfo.gov/content/pkg/CFR-2025-title45-vol2/pdf/CFR-2025-title45-vol2-sec164-508.pdf
       - https://www.hhs.gov/hipaa/for-professionals/privacy/laws-regulations/index.html
       - https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap94-subchapI-sec6802.htm
       - https://www.govinfo.gov/content/pkg/CFR-2025-title47-vol3/pdf/CFR-2025-title47-vol3-sec64-1200.pdf
@@ -100,14 +107,15 @@ obligations:
       - https://www.ecfr.gov/current/title-16/chapter-I/subchapter-C/part-312
       - https://www.federalregister.gov/documents/2025/04/22/2025-05904/childrens-online-privacy-protection-rule
   children:
-    summary: The amended COPPA Rule (in effect 23 June 2025, compliance by 22 April 2026) adds biometric and government-issued identifiers to personal information. It requires a written children's information security program with annual risk assessments, and a written data retention policy published in the privacy notice, with no indefinite retention. Mixed-audience services can age-screen users before collecting data. COPPA 2.0, which passed the Senate in March 2026, and the Kids Online Safety Act are still bills.
+    summary: The amended COPPA Rule (in effect 23 June 2025, compliance by 22 April 2026) adds biometric and government-issued identifiers to personal information and requires a written children's information security program with annual risk assessments and a published retention policy, with no indefinite retention. Mixed-audience services can age-screen before collecting data. Still pending are COPPA 2.0, passed by the Senate in March 2026; the KIDS Act, with House versions of COPPA 2.0 and KOSA, passed by the House in June 2026; and KOSA itself, ordered reported by Senate Commerce on 5 August 2026.
     source:
       - https://www.ecfr.gov/current/title-16/chapter-I/subchapter-C/part-312
       - https://www.federalregister.gov/documents/2025/04/22/2025-05904/childrens-online-privacy-protection-rule
       - https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s836.xml
+      - https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr7757.xml
       - https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s1748.xml
   cookies:
-    summary: There is no federal cookie-consent rule. On services directed to children, cookies and other persistent identifiers count as personal information under COPPA, so using them for behavioural advertising or profiling needs verifiable parental consent; uses limited to supporting internal operations are exempt. HIPAA-covered entities must not let tracking technologies disclose health information without authorisation. Video services generally need separate, informed consent before disclosing what an identifiable person watched. Misleading statements about tracking breach the FTC Act.
+    summary: No federal cookie-consent rule. On services directed to children, cookies and other persistent identifiers count as personal information under COPPA, so behavioural advertising or profiling needs verifiable parental consent; support for internal operations is exempt. HIPAA-covered entities may disclose health information to tracking vendors only with authorisation or under a Privacy Rule permission, such as a business associate agreement; a June 2024 ruling vacated part of HHS's guidance. Video services generally need separate, informed consent to disclose what an identifiable person watched.
     source:
       - https://www.ecfr.gov/current/title-16/chapter-I/subchapter-C/part-312
       - https://www.ftc.gov/business-guidance/resources/complying-coppa-frequently-asked-questions
@@ -115,22 +123,24 @@ obligations:
       - https://www.govinfo.gov/content/pkg/USCODE-2024-title18/html/USCODE-2024-title18-partI-chap121-sec2710.htm
       - https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap2-subchapI-sec45.htm
   marketing:
-    summary: Commercial email is opt-out under CAN-SPAM. Don't use false headers or misleading subject lines, identify the message as an ad, include a valid postal address and a working opt-out, and honour opt-outs within 10 business days. Under the TCPA, marketing calls and texts made with an autodialer or an artificial or prerecorded voice, including an AI-generated voice, need prior express written consent. Respect the National Do Not Call Registry and the 8 a.m. to 9 p.m. calling hours, and honour a revocation made by any reasonable means within 10 business days.
+    summary: CAN-SPAM makes commercial email opt-out. Avoid false headers and misleading subjects, label it as an ad, give a postal address and working opt-out, and honour opt-outs within 10 business days. TCPA marketing calls and texts by autodialer or artificial or prerecorded voice, AI voices included, need prior express written consent. Respect the Do Not Call Registry and 8 a.m. to 9 p.m. hours, and honour revocations within 10 business days. From 25 November 2026 callers may set one clearly disclosed way (key press, STOP-type reply, or a set website or number); otherwise any reasonable means counts.
     source:
       - https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap103-sec7704.htm
       - https://www.ftc.gov/business-guidance/resources/can-spam-act-compliance-guide-business
       - https://www.govinfo.gov/content/pkg/CFR-2025-title47-vol3/pdf/CFR-2025-title47-vol3-sec64-1200.pdf
+      - https://www.govinfo.gov/content/pkg/FR-2026-10-26/html/2026-21821.htm
       - https://docs.fcc.gov/public/attachments/FCC-24-17A1.pdf
   breach_notice:
-    summary: There is no general federal breach law; state laws apply. HIPAA covered entities must notify affected people without unreasonable delay and within 60 days of discovery, plus HHS, and the media if over 500 people in a state are affected. Health apps and other personal health record vendors outside HIPAA follow the FTC Health Breach Notification Rule, with the same 60-day limit and the FTC told too if 500 or more people are affected. Non-bank financial institutions must tell the FTC within 30 days of finding a breach of unencrypted data on 500 or more consumers.
+    summary: No general federal breach law; state laws apply. HIPAA covered entities must notify affected people without unreasonable delay and within 60 days of discovery, and HHS within 60 days (500 or more people) or within 60 days of year-end (fewer); media notice applies above 500 residents of a state. Business associates must tell the covered entity within 60 days. The FTC Health Breach Notification Rule sets matching deadlines for health apps outside HIPAA. Non-bank financial institutions must tell the FTC within 30 days of discovering a breach of unencrypted data on 500 or more consumers.
     source:
       - https://www.hhs.gov/hipaa/for-professionals/breach-notification/index.html
       - https://www.ftc.gov/business-guidance/resources/complying-ftcs-health-breach-notification-rule-0
       - https://www.ftc.gov/business-guidance/resources/ftc-safeguards-rule-what-your-business-needs-know
   registration_or_fees:
-    summary: There is no federal registration or fee for processing personal data; data broker registries, where they exist, are state rules. Telemarketers calling consumers must pay to access the National Do Not Call Registry. The first five area codes are free, then it costs $85 per area code a year, up to $23,425. The DOJ data rule adds reports in some cases, such as reporting a rejected offer of a prohibited transaction.
+    summary: There is no federal registration or fee for processing personal data; data broker registries, where they exist, are state rules. Telemarketers calling consumers must pay to access the National Do Not Call Registry. For the year from 1 October 2026 the first five area codes are free, then it costs $85 per area code, up to $23,425. The DOJ data rule adds reports in some cases, such as reporting a rejected offer of a prohibited transaction.
     source:
       - https://www.ecfr.gov/current/title-16/chapter-I/subchapter-C/part-310/section-310.8
+      - https://www.govinfo.gov/content/pkg/FR-2026-08-26/html/2026-17428.htm
       - https://www.justice.gov/nsd/data-security
   dpo:
     summary: There is no federal data protection officer requirement. HIPAA covered entities must name a privacy official and a contact for complaints, and covered entities and business associates must name a security official. The FTC Safeguards Rule requires financial institutions to name a Qualified Individual to run their information security program. The COPPA Rule's security program must name the employees who coordinate it.
@@ -157,15 +167,17 @@ obligations:
       - https://www.federalregister.gov/documents/2025/01/08/2024-31486/preventing-access-to-us-sensitive-personal-data-and-government-related-data-by-countries-of-concern
       - https://www.hhs.gov/hipaa/for-professionals/security/hipaa-security-rule-nprm/factsheet/index.html
   automated_decisions_ai:
-    summary: There is no comprehensive federal AI law and no general right to contest automated decisions. If a decision on credit, insurance, a job or housing relies on a consumer report, FCRA requires an adverse action notice, and creditors must give the reasons for refusing credit (ECOA). The FTC Act covers deceptive AI claims. AI-generated voices are artificial voices under the TCPA. Platforms must remove reported non-consensual intimate images, including AI deepfakes, within 48 hours. Executive Order 14365 (December 2025) targets state AI laws but doesn't itself override them.
+    summary: No comprehensive federal AI law or general right to contest automated decisions. FCRA requires adverse action notices for decisions based on consumer reports, and ECOA reasons for refusing credit. The FTC Act covers deceptive AI claims; a proposed FTC statement (July 2026) says steering outputs to suit state laws like Colorado's AI Act can deceive. The FCC treats AI voices as artificial under the TCPA, but courts aren't bound by its view. Platforms must remove reported non-consensual intimate images, deepfakes included, within 48 hours. EO 14365 targets state AI laws without overriding them.
     source:
       - https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap41-subchapIII-sec1681m.htm
       - https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap41-subchapIV-sec1691.htm
+      - https://www.govinfo.gov/content/pkg/FR-2026-07-07/html/2026-13628.htm
       - https://docs.fcc.gov/public/attachments/FCC-24-17A1.pdf
+      - https://www.supremecourt.gov/opinions/24pdf/606us1r55_3d9g.pdf
       - https://www.govinfo.gov/content/pkg/PLAW-119publ12/html/PLAW-119publ12.htm
       - https://www.govinfo.gov/content/pkg/FR-2025-12-16/pdf/2025-23092.pdf
   penalties:
-    summary: Knowing breaches of FTC rules such as COPPA, CAN-SPAM or the Health Breach Notification Rule, and breaches of FTC orders, can cost up to $53,088 each; under CAN-SPAM each email counts. State attorneys general can sue under COPPA and the TCPA, and people can sue under the TCPA for $500 per call or text, or up to $1,500 if wilful. HIPAA penalties depend on culpability and reach $2,190,294 per violation, and per year for identical violations. DOJ-rule breaches carry civil penalties up to the greater of $368,136 or twice the transaction value, and up to $1 million and 20 years in prison.
+    summary: Knowing breaches of FTC rules such as COPPA, CAN-SPAM or the Health Breach Notification Rule, or of FTC orders, can cost up to $53,088 each; under CAN-SPAM each email counts. State attorneys general can sue under COPPA and the TCPA, and people can sue under the TCPA for $500 per call or text, or up to $1,500 if wilful. HIPAA penalties depend on culpability, up to $2,190,294 per violation, and per year for identical violations. DOJ-rule breaches carry civil penalties up to the greater of $368,136 (inflation-adjusted) or twice the transaction value, and up to $1 million and 20 years in prison.
     source:
       - https://www.ecfr.gov/current/title-16/chapter-I/subchapter-A/part-1/subpart-L/section-1.98
       - https://www.ftc.gov/business-guidance/resources/can-spam-act-compliance-guide-business
@@ -178,4 +190,4 @@ checked:
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

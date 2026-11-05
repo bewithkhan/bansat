@@ -10,13 +10,13 @@ laws:
     official_url: https://www.cga.ct.gov/2026/sup/chap_743jj.htm
     status: in-force
     in_force_from: "2023-07-01"
-    notes: Public Act 25-113 made major changes from 1 July 2026, including lower thresholds, more sensitive data, new profiling rights, impact assessments and a ban on targeted ads and sales to under-18s.
+    notes: Public Act 25-113 made major changes from 1 July 2026, including lower thresholds, more sensitive data, new profiling rights, impact assessments and a ban on targeted ads and sales to under-18s. Public Act 26-64 added more from 1 October 2026, including a ban on selling precise geolocation data, wider deletion rights and signs for facial recognition used for security (as replaced by Public Act 26-100).
   - name: Online services and minors (part of the CTDPA chapter)
-    citation: Conn. Gen. Stat. §§ 42-528 to 42-529e
+    citation: Conn. Gen. Stat. §§ 42-528 to 42-530
     official_url: https://www.cga.ct.gov/2026/sup/chap_743jj.htm
     status: in-force
-    in_force_from: "2024-10-01"
-    notes: Expanded by Public Act 25-113 from 1 July 2026.
+    in_force_from: "2024-07-01"
+    notes: Section 42-528 (a minor's social media account must be unpublished within 15 business days, or deleted within 45, on request) has applied since 1 July 2024, and sections 42-529 to 42-529e since 1 October 2024, expanded by Public Act 25-113 from 1 July 2026. Section 42-530 required social media platforms to add an online safety centre and a cyberbullying policy by 1 October 2026.
   - name: Breach of security concerning computerized data containing personal information
     citation: Conn. Gen. Stat. § 36a-701b
     official_url: https://www.cga.ct.gov/current/pub/chap_669.htm
@@ -27,20 +27,47 @@ laws:
     official_url: https://www.cga.ct.gov/2026/ACT/PA/PDF/2026PA-00015-R00SB-00005-PA.PDF
     status: in-force
     in_force_from: "2026-10-01"
-    notes: AI and online safety rules in stages. Content provenance and parts of the employment rules from 1 October 2026, AI companions from 1 January 2027, and duties for automated employment decision tools deployed from 1 October 2027.
+    notes: AI and online safety rules in stages. A few sections took effect on passage (approved 27 May 2026) or on 1 July 2026, but builders' first duties start on 1 October 2026 (content provenance, frontier AI whistleblowers, parts of the employment rules). AI companions follow from 1 January 2027, employment decision tools deployed from 1 October 2027, and minors' feeds from 1 January 2028, with yearly public reports from 1 March 2028. Public Act 26-100 repealed section 1 and re-enacted its AI subscription rule.
+  - name: An Act Concerning Consumer Privacy and Protection (Public Act 26-64)
+    citation: Conn. Public Act No. 26-64 (Substitute Senate Bill 4, 2026), as amended by Public Act 26-100
+    official_url: https://www.cga.ct.gov/2026/ACT/PA/PDF/2026PA-00064-R00SB-00004-PA.PDF
+    status: in-force
+    in_force_from: "2026-10-01"
+    notes: Approved 27 May 2026 and in force from 1 October 2026. Data broker registration from 1 January 2027 and a state deletion mechanism by 1 July 2028, plus CTDPA changes and rules for direct-to-consumer genetic testing companies. Its price setting and facial recognition sections were repealed before taking effect; Public Act 26-100 re-enacted the facial recognition rule.
+  - name: An Act Concerning Consumer Protection, Cannabis, Data Privacy, Fire Inspections, Criminal Mischief and Artificial Intelligence (Public Act 26-100)
+    citation: Conn. Public Act No. 26-100 (Substitute House Bill 5222, 2026), sections 39 to 46
+    official_url: https://www.cga.ct.gov/2026/ACT/PA/PDF/2026PA-00100-R00HB-05222-PA.PDF
+    status: in-force
+    in_force_from: "2026-10-01"
+    notes: An omnibus act approved 2 June 2026. For builders, it amends the data broker rules of Public Act 26-64, re-enacts its facial recognition rule with a consent exception, and adds a key-terms notice for generative AI subscriptions, all from 1 October 2026.
+  - name: Surveillance pricing (Public Act 26-130, section 11)
+    citation: Conn. Public Act No. 26-130 (House Bill 5563, 2026), section 11
+    official_url: https://www.cga.ct.gov/2026/ACT/PA/PDF/2026PA-00130-R00HB-05563-PA.PDF
+    status: enacted
+    in_force_from: "2027-07-01"
+    notes: Approved 4 June 2026. From 1 July 2027, retailers and food delivery services can't use surveillance pricing, and anyone who raises an online price using a consumer's personal data must say so. It replaced two earlier versions that never took effect.
+  - name: Connected devices with a camera or microphone
+    citation: Conn. Gen. Stat. § 42-531
+    official_url: https://www.cga.ct.gov/2026/sup/chap_743jj.htm
+    status: in-force
+    in_force_from: "2026-07-01"
+    notes: Makers of internet-connected home appliances, TVs and toys with a camera or microphone, and partners who access them, must show a set-up disclosure, let the first user decline to turn the camera or microphone on (unless that makes the device useless), secure what it collects, and use or sell recordings for targeted ads only with opt-in consent.
 regulators:
   - name: Connecticut Office of the Attorney General (Privacy and Data Security Section)
     url: https://portal.ct.gov/ag/sections/privacy/the-connecticut-data-privacy-act
 obligations:
   scope:
-    summary: Since 1 July 2026, applies to businesses that operate in Connecticut or target its residents and, in the previous year, processed data of 35,000 or more consumers, processed any sensitive data, or offered personal data for sale. Consumer health data controllers are covered whatever their size, non-profits included. Government, other non-profits, universities and HIPAA covered entities are exempt, and GLBA is now a data-level exemption. Employees and B2B contacts aren't consumers.
+    summary: Since 1 July 2026, applies to anyone processing Connecticut consumers' sensitive data or offering personal data for sale, and to businesses in or targeting Connecticut that processed data of 35,000 or more consumers in the previous year (payment-only data doesn't count). Consumer health data rules apply at any size, non-profits included. Exempt are government, non-profits, universities, political committees, HIPAA covered entities, tribal bodies, air carriers, insurers, qualifying banks and credit unions, regulated securities firms and GLBA data. Employees and B2B contacts aren't consumers.
     source:
       - https://www.cga.ct.gov/2026/sup/chap_743jj.htm
+      - https://www.cga.ct.gov/current/pub/chap_743jj.htm
       - https://portal.ct.gov/ag/sections/privacy/the-connecticut-data-privacy-act
   lawful_bases:
-    summary: There are no GDPR-style lawful bases. Controllers give a privacy notice and honour rights to access (including inferences), correct, delete and port data, to opt out of targeted advertising, sale and significant profiling, and to get a list of third parties the data was sold to. Opt-in consent is needed to process or sell sensitive data and for new purposes. Since 1 July 2026, privacy notices must say whether personal data is used to train large language models.
+    summary: There are no GDPR-style lawful bases. Controllers give a privacy notice, saying whether data trains large language models, and honour rights to access (including inferences), correct, delete and port data, opt out of targeted ads, sale and significant profiling, and learn who bought it. Sensitive data and new purposes need opt-in consent. Since 1 October 2026, selling precise geolocation data is banned and deletion covers public data compiled into profiles or sold. Consumer health data can't be sold without consent or geofenced within 1,750 feet of mental, reproductive or sexual health sites.
     source:
       - https://www.cga.ct.gov/2026/sup/chap_743jj.htm
+      - https://www.cga.ct.gov/2026/ACT/PA/PDF/2026PA-00064-R00SB-00004-PA.PDF
+      - https://www.cga.ct.gov/current/pub/chap_743jj.htm
   consent_age:
     summary: A child is under 13, and a known child's data is sensitive data handled under COPPA, with parental consent. Since 1 July 2026, controllers that know or wilfully disregard that a consumer is 13 to 17 can't use their data for targeted advertising or sell it, even with consent.
     value: 13
@@ -48,7 +75,7 @@ obligations:
     source:
       - https://www.cga.ct.gov/2026/sup/chap_743jj.htm
   children:
-    summary: Online services that know or wilfully disregard that a user is under 18 owe a duty of reasonable care against heightened risk of harm. They can't use engagement-extending design features, must block unsolicited adult messages by default, may collect precise geolocation only when strictly necessary, and need consent for significant profiling. Data protection and impact assessments are required. From 2027, AI companions need protections for minors, and a 2028 rule restricts algorithmic feeds for minors.
+    summary: Services that know or wilfully disregard that a user is under 18 must take reasonable care against heightened risk of harm, avoid engagement-extending features, get consent for significant profiling, block unsolicited adult messages by default and collect precise geolocation only if strictly necessary. AI companion rules for minors start in 2027. From 1 January 2028, platforms need age checks or verifiable parental consent before giving minors personalised feeds; by default minors get 1 hour of feeds a day, no feed alerts from 9pm to 8am and private accounts, plus daily mental-health warnings.
     source:
       - https://www.cga.ct.gov/2026/sup/chap_743jj.htm
       - https://www.cga.ct.gov/2026/ACT/PA/PDF/2026PA-00015-R00SB-00005-PA.PDF
@@ -60,9 +87,9 @@ obligations:
       - https://portal.ct.gov/ag/sections/privacy/the-connecticut-data-privacy-act
       - https://www.cga.ct.gov/2026/sup/chap_743jj.htm
   marketing:
-    summary: Email marketing relies on federal CAN-SPAM, and calls and texts on the federal TCPA. Connecticut also has its own telemarketing law (Conn. Gen. Stat. chapter 743m), so check it before running sales calls or texts.
+    summary: Email relies on federal CAN-SPAM. Connecticut's telemarketing law covers sales calls and texts to its residents or to Connecticut area codes. Unless an exception applies, such as an existing customer or a reply to the person's own request, they need prior express written consent, can't go to numbers on the National Do Not Call Registry (which is also the state list) and may only be made between 9am and 8pm. Callers must identify themselves within 10 seconds and honour opt-outs. Fines are up to $20,000 per violation, on top of unfair trade practice penalties.
     source:
-      - https://www.cga.ct.gov/current/pub/title_42.htm
+      - https://www.cga.ct.gov/current/pub/chap_743m.htm
   breach_notice:
     summary: Notify affected Connecticut residents without unreasonable delay and no later than 60 days after discovering a breach, and notify the Attorney General no later than the residents, using its online form. If Social Security or taxpayer ID numbers were exposed, offer at least 24 months of identity theft prevention services. Failing to comply is an unfair trade practice.
     value: 60
@@ -71,8 +98,10 @@ obligations:
       - https://portal.ct.gov/ag/sections/privacy/reporting-a-data-breach
       - https://www.cga.ct.gov/current/pub/chap_669.htm
   registration_or_fees:
-    summary: The CTDPA requires no registration or fee.
+    summary: From 1 January 2027, data brokers can't sell or license brokered personal data in Connecticut unless registered with the Department of Consumer Protection, at $2,500 a year. The Department must open a single deletion mechanism by 1 July 2028, and from 1 October 2028 registered brokers must check it at least every 45 days and delete the data of consumers who used it. Penalties are up to $200 per day per consumer for each violation. FCRA, GLBA and HIPAA activities and businesses with a direct relationship are exempt. The CTDPA itself has no registration or fee.
     source:
+      - https://www.cga.ct.gov/2026/ACT/PA/PDF/2026PA-00064-R00SB-00004-PA.PDF
+      - https://www.cga.ct.gov/2026/ACT/PA/PDF/2026PA-00100-R00HB-05222-PA.PDF
       - https://www.cga.ct.gov/2026/sup/chap_743jj.htm
   dpo:
     summary: There's no requirement to appoint a data protection officer.
@@ -87,10 +116,11 @@ obligations:
     source:
       - https://www.cga.ct.gov/2026/sup/chap_743jj.htm
   automated_decisions_ai:
-    summary: Since 1 July 2026, consumers can opt out of profiling for any automated decision with significant effects and, where feasible, question the result, learn the reason and review the data used. Public Act 26-15 adds AI rules in stages, such as notices for automated employment decision tools deployed from 1 October 2027, AI companion safety duties from 1 January 2027, and content provenance for large generative AI providers.
+    summary: Since 1 July 2026, consumers can opt out of profiling for significant automated decisions and, where feasible, contest the result and learn why. Under Public Act 26-15, from 1 October 2026 large generative AI providers must embed provenance data and frontier AI developers can't silence safety whistleblowers (up to $1,000 per violation); AI companion duties start on 1 January 2027 and notices for employment decision tools deployed from 1 October 2027. Since 1 October 2026, generative AI subscriptions with over 1 million monthly users need key terms disclosed and accepted first.
     source:
       - https://www.cga.ct.gov/2026/sup/chap_743jj.htm
       - https://www.cga.ct.gov/2026/ACT/PA/PDF/2026PA-00015-R00SB-00005-PA.PDF
+      - https://www.cga.ct.gov/2026/ACT/PA/PDF/2026PA-00100-R00HB-05222-PA.PDF
   penalties:
     summary: The Attorney General enforces alone, treating violations as unfair trade practices, with civil penalties up to $5,000 per wilful violation and injunctions. The mandatory 60-day cure period ended on 31 December 2024; since then the Attorney General may offer one. There's no private right of action.
     source:
@@ -101,4 +131,4 @@ checked:
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

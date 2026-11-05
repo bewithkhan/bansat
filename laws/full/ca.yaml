@@ -55,18 +55,19 @@ obligations:
       - https://www.priv.gc.ca/en/privacy-topics/collecting-personal-information/consent/gl_omc_201805/
       - https://www.priv.gc.ca/en/privacy-topics/privacy-for-businesses/protection-of-children-for-businesses/childrens-privacy-code/children-code-final-report-2026/
   children:
-    summary: The OPC's Children's Privacy Code (20 October 2026) is guidance on PIPEDA for online services directed at or likely to be used by under-18s. It expects the child's best interests to come first, opt-in for non-essential uses, location, profile visibility and third-party sharing off by default, no profiling for marketing or behavioural ads, and no deceptive design. The OPC takes comments until 20 January 2027. Its age assurance guidance is being finalised.
+    summary: The OPC's Children's Privacy Code (20 October 2026) is guidance on PIPEDA for online services directed at or likely to be used by under-18s. It expects the child's best interests to come first, opt-in for non-essential uses, location, profile visibility and third-party sharing off by default, no profiling for marketing or behavioural ads, and no deceptive design. The OPC takes comments until 20 January 2027. Its age assurance guidance is being finalised. Bill C-36 would list under-18s' information as an example of sensitive information (pending).
     source:
       - https://www.priv.gc.ca/en/privacy-topics/privacy-for-businesses/protection-of-children-for-businesses/childrens-privacy-code/children-code-final-report-2026/
       - https://www.priv.gc.ca/en/opc-news/news-and-announcements/2026/nr-c_261020/
       - https://www.priv.gc.ca/en/about-the-opc/what-we-do/consultations/completed-consultations/consultation-age/
+      - https://www.parl.ca/DocumentViewer/en/45-1/bill/C-36/first-reading
   cookies:
     summary: No separate cookie law. Online tracking falls under PIPEDA consent. The OPC accepts opt-out consent for behavioural advertising only if the purposes are obvious, people learn of them at or before collection, the opt-out is easy, immediate and lasting, and the data is non-sensitive where practicable. Avoid tracking children, and don't use tracking people can't decline, such as fingerprinting. CASL treats cookies and scripts as consented to where a person's conduct shows it.
     source:
       - https://www.priv.gc.ca/en/privacy-topics/technology/online-privacy-tracking-cookies/tracking-and-ads/gl_ba_1112/
       - https://laws-lois.justice.gc.ca/eng/acts/E-1.6/page-2.html
   marketing:
-    summary: Under CASL, commercial electronic messages such as email and texts need express or implied consent, sender identification and a free unsubscribe that takes effect within 10 business days. Implied consent covers, for example, a purchase in the past two years or an inquiry in the past six months. Messages that only give a requested quote or confirm a transaction don't need consent. Installing software on someone's device in the course of business needs express consent.
+    summary: Under CASL, commercial electronic messages such as email and texts need express or implied consent, sender identification and a free unsubscribe that takes effect within 10 business days. Implied consent covers, for example, a purchase in the past two years or an inquiry in the past six months. Messages that only give a requested quote or confirm a transaction don't need consent, but still need sender identification and an unsubscribe. Installing software on someone's device in the course of business needs express consent.
     source:
       - https://laws-lois.justice.gc.ca/eng/acts/E-1.6/page-1.html
       - https://laws-lois.justice.gc.ca/eng/acts/E-1.6/page-2.html
@@ -119,4 +120,4 @@ checked:
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

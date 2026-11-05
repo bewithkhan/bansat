@@ -34,7 +34,7 @@ jurisdictions:
   mx:
     official_domains: [dof.gob.mx, diputados.gob.mx, gob.mx, buengobierno.gob.mx, segob.gob.mx]
   us-al:
-    official_domains: [legislature.state.al.us, alabamaag.gov]
+    official_domains: [legislature.state.al.us, alabamaag.gov, arc-sos.state.al.us]
   us-ca:
     official_domains: [leginfo.legislature.ca.gov, cppa.ca.gov, privacy.ca.gov, oag.ca.gov, assembly.ca.gov, senate.ca.gov, uscourts.gov, govinfo.gov, calcivilrights.ca.gov]
   us-co:
@@ -64,7 +64,7 @@ jurisdictions:
   us-nh:
     official_domains: [gc.nh.gov, gencourt.state.nh.us, doj.nh.gov]
   us-nj:
-    official_domains: [njleg.state.nj.us, njoag.gov, njconsumeraffairs.gov]
+    official_domains: [njleg.state.nj.us, njoag.gov, njconsumeraffairs.gov, nj.gov]
   us-ok:
     official_domains: [oklegislature.gov, okhouse.gov, oklahoma.gov]
   us-or:

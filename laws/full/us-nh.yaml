@@ -10,12 +10,18 @@ laws:
     official_url: https://gc.nh.gov/rsa/html/LII/507-H/507-H-mrg.htm
     status: in-force
     in_force_from: "2025-01-01"
-    notes: A 2026 amendment (Laws 2026, ch. 168) bars selling a child's personal data from 1 January 2027.
+    notes: Laws 2026, ch. 168 (HB 1460, signed on 19 June 2026) bars selling a child's personal data from 1 January 2027; the online RSA doesn't show it yet.
   - name: Notice of security breach
     citation: RSA 359-C:19 to 359-C:21
     official_url: https://gc.nh.gov/rsa/html/XXXI/359-C/359-C-20.htm
     status: in-force
     in_force_from: "2007-01-01"
+  - name: AI chat services and children (responsive generative communication)
+    citation: RSA 507:8-k and RSA 639:3, III-a (Laws 2025, ch. 270, HB 143)
+    official_url: https://gc.nh.gov/rsa/html/LII/507/507-8-k.htm
+    status: in-force
+    in_force_from: "2026-01-01"
+    notes: Signed on 1 August 2025. Creates civil liability and a misdemeanour for AI chat services that knowingly push a child toward listed harms.
 regulators:
   - name: New Hampshire Department of Justice (Attorney General), Consumer Protection and Antitrust Bureau
     url: https://www.doj.nh.gov/
@@ -38,10 +44,13 @@ obligations:
       - https://gc.nh.gov/rsa/html/LII/507-H/507-H-1.htm
       - https://gc.nh.gov/rsa/html/LII/507-H/507-H-6.htm
   children:
-    summary: Data from a known child is sensitive data and needs COPPA-compliant handling. From 1 January 2027, controllers may not sell a child's personal data at all. We found no separate New Hampshire children's privacy or age-appropriate design law.
+    summary: Data from a known child (under 13, as in COPPA) is sensitive data and needs COPPA-compliant handling. From 1 January 2027, Laws 2026, ch. 168 bars selling a child's personal data. Since 1 January 2026, an AI chat service whose sole purpose is open-ended generative conversation is liable if it knowingly sends a child messages meant to get them to imminently engage in sexual conduct, illegal drug or alcohol use, self-harm or violence. We found no New Hampshire age-appropriate design law.
     source:
       - https://gc.nh.gov/rsa/html/LII/507-H/507-H-6.htm
       - https://gc.nh.gov/rsa/html/LII/507-H/507-H-1.htm
+      - https://gc.nh.gov/bill_status/billinfo.aspx?id=2443
+      - https://gc.nh.gov/rsa/html/LII/507/507-8-k.htm
+      - https://gc.nh.gov/rsa/html/LXII/639/639-3.htm
   cookies:
     summary: No cookie-consent rule. Controllers must offer a clear opt-out link for targeted advertising and sale, and since 1 January 2025 must honour opt-out preference signals such as Global Privacy Control. A signal that conflicts with a loyalty programme or existing setting must still be honoured, though the controller may ask the consumer to confirm.
     source:
@@ -72,18 +81,22 @@ obligations:
     source:
       - https://gc.nh.gov/rsa/html/LII/507-H/507-H-8.htm
   automated_decisions_ai:
-    summary: Consumers can opt out of profiling in furtherance of solely automated decisions with legal or similarly significant effects, and risky profiling needs a documented assessment. We found no New Hampshire AI law with duties for private businesses.
+    summary: Consumers can opt out of profiling in furtherance of solely automated decisions with legal or similarly significant effects, and risky profiling needs a documented assessment. Since 1 January 2026, an AI chat service whose sole purpose is open-ended generative conversation faces civil liability and a misdemeanour charge if it knowingly pushes a child toward imminent sexual conduct, drug or alcohol use, self-harm or violence. Cloud and telecom providers, and chatbots built into games, TV or streaming, are excluded.
     source:
       - https://gc.nh.gov/rsa/html/LII/507-H/507-H-4.htm
       - https://gc.nh.gov/rsa/html/LII/507-H/507-H-8.htm
+      - https://gc.nh.gov/rsa/html/LII/507/507-8-k.htm
+      - https://gc.nh.gov/rsa/html/LXII/639/639-3.htm
+      - https://gc.nh.gov/bill_status/billinfo.aspx?id=339
   penalties:
-    summary: Only the Attorney General enforces. The required 60-day cure notice applied only during 2025; since 2026 a cure is at the AG's discretion. Violations are unfair or deceptive acts under RSA 358-A, with civil penalties up to $10,000 per violation. The privacy law gives no private right of action.
+    summary: Only the Attorney General enforces. The required 60-day cure notice applied only during 2025; since 2026 a cure is at the AG's discretion. Violations are unfair or deceptive acts under RSA 358-A, with civil penalties up to $10,000 per violation. The privacy law gives no private right of action. Under the AI chat law, only the AG can sue, after written notice and 90 days to give assurances of a cure, for the child's damages (at least $1,000 per violation) or an injunction.
     source:
       - https://gc.nh.gov/rsa/html/LII/507-H/507-H-11.htm
       - https://gc.nh.gov/rsa/html/XXXI/358-A/358-A-mrg.htm
+      - https://gc.nh.gov/rsa/html/LII/507/507-8-k.htm
 checked:
   date: "2026-11-05"
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

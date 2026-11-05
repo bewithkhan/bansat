@@ -50,7 +50,7 @@ obligations:
       - https://www.legis.iowa.gov/docs/code/715D.1.pdf
       - https://www.legis.iowa.gov/docs/code/715D.3.pdf
   children:
-    summary: Data from a known child is sensitive data, handled under COPPA. From 1 July 2027, chatbot operators must tell minors (under 18) that they're talking to AI, block sexual content and claims to be human, avoid unpredictable rewards that drive engagement, and offer privacy tools to minors and to parents of under-13s. Since 1 July 2026, sites with a substantial share of content pornographic for minors must verify users' age.
+    summary: Data from a known child is sensitive data, handled under COPPA. From 1 July 2027, public chatbots built mainly to simulate conversation (not customer-service, built-in, narrow-topic, internal or voice-assistant bots) must tell users known or reasonably certain to be under 18 that they're AI, take reasonable measures against sexual content and human-like claims, avoid unpredictable rewards and offer privacy tools. Since 1 July 2026, sites where 33% or more of content is pornographic for minors must verify age and not keep the identifying data.
     source:
       - https://www.legis.iowa.gov/docs/code/715D.pdf
       - https://www.legis.iowa.gov/docs/publications/iactc/91.2/CH1068.pdf
@@ -65,7 +65,7 @@ obligations:
     source:
       - https://www.legis.iowa.gov/docs/code/716A.2.pdf
   breach_notice:
-    summary: Tell affected Iowa residents in the most expeditious manner possible and without unreasonable delay. If more than 500 Iowans must be told, notify the Attorney General's Consumer Protection Division in writing within 5 business days of telling them. Notice isn't needed if a documented investigation finds no reasonable likelihood of financial harm; keep that record for 5 years.
+    summary: Tell affected Iowa residents in the most expeditious manner possible and without unreasonable delay. If more than 500 Iowans must be told, notify the Attorney General's Consumer Protection Division in writing within 5 business days of telling them. Notice isn't needed if a documented investigation finds no reasonable likelihood of financial harm; keep that record for 5 years. A business holding data for another must tell the owner immediately. Businesses subject to and complying with GLBA or HIPAA rules are exempt.
     source:
       - https://www.legis.iowa.gov/docs/code/715C.2.pdf
       - https://www.iowaattorneygeneral.gov/for-consumers/security-breach-notifications/
@@ -86,17 +86,18 @@ obligations:
     source:
       - https://www.legis.iowa.gov/docs/code/715D.pdf
   automated_decisions_ai:
-    summary: There's no right to opt out of profiling or automated decisions. From 1 July 2027, chatbot operators must adopt a suicide and self-harm protocol that points users to crisis services, must not present the chatbot as a licensed mental health provider, and must disclose that it's AI where a reasonable person could think it's human.
+    summary: There's no right to opt out of profiling or automated decisions. From 1 July 2027, operators of public chatbots built mainly to simulate conversation (see children for exclusions) must adopt a suicide and self-harm protocol that points users to crisis services, must not present the chatbot as a licensed mental health provider, and must disclose that it's AI where a reasonable person could think it's human.
     source:
       - https://www.legis.iowa.gov/docs/publications/iactc/91.2/CH1068.pdf
   penalties:
-    summary: Only the Attorney General enforces. Before suing, the AG must give 90 days' written notice to cure, and this right to cure doesn't expire. After that, civil penalties are up to $7,500 per violation, plus injunctions. There's no private right of action. From 2027, chatbot violations cost $1,000 each, up to $500,000 per operator.
+    summary: Only the Attorney General enforces. Before suing, the AG must give 90 days' written notice to cure, and this right to cure doesn't expire. After that, civil penalties are up to $7,500 per violation, plus injunctions. There's no private right of action. From 2027, chatbot violations cost $1,000 each, up to $500,000 per operator. Age-verification violations cost up to $1,000 each (each access counts), capped at $10,000 a day.
     source:
       - https://www.legis.iowa.gov/docs/code/715D.8.pdf
       - https://www.legis.iowa.gov/docs/publications/iactc/91.2/CH1068.pdf
+      - https://www.legis.iowa.gov/docs/publications/iactc/91.2/CH1143.pdf
 checked:
   date: "2026-11-05"
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

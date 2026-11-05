@@ -9,26 +9,38 @@ laws:
     official_url: https://www2.camara.leg.br/legin/fed/lei/2018/lei-13709-14-agosto-2018-787077-normaatualizada-pl.html
     status: in-force
     in_force_from: "2020-09-18"
-    notes: Most provisions apply from 18 September 2020, when Lei 14.058/2020 converted MP 959/2020 without its planned postponement. The ANPD provisions applied from 28 December 2018 and the sanctions (Arts. 52 to 54) from 1 August 2021. Lei 15.352/2026 turned the ANPD into an independent regulatory agency.
+    notes: Most provisions apply from 18 September 2020, when Lei 14.058/2020 converted MP 959/2020 without its planned postponement. The ANPD provisions applied from 28 December 2018 and the sanctions (Arts. 52 to 54) from 1 August 2021. MP 1.317/2025, in force on 18 September 2025 and converted into Lei 15.352/2026, made the ANPD a regulatory agency.
   - name: Brazilian Civil Rights Framework for the Internet (Marco Civil da Internet)
     citation: Lei nº 12.965, de 23 de abril de 2014, regulated by Decreto nº 8.771/2016 as amended by Decreto nº 12.975/2026
     official_url: https://www2.camara.leg.br/legin/fed/lei/2014/lei-12965-23-abril-2014-778630-normaatualizada-pl.html
     status: in-force
     in_force_from: "2014-06-23"
-    notes: Requires express consent to collect personal data and makes businesses that run internet applications keep access logs for 6 months. Since 20 July 2026 Decreto 12.975 adds platform duties, such as a legal representative in Brazil, a reporting channel and transparency reports, which the ANPD enforces.
+    notes: Requires express consent to collect personal data and makes businesses that run internet applications keep access logs for 6 months. Since 20 July 2026, Decretos 12.975 and 12.976 (see below) add platform duties that the ANPD enforces.
+  - name: Decree on internet application providers' duties
+    citation: Decreto nº 12.975, de 20 de maio de 2026 (amending Decreto nº 8.771/2016)
+    official_url: https://www.in.gov.br/web/dou/-/decreto-n-12.975-de-20-de-maio-de-2026-706914947
+    status: in-force
+    in_force_from: "2026-07-20"
+    notes: Internet application providers, especially platforms hosting user content, need a legal representative in Brazil, reporting channels and transparency reports, and must act against fraud and serious crimes online. The ANPD enforces it.
+  - name: Decree on protecting women online
+    citation: Decreto nº 12.976, de 20 de maio de 2026
+    official_url: https://www.in.gov.br/web/dou/-/decreto-n-12.976-de-20-de-maio-de-2026-706921216
+    status: in-force
+    in_force_from: "2026-07-20"
+    notes: Platforms must take down intimate content shared without consent, including AI-made content, within two hours of notice, mark it to block re-uploads, and may not create or alter such content of others with AI. The ANPD enforces it.
   - name: Digital Statute of Children and Adolescents (ECA Digital)
     citation: Lei nº 15.211, de 17 de setembro de 2025
     official_url: https://legis.senado.leg.br/norma/41465823/publicacao/41471709
     status: in-force
     in_force_from: "2026-03-17"
-    notes: Covers digital products and services aimed at, or likely to be used by, children and adolescents. The ANPD supervises it, and Decreto 12.880/2026 regulates it.
+    notes: Covers digital products and services aimed at, or likely to be used by, children and adolescents. Lei 15.352/2026 (Art. 19) set its start date. The ANPD supervises it, and Decreto 12.880/2026 regulates it.
   - name: Artificial Intelligence Bill
     citation: PL 2338/2023
     official_url: https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2487262
     status: draft
     notes: Passed by the Senate and sent to the Chamber of Deputies in March 2025. On 27 October 2026 it was still waiting for the rapporteur's opinion in a Chamber special committee. Not law.
 regulators:
-  - name: Agência Nacional de Proteção de Dados (ANPD), the former Autoridade Nacional de Proteção de Dados, an independent regulatory agency since February 2026
+  - name: Agência Nacional de Proteção de Dados (ANPD), formerly the Autoridade Nacional, a regulatory agency since MP 1.317/2025 took effect on 18 September 2025
     url: https://www.gov.br/anpd/pt-br
 obligations:
   scope:
@@ -50,7 +62,7 @@ obligations:
       - https://www2.camara.leg.br/legin/fed/lei/2018/lei-13709-14-agosto-2018-787077-normaatualizada-pl.html
       - https://www.gov.br/anpd/pt-br/centrais-de-conteudo/materiais-educativos-e-publicacoes/copy_of_guia_legitimo_interesse.pdf/@@display-file/file
   children:
-    summary: Since 17 March 2026 the ECA Digital applies to digital services aimed at, or likely to be used by, under-18s. It requires the most protective settings by default, reliable age checks (not self-declaration) for age-restricted content, and parental supervision tools. Social networks must link the accounts of users up to 16 to a guardian's account. Profiling to target advertising at children and adolescents is banned, as are loot boxes in games for them. ANPD inspections are planned from January 2027.
+    summary: Since 17 March 2026 the ECA Digital applies to digital services aimed at, or likely to be used by, under-18s. It requires the most protective settings by default, reliable age checks (not self-declaration) for age-restricted content, and parental supervision tools. Social networks must link the accounts of users up to 16 to a guardian's account. Profiling to target ads at children and adolescents is banned, as are loot boxes in their games. The ANPD began monitoring in 2025, app stores and operating systems first; its plan widens this from August 2026, with enforcement from January 2027.
     source:
       - https://legis.senado.leg.br/norma/41465823/publicacao/41471709
       - https://www.gov.br/anpd/pt-br/assuntos/eca-digital
@@ -60,14 +72,16 @@ obligations:
       - https://www.gov.br/anpd/pt-br/centrais-de-conteudo/materiais-educativos-e-publicacoes/guia-orientativo-cookies-e-protecao-de-dados-pessoais.pdf/@@display-file/file
       - https://www2.camara.leg.br/legin/fed/lei/2014/lei-12965-23-abril-2014-778630-normaatualizada-pl.html
   marketing:
-    summary: There is no separate e-marketing or anti-spam law. Marketing messages need an LGPD legal basis, usually consent, or legitimate interest after a balancing test. ANPD guidance gives the example of offers sent to people with an existing relationship, with an unsubscribe option in every message. Consent can be withdrawn at any time. The ECA Digital bans profiling to target advertising at children and adolescents.
+    summary: There is no separate e-marketing or anti-spam law. Marketing messages need an LGPD legal basis, usually consent, or legitimate interest after a balancing test. ANPD guidance gives the example of offers sent to people with an existing relationship, with an unsubscribe option in every message. Consent can be withdrawn at any time. For calls, people can join the free Não Me Perturbe list, which blocks telemarketing by telecom operators and banks offering payroll loans; Anatel made its 0303 telemarketing prefix optional in August 2025.
     source:
       - https://www2.camara.leg.br/legin/fed/lei/2018/lei-13709-14-agosto-2018-787077-normaatualizada-pl.html
       - https://www.gov.br/anpd/pt-br/centrais-de-conteudo/materiais-educativos-e-publicacoes/copy_of_guia_legitimo_interesse.pdf/@@display-file/file
-      - https://legis.senado.leg.br/norma/41465823/publicacao/41471709
+      - https://www.gov.br/anatel/pt-br/consumidor/telemarketing
+      - https://www.gov.br/anatel/pt-br/regulado/numeracao/telemarketing-ativo-prefixo-0303
   breach_notice:
-    summary: Tell the ANPD and the people affected within 3 business days of learning that a security incident involved personal data and may cause them relevant risk or damage, unless a specific law sets another deadline (Regulation CD/ANPD 15/2024). A preliminary report can be completed within 20 business days. Small processing agents get double the time. Processors must tell the controller without undue delay.
+    summary: Tell the ANPD and the people affected within 3 business days of learning that a security incident involved personal data and may cause them relevant risk or damage, unless a specific law sets another deadline (Regulation CD/ANPD 15/2024). A preliminary report can be completed within 20 business days. Small processing agents get double the time unless their processing is high-risk. Processors must tell the controller without undue delay.
     source:
+      - https://www.in.gov.br/en/web/dou/-/resolucao-cd/anpd-n-15-de-24-de-abril-de-2024-556243024
       - https://www.gov.br/anpd/pt-br/assuntos/comunicacao-de-incidentes-de-seguranca-cis
       - https://www.gov.br/anpd/pt-br/acesso-a-informacao/institucional/atos-normativos/regulamentacoes_anpd/resolucao-cd-anpd-no-2-de-27-de-janeiro-de-2022
       - https://www2.camara.leg.br/legin/fed/lei/2018/lei-13709-14-agosto-2018-787077-normaatualizada-pl.html
@@ -81,13 +95,16 @@ obligations:
     summary: Controllers must appoint a data protection officer (encarregado) by a formal written act and publish the officer's identity and contact details, preferably on their website. The officer can be an employee or an outside person or company, and must be able to communicate in Portuguese. Processors may appoint one as good practice. Small processing agents that don't carry out high-risk processing are exempt, but must offer people a contact channel.
     source:
       - https://www2.camara.leg.br/legin/fed/lei/2018/lei-13709-14-agosto-2018-787077-normaatualizada-pl.html
+      - https://www.in.gov.br/en/web/dou/-/resolucao-cd/anpd-n-18-de-16-de-julho-de-2024-572632074
       - https://www.gov.br/anpd/pt-br/centrais-de-conteudo/materiais-educativos-e-publicacoes/guia_da_atuacao_do_encarregado_anpd.pdf/@@display-file/file
       - https://www.gov.br/anpd/pt-br/acesso-a-informacao/institucional/atos-normativos/regulamentacoes_anpd/resolucao-cd-anpd-no-2-de-27-de-janeiro-de-2022
   transfers:
-    summary: Transfers abroad need a mechanism under LGPD Art. 33, such as an ANPD adequacy decision, the ANPD's standard contractual clauses used word for word (existing contracts had to include them by August 2025), ANPD-approved specific clauses or global corporate rules, or the person's specific consent. Controllers must share the clauses used on request. The EU and Brazil adopted mutual adequacy decisions in January 2026, so data can flow between them without further safeguards.
+    summary: Transfers abroad need a mechanism under LGPD Art. 33, such as an ANPD adequacy decision, the ANPD's standard contractual clauses used word for word (existing contracts had to include them by August 2025), ANPD-approved specific clauses or global corporate rules, or the person's specific consent. Controllers must share the clauses used on request. The ANPD recognised the EU as adequate (Resolution CD/ANPD 32, in force 27 January 2026) and the EU did the same for Brazil, so data can flow between them without further safeguards.
     source:
       - https://www2.camara.leg.br/legin/fed/lei/2018/lei-13709-14-agosto-2018-787077-normaatualizada-pl.html
       - https://www.gov.br/anpd/pt-br/acesso-a-informacao/institucional/atos-normativos/regulamentacoes_anpd/resolucao-cd-anpd-no-19-de-23-de-agosto-de-2024
+      - https://www.in.gov.br/web/dou/-/resolucao-n-32-de-26-de-janeiro-de-2026-683334547
+      - https://www.gov.br/anpd/pt-br/acesso-a-informacao/institucional/atos-normativos/regulamentacoes_anpd
       - https://commission.europa.eu/news-and-media/news/joint-press-statement-michael-mcgrath-and-waldemar-goncalves-ortunho-junior-director-president-2026-01-28_en
   dpia:
     summary: The ANPD can require a data protection impact report (RIPD), in particular for processing based on legitimate interest or involving sensitive data. ANPD guidance recommends one before processing likely to be high risk, judged by the criteria in Regulation CD/ANPD 2/2022, such as large-scale processing combined with sensitive or children's data or automated decisions. It is sent to the ANPD only on request. No specific RIPD regulation exists yet.
@@ -96,9 +113,11 @@ obligations:
       - https://www.gov.br/anpd/pt-br/canais_atendimento/agente-de-tratamento/relatorio-de-impacto-a-protecao-de-dados-pessoais-ripd
       - https://www.gov.br/anpd/pt-br/acesso-a-informacao/institucional/atos-normativos/regulamentacoes_anpd/resolucao-cd-anpd-no-2-de-27-de-janeiro-de-2022
   automated_decisions_ai:
-    summary: People can ask for a review of decisions made solely by automated processing that affect their interests, including profiling, and get clear information on the criteria and procedures used, subject to trade secrets. The law doesn't say the review must be done by a person. If information is withheld, the ANPD can audit for discrimination. Brazil has no AI law yet; the AI bill (PL 2338/2023) is still before the Chamber of Deputies.
+    summary: People can ask for a review of decisions made solely by automated processing that affect their interests, including profiling, and get clear information on the criteria and procedures used, subject to trade secrets. The law doesn't say the review must be done by a person. If information is withheld, the ANPD can audit for discrimination. Since 20 July 2026 platforms may not use AI to create or alter intimate content of others, and AI services must block such requests (Decreto 12.976). Brazil has no AI law yet; the AI bill (PL 2338/2023) is still before the Chamber of Deputies.
     source:
       - https://www2.camara.leg.br/legin/fed/lei/2018/lei-13709-14-agosto-2018-787077-normaatualizada-pl.html
+      - https://www.in.gov.br/web/dou/-/decreto-n-12.976-de-20-de-maio-de-2026-706921216
+      - https://www.gov.br/anpd/pt-br/assuntos/marco-civil-da-internet
       - https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2487262
   penalties:
     summary: The ANPD can issue warnings, fines of up to 2% of the company's or group's revenue in Brazil in its last financial year, net of taxes, capped at R$50 million per infraction, daily fines, publication of the infraction, blocking or deletion of the data, and suspension or a ban on processing. Under the ECA Digital, fines reach 10% of the group's Brazilian revenue, capped at R$50 million per infraction. People can also sue for damages. The ANPD is updating its sanctions rules in 2026.
@@ -111,4 +130,4 @@ checked:
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

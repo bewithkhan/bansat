@@ -10,13 +10,13 @@ laws:
     official_url: https://delcode.delaware.gov/title6/c012d/index.html
     status: in-force
     in_force_from: "2025-01-01"
-    notes: Amended by HB 380 (85 Del. Laws c. 463), signed on 2 September 2026. Most of its changes apply from 1 January 2027, and the Delaware Code shows both versions side by side.
+    notes: Amended by HB 380 (85 Del. Laws c. 463), signed on 2 September 2026. Its changes apply from 1 January 2027, and the Delaware Code shows both versions side by side.
   - name: Computer Security Breaches
     citation: Del. Code tit. 6, ch. 12B (75 Del. Laws c. 61)
     official_url: https://delcode.delaware.gov/title6/c012b/index.html
     status: in-force
     in_force_from: "2005-06-28"
-    notes: Amended by HB 381 (85 Del. Laws c. 464), signed on 2 September 2026; the Delaware Code shows the amended text as current.
+    notes: Amended by HB 381 (85 Del. Laws c. 464), signed and in force on 2 September 2026; the Delaware Code shows the amended text as current.
   - name: Delaware Online Privacy and Protection Act
     citation: Del. Code tit. 6, ch. 12C (80 Del. Laws c. 148)
     official_url: https://delcode.delaware.gov/title6/c012c/index.html
@@ -28,13 +28,13 @@ regulators:
     url: https://attorneygeneral.delaware.gov/fraud/personal-data-privacy-portal/
 obligations:
   scope:
-    summary: Covers businesses active in Delaware that in the previous year handled data of 35,000+ Delaware consumers (not counting payment-only data), or 10,000+ with over 20% of revenue from selling data. From 1 January 2027 these fall to 10,000 and 5,000, third parties that get data from a controller take on duties too, and the GLBA entity exemption narrows to banks, insurers and investment firms. Non-profits are covered. Employees and B2B contacts aren't consumers.
+    summary: Covers businesses active in Delaware that in the previous year handled data of 35,000+ Delaware consumers (not counting payment-only data), or 10,000+ with over 20% of revenue from selling data. From 1 January 2027 these fall to 10,000 and 5,000, third parties that get data from a controller take on duties too, and the GLBA entity exemption narrows to banks, insurers and investment firms. Non-profits are covered. HIPAA-protected health information is exempt. Employees and B2B contacts aren't consumers.
     source:
       - https://delcode.delaware.gov/title6/c012d/index.html
       - https://attorneygeneral.delaware.gov/fraud/personal-data-privacy-portal/business/
-      - https://governor.delaware.gov/legislative-advisories/legislative-advisories-57/
+      - https://legis.delaware.gov/BillDetail?LegislationId=143105
   lawful_bases:
-    summary: No GDPR-style lawful bases. Controllers give a privacy notice and honour rights to access, correct, delete and port data, get the categories of third parties (specific third parties from 2027), and opt out of targeted advertising, sale and profiling for significant decisions, within 45 days (extendable by 45). Sensitive data needs opt-in consent; from 2027 it must also be reasonably necessary and proportionate.
+    summary: No GDPR-style lawful bases. Controllers give a privacy notice and honour rights to access, correct, delete and port data, get the categories of third parties (specific third parties from 2027), and opt out of targeted advertising, sale and profiling for significant decisions, within 45 days (extendable by 45). Sensitive data needs opt-in consent. From 2027 it must also be reasonably necessary and proportionate, and may be sold only when strictly necessary for a service the consumer asked for, after notice naming the third parties, with consent recorded for 5 years.
     source:
       - https://delcode.delaware.gov/title6/c012d/index.html
   consent_age:
@@ -59,12 +59,13 @@ obligations:
       - https://delcode.delaware.gov/title6/c025a/index.html
       - https://delcode.delaware.gov/title6/c012c/index.html
   breach_notice:
-    summary: Notify affected Delaware residents without unreasonable delay and within 60 days of determining a breach, unless an investigation finds harm unlikely. Tell the Attorney General no later than the residents if more than 500 are affected. If you can't identify some affected residents within 60 days, tell the Attorney General within those 60 days. Offer 1 year of free credit monitoring when Social Security numbers are involved.
+    summary: Notify affected Delaware residents without unreasonable delay and within 60 days of determining a breach, unless an investigation finds harm unlikely. Tell the Attorney General no later than the residents if more than 500 are affected. If you can't identify some affected residents within 60 days, tell the Attorney General within those 60 days. Offer 1 year of free credit monitoring when Social Security numbers are involved. A business holding data it doesn't own must tell the owner immediately.
     value: 60
     unit: days
     source:
       - https://delcode.delaware.gov/title6/c012b/index.html
       - https://attorneygeneral.delaware.gov/fraud/cpu/securitybreachnotification/
+      - https://legis.delaware.gov/BillDetail?LegislationId=143107
   registration_or_fees:
     summary: The privacy law has no registration or fee, and we found no Delaware data broker registry. Telemarketing sellers register separately with the Department of Justice.
     source:
@@ -79,7 +80,7 @@ obligations:
     source:
       - https://delcode.delaware.gov/title6/c012d/index.html
   dpia:
-    summary: Controllers handling data of 100,000+ consumers must assess targeted advertising, sale, sensitive data and risky profiling. From 1 January 2027 the threshold falls to 50,000, and profiling for significant automated decisions needs a separate impact assessment. The Attorney General can require assessments in an investigation; they stay confidential.
+    summary: Controllers handling data of 100,000+ consumers must assess targeted advertising, sale, sensitive data and risky profiling, for processing created on or after 1 July 2025. From 1 January 2027 the threshold falls to 50,000, and profiling for significant automated decisions needs a separate impact assessment. The Attorney General can require assessments in an investigation; they stay confidential.
     source:
       - https://delcode.delaware.gov/title6/c012d/index.html
   automated_decisions_ai:
@@ -96,4 +97,4 @@ checked:
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

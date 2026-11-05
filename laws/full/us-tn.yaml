@@ -21,6 +21,7 @@ laws:
     official_url: https://wapp.capitol.tn.gov/apps/BillInfo/Default.aspx?BillNumber=HB1891&GA=113
     status: in-force
     in_force_from: "2025-01-01"
+    notes: Challenged in NetChoice v. Skrmetti (M.D. Tenn. No. 3:24-cv-01191). On 28 August 2026 the Sixth Circuit vacated the denial of a preliminary injunction and sent the case back. On 27 October 2026 the district court denied the old motion as moot and invited a renewed one; no injunction was in place.
   - name: AI systems presented as mental health professionals
     citation: Tenn. Code Ann. 33-1-205 (Pub. Ch. 647, 2026, SB 1580)
     official_url: https://wapp.capitol.tn.gov/apps/BillInfo/Default.aspx?BillNumber=SB1580&GA=114
@@ -53,11 +54,13 @@ obligations:
       - https://capitol.tn.gov/Bills/113/Amend/HA0348.pdf
       - https://www.capitol.tn.gov/Bills/113/Amend/SA0929.pdf
   children:
-    summary: Since 1 January 2025, social media companies must verify the age of anyone opening an account, need verified parental consent before a minor under 18 opens one, and must give parents tools to see privacy settings, set time limits and enforce breaks. They must not keep the identifying data used for age or consent checks.
+    summary: Since 1 January 2025, social media companies must verify the age of anyone opening an account, need verified parental consent before a minor under 18 opens one, and must give parents tools to see privacy settings, set time limits and enforce breaks. They must not keep the identifying data used for checks. The AG enforces with Consumer Protection Act penalties. NetChoice's federal challenge continues (see laws); as of 27 October 2026 no court order blocked the Act.
     source:
       - https://www.capitol.tn.gov/Bills/113/Amend/HA0668.pdf
       - https://www.capitol.tn.gov/Bills/113/Amend/SA0929.pdf
       - https://wapp.capitol.tn.gov/apps/BillInfo/Default.aspx?BillNumber=HB1891&GA=113
+      - https://www.opn.ca6.uscourts.gov/opinions.pdf/26a0250p-06.pdf
+      - https://www.govinfo.gov/content/pkg/USCOURTS-tnmd-3_24-cv-01191/pdf/USCOURTS-tnmd-3_24-cv-01191-2.pdf
   cookies:
     summary: No cookie-consent rule. A controller that sells personal information or uses it for targeted advertising must say so clearly and explain how to opt out. TIPA doesn't require honouring a universal opt-out signal such as Global Privacy Control; 2025–2026 bills to add one did not pass.
     source:
@@ -68,13 +71,16 @@ obligations:
     source:
       - https://www.tn.gov/tpuc/services/tennessee-do-not-call-program.html
   breach_notice:
-    summary: Notify affected Tennessee residents immediately, and no later than 45 days after discovering the breach or being told of it, unless law enforcement needs a delay. A business holding data for another must tell the owner within the same limit. Encrypted data is covered only if the key was also taken. GLBA- and HIPAA-regulated entities are exempt from this statute.
+    summary: Notify affected Tennessee residents immediately, and no later than 45 days after discovering the breach or being told of it, unless law enforcement needs a delay. A business holding data for another must tell the owner within the same limit. If more than 1,000 people are notified at once, also tell the national consumer reporting agencies. There's no duty to notify the Attorney General. Encrypted data is covered only if the key was also taken. GLBA- and HIPAA-regulated entities are exempt.
     value: 45
     unit: days
     source:
       - https://www.capitol.tn.gov/Bills/109/Amend/HA0750.pdf
       - https://wapp.capitol.tn.gov/apps/BillInfo/Default.aspx?BillNumber=SB2005&GA=109
       - https://wapp.capitol.tn.gov/apps/BillInfo/Default.aspx?BillNumber=SB0547&GA=110
+      - https://www.capitol.tn.gov/Bills/110/Bill/SB0547.pdf
+      - https://www.capitol.tn.gov/Bills/104/Amend/HA0424.pdf
+      - https://wapp.capitol.tn.gov/apps/BillInfo/Default.aspx?BillNumber=SB2220&GA=104
   registration_or_fees:
     summary: TIPA has no registration or fee, and we found no Tennessee data broker registry. A 2025–2026 bill to make controllers register with the Attorney General did not pass.
     source:
@@ -99,7 +105,7 @@ obligations:
       - https://www.capitol.tn.gov/Bills/114/Bill/SB1580.pdf
       - https://www.capitol.tn.gov/Bills/113/Amend/HA0578.pdf
   penalties:
-    summary: Only the Attorney General enforces, after a 60-day notice and cure that doesn't expire. Courts can impose up to $7,500 per violation, and treble damages for wilful or knowing violations. There's no private right of action. A written privacy program that reasonably conforms to the NIST Privacy Framework (version 1.0; version 1.1 is still a draft) is an affirmative defence.
+    summary: Only the Attorney General enforces, after a 60-day notice and cure that doesn't expire. Courts can impose up to $7,500 per violation, and treble damages for wilful or knowing violations. There's no private right of action. It's an affirmative defence to keep a written privacy program that reasonably conforms to the NIST Privacy Framework 1.0 (1.1 is still a draft) or other documented privacy policies, is updated within 2 years of a revised framework, and gives the Act's rights.
     source:
       - https://capitol.tn.gov/Bills/113/Amend/HA0348.pdf
       - https://www.nist.gov/privacy-framework
@@ -108,4 +114,4 @@ checked:
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

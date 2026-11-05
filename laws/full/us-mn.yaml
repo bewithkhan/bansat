@@ -61,10 +61,11 @@ obligations:
       - https://www.revisor.mn.gov/statutes/cite/325M.14
       - https://www.revisor.mn.gov/statutes/cite/325M.16
   marketing:
-    summary: Commercial email must not misrepresent its origin or carry a misleading subject line, and must offer an easy way to stop further unsolicited messages. Prerecorded or synthesised voice calls need the subscriber's consent, or a live operator who gets consent first, unless an exception applies. Federal CAN-SPAM and the TCPA apply too.
+    summary: Commercial email must not misrepresent its origin or carry a misleading subject line. State law also asks for an "ADV" subject label and an opt-out method, but federal CAN-SPAM overrides state email rules except those against falsity or deception, so those two rules likely don't apply. Prerecorded or synthesised voice calls need the subscriber's consent, or a live operator who gets consent first, unless an exception applies. Federal CAN-SPAM and the TCPA apply too.
     source:
       - https://www.revisor.mn.gov/statutes/cite/325F.694
       - https://www.revisor.mn.gov/statutes/cite/325E.27
+      - https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap103-sec7707.htm
   breach_notice:
     summary: Notify affected Minnesota residents in the most expedient time possible and without unreasonable delay. If more than 500 people are notified at once, tell the national consumer reporting agencies within 48 hours. The statute has no Attorney General notice duty, and GLBA financial institutions are exempt.
     source:
@@ -100,4 +101,4 @@ checked:
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

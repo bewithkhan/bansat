@@ -32,6 +32,13 @@ laws:
     official_url: https://tcss.legis.texas.gov/resources/BC/htm/BC.509.htm
     status: in-force
     in_force_from: "2024-09-01"
+    notes: Enforced by the Attorney General's consumer protection division as a deceptive trade practice; a parent of an affected minor can sue only for a declaration or an injunction. Parts are blocked by court orders that are under appeal (see children).
+  - name: App Store Accountability Act (SB 2420)
+    citation: Tex. Bus. & Com. Code §§ 121.001 to 121.102 (Acts 2025, 89th Leg., R.S., ch. 200)
+    official_url: https://capitol.texas.gov/tlodocs/89R/billtext/html/SB02420F.htm
+    status: in-force
+    in_force_from: "2026-01-01"
+    notes: A federal court barred enforcing any of it on 23 December 2025, but on 4 June 2026 the Fifth Circuit stayed that order while Texas appeals (Nos. 25-51073 and 26-50001), and on 6 July 2026 the Supreme Court refused to lift the stay. So the Act can be enforced while the appeal is pending. App developers must rate apps and in-app purchases by age, tell app stores about significant changes, check app store age and consent data, use it only for age protections and delete it, and not enforce terms against a minor without consent. Violations are deceptive trade practices.
 regulators:
   - name: Office of the Attorney General of Texas (Consumer Protection Division)
     url: https://www.texasattorneygeneral.gov/consumer-protection/file-consumer-complaint/consumer-privacy-rights/texas-data-privacy-and-security-act
@@ -54,13 +61,23 @@ obligations:
       - https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm
       - https://tcss.legis.texas.gov/resources/BC/htm/BC.509.htm
   children:
-    summary: Under the SCOPE Act, digital services where users can interact socially and post content must ask users' age at sign-up. Unless a verified parent decides otherwise, known minors' data must be limited to what's needed, and the service can't sell or share it, collect their precise geolocation, show them targeted ads or let them make purchases. Services must also act against harmful content and give parents tools.
+    summary: Under the SCOPE Act, social platforms must register users' age and, unless a verified parent decides otherwise, limit known minors' data and not sell or share it, collect their precise geolocation, target ads at them or let them buy things. They must give parents tools. Since 30 August 2024, the duty to monitor and filter harmful content can't be enforced against CCIA, NetChoice or their members. A February 2025 order in SEAT v. Paxton also blocked the targeted-ads, unlawful-ads and age-verification rules; no official copy shows whom it covers. Appeals are before the full Fifth Circuit.
     source:
       - https://tcss.legis.texas.gov/resources/BC/htm/BC.509.htm
+      - https://www.texasattorneygeneral.gov/consumer-protection/file-consumer-complaint/enforcing-privacy-and-data-security-laws-protect-texans/scope
+      - https://www.govinfo.gov/content/pkg/USCOURTS-txwd-1_24-cv-00849/pdf/USCOURTS-txwd-1_24-cv-00849-0.pdf
+      - https://www.ca5.uscourts.gov/opinions/pub/24/24-50721-CV0.pdf
+      - https://www.ca5.uscourts.gov/opinions/pub/24/24-50721-CV1.pdf
+      - https://capitol.texas.gov/tlodocs/89R/billtext/html/SB02420F.htm
+      - https://www.govinfo.gov/content/pkg/USCOURTS-txwd-1_25-cv-01660/pdf/USCOURTS-txwd-1_25-cv-01660-0.pdf
+      - https://www.ca5.uscourts.gov/opinions/pub/25/25-51073-CV0.pdf
+      - https://www.supremecourt.gov/docket/docketfiles/html/public/25a1389.html
+      - https://www.supremecourt.gov/docket/docketfiles/html/public/25a1390.html
   cookies:
-    summary: There's no cookie-consent rule. Consumers can opt out of targeted advertising and sale, including through an authorized agent such as a browser setting, extension or global device setting (for example Global Privacy Control). Controllers must honour such signals unless they can't verify the consumer lives in Texas or don't honour similar signals under other states' laws.
+    summary: There's no cookie-consent rule. Consumers can opt out of targeted advertising and sale, and since 1 January 2025 they can do so through an authorized agent such as a browser setting, extension or global device setting (for example Global Privacy Control). Controllers must honour such signals unless the request is unclear, they can't verify the consumer lives in Texas, they can't process it, or they don't honour similar requests under other states' laws.
     source:
       - https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm
+      - https://capitol.texas.gov/tlodocs/88R/billtext/html/HB00004F.htm
   marketing:
     summary: Email marketing relies on federal CAN-SPAM. For sales calls and texts, Texas adds its own rules on top of the federal TCPA. Sellers making telephone solicitations generally need a registration certificate, telemarketers must not call numbers on the Texas no-call list, and since 1 September 2025 consumers can also enforce the no-call rules under the Deceptive Trade Practices Act.
     source:
@@ -90,7 +107,7 @@ obligations:
     source:
       - https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm
   automated_decisions_ai:
-    summary: Consumers can opt out of significant-decision profiling. Since 1 January 2026, TRAIGA bans AI that intentionally aims to encourage self-harm, harm to others or crime, AI built with intent to unlawfully discriminate, and AI made to produce child sexual abuse material or unlawful deepfakes. Government agencies must disclose AI to consumers, and health care providers must tell patients. The Attorney General enforces, with a 60-day cure and penalties of $10,000 to $200,000.
+    summary: Consumers can opt out of significant-decision profiling. Since 1 January 2026, TRAIGA bans AI that intentionally aims to encourage self-harm, harm to others or crime, AI built with intent to unlawfully discriminate, AI made to produce child sexual abuse material or unlawful deepfakes, and AI that imitates a child in sexual chats. Government agencies must disclose AI to consumers, and health care providers must tell patients. The Attorney General enforces, with a 60-day cure, penalties of $10,000 to $200,000 per violation and $2,000 to $40,000 a day for continuing ones.
     source:
       - https://tcss.legis.texas.gov/resources/BC/htm/BC.552.htm
       - https://tcss.legis.texas.gov/resources/BC/htm/BC.551.htm
@@ -105,4 +122,4 @@ checked:
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

@@ -16,14 +16,15 @@ regulators:
     url: https://cai.gouv.qc.ca/
 obligations:
   scope:
-    summary: The Act applies to anyone carrying on an enterprise who collects, holds, uses or communicates personal information, whatever the medium. Journalistic, historical and genealogical material is excluded, and work contact details are outside its collection and use rules. PIPEDA (see ca) still applies in Quebec to federally regulated businesses and to data crossing provincial or national borders.
+    summary: The Act applies to anyone carrying on an enterprise who collects, holds, uses or communicates personal information, whatever the medium. Journalistic, historical and genealogical material is excluded. Its collection and confidentiality rules (Divisions II and III) don't apply to information that is public by law or to work contact details. PIPEDA (see ca) still applies in Quebec to federally regulated businesses and to data crossing provincial or national borders.
     source:
       - https://www.legisquebec.gouv.qc.ca/en/showdoc/cs/P-39.1
       - https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda/r_o_p/prov-pipeda/
   lawful_bases:
-    summary: Consent-based. Set purposes before collecting, collect only what's necessary, and tell people the purposes, means, their rights and whether data may leave Quebec. Consent must be clear, free, informed, specific and asked for separately for each purpose. Using data for a new purpose needs consent, express for sensitive data, unless an exception applies. People can access, correct and get portable copies of their data, and ask for de-indexing.
+    summary: Consent-based. Set purposes before collecting, collect only what's necessary, and tell people the purposes, means, their rights and whether data may leave Quebec. Consent must be clear, free, informed, specific and asked for separately for each purpose. Using data for a new purpose needs consent, express for sensitive data, unless an exception applies. People can access, correct and get portable copies of their data, and ask for de-indexing. Once the purposes are met, destroy the data, or anonymise it for serious and legitimate uses under the 2024 anonymisation regulation.
     source:
       - https://www.legisquebec.gouv.qc.ca/en/showdoc/cs/P-39.1
+      - https://www.legisquebec.gouv.qc.ca/en/document/rc/A-2.1,%20r.%200.1
       - https://www.cai.gouv.qc.ca/uploads/pdfs/CAI_Criteres_Validite_Consentement.pdf
       - https://www.cai.gouv.qc.ca/protection-renseignements-personnels/sujets-et-domaines-dinteret/principaux-changements-loi-25
   consent_age:
@@ -34,13 +35,13 @@ obligations:
       - https://www.legisquebec.gouv.qc.ca/en/showdoc/cs/P-39.1
       - https://www.cai.gouv.qc.ca/uploads/pdfs/CAI_Criteres_Validite_Consentement.pdf
   children:
-    summary: Beyond the under-14 rule, products and services offered to the public must have the highest privacy settings by default, and profiling, location and identification functions must stay off until the person turns them on. Whether someone was a minor when information was published counts in de-indexing requests. A 2026 private member's bill on screens and social media (Bill 796) was introduced but not passed before the legislature ended.
+    summary: Beyond the under-14 rule, general rules matter for children. Products and services offered to the public must have the highest privacy settings by default, and the CAI says identification, location and profiling functions must stay off until the person turns them on. Whether someone was a minor when information was published counts in de-indexing requests. A 2026 private member's bill on screens and social media (Bill 796) was introduced but not passed before the legislature ended.
     source:
       - https://www.legisquebec.gouv.qc.ca/en/showdoc/cs/P-39.1
       - https://www.cai.gouv.qc.ca/protection-renseignements-personnels/sujets-et-domaines-dinteret/principaux-changements-loi-25
       - https://www.assnat.qc.ca/en/travaux-parlementaires/projets-loi/projets-loi-43-3.html
   cookies:
-    summary: Before collecting data with technology that can identify, locate or profile a person, tell them it's used and how to turn those functions on. The CAI says such functions can't be on by default. The highest-privacy-by-default rule doesn't apply to browser cookie settings. Federal CASL rules on installing software also apply (see ca).
+    summary: Before collecting data with technology that can identify, locate or profile a person, tell them it's used and how to turn those functions on. The CAI says such functions can't be on by default. The highest-privacy-by-default rule doesn't apply to browser cookie settings. Anyone collecting personal information through technological means must publish a confidentiality policy in clear and simple language on its website, if it has one. Federal CASL rules on installing software also apply (see ca).
     source:
       - https://www.legisquebec.gouv.qc.ca/en/showdoc/cs/P-39.1
       - https://www.cai.gouv.qc.ca/protection-renseignements-personnels/sujets-et-domaines-dinteret/principaux-changements-loi-25
@@ -89,4 +90,4 @@ checked:
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

@@ -10,7 +10,7 @@ laws:
     official_url: https://law.lis.virginia.gov/vacodefull/title59.1/chapter53/
     status: in-force
     in_force_from: "2023-01-01"
-    notes: Amended in 2024 (known children under 13), 2025 (social media time limit for under-16s) and 2026 (ban on selling precise geolocation data from 1 July 2026).
+    notes: Amended in 2024 (known children under 13), 2025 (social media time limit for under-16s from 1 January 2026, which is being challenged in court; see children) and 2026 (ban on selling precise geolocation data from 1 July 2026).
   - name: Breach of personal information notification
     citation: Va. Code § 18.2-186.6
     official_url: https://law.lis.virginia.gov/vacode/title18.2/chapter6/section18.2-186.6/
@@ -46,25 +46,27 @@ obligations:
       - https://law.lis.virginia.gov/vacode/title59.1/chapter53/section59.1-575/
       - https://law.lis.virginia.gov/vacode/title59.1/chapter53/section59.1-578/
   children:
-    summary: Without a parent's COPPA consent, controllers can't use a known child's data for targeted ads, sale or significant profiling, process it beyond what the service needs, or collect precise geolocation (which also needs a visible signal). Services directed to known children need a data protection assessment. A 2025 rule limiting under-16s to one hour a day per social media service, unless a parent agrees, has been blocked by a federal court since February 2026 while Virginia appeals.
+    summary: Without a parent's COPPA consent, controllers can't use a known child's data for targeted ads, sale or significant profiling, process it beyond what the service needs, or collect precise geolocation (which also needs a visible signal). Services directed to known children need a data protection assessment. Since 1 January 2026, social media platforms must limit under-16s to one hour a day per service unless a parent agrees. NetChoice, a trade group of platforms, sued to block that rule; the case (4th Cir. No. 26-1252) was argued on appeal on 28 October 2026 and is undecided.
     source:
       - https://law.lis.virginia.gov/vacode/title59.1/chapter53/section59.1-578/
       - https://law.lis.virginia.gov/vacode/title59.1/chapter53/section59.1-580/
       - https://law.lis.virginia.gov/vacode/title59.1/chapter53/section59.1-577.1/
+      - https://www.oag.state.va.us/media-center/news-releases/2961-attorney-general-jay-jones-takes-steps-to-keep-virginias-children-safe-from-predatory-social-media-companies
+      - https://www.ca4.uscourts.gov/oral-argument/oral-argument-audio-files
     secondary:
-      - https://netchoice.org/wp-content/uploads/2026/02/Virginia-PI-Opinion_Granted.pdf
-      - https://netchoice.org/netchoice-v-miyares-virginia/
+      - https://storage.courtlistener.com/recap/gov.uscourts.vaed.585353/gov.uscourts.vaed.585353.51.0.pdf
+      - https://storage.courtlistener.com/recap/gov.uscourts.vaed.585353/gov.uscourts.vaed.585353.50.0.pdf
   cookies:
     summary: There's no cookie-consent rule. Consumers can opt out of targeted advertising, and a controller that uses it must say so clearly and explain how to opt out. The VCDPA doesn't require honouring a universal opt-out signal such as Global Privacy Control.
     source:
       - https://law.lis.virginia.gov/vacode/title59.1/chapter53/section59.1-578/
       - https://law.lis.virginia.gov/vacode/title59.1/chapter53/section59.1-577/
   marketing:
-    summary: Email marketing relies on federal CAN-SPAM. The Virginia Telephone Privacy Protection Act adds rules for sales calls and, since a 2025 amendment, sales texts. Calls and texts only between 8am and 9pm without prior consent, none to numbers on the National Do Not Call Registry, and a STOP or UNSUBSCRIBE reply must be honoured for 10 years. People can sue for $500 to $5,000 per violation.
+    summary: Email marketing relies on federal CAN-SPAM. The Virginia Telephone Privacy Protection Act adds rules for sales calls and, since a 2025 amendment, sales texts. Calls and texts only between 8am and 9pm without prior consent, none to numbers on the National Do Not Call Registry, and a STOP or UNSUBSCRIBE reply must be honoured for 10 years. People can sue for $500 for a first violation, $1,000 for a second and $5,000 for each one after.
     source:
       - https://law.lis.virginia.gov/vacodefull/title59.1/chapter44/
   breach_notice:
-    summary: Tell the Attorney General and affected Virginia residents without unreasonable delay when unencrypted personal information is accessed and acquired and is believed to cause identity theft or fraud. If you notify more than 1,000 people at once, also tell the Attorney General and the nationwide credit bureaus about the notices. The Attorney General can fine up to $150,000 per breach.
+    summary: Tell the Attorney General and affected Virginia residents without unreasonable delay when unencrypted personal information is accessed and acquired and is believed to cause identity theft or fraud. If you notify more than 1,000 people at once, also tell the Attorney General and the nationwide credit bureaus about the notices. The Attorney General can fine up to $150,000 per breach, and people can still recover direct economic damages. Employers and payroll providers must also tell the Attorney General about breaches of income tax withholding data.
     source:
       - https://law.lis.virginia.gov/vacode/title18.2/chapter6/section18.2-186.6/
   registration_or_fees:
@@ -99,4 +101,4 @@ checked:
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

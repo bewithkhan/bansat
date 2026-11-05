@@ -22,6 +22,12 @@ laws:
     official_url: https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1/54260/54661
     status: in-force
     in_force_from: "2006-01-01"
+  - name: New Jersey Age-Appropriate Design Code (Kids Code Act)
+    citation: P.L.2026, c.73 (A4015 ACS, third reprint)
+    official_url: https://pub.njleg.state.nj.us/Bills/2026/A4500/4015_R3.PDF
+    status: enacted
+    in_force_from: "2027-09-01"
+    notes: Approved on 11 August 2026. It takes effect on the first day of the 13th month after enactment, which is 1 September 2027. The Attorney General may adopt rules.
 regulators:
   - name: New Jersey Office of the Attorney General, Division of Consumer Affairs
     url: https://www.njoag.gov/
@@ -33,23 +39,30 @@ obligations:
       - https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1/54260/54676
       - https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1/54260/54675
   lawful_bases:
-    summary: No GDPR-style lawful bases. Controllers give a privacy notice and honour rights to access, correct, delete and port data and to opt out of targeted advertising, sale and profiling for significant decisions, within 45 days (extendable by 45). Sensitive data needs opt-in consent, and since 30 June 2026 it may not be sold at all. The law tells the Division of Consumer Affairs to adopt rules; check its site for the current rules.
+    summary: No GDPR-style lawful bases. Controllers give a privacy notice and honour rights to access, correct, delete and port data and to opt out of targeted advertising, sale and profiling for significant decisions, within 45 days (extendable by 45). Sensitive data needs opt-in consent, and since 30 June 2026 it may not be sold at all. The law tells the Division of Consumer Affairs to adopt rules, but we found none adopted; a New Jersey rule proposal that isn't adopted within a year of publication expires.
     source:
       - https://pub.njleg.state.nj.us/Bills/2022/PL23/266_.PDF
       - https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1/54260/54675
       - https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1/54260/54681
+      - https://www.nj.gov/oal/rules/portal
+    secondary:
+      - https://www.troutmanprivacy.com/2026/06/new-jerseys-proposed-data-privacy-regulations-have-expired/
   consent_age:
-    summary: A child is under 13 (as in COPPA), and a known child's data must be processed as COPPA requires. Teens aged 13 to 16 must consent before their data is used for targeted advertising, sold, or used for profiling with significant effects, if the controller knows or wilfully disregards their age.
+    summary: A child is under 13 (as in COPPA), and a known child's data must be processed as COPPA requires. Teens aged 13 to 16 must consent before their data is used for targeted advertising, sold, or used for profiling with significant effects, if the controller knows or wilfully disregards their age. From 1 September 2027 the Kids Code also protects users known to be under 18.
     value: 13
     unit: years
     source:
       - https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1/54260/54675
       - https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1/54260/54667
+      - https://pub.njleg.state.nj.us/Bills/2026/A4500/4015_R3.PDF
   children:
-    summary: Data collected from a known child is sensitive data, so it may not be sold. Data brokers registering with the Division must describe how they handle data of under-18s and whether they know they hold it. We found no separate New Jersey children's privacy or age-appropriate design law in force.
+    summary: Data from a known child (under 13) is sensitive data, so it may not be sold, and data brokers must say how they handle under-18s' data. From 1 September 2027 the Kids Code covers services built around interacting with other account holders' content, likely to be used by under-18s (child-directed, or 2%+ of users aged 2 to 17), with over $25 million revenue or data of 25,000+ consumers or households. For known under-18s they need top privacy defaults, no dark patterns, minimal data and no notifications by default, at night or in school hours, and must delete age-check data within 15 days.
     source:
       - https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1/54260/54675
       - https://pub.njleg.state.nj.us/Bills/2026/PL26/25_.PDF
+      - https://pub.njleg.state.nj.us/Bills/2026/A4500/4015_R3.PDF
+      - https://www.njleg.state.nj.us/bill-search/2026/A4015
+      - https://www.nj.gov/governor/news/2026/20260811a.shtml
   cookies:
     summary: No cookie-consent rule. Controllers that process data for targeted advertising or sell it must let consumers opt out, and since 15 July 2025 must honour a user-selected universal opt-out mechanism such as Global Privacy Control. The Division may set technical rules for such signals.
     source:
@@ -86,20 +99,22 @@ obligations:
     source:
       - https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1/54260/54675
   automated_decisions_ai:
-    summary: Consumers can opt out of profiling in furtherance of decisions with legal or similarly significant effects, and risky profiling needs a documented assessment. We found no New Jersey AI law with duties for private businesses.
+    summary: Consumers can opt out of profiling in furtherance of decisions with legal or similarly significant effects, and risky profiling needs a documented assessment. From 1 September 2027, the Kids Code bars using known under-18s' personal data to rank or recommend content, except on listed bases such as their own settings, searches or express requests. We found no New Jersey AI law with duties for private businesses.
     source:
       - https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1/54260/54673
       - https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1/54260/54675
+      - https://pub.njleg.state.nj.us/Bills/2026/A4500/4015_R3.PDF
   penalties:
-    summary: Only the Attorney General enforces. The required 30-day cure notice ended on 1 July 2026. Violations are unlawful practices under the Consumer Fraud Act, with penalties up to $10,000 for a first offence and $20,000 for each later one. Selling sensitive data costs $50,000 per record. There's no private right of action under the privacy law.
+    summary: Only the Attorney General enforces the privacy law; its required 30-day cure notice ended on 1 July 2026. Violations breach the Consumer Fraud Act, with penalties up to $10,000 for a first offence and $20,000 for each later one, and $50,000 per record for selling sensitive data. The privacy law gives no private right of action. From 1 September 2027, a child or teen harmed by a Kids Code violation, or a parent or the AG for them, can sue for $5,000 per violation or treble damages, whichever is more, and punitive damages if it was reckless or knowing.
     source:
       - https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1/54260/54680
       - https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1/54260/54682
       - https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1/54260/54482
       - https://pub.njleg.state.nj.us/Bills/2026/PL26/25_.PDF
+      - https://pub.njleg.state.nj.us/Bills/2026/A4500/4015_R3.PDF
 checked:
   date: "2026-11-05"
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

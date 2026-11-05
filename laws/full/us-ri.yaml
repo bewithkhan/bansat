@@ -15,7 +15,13 @@ laws:
     official_url: https://webserver.rilegislature.gov/Statutes/TITLE11/11-49.3/INDEX.htm
     status: in-force
     in_force_from: "2016-06-26"
-    notes: Data security and breach notification. Each of the two identical 2015 acts took effect one year after its passage.
+    notes: Data security and breach notification. Two identical 2015 acts each took effect one year after passage. Ch. 138, enacted on 26 June 2015, took effect on 26 June 2016; ch. 148, enacted on 2 July 2015, took effect on 2 July 2016.
+  - name: Artificial Intelligence Companion Models
+    citation: R.I. Gen. Laws ch. 6-64 (P.L. 2026, ch. 375 and ch. 376)
+    official_url: https://webserver.rilegislature.gov/PublicLaws/law26/law26375.htm
+    status: enacted
+    in_force_from: "2027-01-01"
+    notes: Two identical acts (H 7350 and S 2195, each Sub A as amended), enacted on 22 June 2026. The enacted text numbers the chapter 6-64; earlier drafts said 6-63.
 regulators:
   - name: Rhode Island Attorney General
     url: https://riag.ri.gov/
@@ -26,7 +32,7 @@ obligations:
       - https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-3.htm
       - https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-4.htm
   lawful_bases:
-    summary: No GDPR-style lawful bases. Customers can confirm and access, correct, delete, get a portable copy, and opt out of targeted advertising, sale and solely automated significant profiling. Reply within 45 days (one 45-day extension), free once a year, and decide appeals within 60 days. Sensitive data needs opt-in consent, consent must be easy to revoke, and processing must stop within 15 days of revocation.
+    summary: No GDPR-style lawful bases. Customers can confirm and access, correct, delete, get a portable copy, and opt out of targeted advertising, sale and solely automated significant profiling. Reply within 45 days (one 45-day extension), free once a year, and decide appeals within 60 days. Sensitive data needs opt-in consent. Controllers must offer a way to grant and revoke consent, and stop processing within 15 days of a revocation.
     source:
       - https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-5.htm
       - https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-6.htm
@@ -49,14 +55,16 @@ obligations:
       - https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-3.htm
       - https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-6.htm
   marketing:
-    summary: Adds to CAN-SPAM and the TCPA. Telephone sellers must register with the Attorney General 10 days before soliciting ($100 a year). Text-message ads to Rhode Island mobiles are banned unless there's an existing relationship and a way to opt out. Prerecorded sales messages need consent or a live operator first, and sales calls are allowed only 9 a.m. to 6 p.m. on weekdays and 10 a.m. to 5 p.m. on Saturdays.
+    summary: Adds to CAN-SPAM and the TCPA. Telephone sellers must register with the Attorney General 10 days before soliciting ($100 a year) and file a bond, letter of credit or certificate of deposit of at least $30,000. Text-message ads to Rhode Island mobiles are banned unless there's an existing relationship and a way to opt out. Prerecorded sales messages need consent or a live operator first. Unsolicited sales calls are allowed only 9 a.m. to 6 p.m. on weekdays other than holidays and 10 a.m. to 5 p.m. on Saturdays; calling outside those hours is a misdemeanour fined up to $500 per violation.
     source:
       - https://webserver.rilegislature.gov/Statutes/TITLE5/5-61/5-61-3.htm
+      - https://webserver.rilegislature.gov/Statutes/TITLE5/5-61/5-61-3.1.htm
       - https://webserver.rilegislature.gov/Statutes/TITLE5/5-61/5-61-3.5.htm
       - https://webserver.rilegislature.gov/Statutes/TITLE5/5-61/5-61-3.4.htm
+      - https://webserver.rilegislature.gov/Statutes/TITLE5/5-61/5-61-3.6.htm
       - https://webserver.rilegislature.gov/Statutes/TITLE5/5-61/5-61-2.htm
   breach_notice:
-    summary: Tell affected Rhode Island residents in the most expedient time possible and within 45 calendar days of confirming a breach that poses a significant risk of identity theft. If more than 500 residents are notified, also tell the Attorney General and the major credit reporting agencies, without delaying the notices to residents. Penalties reach $100 per record, or $200 for knowing and wilful violations.
+    summary: Tell affected Rhode Island residents in the most expedient time possible and within 45 calendar days of confirming a breach that poses a significant risk of identity theft. If more than 500 residents are notified, also tell the Attorney General and the major credit reporting agencies, without delaying the notices to residents. Reckless violations cost up to $100 per record, and knowing and wilful ones up to $200 per record.
     value: 45
     unit: days
     source:
@@ -79,10 +87,12 @@ obligations:
     source:
       - https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-7.htm
   automated_decisions_ai:
-    summary: People can opt out of profiling that feeds solely automated decisions with legal or similarly significant effects, such as on lending, housing, insurance, education, jobs, health care or access to essential goods. Risky profiling also needs a data protection assessment.
+    summary: People can opt out of profiling that feeds solely automated decisions with legal or similarly significant effects, such as on lending, housing, jobs or health care; risky profiling needs an assessment. From 1 January 2027, AI companion operators need protocols that refer users who express suicidal thoughts, self-harm or harm to others to crisis services, and must tell users at the start and at least every 3 hours that they aren't talking to a human. From 1 July 2027 they report yearly to the Attorney General, which enforces with fines up to $15,000 a day.
     source:
       - https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-5.htm
       - https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-2.htm
+      - https://webserver.rilegislature.gov/PublicLaws/law26/law26375.htm
+      - https://webserver.rilegislature.gov/PublicLaws/law26/law26376.htm
   penalties:
     summary: The Attorney General has sole enforcement, with no notice-and-cure period. A violation is a deceptive trade practice, with civil penalties up to $10,000 per violation. Intentionally disclosing personal data in breach of the act, or to a shell company set up to get around it, costs $100 to $500 per disclosure. No private right of action.
     source:
@@ -93,4 +103,4 @@ checked:
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

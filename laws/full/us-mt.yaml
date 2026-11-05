@@ -10,19 +10,21 @@ laws:
     official_url: https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/sections_index.html
     status: in-force
     in_force_from: "2024-10-01"
-    notes: SB 297 (2025 Mont. Laws ch. 567) lowered the thresholds, added protections for minors and removed the cure period from 1 October 2025.
+    notes: In force from 1 October 2024 under § 14 of the enrolled SB 384 (2023 Mont. Laws ch. 681). SB 297 (2025 Mont. Laws ch. 567) lowered the thresholds, added protections for minors and removed the cure period. It sets no start date of its own, so under MCA 1-2-201 it took effect on 1 October 2025.
   - name: Computer security breach
     citation: Mont. Code Ann. § 30-14-1704
     official_url: https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0170/section_0040/0300-0140-0170-0040.html
     status: in-force
     in_force_from: "2006-03-01"
+    notes: In force from 1 March 2006 under § 12(1) of the enrolled HB 732 (2005 Mont. Laws ch. 518), whose § 7 enacted this section.
 regulators:
   - name: Montana Department of Justice, Office of Consumer Protection
-    url: https://dojmt.gov/
+    url: https://dojmt.gov/office-of-consumer-protection/
 obligations:
   scope:
-    summary: Since 1 October 2025, applies to businesses that operate in Montana or target its residents and process data of 25,000 or more consumers (not counting payment-only data), or of 15,000 or more while earning over 25% of revenue from selling data. The minors' rules apply regardless of size. Most non-profits are covered. Government, universities, banks, credit unions, insurers, HIPAA covered entities and GLBA data are exempt. Employees and B2B contacts aren't consumers.
+    summary: The Act has applied since 1 October 2024. Since 1 October 2025, it covers businesses that operate in Montana or target its residents and process data of 25,000 or more consumers (not counting payment-only data), or of 15,000 or more while earning over 25% of revenue from selling data. The minors' rules apply regardless of size. Most non-profits are covered. Government, universities, banks, credit unions, insurers, HIPAA covered entities and GLBA data are exempt. Employees and B2B contacts aren't consumers.
     source:
+      - https://docs.legmt.gov/download-ticket?ticketId=01b0f562-8b2c-4d8c-a189-784838220ff9
       - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0030/0300-0140-0280-0030.html
       - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0040/0300-0140-0280-0040.html
       - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0020/0300-0140-0280-0020.html
@@ -50,13 +52,19 @@ obligations:
       - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0090/0300-0140-0280-0090.html
       - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0120/0300-0140-0280-0120.html
   marketing:
-    summary: Email marketing relies on federal CAN-SPAM, and calls and texts on the federal TCPA. Montana also bans automated calls that play recorded sales messages unless a live operator first gets the person's permission, with narrow exceptions such as order updates, and fines up to $2,500.
+    summary: Email relies on federal CAN-SPAM, and calls and texts also follow the federal TCPA. Montana adds its own rules. Unless exempt, sellers and telemarketers must register with the Department of Justice before telemarketing, post a $50,000 bond and renew every year. Sales calls to residential numbers on Montana's no-call list, which takes in Montana numbers from national lists, are banned, with penalties or damages up to $5,000 per knowing violation. Automated calls with recorded sales messages need a live operator's permission first, with narrow exceptions and fines up to $2,500.
     source:
+      - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0140/section_0040/0300-0140-0140-0040.html
+      - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0140/section_0050/0300-0140-0140-0050.html
+      - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0160/section_0020/0300-0140-0160-0020.html
+      - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0160/section_0030/0300-0140-0160-0030.html
+      - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0160/section_0050/0300-0140-0160-0050.html
       - https://mca.legmt.gov/bills/mca/title_0450/chapter_0080/part_0020/section_0160/0450-0080-0020-0160.html
   breach_notice:
-    summary: Notify affected Montana residents without unreasonable delay when unencrypted personal information was or is reasonably believed to have been acquired. At the same time, send an electronic copy of the notice, with the date and method of sending, to the Attorney General's Office of Consumer Protection.
+    summary: Notify affected Montana residents without unreasonable delay when unencrypted personal information was or is reasonably believed to have been acquired in a breach. A breach counts only if it materially compromises the data and causes, or is reasonably believed to cause, loss or injury to a Montana resident. At the same time, send an electronic copy of the notice, with the date and method of sending, to the Attorney General's Office of Consumer Protection.
     source:
       - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0170/section_0040/0300-0140-0170-0040.html
+      - https://docs.legmt.gov/download-ticket?ticketId=296c5f61-d939-4b62-a773-95dca13f0f39
   registration_or_fees:
     summary: The MCDPA requires no registration or fee.
     source:
@@ -80,10 +88,11 @@ obligations:
     source:
       - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0080/0300-0140-0280-0080.html
   penalties:
-    summary: The Attorney General enforces alone, using its consumer protection powers. Violations also breach the Montana Consumer Protection Act, with civil penalties up to $7,500 per violation and injunctions. Since 1 October 2025 there's no right to cure. There's no private right of action.
+    summary: The Attorney General enforces alone, using its consumer protection powers, and a violation also counts as a violation of the Montana Consumer Protection Act. The MCDPA itself sets civil penalties up to $7,500 per violation, plus injunctions and fees. Since 1 October 2025 there's no right to cure, though § 30-14-2820 still refers to a 30-day period in § 30-14-2817(3), which no longer sets one. There's no private right of action.
     source:
       - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0170/0300-0140-0280-0170.html
       - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0200/0300-0140-0280-0200.html
+      - https://docs.legmt.gov/download-ticket?ticketId=00cc4c2f-96a1-4801-b030-c4a3552bb95d
     secondary:
       - https://fpf.org/blog/amendments-to-the-montana-consumer-data-privacy-act-bring-big-changes-to-big-sky-country/
 checked:
@@ -91,4 +100,4 @@ checked:
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

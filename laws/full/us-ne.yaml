@@ -15,6 +15,7 @@ laws:
     official_url: https://nebraskalegislature.gov/laws/statutes.php?statute=87-803
     status: in-force
     in_force_from: "2006-07-14"
+    notes: Section 58 of LB 876 made the breach sections operative three calendar months after the 2006 session adjourned.
   - name: Age-Appropriate Online Design Code Act
     citation: Neb. Rev. Stat. 87-1301 to 87-1311 (Laws 2025, LB 504; Laws 2026, LB 838)
     official_url: https://nebraskalegislature.gov/laws/statutes.php?statute=87-1301
@@ -26,6 +27,7 @@ laws:
     official_url: https://nebraskalegislature.gov/laws/statutes.php?statute=86-1701
     status: in-force
     in_force_from: "2026-07-01"
+    notes: Challenged in NetChoice v. Hilgers (D. Neb. No. 4:26-cv-3149); the court ruled on 27 June 2026. We couldn't open an official copy of the ruling, so we can't confirm what it decided or whether it was appealed.
   - name: Conversational Artificial Intelligence Safety Act
     citation: Neb. Rev. Stat. 86-1801 to 86-1807 (Laws 2026, LB 525)
     official_url: https://nebraskalegislature.gov/laws/statutes.php?statute=86-1801
@@ -55,36 +57,42 @@ obligations:
       - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1111
       - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1112
   consent_age:
-    summary: A child is under 13. A known child's sensitive data must be processed as COPPA requires, and a parent or guardian exercises the child's rights. The privacy act has no teen rule, but the design code and the social media act protect all minors under 18.
+    summary: A child is under 13. A known child's sensitive data must be processed as COPPA requires, and a parent or guardian exercises the child's rights. The privacy act has no teen rule; the design code and the social media act add rules for minors under 18 (see children).
     value: 13
     unit: years
     source:
       - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1102
       - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1112
   children:
-    summary: Since 18 July 2026 the design code covers online businesses earning most revenue online with over $25 million revenue or data of 50,000+ people. For known minors they need high-privacy defaults, minimal data, no targeted ads, no night or school-hour notifications, parental tools and account deletion within 15 days. Since 1 July 2026, social media must verify age and get verified parental consent for under-18 accounts.
+    summary: Since 18 July 2026 the design code covers online businesses earning most revenue online with over $25 million revenue or data of 50,000+ people. For known minors they need high-privacy defaults, minimal data, no targeted ads, no night or school-hour notifications, parental tools and account deletion within 15 days. The social media act requires age checks, parental consent and supervision tools for under-18 accounts opened from 1 July 2026, but a federal court ruled on a challenge to it on 27 June 2026; check that ruling first (see laws).
     source:
       - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1302
       - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1305
       - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1311
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=86-1702
       - https://nebraskalegislature.gov/laws/statutes.php?statute=86-1703
+      - https://www.opn.ca6.uscourts.gov/opinions.pdf/26a0250p-06.pdf
+    secondary:
+      - https://netchoice.org/wp-content/uploads/2026/06/NE_Granting-PI-in-Part-and-Denying-in-Part.pdf
   cookies:
     summary: No cookie-consent rule. If you sell data or use it for targeted advertising, say so clearly and explain how to opt out. Consumers can opt out through an authorised agent, including a browser setting or device signal such as Global Privacy Control. Honour it if you can verify the consumer, unless an exception applies, such as not processing such signals under other states' laws.
     source:
       - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1114
       - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1111
   marketing:
-    summary: Automated dialling-announcing devices used for telephone sales need a Public Service Commission permit, and their calls to homes are limited to 8 a.m. to 9 p.m. Unsolicited fax ads are banned. The design code bars ads for products such as tobacco, alcohol and gambling to known minors. Email and text marketing otherwise follow federal CAN-SPAM and the TCPA.
+    summary: Automated dialling-announcing devices used for telephone sales need a Public Service Commission permit, and their calls to homes are limited to 8 a.m. to 9 p.m. Unsolicited fax ads are banned. Buyers can cancel a telephone sale until midnight of the fifth business day after written notice of that right, unless the seller offers at least 7 days to review and return. The design code bars ads for products such as tobacco, alcohol and gambling to known minors. Email and text marketing otherwise follow federal CAN-SPAM and the TCPA.
     source:
       - https://nebraskalegislature.gov/laws/statutes.php?statute=86-250
       - https://nebraskalegislature.gov/laws/statutes.php?statute=86-248
       - https://nebraskalegislature.gov/laws/statutes.php?statute=86-245
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=86-225
       - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1308
   breach_notice:
     summary: After a prompt, good-faith investigation, notify affected Nebraska residents as soon as possible and without unreasonable delay if misuse has occurred or is reasonably likely. Notify the Attorney General no later than the residents, whatever the number affected. Since 2025, a private business can't be held liable in a class action over a cybersecurity event unless it was wilful, wanton or grossly negligent.
     source:
       - https://nebraskalegislature.gov/laws/statutes.php?statute=87-803
       - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1201
+      - https://nebraskalegislature.gov/FloorDocs/99/PDF/Slip/LB876.pdf
   registration_or_fees:
     summary: The privacy law has no registration or fee, and we found no Nebraska data broker registry. Automated dialling devices for telephone sales need a Public Service Commission permit.
     source:
@@ -103,14 +111,17 @@ obligations:
     source:
       - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1116
   automated_decisions_ai:
-    summary: Consumers can opt out of profiling (solely automated processing) for decisions with legal or similarly significant effects. From 1 July 2027, chatbot operators must disclose AI to minors, block sexual content and human-like claims for them, adopt self-harm protocols and not claim to provide mental health care; penalties run from $1,000 per violation up to $500,000 per operator.
+    summary: Consumers can opt out of solely automated profiling for decisions with legal or similarly significant effects. From 1 July 2027, public chatbots built mainly to simulate conversation (excluding, for example, customer-service, business-use, narrow-topic, built-in and voice-assistant bots) must disclose AI to anyone who could be misled, have a self-harm protocol and not claim to give mental health care. For users known or reasonably certain to be under 18, they must also disclose AI, take reasonable measures against sexual content and human-like claims, and offer privacy tools.
     source:
       - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1107
       - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1102
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=86-1802
       - https://nebraskalegislature.gov/laws/statutes.php?statute=86-1803
-      - https://nebraskalegislature.gov/laws/statutes.php?statute=86-1807
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=86-1804
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=86-1805
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=86-1806
   penalties:
-    summary: Only the Attorney General enforces. A 30-day notice and cure applies before any action, with no end date. Civil penalties are up to $7,500 per violation, plus injunctions and costs. There's no private right of action. Design code violations can cost up to $50,000 each, and social media act violations up to $2,500 each, with a private right of action for actual damages.
+    summary: Only the Attorney General enforces. A 30-day notice and cure applies before any action, with no end date. Civil penalties are up to $7,500 per violation, plus injunctions and costs. There's no private right of action. Design code violations can cost up to $50,000 each, and social media act violations up to $2,500 each, with a private right of action for actual damages. From 1 July 2027, chatbot violations cost $1,000 or more each, up to $500,000 per operator, enforced by the AG only.
     source:
       - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1122
       - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1124
@@ -118,9 +129,10 @@ obligations:
       - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1309
       - https://nebraskalegislature.gov/laws/statutes.php?statute=86-1704
       - https://nebraskalegislature.gov/laws/statutes.php?statute=86-1705
+      - https://nebraskalegislature.gov/laws/statutes.php?statute=86-1807
 checked:
   date: "2026-11-05"
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

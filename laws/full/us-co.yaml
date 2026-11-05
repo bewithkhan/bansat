@@ -16,34 +16,41 @@ laws:
     official_url: https://leg.colorado.gov/sites/default/files/images/olls/crs2024-title-06.pdf
     status: in-force
     in_force_from: "2006-09-01"
+  - name: Colorado Artificial Intelligence Act (SB 24-205), as amended by SB 25B-004
+    citation: C.R.S. §§ 6-1-1701 to 6-1-1707 (2024 version)
+    official_url: https://leg.colorado.gov/sites/default/files/images/olls/crs2024-title-06.pdf
+    status: in-force
+    in_force_from: "2026-06-30"
+    notes: Duties for developers and deployers of high-risk AI systems, first set to start on 1 February 2026 and moved to 30 June 2026 by SB 25B-004 (approved 28 August 2025). SB 26-189 repeals and replaces this version from 1 January 2027, so on the face of the statutes it applies from 30 June to 31 December 2026.
   - name: Automated decision-making technology in consequential decisions (SB 26-189)
     citation: C.R.S. §§ 6-1-1701 to 6-1-1709, as repealed and re-enacted by SB 26-189
     official_url: https://leg.colorado.gov/bill_files/116432/download
     status: enacted
     in_force_from: "2027-01-01"
-    notes: Repeals and re-enacts the 2024 Colorado AI Act (SB 24-205), whose start had been moved to 30 June 2026. Neither the new Act nor the Attorney General says what applies between that date and 1 January 2027. The Attorney General must adopt rules before 1 January 2027.
+    notes: Repeals and re-enacts the 2024 Colorado AI Act (SB 24-205). Under its § 5, the new part 17 takes effect on 1 January 2027 and applies to consequential decisions made from then; only its rulemaking parts took effect on passage. The Attorney General must adopt rules before 1 January 2027.
   - name: Conversational artificial intelligence service operator requirements (HB 26-1263)
-    citation: 2026 Colo. Sess. Laws, HB 26-1263
+    citation: C.R.S. § 6-1-1708 (2026 Colo. Sess. Laws ch. 208, HB 26-1263)
     official_url: https://leg.colorado.gov/bills/HB26-1263
     status: enacted
     in_force_from: "2027-01-01"
-    notes: Signed 29 May 2026. Its duties for chatbot operators start on 1 January 2027.
+    notes: Signed 29 May 2026. From 1 January 2027, operators of public AI chatbots must say they're AI, run a suicide and self-harm protocol with crisis referrals, not present answers as those of licensed professionals, and protect minors. Yearly reports to the Attorney General start on 1 July 2027.
   - name: Age attestation on computing devices (SB 26-051)
     citation: C.R.S. §§ 6-30-101 to 6-30-105 (2026 Colo. Sess. Laws ch. 343)
     official_url: https://leg.colorado.gov/laws/session-laws/SB26-051/343/download
     status: enacted
     in_force_from: "2028-07-01"
+    notes: An app that receives an age signal is treated as knowing the user's age range. Civil penalties are up to $2,500 per minor harmed by a negligent violation and $7,500 per minor harmed by an intentional one.
 regulators:
   - name: Colorado Attorney General (Department of Law)
     url: https://coag.gov/resources/colorado-privacy-act/
 obligations:
   scope:
-    summary: Applies to businesses, including non-profits, that operate in Colorado or target its residents and control or process data of 100,000 or more Colorado consumers a year, or earn revenue or discounts from selling data of 25,000 or more. Any controller handling biometric data must follow the biometric rules, and the minors' rules apply regardless of size. GLBA financial institutions, air carriers and HIPAA data are exempt. Employees, job applicants and B2B contacts aren't consumers.
+    summary: Applies to businesses, including non-profits, that operate in Colorado or target its residents and control or process data of 100,000 or more Colorado consumers a year, or earn revenue or discounts from selling data of 25,000 or more. Any controller handling biometric data must follow the biometric rules, and the minors' rules apply regardless of size. GLBA financial institutions, air carriers and HIPAA data are exempt. Employees, job applicants and B2B contacts aren't consumers, but employers may require biometric consent only for set purposes such as secure access and timekeeping.
     source:
       - https://coag.gov/resources/colorado-privacy-act/
       - https://leg.colorado.gov/sites/default/files/images/olls/crs2024-title-06.pdf
   lawful_bases:
-    summary: There are no GDPR-style lawful bases. Controllers give a privacy notice and honour rights to access, correct, delete and port data, and to opt out of targeted advertising, sale and significant-decision profiling, within 45 days. Opt-in consent is needed for sensitive data (including biological and neural data and, since 2025, precise geolocation within 1,850 feet), for selling it, and for new purposes.
+    summary: There are no GDPR-style lawful bases. Controllers give a privacy notice and honour rights to access, correct, delete and port data, and to opt out of targeted advertising, sale and significant-decision profiling, within 45 days. Opt-in consent is needed for sensitive data (including biological and neural data and, since 2025, precise geolocation within 1,850 feet), for selling it, and for new purposes. Agreement obtained through dark patterns or by accepting broad terms doesn't count as consent.
     source:
       - https://coag.gov/resources/colorado-privacy-act/
       - https://leg.colorado.gov/sites/default/files/images/olls/crs2024-title-06.pdf
@@ -56,10 +63,12 @@ obligations:
       - https://leg.colorado.gov/sites/default/files/images/olls/crs2024-title-06.pdf
       - https://leg.colorado.gov/sites/default/files/2024a_041_signed.pdf
   children:
-    summary: Since 1 October 2025, online services that know or wilfully disregard a minor's age must take reasonable care to avoid heightened risk of harm. Without consent they can't use engagement-extending design features or collect precise geolocation, consent flows can't be manipulative, adults' unsolicited messages need easy safeguards, and risky services need an assessment. From 1 July 2028, apps must request an operating-system age signal at first launch or sign-up.
+    summary: Since 1 October 2025, online services that know or wilfully disregard a minor's age must take reasonable care against heightened risk of harm; without consent they can't use engagement-extending features or collect precise geolocation, and adults' unsolicited messages need safeguards. From 1 January 2027, AI chatbot operators must estimate users' age and, for known minors, guard against sexual content and replies simulating emotional dependence, with no random rewards to boost engagement. From 1 July 2028, apps must request an operating-system age signal, which counts as knowing the age range.
     source:
       - https://leg.colorado.gov/sites/default/files/images/olls/crs2024-title-06.pdf
       - https://leg.colorado.gov/sites/default/files/2024a_041_signed.pdf
+      - https://leg.colorado.gov/laws/session-laws/HB26-1263/208/download
+      - https://coag.gov/resources/ai/
       - https://leg.colorado.gov/laws/session-laws/SB26-051/343/download
   cookies:
     summary: There's no cookie-consent rule. Consumers can opt out of targeted advertising and sale, and since 1 July 2024 covered businesses must honour a universal opt-out mechanism. Global Privacy Control is the one the Attorney General recognises. Privacy notices must explain how these requests are handled.
@@ -89,25 +98,27 @@ obligations:
     source:
       - https://coag.gov/resources/colorado-privacy-act/
   dpia:
-    summary: Conduct and document a data protection assessment before selling personal data, processing sensitive data, or targeted advertising or profiling that risks unfair treatment, injury or intrusion. Online services for minors with a heightened risk of harm need their own assessment. The Attorney General's CPA Rules (4 CCR 904-3) set the content, and the Attorney General can ask for assessments.
+    summary: Conduct and document a data protection assessment before targeted advertising, selling personal data, processing sensitive data, or profiling that risks unfair treatment, injury or intrusion. Online services for minors with a heightened risk of harm need their own assessment. The Attorney General's CPA Rules (4 CCR 904-3) set the content, and the Attorney General can ask for assessments.
     source:
       - https://coag.gov/resources/colorado-privacy-act/
       - https://leg.colorado.gov/sites/default/files/images/olls/crs2024-title-06.pdf
   automated_decisions_ai:
-    summary: Consumers can opt out of significant-decision profiling. From 1 January 2027, SB 26-189 replaces the 2024 AI Act. Deployers using automated decision tools in decisions on jobs, education, housing, lending, insurance, health care or government services must give notice, explain adverse outcomes within 30 days, and offer correction and human review. Developers must document their tools. A chatbot law (HB 26-1263) also starts in 2027.
+    summary: Consumers can opt out of significant-decision profiling. On the face of the statutes, the 2024 AI Act's duties for high-risk AI systems apply from 30 June to 31 December 2026. From 1 January 2027, SB 26-189 replaces it. Deployers of automated decision tools used in decisions on jobs, education, housing, lending, insurance, health care or government services must give notice, explain adverse outcomes within 30 days and offer correction and human review, workers and applicants included. Developers must document their tools. Chatbot rules (HB 26-1263) also start in 2027.
     source:
       - https://leg.colorado.gov/bill_files/116432/download
+      - https://leg.colorado.gov/sites/default/files/2025b_004_signed.pdf
       - https://coag.gov/resources/ai/
       - https://leg.colorado.gov/bills/HB26-1263
       - https://leg.colorado.gov/sites/default/files/images/olls/crs2024-title-06.pdf
   penalties:
-    summary: The Attorney General and district attorneys enforce the CPA as a deceptive trade practice, with civil penalties up to $20,000 per violation (counted per consumer or transaction) and $50,000 if against an elderly person. The general 60-day cure period ended on 1 January 2025; a cure period for the minors' rules lasts until 31 December 2026. There's no private right of action.
+    summary: The Attorney General and district attorneys enforce the CPA as a deceptive trade practice, with civil penalties up to $20,000 per violation (counted per consumer or transaction) and $50,000 if against an elderly person. The general cure period ended on 1 January 2025; one for the minors' rules lasts until 31 December 2026. From 2027 the Attorney General alone enforces SB 26-189, also as a deceptive trade practice, with a 60-day cure unless a violation is knowing or repeated (until 1 January 2030). There's no private right of action.
     source:
       - https://leg.colorado.gov/sites/default/files/images/olls/crs2024-title-06.pdf
       - https://coag.gov/resources/colorado-privacy-act/
+      - https://leg.colorado.gov/bill_files/116432/download
 checked:
   date: "2026-11-05"
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

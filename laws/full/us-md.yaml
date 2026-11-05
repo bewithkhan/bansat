@@ -10,7 +10,7 @@ laws:
     official_url: https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4701&enactments=false
     status: in-force
     in_force_from: "2025-10-01"
-    notes: It doesn't apply to processing before 1 April 2026. Amended by 2026 Md. Laws ch. 874 (HB 711) from 1 July 2026.
+    notes: Amended by 2026 Md. Laws ch. 874 (HB 711) from 1 July 2026.
   - name: Maryland Personal Information Protection Act
     citation: Md. Code, Com. Law 14-3501 to 14-3508 (2007 Md. Laws ch. 531)
     official_url: https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-3504&enactments=false
@@ -21,6 +21,7 @@ laws:
     official_url: https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4801&enactments=false
     status: in-force
     in_force_from: "2024-10-01"
+    notes: Challenged in NetChoice v. Brown (D. Md. No. 1:25-cv-00322), filed on 3 February 2025. The court refused to dismiss the case on 24 November 2025, and it was in discovery in September 2026, with no injunction against the law.
 regulators:
   - name: Office of the Attorney General, Consumer Protection Division
     url: https://oag.maryland.gov/resources-info/Pages/data-privacy.aspx
@@ -47,14 +48,16 @@ obligations:
       - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4707&enactments=false
       - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4801&enactments=false
   children:
-    summary: The Kids Code covers for-profit online services likely to be used by under-18s, if they have $25 million+ revenue, buy, receive, sell or share data of 50,000+ people a year, or earn half their revenue from selling data. They must act in children's best interests, set high-privacy defaults, avoid profiling and precise geolocation by default, and complete a data protection impact assessment for each such product, for existing products by 1 April 2026.
+    summary: The Kids Code covers for-profit online services likely to be used by under-18s, if they have $25 million+ revenue, buy, receive, sell or share data of 50,000+ people a year, or earn half their revenue from selling data. They must act in children's best interests, set high-privacy defaults, avoid profiling and precise geolocation by default, and do an impact assessment for each such product (existing ones by 1 April 2026). NetChoice's challenge to it was in discovery in September 2026, and no court had blocked it.
     source:
       - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4801&enactments=false
       - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4804&enactments=false
       - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4805&enactments=false
       - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4806&enactments=false
+      - https://www.govinfo.gov/content/pkg/USCOURTS-mdd-1_25-cv-00322/pdf/USCOURTS-mdd-1_25-cv-00322-0.pdf
+      - https://www.govinfo.gov/content/pkg/USCOURTS-mdd-1_25-cv-00322/pdf/USCOURTS-mdd-1_25-cv-00322-2.pdf
   cookies:
-    summary: No cookie-consent rule. Controllers must disclose targeted advertising and sale prominently and offer a secure way to opt out. The law names a clear opt-out link and, from 1 October 2025, honouring an opt-out preference signal such as Global Privacy Control as ways to do this, and says recognising signals approved by other states counts as compliance. Geofences within 1,750 feet of mental health or reproductive health facilities, used to track or message people about their health, are banned.
+    summary: No cookie-consent rule. Controllers must disclose targeted advertising and sale prominently and offer a secure way to opt out. The law lists a clear opt-out link and, from 1 October 2025, an opt-out preference signal such as Global Privacy Control as ways to do this; it doesn't plainly say signals must be honoured, but recognising signals approved by other states counts as compliance. Geofences within 1,750 feet of mental health or reproductive health facilities, used to track or message people about their health, are banned.
     source:
       - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4707&enactments=false
       - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4704&enactments=false
@@ -65,11 +68,12 @@ obligations:
       - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4503&enactments=false
       - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-3002&enactments=false
   breach_notice:
-    summary: Investigate promptly. Unless misuse is unlikely, notify affected Maryland residents as soon as reasonably practicable and within 45 days of discovering the breach, and notify the Attorney General before telling them, whatever the number affected. A service provider must tell the data owner within 10 days. Keep records of a no-notice decision for 3 years.
+    summary: Investigate promptly. Unless misuse is unlikely, notify affected Maryland residents as soon as reasonably practicable and within 45 days of discovering the breach, and notify the Attorney General before telling them, whatever the number affected. If 1,000 or more people are notified, also tell the national consumer reporting agencies. A service provider must tell the data owner within 10 days. Keep records of a no-notice decision for 3 years.
     value: 45
     unit: days
     source:
       - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-3504&enactments=false
+      - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-3506&enactments=false
   registration_or_fees:
     summary: No registration or fee. Bills to create a Maryland data broker registry did not pass in 2025 or 2026.
     source:
@@ -85,6 +89,8 @@ obligations:
     source:
       - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4708&enactments=false
       - https://mgaleg.maryland.gov/2026RS/Chapters_noln/CH_874_hb0711t.pdf
+      - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4707&enactments=true
+      - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4712&enactments=true
   dpia:
     summary: Controllers must regularly conduct and document an assessment of each processing activity with a heightened risk of harm (targeted advertising, sale, sensitive data or risky profiling), including one for each algorithm used, weighing necessity and proportionality. This applies to processing from 1 October 2025. The Attorney General's Division can require assessments.
     source:
@@ -106,4 +112,4 @@ checked:
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
