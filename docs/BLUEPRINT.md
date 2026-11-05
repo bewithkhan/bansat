@@ -7,7 +7,7 @@
 | Field | Value |
 |---|---|
 | Project | Bansat v3: Law Watch, a public law tracker, and stack profiles for every major framework |
-| Blueprint version | 0.3 |
+| Blueprint version | 0.4 |
 | Status | Approved for build (G1 signed 2026-11-05) |
 | Accountable owner | Muhammad Tufail Khan, maintainer |
 | Data controller | Muhammad Tufail Khan (sole maintainer). Bansat itself collects no personal data (Part 9). |
@@ -23,6 +23,7 @@
 | 0.1 | 2026-11-05 | Muhammad Tufail Khan | First draft |
 | 0.2 | 2026-11-05 | Muhammad Tufail Khan | Open questions answered: full-tier list confirmed; AI summaries off (£0); site at bewithkhan.github.io/bansat; no lawyer reviewer; GitHub settings and the weekly Claude task agreed; privacy contact through GitHub issues |
 | 0.3 | 2026-11-05 | Muhammad Tufail Khan | Refinement after G1, no change of scope: status approved; prior art for each component (3.10), which led to three corrections: the ICO is watched as a page because no official news feed could be confirmed (1.6), the watch runs off the hour (NFR-DETECT-01), and the verify task stays off sites whose terms forbid it (Part 12); research-first rule for the verify task (Part 12); repository structure as built in Phase 1 (3.5) |
+| 0.4 | 2026-11-05 | Muhammad Tufail Khan | Scope added after G1, decided by the owner on 2026-11-05: delivery methods in v2.3 (FR-15 to FR-18), a documentation site now (FR-19), and the Wiki turned off (FR-20). New phases 1b and 1c (Part 11), ADR-B8 and ADR-B9, prior art for both (3.10) |
 
 **Gate approvals**
 
@@ -82,6 +83,10 @@ Bansat v3 adds three things:
 
 It also adds **stack profiles** for 24 frameworks and platforms, and splits the framework into modules, so the skill loads only the laws and stacks a project needs.
 
+Two more come first, in v2.3 and Phase 1c (decided 2026-11-05):
+4. **Delivery methods:** Part 0 asks how the project will run, and 11.7 recommends a method: Scrum, Kanban, stage gates, Shape Up, a solo loop or a scaled method. A profile for each shows where Bansat's gates and documents sit in that method, and Part 11 gains a project-management toolkit.
+5. **A documentation site** on GitHub Pages, built from the framework modules, so anyone can read and search Bansat without a GitHub account. The law tracker (item 3) joins the same site in Phase 5.
+
 ### 1.2 Problem & evidence
 
 - Issue #1: a reviewer running Bansat on a Laravel/MySQL app found Postgres-only assumptions, and pointed out that one large file is hard for an agent to search.
@@ -135,6 +140,12 @@ It also adds **stack profiles** for 24 frameworks and platforms, and splits the 
 | FR-12 | `examples/` folder with the framework's tested code, run in CI (issue #1, point 2) | Should |
 | FR-13 | Site interface translations (Pashto, Urdu, Arabic first) | Could |
 | FR-14 | Email digests | Won't: they'd mean collecting email addresses. Watch the repo or use the Atom feed instead. |
+| FR-15 | **Delivery method picker:** Part 0 asks how the project will run (team size and number of teams, how settled the requirements are, fixed deadline, budget or scope, contract type, evidence an auditor or client needs), and 11.7 recommends a method with its reason. Hybrid by default: Bansat's gates up front, an iterative build after G1. | Must |
+| FR-16 | **Method profiles** (Appendix E): Scrum, Kanban, stage gates (in the style of PRINCE2 and the PMBOK Guide), Shape Up, a solo loop, and scaled methods (SAFe, LeSS). Each one maps G0–G4 and Bansat's documents onto the method's roles, events and artefacts, and says when it fits, how it commonly fails, and where its official source is. | Must |
+| FR-17 | **Project-management toolkit** (11.8): RACI, RAID log, stakeholder map, status report, change request, a Mermaid timeline, and estimation and forecasting | Must |
+| FR-18 | **The skill loads only the chosen method profile**, as it does for stacks (3.7) | Must |
+| FR-19 | **Documentation site:** the framework, method profiles, this blueprint and the changelog as searchable pages at https://bewithkhan.github.io/bansat/, rebuilt from the repo on every merge to `main`, with no cookies, analytics or third-party requests | Must |
+| FR-20 | **Wiki off:** the repository Wiki stays disabled, so nobody lands on an empty or stale copy of the docs (done 2026-11-05) | Must |
 
 ### 1.6 Acceptance criteria
 
@@ -175,6 +186,33 @@ Feature: Skill loads modules (FR-05)
     When the user runs /bansat for that project
     Then the skill loads laws/full/ae.yaml, laws/full/sa.yaml and stacks/laravel.md, and nothing else from laws/ or stacks/
     And it re-checks any of them last checked more than 90 days ago
+
+Feature: Delivery method picker (FR-15, FR-18)
+  Scenario: One person, requirements still moving
+    Given Part 0 says one person builds it, the requirements are still changing and there's no fixed deadline
+    When the skill fills in 11.7
+    Then it recommends the solo loop, gives the reason in a sentence, and loads only that profile
+  Scenario: A fixed-price client contract
+    Given Part 0 says a client contract with a fixed price, a fixed scope and a deadline
+    Then it recommends stage gates with iterative builds inside each stage, and records the reason in an ADR
+  Scenario: Several teams on one product
+    Given Part 0 says three teams work on one product
+    Then it recommends a scaled method and says when LeSS or SAFe fits better
+
+Feature: Method profiles (FR-16)
+  Scenario: Any profile
+    When a builder opens a method profile
+    Then it shows where each gate (G0 to G4) and each Bansat document sits in that method
+    And it links to the method's official source and copies none of its text (BR-09)
+
+Feature: Documentation site (FR-19)
+  Scenario: A merge to main
+    When a change to framework/ is merged
+    Then the site rebuilds and shows it within 10 minutes
+    And the privacy test finds no cookies and no third-party requests on any page
+  Scenario: A search with no results
+    When a visitor searches for a word that appears nowhere
+    Then the results area says so and suggests the contents page (S6)
 ```
 
 ### 1.7 Business rules
@@ -187,6 +225,7 @@ Feature: Skill loads modules (FR-05)
 - **BR-06** Entries past their freshness window (Part 2) are shown as stale, and the skill re-checks them before use.
 - **BR-07** Fetching respects robots.txt and each site's terms. A source that forbids automated access is checked by hand or by the Claude task instead.
 - **BR-08** Contributors are credited in the entry's history and in the release notes.
+- **BR-09** Method sources are linked and summarised in Bansat's own words. Nothing is copied from the Scrum Guide, the Kanban Guide, PRINCE2, the PMBOK Guide, Shape Up, SAFe or LeSS, and their trademarks are named as trademarks (3.10).
 
 ### 1.8 Monetisation
 
@@ -221,7 +260,7 @@ Legal advice; accounts and comments on the site; email collection; paid tiers; c
 | NFR-PERF-01 | Performance | Site Core Web Vitals at p75 on mobile | LCP ≤ 2.5 s · INP ≤ 200 ms · CLS ≤ 0.1; ≤ 50 KB JS on country pages | Lighthouse CI |
 | NFR-A11Y-01 | Accessibility | Site standard | WCAG 2.2 AA | axe in CI + manual check |
 | NFR-REL-01 | Reliability | Watch failures | Reported in one "[watch] Source failing" issue; never silent | Watch tests |
-| NFR-SEC-01 | Security | Workflow token permissions | `contents: read`, `issues: write` only; third-party actions pinned to a commit SHA | Workflow review |
+| NFR-SEC-01 | Security | Workflow token permissions | Least privilege per workflow: validate `contents: read`; watch adds `issues: write`; the site deploy job adds `pages: write` and `id-token: write`. Third-party actions are pinned to a commit SHA. | Workflow review |
 | NFR-COST-01 | Cost | Running cost | £0: GitHub Pages hosting and no AI API (FR-11 off); the Claude task runs within your plan | The repo holds no API-key secret |
 
 ---
@@ -236,7 +275,7 @@ Legal advice; accounts and comments on the site; email collection; paid tiers; c
 | Scripts | Node.js LTS with TypeScript: build the framework, validate laws, run the watch | One language across scripts and site | — |
 | Watch | GitHub Actions, weekly schedule | Free, auditable, no AI needed to detect a change | ADR-B2 |
 | Verify | Claude scheduled task, weekly | Reads sources in any language, drafts sourced updates | ADR-B2 |
-| Site | Astro, static output, on GitHub Pages | Content-first, no JavaScript by default, free hosting | ADR-B3 |
+| Site | Astro with its Starlight documentation theme, static output, on GitHub Pages; pages generated from `framework/` at build time | Content-first, built-in local search, no JavaScript by default, free hosting | ADR-B3, ADR-B9 |
 | Tests | Vitest (scripts), Playwright + axe (site), schema checks (data) | Same tools the framework recommends | — |
 
 ### 3.2 Environments
@@ -374,6 +413,8 @@ Before building each piece, we looked at how others have solved the same problem
 - **ADR-B5 — Split the framework into modules.** The single combined file is generated in CI, so links and older installs keep working.
 - **ADR-B6 — Two-tier coverage.** Depth where most builders ship; breadth everywhere else, clearly labelled.
 - **ADR-B7 — Review status is visible everywhere:** in the data, on the site and in the skill's output.
+- **ADR-B8 — Delivery methods are framework modules, and the picker is guidance.** *Context:* builders ask how to run the project, not only what to build; methods carry licences and trademarks (BR-09). *Decision:* one Appendix E module per method family, loaded like a stack profile; 11.7 recommends a method from the Part 0 answers with a stated reason, and the project records its choice in an ADR. *Alternatives:* a separate `methods/` folder (left out of the combined file, so agents reading one file would miss it); a scoring script (false precision for a judgement call). *Consequences:* (+) every agent gets the profiles, and the skill loads only one; (−) the framework grows by about a fifth, which module loading absorbs.
+- **ADR-B9 — The documentation site is generated from the modules.** *Context:* people want to read Bansat outside GitHub, and a second copy of the docs would drift. *Decision:* a build script turns `framework/*.md`, this blueprint and the changelog into Starlight pages at build time; diagrams are drawn at build time as inline SVG, so pages need no diagram script; search runs locally. *Alternatives:* the GitHub Wiki (not versioned with releases, no review), a hand-written site (a second copy). *Consequences:* (+) one source, reviewed in pull requests; (−) the site build needs a browser to draw diagrams.
 
 ---
 
@@ -536,6 +577,10 @@ Every entry and page says when AI assistance was used and shows the review statu
 | SCR-04 | Stack profile | One page per stack |
 | SCR-05 | About | Method, review levels, disclaimer, privacy and accessibility statements |
 | SCR-06 | Not found | Links back to the index |
+| SCR-07 | Docs home | What Bansat is, how to install it, where to start (Phase 1c) |
+| SCR-08 | Framework page | One page per module, with the contents in a sidebar and links between parts |
+| SCR-09 | Method profile | One page per method family (Appendix E) |
+| SCR-10 | Search results | Local search across every page; a clear empty result (S6) |
 
 ### 10.3 Design system
 
@@ -545,7 +590,8 @@ The Bansat blueprint look: navy ground, cyan accent, Space Grotesk and IBM Plex 
 
 - **S1** an empty filter result, with "Clear filters" (S6 for search);
 - **S3** the search index failing to load, falling back to the plain list;
-- **S11** an unknown country;
+- **S11** an unknown country, or an unknown docs page, linking back home;
+- **S6** a docs search with no results, pointing to the contents page;
 - **S15** a stale entry badge, or a source currently failing;
 - the **basic-entry banner** (BR-04).
 
@@ -558,11 +604,13 @@ All other states are N/A: there are no accounts, forms, uploads or long-running 
 | Phase | Work | Exit criteria |
 |---|---|---|
 | **0 Blueprint** | This document | **G1 signed** |
-| **1 Restructure** | Split the framework into `framework/`, generate the combined file, update the skill to load modules (3.7), add `examples/` with CI (FR-12). You turn on branch protection for `main`, set up so you can still merge your own pull requests. | The generated file matches v2.1 except for intended changes; the skill loads the right modules in tests; CI green |
+| **1 Restructure** (done: v2.2.0, 5 Nov 2026) | Split the framework into `framework/`, generate the combined file, update the skill to load modules (3.7), add `examples/` with CI (FR-12). You turn on branch protection for `main`, set up so you can still merge your own pull requests. | The generated file matches v2.1 except for intended changes; the skill loads the right modules in tests; CI green |
+| **1b Delivery methods** (v2.3) | Part 0 delivery questions; 11.7 choosing a method; 11.8 toolkit; Appendix E profiles for Scrum, Kanban, stage gates, Shape Up, a solo loop and scaled methods; the skill loads the chosen profile; release v2.3.0 | The three picker scenarios in 1.6 give the expected method; each profile maps G0–G4 and copies no source text (BR-09); independent review done; CI green |
+| **1c Documentation site** | A Starlight site generated from `framework/`, this blueprint and the changelog; a Pages deploy workflow; the privacy test and axe run against the built site in CI. Pages is switched on in Settings (Decision 5). | Live at https://bewithkhan.github.io/bansat/; privacy test green (no cookies, no third-party requests); axe clean; search works with no network |
 | **2 Law registry** | Schema; full-tier entries in batches (Europe, Americas, Middle East & Africa, Asia-Pacific); basic-tier entries for every other country with a law. Each batch is its own pull request. | Every full-tier claim sourced; every entry dated and labelled; CI validation green; you've reviewed each batch |
 | **3 Stack profiles** | The 24 profiles in 3.8, in pull requests by group | Each profile reviewed; the skill picks the right one |
 | **4 Law Watch** | `watch/sources.yaml`; the watch Action (you add the workflow file, A-03); the weekly Claude task (created as a scheduled task; approved 2026-11-05) | A dry run on a known past change produces the right issue and pull request; failure reporting works |
-| **5 Public site** | Astro site on GitHub Pages at https://bewithkhan.github.io/bansat/ (you enable Pages in Settings) | Privacy test green (zero third-party requests), axe clean, Lighthouse budgets met |
+| **5 Law tracker pages** | The tracker screens (SCR-01 to SCR-06) on the site built in Phase 1c | Privacy test green (zero third-party requests), axe clean, Lighthouse budgets met |
 | **6 Launch v3.0.0** | README, CHANGELOG, release, announcement | Part 13 all green → **G3** |
 | **7 First 30 days** | Watch the alerts, the review backlog and staleness | 30-day review → **G4** |
 
@@ -636,5 +684,7 @@ These go in `watch/verify-prompt.md`:
 4. **Reviewers:** you review every change, on a regular schedule. No lawyer is involved, so entries go no higher than `human-reviewed`.
 5. **GitHub settings:** agreed. You enable Pages, protect `main` and add the workflow files as each phase needs them, and the weekly Claude task is approved.
 6. **Privacy contact:** open a GitHub issue.
+7. **Delivery methods (2026-11-05):** cover Scrum and Kanban, stage gates, Shape Up and a solo loop, and scaled methods (SAFe, LeSS); build a picker, profiles and a toolkit; ship as v2.3, before the law registry.
+8. **Site and Wiki (2026-11-05):** build the documentation site now (Phase 1c); turn the Wiki off (done).
 
 **G1:** signed by Muhammad Tufail Khan on 2026-11-05, in the Gate approvals table at the top.
