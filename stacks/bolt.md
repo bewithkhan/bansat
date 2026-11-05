@@ -8,11 +8,14 @@
 - **Bolt Database is Supabase underneath.** Its Security tab uses the checks behind Supabase's Security Advisor, auth emails go through Supabase's email service, and you can claim the database into your own Supabase account ([database security](https://support.bolt.new/bolt-cloud/database/security), [auth settings](https://support.bolt.new/bolt-cloud/database/authentication)). So RLS is the access layer (5.4): Bolt's own docs say anyone who visits your site can send requests to the database directly.
 - **Defaults, then the gap:**
   - Bolt turns RLS on for the tables it creates. Tables you add yourself need it too.
-  - If your site has no sign-in, Bolt "might write policies that allow any visitor to view, add, change, and delete" data, which the Security tab flags as `RLS Policy Always True` ([database security](https://support.bolt.new/bolt-cloud/database/security)). That's F-02 (Moltbook) and F-03: a public key in the browser plus open tables.
+  - If your site has no sign-in, Bolt "might write policies that allow any visitor to view, add, change, and delete" data, which the Security tab flags as `RLS Policy Always True` ([database security](https://support.bolt.new/bolt-cloud/database/security)). That's the same pattern as F-02 (Moltbook) and F-03: a public key in the browser plus open tables.
   - Private data needs sign-in first, then policies keyed to the user.
-  - From 30 October 2026, new Bolt Database tables are private until your app is given explicit permissions. Existing tables keep their old access, so review them ([release notes](https://support.bolt.new/release-notes)).
+  - From 30 October 2026, new Bolt Database tables are private until your app is given explicit permissions, but Bolt says existing databases aren't affected ([release notes](https://support.bolt.new/release-notes)). In a database created before that date, new tables may still be open, so check every table, old and new.
 - **Server functions** run on Bolt's servers and hold your secrets ([server functions](https://support.bolt.new/bolt-cloud/database/server-functions)). Re-check the caller and tenant in each one (7.2, T-03).
-- **Isolation test.** Duplicate the project. The copy gets the database structure but not the data ([duplicate a project](https://support.bolt.new/managing-projects/projects-files)), so it's your test environment. In the copy, add two test users. Sign in as B and create rows, so there's something to leak. Then run this against the copy's URL and publishable key (from its `.env`):
+- **Isolation test.** Duplicate the project. The copy gets the tables and columns but not the data ([duplicate a project](https://support.bolt.new/managing-projects/projects-files)), so it's your test environment:
+  - For a Supabase-backed project, Bolt offers to connect the copy to the same Supabase project. Choose a new Bolt database instead, or the test runs against production data.
+  - Bolt doesn't say the copy keeps policies or grants, and a copy made after 30 October 2026 gets a new database whose tables start private. In both projects' **Query** tab, list `pg_policies` and `information_schema.role_table_grants` for the `public` schema and compare them before you trust a result.
+  - In the copy, add two test users. Sign in as B and create rows, so there's something to leak. Then run this against the copy's URL and publishable key (from its `.env`):
 
 ```ts
 // tests/isolation.test.ts: against a duplicated project (schema, no real data), never the live one
@@ -61,7 +64,9 @@ test.each(PRIVATE_TABLES)('%s: anonymous and user A see none of B', async (table
 - The security audit looks for "text your app displays as part of a page, since someone could use this text to run their own code", and at "which other websites can talk to your app" ([security check](https://support.bolt.new/building/security)). It's an AI review, not a test.
 - **Tokens:** supabase-js stores the session in local storage by default ([supabase-js](https://supabase.com/docs/reference/javascript/auth)), so XSS can read it. That puts more weight on the CSP (7.1).
 - **CSRF:** bearer-token calls aren't sent automatically. A server function or route that trusts cookies must check `Origin` and use SameSite cookies (7.4).
-- **CSP and headers:** Bolt's docs don't describe setting response headers on Bolt hosting. Check what yours sends with `curl -sI`. If you need the 7.4 CSP, publish the frontend to Netlify, which reads a `_headers` file or `netlify.toml` ([Netlify headers](https://docs.netlify.com/manage/routing/headers/), [Bolt and Netlify](https://support.bolt.new/integrations/netlify)).
+- **CSP and headers:** Bolt's docs don't describe setting response headers on Bolt hosting. Check what yours sends with `curl -sI`. If you need the 7.4 CSP:
+  - a frontend-only app can publish to Netlify, which reads a `_headers` file or `netlify.toml` ([Netlify headers](https://docs.netlify.com/manage/routing/headers/));
+  - Netlify can't host a database or backend, and Bolt tells projects that need one to stay on Bolt hosting ([Bolt and Netlify](https://support.bolt.new/integrations/netlify)). For those, claim the database into Supabase and host the exported code where you can set headers.
 
 ## Fonts and assets
 
@@ -72,7 +77,7 @@ test.each(PRIVATE_TABLES)('%s: anonymous and user A see none of B', async (table
 
 ## Consent
 
-- **Hosting analytics** on paid plans reports visitors, page views, top pages and sources, and counts bots too ([hosting analytics](https://support.bolt.new/bolt-cloud/hosting/analytics)). Record Bolt as its processor (3.6).
+- **Hosting analytics** on paid plans reports visitors, page views, top pages and sources, and counts bots too ([hosting analytics](https://support.bolt.new/bolt-cloud/hosting/analytics)). Record Bolt as its processor (3.6). Bolt doesn't say whether it sets cookies or uses browser storage, so check the Application tab before you treat it as exempt under 9.10.
 - **Third-party analytics:** Bolt's docs suggest pasting Google Analytics or Matomo code into Code view, or prompting Bolt to add it. Pasted as-is, that's launch trap 7 and the F-18 pattern. Ask Bolt to load each tag through the 9.7 consent loader, with Consent Mode denied by default, and to update the CSP. Withdrawal must stop the tag (9.8).
 - Video, maps and chat widgets need a click-to-load facade (S17), not an embed in the page.
 - The Supabase session entry in local storage is strictly necessary (9.8 register).
@@ -90,7 +95,7 @@ test.each(PRIVATE_TABLES)('%s: anonymous and user A see none of B', async (table
   - The **project security audit** (**Publish → Run security audit**, paid plans, no tokens used, up to 30 a day) reviews code and database, fixes most problems itself, and lists what you must do ([security check](https://support.bolt.new/building/security)).
   - The **database security check** (all plans) runs the Supabase Security Advisor checks, with an **Ask Bolt to fix** button.
 - **What they miss:**
-  - Both are static. The database check flags open policies, even intended ones, but can't know whether a policy matches your tenancy model.
+  - Neither runs your app as one user against another's data. The database check flags open policies, even intended ones, but can't know whether a policy matches your tenancy model.
   - The audit changes code and the database on its own: review what it did. Rolling back the code doesn't roll back the database ([version history](https://support.bolt.new/managing-projects/rollback-backup)).
   - Neither runs unless you start it.
   - Neither checks third-party requests before consent, or personal data in logs.
@@ -101,19 +106,20 @@ test.each(PRIVATE_TABLES)('%s: anonymous and user A see none of B', async (table
 
 - **Hosting:** `bolt.host` addresses are free and custom domains need a paid plan ([publish](https://support.bolt.new/bolt-cloud/hosting/publish)).
   - On the Free plan every published site is public. Paid plans can publish privately, to your team and invited people, but a site on a custom domain can only be public.
-  - Projects published before 14 August 2025 may still be on Netlify ([Bolt and Netlify](https://support.bolt.new/integrations/netlify)).
+  - Projects published before 14 August 2025 may still be on Netlify ([hosting](https://support.bolt.new/bolt-cloud/hosting)).
 - **Region for UK or EU data.** Bolt's help centre doesn't say where Bolt Database or Bolt hosting keeps data. For UK or EU data, create a Supabase project in a specific UK or EU region yourself (for example London, `eu-west-2`) and connect it on a Pro or Teams plan, at the start of the project ([Supabase in Bolt](https://support.bolt.new/integrations/supabase)). Connecting Supabase later replaces the Bolt database and can lose data; claiming moves the existing database into your Supabase organisation, where you can see its region.
 - **Environments (3.2):** a project has one database. Use a duplicate as staging, and make schema changes there first. Restoring an earlier version restores code only, never the database.
 - **Backups:** Bolt's docs describe code history, downloads and code backups ([project settings](https://support.bolt.new/settings/project-settings)), not database backups. For 5.7, claim the database into Supabase (daily backups on paid Supabase plans) or export tables to CSV or JSON on a schedule ([tables](https://support.bolt.new/bolt-cloud/database/tables)), encrypted, under another account.
 - **Deleting a project** also deletes its Bolt database, unpublishes the site and disconnects domains ([release notes](https://support.bolt.new/release-notes)).
 - **Agent safety (12.1):** the agent and the **Query** tab work directly on the project's database, and **Query** runs any SQL, including deletes ([tables](https://support.bolt.new/bolt-cloud/database/tables)). Once real data exists, build in the duplicate and keep editor roles few (F-04).
+- **Viewers see the data.** Viewers can open tables and run read-only queries, so sharing a project as view-only exposes every row ([tables](https://support.bolt.new/bolt-cloud/database/tables)). On a team, other members get the Viewer role by default ([sharing](https://support.bolt.new/collaboration/sharing)). Once a project holds personal data, share it only with people who may see all of it (7.2).
 
 ## Limits
 
-- **Old link sharing.** Bolt no longer offers "anyone with the link" sharing, but projects that had it keep it until you turn it off ([sharing](https://support.bolt.new/collaboration/sharing)). Check old projects, since a viewer sees the code.
+- **Old link sharing.** Bolt no longer offers "anyone with the link" sharing, but projects that had it keep it until you turn it off, and the old setting may be "anyone with the link can edit" ([sharing](https://support.bolt.new/collaboration/sharing)). Turn it off under **Project access** on old projects: a viewer sees the code and can query the database, and an editor can change both.
 - **Training on your content:** the **Model training** setting is on by default, except for accounts based in the EU, UK or Switzerland. It covers projects and chats from 7 October 2026 ([account settings](https://support.bolt.new/settings/account-settings)). Turn it off, and keep prompts to synthetic data (12.1).
 - **The rules file:** put the 12.1 rules in project knowledge or an `agents.md` file, which Bolt reads automatically; the main rules must sit in `agents.md` itself ([context](https://support.bolt.new/prompting/manage-context)). The agent can still skip them.
-- **MCP connectors** pick up new tools when the provider updates its server. Review them and switch off what you don't need, because tool output can carry injected instructions (T-14, F-07) ([MCP](https://support.bolt.new/integrations/mcp)).
+- **MCP connectors** turn on every tool by default, and the tools you leave on apply to all your projects ([MCP](https://support.bolt.new/integrations/mcp)). Switch off what you don't need, especially delete and write tools, because tool output can carry injected instructions (T-14, F-07), and leave **Auto-enable for all projects** off.
 - **Platform limits:**
   - Backends must be JavaScript.
   - Bolt can't show or manage individual stored files.
@@ -125,6 +131,6 @@ test.each(PRIVATE_TABLES)('%s: anonymous and user A see none of B', async (table
 - Bolt platform: [intro](https://support.bolt.new/get-started/intro-bolt) · [supported technologies](https://support.bolt.new/reference/supported-technologies) · [Bolt Cloud](https://support.bolt.new/bolt-cloud) · [release notes](https://support.bolt.new/release-notes)
 - Bolt Database: [overview](https://support.bolt.new/bolt-cloud/database) · [security settings](https://support.bolt.new/bolt-cloud/database/security) · [auth settings](https://support.bolt.new/bolt-cloud/database/authentication) · [secrets](https://support.bolt.new/bolt-cloud/database/secrets) · [server functions](https://support.bolt.new/bolt-cloud/database/server-functions) · [file storage](https://support.bolt.new/bolt-cloud/database/file-storage) · [tables](https://support.bolt.new/bolt-cloud/database/tables) · [logs](https://support.bolt.new/bolt-cloud/database/logs)
 - Bolt security and projects: [security check](https://support.bolt.new/building/security) · [projects and duplication](https://support.bolt.new/managing-projects/projects-files) · [version history](https://support.bolt.new/managing-projects/rollback-backup) · [project settings](https://support.bolt.new/settings/project-settings) · [sharing](https://support.bolt.new/collaboration/sharing) · [code view](https://support.bolt.new/building/code-view)
-- Bolt hosting and integrations: [publish](https://support.bolt.new/bolt-cloud/hosting/publish) · [hosting analytics](https://support.bolt.new/bolt-cloud/hosting/analytics) · [Netlify](https://support.bolt.new/integrations/netlify) · [Supabase](https://support.bolt.new/integrations/supabase) · [GitHub](https://support.bolt.new/integrations/git) · [MCP](https://support.bolt.new/integrations/mcp) · [account settings](https://support.bolt.new/settings/account-settings) · [context and agents.md](https://support.bolt.new/prompting/manage-context)
+- Bolt hosting and integrations: [hosting](https://support.bolt.new/bolt-cloud/hosting) · [publish](https://support.bolt.new/bolt-cloud/hosting/publish) · [hosting analytics](https://support.bolt.new/bolt-cloud/hosting/analytics) · [Netlify](https://support.bolt.new/integrations/netlify) · [Supabase](https://support.bolt.new/integrations/supabase) · [GitHub](https://support.bolt.new/integrations/git) · [MCP](https://support.bolt.new/integrations/mcp) · [account settings](https://support.bolt.new/settings/account-settings) · [context and agents.md](https://support.bolt.new/prompting/manage-context)
 - Others: [React: dangerouslySetInnerHTML](https://react.dev/reference/react-dom/components/common#dangerously-setting-the-inner-html) · [supabase-js auth](https://supabase.com/docs/reference/javascript/auth) · [Supabase log fields](https://supabase.com/docs/guides/observability/log-field-reference) · [Netlify custom headers](https://docs.netlify.com/manage/routing/headers/)
 - Casebook: F-02, F-03, F-04, F-07, F-10, F-18 (Appendix F)

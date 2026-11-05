@@ -18,22 +18,22 @@
   - Every use of either needs its own check (T-03).
 - **Isolation test.** Development and Live have separate databases, so test in Development ([testing basics](https://manual.bubble.io/help-guides/maintaining-an-application/testing-an-application/the-basics)).
   - **By hand:** open **Data**, find user A and click **Run as**, then visit every page.
-  - **Automated:** seed user B's records with a unique canary string, sign in as A on `version-test`, and fail if any response contains it. That catches data sent to the browser but never shown:
+  - **Automated:** seed user B's records with a unique canary string, sign in as A on `version-test`, and fail if any response contains it. That catches data sent to the browser but never shown. Build every URL from the full `version-test` address: with a Playwright `baseURL`, a path that starts with `/` drops `/version-test` and lands on Live ([Playwright baseURL](https://playwright.dev/docs/api/class-testoptions)).
 
 ```ts
-// tests/privacy/canary.spec.ts: baseURL = https://<app>.bubbleapps.io/version-test (Development)
+// tests/privacy/canary.spec.ts: DEV = https://<app>.bubbleapps.io/version-test (Development, never Live)
 import { test, expect } from '@playwright/test';
-const CANARY = process.env.B_CANARY!; // seeded only into user B's things
-const PAGES = (process.env.PAGES ?? '/,/dashboard,/account').split(',');
-
+const { DEV, B_CANARY, A_EMAIL, A_PASSWORD } = process.env as Record<string, string>; // canary only in B's things
+const PAGES = (process.env.PAGES ?? 'dashboard,account').split(','); // every page name
 test('nothing sent to user A contains user B data', async ({ page }) => {
-  const leaks: string[] = [];
-  page.on('response', async (r) => { try { if ((await r.text()).includes(CANARY)) leaks.push(r.url()); } catch {} });
-  await page.goto('/login');
-  await page.getByLabel('Email').fill(process.env.A_EMAIL!);
-  await page.getByLabel('Password').fill(process.env.A_PASSWORD!);
+  const checks: Promise<void>[] = [], leaks: string[] = [];
+  page.on('response', (r) => { checks.push(r.text().then((b) => { if (b.includes(B_CANARY)) leaks.push(r.url()); }, () => {})); });
+  await page.goto(`${DEV}/login`);
+  await page.getByLabel('Email').fill(A_EMAIL);
+  await page.getByLabel('Password').fill(A_PASSWORD);
   await page.getByRole('button', { name: 'Log in' }).click();
-  for (const p of PAGES) await page.goto(p, { waitUntil: 'networkidle' });
+  for (const p of ['', ...PAGES]) await page.goto(`${DEV}/${p}`, { waitUntil: 'networkidle' });
+  await Promise.all(checks); // wait for every body before judging
   expect(leaks).toEqual([]);
 });
 ```
@@ -45,8 +45,9 @@ test('nothing sent to user A contains user B data', async ({ page }) => {
 - **Built in:** sign-up and log-in actions, passwords hashed and salted, email confirmation, password reset, magic links, temporary passwords and social logins through plugins ([user accounts](https://manual.bubble.io/help-guides/data/user-accounts)).
 - **Sessions are long.** Signing up starts a 365-day session. With **Stay logged in** checked, a login lasts 365 days; unchecked, 24 hours. That's far beyond 7.1's short sessions, so leave **Stay logged in** unchecked for admin and C3 screens, and log users out on sensitive changes.
 - **Password policy** is opt-in: tick **Define a password policy** in **Settings → General** and set the minimum length to 12 ([general settings](https://manual.bubble.io/core-resources/application-settings/general)). Bubble doesn't document a breached-password check; the security dashboard only flags weak policies.
-- **2FA:** **Activate two-factor authentication** offers TOTP through an authenticator app on a Production plan, with a page that runs **Check 2FA token**. Require it for admins and C3 access (7.1, 9.13).
-- **Default credentials (F-10).** Development and Live can sit behind a username and password, and Bubble's defaults for every new app are `username` and `password` ([app security](https://manual.bubble.io/help-guides/security/app-security)). Set your own before you share a link.
+- **2FA:** **Activate two-factor authentication** offers TOTP through an authenticator app, with a page that runs **Check 2FA token**. The settings page says it needs a "Production plan", a name missing from Bubble's current plan list ([pricing and plans](https://manual.bubble.io/account-and-marketplace/account-and-billing/pricing-plans)), so confirm your plan includes it. Require it for admins and C3 access (7.1, 9.13).
+- **Sign-in throttling:** the manual doesn't document login rate limits or account lockout. Test what happens after repeated wrong passwords for one account, and add your own limit in the login workflow if nothing stops them (7.1).
+- **Default credentials (F-10).** Password protection for Development and Live is optional, so until you tick **Limit access to this app with a username and password**, anyone with the URL can open `version-test` ([app security](https://manual.bubble.io/help-guides/security/app-security), [general settings](https://manual.bubble.io/core-resources/application-settings/general)). Turn it on, then replace Bubble's defaults for every new app, `username` and `password`, before you share a link.
 - **API tokens:** a token from a **Log the user in** API workflow lasts up to 12 months (1 month with 2FA) and expires after 30 days unused ([user authentication](https://manual.bubble.io/help-guides/integrations/api/the-bubble-api/authentication/as-a-user)). Revoke tokens with **Log out other user's sessions**.
 
 ## Secrets
@@ -72,8 +73,13 @@ test('nothing sent to user A contains user B data', async ({ page }) => {
 ## Fonts and assets
 
 - **Bubble's font library is Google Web Fonts, stored on a Google server** ([custom fonts](https://manual.bubble.io/help-guides/design/variables-and-styles/using-custom-fonts)): the 9.9 problem, launch trap 2. Upload your fonts (`.ttf` or `.otf`) under **Settings → General**, use only those, and run the 9.9 test to confirm nothing reaches `fonts.googleapis.com` or `fonts.gstatic.com`.
+- **Legacy CSS-linked fonts** (added by entering a stylesheet URL, often on `fonts.googleapis.com`) keep working, and keep calling that host. Remove them and upload the files instead.
 - **Plugins and HTML elements** that load scripts, maps or video from a CDN are third-party requests: consent-gate or click-to-load them (9.9 table).
-- **Uploaded files:** keeping a file private takes both a privacy rule (*View attached files*) and the uploader's private setting ([files](https://manual.bubble.io/help-guides/data/files)) (T-07).
+- **Uploaded files** ([files](https://manual.bubble.io/help-guides/data/files)) (T-07):
+  - an upload gets a live URL that anyone with the link can open as soon as it lands, before any workflow saves it;
+  - to keep it private, tick **Make this file private** on the uploader, set **Attach this file to** a thing (the step that ties the file to that thing's privacy rules), and leave *View attached files* unticked for everyone who shouldn't see it;
+  - files uploaded in the editor are never protected by privacy rules, so use the editor only for public files;
+  - clearing a file field leaves the file online: run **Delete an uploaded file** first, then clear the field.
 - **Allowed hosts:** your domain or `<app>.bubbleapps.io`, plus whatever Bubble-owned asset hosts your pages load. Read those from the Network panel and list each one in the processor register (3.6).
 
 ## Consent
@@ -94,7 +100,7 @@ test('nothing sent to user A contains user B data', async ({ page }) => {
 ## Testing
 
 - **The security dashboard** ([security tests](https://manual.bubble.io/help-guides/security/security-dashboard/security-tests), [plan features](https://manual.bubble.io/help-guides/security/security-dashboard/security-dashboard-plan-features)):
-  - Basic checks on every plan cover missing privacy rules, search privacy, constrainable fields, weak password policies, unprotected test environments, default credentials, public sensitive fields and unsafe API calls.
+  - Basic checks on Starter and above (the plan table doesn't list Free) cover missing privacy rules, search privacy, constrainable fields, weak password policies, unprotected test environments, default credentials, public sensitive fields and unsafe API calls.
   - Advanced checks give details only on Growth plans and up: unprotected backend workflows, compromised API tokens, exposed Swagger, public uploaders, iframe embedding.
   - Tests can run on every deploy or on a schedule ([automated tests](https://manual.bubble.io/help-guides/security/security-dashboard/security-tests/automated-tests)).
 - **What it misses:**
@@ -110,7 +116,9 @@ test('nothing sent to user A contains user B data', async ({ page }) => {
 - **Transfers:** on shared hosting, record the US transfer under 9.17. Bubble's DPA includes the SCCs, and Bubble says it's covered by the EU-US and Swiss-US Data Privacy Frameworks ([GDPR](https://manual.bubble.io/help-guides/optimizing-an-application/compliance/gdpr)). For UK data, confirm the UK Extension or use the IDTA or UK Addendum.
 - **Environments:** Development and Live are separate, each with its own database, and you deploy Development to Live ([version control](https://manual.bubble.io/help-guides/maintaining-an-application/version-control)). Keep synthetic data in Development (3.2).
 - **Backups:** Bubble keeps continuous backups of both databases, so you can restore one data type to an earlier second; how far back depends on your plan ([backups](https://manual.bubble.io/help-guides/maintaining-an-application/database-maintenance/database-copy-and-backups)). A restore doesn't touch data types, fields or option sets. For 5.7, also export data on a schedule to storage you control ([exporting data](https://manual.bubble.io/help-guides/data/the-database/export-import-data/exporting-data)).
-- **Agents:** the Bubble MCP server can create data types, fields and privacy rules, and read server logs ([Bubble MCP](https://manual.bubble.io/help-guides/ai/bubble-mcp)). Its edits land in Development, since the Live branch is read-only, so review every privacy rule it writes before you deploy (12.1).
+- **Agents:** the Bubble MCP server can create data types, fields and privacy rules, and read server logs ([Bubble MCP](https://manual.bubble.io/help-guides/ai/bubble-mcp)).
+  - It can't deploy or merge branches, so its changes reach Live only when you deploy: review every privacy rule it writes first (12.1).
+  - Its record tools read records in **both** Development and Live, for every data type an admin grants with `grant_agent_data_access`, and write records only in Development. Never grant it a type that holds personal data (12.1).
 
 ## Limits
 
@@ -127,5 +135,6 @@ test('nothing sent to user A contains user B data', async ({ page }) => {
 - Bubble APIs: [Data API security](https://manual.bubble.io/help-guides/security/api-security/data-api-security) · [Data API privacy rules](https://manual.bubble.io/help-guides/integrations/api/the-bubble-api/the-data-api/data-api-privacy-rules) · [Data API requests](https://manual.bubble.io/help-guides/integrations/api/the-bubble-api/the-data-api/data-api-requests) · [Workflow API security](https://manual.bubble.io/help-guides/security/api-security/workflow-api-security) · [authenticating as a user](https://manual.bubble.io/help-guides/integrations/api/the-bubble-api/authentication/as-a-user) · [API Connector security](https://manual.bubble.io/help-guides/security/api-security/api-connector-security)
 - Bubble accounts and security: [user accounts](https://manual.bubble.io/help-guides/data/user-accounts) · [app security](https://manual.bubble.io/help-guides/security/app-security) · [cookies set by Bubble](https://manual.bubble.io/help-guides/data/user-accounts/cookies-set-by-bubble) · [HTML element](https://manual.bubble.io/core-resources/bubble-elements/element-properties/web-element-properties/visual-element-properties/html) · [SEO: app](https://manual.bubble.io/help-guides/maintaining-an-application/seo/seo-app) · [custom fonts](https://manual.bubble.io/help-guides/design/variables-and-styles/using-custom-fonts)
 - Bubble testing: [security tests](https://manual.bubble.io/help-guides/security/security-dashboard/security-tests) · [plan features](https://manual.bubble.io/help-guides/security/security-dashboard/security-dashboard-plan-features) · [privacy rules checker](https://manual.bubble.io/help-guides/security/security-dashboard/security-tests/privacy-rules-checker) · [automated tests](https://manual.bubble.io/help-guides/security/security-dashboard/security-tests/automated-tests) · [dashboard overview](https://manual.bubble.io/help-guides/security/security-dashboard/overview) · [testing basics](https://manual.bubble.io/help-guides/maintaining-an-application/testing-an-application/the-basics) · [server logs](https://manual.bubble.io/help-guides/maintaining-an-application/testing-an-application/using-server-logs)
-- Bubble operations: [hosting](https://manual.bubble.io/help-guides/optimizing-an-application/hosting-and-scaling/how-bubble-hosting-works) · [dedicated instance](https://manual.bubble.io/help-guides/bubble-for-enterprise/hosting-and-infrastructure/dedicated-instance) · [GDPR](https://manual.bubble.io/help-guides/optimizing-an-application/compliance/gdpr) · [version control](https://manual.bubble.io/help-guides/maintaining-an-application/version-control) · [backups](https://manual.bubble.io/help-guides/maintaining-an-application/database-maintenance/database-copy-and-backups) · [exporting data](https://manual.bubble.io/help-guides/data/the-database/export-import-data/exporting-data) · [Bubble MCP](https://manual.bubble.io/help-guides/ai/bubble-mcp) · [exporting your app](https://manual.bubble.io/account-and-marketplace/application-and-data-ownership/exporting-your-bubble-app) · [versions](https://manual.bubble.io/core-resources/application-settings/versions)
+- Bubble operations: [hosting](https://manual.bubble.io/help-guides/optimizing-an-application/hosting-and-scaling/how-bubble-hosting-works) · [dedicated instance](https://manual.bubble.io/help-guides/bubble-for-enterprise/hosting-and-infrastructure/dedicated-instance) · [GDPR](https://manual.bubble.io/help-guides/optimizing-an-application/compliance/gdpr) · [version control](https://manual.bubble.io/help-guides/maintaining-an-application/version-control) · [backups](https://manual.bubble.io/help-guides/maintaining-an-application/database-maintenance/database-copy-and-backups) · [exporting data](https://manual.bubble.io/help-guides/data/the-database/export-import-data/exporting-data) · [Bubble MCP](https://manual.bubble.io/help-guides/ai/bubble-mcp) · [exporting your app](https://manual.bubble.io/account-and-marketplace/application-and-data-ownership/exporting-your-bubble-app) · [versions](https://manual.bubble.io/core-resources/application-settings/versions) · [pricing and plans](https://manual.bubble.io/account-and-marketplace/account-and-billing/pricing-plans)
+- Others: [Playwright baseURL](https://playwright.dev/docs/api/class-testoptions)
 - Casebook: F-10, F-18 (Appendix F)

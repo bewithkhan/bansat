@@ -12,20 +12,21 @@
   - mint tokens with the narrowest scopes, one per use ([site token](https://developers.webflow.com/data/reference/authentication/site-token), [scopes](https://developers.webflow.com/data/reference/scopes));
   - keep tokens on a server;
   - give people the lowest Workspace role that works; Webflow has role-based access with custom roles ([security](https://webflow.com/security)).
-- **Isolation test, published site.** Nothing in a published page may call the Data API or carry a token:
+- **Isolation test, published site.** Nothing in a published page, or in the scripts it loads from your own site, may call the Data API or carry a token:
 
 ```ts
 // tests/privacy/no-webflow-token.spec.ts: run against the staging (webflow.io) and live sites
 import { test, expect } from '@playwright/test';
 const PAGES = (process.env.PAGES ?? '/,/contact').split(',');
-
+const LEAK = /api\.webflow\.com|Bearer\s+[A-Za-z0-9._-]{20,}/;
 for (const path of PAGES) {
-  test(`no Data API access from the browser: ${path}`, async ({ page }) => {
-    const calls: string[] = [];
+  test(`no Data API access from the browser: ${path}`, async ({ page, baseURL }) => {
+    const calls: string[] = [], scripts: Promise<string>[] = [];
     page.on('request', (r) => { if (new URL(r.url()).hostname === 'api.webflow.com') calls.push(r.url()); });
+    page.on('response', (r) => { if (r.request().resourceType() === 'script' && new URL(r.url()).origin === new URL(baseURL!).origin) scripts.push(r.text()); });
     await page.goto(path, { waitUntil: 'networkidle' });
     expect(calls).toEqual([]);
-    expect(await page.content()).not.toMatch(/api\.webflow\.com|Bearer\s+[A-Za-z0-9._-]{20,}/);
+    for (const body of [await page.content(), ...(await Promise.all(scripts))]) expect(body).not.toMatch(LEAK);
   });
 }
 ```
@@ -46,7 +47,8 @@ for (const path of PAGES) {
   - A hosted script is registered with a `hostedLocation` and an `integrityHash`, its subresource integrity hash.
   - A registered script version can't be overwritten, and no change goes live until you publish.
 - **Webflow Cloud environment variables** have a **Secret** toggle ([environments](https://developers.webflow.com/webflow-cloud/environments)).
-  - Everyone with access to the site can read the variables that aren't secret, and nobody can read a secret.
+  - Everyone with access to the app can read the variables that aren't secret.
+  - The page contradicts itself on secrets: one passage says they're masked in the dashboard and revealed with the eye icon, another that nobody can see them. Until Webflow confirms, don't count them as write-only (7.4): treat everyone with access to the app as able to read every secret.
   - Both kinds are available at build time and at runtime, so a secret read by a public framework variable (`NEXT_PUBLIC_`, `PUBLIC_`, `VITE_`) still ships to the browser.
   - Secrets are redacted from build logs, but don't print them anyway.
 - **Webhook keys:** webhooks created through the API carry `x-webflow-timestamp` and an HMAC-SHA256 `x-webflow-signature` ([webhooks](https://developers.webflow.com/data/docs/working-with-webhooks)).
@@ -64,15 +66,16 @@ for (const path of PAGES) {
 ## Fonts and assets
 
 - **Fonts:** Webflow sites can use uploaded custom font files ([MCP server](https://developers.webflow.com/mcp/reference/overview) lists upload, replace and remove). Run the 9.9 test against staging: if any request goes to `fonts.googleapis.com` or `fonts.gstatic.com`, replace that font with uploaded files and test again (launch trap 2).
-- **Assets** (images, scripts, CSS) go out through Webflow's CDN, which its subprocessor list names as Cloudflare ([subprocessors](https://webflow.com/legal/subprocessors)). Read the exact hosts your pages use from the Network panel or the 9.9 test, add them to `ALLOWED_HOSTS` with your domain and `*.webflow.io`, and record Webflow and Cloudflare in the processor register (3.6).
+- **Assets** (images, scripts, CSS) go out through Webflow's CDN, which its subprocessor list names as Cloudflare, with hosting on AWS ([subprocessors](https://webflow.com/legal/subprocessors)). That list isn't a host list: Webflow's own pages, for example, load assets from `cdn.prod.website-files.com` and jQuery from a CloudFront (AWS) host, which the docs don't mention. Read the exact hosts your pages use from the Network panel or the 9.9 test, add them to `ALLOWED_HOSTS` with your domain and `*.webflow.io`, and record Webflow, AWS and Cloudflare in the processor register (3.6).
 - **Hosted scripts** registered through the API carry an integrity hash ([working with custom code](https://developers.webflow.com/data/docs/working-with-custom-code)). For scripts you paste in yourself, prefer copies you host over third-party CDNs (9.9 table).
 - **Media:** video, maps and social embeds need a click-to-load facade (S17).
 
 ## Consent
 
-- **No built-in banner.** Webflow's consent API covers only its own Analyze and Optimize: `wf.getUserTrackingChoice()` returns `allow`, `deny` or `none`, and `wf.allowUserTracking()` and `wf.denyUserTracking()` set it ([consent management](https://developers.webflow.com/browser/reference/consent-management)). For anything else, Webflow says you "must set up your own consent management banner or platform". Marketplace apps such as Finsweet and DataGrail can provide one.
+- **No built-in banner.** Webflow's consent API covers only its own Analyze and Optimize: `wf.getUserTrackingChoice()` returns `allow`, `deny` or `none`, and `wf.allowUserTracking()` and `wf.denyUserTracking()` set it ([consent management](https://developers.webflow.com/browser/reference/consent-management)). Without Analyze or Optimize the API isn't available, and Webflow says you need your own banner or platform; every other tag needs one either way. Marketplace apps such as Finsweet and DataGrail can provide one.
+- **Tracking mode first.** Analyze and Optimize each have three modes: always on, opt-out (tracks until the visitor says no) and opt-in ("Don't track by default"). Analyze sets no cookies but uses local storage, so it isn't exempt under 9.10 ([Analyze consent](https://university.webflow.com/course-lesson/analyze---1-3---tracking-consent-privacy), [Optimize consent](https://university.webflow.com/course-lesson/optimize-tracking-consent)). Choose opt-in for both; the other two track before any choice (9.8).
 - **Wire it up:**
-  - Call `wf.allowUserTracking()` only from the banner's explicit accept, and `wf.denyUserTracking()` on reject or withdrawal ([allow](https://developers.webflow.com/browser/reference/allow-user-tracking), [deny](https://developers.webflow.com/browser/reference/deny-user-tracking)).
+  - Call `wf.allowUserTracking({ activate: true })` only from the banner's explicit accept: `activate` defaults to `false`, so without it tracking doesn't start straight away. Call `wf.denyUserTracking()` on reject or withdrawal ([allow](https://developers.webflow.com/browser/reference/allow-user-tracking), [deny](https://developers.webflow.com/browser/reference/deny-user-tracking)).
   - Load every other tag in head or body code through the 9.7 consent loader.
   - Head code runs on every page, so a pasted pixel there is launch trap 7 and the F-18 pattern.
 - **Check it:** run the 9.9 tests, including "nothing loads after Reject all", against the staging and live sites. Repeat after installing any Marketplace app or editing custom code.
@@ -117,6 +120,7 @@ for (const path of PAGES) {
 
 - Webflow platform: [security](https://webflow.com/security) · [subprocessors](https://webflow.com/legal/subprocessors) · [DPA](https://webflow.com/legal/dpa) · [deprecating Logic and User Accounts](https://webflow.com/updates/deprecating-logic-and-user-accounts) · [form-level settings and spam inbox](https://webflow.com/updates/form-level-settings-spam-inbox-for-form-submissions)
 - Data API: [site token](https://developers.webflow.com/data/reference/authentication/site-token) · [scopes](https://developers.webflow.com/data/reference/scopes) · [list form submissions](https://developers.webflow.com/data/reference/forms/form-submissions/list-submissions) · [delete a form submission](https://developers.webflow.com/data/reference/forms/form-submissions/delete-submission) · [working with custom code](https://developers.webflow.com/data/docs/working-with-custom-code) · [webhooks](https://developers.webflow.com/data/docs/working-with-webhooks) · [v1 deprecation](https://developers.webflow.com/data/docs/webflow-v1-api-deprecation-notice)
+- Tracking modes: [Analyze tracking consent](https://university.webflow.com/course-lesson/analyze---1-3---tracking-consent-privacy) · [Optimize tracking consent](https://university.webflow.com/course-lesson/optimize-tracking-consent)
 - Browser API: [consent management](https://developers.webflow.com/browser/reference/consent-management) · [allow user tracking](https://developers.webflow.com/browser/reference/allow-user-tracking) · [deny user tracking](https://developers.webflow.com/browser/reference/deny-user-tracking) · [setUserId](https://developers.webflow.com/browser/custom-goals/off-site-conversions/setUserId)
 - Webflow Cloud: [storing data](https://developers.webflow.com/webflow-cloud/storing-data/overview) · [edge environment](https://developers.webflow.com/webflow-cloud/environment) · [environments and variables](https://developers.webflow.com/webflow-cloud/environments) · [observability](https://developers.webflow.com/webflow-cloud/observability) · [limits](https://developers.webflow.com/webflow-cloud/limits)
 - Agents: [Webflow MCP server](https://developers.webflow.com/mcp/reference/overview)

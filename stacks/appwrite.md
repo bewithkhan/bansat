@@ -1,6 +1,6 @@
 # Appwrite
 
-> **Group:** No-code and BaaS · **Covers:** Appwrite Cloud and self-hosted Appwrite 2.x (2.7.1, a security release of 4 November 2026; the 1.9 line still gets security fixes), with the TablesDB API (tables, rows and columns since August 2025), Auth, Storage, Functions and Sites · **Checked:** 2026-11-05 against the official docs
+> **Group:** No-code and BaaS · **Covers:** Appwrite Cloud and self-hosted Appwrite 2.x (2.7.1, a security release of 4 November 2026; 1.9.10 got the October Brotli fix, but the November runtime fix is in 2.7.1 only), with the TablesDB API (tables, rows and columns since August 2025), Auth, Storage, Functions and Sites · **Checked:** 2026-11-05 against the official docs
 
 ## Access and the isolation test
 
@@ -20,7 +20,7 @@
   - `Role.users()` includes anonymous sessions ([permissions](https://appwrite.io/docs/advanced/security/permissions)), so use `Role.users('verified')` or named users and teams.
   - A table-level `read` for `Role.users()` hands every row to every signed-in user, whatever the row permissions say (T-01).
   - Channels readable by `Role.any()` push Realtime updates to signed-out visitors until you turn on **Auth → Policies → Realtime → Deny guests** (October 2026) ([changelog](https://appwrite.io/changelog/entry/2026-10-29)).
-- **Native PostgreSQL and MySQL** (September 2026) are plain database endpoints reached with credentials, and any host holding the credentials can connect over the internet until you set an IP allowlist ([network security](https://appwrite.io/docs/products/databases/postgresql/network-security)). Keep credentials on servers, set the allowlist, and apply 5.4's RLS or data-layer scoping yourself (7.4, F-09).
+- **Native PostgreSQL and MySQL** are plain database endpoints reached with credentials, and any host holding the credentials can connect over the internet until you set an IP allowlist ([network security](https://appwrite.io/docs/products/databases/postgresql/network-security)). Keep credentials on servers, set the allowlist, and apply 5.4's RLS or data-layer scoping yourself (7.4). F-09's database needed no credentials at all; here one leaked password gets you to the same place.
 - **Permissions as code.** `appwrite.config.json` holds each table's `$permissions` and `rowSecurity` ([CLI tables](https://appwrite.io/docs/tooling/command-line/tables)). `appwrite push tables` applies them, with one config file per environment (`--config-file appwrite.config.prod.json`) ([CLI](https://appwrite.io/docs/tooling/command-line/commands)). Review permission changes in pull requests, like migrations.
   - The docs' sample table grants `create`, `read`, `update` and `delete` to `"any"` with `rowSecurity: false`, a fully public table and the F-03 pattern. Never let an agent copy it.
 - **Isolation test.** Run it against a development project, using the documented server-side session pattern ([SSR login](https://appwrite.io/docs/products/auth/server-side-rendering)):
@@ -38,7 +38,7 @@ async function as(email: string) { // the key needs only the sessions.write scop
 test('user A cannot read or change a row only user B may read', async () => {
   const [a, b] = [await as(env.A_EMAIL), await as(env.B_EMAIL)], where = { databaseId: env.DB_ID, tableId: 'orders' };
   const row = await b.createRow({ ...where, rowId: ID.unique(), data: { total: 1 }, permissions: [Permission.read(Role.user(env.B_ID))] });
-  expect((await a.listRows(where)).rows.map((r) => r.$id)).not.toContain(row.$id);
+  await expect(a.getRow({ ...where, rowId: row.$id })).rejects.toThrow(); // not listRows: it returns 25 rows a page
   await expect(a.updateRow({ ...where, rowId: row.$id, data: { total: 2 } })).rejects.toThrow();
 });
 ```
@@ -47,7 +47,7 @@ test('user A cannot read or change a row only user B may read', async () => {
 
 ## Authentication
 
-- **Methods:** email and password hashed with Argon2, OAuth2, magic URLs, email OTP, phone (SMS), anonymous sessions, JWTs, custom tokens and passkeys ([auth security](https://appwrite.io/docs/products/auth/security), [passkeys](https://appwrite.io/docs/products/auth/passkeys), [anonymous login](https://appwrite.io/docs/products/auth/anonymous)). Passkeys arrived in October 2026, on Cloud and self-hosted 2.5 and later, and a passkey session also satisfies MFA.
+- **Methods:** email and password hashed with Argon2, OAuth2, magic URLs, email OTP, phone (SMS), anonymous sessions, JWTs, custom tokens and passkeys ([auth security](https://appwrite.io/docs/products/auth/security), [passkeys](https://appwrite.io/docs/products/auth/passkeys), [anonymous login](https://appwrite.io/docs/products/auth/anonymous)). Passkeys work on Cloud and on self-hosted 2.5 and later (13 October 2026, [2.5](https://appwrite.io/changelog/entry/2026-10-13)), and a passkey session also satisfies MFA.
 - **Password policies** live in **Auth → Policies → Passwords**:
   - set a minimum length of 12;
   - turn on history (up to 20 passwords), the 10,000-common-passwords dictionary, and the check against personal data.
@@ -61,7 +61,7 @@ test('user A cannot read or change a row only user B may read', async () => {
 
 ## Secrets
 
-- **API keys** are secrets for Server SDKs and the CLI. Scopes limit them, not permissions, so grant the fewest scopes, and keep them out of client apps ([API keys](https://appwrite.io/docs/partners/project/api-keys)). For a one-off task, use an ephemeral key: it lasts at most 3,600 seconds, which suits 12.1's short-lived credentials.
+- **API keys** are secrets for Server SDKs and the CLI. Scopes limit them, not permissions, so grant the fewest scopes, and keep them out of client apps ([API keys](https://appwrite.io/docs/partners/project/api-keys)). For a one-off task, use an ephemeral key: it lasts at most 3,600 seconds, which suits 12.1's short-lived credentials. Creating long-lived keys through the Project API has been deprecated since 17 August 2026, so create them in the Console.
 - **Functions** get an ephemeral key, usable only inside the function, whose scopes you set ([functions](https://appwrite.io/docs/products/functions/functions)).
 - **Sites** get `APPWRITE_SITE_API_KEY` at build time. At runtime the ephemeral key arrives in the `x-appwrite-key` header of every SSR request ([Sites variables](https://appwrite.io/docs/products/sites/environment-variables)), so never log request headers or forward them to the browser.
 - **Variables:** tick **Secret** on a site variable, and no team member can read its value afterwards. A framework's public prefix (`NEXT_PUBLIC_`, `VITE_`, `PUBLIC_`) still ships the value to the browser (T-02).
@@ -73,7 +73,9 @@ test('user A cannot read or change a row only user B may read', async () => {
 - **CSRF:** Appwrite's SSR example sets the session cookie with `sameSite: 'strict'`. Still check `Origin` on every state-changing route (7.4).
 - **CORS:** a **Web platform** pins the hostname allowed to call your project's API ([platforms](https://appwrite.io/docs/partners/project/platforms)). Register only your real hostnames, never a wildcard you don't control.
 - **CSP:** the Sites docs I read don't describe custom response headers, so set the 7.4 CSP in your framework, with your Appwrite endpoint in `connect-src`, and check it with `curl -sI`.
-- **Uploads (T-07):** buckets can cap file size, limit extensions, compress, encrypt files under 20 MB (AES-128-GCM) and scan for viruses ([buckets](https://appwrite.io/docs/products/storage/buckets), [encryption](https://appwrite.io/docs/advanced/security/encryption)). Since October 2026 they can also strip location and device metadata from images ([changelog](https://appwrite.io/changelog/entry/2026-10-21)).
+- **Uploads (T-07):** buckets can cap file size, limit extensions, compress and encrypt files under 20 MB (AES-128-GCM) ([buckets](https://appwrite.io/docs/products/storage/buckets), [encryption](https://appwrite.io/docs/advanced/security/encryption)).
+  - Virus scanning is a bucket option (`antivirus`) that skips files over 20 MB ([Storage API](https://appwrite.io/docs/references/cloud/server-nodejs/storage)). Self-hosted, it's off until you add ClamAV and set `_APP_STORAGE_ANTIVIRUS=enabled` ([environment variables](https://appwrite.io/docs/advanced/self-hosting/configuration/environment-variables)).
+  - Since 21 October 2026, buckets on Cloud can strip location and device metadata from images. It's off by default, so turn it on for user uploads; the changelog said self-hosted would get it in the next release ([changelog](https://appwrite.io/changelog/entry/2026-10-21)).
 
 ## Fonts and assets
 
@@ -97,7 +99,9 @@ test('user A cannot read or change a row only user B may read', async () => {
 ## Testing
 
 - **No security scanner.** Appwrite's docs describe no advisor that reviews permissions, so the section 1 test is the check.
-- **Separate projects:** give each environment its own project (3.2), apply the same `appwrite.config.json` to each, and seed synthetic users (5.5). For a local stack, self-host Appwrite with Docker Compose ([installation](https://appwrite.io/docs/advanced/self-hosting/installation)).
+- **Separate environments (3.2):** give each environment its own project, apply the same `appwrite.config.json` to each, and seed synthetic users (5.5). For a local stack, self-host Appwrite with Docker Compose ([installation](https://appwrite.io/docs/advanced/self-hosting/installation)).
+  - On Cloud, a project can also have **project environments** such as `staging`, each with its own resources and users. You pick one with `setEnvironment` in the SDKs, or `environment_id` in the MCP server; leaving it out acts on the project itself ([SDKs](https://appwrite.io/docs/sdks#environments), [MCP](https://appwrite.io/docs/tooling/ai/mcp-servers)). So any connection that can reach the staging environment can also reach production.
+- **The CLI's guard rails:** `appwrite push` asks before destructive changes, `--force` answers yes to all of them ([CLI](https://appwrite.io/docs/tooling/command-line/commands)), and removing a column from the config can delete it on the next push ([CLI tables](https://appwrite.io/docs/tooling/command-line/tables)). Agent rule (12.1): never run `--force` against production, and review config diffs that drop columns like destructive migrations.
 - **In CI:**
   - run `appwrite push` against the test project, then the Vitest isolation test, then the 9.9 Playwright test against a preview deployment;
   - fail the build if `appwrite.config.json` gives `"any"` or `"users"` more than you intended on any table or bucket, or has `rowSecurity: false` on a table that holds personal data.
@@ -111,9 +115,10 @@ test('user A cannot read or change a row only user B may read', async () => {
   - Pro plans and up have backup policies, manual backups and restore;
   - Appwrite's own disaster-recovery backups are point-in-time for 7 days on some databases, and every 4 hours, kept 7 days, on others;
   - for 5.7, also keep exports under another account.
+- **The 1 November 2026 incident** happened on Appwrite Cloud in Frankfurt, the region recommended above ([incident report](https://appwrite.io/blog/post/incident-report-sites-functions-runtime-vulnerability)). A runtime flaw exposed a credential that could read the environment variables of Functions and Sites on Frankfurt compute, which also serves some sites from other regions. Appwrite notified the owners of 1,022 projects. If you were notified, rotate every secret variable at its issuer, then redeploy each function and site.
 - **Self-hosting means you own patching (7.6).** Recent security releases:
-  - 2.7.1 fixes the runtime vulnerability from the 1 November 2026 incident ([changelog](https://appwrite.io/changelog/entry/2026-11-04));
-  - 2.6.2 and 1.9.10 patch Brotli (CVE-2026-111497), and functions and sites also need updated runtime images ([changelog](https://appwrite.io/changelog/entry/2026-10-24-1)).
+  - 2.7.1 carries the root-cause fix for that runtime flaw, and the incident report points self-hosters only to it ([changelog](https://appwrite.io/changelog/entry/2026-11-04), [incident report](https://appwrite.io/blog/post/incident-report-sites-functions-runtime-vulnerability)). No 1.9 release has followed 1.9.10 of 24 October ([Docker Hub tags](https://hub.docker.com/r/appwrite/appwrite/tags)), so plan the move from 1.9 to 2.7.1;
+  - 2.6.2 and 1.9.10 patch Brotli (CVE-2026-111497), and functions and sites also need updated runtime images ([changelog](https://appwrite.io/changelog/entry/2026-10-24-1)). End-of-life runtimes (Node.js 16, 18–21, 23 and 25; Bun 1.0–1.3) won't get the fix, even on Cloud: switch each function and site to Node.js 22, 24 or 26 or Bun 1.4, and redeploy.
 - **Agents (12.1):** the MCP server signs in with OAuth and reaches the organisations and projects your account can ([MCP](https://appwrite.io/docs/tooling/ai/mcp-servers)). Since October 2026, writes go through a separate tool marked destructive, which needs `confirm_write: true` and a reason ([changelog](https://appwrite.io/changelog/entry/2026-10-27)). Connect with an account that sees only development projects, and keep approvals on.
 
 ## Limits
@@ -128,7 +133,8 @@ test('user A cannot read or change a row only user B may read', async () => {
 
 - Access: [permissions](https://appwrite.io/docs/advanced/security/permissions) · [TablesDB permissions](https://appwrite.io/docs/products/databases/tablesdb/permissions) · [storage permissions](https://appwrite.io/docs/products/storage/permissions) · [PostgreSQL network security](https://appwrite.io/docs/products/databases/postgresql/network-security) · [PostgreSQL connections](https://appwrite.io/docs/products/databases/postgresql/connections) · [CLI commands](https://appwrite.io/docs/tooling/command-line/commands) · [CLI tables](https://appwrite.io/docs/tooling/command-line/tables)
 - Auth: [auth security](https://appwrite.io/docs/products/auth/security) · [passkeys](https://appwrite.io/docs/products/auth/passkeys) · [anonymous login](https://appwrite.io/docs/products/auth/anonymous) · [MFA](https://appwrite.io/docs/products/auth/mfa) · [SSR login](https://appwrite.io/docs/products/auth/server-side-rendering) · [custom domains](https://appwrite.io/docs/products/network/custom-domains) · [rate limits](https://appwrite.io/docs/advanced/security/rate-limits) · [abuse protection](https://appwrite.io/docs/advanced/security/abuse-protection) · [Firewall](https://appwrite.io/docs/products/firewall)
-- Keys and hosting: [API keys](https://appwrite.io/docs/partners/project/api-keys) · [functions](https://appwrite.io/docs/products/functions/functions) · [Sites variables](https://appwrite.io/docs/products/sites/environment-variables) · [Sites logs](https://appwrite.io/docs/products/sites/logs) · [platforms](https://appwrite.io/docs/partners/project/platforms) · [buckets](https://appwrite.io/docs/products/storage/buckets) · [encryption](https://appwrite.io/docs/advanced/security/encryption)
+- Keys and hosting: [API keys](https://appwrite.io/docs/partners/project/api-keys) · [SDKs and project environments](https://appwrite.io/docs/sdks#environments) · [Storage API](https://appwrite.io/docs/references/cloud/server-nodejs/storage) · [self-hosting environment variables](https://appwrite.io/docs/advanced/self-hosting/configuration/environment-variables) · [functions](https://appwrite.io/docs/products/functions/functions) · [Sites variables](https://appwrite.io/docs/products/sites/environment-variables) · [Sites logs](https://appwrite.io/docs/products/sites/logs) · [platforms](https://appwrite.io/docs/partners/project/platforms) · [buckets](https://appwrite.io/docs/products/storage/buckets) · [encryption](https://appwrite.io/docs/advanced/security/encryption)
 - Operations: [regions](https://appwrite.io/docs/products/network/regions) · [HTTPS](https://appwrite.io/docs/advanced/security/https) · [GDPR and DPA](https://appwrite.io/docs/advanced/security/gdpr) · [backups](https://appwrite.io/docs/advanced/security/backups) · [audit logs](https://appwrite.io/docs/advanced/security/audit-logs) · [MCP server](https://appwrite.io/docs/tooling/ai/mcp-servers) · [self-hosting installation](https://appwrite.io/docs/advanced/self-hosting/installation) · [Analytics](https://appwrite.io/products/analytics)
-- Changelog: [TablesDB terminology](https://appwrite.io/changelog/entry/2025-08-26-2) · [breached passwords](https://appwrite.io/changelog/entry/2026-09-29) · [image metadata](https://appwrite.io/changelog/entry/2026-10-21) · [Brotli fix](https://appwrite.io/changelog/entry/2026-10-24-1) · [MCP reads and writes](https://appwrite.io/changelog/entry/2026-10-27) · [Realtime deny guests](https://appwrite.io/changelog/entry/2026-10-29) · [2.7.1](https://appwrite.io/changelog/entry/2026-11-04)
+- Security notices: [incident report, 1 November 2026](https://appwrite.io/blog/post/incident-report-sites-functions-runtime-vulnerability) · [Docker Hub tags](https://hub.docker.com/r/appwrite/appwrite/tags)
+- Changelog: [TablesDB terminology](https://appwrite.io/changelog/entry/2025-08-26-2) · [2.5 with passkeys](https://appwrite.io/changelog/entry/2026-10-13) · [breached passwords](https://appwrite.io/changelog/entry/2026-09-29) · [image metadata](https://appwrite.io/changelog/entry/2026-10-21) · [Brotli fix](https://appwrite.io/changelog/entry/2026-10-24-1) · [MCP reads and writes](https://appwrite.io/changelog/entry/2026-10-27) · [Realtime deny guests](https://appwrite.io/changelog/entry/2026-10-29) · [2.7.1](https://appwrite.io/changelog/entry/2026-11-04)
 - Casebook: F-03, F-09, F-10 (Appendix F)
