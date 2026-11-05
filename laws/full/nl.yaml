@@ -1,0 +1,119 @@
+# Netherlands. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: nl
+name: Netherlands
+tier: full
+applies_with:
+  - eu
+laws:
+  - name: Uitvoeringswet Algemene verordening gegevensbescherming (UAVG)
+    citation: Wet van 16 mei 2018, Stb. 2018, 144, as amended
+    official_url: https://wetten.overheid.nl/BWBR0040940/
+    status: in-force
+    in_force_from: "2018-05-25"
+    notes: The Dutch act that implements the GDPR. The Verzamelwet gegevensbescherming changed it from 1 September 2026.
+  - name: Telecommunicatiewet
+    citation: Wet van 19 oktober 1998, Stb. 1998, 610, as amended
+    official_url: https://wetten.overheid.nl/BWBR0009950/
+    status: in-force
+    in_force_from: "1998-12-15"
+    notes: Article 11.7a covers cookies and similar technologies, and article 11.7 covers spam and telemarketing. Since 1 July 2026 an amendment made through the Energiewet removed the existing-customer exception for telemarketing calls.
+  - name: Verzamelwet gegevensbescherming
+    citation: Wet van 10 juni 2026, Stb. 2026, 154 (Kamerstukken 36264)
+    official_url: https://zoek.officielebekendmakingen.nl/stb-2026-196.html
+    status: in-force
+    in_force_from: "2026-09-01"
+    notes: Amends the UAVG and other laws. In force from 1 September 2026, except a new UAVG exception for statutory audits (Article I, part I), which waits for a follow-up bill. The link is the decree that set the start date.
+  - name: Uitvoeringswet AI-verordening (bill)
+    citation: Draft bill, public consultation opened 20 April 2026
+    official_url: https://www.rdi.nl/actueel/nieuws/2026/04/20/toezicht-ai-balans-veiligheid-en-innovatie
+    status: draft
+    notes: Would set up national supervision under the EU AI Act, with the RDI and the AP as coordinating supervisors working with sector supervisors. As far as we could check, it wasn't law by 5 November 2026.
+regulators:
+  - name: Autoriteit Persoonsgegevens (AP), the data protection authority and coordinating supervisor for algorithms and AI
+    url: https://www.autoriteitpersoonsgegevens.nl/en
+  - name: Autoriteit Consument & Markt (ACM), for the cookie, spam and telemarketing rules in the Telecommunicatiewet
+    url: https://www.acm.nl/nl
+obligations:
+  scope:
+    summary: The GDPR applies directly, and the UAVG implements it. The UAVG covers processing in the context of a Dutch establishment, and processing by organisations outside the EU that offer goods or services to people in the Netherlands or monitor their behaviour there (art. 4). It also applies the GDPR's rules to some activities outside EU law (art. 3).
+    source:
+      - https://wetten.overheid.nl/jci1.3:c:BWBR0040940&hoofdstuk=1&artikel=4
+      - https://wetten.overheid.nl/jci1.3:c:BWBR0040940&hoofdstuk=1&artikel=3
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+  lawful_bases:
+    summary: The GDPR's six lawful bases apply. The UAVG adds national exceptions for special category and criminal offence data (arts. 22 to 33). A number that a law prescribes to identify people, such as the BSN, may only be used where that law allows (art. 46). Since 1 September 2026, the national exception for biometric identification covers only authentication or security needs, and only as far as a compelling public interest in controlled access requires (art. 29).
+    source:
+      - https://wetten.overheid.nl/jci1.3:c:BWBR0040940&hoofdstuk=3&paragraaf=3.1&artikel=22
+      - https://wetten.overheid.nl/jci1.3:c:BWBR0040940&hoofdstuk=3&paragraaf=3.1&artikel=29
+      - https://wetten.overheid.nl/jci1.3:c:BWBR0040940&hoofdstuk=4&artikel=46
+      - https://zoek.officielebekendmakingen.nl/stb-2026-196.html
+  consent_age:
+    summary: The Netherlands kept the GDPR default. When an online service offered directly to a child relies on consent, children can consent for themselves from 16. Below that, a parent or other legal representative must consent. Dutch law applies the same age of 16 to consent in other settings too (art. 5 UAVG).
+    value: 16
+    source:
+      - https://wetten.overheid.nl/jci1.3:c:BWBR0040940&hoofdstuk=1&artikel=5
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+  children:
+    summary: Since 1 September 2026, children aged 12 or over can withdraw a consent themselves, and those aged 12 to 15 can use their GDPR rights alongside their parents. Parents act for children under 12. From 16, a minor can go to court alone over their GDPR rights. The parental consent rules don't apply to free help and advice services offered directly to minors (art. 5 UAVG).
+    source:
+      - https://wetten.overheid.nl/jci1.3:c:BWBR0040940&hoofdstuk=1&artikel=5
+      - https://wetten.overheid.nl/BWBR0040940/2026-09-01/0/Hoofdstuk1/Artikel5/informatie
+  cookies:
+    summary: Storing or reading information on a device needs consent after clear and full information (art. 11.7a Telecommunicatiewet). Consent isn't needed when it's only to carry a communication, strictly necessary for a service the user asked for, or for analytics on a service's quality or effectiveness with little or no privacy impact. Tracking across services is presumed to involve personal data. Public bodies may never make access depend on consent. The ACM enforces the cookie rule and the AP the personal data processing. The AP says cookie walls aren't allowed.
+    source:
+      - https://wetten.overheid.nl/jci1.3:c:BWBR0009950&hoofdstuk=11&paragraaf=11.1&artikel=11.7a
+      - https://wetten.overheid.nl/jci1.3:c:BWBR0009950&hoofdstuk=15&paragraaf=15.1&artikel=15.1
+      - https://www.autoriteitpersoonsgegevens.nl/en/themes/internet-and-smart-devices/cookies
+  marketing:
+    summary: Email and other electronic messages, automated calls and faxes for commercial, ideological or charitable purposes need prior consent (art. 11.7 Telecommunicatiewet). The soft opt-in still covers email to customers about your own similar products, with an opt-out at collection and in every message. Telemarketing calls to individuals also need consent. Since 1 July 2026 firms can't call existing customers without consent. Only charities, certain lotteries and periodical publishers keep a limited exception. The ACM enforces.
+    source:
+      - https://wetten.overheid.nl/jci1.3:c:BWBR0009950&hoofdstuk=11&paragraaf=11.1&artikel=11.7
+      - https://wetten.overheid.nl/BWBR0009950/2026-08-15/0/Hoofdstuk11/Paragraaf11.1/Artikel11.7/informatie
+      - https://www.acm.nl/nl/verkoop-aan-consumenten/reclame-en-verleiden/verkoop-telemarketing
+      - https://www.acm.nl/nl/verkoop-aan-consumenten/reclame-en-verleiden/spam-voorkomen-uw-reclame
+  breach_notice:
+    summary: The GDPR rule applies. Report a breach to the AP without undue delay and within 72 hours, unless it's unlikely to risk people's rights, and tell affected people without undue delay when the risk to them is high. Financial firms under the Wft don't have to notify affected people under Art. 34 GDPR (art. 42 UAVG).
+    value: 72
+    source:
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+      - https://wetten.overheid.nl/jci1.3:c:BWBR0040940&hoofdstuk=4&artikel=42
+      - https://www.autoriteitpersoonsgegevens.nl/en/themes/security/data-breaches
+  registration_or_fees:
+    summary: There's no registration and no fee. If you have a data protection officer, publish their contact details and send them to the AP (Art. 37(7) GDPR).
+    source:
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+  dpo:
+    summary: The GDPR rule applies, with no extra national cases. Appoint a DPO if you're a public authority, or if your core activities involve large-scale regular and systematic monitoring, or large-scale special category or criminal offence data. The UAVG adds a duty of confidentiality for the DPO about complaints and requests (art. 39).
+    source:
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+      - https://wetten.overheid.nl/jci1.3:c:BWBR0040940&hoofdstuk=3&paragraaf=3.4&artikel=39
+  transfers:
+    summary: The GDPR rules apply. Transfers outside the EEA need an adequacy decision, appropriate safeguards such as standard contractual clauses or binding corporate rules, or a listed exception. The UAVG adds no transfer rules for businesses.
+    source:
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+      - https://wetten.overheid.nl/BWBR0040940/
+  dpia:
+    summary: Carry out a DPIA before high-risk processing (Art. 35 GDPR). The AP's list names 17 kinds of processing that always need one, including covert investigations, blacklists, fraud detection, credit scoring, camera surveillance, employee monitoring, location data, profiling and biometric data.
+    source:
+      - https://zoek.officielebekendmakingen.nl/stcrt-2019-64418.html
+  automated_decisions_ai:
+    summary: Art. 22 GDPR applies. The UAVG lifts the ban for automated decisions not based on profiling when they're needed for a legal obligation or a public-interest task, with safeguards. For controllers that aren't public bodies, those include human intervention and the right to give one's view and to contest (art. 40). The AP coordinates oversight of algorithms and AI. An AI Act implementation bill went to public consultation on 20 April 2026, with the RDI and AP as coordinating supervisors. As far as we could check, it wasn't law by 5 November 2026.
+    source:
+      - https://wetten.overheid.nl/jci1.3:c:BWBR0040940&hoofdstuk=4&artikel=40
+      - https://www.autoriteitpersoonsgegevens.nl/en/themes/algorithms-ai/eu-ai-act
+      - https://www.rdi.nl/actueel/nieuws/2026/04/20/toezicht-ai-balans-veiligheid-en-innovatie
+  penalties:
+    summary: GDPR fines apply, up to €20 million or 4% of worldwide annual turnover, and the AP may also fine public bodies (art. 18 UAVG). The AP sets GDPR fines with the EDPB's guidelines, and its 2023 fining policy covers other cases. Since 1 September 2026 it must publish its sanction decisions (art. 21b UAVG). The ACM can fine cookie, spam and telemarketing breaches up to €900,000 or 1% of turnover, doubled for a repeat offence within five years.
+    source:
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+      - https://wetten.overheid.nl/jci1.3:c:BWBR0040940&hoofdstuk=2&paragraaf=2.2&artikel=18
+      - https://wetten.overheid.nl/jci1.3:c:BWBR0040940&hoofdstuk=2&paragraaf=2.2&artikel=21b
+      - https://wetten.overheid.nl/jci1.3:c:BWBR0049034
+      - https://wetten.overheid.nl/jci1.3:c:BWBR0009950&hoofdstuk=15&paragraaf=15.2&artikel=15.4
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry, checked against official sources with AI assistance.
