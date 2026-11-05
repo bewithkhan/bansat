@@ -338,8 +338,9 @@ Keep the credit line in anything you copy or adapt (CC BY 4.0).
 
 ## Licence
 
-- **Text and templates:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). You can use, adapt and share them, including commercially, if you keep this credit: *"Bansat (بنسټ) by Muhammad Tufail Khan, https://github.com/bewithkhan/bansat, CC BY 4.0"*.
+- **Text and templates:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), full text in `LICENSE`. You can use, adapt and share them, including commercially, if you keep this credit: *"Bansat (بنسټ) by Muhammad Tufail Khan, https://github.com/bewithkhan/bansat, CC BY 4.0"*.
 - **Code samples:** MIT (see `LICENSE-CODE`).
+- `NOTICE` sets out which licence covers what, with the credit line.
 
 ## Disclaimer
 
