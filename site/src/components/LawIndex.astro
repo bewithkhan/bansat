@@ -1,0 +1,138 @@
+---
+// The law tracker's index (SCR-01): one row per jurisdiction, with a search box and filters for
+// region, tier, review status and freshness. Without JavaScript the whole table still shows (S3);
+// with it, the filters narrow the rows and an empty result offers "Clear filters" (S1).
+interface Row {
+  id: string;
+  name: string;
+  tier: 'full' | 'basic';
+  region: string;
+  review: string;
+  reviewLabel: string;
+  checked: string;
+  checkedLabel: string;
+  window: number;
+  staleAtBuild: boolean;
+  href: string;
+}
+const { entries } = Astro.props as { entries: Row[] };
+const regions = [...new Set(entries.map((e) => e.region))].sort();
+const reviews = [...new Map(entries.map((e) => [e.review, e.reviewLabel])).entries()];
+---
+
+<form class="bansat-filters" data-law-filters aria-label="Filter jurisdictions">
+  <div>
+    <label for="law-q">Search</label>
+    <input id="law-q" name="q" type="search" autocomplete="off" />
+  </div>
+  <div>
+    <label for="law-region">Region</label>
+    <select id="law-region" name="region">
+      <option value="">All regions</option>
+      {regions.map((r) => <option value={r}>{r}</option>)}
+    </select>
+  </div>
+  <div>
+    <label for="law-tier">Tier</label>
+    <select id="law-tier" name="tier">
+      <option value="">Full and basic</option>
+      <option value="full">Full</option>
+      <option value="basic">Basic</option>
+    </select>
+  </div>
+  <div>
+    <label for="law-review">Review</label>
+    <select id="law-review" name="review">
+      <option value="">Any review</option>
+      {reviews.map(([value, label]) => <option value={value}>{label}</option>)}
+    </select>
+  </div>
+  <div>
+    <label for="law-fresh">Freshness</label>
+    <select id="law-fresh" name="fresh">
+      <option value="">Any</option>
+      <option value="current">Up to date</option>
+      <option value="stale">Stale</option>
+    </select>
+  </div>
+  <button type="reset">Clear filters</button>
+</form>
+
+<p class="bansat-count" data-law-count aria-live="polite">{entries.length} jurisdictions</p>
+
+<div class="bansat-table" tabindex="0" role="region" aria-label="Table: jurisdictions">
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Jurisdiction</th>
+        <th scope="col">Region</th>
+        <th scope="col">Tier</th>
+        <th scope="col">Review</th>
+        <th scope="col">Last checked</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        entries.map((e) => (
+          <tr data-law-row data-search={`${e.name} ${e.id}`.toLowerCase()} data-region={e.region} data-tier={e.tier} data-review={e.review}>
+            <th scope="row">
+              <a href={e.href}>{e.name}</a>
+            </th>
+            <td>{e.region}</td>
+            <td>{e.tier === 'full' ? 'Full' : 'Basic'}</td>
+            <td class="bansat-nowrap">{e.reviewLabel}</td>
+            <td>
+              <span class:list={['bansat-fresh', { 'is-stale': e.staleAtBuild }]} data-checked={e.checked} data-window={e.window} data-short>
+                {e.checkedLabel}
+              </span>
+            </td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>
+
+<p class="bansat-empty" data-law-empty hidden>
+  No jurisdictions match these filters. <button type="button" data-law-clear>Clear filters</button>
+</p>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-law-filters]');
+  const rows = [...document.querySelectorAll<HTMLTableRowElement>('[data-law-row]')];
+  const count = document.querySelector<HTMLElement>('[data-law-count]');
+  const empty = document.querySelector<HTMLElement>('[data-law-empty]');
+  const clear = document.querySelector<HTMLButtonElement>('[data-law-clear]');
+
+  if (form && count && empty) {
+    const apply = () => {
+      const data = new FormData(form);
+      const q = String(data.get('q') ?? '').trim().toLowerCase();
+      const region = String(data.get('region') ?? '');
+      const tier = String(data.get('tier') ?? '');
+      const review = String(data.get('review') ?? '');
+      const fresh = String(data.get('fresh') ?? '');
+      let shown = 0;
+      for (const row of rows) {
+        const stale = row.querySelector('.bansat-fresh')?.classList.contains('is-stale') ?? false;
+        const match =
+          (!q || (row.dataset.search ?? '').includes(q)) &&
+          (!region || row.dataset.region === region) &&
+          (!tier || row.dataset.tier === tier) &&
+          (!review || row.dataset.review === review) &&
+          (!fresh || (fresh === 'stale') === stale);
+        row.hidden = !match;
+        if (match) shown++;
+      }
+      count.textContent = shown === rows.length ? `${rows.length} jurisdictions` : `${shown} of ${rows.length} jurisdictions`;
+      empty.hidden = shown > 0;
+    };
+    form.addEventListener('input', apply);
+    form.addEventListener('submit', (event) => event.preventDefault());
+    form.addEventListener('reset', () => setTimeout(apply));
+    clear?.addEventListener('click', () => {
+      form.reset();
+      form.querySelector<HTMLInputElement>('input[name="q"]')?.focus();
+    });
+  }
+</script>
