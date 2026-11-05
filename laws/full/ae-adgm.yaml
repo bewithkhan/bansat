@@ -1,0 +1,100 @@
+# Abu Dhabi Global Market. Read together with the UAE federal entry (ae). Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: ae-adgm
+name: Abu Dhabi Global Market (ADGM)
+tier: full
+applies_with: [ae]
+laws:
+  - name: Data Protection Regulations 2021 (DPR 2021)
+    citation: ADGM Data Protection Regulations 2021, as amended
+    official_url: https://www.adgm.com/media/announcements/adgm-enacts-its-new-data-protection-regulations-2021
+    status: in-force
+    in_force_from: "2021-08-14"
+    notes: "Enacted on 11 February 2021 and published on 14 February 2021, replacing the 2015 Regulations. According to the ODP, they applied from 14 August 2021 to entities set up on or after 14 February 2021, and from 14 February 2022 to existing ones. The Fees and Fines Rules followed in July 2021. In September 2025 ADGM amended the DPR 2021 and made the Data Protection Regulations (Substantial Public Interest Conditions) Rules 2025."
+regulators:
+  - name: Office of Data Protection, ADGM Registration Authority (headed by the Commissioner of Data Protection)
+    url: https://www.adgm.com/operating-in-adgm/office-of-data-protection
+obligations:
+  scope:
+    summary: "The DPR 2021 apply to processing in the context of an ADGM establishment (on Al Maryah or Al Reem Island), wherever it happens, and the ODP says they can reach firms outside ADGM whose processing is inextricably linked to one. Where data subjects live doesn't matter. Purely personal use and criminal law enforcement by public authorities are excluded. The federal PDPL doesn't apply to ADGM entities, but federal laws other than civil and commercial ones still do, such as the cybercrime and child digital safety laws and the telemarketing rules (see ae)."
+    source:
+      - https://assets.adgm.com/download/assets/ADGM+DPR+2021+Guidance+Part+1.pdf/b65534b2595411ef82c5a27efcbde115
+      - https://www.adgm.com/about/jurisdiction/alreemisland
+      - https://uaelegislation.gov.ae/en/legislations/1972
+      - https://uaelegislation.gov.ae/en/legislations/1981/download
+  lawful_bases:
+    summary: "Six lawful bases (s. 5(1)): consent, contract, legal obligation, vital interests, public tasks or official authority, and legitimate interests, which must be balanced against the person's rights, especially a child's. Special category data also needs a section 7(2) condition, and some substantial public interest conditions need an appropriate policy document. Since September 2025 ADGM rules add conditions for insurance and for protecting children and adults at risk without consent. Consent must be freely given, specific, informed and unambiguous."
+    source:
+      - https://assets.adgm.com/download/assets/ADGM+DPR+2021+Guidance+Part+1.pdf/b65534b2595411ef82c5a27efcbde115
+      - https://www.adgm.com/media/announcements/adgm-enacts-new-substantial-public-interest-rules-under-data-protection-regulations-2021
+  consent_age:
+    summary: "The DPR 2021, as ODP guidance explains them, set no age at which a child can consent. The guidance treats a child as anyone under 18 when weighing legitimate interests and asks for especially clear communications with children. The federal under-13 parental consent rule for digital platforms, and the UAE age of majority of 18 Gregorian years, apply alongside (see ae)."
+    source:
+      - https://assets.adgm.com/download/assets/ADGM+DPR+2021+Guidance+Part+1.pdf/b65534b2595411ef82c5a27efcbde115
+      - https://assets.adgm.com/download/assets/ADGM+DPR+2021+Guidance+Part+2.pdf/4dfcd0f4595511ef8933e27828504259
+      - https://u.ae/en/information-and-services/social-affairs/Priority-groups/children/Childrens-digital-safety
+      - https://uaelegislation.gov.ae/en/news/the-uae-government-issues-a-federal-decree-law-promulgating-the-civil-transactions-law
+  children:
+    summary: "There are no ADGM-specific children's online rules. Children's interests weigh heavily against a controller's legitimate interests, and communications with them must be especially clear. ADGM's 2025 rules let organisations process special category data without consent where needed to protect children or adults at risk of harm. The federal Child Digital Safety Law and social media age rules apply to platforms that operate in or target the UAE (see ae)."
+    source:
+      - https://assets.adgm.com/download/assets/ADGM+DPR+2021+Guidance+Part+1.pdf/b65534b2595411ef82c5a27efcbde115
+      - https://assets.adgm.com/download/assets/ADGM+DPR+2021+Guidance+Part+2.pdf/4dfcd0f4595511ef8933e27828504259
+      - https://www.adgm.com/media/announcements/adgm-enacts-new-substantial-public-interest-rules-under-data-protection-regulations-2021
+      - https://u.ae/en/information-and-services/social-affairs/Priority-groups/children/Childrens-digital-safety
+  cookies:
+    summary: "There is no cookie-specific rule. Cookies and similar tools that collect personal data are processing under the DPR 2021, so they need a lawful basis, such as consent that meets the DPR conditions or legitimate interests, and clear transparency information. ODP guidance uses cookie-based tracking as an example of profiling that can feed automated decisions."
+    source:
+      - https://assets.adgm.com/download/assets/ADGM+DPR+2021+Guidance+Part+1.pdf/b65534b2595411ef82c5a27efcbde115
+      - https://assets.adgm.com/download/assets/ADGM+DPR+2021+Guidance+Part+2.pdf/4dfcd0f4595511ef8933e27828504259
+  marketing:
+    summary: "Consent isn't always needed for direct marketing emails: legitimate interests can work if people can object when their data is collected and in every message, for example with an unsubscribe link. The right to object to direct marketing, including related profiling, is absolute, so stop when asked. Federal telemarketing rules for calls, texts and social media messages, which cover free-zone companies, and TDRA's rules for marketing texts also apply (see ae)."
+    source:
+      - https://assets.adgm.com/download/assets/ADGM+DPR+2021+Guidance+Part+2.pdf/4dfcd0f4595511ef8933e27828504259
+      - https://uaelegislation.gov.ae/en/legislations/2519/download
+      - https://tdra.gov.ae/-/media/About/regulations-and-ruling/EN/cellular-phone-spam-regulatory-policy-English.ashx
+  breach_notice:
+    summary: "Controllers must notify the Office of Data Protection without undue delay and, where feasible, within 72 hours of becoming aware of a breach, unless it's unlikely to risk people's rights, through the ADGM Online Registry Solution (s. 32). Explain any delay, and send details in phases if needed. Tell affected people without undue delay if the risk to them is high. Keep a record of all breaches, including those not reported."
+    value: 72
+    unit: hours
+    source:
+      - https://www.adgm.com/operating-in-adgm/office-of-data-protection/data-breach-notifications
+      - https://assets.adgm.com/download/assets/ADGM+DPR+2021+Guidance+Part+5.pdf/fe422242595611efaa55be162688b39c
+  registration_or_fees:
+    summary: "All ADGM entities that process personal data must register as data controllers and keep their Data Protection Register entry and data protection contact person up to date. The data protection fee is USD 300 on registration and USD 300 a year on renewal; paying the renewal after the one-month grace period adds a USD 450 fixed penalty."
+    source:
+      - https://www.adgm.com/operating-in-adgm/office-of-data-protection
+      - https://www.adgm.com/operating-in-adgm/office-of-data-protection/fee-sections
+      - https://assets.adgm.com/download/assets/ADGM+ODP+Circular+No+1+of+2025.pdf/d434729cd3fa11efb2e7560b7285278b
+      - https://assets.adgm.com/download/assets/ADGM+DPR+2021+Guidance+Part+3.pdf/12ba12da595611ef894152361f6b9c5e
+  dpo:
+    summary: "Appoint a DPO if you're a public authority, or your core activities involve regular and systematic monitoring of people on a large scale, such as tracking and profiling, or large-scale processing of special category data. The DPO can be an employee or a contractor and needn't live in ADGM but must be easy to reach, must not hold a conflicting role, and their contact details should be in privacy notices. Record the DPO's appointment or departure in the Data Protection Register."
+    source:
+      - https://assets.adgm.com/download/assets/ADGM+DPR+2021+Guidance+Part+3.pdf/12ba12da595611ef894152361f6b9c5e
+      - https://assets.adgm.com/download/assets/ADGM+ODP+Circular+No+1+of+2025.pdf/d434729cd3fa11efb2e7560b7285278b
+  transfers:
+    summary: "Transfers outside ADGM, including to the onshore UAE, need an adequate destination (the jurisdictions the European Commission recognises, plus the DIFC, the QFC, Israel and US firms in the EU-US Data Privacy Framework), appropriate safeguards such as ADGM standard contractual clauses, the ODP's addendum to the EU clauses or approved binding corporate rules, or a listed derogation, such as consent, a contract or legal claims. No transfer is too small to be covered."
+    source:
+      - https://www.adgm.com/operating-in-adgm/office-of-data-protection/jurisdictions
+      - https://assets.adgm.com/download/assets/ADGM+DPR+2021+Guidance+Part+6.pdf/e743e728595711ef80b936e29b0f3a63
+      - https://www.adgm.com/operating-in-adgm/office-of-data-protection/guidance
+  dpia:
+    summary: "Carry out a DPIA before processing likely to be high risk to people (s. 34). The ODP expects one for profiling, automated decisions or special category data used to decide access to services, large-scale monitoring of public places, large-scale special category data or profiling, employee biometrics, matching data from several sources, and processing that could cause physical harm if breached. A DPIA is also needed before keeping data for research or AI training instead of deleting it (s. 31)."
+    source:
+      - https://assets.adgm.com/download/assets/ADGM+DPR+2021+Guidance+Part+4.pdf/63de087e595611ef8e065eb4feb71eb0
+  automated_decisions_ai:
+    summary: "People have the right not to be subject to decisions based solely on automated processing, including profiling, with legal or similarly significant effects, unless the decision is needed for a contract, based on explicit consent, or required or authorised by law with safeguards. Data in a dataset used to lawfully train or refine an AI system can be kept instead of deleted only if that doesn't put people's rights at risk and a DPIA is done first."
+    source:
+      - https://assets.adgm.com/download/assets/ADGM+DPR+2021+Guidance+Part+2.pdf/4dfcd0f4595511ef8933e27828504259
+      - https://assets.adgm.com/download/assets/ADGM+DPR+2021+Guidance+Part+4.pdf/63de087e595611ef8e065eb4feb71eb0
+  penalties:
+    summary: "The Commissioner can issue directions and reprimands, order compliance, limit or ban processing, suspend data flows and impose administrative fines of up to USD 28 million. Not paying the data protection or renewal fee can cost up to 150% of the fee, recoverable through the ADGM Courts. People can complain to the Commissioner and apply to the ADGM Courts against controllers and processors."
+    source:
+      - https://assets.adgm.com/download/assets/ADGM+Penalties+of+Non-compliance+Infographic.pdf/07c1a10858a811efb9d15e7c57113ad4
+      - https://assets.adgm.com/download/assets/ADGM+DPR+2021+Guidance+Part+7.pdf/50844c28595811efa5b0766753b045bd
+      - https://assets.adgm.com/download/assets/ADGM+DPR+2021+Guidance+Part+1.pdf/b65534b2595411ef82c5a27efcbde115
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry, checked against official sources with AI assistance.

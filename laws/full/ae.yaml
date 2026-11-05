@@ -1,0 +1,147 @@
+# United Arab Emirates (federal). Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: ae
+name: United Arab Emirates (federal)
+tier: full
+laws:
+  - name: Personal Data Protection Law (PDPL)
+    citation: Federal Decree-Law No. 45 of 2021 on the Protection of Personal Data
+    official_url: https://uaelegislation.gov.ae/en/legislations/1972
+    status: in-force
+    in_force_from: "2022-01-02"
+    notes: "In force on 2 January 2022 under Article 31 (Official Gazette No. 712, supplement, 26 September 2021). The Executive Regulations, due within six months (Art. 28), and the Cabinet decision on administrative penalties (Art. 26) had not been published by 5 November 2026. Controllers and processors will have six months from the Executive Regulations to comply (Art. 29)."
+  - name: Law establishing the UAE Data Office
+    citation: Federal Decree-Law No. 44 of 2021 Establishing the UAE Data Office
+    official_url: https://uaelegislation.gov.ae/en/legislations/2433
+    status: in-force
+    in_force_from: "2021-09-27"
+    notes: "In force the day after its publication in Official Gazette No. 712 (supplement) on 26 September 2021 (Art. 11), so 27 September 2021 (derived; the portal shows the same date). On 14 June 2026 the government approved a federal Artificial Intelligence and Data Authority that takes over the Data Office's functions."
+  - name: Law on Countering Rumours and Cybercrimes
+    citation: Federal Decree-Law No. 34 of 2021
+    official_url: https://uaelegislation.gov.ae/en/legislations/1526
+    status: in-force
+    in_force_from: "2022-01-02"
+    notes: "In force on 2 January 2022 (Art. 74). A criminal law that applies across the UAE, including in financial free zones. It covers unauthorised handling of personal data, processing it in breach of UAE law, privacy invasion and failing to remove unlawful content."
+  - name: Child Digital Safety Law
+    citation: Federal Decree-Law No. 26 of 2025 on Child Digital Safety
+    official_url: https://uaelegislation.gov.ae/en/legislations/3912
+    status: in-force
+    in_force_from: "2026-01-01"
+    notes: "Issued 1 October 2025 and published in Official Gazette No. 809 (supplement 1) on 14 October 2025. The start date is the effective date the federal legislation portal lists. Applies to digital platforms and internet service providers that operate in the UAE or target users there, and to children's carers."
+  - name: Cabinet Resolution on children's access to social media platforms
+    citation: Cabinet Resolution No. 106 of 2026
+    official_url: https://uaelegislation.gov.ae/en/legislations/4506
+    status: in-force
+    in_force_from: "2026-06-30"
+    notes: "Issued 17 June 2026 and published in Official Gazette No. 826 on 29 June 2026. The start date is the effective date the federal legislation portal lists. Sets 15 as the minimum age for social media accounts; the government describes a gradual transition for platforms."
+  - name: Telemarketing Regulations
+    citation: Cabinet Resolution No. 56 of 2024, with Cabinet Resolution No. 57 of 2024 on violations and penalties
+    official_url: https://uaelegislation.gov.ae/en/legislations/2519
+    status: in-force
+    in_force_from: "2024-08-27"
+    notes: "Both issued 10 June 2024 and published in Official Gazette No. 778 on 28 June 2024. They apply 60 days after publication, so from 27 August 2024 (derived; the portal shows the same date). They cover marketing calls, texts and social media messages by companies licensed in the UAE, including free zones."
+  - name: TDRA Regulatory Policy on Unsolicited Electronic Communications
+    citation: Version 1.1, issued 13 June 2022 (replacing version 1.0 of 29 March 2020)
+    official_url: https://tdra.gov.ae/-/media/About/regulations-and-ruling/EN/cellular-phone-spam-regulatory-policy-English.ashx
+    status: in-force
+    in_force_from: "2022-06-13"
+    notes: "Effective on issue (section 15). Binds licensed telecom operators, which must pass its rules on to the businesses that send marketing texts through them."
+  - name: Law on the Use of ICT in Health Fields
+    citation: Federal Law No. 2 of 2019
+    official_url: https://uaelegislation.gov.ae/en/legislations/1209
+    status: in-force
+    in_force_from: "2019-05-06"
+    notes: "Article 31 starts it three months after publication. The portal gives Official Gazette No. 647 of 6 February 2019, so 6 May 2019 (derived), but lists 14 May 2019 as the effective date. Applies across the UAE, including free zones, and keeps the health data it covers outside the PDPL."
+regulators:
+  - name: Artificial Intelligence and Data Authority (approved 14 June 2026, taking over the functions of the UAE Data Office named in the PDPL)
+    url: https://uaecabinet.ae/en/news/mohammed-bin-rashid-approves-establishing-artificial-intelligence-and-data-authority
+  - name: Telecommunications and Digital Government Regulatory Authority (TDRA)
+    url: https://tdra.gov.ae/en
+obligations:
+  scope:
+    summary: "The PDPL covers processing of personal data of people who live in the UAE or have a place of business there, by controllers and processors in the UAE, whether they process inside or outside it, and by those abroad who process data of people in the UAE. It excludes government data and bodies, security and judicial authorities, personal use, health and banking or credit data that have their own laws, and free-zone companies with their own data protection law, such as those in the DIFC and ADGM (see those entries). Federal criminal, child-safety and telemarketing rules still apply in free zones."
+    source:
+      - https://uaelegislation.gov.ae/en/legislations/1972
+      - https://uaelegislation.gov.ae/en/legislations/1981/download
+      - https://uaelegislation.gov.ae/en/legislations/2519/download
+  lawful_bases:
+    summary: "Processing needs the person's consent unless an Article 4 case applies: public interest, data the person made public, legal claims and judicial or security proceedings, health care and public health, archiving and research, protecting the person's interests, employment and social security duties, a contract with the person, a duty under another UAE law, or a case the Executive Regulations add. There is no general legitimate interests basis. Consent must be specific, clear, provable and easy to withdraw, and processing must be fair, transparent and limited to its purpose."
+    source:
+      - https://uaelegislation.gov.ae/en/legislations/1972
+  consent_age:
+    summary: "The PDPL says nothing about children or legal capacity. Since 1 January 2026 the Child Digital Safety Law bars digital platforms from collecting or using the personal data of children under 13 unless a parent or guardian gives clear consent that is easy to withdraw, the use is clearly explained, and the data isn't used for targeted advertising or commercial purposes. Full legal capacity begins at 18 Gregorian years under the Civil Transactions Law in force since 1 June 2026, down from 21 lunar years."
+    value: 13
+    unit: years
+    source:
+      - https://u.ae/en/information-and-services/social-affairs/Priority-groups/children/Childrens-digital-safety
+      - https://uaelegislation.gov.ae/en/legislations/3912
+      - https://uaelegislation.gov.ae/en/news/the-uae-government-issues-a-federal-decree-law-promulgating-the-civil-transactions-law
+      - https://uaelegislation.gov.ae/en/legislations/4011
+  children:
+    summary: "The Child Digital Safety Law covers platforms and internet service providers that operate in or target the UAE. Platforms must verify ages in line with a risk-based classification, set strong default privacy settings, offer parental controls and age ratings, filter and report harmful content, report child sexual abuse material at once, and keep children away from online gambling. Internet providers must filter content. Cabinet Resolution No. 106 of 2026 bars under-15s from creating, using or running social media accounts, and platforms must enforce this."
+    source:
+      - https://uaelegislation.gov.ae/en/news/uae-government-issues-a-federal-decree-law-on-child-digital-safety
+      - https://u.ae/en/information-and-services/social-affairs/Priority-groups/children/Childrens-digital-safety
+      - https://uaelegislation.gov.ae/en/legislations/4506
+    secondary:
+      - https://www.lw.com/en/insights/uaes-child-digital-safety-law-what-every-digital-platform-and-isp-should-know
+      - https://www.lw.com/en/insights/2026/08/UAEs-Restrictions-on-Childrens-Access-to-Social-Media-What-Social-Media-Platforms-Should-Know
+  cookies:
+    summary: "There is no federal cookie rule. Where cookies or similar tools collect personal data, the PDPL applies, so consent is needed unless an Article 4 case fits. On platforms covered by the Child Digital Safety Law, children's accounts need strong default privacy settings, and data of under-13s can't be used for targeted advertising."
+    source:
+      - https://uaelegislation.gov.ae/en/legislations/1972
+      - https://u.ae/en/information-and-services/social-affairs/Priority-groups/children/Childrens-digital-safety
+  marketing:
+    summary: "People can object to processing for direct marketing, including profiling (PDPL Art. 17), and the Consumer Protection Law bars using consumer data for promotion and marketing. Telemarketing by calls, texts or social media messages needs the competent authority's prior approval, company-registered local numbers, calls only from 9am to 6pm, no calls to numbers on the Do Not Call Register, recorded calls, and no disclosure or sale of data without consent. TDRA's policy requires opt-in consent for marketing texts, an opt-out in each, an 'AD-' sender name and no sends from 9pm to 7am."
+    source:
+      - https://uaelegislation.gov.ae/en/legislations/1972
+      - https://uaelegislation.gov.ae/en/legislations/1455/download
+      - https://uaelegislation.gov.ae/en/legislations/2519/download
+      - https://tdra.gov.ae/-/media/About/regulations-and-ruling/EN/cellular-phone-spam-regulatory-policy-English.ashx
+  breach_notice:
+    summary: "As soon as it learns of a breach that threatens the privacy, confidentiality or security of personal data, the controller must notify the Data Office with the breach's nature, likely effects, measures taken and the DPO's details, within the time the Executive Regulations set. Those regulations haven't been issued, so no fixed deadline applies yet. Affected people must be told when the breach may harm their privacy, and processors must tell the controller at once."
+    source:
+      - https://uaelegislation.gov.ae/en/legislations/1972
+      - https://uaelegislation.gov.ae/ar/legislations/1972
+  registration_or_fees:
+    summary: "There is no general registration or fee under the PDPL. Controllers and processors must report their DPO's contact details to the Data Office, and controllers must keep a record of processing and show it on request. The Office may exempt establishments that don't process large volumes of personal data from some duties. Companies need the competent authority's prior approval before telemarketing."
+    source:
+      - https://uaelegislation.gov.ae/en/legislations/1972
+      - https://uaelegislation.gov.ae/en/legislations/2519/download
+  dpo:
+    summary: "Controllers and processors must appoint a DPO when processing poses a high risk to privacy because of new technology or its volume, involves systematic and comprehensive assessment of sensitive data, including profiling and automated processing, or involves large volumes of sensitive data. The DPO can be an employee or an outside appointee, in or outside the UAE, and their contact details go to the Data Office. The DPO checks compliance, handles requests and complaints, advises on impact assessments and liaises with the Office, keeping information confidential."
+    source:
+      - https://uaelegislation.gov.ae/en/legislations/1972
+  transfers:
+    summary: "Personal data can go abroad to countries whose data protection laws the Data Office approves as adequate, or under an agreement the UAE has joined. Otherwise a transfer needs a binding contract applying the PDPL's standards, the person's express consent, or another listed case, such as legal claims, a contract, judicial cooperation or the public interest; the Executive Regulations will add controls. Health data covered by Federal Law No. 2 of 2019 must be stored and processed in the UAE unless a health authority decision allows otherwise."
+    source:
+      - https://uaelegislation.gov.ae/en/legislations/1972
+      - https://uaelegislation.gov.ae/en/legislations/1209/download
+  dpia:
+    summary: "Before processing likely to pose a high risk to privacy, especially with new technology, the controller must assess its impact. An assessment is required for systematic, large-scale evaluation of people by automated processing, including profiling, with legal or similarly serious effects, and for large-scale processing of sensitive data. It must describe the processing, its necessity, the risks and the safeguards, be done with the DPO and be reviewed regularly. The Data Office is to publish a list of processing that needs none."
+    source:
+      - https://uaelegislation.gov.ae/en/legislations/1972
+  automated_decisions_ai:
+    summary: "People can object to decisions based on automated processing, including profiling, that have legal or serious adverse effects. The right doesn't apply where the processing is needed for a contract, required by another law or consented to in advance, but the controller must then apply safeguards, including human review on request (PDPL Art. 18). AI is otherwise covered by policy and ethics documents. The new Artificial Intelligence and Data Authority, approved on 14 June 2026, is to propose AI and data legislation and set standards."
+    source:
+      - https://uaelegislation.gov.ae/en/legislations/1972
+      - https://uaelegislation.gov.ae/en/policy/details/uae-s-international-stance-on-artificial-intelligence-policy
+      - https://uaecabinet.ae/en/news/mohammed-bin-rashid-approves-establishing-artificial-intelligence-and-data-authority
+    secondary:
+      - https://cms.law/en/int/expert-guides/ai-regulation-scanner/united-arab-emirates
+  penalties:
+    summary: "Administrative fines under the PDPL await a Cabinet decision (Art. 26), so none are set yet. The cybercrime law punishes using technology to collect or process personal data of UAE nationals or residents in breach of UAE law with prison and/or AED 50,000 to 500,000 (Art. 13), and unauthorised handling of personal data with at least 6 months and/or AED 20,000 to 100,000 (Art. 6). Telemarketing fines reach AED 150,000 for a third offence, and storing or processing health data abroad unlawfully carries AED 500,000 to 700,000."
+    source:
+      - https://uaelegislation.gov.ae/en/legislations/1972
+      - https://uaelegislation.gov.ae/en/legislations/1526
+      - https://uaelegislation.gov.ae/en/legislations/2523/download
+      - https://uaelegislation.gov.ae/en/legislations/1209/download
+    secondary:
+      - https://www.ashurstperkinscoie.com/en/insights/data-bytes-67-your-emea-data-privacy-update-for-july-2026/
+      - https://www.tamimi.com/law_update_articles/uae-establishes-new-federal-authority-for-ai-and-data-a-significant-step-in-the-evolution-of-digital-regulation/
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry, checked against official sources with AI assistance.

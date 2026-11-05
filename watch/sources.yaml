@@ -87,3 +87,11 @@ jurisdictions:
     official_domains: [inforegulator.org.za, gov.za, thencc.org.za]
   ke:
     official_domains: [odpc.go.ke, parliament.go.ke, ca.go.ke, klrc.go.ke]
+  ae:
+    official_domains: [uaelegislation.gov.ae, u.ae, uaecabinet.ae, tdra.gov.ae]
+  ae-difc:
+    official_domains: [difc.com, difc.ae, mediaoffice.ae]
+  ae-adgm:
+    official_domains: [adgm.com]
+  sa:
+    official_domains: [sdaia.gov.sa, uqn.gov.sa, spa.gov.sa, cst.gov.sa, citc.gov.sa, mcit.gov.sa, my.gov.sa]

@@ -1,0 +1,126 @@
+# Saudi Arabia. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: sa
+name: Saudi Arabia
+tier: full
+laws:
+  - name: Personal Data Protection Law (PDPL)
+    citation: Royal Decree No. M/19 of 9/2/1443H (Council of Ministers Resolution No. 98 of 7/2/1443H), amended by Royal Decree No. M/148 of 5/9/1444H
+    official_url: https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/PDPL
+    status: in-force
+    in_force_from: "2023-09-14"
+    notes: "Published in Umm Al-Qura on 24 September 2021 and in force 720 days later (Art. 43), on 14 September 2023, the date SDAIA gives. Controllers had one year to comply, to 14 September 2024. The 2023 amendments (Council of Ministers Resolution No. 604 of 29/8/1444H) apply from the same start date."
+  - name: Implementing Regulation of the PDPL
+    citation: SDAIA President's Decision No. 1516 of 19/2/1445H
+    official_url: https://www.uqn.gov.sa/details?p=23595
+    status: in-force
+    in_force_from: "2023-09-14"
+    notes: "Published in Umm Al-Qura on 7 September 2023 and in force with the Law (Art. 38). Draft amendments are out for consultation (see below)."
+  - name: Regulation on Personal Data Transfer outside the Kingdom
+    citation: SDAIA President's Decision No. 1840 of 27/2/1446H
+    official_url: https://www.uqn.gov.sa/details?p=25412
+    status: in-force
+    in_force_from: "2024-09-01"
+    notes: "In force on publication in Umm Al-Qura on 1 September 2024 (Art. 9). It replaced the first Transfer Regulation, published on 7 September 2023."
+  - name: Draft amendments to the Implementing Regulation
+    citation: SDAIA public consultation opened on 6 October 2026
+    official_url: https://www.spa.gov.sa/N2694642
+    status: draft
+    notes: "SDAIA asked for comments through the Istitlaa platform on amendments that would clarify the Regulation's procedures and its provisions on storing personal data. Not law."
+  - name: Regulations for Curbing SPAM Messages and Calls
+    citation: Communications, Space and Technology Commission (CST), version 3 (October 2022)
+    official_url: https://www.cst.gov.sa/en/regulations-and-licenses/regulations/regulations-for-curbing-spam-messages-and-calls
+    status: in-force
+    in_force_from: "2022-10-17"
+    notes: "The start date is the decision date on CST's page (derived); the document itself states no start date. Binds telecom operators, SMS providers and senders of messages and calls."
+regulators:
+  - name: Saudi Data and Artificial Intelligence Authority (SDAIA), the competent authority under the PDPL, through its National Data Governance Platform
+    url: https://dgp.sdaia.gov.sa/wps/portal/pdp/home
+  - name: Communications, Space and Technology Commission (CST)
+    url: https://www.cst.gov.sa/en
+obligations:
+  scope:
+    summary: "The PDPL applies to processing in the Kingdom by any means and to processing of personal data of people residing in the Kingdom by parties outside it, including data of the dead that could identify them or their family. SDAIA reads 'residing' as anyone in the Kingdom, whatever their nationality or status, including visitors. Purely personal or family use is excluded unless the data is published or disclosed to others. SDAIA supervises the law, without prejudice to the Saudi Central Bank's powers."
+    source:
+      - https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/PDPL
+      - https://dgp.sdaia.gov.sa/wps/wcm/connect/f579bc32-fda8-47bd-bc6f-66b8cb77985c/ENG-Guide+to+the+saudi+PDP+law+for+controllersprocessors.pdf?MOD=AJPERES
+  lawful_bases:
+    summary: "Consent is the default (Art. 5). Without it, processing is allowed where it serves the person's actual interests and contacting them is impossible or difficult, is required by another law or a prior agreement with the person, is by a public entity for security or judicial purposes, or serves the controller's legitimate interest (not for sensitive data or public entities, and only after a documented balancing assessment). Consent must be free, specific, documented and separate for each purpose; explicit consent is needed for sensitive or credit data and solely automated decisions."
+    source:
+      - https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/PDPL
+      - https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/PDPL2
+  consent_age:
+    summary: "Consent must come from a person with full legal capacity (Implementing Regulation Art. 11). Under the Civil Transactions Law (Art. 12), full capacity starts at the age of majority: 18 Hijri (lunar) years, about 17 and a half calendar years. For younger people and others lacking capacity, the legal guardian consents and exercises their rights in their best interests, after the controller checks the guardianship is valid, and the person can use their own rights on reaching capacity (Art. 13)."
+    value: 18
+    unit: years
+    source:
+      - https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/PDPL2
+      - https://uqn.gov.sa/details?p=23125
+  children:
+    summary: "There is no separate children's online law. Controllers that process data of people lacking full or partial capacity on a large scale and repeatedly must carry out an impact assessment and give extra information, including whether decisions are solely automated, in language suited to them. Guardians act for them and must not harm their interests."
+    source:
+      - https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/PDPL2
+  cookies:
+    summary: "There is no cookie-specific rule. Cookies that collect personal data need a PDPL legal basis, usually consent or legitimate interest. SDAIA's privacy policy guideline expects privacy policies to list data collected through cookies and similar technologies and to explain this indirect collection. Its DPO rules count cookies and location tracking as regular and systematic monitoring, which can make a DPO mandatory when monitoring is a core activity."
+    source:
+      - https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/PDPL
+      - https://dgp.sdaia.gov.sa/wps/wcm/connect/3125da48-43dd-46bc-9156-1f7b91ab8f54/Elaboration+and+Developing+Privacy+Policy+Guideline.pdf?MOD=AJPERES
+      - https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/AppointingPersonalDataProtectionOfficer
+  marketing:
+    summary: "Direct marketing needs the person's consent, a clearly named sender and a free, easy way to stop that is honoured at once; marketing may use only data collected directly from the person, and never sensitive data (PDPL Arts. 25 and 26; Implementing Regulation Arts. 28 and 29). CST's rules require express opt-in for promotional texts and calls (consent hidden in terms doesn't count), an '-AD' tag on advertisers' sender names, opt-out at any time and no promotional messages or calls from 10pm to 9am. In June 2026 SDAIA penalised direct marketing without explicit consent."
+    source:
+      - https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/PDPL
+      - https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/PDPL2
+      - https://www.cst.gov.sa/en/regulations-and-licenses/regulations/regulations-for-curbing-spam-messages-and-calls
+      - https://regulations.citc.gov.sa/PublishedDocuments/GovernorApprovalDecision_469/1a52b3e0-02a4-4775-a301-422b0bff61a7_Regulations%20for%20Curbing%20SPAM%20Messages%20&%20Calls.pdf
+      - https://www.spa.gov.sa/N2623969
+  breach_notice:
+    summary: "Notify SDAIA within 72 hours of becoming aware of a breach that could harm the data or the person or conflict with their rights, through the National Data Governance Platform, and send any missing details as soon as possible with reasons for the delay. Tell affected people without undue delay if it may harm them, in plain language with advice on protecting themselves. Keep copies of reports and records of corrective steps. National Cybersecurity Authority and sector reporting duties also apply."
+    value: 72
+    unit: hours
+    source:
+      - https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/PDPL2
+      - https://dgp.sdaia.gov.sa/wps/wcm/connect/2b9c4e29-a7a0-4334-9a3a-2b8610483e4e/The+Rules+Governing+the+National+Register+of+Controllers+Within+the+Kingdom.pdf?MOD=AJPERES
+  registration_or_fees:
+    summary: "Controllers must register on SDAIA's National Data Governance Platform if they are public entities, their main activity is based on processing personal data, or they process sensitive data; individuals processing beyond personal or family use must register too. Registration gives a certificate valid for up to five years and access to the platform's breach notice and DPO services. The platform also has a registration route for entities outside the Kingdom. The PDPL lets SDAIA charge for its services, but the registration rules set no fee."
+    source:
+      - https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/Rulesandguidelinesp2
+      - https://dgp.sdaia.gov.sa/wps/wcm/connect/2b9c4e29-a7a0-4334-9a3a-2b8610483e4e/The+Rules+Governing+the+National+Register+of+Controllers+Within+the+Kingdom.pdf?MOD=AJPERES
+      - https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/PDPL
+    secondary:
+      - https://www.clydeco.com/en/insights/2026/10/sdaia-opens-controller-registration-for-overseas-o
+  dpo:
+    summary: "Appoint one or more DPOs if you're a public entity providing large-scale processing services, your core activities need regular and systematic monitoring of people (such as tracking, cookies, wearables or CCTV), or your core activities rest on sensitive data. The DPO can be an executive, employee or contractor, needs relevant qualifications and integrity, must be appointed in writing and reachable by data subjects, and must be registered on the platform. The DPO handles requests, complaints, breach notices and impact assessments."
+    source:
+      - https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/AppointingPersonalDataProtectionOfficer
+      - https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/PDPL2
+  transfers:
+    summary: "A transfer abroad must not harm national security or the Kingdom's vital interests, must be limited to the minimum data needed and needs an adequate level of protection; SDAIA is to publish a list of adequate countries, reviewed every four years. The 2024 Regulation exempts some transfers from those conditions if standard contractual clauses, binding common rules or an accreditation certificate are used: central operations of multinational groups, one-off limited transfers, direct services to the person, and research. These, and large-scale sensitive data transfers, need a risk assessment."
+    source:
+      - https://www.uqn.gov.sa/details?p=25412
+      - https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/PDPL
+  dpia:
+    summary: "Prepare a written impact assessment when processing sensitive data, linking datasets from different sources, processing data of people lacking capacity on a large scale and repeatedly, continuously monitoring people, using new technologies, making automated decisions, or offering a product or service likely to seriously harm privacy. It must cover the purpose, legal basis, scope, context, necessity, impacts and mitigations, be shared with processors, and be redone if harm is found. Relying on legitimate interest also needs a documented assessment."
+    source:
+      - https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/PDPL2
+  automated_decisions_ai:
+    summary: "Decisions based solely on automated processing need explicit consent, and controllers that make them must tell people so and carry out an impact assessment. The PDPL gives no separate right to object to such decisions. Saudi Arabia has no binding AI law; the government's overview of data and cybersecurity laws names none."
+    source:
+      - https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/PDPL2
+      - https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/PDPL
+      - https://my.gov.sa/en/content/legal-regulatory-framework
+    secondary:
+      - https://cms.law/en/int/expert-guides/ai-regulation-scanner/kingdom-of-saudi-arabia
+  penalties:
+    summary: "SDAIA committees can issue warnings or fines up to SAR 5 million per violation, doubled for repeats and open to appeal in court (Art. 36). Disclosing or publishing sensitive data to harm someone or for personal gain is a crime: up to 2 years in prison and/or a SAR 3 million fine, doubled for repeats (Art. 35). Courts can confiscate gains and order publication, and people can sue for damages. The committees issued 48 decisions in 2025 and more in June 2026. The Anti-Cyber Crime Law adds penalties, such as up to 1 year and SAR 500,000 for privacy invasion by camera phone."
+    source:
+      - https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/PDPL
+      - https://www.spa.gov.sa/en/N2489505
+      - https://www.spa.gov.sa/N2623969
+      - https://www.mcit.gov.sa/sites/default/files/anti_cyber_crime_law_en_0.pdf
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry, checked against official sources with AI assistance.
