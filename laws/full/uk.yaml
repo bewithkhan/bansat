@@ -106,3 +106,13 @@ checked:
 history:
   - date: "2026-11-05"
     summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
+watch:
+  - url: https://www.legislation.gov.uk/changes/affected/eur/2016/679/data.feed
+    type: atom
+    language: en
+  - url: https://www.legislation.gov.uk/changes/affected/ukpga/2018/12/data.feed
+    type: atom
+    language: en
+  - url: https://www.legislation.gov.uk/changes/affected/uksi/2003/2426/data.feed
+    type: atom
+    language: en

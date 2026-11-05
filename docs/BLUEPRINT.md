@@ -7,7 +7,7 @@
 | Field | Value |
 |---|---|
 | Project | Bansat v3: Law Watch, a public law tracker, and stack profiles for every major framework |
-| Blueprint version | 0.5 (scope added after G1; approved when its pull request is merged, BR-01) |
+| Blueprint version | 0.6 (a design change after G1; approved when its pull request is merged, BR-01) |
 | Status | Approved for build (G1 signed 2026-11-05) |
 | Accountable owner | Muhammad Tufail Khan, maintainer |
 | Data controller | Muhammad Tufail Khan (sole maintainer). Bansat itself collects no personal data (Part 9). |
@@ -25,6 +25,7 @@
 | 0.3 | 2026-11-05 | Muhammad Tufail Khan | Refinement after G1, no change of scope: status approved; prior art for each component (3.10), which led to three corrections: the ICO is watched as a page because no official news feed could be confirmed (1.6), the watch runs off the hour (NFR-DETECT-01), and the verify task stays off sites whose terms forbid it (Part 12); research-first rule for the verify task (Part 12); repository structure as built in Phase 1 (3.5) |
 | 0.4 | 2026-11-05 | Muhammad Tufail Khan | Scope added after G1, decided by the owner on 2026-11-05: delivery methods in v2.3 (FR-15 to FR-18), a documentation site now (FR-19), and the Wiki turned off (FR-20). New phases 1b and 1c (Part 11), ADR-B8 and ADR-B9, prior art for both (3.10) |
 | 0.5 | 2026-11-05 | Muhammad Tufail Khan | Scope added, decided by the owner on 2026-11-05: a breach casebook in the framework, on the site and in the README (FR-21), and a research paper on the whole of Bansat with an experiment, whose harness and results are published (FR-22). New phase 1d and research workstream R (Part 11), BR-10, Decisions 9 and 10 |
+| 0.6 | 2026-11-05 | Muhammad Tufail Khan | Law Watch's state moves from git to a workflow artifact, so the watch never commits and every commit stays yours; its token adds `actions: read` (NFR-SEC-01). The FR-06 scenario now uses the legislation.gov.uk changes feed, because the ICO's site refuses automated requests (A-05). |
 
 **Gate approvals**
 
@@ -160,10 +161,10 @@ And two that show what Bansat is worth (decided 2026-11-05):
 ```gherkin
 Feature: Watch detects a change (FR-06)
   Scenario: A watched regulator page changes
-    Given the ICO news page is on the watch list with a stored snapshot
-    When the weekly watch runs and the page lists a new item
-    Then an issue titled "[watch] Possible change: UK — ICO news" exists with the new item's link and date
-    And re-running the watch the same day updates that issue instead of opening another
+    Given the legislation.gov.uk changes feed for the Data Protection Act 2018 is on the watch list with a stored snapshot
+    When the weekly watch runs and the feed lists a new item
+    Then an issue titled "[watch] Possible change: United Kingdom (uk)" exists with the new item's link and date
+    And a later change while that issue is open adds a comment to it instead of opening another
 
   Scenario: A source can't be fetched
     Given a watched source returns an error three weeks running
@@ -279,7 +280,7 @@ Legal advice; accounts and comments on the site; email collection; paid tiers; c
 | NFR-PERF-01 | Performance | Site Core Web Vitals at p75 on mobile | LCP ≤ 2.5 s · INP ≤ 200 ms · CLS ≤ 0.1; ≤ 50 KB JS on country pages | Lighthouse CI |
 | NFR-A11Y-01 | Accessibility | Site standard | WCAG 2.2 AA | axe in CI + manual check |
 | NFR-REL-01 | Reliability | Watch failures | Reported in one "[watch] Source failing" issue; never silent | Watch tests |
-| NFR-SEC-01 | Security | Workflow token permissions | Least privilege per workflow: validate `contents: read`; watch adds `issues: write`; the site deploy job adds `pages: write` and `id-token: write`. Third-party actions are pinned to a commit SHA. | Workflow review |
+| NFR-SEC-01 | Security | Workflow token permissions | Least privilege per workflow: validate `contents: read`; watch adds `issues: write`, and `actions: read` for its own state artifact; the site deploy job adds `pages: write` and `id-token: write`. Third-party actions are pinned to a commit SHA. | Workflow review |
 | NFR-COST-01 | Cost | Running cost | £0: GitHub Pages hosting and no AI API (FR-11 off); the Claude task runs within your plan | The repo holds no API-key secret |
 
 ---
@@ -345,7 +346,7 @@ laws/
 stacks/                      laravel.md, django.md, … (3.8)
 watch/
   sources.yaml               what to watch, per jurisdiction
-  snapshots/                 hashes of the last fetch
+  README.md                  how Law Watch works (its state is a workflow artifact, not a folder)
   verify-prompt.md           the Claude task's versioned instructions (Part 12)
 site/                        Astro project
 scripts/                     modules.ts, build-framework.ts, check-skill.ts, check-examples.ts (Phase 1);
@@ -399,7 +400,7 @@ Before building each piece, we looked at how others have solved the same problem
 
 | Need | What others use | What went wrong for them | Our decision |
 |---|---|---|---|
-| Detect changes on official pages and feeds | [urlwatch](https://github.com/thp/urlwatch) (2.29, released late 2024): jobs, chained [filters](https://urlwatch.readthedocs.io/en/latest/filters.html) (CSS, XPath, html2text, regex, jq) and reporters. [changedetection.io](https://github.com/dgtlmoon/changedetection.io): a self-hosted server. [Git scraping](https://simonwillison.net/2020/Oct/9/git-scraping/): a scheduled workflow fetches, and commits only when something changed. | False alarms from dynamic pages ([urlwatch #22](https://github.com/thp/urlwatch/issues/22)); browser-based jobs are heavy and fail; urlwatch has no GitHub-issue reporter; the webchanges fork opens a new issue per report and keeps its state in the Actions cache, which GitHub [evicts after 7 days unused](https://docs.github.com/en/actions/reference/workflows-and-actions/dependency-caching); changedetection.io needs a host; Cloudflare has [blocked GitHub Actions IP ranges](https://simonwillison.net/2025/Feb/23/tailscale-exit-node-with-github-actions/) | Git scraping with urlwatch-style filter chains, in our own `scripts/watch.ts`. State lives in git, not the Actions cache. A snapshot holds a hash plus each item's title, link and date, never the page text (BR-05). A source that blocks the runner goes on the Claude task's list (A-05). |
+| Detect changes on official pages and feeds | [urlwatch](https://github.com/thp/urlwatch) (2.29, released late 2024): jobs, chained [filters](https://urlwatch.readthedocs.io/en/latest/filters.html) (CSS, XPath, html2text, regex, jq) and reporters. [changedetection.io](https://github.com/dgtlmoon/changedetection.io): a self-hosted server. [Git scraping](https://simonwillison.net/2020/Oct/9/git-scraping/): a scheduled workflow fetches, and commits only when something changed. | False alarms from dynamic pages ([urlwatch #22](https://github.com/thp/urlwatch/issues/22)); browser-based jobs are heavy and fail; urlwatch has no GitHub-issue reporter; the webchanges fork opens a new issue per report and keeps its state in the Actions cache, which GitHub [evicts after 7 days unused](https://docs.github.com/en/actions/reference/workflows-and-actions/dependency-caching); changedetection.io needs a host; Cloudflare has [blocked GitHub Actions IP ranges](https://simonwillison.net/2025/Feb/23/tailscale-exit-node-with-github-actions/) | Urlwatch-style filter chains in our own `scripts/watch.ts`. State lives in a workflow artifact kept for 90 days and replaced each run, not in the Actions cache or in git, so the watch never commits and every commit in the repo is yours (decided 2026-11-05). A snapshot holds a hash plus each item's title, link and date, never the page text (BR-05). A source that blocks the runner goes on the Claude task's list (A-05). |
 | Run on a schedule | GitHub Actions `schedule` | [Runs are delayed under load](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows), most at the start of the hour. Scheduled workflows in a public repo are [disabled after 60 days without activity](https://docs.github.com/en/actions/managing-workflow-runs-and-deployments/managing-workflow-runs/disabling-and-enabling-a-workflow), and a popular "keepalive" workaround was [disabled by GitHub](https://github.com/gautamkrishnar/keepalive-workflow) for breaking its terms. | Run off the hour (NFR-DETECT-01), with `workflow_dispatch` for manual runs. Rely on real activity (the weekly pull requests) and report a stopped schedule (A-04). No keepalive tricks. We couldn't confirm whether bot commits count as activity. |
 | Open or update one issue per jurisdiction | [peter-evans/create-issue-from-file](https://github.com/peter-evans/create-issue-from-file) (maintained); [JasonEtco/create-an-issue](https://github.com/JasonEtco/create-an-issue) (last release Feb 2024, still on Node 20, which [GitHub removed from runners](https://github.blog/changelog/2026-09-23-deprecation-of-node-20-on-github-actions-runners/) in Sep 2026); [rss-to-issues](https://github.com/git-for-windows/rss-to-issues) (one issue per feed item); lcian/website-change-monitor-action (archived Jun 2026; Slack and Discord only) | Unmaintained actions break when runners drop old Node versions | The `gh` CLI, [preinstalled on GitHub-hosted runners](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-github-cli), finds the jurisdiction's issue by label, then edits or creates it. No third-party action. |
 | The Claude task's pull requests | — | Pull requests opened with `GITHUB_TOKEN` [don't start new workflow runs](https://docs.github.com/actions/using-workflows/triggering-a-workflow), and Actions can't open pull requests unless a repo setting is turned on | The Action only opens issues. The weekly Claude task opens pull requests through your GitHub account, so CI runs as normal and the Actions setting stays off. |
@@ -507,7 +508,7 @@ Only the maintainer merges, with branch protection on `main`. CI rejects an entr
 
 ### 5.5 Retention
 
-The registry's history lives in git. Watch snapshots older than 12 months are pruned.
+The registry's history lives in git. The watch's state is a single workflow artifact, replaced each run and deleted after 90 days.
 
 ---
 
@@ -644,7 +645,7 @@ All other states are N/A: there are no accounts, forms, uploads or long-running 
 | **1d Breach casebook** (done: v2.4.0, 5 Nov 2026) | Appendix F: 15–20 documented cases with a root-cause taxonomy and the size of each organisation; a site page; a README section; posts to share | Every case has a primary source and passes an independent check; no claim goes beyond the sources (BR-10); CI green |
 | **2 Law registry** (in progress: Europe and Americas merged, 5 Nov 2026) | Schema; full-tier entries in batches (Europe, Americas, Middle East & Africa, Asia-Pacific); basic-tier entries for every other country with a law. Each batch is its own pull request. | Every full-tier claim sourced; every entry dated and labelled; CI validation green; you've reviewed each batch |
 | **3 Stack profiles** | The 24 profiles in 3.8, in pull requests by group | Each profile reviewed; the skill picks the right one |
-| **4 Law Watch** | `watch/sources.yaml`; the watch Action (you add the workflow file, A-03); the weekly Claude task (created as a scheduled task; approved 2026-11-05) | A dry run on a known past change produces the right issue and pull request; failure reporting works |
+| **4 Law Watch** (in progress: the watch, its tests and the verify prompt, 5 Nov 2026) | `watch/sources.yaml`; the watch Action (you add the workflow file, A-03); the weekly Claude task (created as a scheduled task; approved 2026-11-05) | A dry run on a known past change produces the right issue and pull request; failure reporting works |
 | **5 Law tracker pages** | The tracker screens (SCR-01 to SCR-06) on the site built in Phase 1c | Privacy test green (zero third-party requests), axe clean, Lighthouse budgets met |
 | **6 Launch v3.0.0** | README, CHANGELOG, release, announcement | Part 13 all green → **G3** |
 | **7 First 30 days** | Watch the alerts, the review backlog and staleness | 30-day review → **G4** |

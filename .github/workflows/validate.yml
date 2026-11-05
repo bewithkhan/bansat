@@ -42,6 +42,8 @@ jobs:
         run: node scripts/validate-laws.ts
       - name: The registry validator catches bad entries
         run: node scripts/validate-laws.test.ts
+      - name: Law Watch finds changes and reports failures (offline, from fixtures)
+        run: node scripts/watch.test.ts
 
   examples:
     name: Tested examples

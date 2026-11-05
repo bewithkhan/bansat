@@ -11,7 +11,8 @@ laws/
   schema.json        the format of an entry (JSON Schema)
   full/<id>.yaml     full entries: every obligation, each with official sources
   basic/<id>.yaml    basic entries: the laws and the regulator, for other countries with a data protection law
-watch/sources.yaml   the official domains each entry may cite (and, from Phase 4, what Law Watch checks)
+watch/sources.yaml   the official domains each entry may cite
+watch/README.md      how Law Watch keeps the entries current
 ```
 
 The `id` is the ISO 3166-1 alpha-2 code (`de`, `ng`), with `uk` for the United Kingdom, a region code (`eu`), or a sub-national code (`us-ca`, `ae-difc`). An entry that is read together with another one names it in `applies_with`: Germany lists `eu`, and a US state lists `us-federal`.
@@ -21,7 +22,8 @@ The `id` is the ISO 3166-1 alpha-2 code (`de`, `ng`), with `uk` for the United K
 - **Official sources only** (blueprint BR-02): legislation and official gazettes, the regulator's own site, government sites and courts. Each source must be on a domain listed for that jurisdiction in `watch/sources.yaml`, or for an entry it applies with. Trackers, law firms and news are leads at most: list them under `secondary`, never as the only support for a claim.
 - **Our own words.** Summarise; don't copy. Keep each summary short (600 characters at most), and say plainly when something is pending, such as a bill or an appeal.
 - **Numbers say what they count.** Where an obligation has a number, such as the consent age (16) or a breach deadline (72), `value` holds it and `unit` says what it counts: `years`, `hours`, `days` or `business days`. CI rejects a number without a unit.
-- **Dated and labelled.** `checked.date` is when the entry was last checked against its sources. `checked.status` is `ai-checked`, or `human-reviewed` with the reviewer's GitHub username in `checked.by`. Add a `history` item, newest first, for every change.
+- **Dated and labelled.** `checked.date` is when the entry was last checked against its sources. `checked.status` is `ai-checked`, or `human-reviewed` with the reviewer's GitHub username in `checked.by`. Add a `history` item, newest first, for every change to the entry's facts. A change to `watch` alone doesn't need one.
+- **Watched.** `watch` lists the official feeds and pages that Law Watch checks every week for this entry, each on one of its official domains ([watch/README.md](../watch/README.md)).
 
 CI checks all of this on every pull request (`node scripts/validate-laws.ts`), and `node scripts/validate-laws.test.ts` proves each rule catches a bad entry.
 
