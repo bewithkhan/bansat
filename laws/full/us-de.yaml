@@ -40,6 +40,7 @@ obligations:
   consent_age:
     summary: A child is under 13 (as in COPPA), and a known child's sensitive data needs a parent's consent. Teens aged 13 to 17 must opt in before their data is sold or used for targeted advertising, if the controller knows or wilfully disregards their age. From 1 January 2027 the teen rule also covers profiling for significant decisions, and any personal data of a known child needs a parent's consent.
     value: 13
+    unit: years
     source:
       - https://delcode.delaware.gov/title6/c012d/index.html
   children:
@@ -60,6 +61,7 @@ obligations:
   breach_notice:
     summary: Notify affected Delaware residents without unreasonable delay and within 60 days of determining a breach, unless an investigation finds harm unlikely. Tell the Attorney General no later than the residents if more than 500 are affected. If you can't identify some affected residents within 60 days, tell the Attorney General within those 60 days. Offer 1 year of free credit monitoring when Social Security numbers are involved.
     value: 60
+    unit: days
     source:
       - https://delcode.delaware.gov/title6/c012b/index.html
       - https://attorneygeneral.delaware.gov/fraud/cpu/securitybreachnotification/

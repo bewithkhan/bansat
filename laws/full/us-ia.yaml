@@ -45,6 +45,7 @@ obligations:
   consent_age:
     summary: A child is anyone under 13. A known child's parent or guardian exercises the child's rights, and sensitive data about a known child must be processed as COPPA requires. The privacy law has no separate teen rule for targeted advertising or sale.
     value: 13
+    unit: years
     source:
       - https://www.legis.iowa.gov/docs/code/715D.1.pdf
       - https://www.legis.iowa.gov/docs/code/715D.3.pdf

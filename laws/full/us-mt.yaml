@@ -35,6 +35,7 @@ obligations:
   consent_age:
     summary: A child is under 13, and a known child's sensitive data must be handled under COPPA, with parental consent. Controllers that know or wilfully disregard that a consumer is 13 to 15 need that consumer's consent for targeted advertising or sale. For all minors under 18, broader consent rules apply since 1 October 2025 (see children).
     value: 13
+    unit: years
     source:
       - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0020/0300-0140-0280-0020.html
       - https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0120/0300-0140-0280-0120.html

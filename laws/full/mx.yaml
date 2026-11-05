@@ -39,6 +39,7 @@ obligations:
   consent_age:
     summary: The data protection law sets no age. Under the Federal Civil Code adulthood starts at 18, minors lack legal capacity, and parents or guardians represent them. So consent for a minor's data comes from the person with parental authority or guardianship.
     value: 18
+    unit: years
     source:
       - https://www.diputados.gob.mx/LeyesBiblio/pdf/CCF.pdf
       - https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LFPDPPP.pdf

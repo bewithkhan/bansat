@@ -41,6 +41,7 @@ obligations:
   consent_age:
     summary: A child is under 13 (as in COPPA), and a known child's data must be processed as COPPA requires. Teens aged 13 to 16 must consent before their data is used for targeted advertising, sold, or used for profiling with significant effects, if the controller knows or wilfully disregards their age.
     value: 13
+    unit: years
     source:
       - https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1/54260/54675
       - https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1/54260/54667

@@ -44,6 +44,7 @@ obligations:
   consent_age:
     summary: A child is under 13, and a known child's sensitive data must be handled under COPPA, with parental consent. Since 1 January 2026, if a controller knows or wilfully disregards that a consumer is under 16, it can't sell their data or use it for targeted advertising or significant profiling, even with consent.
     value: 13
+    unit: years
     source:
       - https://www.oregonlegislature.gov/bills_laws/ors/ors646A.html
       - https://www.doj.state.or.us/consumer-protection/for-businesses/privacy-law-faqs-for-businesses/
@@ -64,6 +65,7 @@ obligations:
   breach_notice:
     summary: Notify affected consumers in the most expeditious manner possible and no later than 45 days after discovering a breach. If more than 250 Oregon consumers are affected, notify the Department of Justice too. If more than 1,000, also tell the nationwide credit bureaus. Vendors must tell the business within 10 days.
     value: 45
+    unit: days
     source:
       - https://www.oregonlegislature.gov/bills_laws/ors/ors646A.html
       - https://www.doj.state.or.us/consumer-protection/id-theft-data-breaches/data-breaches/

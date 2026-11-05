@@ -38,6 +38,7 @@ obligations:
   consent_age:
     summary: A child is under 13; a known child's data must be processed in line with COPPA. If a controller knows a consumer is 13 to 15, it needs their consent before using their data for targeted advertising or selling it.
     value: 13
+    unit: years
     source:
       - https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB351-enr.pdf
   children:
@@ -56,6 +57,7 @@ obligations:
   breach_notice:
     summary: Tell affected individuals as fast as possible and within 45 days of determining that a breach of sensitive personal information is reasonably likely to cause substantial harm. If more than 1,000 people are notified, also tell the Attorney General within 45 days and the nationwide credit reporting agencies. Service providers must tell their client within 10 days.
     value: 45
+    unit: days
     source:
       - https://www.alabamaag.gov/data-breach-notification/
       - https://www.alabamaag.gov/wp-content/uploads/2026/05/Act-2018-396.pdf

@@ -34,6 +34,7 @@ obligations:
   consent_age:
     summary: A child is under 13. A known child's sensitive data must be processed in line with COPPA, and parents can use the child's rights. There's no teen consent rule.
     value: 13
+    unit: years
     source:
       - https://www.oklegislature.gov/cf_pdf/2025-26%20ENR/SB/SB546%20ENR.PDF
   children:

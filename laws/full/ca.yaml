@@ -50,6 +50,7 @@ obligations:
   consent_age:
     summary: PIPEDA sets no age. The OPC's position is that, in all but exceptional circumstances, consent for children under 13 must come from a parent or guardian. For older minors, consent is valid only if their maturity lets them understand what they agree to.
     value: 13
+    unit: years
     source:
       - https://www.priv.gc.ca/en/privacy-topics/collecting-personal-information/consent/gl_omc_201805/
       - https://www.priv.gc.ca/en/privacy-topics/privacy-for-businesses/protection-of-children-for-businesses/childrens-privacy-code/children-code-final-report-2026/

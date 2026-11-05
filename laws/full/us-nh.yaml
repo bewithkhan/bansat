@@ -33,6 +33,7 @@ obligations:
   consent_age:
     summary: A child is under 13 (as in COPPA), and a known child's data must be processed as COPPA requires. Teens aged 13 to 15 must opt in before their data is sold or used for targeted advertising, where the controller has actual knowledge of their age and wilfully disregards it.
     value: 13
+    unit: years
     source:
       - https://gc.nh.gov/rsa/html/LII/507-H/507-H-1.htm
       - https://gc.nh.gov/rsa/html/LII/507-H/507-H-6.htm

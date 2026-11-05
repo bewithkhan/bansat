@@ -48,6 +48,7 @@ obligations:
   consent_age:
     summary: A child is under 13. A known child's sensitive data must be processed as COPPA requires, and a parent or guardian exercises the child's rights. TIPA has no teen rule, but the social media act needs verified parental consent for any account holder under 18.
     value: 13
+    unit: years
     source:
       - https://capitol.tn.gov/Bills/113/Amend/HA0348.pdf
       - https://www.capitol.tn.gov/Bills/113/Amend/SA0929.pdf
@@ -69,6 +70,7 @@ obligations:
   breach_notice:
     summary: Notify affected Tennessee residents immediately, and no later than 45 days after discovering the breach or being told of it, unless law enforcement needs a delay. A business holding data for another must tell the owner within the same limit. Encrypted data is covered only if the key was also taken. GLBA- and HIPAA-regulated entities are exempt from this statute.
     value: 45
+    unit: days
     source:
       - https://www.capitol.tn.gov/Bills/109/Amend/HA0750.pdf
       - https://wapp.capitol.tn.gov/apps/BillInfo/Default.aspx?BillNumber=SB2005&GA=109

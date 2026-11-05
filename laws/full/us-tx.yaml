@@ -49,6 +49,7 @@ obligations:
   consent_age:
     summary: A child is under 13, and a known child's sensitive data must be processed under COPPA, with parental consent. The TDPSA has no teen opt-in rule, but the SCOPE Act protects users who register as under 18 (see children).
     value: 13
+    unit: years
     source:
       - https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm
       - https://tcss.legis.texas.gov/resources/BC/htm/BC.509.htm
@@ -68,6 +69,7 @@ obligations:
   breach_notice:
     summary: Notify affected individuals without unreasonable delay and no later than 60 days after determining a breach occurred. If 250 or more Texans are affected, notify the Attorney General through its online form within 30 days. If more than 10,000 people are notified, also tell the nationwide credit bureaus. Penalties run from $2,000 to $50,000 per violation, plus up to $100 per person per day for late notices (up to $250,000).
     value: 60
+    unit: days
     source:
       - https://tcss.legis.texas.gov/resources/BC/htm/BC.521.htm
   registration_or_fees:

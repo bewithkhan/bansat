@@ -70,6 +70,7 @@ obligations:
   consent_age:
     summary: A child is under 13, and a known child's data must be processed under COPPA, with verifiable parental consent. The UCPA has no teen opt-in rule for targeted advertising or sale.
     value: 13
+    unit: years
     source:
       - https://le.utah.gov/xcode/Title13/Chapter61/C13-61-S101_2026050620260506.html
       - https://le.utah.gov/xcode/Title13/Chapter61/C13-61-S302_2022050420231231.html

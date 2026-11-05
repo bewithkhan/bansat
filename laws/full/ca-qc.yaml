@@ -29,6 +29,7 @@ obligations:
   consent_age:
     summary: Personal information about a child under 14 can't be collected from the child without consent from a parent or tutor, unless collecting it is clearly in the child's interest. From 14, the minor, a parent or the tutor can give consent.
     value: 14
+    unit: years
     source:
       - https://www.legisquebec.gouv.qc.ca/en/showdoc/cs/P-39.1
       - https://www.cai.gouv.qc.ca/uploads/pdfs/CAI_Criteres_Validite_Consentement.pdf

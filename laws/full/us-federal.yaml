@@ -94,6 +94,7 @@ obligations:
   consent_age:
     summary: COPPA treats anyone under 13 as a child. Services directed to children, or that know a user is under 13, need verifiable parental consent before collecting the child's personal information, apart from narrow exceptions. Since 22 April 2026, disclosing a child's data to third parties, for example for targeted advertising, needs a separate parental consent unless the disclosure is integral to the service. There is no federal teen rule yet.
     value: 13
+    unit: years
     source:
       - https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap91-sec6501.htm
       - https://www.ecfr.gov/current/title-16/chapter-I/subchapter-C/part-312

@@ -41,6 +41,7 @@ obligations:
   consent_age:
     summary: A child is anyone under 13. A known child's data is sensitive data and must be handled under COPPA, so a parent must consent before it's used for targeted advertising, sale or significant profiling. The VCDPA has no teen opt-in rule for advertising or sale; a separate social media time limit covers under-16s (see children).
     value: 13
+    unit: years
     source:
       - https://law.lis.virginia.gov/vacode/title59.1/chapter53/section59.1-575/
       - https://law.lis.virginia.gov/vacode/title59.1/chapter53/section59.1-578/

@@ -57,6 +57,7 @@ obligations:
   consent_age:
     summary: A child is under 13. A known child's sensitive data must be processed as COPPA requires, and a parent or guardian exercises the child's rights. The privacy act has no teen rule, but the design code and the social media act protect all minors under 18.
     value: 13
+    unit: years
     source:
       - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1102
       - https://nebraskalegislature.gov/laws/statutes.php?statute=87-1112

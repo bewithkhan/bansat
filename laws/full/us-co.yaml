@@ -51,6 +51,7 @@ obligations:
   consent_age:
     summary: A child is under 13, and a parent must consent before the child's data is processed (COPPA consent counts). Since 1 October 2025, a minor is anyone under 18. If a controller knows or wilfully disregards that a user is a minor, it needs the minor's consent (a parent's if under 13) before targeted advertising, sale or significant profiling.
     value: 13
+    unit: years
     source:
       - https://leg.colorado.gov/sites/default/files/images/olls/crs2024-title-06.pdf
       - https://leg.colorado.gov/sites/default/files/2024a_041_signed.pdf
@@ -72,6 +73,7 @@ obligations:
   breach_notice:
     summary: Notify affected Colorado residents in the most expedient time possible and no later than 30 days after determining that a breach occurred. If 500 or more residents are affected, tell the Attorney General within the same 30 days. If more than 1,000 must be notified, also tell the nationwide credit bureaus.
     value: 30
+    unit: days
     source:
       - https://leg.colorado.gov/sites/default/files/images/olls/crs2024-title-06.pdf
   registration_or_fees:

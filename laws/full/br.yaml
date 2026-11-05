@@ -44,6 +44,7 @@ obligations:
   consent_age:
     summary: Children are under 12, and adolescents are 12 to 17. Processing a child's data on the basis of consent needs specific, prominent consent from at least one parent or guardian, and reasonable efforts to check it came from them. The ANPD accepts other legal bases for children's and adolescents' data when their best interest prevails (Enunciado 1/2023).
     value: 12
+    unit: years
     source:
       - https://legis.senado.leg.br/norma/549945/publicacao/34619929
       - https://www2.camara.leg.br/legin/fed/lei/2018/lei-13709-14-agosto-2018-787077-normaatualizada-pl.html

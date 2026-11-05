@@ -86,6 +86,7 @@ obligations:
   consent_age:
     summary: A business can't sell or share the data of a consumer it knows is under 16 without opt-in consent, from the consumer if 13 to 15 or from a parent if under 13. Wilfully disregarding age counts as knowing it. From 1 January 2027 the Digital Age Assurance Act has operating systems send age-bracket signals that developers must request and treat as actual knowledge of a user's age.
     value: 13
+    unit: years
     source:
       - https://cppa.ca.gov/pdf/20260101_ccpa_statute.pdf
       - https://cppa.ca.gov/regulations/pdf/ccpa_statute_eff_20260101.pdf
@@ -121,6 +122,7 @@ obligations:
   breach_notice:
     summary: Since 1 January 2026, notify affected California residents within 30 calendar days of discovering or being told of a breach of their unencrypted personal information, subject to delays for law enforcement or to determine the scope and restore the system. If more than 500 residents are notified, send the Attorney General a sample notice within 15 days of notifying them.
     value: 30
+    unit: days
     source:
       - https://oag.ca.gov/privacy/databreach/reporting
       - https://apcp.assembly.ca.gov/media/1026

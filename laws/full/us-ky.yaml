@@ -33,6 +33,7 @@ obligations:
   consent_age:
     summary: A child is under 13, as in COPPA. A known child's data must be processed in line with COPPA, and parents can use the child's rights. There's no teen consent rule.
     value: 13
+    unit: years
     source:
       - https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=55836
       - https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=55838

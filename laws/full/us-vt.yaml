@@ -44,6 +44,7 @@ obligations:
   consent_age:
     summary: A child is under 13, as in COPPA, and a child's data is processed under COPPA. If a controller knows a consumer is 13 to 17, it may not use their data for targeted advertising or sell it.
     value: 13
+    unit: years
     source:
       - https://legislature.vermont.gov/Documents/2026/Docs/ACTS/ACT145/ACT145%20As%20Enacted.pdf
   children:
@@ -67,6 +68,7 @@ obligations:
   breach_notice:
     summary: Tell affected consumers within 45 days of discovering a breach of personal information or login credentials. Within 14 business days of discovery (or when consumers are told, if sooner), send the Attorney General, or the Department of Financial Regulation for firms it regulates, a preliminary notice. Tell the nationwide credit reporting agencies if more than 1,000 consumers are notified.
     value: 45
+    unit: days
     source:
       - https://legislature.vermont.gov/statutes/section/09/062/02435
   registration_or_fees:

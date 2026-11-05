@@ -45,6 +45,7 @@ obligations:
   consent_age:
     summary: A child is under 13. A known child's sensitive data must be processed in line with COPPA, and parents can use the child's rights. The privacy act has no teen consent rule, but other laws protect minors (see children).
     value: 13
+    unit: years
     source:
       - https://legis.la.gov/legis/ViewDocument.aspx?d=1480202
   children:
@@ -66,6 +67,7 @@ obligations:
   breach_notice:
     summary: Tell affected Louisiana residents in the most expedient time possible and no later than 60 days after discovering the breach, unless an investigation finds no reasonable likelihood of harm (keep that record for five years). Tell the Attorney General's Consumer Protection Section in writing within 10 days of notifying residents. Give the Attorney General written reasons for any delay within the 60 days.
     value: 60
+    unit: days
     source:
       - https://legis.la.gov/legis/Law.aspx?d=322030
       - https://ag.louisiana.gov/Page/DataBreach

@@ -33,6 +33,7 @@ obligations:
   consent_age:
     summary: A child is under 13. A controller that knows it's processing a child's data needs a parent's consent, given as COPPA requires, and parents can use the child's rights. There's no separate teen consent rule.
     value: 13
+    unit: years
     source:
       - https://www.in.gov/attorneygeneral/files/Indiana-Consumer-Data-Protection_Consumer-Bill-of-Rights_CDPCBOR.pdf
   children:
@@ -52,6 +53,7 @@ obligations:
   breach_notice:
     summary: Tell affected Indiana residents without unreasonable delay, and within 45 days of discovery, when unencrypted personal information was or may have been taken and could lead to identity theft or fraud. Tell the Attorney General whenever residents are notified, and the national credit reporting agencies when more than 1,000 people are notified.
     value: 45
+    unit: days
     source:
       - https://www.in.gov/attorneygeneral/consumer-protection-division/id-theft-prevention/security-breaches/security-breach-faqs-and-notification-form-for-businesses/
       - https://iga.in.gov/laws/2025/ic/titles/24#24-4.9-3

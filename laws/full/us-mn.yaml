@@ -46,6 +46,7 @@ obligations:
   consent_age:
     summary: A child is under 13 (as in COPPA), and a known child's data needs a parent's consent under COPPA. Teens aged 13 to 16 must consent before their data is sold or used for targeted advertising, where the controller knows their age.
     value: 13
+    unit: years
     source:
       - https://www.revisor.mn.gov/statutes/cite/325M.11
       - https://www.revisor.mn.gov/statutes/cite/325M.16

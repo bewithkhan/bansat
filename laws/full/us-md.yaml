@@ -41,6 +41,7 @@ obligations:
   consent_age:
     summary: A child is under 13 (as in COPPA), and a child's data is sensitive data. A controller must not sell personal data of anyone under 18, or use it for targeted advertising, if it knew or should have known their age. This ban has no consent exception. The Kids Code treats everyone under 18 as a child.
     value: 13
+    unit: years
     source:
       - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4701&enactments=false
       - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4707&enactments=false
@@ -66,6 +67,7 @@ obligations:
   breach_notice:
     summary: Investigate promptly. Unless misuse is unlikely, notify affected Maryland residents as soon as reasonably practicable and within 45 days of discovering the breach, and notify the Attorney General before telling them, whatever the number affected. A service provider must tell the data owner within 10 days. Keep records of a no-notice decision for 3 years.
     value: 45
+    unit: days
     source:
       - https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-3504&enactments=false
   registration_or_fees:
