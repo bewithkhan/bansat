@@ -1,0 +1,60 @@
+# Law Watch (blueprint FR-06): every Monday, check the official feeds and pages the registry watches, and open or
+# update one "possible change" issue per jurisdiction. Failing sources go in one "[watch] Source failing" issue.
+# The weekly verify task reads those issues and prepares the updates; a person reviews and merges every change.
+#
+# The state between runs is a workflow artifact, so this workflow never commits to the repo. It holds a hash plus
+# each item's title, link and date, never page text (BR-05). Third-party actions are pinned to a full commit SHA.
+name: Law Watch
+
+on:
+  schedule:
+    # Mondays at 06:23 UTC: off the hour, because scheduled runs are delayed at the start of the hour (NFR-DETECT-01).
+    - cron: '23 6 * * 1'
+  workflow_dispatch:
+
+# Least privilege (NFR-SEC-01): read the repo, read this workflow's earlier artifacts, write issues.
+permissions:
+  contents: read
+  actions: read
+  issues: write
+
+concurrency:
+  group: law-watch
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    name: Check the watched sources
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - run: npm ci
+      - name: Fetch the last run's state
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          run_id=$(gh run list --repo "$GITHUB_REPOSITORY" --workflow watch.yml --status success --limit 1 --json databaseId --jq '.[0].databaseId // empty')
+          if [ -n "$run_id" ] && gh run download "$run_id" --repo "$GITHUB_REPOSITORY" --name law-watch-state --dir watch-state; then
+            echo "Using the state from run $run_id."
+          else
+            echo "No earlier state, so this run sets a baseline and opens no change issues."
+          fi
+      - name: Check every watched source
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/watch.ts --state watch-state/watch-state.json --write-state watch-state/watch-state.json --issues --summary "$GITHUB_STEP_SUMMARY"
+      - name: Keep the state for the next run
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: law-watch-state
+          path: watch-state/watch-state.json
+          if-no-files-found: error
+          retention-days: 90
