@@ -1,0 +1,135 @@
+# Türkiye. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+# mevzuat.gov.tr and resmigazete.gov.tr block automated access, so links point to the KVKK Authority's
+# own texts (its English translation of Law No. 6698, where the Turkish text prevails), the Ministry of Trade,
+# and laws as the TBMM (parliament) adopted them, which don't show later amendments.
+id: tr
+name: Türkiye
+tier: full
+laws:
+  - name: Law on the Protection of Personal Data (KVKK)
+    citation: Law No. 6698 (Official Gazette 7 April 2016, No. 29677)
+    official_url: https://www.kvkk.gov.tr/Icerik/6649/Personal-Data-Protection-Law
+    status: in-force
+    in_force_from: "2016-04-07"
+    notes: Articles 8, 9, 11 and 13 to 18 took effect six months after publication. The link is the Authority's English translation, which includes the 2024 amendments.
+  - name: Law No. 7499 amending the Code of Criminal Procedure and certain laws
+    citation: Law No. 7499 (Official Gazette 12 March 2024, No. 32487)
+    official_url: https://www.kvkk.gov.tr/Icerik/2053/Yurtdisina-Aktarim
+    status: in-force
+    in_force_from: "2024-06-01"
+    notes: From 1 June 2024 it rewrote the KVKK rules on special category data (Art. 6) and transfers abroad (Art. 9), added a fine for not notifying standard contracts, and moved fine appeals to the administrative courts. The old transfer rule also stayed in effect until 1 September 2024.
+  - name: Law on the Regulation of Electronic Commerce
+    citation: Law No. 6563
+    official_url: https://ticaret.gov.tr/ic-ticaret/sikca-sorulan-sorular/elektronik-ticaret
+    status: in-force
+    in_force_from: "2015-05-01"
+    notes: Covers commercial electronic messages. Details are in the Regulation on Commercial Communication and Commercial Electronic Messages, amended on 4 January 2020 for the Message Management System (İYS). The link is the Ministry of Trade's guidance.
+  - name: Law No. 7578 amending the Social Services Law and certain laws (social network rules in Internet Law No. 5651)
+    citation: Law No. 7578 (Official Gazette 1 May 2026, No. 33240)
+    official_url: https://cdn.tbmm.gov.tr/KKBSPublicFile/D28/Y4/KanunMetni/9bf93173-7648-4771-ab36-0e45666c423d.htm
+    status: in-force
+    in_force_from: "2026-11-01"
+    notes: Adds social network rules to Internet Law No. 5651 (Additional Article 4) that apply from 1 November 2026, six months after publication. Providers may not serve children under 15, must check ages, offer a separate service for 15- to 17-year-olds and give parents control tools. It also adds age-rating and parental-control rules for online game platforms. Its other articles took effect on 1 May 2026. The link is the text the TBMM adopted on 22 April 2026.
+  - name: No AI-specific law yet
+    citation: None adopted. Law No. 6698 covers personal data processed with AI
+    official_url: https://www.kvkk.gov.tr/Icerik/8547/uretken-yapay-zeka-ve-kisisel-verilerin-korunmasi-rehberi-15-soruda
+    status: none
+    notes: No AI law has been adopted, so the Authority assesses AI, including generative AI, under Law No. 6698. The link is its generative AI guide of 24 November 2025.
+regulators:
+  - name: Personal Data Protection Authority (Kişisel Verileri Koruma Kurumu, KVKK) and its Board
+    url: https://www.kvkk.gov.tr/
+  - name: Presidency of Cyber Security (Siber Güvenlik Başkanlığı), for cyber incident reports and internet content complaints
+    url: https://www.turkiye.gov.tr/cumhurbaskanligi-siber-guvenlik-baskanligi
+  - name: Ministry of Trade, for commercial electronic messages
+    url: https://ticaret.gov.tr/ic-ticaret/ticari-elektronik-iletiler
+obligations:
+  scope:
+    summary: Law No. 6698 covers natural or legal persons who process personal data of natural persons by automated means, or by other means as part of a filing system. The law has no territorial article, but the Authority applies it to controllers abroad that process data in Türkiye. They must register through a representative in Türkiye and report breaches that affect people there.
+    source:
+      - https://www.kvkk.gov.tr/Icerik/6649/Personal-Data-Protection-Law
+      - https://verbis.kvkk.gov.tr/sharedFolder/sorularla-verbis.pdf?ts=20251006
+      - https://www.kvkk.gov.tr/Icerik/5362/Veri-Ihlali-Bildirimi
+  lawful_bases:
+    summary: Processing needs explicit consent unless a listed condition applies, such as a law providing for it, protecting someone's life, a contract, a legal obligation, data the person made public, establishing or defending a right, or a legitimate interest that doesn't harm the person's rights. Special category data has its own list, rewritten from 1 June 2024, plus Board-set safeguards. The privacy notice and the consent request must be separate steps. A Board decision of 29 April 2026 says using biometrics only to track staff working hours has no lawful basis, even with explicit consent.
+    source:
+      - https://www.kvkk.gov.tr/Icerik/6649/Personal-Data-Protection-Law
+      - https://www.kvkk.gov.tr/SharedFolderServer/CMSFiles/70f95c73-06a2-44dc-81e9-34201bdd7f5c.pdf
+      - https://www.kvkk.gov.tr/Icerik/8830/ucuncu-kisilerden-elde-edilen-kisisel-verilerin-reklam-ve-pazarlama-amacli-kullanilmasina-iliskin-kamuoyu-duyurusu
+      - https://www.kvkk.gov.tr/Icerik/8912/29-04-2026-tarihli-ve-2026-921-sayili-mesai-takibi-amaciyla-biyometrik-veri-islenmesi-hakkinda-ilke-karari-na-iliskin-gorus-talepleri-hakkinda-kamuoyu-duyurusu
+  consent_age:
+    summary: Law No. 6698 sets no age for consent. The Authority's guidance for product and service makers says to check children's ages and, where needed, send privacy information and consent requests to a verified parent or guardian. Separately, since 1 November 2026 social network providers may not serve children under 15 at all (see children).
+    source:
+      - https://www.kvkk.gov.tr/Icerik/6649/Personal-Data-Protection-Law
+      - https://www.kvkk.gov.tr/SharedFolderServer/CMSFiles/f506d8fe-9f36-4538-bce9-a05a5ca8d8e6.pdf
+      - https://cdn.tbmm.gov.tr/KKBSPublicFile/D28/Y4/KanunMetni/9bf93173-7648-4771-ab36-0e45666c423d.htm
+  children:
+    summary: Since 1 November 2026, Law No. 7578's changes to Internet Law No. 5651 bar social network providers from serving children under 15 and require age checks. They must offer a separate service for 15- to 17-year-olds, publish their measures and give parents tools for account settings, payment approval and screen-time limits. The family ministry says the new regulation uses e-Devlet age codes, allows a transition until 31 March 2027 and bars live streaming for that group. The Authority's June 2025 guidance applies too, and the Board began investigating six platforms in February 2026.
+    source:
+      - https://cdn.tbmm.gov.tr/KKBSPublicFile/D28/Y4/KanunMetni/9bf93173-7648-4771-ab36-0e45666c423d.htm
+      - https://www.tbmm.gov.tr/Yasama/Kanun/5F9CED52-3776-46E4-BE23-019CB8DA2666
+      - https://aile.gov.tr/aksaray/haberler/bakan-goektas-cocuklara-yoenelik-sosyal-medya-duezenlemesine-iliskin-ayrintilari-anlatti/
+      - https://www.kvkk.gov.tr/SharedFolderServer/CMSFiles/f506d8fe-9f36-4538-bce9-a05a5ca8d8e6.pdf
+      - https://www.kvkk.gov.tr/Icerik/8666/cocuklarin-sosyal-medya-kullaniminda-kisisel-verilerinin-korunmasina-iliskin-kamuoyu-duyurusu
+    secondary:
+      - https://www.erdem-erdem.av.tr/sosyal-ag-saglayici-tarafindan-cocuklara-ozgu-ayristirilmis-hizmet-sunulmasina-ve-yas-dogrulamaya-iliskin-yonetmelik-yayimlandi
+      - https://www.hukukihaber.net/bazi-kanun-ve-kanun-hukmunde-kararnamelerde-degisiklik-yapilmasina-dair-kanun-1
+  cookies:
+    summary: There's no separate cookie law. The Electronic Communications Law's rule covers only telecom operators, so Law No. 6698 applies. The Authority's cookie guide (July 2025 edition) requires opt-in explicit consent for non-essential cookies, including advertising cookies. Strictly necessary cookies, and first-party analytics limited to measuring the site, can rely on other grounds. Pre-ticked boxes don't count, and cookie walls may invalidate consent.
+    source:
+      - https://www.kvkk.gov.tr/SharedFolderServer/CMSFiles/fb193dbb-b159-4221-8a7b-3addc083d33f.pdf
+  marketing:
+    summary: Commercial electronic messages, including calls, SMS and e-mail, need the recipient's prior consent under Law No. 6563, except to merchants and tradespeople, who can be contacted until they refuse. Each message must identify the sender and include a free, easy opt-out on the same channel. Consents are recorded in İYS, the central system set up under the law. The Ministry of Trade fines breaches, and the KVKK requires separate, freely given consent for marketing.
+    source:
+      - https://ticaret.gov.tr/ic-ticaret/ticari-elektronik-iletiler/genel-bilgiler
+      - https://ticaret.gov.tr/ic-ticaret/sikca-sorulan-sorular/elektronik-ticaret
+      - https://ticaret.gov.tr/ic-ticaret/ticari-elektronik-iletiler/ileti-yonetim-sistemi-iys
+      - https://www.kvkk.gov.tr/Icerik/8578/mobil-uygulamalar-uzerinden-gonderilen-anlik-bildirimlere-iliskin-kamuoyu-duyurusu
+  breach_notice:
+    summary: Any case of others obtaining personal data unlawfully must be reported; there's no risk threshold. Notify the Board within 72 hours of learning of it, through its form or portal, explaining any delay. Details can follow in stages. Tell the people affected as soon as reasonably possible, directly where you can. Keep a breach record and a response plan. Processors tell the controller without delay. Controllers abroad report breaches affecting people in Türkiye. Cyber Security Law No. 7545 also requires reporting detected cyber incidents to the Presidency of Cyber Security without delay.
+    value: 72
+    unit: hours
+    source:
+      - https://www.kvkk.gov.tr/Icerik/5362/Veri-Ihlali-Bildirimi
+      - https://www.kvkk.gov.tr/Icerik/6649/Personal-Data-Protection-Law
+      - https://cdn.tbmm.gov.tr/KKBSPublicFile/D28/Y3/KanunMetni/9ac32dc5-35ee-46a8-8c47-7a16ec35d36f.htm
+  registration_or_fees:
+    summary: Register in VERBİS before processing unless exempt. Exempt are controllers with fewer than 50 employees and a balance sheet under TRY 100 million whose main activity isn't special category data and, since a Board decision of 4 September 2025, those whose main activity is special category data with fewer than 10 employees and under TRY 10 million. Some groups, such as lawyers and notaries, are exempt. Controllers abroad must register, and newly obliged ones have 30 days. Those that must register also need a retention and destruction policy, with periodic destruction at least every six months.
+    source:
+      - https://verbis.kvkk.gov.tr/sharedFolder/sorularla-verbis.pdf?ts=20251006
+      - https://www.kvkk.gov.tr/Icerik/8752/2025-yili-mali-bilanco-toplami-bakimindan-sicile-kayit-yukumlulugu-dogan-kurumlar-vergisi-mukellefi-tuzel-kisi-veri-sorumlularinin-verbis-kayit-suresi-hakkinda-kamuoyu-duyurusu
+      - https://www.kvkk.gov.tr/Icerik/6649/Personal-Data-Protection-Law
+      - https://www.kvkk.gov.tr/Icerik/5441/KISISEL-VERILERIN-SILINMESI-YOK-EDILMESI-VEYA-ANONIM-HALE-GETIRILMESI-HAKKINDA-YONETMELIK
+  dpo:
+    summary: Law No. 6698 doesn't require a data protection officer. A controller registering in VERBİS names a contact person, who must be a Turkish citizen aged 18 or over living in Türkiye. A controller abroad first appoints a representative, which must be a legal entity in Türkiye or a Turkish citizen living there.
+    source:
+      - https://www.kvkk.gov.tr/Icerik/6649/Personal-Data-Protection-Law
+      - https://verbis.kvkk.gov.tr/sharedFolder/sorularla-verbis.pdf?ts=20251006
+  transfers:
+    summary: Since 1 June 2024, transfers abroad need a processing condition plus a Board adequacy decision, but the Board hasn't issued one yet. Otherwise use a safeguard, such as the Board's standard contracts, notified to the Authority within five business days of signing, Board-approved binding corporate rules, or a written undertaking the Board approves. Without one, only occasional transfers under listed exceptions are allowed, such as informed explicit consent. A 2024 Regulation sets the details.
+    source:
+      - https://www.kvkk.gov.tr/Icerik/2053/Yurtdisina-Aktarim
+      - https://www.kvkk.gov.tr/Icerik/6649/Personal-Data-Protection-Law
+      - https://www.kvkk.gov.tr/SharedFolderServer/CMSFiles/13711235-abb6-4b17-9a6b-0a68c1ad86c5.pdf
+  dpia:
+    summary: Law No. 6698 has no formal DPIA duty. Controllers must take appropriate security measures, and the Authority's data security guide (April 2025) expects them first to identify the data they hold, how likely risks are and what harm a breach would cause, especially for special category data, and then plan matching measures.
+    source:
+      - https://www.kvkk.gov.tr/Icerik/6649/Personal-Data-Protection-Law
+      - https://www.kvkk.gov.tr/SharedFolderServer/CMSFiles/7512d0d4-f345-41cb-bc5b-8d5cf125e3a1.pdf
+  automated_decisions_ai:
+    summary: People can object to an outcome against them that results only from automated analysis of their data. The Authority applies Law No. 6698 to AI and published a guide on generative AI in November 2025.
+    source:
+      - https://www.kvkk.gov.tr/Icerik/6649/Personal-Data-Protection-Law
+      - https://www.kvkk.gov.tr/Icerik/8547/uretken-yapay-zeka-ve-kisisel-verilerin-korunmasi-rehberi-15-soruda
+  penalties:
+    summary: Fines are raised each year. For 2026 they are TRY 85,437 to 1,709,200 for failing to inform people, TRY 256,357 to 17,092,242 for data security failures, TRY 427,263 to 17,092,242 for ignoring Board decisions, TRY 341,809 to 17,092,242 for registry breaches, and TRY 90,308 to 1,806,177 for not notifying a standard contract. Appeals go to the administrative courts. Some breaches are crimes under the Penal Code.
+    source:
+      - https://www.kvkk.gov.tr/SharedFolderServer/CMSFiles/MTY5NTUyNTRkNDkxNGY.pdf
+      - https://www.kvkk.gov.tr/Icerik/8145/6698-sayili-kisisel-verilerin-korunmasi-kanunu-kapsaminda-idari-para-cezasi-tutarlari
+      - https://www.kvkk.gov.tr/Icerik/6649/Personal-Data-Protection-Law
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

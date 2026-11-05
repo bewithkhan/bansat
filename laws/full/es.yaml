@@ -1,0 +1,146 @@
+# Spain. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: es
+name: Spain
+tier: full
+applies_with: [eu]
+laws:
+  - name: Organic Law on the Protection of Personal Data and Guarantee of Digital Rights (LOPDGDD)
+    citation: Ley Orgánica 3/2018, de 5 de diciembre (BOE-A-2018-16673)
+    official_url: https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673
+    status: in-force
+    in_force_from: "2018-12-07"
+    notes: Adapts the GDPR to Spanish law and adds a set of digital rights. Last amended by Law 10/2025, which rewrote art. 23.1 on marketing exclusion lists from 28 December 2025.
+  - name: Law on Information Society Services and Electronic Commerce (LSSI)
+    citation: Ley 34/2002, de 11 de julio (BOE-A-2002-13758)
+    official_url: https://www.boe.es/buscar/act.php?id=BOE-A-2002-13758
+    status: in-force
+    in_force_from: "2002-10-12"
+    notes: Cookies and similar technologies (art. 22.2) and commercial emails and messages (arts. 20 and 21). The AEPD enforces these articles.
+  - name: General Telecommunications Law
+    citation: Ley 11/2022, de 28 de junio (BOE-A-2022-10757)
+    official_url: https://www.boe.es/buscar/act.php?id=BOE-A-2022-10757
+    status: in-force
+    in_force_from: "2022-06-30"
+    notes: Art. 66 sets the rules for marketing calls.
+  - name: Law regulating customer services
+    citation: Ley 10/2025, de 26 de diciembre (BOE-A-2025-26698)
+    official_url: https://www.boe.es/buscar/act.php?id=BOE-A-2025-26698
+    status: in-force
+    in_force_from: "2025-12-28"
+    notes: Requires separate phone numbering for commercial calls and customer service, which led to the 400 range for commercial calls from 17 October 2026. It also changed consumer law so most phone contracts made through unlawful calls are void. Companies have 12 months to adapt their customer service.
+  - name: Statute of the Spanish Agency for the Supervision of Artificial Intelligence (AESIA)
+    citation: Real Decreto 729/2023, de 22 de agosto (BOE-A-2023-18911)
+    official_url: https://www.boe.es/buscar/act.php?id=BOE-A-2023-18911
+    status: in-force
+    in_force_from: "2023-09-03"
+    notes: Sets up AESIA to supervise AI systems. Spain has no national AI Act law yet. The bill naming supervisors and setting penalties lapsed when parliament was dissolved on 6 October 2026.
+regulators:
+  - name: Agencia Española de Protección de Datos (AEPD)
+    url: https://www.aepd.es
+  - name: Agencia Española de Supervisión de Inteligencia Artificial (AESIA)
+    url: https://aesia.digital.gob.es/
+obligations:
+  scope:
+    summary: The GDPR applies directly. The LOPDGDD adapts it for Spain and adds digital rights, such as privacy on work devices and a right to digital disconnection. It doesn't cover deceased people's data, but relatives and heirs can ask for access, correction or erasure. The AEPD supervises most organisations. Regional authorities, where a region has one, cover its regional and local public sector, including those running its services, and anyone exercising public functions in regional or local matters (art. 57).
+    source:
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673#a2
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673#a3
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673#a5-9
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673#a8-9
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673#a8-10
+  lawful_bases:
+    summary: The GDPR's six lawful bases apply. Spain adds that a contract can't depend on consent to unrelated processing (art. 6). A legal obligation or public task must come from EU law or a Spanish law-rank rule (art. 8). Consent alone can't lift the ban on processing data mainly to reveal ideology, union membership, religion, sexual orientation, beliefs or ethnic origin (art. 9). Arts. 19 to 23 make some processing lawful, such as business contact data, credit default files, CCTV and marketing exclusion lists.
+    source:
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673#a6
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673#a8
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673#a9
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673#a1-11
+  consent_age:
+    summary: People can consent to the processing of their own data from 14, unless the law needs a parent to take part in the underlying act. Below 14, consent must come from a parent or guardian. Unlike the GDPR rule, this covers all consent-based processing, not only online services. A bill to raise the age to 16 lapsed when parliament was dissolved on 6 October 2026, so 14 still applies.
+    value: 14
+    unit: years
+    source:
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673#a7
+      - https://www.congreso.es/public_oficiales/L15/CONG/BOCG/A/BOCG-15-A-52-1.PDF
+      - https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-20742
+      - https://www.boe.es/buscar/act.php?id=BOE-A-1982-5196
+    secondary:
+      - https://terceracamara.es/tramitacion/121-000052.html
+  children:
+    summary: Schools and anyone running activities for minors need the consent of the minor or their parents before publishing a minor's data on social networks (art. 92). Processing minors' data counts as a higher-risk factor (art. 28), and the AEPD's DPIA list treats data of under-14s as a risk criterion. For cookies on sites for children, the AEPD expects parental consent for under-14s. The bill on minors in digital environments, with age checks, lapsed on 6 October 2026.
+    source:
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673#a9-4
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673#a2-10
+      - https://www.aepd.es/documento/listas-dpia-es-35-4.pdf
+      - https://www.aepd.es/guias/guia-cookies.pdf
+      - https://www.congreso.es/public_oficiales/L15/CONG/BOCG/A/BOCG-15-A-52-1.PDF
+      - https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-20742
+  cookies:
+    summary: Storing or reading data on a device needs consent after clear and complete information, except technical storage or what's strictly necessary for a service the user asked for (LSSI art. 22.2). The AEPD's guide (May 2024) expects a reject button at the same level as accept and says continued browsing isn't consent. Analytics need consent, except audience measurement limited to anonymous statistics for the site itself. The AEPD advises that a consent last no more than 24 months.
+    source:
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2002-13758#a22
+      - https://www.aepd.es/guias/guia-cookies.pdf
+      - https://www.aepd.es/guias/guia-cookies-analiticas-externas.pdf
+  marketing:
+    summary: Marketing emails and texts need prior request or express consent, except offers of similar products to existing customers, with a free opt-out at collection and in every message (LSSI art. 21). Marketing calls need consent or another GDPR basis, and since 17 October 2026 must come from 400 numbers. Check the advertising exclusion lists first, unless the person consented to you (art. 23). Most consumer contracts made through unlawful calls are void. For a contract made on a call to be valid, consent to the call must have been given or renewed expressly in the two years before it.
+    source:
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2002-13758#a21
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2022-10757#a6-8
+      - https://digital.gob.es/content/dam/portal-mtdfp/comunicacion/comunicacion_setid/2026/10/2026-10-16/PR_Rango400_maq.pdf
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673#a2-5
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2007-20555#a62
+  breach_notice:
+    summary: The GDPR rule applies. Report a breach to the AEPD without undue delay and within 72 hours through the breach channel of its e-office, unless it's unlikely to risk people's rights. Tell the people affected when the risk to them is high. The AEPD's Asesora Brecha tool helps assess the risk. Spain treats not notifying as a serious infringement and late or incomplete notice as a minor one (arts. 73 and 74).
+    value: 72
+    unit: hours
+    source:
+      - https://www.aepd.es/preguntas-frecuentes/2-rgpd/11-brechas-de-datos-personales/FAQ-0233-a-quien-hay-que-notificar-las-brechas-de-datos-personales
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673#a7-5
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673#a7-6
+  registration_or_fees:
+    summary: There's no registration with the AEPD and no fee. Keep a record of processing activities, and public bodies must also publish an inventory of theirs (art. 31). Tell the AEPD, or the regional authority, within 10 days when you appoint, replace or remove a data protection officer, even a voluntary one (art. 34).
+    source:
+      - https://www.aepd.es/preguntas-frecuentes/2-tus-obligaciones-como-responsable-del-tratamiento/3-que-obligaciones-establece-el-rgpd-para-los-responsables/FAQ-0246-sobre-darse-de-alta-en-protecci%C3%B3n-de-datos
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673#a3-3
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673#a3-6
+  dpo:
+    summary: Besides the GDPR cases, Spain requires a data protection officer in listed sectors (art. 34). They include professional bodies, schools and universities, large-scale telecoms operators, online services that profile users at large scale, banks and other lenders, insurers, investment firms, energy suppliers, credit and fraud files, advertising and market research firms that profile, health centres (not solo practitioners), commercial report agencies, online gambling, private security and sports federations handling minors' data.
+    source:
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673#a3-6
+  transfers:
+    summary: The GDPR transfer rules apply. Transfers based on contract clauses other than the standard ones, or on non-binding arrangements between public bodies, need prior AEPD authorisation, which takes up to six months (art. 42). Before a transfer based on compelling legitimate interests, tell the AEPD and the people affected (art. 43). The AEPD can adopt standard clauses and approve binding corporate rules (art. 41).
+    source:
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673#a4-3
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673#a4-4
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673#a4-5
+  dpia:
+    summary: The GDPR rule applies. The AEPD's list has 11 criteria, such as profiling, automated decisions, systematic monitoring, special category, biometric or genetic data, large scale, combining datasets, vulnerable people including under-14s, and new technologies. A DPIA is generally needed when two or more apply. LOPDGDD art. 28 lists further higher-risk factors to weigh.
+    source:
+      - https://www.aepd.es/documento/listas-dpia-es-35-4.pdf
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673#a2-10
+  automated_decisions_ai:
+    summary: GDPR Art. 22 applies. If data will be used for profiling, the short privacy notice must say so and mention the right to object to automated decisions (art. 11). Since 5 October 2026 employers must tell workers in writing about algorithmic systems that shape their working conditions. Works councils must also be told the rules behind them. The EU AI Act applies directly and AESIA supervises AI, but the bill naming AI Act authorities and penalties lapsed on 6 October 2026.
+    source:
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673#a1-3
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2026-19200#a3
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2015-11430#a64
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2023-18911
+      - https://www.congreso.es/public_oficiales/L15/CONG/BOCG/A/BOCG-15-A-97-1.PDF
+      - https://www.boe.es/buscar/act.php?id=BOE-A-1982-5196
+    secondary:
+      - https://terceracamara.es/tramitacion/121-000096.html
+  penalties:
+    summary: GDPR fines apply, up to €20 million or 4% of worldwide turnover. Spain grades infringements as very serious, serious or minor, with limitation periods of 3, 2 and 1 years (arts. 72 to 74). Public bodies aren't fined but get a declaration and corrective orders (art. 77). Fines over €1 million on companies are published in the BOE. The AEPD also fines LSSI breaches, up to €30,000 for cookies without consent and €30,001 to €150,000 for mass or repeated spam.
+    source:
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673#a7-4
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673#a7-8
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673#a7-9
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2002-13758#a39
+      - https://www.boe.es/buscar/act.php?id=BOE-A-2002-13758#a43
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

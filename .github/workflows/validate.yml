@@ -27,6 +27,9 @@ jobs:
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 24
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - run: npm ci
       - name: The combined framework file is up to date
         run: node scripts/build-framework.ts --check
       - name: SKILL.md is valid and loads every module
@@ -35,6 +38,10 @@ jobs:
         run: node scripts/check-examples.ts
       - name: The G1 hook works
         run: node hooks/bansat-g1-guard.test.mjs
+      - name: The law registry is valid, with every source on an official domain
+        run: node scripts/validate-laws.ts
+      - name: The registry validator catches bad entries
+        run: node scripts/validate-laws.test.ts
 
   examples:
     name: Tested examples

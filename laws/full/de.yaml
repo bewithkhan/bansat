@@ -1,0 +1,151 @@
+# Germany. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: de
+name: Germany
+tier: full
+applies_with:
+  - eu
+laws:
+  - name: Bundesdatenschutzgesetz (BDSG)
+    citation: BDSG of 30 June 2017 (BGBl. I S. 2097), as amended
+    official_url: https://www.gesetze-im-internet.de/bdsg_2018/
+    status: in-force
+    in_force_from: "2018-05-25"
+    notes: The main national law read with the GDPR. In December 2025 the federal and state governments agreed to reform data protection supervision by 31 December 2027, and the governing coalition wants to simplify and bundle it, including by giving the BfDI more of it. None of this is law yet.
+  - name: Telekommunikation-Digitale-Dienste-Datenschutz-Gesetz (TDDDG)
+    citation: TDDDG of 23 June 2021 (BGBl. I S. 1982), as amended
+    official_url: https://www.gesetze-im-internet.de/ttdsg/
+    status: in-force
+    in_force_from: "2021-12-01"
+    notes: Cookies and similar technologies (§ 25). Called the TTDSG until 14 May 2024. The Einwilligungsverwaltungsverordnung (EinwV) on recognised consent management services has applied since 1 April 2025.
+  - name: Gesetz gegen den unlauteren Wettbewerb (UWG)
+    citation: UWG as published on 3 March 2010 (BGBl. I S. 254), as amended
+    official_url: https://www.gesetze-im-internet.de/uwg_2004/
+    status: in-force
+    in_force_from: "2004-07-08"
+    notes: Unfair competition law. § 7 covers unsolicited advertising by phone, email, fax and automated calls.
+  - name: KI-Marktüberwachungs-und-Innovationsförderungs-Gesetz (KI-MIG)
+    citation: KI-MIG of 22 July 2026 (BGBl. 2026 I Nr. 223)
+    official_url: https://www.gesetze-im-internet.de/ki-mig/
+    status: in-force
+    in_force_from: "2026-07-29"
+    notes: Germany's law for carrying out the EU AI Act. It names the national authorities, sets up an independent AI market surveillance chamber at the Bundesnetzagentur, and covers fines.
+  - name: Gesetz zur Umsetzung der Richtlinie (EU) 2023/2225 über Verbraucherkreditverträge und zur Regelung der Förderung klimaneutraler Mobilität
+    citation: BGBl. 2026 I Nr. 139 (12 May 2026), Article 3 amends the BDSG
+    official_url: https://www.recht.bund.de/bgbl/1/2026/139/VO.html
+    status: enacted
+    in_force_from: "2026-11-20"
+    notes: From 20 November 2026 it replaces the BDSG's scoring rule (§ 31) with a new § 37a, and adds duties for credit databases and credit checks to § 30.
+  - name: Bill to amend the BDSG (Bundesrat initiative)
+    citation: BT-Drucksache 21/7732 (26 August 2026)
+    official_url: https://dserver.bundestag.de/btd/21/077/2107732.pdf
+    status: draft
+    notes: Would put the Datenschutzkonferenz (DSK) on a legal footing and let company groups and research projects ask for one lead state authority. The federal government has said it will present its own reform.
+regulators:
+  - name: Federal Commissioner for Data Protection and Freedom of Information (BfDI), for federal public bodies and telecom and postal providers
+    url: https://www.bfdi.bund.de
+  - name: State data protection authorities (one per state, two in Bavaria), for most businesses, coordinated in the Datenschutzkonferenz (DSK)
+    url: https://www.datenschutzkonferenz-online.de/datenschutzaufsichtsbehoerden.html
+  - name: Church data protection supervisors (Catholic dioceses and Protestant churches), for the churches and many church bodies instead of the state authorities
+    url: https://www.bfdi.bund.de/DE/Service/Anschriften/Kirchen/Kirchen-node.html
+  - name: Bundesnetzagentur, the main AI Act market surveillance authority, which also fines unlawful phone advertising
+    url: https://www.bundesnetzagentur.de
+obligations:
+  scope:
+    summary: The GDPR applies directly, and the BDSG adds national rules. For businesses the BDSG applies when they process data in Germany, act through a German establishment, or fall under the GDPR from outside the EU and EEA. Most businesses are supervised by the authority of the state they're based in. The BfDI covers federal bodies and telecom and postal providers. State public bodies mostly follow their own state's data protection act. The Catholic and Protestant churches, and many church bodies, follow their own laws (KDG, DSG-EKD) and supervisors (Art. 91 GDPR).
+    source:
+      - https://www.gesetze-im-internet.de/bdsg_2018/__1.html
+      - https://www.gesetze-im-internet.de/bdsg_2018/__40.html
+      - https://www.gesetze-im-internet.de/bdsg_2018/__9.html
+      - https://www.bfdi.bund.de/DE/Buerger/Privatwirtschaft/Privatwirtschaft_node.html
+      - https://www.bfdi.bund.de/DE/Service/Anschriften/Kirchen/Kirchen-node.html
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+  lawful_bases:
+    summary: The GDPR's six lawful bases apply. The BDSG adds national grounds, such as § 22 for special category data and § 24 for businesses reusing data to avert security threats, prosecute crimes or pursue legal claims. § 26 covers employee data, but since the CJEU's 2023 ruling on a similar Hesse rule (C-34/21) the BfDI calls it too vague, and national rules that fail Art. 88 GDPR must be disregarded. So check the GDPR basis directly. No separate employee data law has been adopted.
+    source:
+      - https://www.gesetze-im-internet.de/bdsg_2018/__22.html
+      - https://www.gesetze-im-internet.de/bdsg_2018/__24.html
+      - https://www.gesetze-im-internet.de/bdsg_2018/__26.html
+      - https://www.bfdi.bund.de/DE/Buerger/Basiswissen/Beschaeftigte/Beschaeftigte_node.html
+      - https://www.datenschutzkonferenz-online.de/media/en/2023-05-11_DSK-Entschliessung_Beschaeftigtendatenschutz.pdf
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62021CJ0034
+    secondary:
+      - https://riehnlegal.blog/content/artikel/?item=beschaeftigtendatenschutz-2026-der-zweite-anlauf-zum-eigenen-gesetz-und-was-er-fuer-dich-bedeutet
+  consent_age:
+    summary: Germany kept the GDPR default. When an online service offered directly to a child relies on consent, children can consent for themselves from 16. Below that, a parent must give or authorise consent. German law sets no lower age.
+    value: 16
+    unit: years
+    source:
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+      - https://www.bundestag.de/resource/blob/959324/WD-10-019-23-pdf.pdf
+  children:
+    summary: The GDPR's child rules apply, such as weighing children's interests with particular care and explaining things in plain language. Youth media protection law (the federal JuSchG and the states' JMStV) applies alongside. From 20 November 2026, scores under the new § 37a BDSG may not be made or used about minors.
+    source:
+      - https://www.bundestag.de/resource/blob/959324/WD-10-019-23-pdf.pdf
+      - https://www.recht.bund.de/bgbl/1/2026/139/VO.html
+  cookies:
+    summary: Storing or reading information on a user's device needs consent based on clear and full information (§ 25 TDDDG), whether or not personal data is involved. No consent is needed when it's only to transmit a message over a public network, or strictly necessary for a service the user explicitly asked for. The authorities expect refusing to be as easy as accepting. Since 1 April 2025 sites may choose to use consent management services recognised by the BfDI (EinwV). Fines go up to €300,000 (§ 28 TDDDG).
+    source:
+      - https://www.gesetze-im-internet.de/ttdsg/__25.html
+      - https://www.datenschutzkonferenz-online.de/media/oh/OH_Digitale_Dienste.pdf
+      - https://www.gesetze-im-internet.de/einwv/BJNR0200B0025.html
+      - https://www.gesetze-im-internet.de/ttdsg/__28.html
+  marketing:
+    summary: Advertising by email, fax or automated calls needs the recipient's prior express consent (§ 7 UWG). For email there's a soft opt-in, where the address came from a sale, it's used for your own similar products, the customer hasn't objected, and they're told they can object at collection and in every message. Phone advertising to consumers needs prior express consent, documented and kept for five years (§ 7a). Calls to businesses need at least presumed consent. The Bundesnetzagentur can fine unlawful calls up to €300,000.
+    source:
+      - https://www.gesetze-im-internet.de/uwg_2004/__7.html
+      - https://www.gesetze-im-internet.de/uwg_2004/__7a.html
+      - https://www.gesetze-im-internet.de/uwg_2004/__20.html
+  breach_notice:
+    summary: The GDPR rule applies. Report a breach to your supervisory authority without undue delay and within 72 hours, unless it's unlikely to risk people's rights, and tell affected people without undue delay when the risk to them is high. In Germany a notification may only be used in criminal or fine proceedings against the person who made it with their consent (§§ 42(4), 43(4) BDSG).
+    value: 72
+    unit: hours
+    source:
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+      - https://www.gesetze-im-internet.de/bdsg_2018/__42.html
+      - https://www.gesetze-im-internet.de/bdsg_2018/__43.html
+  registration_or_fees:
+    summary: There's no registration and no fee. If you have a data protection officer, publish their contact details and send them to your supervisory authority (Art. 37(7) GDPR).
+    source:
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+  dpo:
+    summary: On top of the GDPR, private controllers and processors must appoint a DPO if they usually have at least 20 people constantly working on automated processing of personal data. Headcount doesn't matter if they do processing that needs a DPIA, or process data commercially for transfer, anonymised transfer, or market or opinion research (§ 38 BDSG). Mandatory DPOs are protected against dismissal. The government plans to reduce company DPOs in small and medium-sized firms. As of 5 November 2026 that's a plan, and § 38 is unchanged.
+    source:
+      - https://www.gesetze-im-internet.de/bdsg_2018/__38.html
+      - https://www.gesetze-im-internet.de/bdsg_2018/__6.html
+      - https://www.bundesregierung.de/resource/blob/2196306/2445592/344cc50b4c10a5939658e3fc0a5fd93f/2026-07-02-koaausschuss-data.pdf?download=1
+    secondary:
+      - https://www.dieter-datenschutz.de/magazin/datenschutzbeauftragter-pflicht-abschaffung
+      - https://www.dr-datenschutz.de/faellt-die-pflicht-zum-datenschutzbeauftragten-bis-ende-2026/
+  transfers:
+    summary: The GDPR rules apply. Transfers outside the EEA need an adequacy decision (such as the EU–US Data Privacy Framework for certified companies), appropriate safeguards such as standard contractual clauses or binding corporate rules, or a listed exception. The BDSG adds no transfer rules for businesses.
+    source:
+      - https://www.bfdi.bund.de/DE/Fachthemen/Datenschutzpraxis/Internationaler-Datentransfer/Internationaler-Datentransfer-node.html
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+      - https://www.gesetze-im-internet.de/bdsg_2018/
+  dpia:
+    summary: Carry out a DPIA before high-risk processing (Art. 35 GDPR). For businesses, the DSK's list names 17 kinds of processing that always need one, such as credit and risk scoring, systematic employee monitoring, tracking shoppers' movements, large-scale vehicle location data and AI that steers customer contact or assesses people. Needing a DPIA also means you must appoint a DPO (§ 38 BDSG).
+    source:
+      - https://www.datenschutzkonferenz-online.de/media/ah/20181017_ah_DSK_DSFA_Muss-Liste_Version_1.1_Deutsch.pdf
+      - https://www.gesetze-im-internet.de/bdsg_2018/__38.html
+  automated_decisions_ai:
+    summary: Art. 22 GDPR applies. § 37 BDSG allows some fully automated insurance decisions. From 20 November 2026, § 37a replaces § 31. Scores for contract or credit decisions must then use a scientifically recognised statistical method, not be reused, not concern minors and exclude special category, age, gender, name, social media, bank transaction and address data. Credit agencies may count only some unpaid debts. Decisions may be automated, but people can ask how a score was made and get a human decision. The KI-MIG makes the Bundesnetzagentur the main AI Act authority, with BaFin for finance.
+    source:
+      - https://www.gesetze-im-internet.de/bdsg_2018/__37.html
+      - https://www.gesetze-im-internet.de/bdsg_2018/__31.html
+      - https://www.recht.bund.de/bgbl/1/2026/139/VO.html
+      - https://www.gesetze-im-internet.de/ki-mig/BJNR0DF0B0026.html
+  penalties:
+    summary: GDPR fines apply, up to €20 million or 4% of worldwide annual turnover. Germany adds crimes (§ 42 BDSG), such as knowingly and commercially passing on non-public data of many people without authorisation, with up to three years in prison. National fines reach €50,000 for consumer credit duties (§ 43 BDSG), €300,000 for cookie breaches (§ 28 TDDDG), and €300,000 for unlawful phone advertising and €50,000 for failing to document or keep the consent (§ 20 UWG). Federal public bodies can't be fined.
+    source:
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+      - https://www.gesetze-im-internet.de/bdsg_2018/__42.html
+      - https://www.gesetze-im-internet.de/bdsg_2018/__43.html
+      - https://www.gesetze-im-internet.de/ttdsg/__28.html
+      - https://www.gesetze-im-internet.de/uwg_2004/__20.html
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

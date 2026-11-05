@@ -1,0 +1,27 @@
+# Official domains for each jurisdiction in the law registry (blueprint 5.4). Every source cited in
+# laws/ must be on one of its jurisdiction's domains, or on a domain of an entry it applies_with,
+# unless it's listed under `secondary`. Subdomains count (www.legislation.gov.uk is legislation.gov.uk).
+# Phase 4 adds the feeds and pages that Law Watch checks each week.
+jurisdictions:
+  uk:
+    official_domains: [legislation.gov.uk, ico.org.uk, gov.uk]
+  eu:
+    official_domains: [europa.eu]
+  de:
+    official_domains: [gesetze-im-internet.de, recht.bund.de, bfdi.bund.de, datenschutzkonferenz-online.de, bundestag.de, bundesregierung.de, bundesnetzagentur.de]
+  nl:
+    official_domains: [wetten.overheid.nl, officielebekendmakingen.nl, autoriteitpersoonsgegevens.nl, acm.nl, rdi.nl]
+  es:
+    official_domains: [boe.es, aepd.es, digital.gob.es, congreso.es]
+  ie:
+    official_domains: [irishstatutebook.ie, lawreform.ie, dataprotection.ie, gov.ie]
+  ch:
+    official_domains: [fedlex.admin.ch, edoeb.admin.ch, admin.ch]
+  "no":
+    official_domains: [datatilsynet.no, nkom.no, forbrukertilsynet.no, stortinget.no, finanstilsynet.no]
+  tr:
+    official_domains: [kvkk.gov.tr, ticaret.gov.tr, tbmm.gov.tr, aile.gov.tr, turkiye.gov.tr]
+  fr:
+    official_domains: [legifrance.gouv.fr, cnil.fr, conseil-constitutionnel.fr, assemblee-nationale.fr, senat.fr]
+  it:
+    official_domains: [normattiva.it, gazzettaufficiale.it, garanteprivacy.it, acn.gov.it, agid.gov.it]

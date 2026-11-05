@@ -1,0 +1,125 @@
+# France. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: fr
+name: France
+tier: full
+applies_with: [eu]
+laws:
+  - name: Loi Informatique et Libertés
+    citation: Loi n° 78-17 du 6 janvier 1978 relative à l'informatique, aux fichiers et aux libertés, as amended
+    official_url: https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000886460
+    status: in-force
+    in_force_from: "2019-06-01"
+    notes: France's data protection law, read with the GDPR. First passed in 1978 and rewritten for the GDPR, with the current version in force since 1 June 2019. Article 82 sets the rules for cookies and similar trackers.
+  - name: Code des postes et des communications électroniques, article L. 34-5
+    citation: Article L. 34-5 CPCE
+    official_url: https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000042155961
+    status: in-force
+    in_force_from: "2020-07-26"
+    notes: Marketing by email, SMS, fax and automated calls. The date is that of the current wording. In June 2026 the Constitutional Council ruled its three overlapping enforcement clauses unconstitutional. They're repealed on 31 October 2027 unless Parliament replaces them sooner.
+  - name: Code de la consommation, article L. 223-1
+    citation: Article L. 223-1 Code de la consommation, as amended by Loi n° 2025-594 du 30 juin 2025 (art. 13)
+    official_url: https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000051830285
+    status: in-force
+    in_force_from: "2026-08-11"
+    notes: Telephone marketing to consumers. Since 11 August 2026 it needs the consumer's prior consent.
+  - name: Bill adapting French law to EU law (DDADUE), including AI Act authorities
+    citation: Projet de loi portant diverses dispositions d'adaptation au droit de l'Union européenne (Sénat n° 118 and Assemblée nationale n° 2518, 2025-2026)
+    official_url: https://www.senat.fr/dossier-legislatif/pjl25-118.html
+    status: draft
+    notes: Passed by the Senate on 18 February 2026 and pending in the Assemblée nationale. It would name France's authorities for the EU AI Act, with the CNIL supervising most banned practices and high-risk uses such as biometrics, employment and law enforcement.
+regulators:
+  - name: Commission nationale de l'informatique et des libertés (CNIL)
+    url: https://www.cnil.fr
+obligations:
+  scope:
+    summary: The national law applies with the GDPR to processing in the context of a French establishment, and to non-EU organisations tracking people in France. France's own add-on rules, such as the consent age, apply whenever the person lives in France, even if the controller isn't established there (journalism is an exception). Online services must also tell users what happens to their data when they die and let them choose whether to pass it to someone they name.
+    source:
+      - https://www.cnil.fr/fr/le-cadre-national/la-loi-informatique-et-libertes#article3
+      - https://www.cnil.fr/fr/le-cadre-national/la-loi-informatique-et-libertes#article85
+      - https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000886460
+  lawful_bases:
+    summary: The GDPR's six lawful bases apply. For sensitive data, France adds national exceptions, such as workplace biometric access control that follows the CNIL's model regulation. Data on criminal offences can be processed only by listed actors, such as courts, public bodies, legal professionals, and people preparing or pursuing a legal claim as victim or accused.
+    source:
+      - https://www.cnil.fr/fr/le-cadre-national/la-loi-informatique-et-libertes#article44
+      - https://www.cnil.fr/fr/le-cadre-national/la-loi-informatique-et-libertes#article46
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+  consent_age:
+    summary: When an online service offered directly to a child relies on consent, the child can consent alone from 15. Under 15, the child and a holder of parental authority must consent together. Information for minors must be written in clear, simple terms they can understand.
+    value: 15
+    unit: years
+    source:
+      - https://www.cnil.fr/fr/le-cadre-national/la-loi-informatique-et-libertes#article45
+      - https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000886460
+  children:
+    summary: People can have data that an online service collected while they were minors erased promptly. If there's no answer within a month, the CNIL decides within three weeks. The CNIL enforces the EU ban on ads based on profiling minors for platforms whose main establishment or legal representative is in France. A 2023 law requiring parental consent for under-15s on social networks never took effect, and on 14 August 2026 the Constitutional Council struck down a ban on social networks for under-15s.
+    source:
+      - https://www.cnil.fr/fr/le-cadre-national/la-loi-informatique-et-libertes#article51
+      - https://www.cnil.fr/fr/le-cadre-national/la-loi-informatique-et-libertes#article124-5
+      - https://www.assemblee-nationale.fr/dyn/17/rapports/an/l17b2456_rapport-fond.pdf
+      - https://www.conseil-constitutionnel.fr/decision/2026/2026911DC.htm
+  cookies:
+    summary: Reading or storing information on a device needs consent, unless it's only for communication or strictly needed for a service the user asked for (art. 82). CNIL guidance says refusing must be as easy as accepting, keeping a choice for six months is good practice, and some audience measurement is exempt under strict conditions. Its April 2026 recommendation applies these rules to tracking pixels in emails. The CNIL enforces them directly, outside the EU one-stop shop.
+    source:
+      - https://www.cnil.fr/fr/le-cadre-national/la-loi-informatique-et-libertes#article82
+      - https://www.cnil.fr/fr/cookies-et-autres-traceurs/regles/cookies/lignes-directrices-modificatives-et-recommandation
+      - https://www.cnil.fr/fr/cookies-et-autres-traceurs/regles/cookies/FAQ
+      - https://www.cnil.fr/fr/recommandation-pixel-suivi-courriels
+      - https://www.cnil.fr/fr/faq-recommandation-pixels-courriers-electroniques
+  marketing:
+    summary: Email, SMS, fax and automated-call marketing to individuals needs prior consent. With an opt-out at collection and in each message, you may email existing customers (not mere account holders) about similar products, and contact professionals about their job. Since 11 August 2026 sales calls to consumers (not charity calls) need prior consent, valid a year at most with proof kept at least three years, unless about a current contract or to sell newspapers or magazines. Contracts from unlawful calls are void. Calls run weekdays 10:00–13:00 and 14:00–20:00, not public holidays, unless agreed.
+    source:
+      - https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000042155961
+      - https://www.cnil.fr/fr/la-prospection-commerciale-par-courrier-electronique-sms-mms-et-automate-dappel
+      - https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000051830285
+      - https://www.cnil.fr/fr/prospection-commerciale-par-telephone-hors-automate-dappel-quelles-sont-les-regles
+      - https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000051830279
+  breach_notice:
+    summary: Under the GDPR, notify the CNIL through its online service within 72 hours where feasible, and tell the people affected when the risk to them is high. Providers of public electronic communications services also have a national duty to notify the CNIL without delay and to keep an inventory of breaches.
+    value: 72
+    unit: hours
+    source:
+      - https://www.cnil.fr/fr/services-en-ligne/notifier-une-violation-de-donnees-personnelles
+      - https://www.cnil.fr/fr/le-cadre-national/la-loi-informatique-et-libertes#article83
+  registration_or_fees:
+    summary: No general registration or fee. Health-data processing in the public interest, such as research or health data warehouses, needs a prior formality. That's a declaration of conformity with a CNIL reference framework or, failing that, CNIL authorisation. The CNIL rules on authorisation requests within two months, extendable once. Silence counts as approval, unless a required prior opinion wasn't favourable.
+    source:
+      - https://www.cnil.fr/fr/sante-formalites-prealables
+      - https://www.cnil.fr/fr/le-cadre-national/la-loi-informatique-et-libertes#article66
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+  dpo:
+    summary: The GDPR rule applies with no national threshold. Appoint a DPO if you're a public body, or if your core activities involve large-scale regular monitoring or large-scale sensitive or criminal data. Designating, replacing or removing a DPO is done only through the CNIL's online service.
+    source:
+      - https://www.cnil.fr/fr/designation-dpo
+      - https://www.cnil.fr/fr/le-cadre-national/la-loi-informatique-et-libertes#article57
+      - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
+  transfers:
+    summary: The GDPR rules apply, using adequacy decisions, safeguards such as standard contractual clauses or binding corporate rules, or the Article 49 exceptions. The CNIL has published a guide to transfer impact assessments. It can suspend data flows to a third country as a sanction, or for up to three months in an urgent procedure.
+    source:
+      - https://www.cnil.fr/fr/les-outils-de-la-conformite/transferer-des-donnees-hors-de-lue
+      - https://www.cnil.fr/fr/le-cadre-national/la-loi-informatique-et-libertes#article20
+      - https://www.cnil.fr/fr/le-cadre-national/la-loi-informatique-et-libertes#article21
+  dpia:
+    summary: The GDPR rule applies, with national lists. The CNIL's list names 14 types of processing that always need a DPIA, such as health data handled by hospitals, HR profiling and constant monitoring of employees. A second list names processing that doesn't. Otherwise a DPIA is needed when at least two of the nine EDPB criteria apply. Consult the CNIL first if a high risk remains.
+    source:
+      - https://www.cnil.fr/fr/analyse-dimpact-relative-la-protection-des-donnees-publication-dune-liste-des-traitements-pour
+      - https://www.cnil.fr/fr/ce-quil-faut-savoir-sur-lanalyse-dimpact-relative-la-protection-des-donnees-aipd
+  automated_decisions_ai:
+    summary: Beyond GDPR Article 22, no court decision assessing someone's behaviour may rest on automated profiling. Where solely automated decisions rely on a contract or consent, the controller must explain the rules and main features of the processing on request. Public bodies' algorithmic decisions must say so explicitly. A bill naming France's AI Act authorities, with the CNIL covering most banned practices and high-risk uses, passed the Senate on 18 February 2026 and is pending in the Assemblée nationale.
+    source:
+      - https://www.cnil.fr/fr/le-cadre-national/la-loi-informatique-et-libertes#article47
+      - https://www.senat.fr/dossier-legislatif/pjl25-118.html
+      - https://www.assemblee-nationale.fr/dyn/17/dossiers/DLR5L17N53140
+  penalties:
+    summary: The CNIL's restricted committee can fine up to €20 million or 4% of worldwide turnover for the most serious GDPR breaches, and up to €10 million or 2% for others, including breaches of the national cookie rules. It can add penalty payments of up to €100,000 a day. A fast procedure for simple cases caps fines at €20,000, or €100,000 if turnover exceeds €50 million. Since a June 2026 Constitutional Council ruling, only one of the CNIL, the consumer authority and the telecoms regulator can pursue the same electronic marketing breach.
+    source:
+      - https://www.cnil.fr/fr/le-cadre-national/la-loi-informatique-et-libertes#article20
+      - https://www.cnil.fr/fr/le-cadre-national/la-loi-informatique-et-libertes#article22-1
+      - https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000886460
+      - https://www.conseil-constitutionnel.fr/decision/2026/20261210QPC.htm
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
