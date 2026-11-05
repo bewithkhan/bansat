@@ -101,11 +101,14 @@ obligations:
       - https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9058979
       - https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9059358
   automated_decisions_ai:
-    summary: Beyond GDPR Art. 22, Law 132/2025 requires employers to tell workers when they use AI. Since 23 October 2026 (D.lgs. 179/2026), a person, not AI alone, must take final decisions on hiring, changing or ending a job, discipline and appraisals. Screening applicants isn't covered, and consent is no exception. Workers can ask for an explanation, and decisions in breach are void. ACN is the main AI Act market surveillance authority, with the Bank of Italy, CONSOB and IVASS for finance and the Garante for high-risk AI in policing, borders, justice and democracy. AgID is the notifying authority.
+    summary: Law 132/2025 requires employers to tell workers when they use AI. Since 23 October 2026 (D.lgs. 179/2026), a person, not AI alone, must take final decisions on hiring, changing or ending a job, discipline and appraisals. Screening applicants isn't covered, and the worker's consent is no exception. On request, a person must explain the decision. Decisions in breach are void. ACN is the main AI Act market surveillance authority, with the Bank of Italy, CONSOB and IVASS for finance and the Garante for high-risk AI in policing, borders, justice and democracy. AgID is the notifying authority.
     source:
       - https://www.normattiva.it/eli/id/2025/09/25/25G00143/CONSOLIDATED
       - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679
       - https://www.normattiva.it/eli/id/2026/10/08/26G00200/CONSOLIDATED
+      - https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2026-10-07;179~art41
+      - https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2026-10-07;179~art4
+      - https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2026-10-07;179~art5
       - https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R1689
   penalties:
     summary: The Garante fines under the GDPR tiers. Breaches of key national rules, including the consent age, cookie and marketing rules, carry the top tier of up to €20 million or 4% of worldwide turnover. Paying half the fine within the appeal deadline, and complying, settles the case. Some unlawful processing that harms people, done for profit or to cause harm, is also a crime, with prison terms from six months to six years. D.lgs. 179/2026 applies the AI Act's fine ceilings and adds one of €1 million or 0.5% of turnover for the fundamental-rights impact assessment and explanation duties.
@@ -113,6 +116,7 @@ obligations:
       - https://www.normattiva.it/eli/id/2003/07/29/003G0218/CONSOLIDATED
       - https://www.garanteprivacy.it/temi/telemarketing
       - https://www.normattiva.it/eli/id/2026/10/08/26G00200/CONSOLIDATED
+      - https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2026-10-07;179~art23
 checked:
   date: "2026-11-05"
   status: ai-checked
