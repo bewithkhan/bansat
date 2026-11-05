@@ -331,7 +331,10 @@ Keep the credit line in anything you copy or adapt (CC BY 4.0).
 
 ## Author
 
-**Muhammad Tufail Khan** ([@bewithkhan](https://github.com/bewithkhan)): PhD researcher in AI and IoT for healthcare at the University of the West of Scotland, based in Glasgow.
+**Muhammad Tufail Khan**: PhD researcher in AI and IoT for healthcare at the University of the West of Scotland, based in Glasgow.
+
+<a href="https://www.linkedin.com/in/bewithkhan/"><img alt="Connect on LinkedIn" src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge"></a>
+<a href="https://github.com/bewithkhan"><img alt="Follow on GitHub: bewithkhan" src="https://img.shields.io/badge/GitHub-bewithkhan-24292F?style=for-the-badge"></a>
 
 ## Licence
 
@@ -345,5 +348,6 @@ Bansat summarises laws and regulator guidance as of 4 November 2026. It is not l
 ---
 
 <p align="center">
-  If Bansat saves you from one bad launch, <b>star the repo</b> so the next builder finds it before theirs.
+  If Bansat saves you from one bad launch, <b>star the repo</b> so the next builder finds it before theirs.<br>
+  Built by Muhammad Tufail Khan · <a href="https://www.linkedin.com/in/bewithkhan/">LinkedIn</a> · <a href="https://github.com/bewithkhan">GitHub</a>
 </p>
