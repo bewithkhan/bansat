@@ -48,14 +48,15 @@ This is the single source of truth for **every project, new or existing**. For a
 
 ### What changed in v2.4
 
-To re-check an existing blueprint, update its Framework row to v2.4, copy the new rules into your agent rules file (12.1), and run Day-0 triage T11 (14.2) on live projects.
+To re-check an existing blueprint, update its Framework row to v2.4; copy the new rules into your agent rules file (12.1); run Day-0 triage T11 (14.2) on live projects; check the new launch-gate items, two of them blocking (Part 13); and change any reference to Day-0 triage T11 "Was anything exposed?" to T12.
 
 | Area | Change |
 |---|---|
 | Breach casebook ★ | 20 documented incidents and regulators' decisions from 2025 and 2026, each mapped to the checks that catch its class of failure (Appendix F). |
-| AI coding agents ★ | The agent works with development keys only, asks before destructive commands, never switches off its own approval prompts, and treats what it reads as data (12.1, T-13, T-14, Day-0 triage T11). |
+| AI coding agents ★ | The agent works with development keys only, asks before destructive commands, never switches off its own approval prompts, and treats text it reads in tool results, issues and error reports as data (12.1, T-13, T-14, Day-0 triage T11). |
 | CI/CD and connected apps | Pinned actions, read-only workflow tokens, trusted publishing with 2FA and aged dependency updates; integration tokens and third-party app grants (7.4, T-15, T-16). |
-| Other checks | No default passwords or test accounts at launch (7.1); nothing that stores data open to the internet (7.4); backups kept apart (5.7); report triage (7.6); credible claims treated as possible breaches (9.20); passkeys or MFA for special category data (9.13); leavers' access removed the same day (7.4); uploaded code never run outside a sandbox (T-07). |
+| Launch gate | Three new checks, two of them blocking: no default passwords or test accounts, no open data stores, and agent and CI credentials (Part 13). |
+| Other checks | No default passwords or test accounts at launch (7.1); nothing that stores data open to the internet (7.4); backups kept apart (5.7); report triage (7.6); credible claims treated as possible breaches (9.20); passkeys or MFA for special category data (9.13); leavers' access removed the same day (7.4); uploaded code never run outside a sandbox (T-07); secrets stored as write-only values (7.4); agents in AI features get the least access that works (8.4). |
 
 ### What changed in v2.3
 

@@ -35,8 +35,9 @@ Check these sources again before each launch; guidance changes.
 - Gmail sender guidelines: https://support.google.com/a/answer/81126
 - OWASP Top 10 for Agentic Applications (2026): https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/
 - GitHub Actions secure use (pinned actions, token permissions, `pull_request_target`): https://docs.github.com/en/actions/reference/security/secure-use
+- GitHub Actions script injections: https://docs.github.com/en/actions/concepts/security/script-injections · securely using `pull_request_target`: https://docs.github.com/en/actions/reference/security/securely-using-pull_request_target · workflow dependency lockfiles: https://docs.github.com/en/actions/concepts/security/workflow-dependency-lockfiles
 - npm trusted publishing: https://docs.npmjs.com/trusted-publishers · requiring 2FA for publishing: https://docs.npmjs.com/requiring-2fa-for-package-publishing-and-settings-modification
-- Dependabot `cooldown`: https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference#cooldown- · Renovate `minimumReleaseAge`: https://docs.renovatebot.com/configuration-options/#minimumreleaseage
+- Dependabot `cooldown`: https://docs.github.com/en/code-security/reference/supply-chain-security/dependabot-options-reference#cooldown- · Renovate `minimumReleaseAge`: https://docs.renovatebot.com/configuration-options/#minimumreleaseage
 - Third-party app access: Google Workspace: https://knowledge.workspace.google.com/admin/apps/control-which-apps-access-google-workspace-data · Microsoft Entra user consent: https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/configure-user-consent
 
 **Delivery methods** (Appendix E; summarised, not copied)

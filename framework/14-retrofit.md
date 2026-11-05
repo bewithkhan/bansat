@@ -24,7 +24,7 @@ After R2, all new scope follows the normal Definition of Done (11.2) and gates.
 | # | Check | How to check | If it fails |
 |---|---|---|---|
 | T1 | **Exposed secrets** | Scan the git history (gitleaks), the built client bundle and any mobile binaries for secret or service keys. Check public-prefixed variables (`NEXT_PUBLIC_`, `VITE_`, `EXPO_PUBLIC_`). | Rotate immediately, purge from history and review access logs (9.20) |
-| T2 | **Database access rules** | Supabase: run the query below and review every policy (5.4). Firebase: confirm Security Rules aren't test-mode rules (`allow read, write: if true`) and test them with the emulator. MySQL or another database without RLS: confirm every query runs through a tenant scope and an authorisation policy, and test it (5.4). | Lock down today; assess exposure (T11) |
+| T2 | **Database access rules** | Supabase: run the query below and review every policy (5.4). Firebase: confirm Security Rules aren't test-mode rules (`allow read, write: if true`) and test them with the emulator. MySQL or another database without RLS: confirm every query runs through a tenant scope and an authorisation policy, and test it (5.4). | Lock down today; assess exposure (T12) |
 | T3 | **Storage buckets** | List the buckets and confirm user uploads are private and served through signed URLs | Make them private; invalidate public links |
 | T4 | **Third-party requests before consent** | Run the 9.9 Playwright test against the live site (`use.baseURL` = production URL; `ALLOWED_HOSTS` = your domains) | Remove or consent-gate fonts, CDNs and pixels this week |
 | T5 | **Tracking & replay** | Inventory analytics, replay, pixels and A/B tools | Switch off anything non-essential until consent gating ships; delete recordings collected without consent |
@@ -33,7 +33,7 @@ After R2, all new scope follows the normal Definition of Done (11.2) and gates.
 | T8 | **Children** | Could under-18s be using it (students, learner drivers, families, pupils)? | Decide the position (9.12); add an age check at next sign-in if needed |
 | T9 | **Sensitive data** | Health, location, religion, biometrics or other C3 data present? Is there a DPIA? | Start the DPIA (9.21); restrict access; stop sending it to AI or analytics |
 | T10 | **Registration & contracts** | ICO fee paid; DPAs with processors; a DPA with your client if you're their processor (9.2) | Pay and sign this week |
-| T11 | **Credentials agents and CI can reach** | List the tokens and keys on developer machines, in AI agent and MCP configurations, and in CI secrets, with each one's scope | Replace production and account-wide tokens with scoped, short-lived ones; move production changes into CI/CD with approval (12.1) |
+| T11 | **Credentials agents and CI can reach** | List every token and key the agent's machine or container, its MCP server configs and CI can reach, with each one's scope: `.env*` files, `~/.npmrc`, `~/.aws/credentials`, CLI logins for your host and database, API keys in MCP configs (such as `.mcp.json`), and CI secrets | Replace production and account-wide tokens with scoped, short-lived ones where the provider offers them; otherwise remove them from that machine and from CI jobs that run untrusted code. Move production changes into CI/CD with approval (12.1) |
 | T12 | **Was anything exposed?** | If T1–T3 or T11 failed, check access logs for unauthorised access | Treat it as a potential breach (9.20). The 72-hour clock runs from when you become aware a breach has occurred. |
 
 **Find tables without RLS** (Supabase SQL editor):

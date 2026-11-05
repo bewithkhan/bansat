@@ -7,7 +7,7 @@
 | Field | Value |
 |---|---|
 | Project | Bansat v3: Law Watch, a public law tracker, and stack profiles for every major framework |
-| Blueprint version | 0.5 (draft: scope added after G1, pending the owner's review) |
+| Blueprint version | 0.5 (scope added after G1; approved when its pull request is merged, BR-01) |
 | Status | Approved for build (G1 signed 2026-11-05) |
 | Accountable owner | Muhammad Tufail Khan, maintainer |
 | Data controller | Muhammad Tufail Khan (sole maintainer). Bansat itself collects no personal data (Part 9). |
@@ -90,7 +90,7 @@ Two more come first, in v2.3 and Phase 1c (decided 2026-11-05):
 
 And two that show what Bansat is worth (decided 2026-11-05):
 
-6. **A breach casebook:** real, documented incidents from 2025 onwards, from apps built with AI tools to large companies and regulators' fines, each mapped to the Bansat checks that catch that kind of failure before launch.
+6. **A breach casebook:** real, documented incidents from 2025 onwards, from apps built with AI tools to large companies and regulators' fines, each mapped to the Bansat checks that catch that kind of failure.
 7. **A research paper** on the whole of Bansat: what it is, how it fits an individual, a startup or a large organisation, and an experiment comparing apps an AI agent builds with and without it. It's planned with the co-authors in a separate research plan.
 
 ### 1.2 Problem & evidence

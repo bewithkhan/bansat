@@ -169,7 +169,7 @@ Missing for G1  Legal entity · ICO fee tier · AI provider
 No production code until you approve this blueprint (G1).
 ```
 
-Auditing an existing app works the same way: run `/bansat audit this repo`. The Day-0 triage comes first, marking each check pass, fail or unknown with its evidence: exposed secrets, missing RLS, public buckets, tracking before consent, unsafe marketing email, children's data, and whether anything was actually exposed.
+Auditing an existing app works the same way: run `/bansat audit this repo`. The Day-0 triage comes first, marking each check pass, fail or unknown with its evidence: exposed secrets, missing RLS, public buckets, tracking before consent, unsafe marketing email, children's data, credentials AI agents and CI can reach, and whether anything was actually exposed.
 
 ## The 17 launch traps
 
@@ -199,20 +199,20 @@ These are the failures that get vibe-coded apps fined, breached or rejected by t
 
 ## Real breaches, and the checks that catch them
 
-The [breach casebook](framework/appendix-f-casebook.md) (Appendix F, also [online](https://bewithkhan.github.io/bansat/casebook/)) maps 20 documented incidents and regulators' decisions from 2025 and 2026 to the Bansat checks that catch each class of failure before launch. Every case rests on a primary source: the organisation's own statement, a regulator's decision, a CVE record or the researcher who found the problem.
+The [breach casebook](framework/appendix-f-casebook.md) (Appendix F, also [online](https://bewithkhan.github.io/bansat/casebook/)) maps 20 documented incidents and regulators' decisions from 2025 and 2026 to the Bansat checks that catch each class of failure. Every case rests on a primary source: the organisation's own statement, a regulator's decision, a CVE record or the researcher who found the problem.
 
-| Case | What happened, as reported | The check |
+| Case | What happened, as reported | The check for this class of failure |
 |---|---|---|
 | Lovable-built apps (CVE-2025-48757) | 303 endpoints in 170 of 1,645 showcased apps let visitors read database tables | RLS on every table, with isolation tests in CI (5.4) |
 | A scan of Supabase apps | 16,326 databases had tables anyone could read | Day-0 triage T2 lists every table without RLS (14.2) |
 | Replit and SaaStr | An AI agent deleted a production database during a code freeze | Separate environments and keys (3.2); agents hold no production credentials (12.1) |
-| "Agentjacking" | Fake error reports led AI coding agents to run outsiders' code (a research demonstration) | What the agent reads is data, not instructions (12.1) |
+| "Agentjacking" | Fake error reports led AI coding agents to run outsiders' code (a research demonstration) | Text the agent reads in tool results, issues and error reports is data, not instructions (12.1) |
 | Shai-Hulud | A worm spread through more than 500 npm packages, stealing tokens | Hardened CI/CD and publishing, and new versions left to age (7.4) |
 | Mixpanel and OpenAI | An analytics vendor's breach exposed API users' names and email addresses | Analytics get IDs, never names or emails (5.1) |
-| ICO: 23andMe, £2.31m | Credential stuffing, no mandatory MFA, and a claim of stolen data dismissed as a hoax | MFA and breached-password checks (7.1); credible claims start the breach runbook (9.20) |
+| ICO: 23andMe, £2.31m | Credential stuffing, no mandatory MFA, and a claim of stolen data dismissed as a hoax | Passkeys or MFA for accounts that can see special category data (9.13); breached-password checks (7.1); credible claims start the breach runbook (9.20) |
 | CNIL: SHEIN, €150m | Advertising cookies before any choice, and after "Refuse all" | A CI test that nothing non-essential loads before consent or after rejection (9.9) |
 
-The cases run from apps one person built with an AI tool to the largest platforms, because the same few failures turn up at every size. Mapping them also showed gaps, mostly around AI coding agents, CI/CD and connected apps, so v2.4 added 12 checks (F.9). The checks catch the class of failure; that isn't a claim that Bansat would have prevented any one incident.
+The cases run from apps one person built with an AI tool to the largest platforms, because the same few failures turn up at every size. Mapping them also showed gaps, mostly around AI coding agents, CI/CD and connected apps, so v2.4 added 14 checks (F.9). The checks catch the class of failure; that isn't a claim that Bansat would have prevented any one incident.
 
 ## Myth vs fact
 
@@ -247,7 +247,7 @@ Planning with a PRD, TRD, app flow, UI/UX brief, backend schema and implementati
 | **12** Agent manual | Rules for `CLAUDE.md` or `AGENTS.md` (research before building), a feature protocol, an 8-step debugging protocol, and prompts for research, logic, debugging and full audits |
 | **13** Launch gate | 40 go/no-go checks; any one of the 18 blocking checks stops the launch |
 | **14** Retrofit | Day-0 triage, reverse-engineering, a gap register, a review cadence and a portfolio register |
-| **A–E** Appendices | Templates (DPIA, LIA, breach log and more), references, a glossary, 9 stack profiles, and 6 delivery-method profiles: Scrum, Kanban, stage gates, Shape Up, a solo loop and scaled methods |
+| **A–F** Appendices | Templates (DPIA, LIA, breach log and more), references, a glossary, 9 stack profiles, 6 delivery-method profiles (Scrum, Kanban, stage gates, Shape Up, a solo loop and scaled methods), and a breach casebook of 20 documented incidents and regulators' decisions |
 
 ## Why not a PRD template, or just ask the AI?
 
