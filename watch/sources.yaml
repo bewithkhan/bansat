@@ -101,3 +101,11 @@ jurisdictions:
     official_domains: [gov.il, knesset.gov.il, justice.gov.il]
   eg:
     official_domains: [pdpc.gov.eg, cc.gov.eg, eecourts.gov.eg, ai.gov.eg]
+  my:
+    official_domains: [pdp.gov.my, mcmc.gov.my, nacsa.gov.my, mydigital.gov.my, ai.gov.my]
+  ph:
+    official_domains: [privacy.gov.ph, judiciary.gov.ph, senate.gov.ph, officialgazette.gov.ph, ntc.gov.ph]
+  au:
+    official_domains: [legislation.gov.au, oaic.gov.au, esafety.gov.au, acma.gov.au, ag.gov.au, homeaffairs.gov.au, industry.gov.au]
+  nz:
+    official_domains: [legislation.govt.nz, privacy.org.nz, dia.govt.nz, gazette.govt.nz, parliament.nz]

@@ -1,0 +1,117 @@
+# Philippines. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: ph
+name: Philippines
+tier: full
+laws:
+  - name: Data Privacy Act of 2012 (DPA)
+    citation: Republic Act No. 10173, approved 15 August 2012
+    official_url: https://privacy.gov.ph/wp-content/uploads/2017/03/DPA-of-2012.pdf
+    status: in-force
+    in_force_from: "2012-09-08"
+    notes: It took effect 15 days after publication in at least two national newspapers (s.45). 8 September 2012 is the start date commonly given, but no official page we could open confirms the publication date, so this date is unconfirmed and needs a check.
+  - name: Implementing Rules and Regulations of the Data Privacy Act (IRR)
+    citation: IRR of Republic Act No. 10173, promulgated 24 August 2016, as amended
+    official_url: https://privacy.gov.ph/wp-content/uploads/2023/06/IRR_RA-10173-as-amended.pdf
+    status: in-force
+    in_force_from: "2016-09-09"
+    notes: Took effect 15 days after publication in the Official Gazette (s.72). NPC Advisory Opinion 2017-017 says it was published on the Official Gazette website on 25 August 2016 and took effect on 9 September 2016. The IRR's data sharing rules (s.20) have been superseded by NPC Circular 2020-03.
+  - name: NPC Circular 2022-04 on registration, automated decision-making notification and DPOs
+    citation: NPC Circular No. 2022-04, signed 5 December 2022
+    official_url: https://privacy.gov.ph/wp-content/uploads/2023/05/Circular-2022-04.pdf
+    status: in-force
+    in_force_from: "2023-01-11"
+    notes: The NPC announced it was published on 27 December 2022 and took effect on 11 January 2023. It sets who must register data processing systems and DPOs, and how to notify automated decision-making.
+  - name: NPC Circular 2023-06 on security of personal data
+    citation: NPC Circular No. 2023-06, dated 1 December 2023
+    official_url: https://privacy.gov.ph/wp-content/uploads/2024/05/2023-compendium-2.pdf
+    status: in-force
+    in_force_from: "2024-03-30"
+    notes: The NPC announced it took effect on 30 March 2024. It repeals NPC Circular 16-01 and applies to the government and the private sector. The link is the NPC's 2023 compendium of issuances, which contains the circular's text.
+regulators:
+  - name: National Privacy Commission (NPC)
+    url: https://privacy.gov.ph/
+obligations:
+  scope:
+    summary: The DPA covers the processing of all types of personal information by any natural or juridical person, including controllers and processors outside the Philippines that use equipment there or keep an office, branch or agency there (s.4). It also reaches acts abroad involving personal information about Philippine citizens or residents where the entity has a link to the country, such as a contract made there, a local branch or subsidiary, or carrying on business there (s.6). Some information is excluded, such as details of government officers' positions and functions.
+    source:
+      - https://privacy.gov.ph/wp-content/uploads/2017/03/DPA-of-2012.pdf
+      - https://legacy.senate.gov.ph/republic_acts/ra%2010173.pdf
+      - https://privacy.gov.ph/wp-content/uploads/2023/06/IRR_RA-10173-as-amended.pdf
+  lawful_bases:
+    summary: Process personal information only on one of six criteria, including consent, contract, legal obligation, vital interests, public order or public authority functions, and legitimate interests not overridden by the person's rights (s.12). Legitimate interest needs purpose, necessity and balancing tests (Circular 2023-07). Sensitive personal information is barred unless an exception applies, such as specific prior consent or a law allowing it (s.13). Consent must be freely given, specific and informed, and not bundled with unrelated processing (Circular 2023-04).
+    source:
+      - https://privacy.gov.ph/wp-content/uploads/2017/03/DPA-of-2012.pdf
+      - https://privacy.gov.ph/wp-content/uploads/2024/05/2023-compendium-2.pdf
+  consent_age:
+    summary: The DPA sets no age for consent. The NPC treats anyone under 18 as a child (Advisory 2024-03), and its consent guidelines let a controller obtain consent from a person's lawful representative or a specifically authorised agent (Circular 2023-04, s.12).
+    source:
+      - https://privacy.gov.ph/wp-content/uploads/2024/12/Advisory-2024.12.17-Guidelines-on-Child-Oriented-Transparency-w-SGD.pdf
+      - https://privacy.gov.ph/wp-content/uploads/2024/05/2023-compendium-2.pdf
+  children:
+    summary: NPC Advisory 2024-03 covers services meant for or likely to be used by children. Use child-friendly, layered privacy notices, choose age assurance suited to the risk, and tell both children and parents of a notifiable breach. Under RA 11930, the Anti-OSAEC and Anti-CSAEM Act (lapsed into law on 30 July 2022), internet intermediaries must block child sexual abuse material within 24 hours of notice, report blocked addresses and unusual data activity to the DOJ within 3 days, and preserve subscriber, traffic and content data.
+    source:
+      - https://privacy.gov.ph/wp-content/uploads/2024/12/Advisory-2024.12.17-Guidelines-on-Child-Oriented-Transparency-w-SGD.pdf
+      - https://issuances-library.senate.gov.ph/legislative-issuance/republic-act-no-11930
+      - https://issuances-library.senate.gov.ph/sites/default/files/2023-02/ra%252011930.pdf
+  cookies:
+    summary: There is no cookie-specific law. Cookies and trackers that collect personal information need a lawful basis under the DPA, and consent, if used, must be specific, informed and not bundled (Circular 2023-04). The NPC's advisory on deceptive design patterns (2023-01) says designs that block a plain refusal, confuse privacy settings or make withdrawing consent harder than giving it are unfair and can make consent invalid.
+    source:
+      - https://privacy.gov.ph/wp-content/uploads/2024/05/2023-compendium-2.pdf
+      - https://privacy.gov.ph/wp-content/uploads/2017/03/DPA-of-2012.pdf
+  marketing:
+    summary: People can object to processing for direct marketing, after which it must stop unless an exception applies (IRR s.34). Data sharing is governed by NPC Circular 2020-03, which superseded IRR s.20. For SMS and MMS, NTC rules allow promotional and other broadcast messages only with the subscriber's prior consent, given by an act such as texting or signing up, with a free opt-out, the sender's name, and nothing sent from 9 p.m. to 7 a.m. except paid subscriptions (NTC MC 03-03-2005, as amended in 2009).
+    source:
+      - https://privacy.gov.ph/wp-content/uploads/2023/06/IRR_RA-10173-as-amended.pdf
+      - https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/10/42711
+      - https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/10/49116
+      - https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/10/49122
+  breach_notice:
+    summary: Notify the NPC within 72 hours of knowing or reasonably believing that a breach occurred, where sensitive personal information or data that could enable identity fraud was probably acquired by someone unauthorised and creates a real risk of serious harm. Notify affected people within the same 72 hours. A full report is due within 5 days unless the NPC allows more time (Circular 16-03). File notifications only through the NPC's online breach system (DBNMS). Each year, send the NPC a summary of all security incidents and breaches.
+    value: 72
+    unit: hours
+    source:
+      - https://privacy.gov.ph/?p=553
+      - https://privacy.gov.ph/?p=1859
+  registration_or_fees:
+    summary: Controllers and processors with 250 or more employees, processing sensitive information of 1,000 or more people, or doing processing likely to pose a risk to people's rights must register their data processing systems and DPO with the NPC; systems used for automated decisions or profiling must always be registered (Circular 2022-04). Register within 20 days of a new system or DPO; certificates last a year. Others file a sworn declaration. Registration and renewal fees are set by NPC Circular 2023-01.
+    source:
+      - https://privacy.gov.ph/wp-content/uploads/2023/05/Circular-2022-04.pdf
+      - https://privacy.gov.ph/npc-launches-online-registration-system-for-data-processing-systems/
+      - https://privacy.gov.ph/wp-content/uploads/2024/05/2023-compendium-2.pdf
+  dpo:
+    summary: Every controller and processor must designate a data protection officer accountable for compliance (DPA s.21(b); IRR s.26(a); NPC Advisory 2017-01), and give the DPO's identity to data subjects on request. With NPC approval, related companies can make one member's DPO accountable for the group, with a compliance officer for privacy in each other member; organisations with branches can add compliance officers there. Registered organisations record their DPO with the NPC (Circular 2022-04).
+    source:
+      - https://privacy.gov.ph/wp-content/uploads/2017/03/DPA-of-2012.pdf
+      - https://privacy.gov.ph/wp-content/uploads/2023/06/IRR_RA-10173-as-amended.pdf
+      - https://privacy.gov.ph/wp-content/uploads/2022/01/NPC-Advisory-2017-01-sgd-1.pdf
+      - https://privacy.gov.ph/wp-content/uploads/2023/05/Circular-2022-04.pdf
+  transfers:
+    summary: The DPA has no adequacy list or transfer approval. A controller stays responsible for personal information it transfers to a third party, in the Philippines or abroad, and must use contracts or other reasonable means to keep a comparable level of protection (s.21). NPC Advisory 2024-01 points to model clauses for voluntary use, such as the ASEAN Model Contractual Clauses and the EU's standard contractual clauses.
+    source:
+      - https://privacy.gov.ph/wp-content/uploads/2017/03/DPA-of-2012.pdf
+      - https://privacy.gov.ph/wp-content/uploads/2024/06/Published-NPC-Advisory-No.-2024-01-Contractual-Clauses-for-Cross-Border-Transfers_30May24.pdf
+  dpia:
+    summary: Carry out a privacy impact assessment for every processing system that involves personal data, including off-the-shelf software, and update it as needed, such as for new features or major changes in processing (NPC Circular 2023-06, in force 30 March 2024). It need not be filed, but must be shown to the NPC on request, such as in an investigation or compliance check. NPC Advisory 2017-03 gives guidelines on PIAs.
+    source:
+      - https://privacy.gov.ph/wp-content/uploads/2024/05/2023-compendium-2.pdf
+      - https://privacy.gov.ph/npc-issues-circulars-to-strengthen-personal-data-protection-in-ph/
+      - https://privacy.gov.ph/?p=1863
+  automated_decisions_ai:
+    summary: People can get information about automated processes used as the sole basis for decisions that significantly affect them (DPA s.16(c)), and object to automated processing or profiling (IRR s.34). Systems used for automated decisions or profiling must be registered with the NPC (Circular 2022-04). There is no AI-specific law. NPC Advisory 2024-04 (December 2024) applies the DPA to AI systems. Be transparent, allow meaningful human intervention, and let people contest automated decisions that pose a significant risk to them.
+    source:
+      - https://privacy.gov.ph/wp-content/uploads/2017/03/DPA-of-2012.pdf
+      - https://privacy.gov.ph/wp-content/uploads/2023/06/IRR_RA-10173-as-amended.pdf
+      - https://privacy.gov.ph/wp-content/uploads/2023/05/Circular-2022-04.pdf
+      - https://privacy.gov.ph/wp-content/uploads/2025/02/Advisory-2024.12.19-Guidelines-on-Artificial-Intelligence-w-SGD.pdf
+  penalties:
+    summary: Offences carry prison and fines; for example, unauthorised processing means 1 to 3 years and PHP 500,000 to PHP 2,000,000, or 3 to 6 years and PHP 500,000 to PHP 4,000,000 for sensitive information (s.25). A combination or series of offences carries 3 to 6 years and PHP 1,000,000 to PHP 5,000,000 (s.33), and the maximum applies when 100 or more people are affected (s.35). The NPC can also impose administrative fines based on the previous year's annual gross income; failing to notify a breach carries 0.25% to 2% (Circular 2022-01).
+    source:
+      - https://privacy.gov.ph/wp-content/uploads/2017/03/DPA-of-2012.pdf
+      - https://privacy.gov.ph/?p=1859
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
