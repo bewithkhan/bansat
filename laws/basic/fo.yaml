@@ -1,0 +1,25 @@
+# Faroe Islands. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: fo
+name: Faroe Islands
+tier: basic
+laws:
+  - name: Data Protection Act (Dátuverndarlógin)
+    citation: Løgtingslóg nr. 80 frá 7. juni 2020 um vernd av persónupplýsingum, as amended by løgtingslóg nr. 29 frá 10. mai 2024
+    official_url: https://logir.fo/Logtingslog/80-fra-07-06-2020-um-vernd-av-personupplysingum
+    status: in-force
+    in_force_from: "2021-01-01"
+    notes: The Faroese GDPR-style law, replacing the 2001 act (§ 81). It also covers controllers outside the islands that offer goods or services to people there or monitor them. The 2024 amendment adjusts the exemptions for journalistic, artistic and literary processing and published information databases, and lets the regulator publish its decisions without naming individuals (§ 73).
+  - name: Executive Order on third countries with adequate protection
+    citation: Kunngerð nr. 175 frá 16. desember 2020 um triðjalond, sum hava nøktandi verndarstøði viðvíkjandi flutningi av persónupplýsingum, as amended by kunngerð nr. 62 frá 4. mai 2022
+    official_url: https://logir.fo/Kunngerd/175-fra-16-12-2020-um-tridjalond-sum-hava-noktandi-verndarstodi-vidvikjandi-flutningi-av-personupplysingum
+    status: in-force
+    in_force_from: "2021-01-01"
+    notes: Lists the third countries treated as adequate for transfers, among them the UK, Switzerland, Japan, Israel, New Zealand, Canada (commercial organisations only) and, since 2022, South Korea with exceptions. The United States is not on the list.
+regulators:
+  - name: Faroese Data Protection Authority (Dátueftirlitið)
+    url: https://www.dat.fo/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.

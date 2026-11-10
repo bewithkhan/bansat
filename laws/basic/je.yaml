@@ -1,0 +1,31 @@
+# Jersey. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: je
+name: Jersey
+tier: basic
+laws:
+  - name: Data Protection (Jersey) Law 2018
+    citation: L.3/2018, as amended
+    official_url: https://jerseylaw.je/laws/current/l_3_2018
+    status: in-force
+    in_force_from: "2018-05-25"
+    notes: Jersey's GDPR-style law. Part 5 started on 25 November 2018 and Articles 17 and 18 on 25 May 2019. Its 2025 and 2026 amendments came from other laws (children and civil status, police complaints, bank resolution, the Cyber Security (Jersey) Law 2026 and a transfer of ministerial functions), not from a data protection reform.
+  - name: Data Protection Authority (Jersey) Law 2018
+    citation: L.4/2018
+    official_url: https://www.jerseylaw.je/laws/current/l_4_2018
+    status: in-force
+    in_force_from: "2018-05-25"
+    notes: Sets up the Jersey Data Protection Authority and covers registration with it and its powers to sanction and fine.
+  - name: Data Protection (Registration and Charges) (Jersey) Regulations 2018
+    citation: R&O.32/2018, as amended
+    official_url: https://www.jerseylaw.je/laws/current/ro_32_2018
+    status: in-force
+    in_force_from: "2018-05-25"
+    notes: Registration and annual charges for controllers and processors. The authority consulted on a revised fee model until 20 February 2026, but no amending regulations had been made when this entry was checked.
+regulators:
+  - name: Jersey Office of the Information Commissioner (JOIC), for the Jersey Data Protection Authority
+    url: https://jerseyoic.org/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.

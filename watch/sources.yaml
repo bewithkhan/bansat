@@ -109,3 +109,25 @@ jurisdictions:
     official_domains: [legislation.gov.au, oaic.gov.au, esafety.gov.au, acma.gov.au, ag.gov.au, homeaffairs.gov.au, industry.gov.au]
   nz:
     official_domains: [legislation.govt.nz, privacy.org.nz, dia.govt.nz, gazette.govt.nz, parliament.nz]
+  ad:
+    official_domains: [bopa.ad, apda.ad]
+  gg:
+    official_domains: [odpa.gg, guernseylegalresources.gg]
+  im:
+    official_domains: [gov.im, tynwald.org.im, inforights.im]
+  je:
+    official_domains: [jerseylaw.je, jerseyoic.org, statesassembly.je, gov.je]
+  gi:
+    official_domains: [gibraltarlaws.gov.gi, gra.gi, gibraltar.gov.gi, parliament.gi]
+  mc:
+    official_domains: [legimonaco.mc, journaldemonaco.gouv.mc, apdp.mc, gouv.mc]
+  sm:
+    official_domains: [consigliograndeegenerale.sm, bollettinoufficiale.sm, garanteprivacy.sm, gov.sm]
+  fo:
+    official_domains: [logir.fo, dat.fo, kunngerdaportalur.fo, logting.fo]
+  bm:
+    official_domains: [bermudalaws.bm, privacy.bm, gov.bm, parliament.bm]
+  ky:
+    official_domains: [legislation.gov.ky, ombudsman.ky, gov.ky, parliament.ky]
+  vg:
+    official_domains: [laws.gov.vg, gov.vg]
