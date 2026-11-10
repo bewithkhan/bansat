@@ -1,0 +1,25 @@
+# Andorra. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: ad
+name: Andorra
+tier: basic
+laws:
+  - name: Qualified Law on the Protection of Personal Data (LQPD)
+    citation: Llei 29/2021, del 28 d'octubre, qualificada de protecció de dades personals (BOPA núm. 119, 17 November 2021), as amended
+    official_url: https://documents.bopa.ad/bopa-documents/033119/pdf/CGL20211115_08_58_32.pdf
+    status: in-force
+    in_force_from: "2022-05-17"
+    notes: Andorra's GDPR-style law. Start date derived from publication in the BOPA on 17 November 2021 plus the six months set by its fourth final provision. Controllers outside Andorra that use processing means there must name a representative in Andorra. Under-16s need a legal representative's consent, notably for information society services, and breaches go to the APDA within 72 hours where feasible. Llei 12/2024 (BOPA 7 August 2024) amended only the chapter on the agency.
+  - name: Regulation implementing the Qualified Law on the Protection of Personal Data
+    citation: Decret 391/2022, del 28-9-2022, d'aprovació del Reglament d'aplicació de la Llei 29/2021 (BOPA núm. 118, 5 October 2022)
+    official_url: https://www.apda.ad/assets/pdf/agency/Decret_391-2022,_del_28-9-2022,_d_aprovacio_del_Reglament_d_aplicacio_de_la_Llei_29-2021,_del_28_d_octubre,_qualificada_de_proteccio_de_dades_personals.pdf
+    status: in-force
+    in_force_from: "2022-10-06"
+    notes: Start date derived from BOPA publication on 5 October 2022, since the decree takes effect the day after. Details consent, legitimate interest, international transfers, representatives of non-resident controllers, impact assessments with a risk table, breach notification, the data protection officer and records of processing. It replaced Decret 367/2022.
+regulators:
+  - name: Andorran Data Protection Agency (Agència Andorrana de Protecció de Dades, APDA)
+    url: https://www.apda.ad/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.

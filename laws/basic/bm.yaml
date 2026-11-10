@@ -1,0 +1,19 @@
+# Bermuda. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: bm
+name: Bermuda
+tier: basic
+laws:
+  - name: Personal Information Protection Act 2016 (PIPA)
+    citation: "Act 2016 : 43, as amended (including by the Personal Information Protection Amendment Act 2023, Act 2023 : 23)"
+    official_url: https://bermudalaws.bm/Laws/Consolidated%20Law/2016/Personal%20Information%20Protection%20Act%202016
+    status: in-force
+    in_force_from: "2025-01-01"
+    notes: The organisations' duties apply from 1 January 2025 under the Commencement Day Notice 2024 (BR 115 / 2024), and the 2023 amendments started then too. Sections setting up the Privacy Commissioner have applied since 2 December 2016. Organisations must name a privacy officer, notify the Commissioner and then affected people of a breach likely to harm someone without undue delay, and stay responsible for data sent to overseas third parties.
+regulators:
+  - name: Office of the Privacy Commissioner for Bermuda (PrivCom)
+    url: https://www.privacy.bm/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.

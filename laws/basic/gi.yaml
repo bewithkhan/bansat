@@ -1,0 +1,31 @@
+# Gibraltar. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: gi
+name: Gibraltar
+tier: basic
+laws:
+  - name: Gibraltar GDPR
+    citation: Regulation (EU) 2016/679 as it forms part of Gibraltar law under section 6 of the European Union (Withdrawal) Act 2019, as amended
+    official_url: https://www.gibraltarlaws.gov.gi/legislations/regulation-eu-2016679-5582
+    status: in-force
+    in_force_from: "2021-01-01"
+    notes: Gibraltar's own copy of the GDPR, read with the Data Protection Act 2004. The EU GDPR applied directly from 25 May 2018 to 31 December 2020. The Communications (Personal Data and Privacy) Regulations 2006 cover electronic communications.
+  - name: Data Protection Act 2004
+    citation: Act 2004-01, as amended
+    official_url: https://www.gibraltarlaws.gov.gi/legislations/data-protection-act-2004-1046
+    status: in-force
+    in_force_from: "2006-04-13"
+    notes: Supplements the Gibraltar GDPR and makes the Gibraltar Regulatory Authority the Information Commissioner. Brought into force in stages by Legal Notice 40 of 2006, the first sections on 13 April 2006 and most of the rest on 1 June 2006, and reworked for the GDPR from 25 May 2018.
+  - name: Data Protection Regulations 2026
+    citation: Legal Notice No. 96 of 2026 (Gibraltar Gazette No. 5306, 14 May 2026)
+    official_url: https://www.gibraltarlaws.gov.gi/legislations/data-protection-regulations-2026-8442
+    status: in-force
+    in_force_from: "2026-07-15"
+    notes: Made under the Treaty on Gibraltar and the European Union Act 2026 and in force from the treaty's Implementation Date, 15 July 2026, as the regulator and the Government give it. Transfers on adequacy grounds now go to the UK, EU member states and countries with an EU adequacy decision, instead of those named in UK adequacy regulations. The Commissioner must take utmost account of EU lead authority and EDPB decisions on similar questions.
+regulators:
+  - name: Gibraltar Regulatory Authority, as Information Commissioner
+    url: https://www.gra.gi/data-protection
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.
