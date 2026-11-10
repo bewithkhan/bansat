@@ -201,3 +201,11 @@ jurisdictions:
     official_domains: [senate.gov.pk, na.gov.pk, pakistancode.gov.pk, moitt.gov.pk, pta.gov.pk, pkcert.gov.pk, sbp.org.pk, nccia.gov.pk]
   sg:
     official_domains: [pdpc.gov.sg, sso.agc.gov.sg, imda.gov.sg, osc.gov.sg, mddi.gov.sg, csa.gov.sg, parliament.gov.sg, mlaw.gov.sg]
+  cn:
+    official_domains: [cac.gov.cn, gov.cn, miit.gov.cn]
+  hk:
+    official_domains: [elegislation.gov.hk, data.gov.hk, yearbook.gov.hk, pcpd.org.hk, info.gov.hk, cmab.gov.hk, digitalpolicy.gov.hk, ofca.gov.hk, occics.gov.hk, cac.gov.cn]
+  jp:
+    official_domains: [e-gov.go.jp, ppc.go.jp, soumu.go.jp]
+  kr:
+    official_domains: [law.go.kr, pipc.go.kr, msit.go.kr, korea.kr]
