@@ -1,0 +1,26 @@
+# Croatia. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: hr
+name: Croatia
+tier: basic
+applies_with: [eu]
+laws:
+  - name: Act on the Implementation of the General Data Protection Regulation
+    citation: Zakon o provedbi Opće uredbe o zaštiti podataka (NN 42/2018)
+    official_url: https://narodne-novine.nn.hr/clanci/sluzbeni/2018_05_42_805.html
+    status: in-force
+    in_force_from: "2018-05-25"
+    notes: The national law that carries out the GDPR. It names the Personal Data Protection Agency (AZOP), founded under the earlier Personal Data Protection Act (NN 103/2003), as the supervisory authority and makes it a state body (Arts. 4(1) and 52). A child resident in Croatia can consent to information society services from age 16 (Art. 19). In force from 25 May 2018 (Art. 57).
+  - name: Electronic Communications Act
+    citation: Zakon o elektroničkim komunikacijama (NN 76/2022), as amended (NN 14/2024, 45/2026)
+    official_url: https://narodne-novine.nn.hr/clanci/sluzbeni/2022_07_76_1116.html
+    status: in-force
+    in_force_from: "2022-07-12"
+    notes: Carries the ePrivacy rules. Storing or reading data on a user's device needs consent after clear information, unless strictly needed (Art. 43(4)). Email, SMS, MMS and automated calls for direct marketing need the end user's prior consent, with an exception for a seller's own similar products if customers can object each time; these two rules don't apply to marketing sent to legal persons (Art. 50(1), (2) and (4)). Date derived from Art. 187, which brings the law into force on the eighth day after its publication on 4 July 2022.
+regulators:
+  - name: Personal Data Protection Agency (Agencija za zaštitu osobnih podataka, AZOP)
+    url: https://azop.hr/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.
