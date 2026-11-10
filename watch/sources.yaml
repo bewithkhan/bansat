@@ -131,3 +131,9 @@ jurisdictions:
     official_domains: [legislation.gov.ky, ombudsman.ky, gov.ky, parliament.ky]
   vg:
     official_domains: [laws.gov.vg, gov.vg]
+  id:
+    official_domains: [komdigi.go.id, peraturan.go.id, setneg.go.id, mkri.id, banyumaskab.go.id, kemenkoinfra.go.id, ustr.gov]
+  vn:
+    official_domains: [chinhphu.vn, bocongan.gov.vn, mst.gov.vn, bvhttdl.gov.vn]
+  th:
+    official_domains: [mdes.go.th, pdpc.or.th, etda.or.th, ratchakitcha.soc.go.th, krisdika.go.th, senate.go.th]

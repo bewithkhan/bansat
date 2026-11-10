@@ -1,0 +1,173 @@
+# Vietnam. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: vn
+name: Vietnam
+tier: full
+laws:
+  - name: Law on Personal Data Protection
+    citation: Law No. 91/2025/QH15, passed 26 June 2025 (Official Gazette Nos. 971+972, 24 July 2025)
+    official_url: https://congbao.chinhphu.vn/van-ban/luat-so-91-2025-qh15-45578.htm
+    status: in-force
+    in_force_from: "2026-01-01"
+    notes: In force on 1 January 2026 (Art. 38). Consents and impact assessment dossiers given or accepted under Decree 13/2023/ND-CP stay valid (Art. 39). Small and start-up businesses may opt out of the impact assessment and data protection staff duties for five years, and household and micro businesses are exempt, unless they sell processing services, process sensitive data or process data of many people (Art. 38). The transfer dossier still applies to them.
+  - name: Decree detailing the Law on Personal Data Protection
+    citation: Decree No. 356/2025/ND-CP of 31 December 2025 (Official Gazette No. 18, 18 January 2026)
+    official_url: https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-356-2025-nd-cp-468371.htm
+    status: in-force
+    in_force_from: "2026-01-01"
+    notes: Lists basic and sensitive data and sets consent methods, response times for requests, data protection staff qualifications, impact assessment and transfer dossiers, breach notice content and the licensing of personal data processing services. Decree 13/2023/ND-CP ceased to have effect on 1 January 2026 (Art. 42).
+  - name: Decree on administrative penalties for cybersecurity and personal data protection
+    citation: Decree No. 330/2026/ND-CP of 19 August 2026 (Official Gazette No. 498, 4 September 2026)
+    official_url: https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-330-2026-nd-cp-470339.htm
+    status: in-force
+    in_force_from: "2026-08-19"
+    notes: In force on 19 August 2026 (Art. 80). Sets the fine for each violation, including advertising messages, emails and calls (Art. 37), children's protection online (Art. 31) and personal data protection (Arts. 39-71). Acts committed before then are judged under the rules in force at the time, unless this Decree is more lenient (Art. 81).
+  - name: Law on Cybersecurity
+    citation: Law No. 116/2025/QH15, passed 10 December 2025 (Official Gazette No. 35, 21 January 2026)
+    official_url: https://congbao.chinhphu.vn/van-ban/luat-so-116-2025-qh15-468678.htm
+    status: in-force
+    in_force_from: "2026-07-01"
+    notes: Replaced the Law on Network Information Security (2015) and the Cybersecurity Law (2018) on 1 July 2026 (Art. 44). Online service providers must verify users when they open accounts, give user data to the Ministry of Public Security within 24 hours of a request (3 hours in emergencies), and keep user data for the period set by law (Art. 25). Decree 333/2026 sets the data storage and local office rules.
+  - name: Decree detailing the Law on Cybersecurity
+    citation: Decree No. 333/2026/ND-CP of 19 August 2026 (Official Gazette No. 499, 4 September 2026)
+    official_url: https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-333-2026-nd-cp-470335.htm
+    status: in-force
+    in_force_from: "2026-08-19"
+    notes: In force on 19 August 2026 (Art. 30). Domestic providers must store specified user data in Vietnam. Foreign providers in listed sectors, such as social networks, e-commerce, online payments, games and messaging apps, must store it locally and open a branch or representative office only after a ministerial decision following repeated unremedied violations, then have 12 months to comply. Storage lasts at least 24 months, and system logs are kept at least 12 months (Arts. 19-20).
+  - name: Decree on the management, provision and use of internet services and online information
+    citation: Decree No. 147/2024/ND-CP of 9 November 2024 (Official Gazette Nos. 1261-1266, 20 November 2024)
+    official_url: https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-147-2024-nd-cp-43155.htm
+    status: in-force
+    in_force_from: "2024-12-25"
+    notes: In force on 25 December 2024 (Art. 83). Social networks, including foreign ones that rent data storage in Vietnam or have 100,000 or more monthly visits from Vietnam, must authenticate accounts by Vietnamese mobile number, or by personal identification number if the user has none, let only authenticated accounts post, and have a parent or guardian register and supervise accounts for under-16s (Arts. 23(3), 27(3)). An amendment is in draft (below).
+  - name: Draft decree amending Decree 147/2024/ND-CP
+    citation: Draft decree of the Ministry of Culture, Sports and Tourism, under consultation in July 2026
+    official_url: https://bvhttdl.gov.vn/sua-doi-bo-sung-mot-so-dieu-cua-nghi-dinh-so-1472024nd-cp-xay-dung-mot-khuon-kho-phap-ly-so-hien-dai-minh-bach-on-dinh.htm
+    status: draft
+    notes: The Ministry of Culture, Sports and Tourism held a consultation workshop on 23 July 2026. The draft would allow verification by an already-verified phone number or a personal identification number, and require social networks to identify child users. Pending, not law.
+  - name: Law on Artificial Intelligence
+    citation: Law No. 134/2025/QH15, passed 10 December 2025 (Official Gazette No. 40, 22 January 2026)
+    official_url: https://congbao.chinhphu.vn/van-ban/luat-so-134-2025-qh15-468694.htm
+    status: in-force
+    in_force_from: "2026-03-01"
+    notes: In force on 1 March 2026 (Art. 34). AI systems already in use before then have 12 months to comply, or 18 months in health, education and finance (Art. 35). The Law removed the AI chapter of the Law on Digital Technology Industry (Art. 33).
+  - name: Decree detailing the Law on Artificial Intelligence
+    citation: Decree No. 142/2026/ND-CP of 30 April 2026 (Official Gazette No. 278, 18 May 2026)
+    official_url: https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-142-2026-nd-cp-469480.htm
+    status: in-force
+    in_force_from: "2026-05-01"
+    notes: In force on 1 May 2026 (Art. 45). Sets risk classification, notification to the Ministry of Science and Technology through its AI portal, machine-readable marking and visible labels for AI-generated content, and serious incident reports.
+  - name: Decree on fighting spam messages, spam emails and spam calls
+    citation: Decree No. 91/2020/ND-CP of 14 August 2020 (Official Gazette Nos. 837+838, 24 August 2020)
+    official_url: https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-91-2020-nd-cp-31908.htm
+    status: in-force
+    in_force_from: "2020-10-01"
+    notes: In force on 1 October 2020 (Art. 35). Consent, labelling, frequency and time rules for advertising messages, emails and calls. Decree 330/2026/ND-CP (Art. 37) sets the fines for breaking them. A replacement decree is in draft (below).
+  - name: Draft decree on fighting spam messages, spam emails and spam calls, to replace Decree 91/2020/ND-CP
+    citation: Draft decree of the Ministry of Public Security, posted for comment in September 2026
+    official_url: https://bocongan.gov.vn/media/bca-media/library-20260909084715-f7e1171f-eb0c-4ae2-97ed-7017b136dc65-1-nghi-inh-thay-the-n-91.doc
+    status: draft
+    notes: Would also cover messages and calls made through internet (OTT) apps. Pending, not law.
+  - name: Law on Data
+    citation: Law No. 60/2024/QH15, passed 30 November 2024 (Official Gazette Nos. 1523+1524, 29 December 2024)
+    official_url: https://congbao.chinhphu.vn/van-ban/luat-so-60-2024-qh15-43563.htm
+    status: in-force
+    in_force_from: "2025-07-01"
+    notes: Covers data in general, including core and important data. For personal data, the impact assessments made under the PDP Law replace the Law on Data's risk and transfer assessments (PDP Law Art. 5(4); Decree 356 Art. 42(3)).
+  - name: Law on Children
+    citation: Law No. 102/2016/QH13, as amended (consolidated text No. 108/VBHN-VPQH of 2025)
+    official_url: https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/9/108-vbhn-vpqh.pdf
+    status: in-force
+    in_force_from: "2017-06-01"
+    notes: Defines a child as a person under 16 (Art. 1) and protects children's private life and personal secrets (Art. 21).
+regulators:
+  - name: Ministry of Public Security, through its specialised data protection agency (Department of Cybersecurity and High-Tech Crime Prevention, A05)
+    url: https://bocongan.gov.vn/
+  - name: Ministry of Science and Technology, for AI system notifications
+    url: https://mst.gov.vn/
+obligations:
+  scope:
+    summary: The PDP Law covers Vietnamese bodies and people, foreign ones in Vietnam, and foreign ones taking part in or involved in processing data of Vietnamese citizens or of people of Vietnamese origin whose nationality is undetermined, living in Vietnam with an identity certificate (Art. 1). De-identified data is not personal data (Art. 2). Unlawful processing, buying or selling personal data unless a law allows it, and appropriating or deliberately leaking it are banned (Art. 7). Sensitive data includes health, biometric, location, bank, login and ID card image data (Decree 356 Art. 4).
+    source:
+      - https://congbao.chinhphu.vn/van-ban/luat-so-91-2025-qh15-45578.htm
+      - https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-356-2025-nd-cp-468371.htm
+  lawful_bases:
+    summary: Consent is the default, and data may be collected only with prior consent unless a law says otherwise (Art. 11). Consent must be voluntary, informed of the data, purposes, controller and rights, given for each purpose, not tied to other purposes, and verifiable; silence is not consent (Art. 9). Pre-ticked or misleading consent settings are banned (Decree 356 Art. 6). Processing without consent is allowed only in the cases of Art. 19, such as urgent protection of life or rights, emergencies, crime prevention, state functions, an agreement with the data subject, or another law.
+    source:
+      - https://congbao.chinhphu.vn/van-ban/luat-so-91-2025-qh15-45578.htm
+      - https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-356-2025-nd-cp-468371.htm
+  consent_age:
+    summary: A child is a person under 16 (Law on Children, Art. 1). For a child, the legal representative exercises the data subject's rights, including consent, except in the no-consent cases of Art. 19. Processing a child's data to publish or disclose information about the private life or personal secrets of a child aged 7 or over needs consent from both the child and the legal representative (PDP Law Art. 24). The 16 here comes from the Law on Children's definition, which the PDP Law relies on.
+    value: 16
+    unit: years
+    source:
+      - https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/9/108-vbhn-vpqh.pdf
+      - https://congbao.chinhphu.vn/van-ban/luat-so-91-2025-qh15-45578.htm
+  children:
+    summary: Stop processing a child's data when the person who consented withdraws, or when an authority finds it may harm the child (PDP Law Art. 24). Since 1 July 2026, a parent or guardian must register a child's account for online value-added services with the parent's own details and supervise it, and providers must filter harmful content (Cybersecurity Law Art. 16). Social networks must also have parents register under-16s' accounts (Decree 147/2024 Arts. 23, 27). Decree 330 fines providers that don't detect and block accounts children create themselves, or offer no parental tools (Art. 31).
+    source:
+      - https://congbao.chinhphu.vn/van-ban/luat-so-91-2025-qh15-45578.htm
+      - https://congbao.chinhphu.vn/van-ban/luat-so-116-2025-qh15-468678.htm
+      - https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-147-2024-nd-cp-43155.htm
+      - https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-330-2026-nd-cp-470339.htm
+  cookies:
+    summary: Social networks and online communication services must let users refuse the collection and sharing of cookies, offer "do not track" or track only with consent, publish a clear privacy policy, not require photos or videos of ID documents to verify accounts, and not eavesdrop, record calls or read messages without consent (PDP Law Art. 29). For behavioural, targeted or personalised advertising, tracking data may be collected only with consent and a way to refuse sharing (Art. 28). Data tracking behaviour on online services counts as sensitive (Decree 356 Art. 4).
+    source:
+      - https://congbao.chinhphu.vn/van-ban/luat-so-91-2025-qh15-45578.htm
+      - https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-356-2025-nd-cp-468371.htm
+  marketing:
+    summary: Using customers' data for advertising needs their consent, knowing the content, method and frequency, plus an easy way to refuse, and must stop on request (PDP Law Art. 28). Advertising messages, emails and calls need prior consent, a [QC] or [AD] label on messages and emails, and a check of the Do Not Call list; senders may send at most 3 messages or emails and make 1 call per person per 24 hours, with messages only from 7:00 to 22:00 and calls from 8:00 to 17:00 unless agreed (Decree 91/2020 Arts. 11, 13, 15, 18; fines in Decree 330 Art. 37). A replacement decree is in draft.
+    source:
+      - https://congbao.chinhphu.vn/van-ban/luat-so-91-2025-qh15-45578.htm
+      - https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-91-2020-nd-cp-31908.htm
+      - https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-330-2026-nd-cp-470339.htm
+      - https://bocongan.gov.vn/media/bca-media/library-20260909084715-f7e1171f-eb0c-4ae2-97ed-7017b136dc65-1-nghi-inh-thay-the-n-91.doc
+  breach_notice:
+    summary: Notify the Ministry of Public Security's specialised agency within 72 hours of discovering a violation that may harm defence, security, public order, or a person's life, health, honour, dignity or property; processors tell the controller promptly (PDP Law Art. 23). The notice covers what happened, the data and numbers affected, contacts, likely harm and remedies (Decree 356 Art. 28). People affected must also be told within 72 hours of breaches of location or biometric data, and of sensitive data in finance, banking or credit information (Decree 356 Arts. 8(3), 29).
+    value: 72
+    unit: hours
+    source:
+      - https://congbao.chinhphu.vn/van-ban/luat-so-91-2025-qh15-45578.htm
+      - https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-356-2025-nd-cp-468371.htm
+  registration_or_fees:
+    summary: There is no general registration or fee, but impact assessment and transfer dossiers must be filed with the specialised agency (see dpia and transfers). Businesses selling personal data processing services, such as running automated processing for others, credit scoring, online data collection, health or education monitoring apps, analytics, AI processing or location platforms, need an eligibility certificate from the Ministry of Public Security. They must be set up under Vietnamese law, with a Vietnamese citizen living in Vietnam heading data processing (Decree 356 Arts. 21-25).
+    source:
+      - https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-356-2025-nd-cp-468371.htm
+  dpo:
+    summary: Agencies and organisations must designate a qualified data protection unit or person, or hire a data protection service provider (PDP Law Art. 33). An appointee needs at least a college degree, 2 years' experience in law, IT, security, risk, compliance or HR, and data protection training, and is appointed in writing (Decree 356 Art. 13). Small and start-up businesses may opt out for five years from 1 January 2026, and household and micro businesses are exempt, unless they sell processing services, process sensitive data or have processed data of 100,000 or more people (Decree 356 Art. 41).
+    source:
+      - https://congbao.chinhphu.vn/van-ban/luat-so-91-2025-qh15-45578.htm
+      - https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-356-2025-nd-cp-468371.htm
+  transfers:
+    summary: Transfers include storing data from Vietnam on servers or clouds abroad and processing it on foreign platforms. File a transfer impact dossier once, within 60 days of the first transfer, and update it (PDP Law Art. 20; Decree 356 Arts. 17-18). Exemptions include staff data in employers' clouds, people sending their own data, and some travel, payment and visa contracts. The agency can stop transfers if the data is used against national defence or security, or a breach may harm them (Art. 20(5); Decree 356 Art. 17(2)). Some providers must store user data in Vietnam (Decree 333/2026 Art. 19).
+    value: 60
+    unit: days
+    source:
+      - https://congbao.chinhphu.vn/van-ban/luat-so-91-2025-qh15-45578.htm
+      - https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-356-2025-nd-cp-468371.htm
+      - https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-333-2026-nd-cp-470335.htm
+  dpia:
+    summary: Controllers must prepare and keep a processing impact assessment dossier and file one original with the specialised agency within 60 days of starting processing; it is done once and kept up to date (PDP Law Arts. 21-22). It covers purposes, data flows, consent, retention, security, compliance results and risks, and the agency replies within 15 days (Decree 356 Art. 19). Update it every 6 months when purposes or parties change, and within 10 days of a reorganisation, a change of data protection provider or a new data-related business line (Decree 356 Art. 20).
+    value: 60
+    unit: days
+    source:
+      - https://congbao.chinhphu.vn/van-ban/luat-so-91-2025-qh15-45578.htm
+      - https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-356-2025-nd-cp-468371.htm
+  automated_decisions_ai:
+    summary: Processing personal data with AI must be classified by risk (PDP Law Art. 30). Tell people about automated processing, explain how the algorithm works and affects them, and let them opt out (Decree 356 Art. 10). Since 1 March 2026, AI providers must classify systems as high, medium or low risk and notify medium- and high-risk ones to the Ministry of Science and Technology before use, make sure users know they are dealing with AI, and mark AI-made audio, images and video in machine-readable form; deployers must label deepfakes (AI Law Arts. 9-11; Decree 142/2026 Arts. 14, 17-18).
+    source:
+      - https://congbao.chinhphu.vn/van-ban/luat-so-91-2025-qh15-45578.htm
+      - https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-356-2025-nd-cp-468371.htm
+      - https://congbao.chinhphu.vn/van-ban/luat-so-134-2025-qh15-468694.htm
+      - https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-142-2026-nd-cp-469480.htm
+  penalties:
+    summary: Maximum administrative fines for organisations are 10 times the revenue from buying or selling personal data, 5% of the previous year's revenue for cross-border transfer violations, and VND 3 billion for other data protection violations; individuals pay half (PDP Law Art. 8; Decree 330 Art. 7). Cybersecurity fines reach VND 200 million for organisations and VND 100 million for individuals. Licences or activities can also be suspended for 1 to 24 months (Decree 330 Art. 4). Serious cases can lead to criminal liability, and damage must be compensated (PDP Law Art. 8).
+    source:
+      - https://congbao.chinhphu.vn/van-ban/luat-so-91-2025-qh15-45578.htm
+      - https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-330-2026-nd-cp-470339.htm
+checked:
+  date: "2026-11-10"
+  status: ai-checked
+history:
+  - date: "2026-11-10"
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
