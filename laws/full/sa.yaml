@@ -132,3 +132,12 @@ history:
     summary: "Children: removed a claim about a Shura Council recommendation that only a news report supported."
   - date: "2026-11-05"
     summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
+watch:
+  - url: https://www.uqn.gov.sa/rssFeed/21
+    type: rss
+    keywords: [البيانات الشخصية, حماية البيانات, البيانات, الخصوصية, الذكاء الاصطناعي, سدايا, الطفل, الأطفال, الجرائم المعلوماتية, الاقتحامية, الاتصالات وتقنية المعلومات, الاتصالات والفضاء والتقنية, التسويق, التجارة الإلكترونية, المعاملات الإلكترونية]
+    language: ar
+  - url: https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter
+    type: html
+    selector: '.knowledge-page .dgp-tab-content:not(.faqs)'
+    language: ar

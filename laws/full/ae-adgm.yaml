@@ -103,3 +103,24 @@ checked:
 history:
   - date: "2026-11-05"
     summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
+watch:
+  - url: https://www.adgm.com/operating-in-adgm/office-of-data-protection/guidance
+    type: html
+    selector: 'adgm-expansion-panel'
+    language: en
+  - url: https://www.adgm.com/operating-in-adgm/office-of-data-protection/circulars
+    type: html
+    selector: 'adgm-tab-container'
+    language: en
+  - url: https://www.adgm.com/operating-in-adgm/office-of-data-protection/jurisdictions
+    type: html
+    selector: 'adgm-table'
+    language: en
+  - url: https://www.adgm.com/operating-in-adgm/office-of-data-protection/fee-sections
+    type: html
+    selector: 'adgm-table'
+    language: en
+  - url: https://www.adgm.com/legal-framework/public-consultations
+    type: html
+    selector: '#consultationItems > adgm-expansion-panel:contains("Data Protection")'
+    language: en

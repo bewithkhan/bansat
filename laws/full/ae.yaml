@@ -150,3 +150,12 @@ checked:
 history:
   - date: "2026-11-05"
     summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
+watch:
+  - url: https://u.ae/en/about-the-uae/digital-uae/data/data-protection-laws
+    type: html
+    selector: '#mainContentContainer .tab-content'
+    language: en
+  - url: https://u.ae/en/information-and-services/social-affairs/Priority-groups/children/Childrens-digital-safety
+    type: html
+    selector: '#mainContentContainer .tab-content'
+    language: en

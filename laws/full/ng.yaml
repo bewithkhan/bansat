@@ -134,3 +134,16 @@ checked:
 history:
   - date: "2026-11-05"
     summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
+watch:
+  - url: https://ncc.gov.ng/rss.xml
+    type: rss
+    keywords: [consumer code, code of practice, consumer protection, DND, do-not-disturb, do not disturb, spam, unsolicited, SMS, telemarketing, marketing, privacy, personal data, data protection, cybercrime, cybercrimes, child online, children, regulation, regulations]
+    language: en
+  - url: https://fmcide.gov.ng/feed/
+    type: rss
+    keywords: [bill, e-governance, act, law, legislation, regulation, regulations, privacy, data protection, AI, artificial intelligence, National Assembly]
+    language: en
+  - url: https://fccpc.gov.ng/feed/
+    type: rss
+    keywords: [digital lending, lending, lender, lenders, loan, loans, data, privacy, personal information, big tech, big techs]
+    language: en
