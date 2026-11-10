@@ -1,0 +1,23 @@
+# Panama. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+# The Gaceta Oficial blocks automated requests, so the law link points to the National Assembly's Legispan copy of
+# Gaceta Oficial N° 28743-A. Its regulation, Executive Decree 285 of 28 May 2021 (published in the Gaceta Oficial, as
+# ANTAI records at https://antai.gob.pa/reglamentan-ley-81-de-proteccion-de-datos-personales/), is not listed because
+# no official copy of its text could be opened. Summaries rest on Bansat's own translation from Spanish.
+id: pa
+name: Panama
+tier: basic
+laws:
+  - name: Personal Data Protection Law
+    citation: Ley N° 81 de 26 de marzo de 2019 sobre Protección de Datos Personales, Gaceta Oficial N° 28.743-A, 29 March 2019
+    official_url: https://s3-legispan.asamblea.gob.pa/legispan/NORMAS/2010/2019/LEY/Administrador%20Legispan_28743-A_2019_3_29_ASAMBLEA%20NACIONAL_81.pdf
+    status: in-force
+    in_force_from: "2021-03-29"
+    notes: Derived date, as Art. 47 starts the law two years after its promulgation, taken as its publication in the Gaceta Oficial on 29 March 2019; read as the signature of 26 March 2019, it would be 26 March 2021. It covers databases in Panama and controllers domiciled there (Art. 5). Processing needs consent, a contract, a legal obligation or a special law (Art. 6), and transfers are lawful only on the conditions of Art. 33. ANTAI enforces it, with fines of B/.1,000 to B/.10,000. Executive Decree 285 of 28 May 2021 regulates it.
+regulators:
+  - name: National Authority for Transparency and Access to Information (ANTAI), Personal Data Protection Directorate
+    url: https://antai.gob.pa/direccion-de-proteccion-de-datos-personales/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.

@@ -1,0 +1,34 @@
+# Colombia. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+# The law links point to the Gestor Normativo of the Administrative Department of the Civil Service (Función Pública).
+# Summaries rest on Bansat's own translation from Spanish. The database registration threshold comes from Decree 90 of
+# 2018: https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=85039
+id: co
+name: Colombia
+tier: basic
+laws:
+  - name: General Personal Data Protection Law
+    citation: Ley Estatutaria 1581 de 2012, Diario Oficial 48.587 of 18 October 2012
+    official_url: https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=49981
+    status: in-force
+    in_force_from: "2012-10-17"
+    notes: In force from promulgation on 17 October 2012 (Art. 30). Covers processing in Colombia and by foreign controllers or processors where treaties or international rules apply Colombian law (Art. 2). Processing needs the data subject's prior, informed authorisation, kept so it can be checked later (Art. 9). Controllers must tell the SIC about security breaches (Art. 17(n)). Transfers go only to countries with adequate protection, unless an exception applies (Art. 26). Fines reach 2,000 monthly minimum wages (Art. 23).
+  - name: Regulation of the General Personal Data Protection Law
+    citation: Decreto 1377 de 2013, Diario Oficial 48.834 of 27 June 2013; now compiled in Decreto Único Reglamentario 1074 de 2015, Book 2, Part 2, Title 2, Chapters 25 and 26
+    official_url: https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=53646
+    status: in-force
+    in_force_from: "2013-06-27"
+    notes: In force from publication (Art. 28). Sets the rules on authorisation, privacy notices, processing policies, rights requests and transfers, and requires every controller and processor to name a person or area to handle data protection requests. Art. 2.2.2.26.1.2 of Decree 1074 of 2015, as rewritten by Decree 90 of 2018 (D.O. 50.480, 18 January 2018), requires companies and non-profits with total assets above 100,000 UVT, and public bodies, to register their databases in the SIC's National Database Register.
+  - name: Financial Habeas Data Law
+    citation: Ley Estatutaria 1266 de 2008, Diario Oficial 47.219 of 31 December 2008, as amended by Ley 2157 de 2021
+    official_url: https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=34488
+    status: in-force
+    in_force_from: "2008-12-31"
+    notes: In force from publication (Art. 22). Governs financial, credit, commercial and service data held by credit bureaus and their sources and users, including data from other countries. The SIC supervises operators, sources and users of this information, except that where one of them is supervised by the Financial Superintendence (SFC), the SFC supervises and sanctions it (Art. 17).
+regulators:
+  - name: Superintendence of Industry and Commerce (SIC), Delegation for the Protection of Personal Data
+    url: https://www.sic.gov.co/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.

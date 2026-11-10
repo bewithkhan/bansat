@@ -1,0 +1,30 @@
+# Ecuador. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+# The law links point to Registro Oficial editions hosted by the Superintendence of Personal Data Protection (SPDP).
+# Both are scanned images, read with OCR; summaries rest on Bansat's own translation from Spanish.
+# Since 2025 the SPDP has also issued binding general rules, among them on data protection officers, international
+# transfers, legitimate interest, large-scale processing, AI systems, biometric data and breach notification; they are
+# listed at https://www.spdp.gob.ec/resoluciones/ and are not summarised here.
+id: ec
+name: Ecuador
+tier: basic
+laws:
+  - name: Organic Law on Personal Data Protection (LOPDP)
+    citation: Ley Orgánica de Protección de Datos Personales, Registro Oficial Quinto Suplemento No. 459, 26 May 2021
+    official_url: https://www.spdp.gob.ec/wp-content/uploads/2026/10/02-Ley-Organica-de-Proteccion-de-Datos-Personales-2021_compressed.pdf
+    status: in-force
+    in_force_from: "2021-05-26"
+    notes: Ecuador's general data protection law, in force from publication (final provision). Its corrective measures and sanctions applied two years after publication, from 26 May 2023, and processing and international transfers that were already under way had the same two years to comply (transitional provisions one, two and four). The SPDP enforces it.
+  - name: General Regulation of the LOPDP
+    citation: Executive Decree No. 904 of 6 November 2023, Registro Oficial Tercer Suplemento No. 435, 13 November 2023
+    official_url: https://www.spdp.gob.ec/wp-content/uploads/2026/09/03-Reglamento-General-de-la-Ley-Organica-de-Proteccion-de-Datos-Personales-2023.pdf
+    status: in-force
+    in_force_from: "2023-11-13"
+    notes: In force from publication (final provision). It details how the law applies, including data protection impact assessments, data protection officers and international transfers. A breach likely to put people's rights at risk must be notified to both the SPDP and the telecommunications regulator, the Agencia de Regulación y Control de Telecomunicaciones (Art. 24).
+regulators:
+  - name: Superintendence of Personal Data Protection (SPDP)
+    url: https://www.spdp.gob.ec/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.

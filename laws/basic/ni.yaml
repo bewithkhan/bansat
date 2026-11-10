@@ -1,0 +1,29 @@
+# Nicaragua. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+# The law links point to the La Gaceta editions on the official gazette's site, which embeds each edition as a PDF.
+# The National Assembly's legislation database lists Law 787 as in force but serves it only over plain HTTP.
+# Summaries rest on Bansat's own translation from Spanish.
+# The Directorate has no website of its own that could be found; the regulator link is its parent ministry's site.
+id: ni
+name: Nicaragua
+tier: basic
+laws:
+  - name: Personal Data Protection Law
+    citation: Ley N° 787, Ley de Protección de Datos Personales, approved 21 March 2012, La Gaceta N° 61, 29 March 2012
+    official_url: https://www.lagaceta.gob.ni/la-gaceta-n-61-jueves-29-marzo-de-2012/
+    status: in-force
+    in_force_from: "2012-03-29"
+    notes: In force from publication (Art. 56). Every controller of a data file must register it with the Personal Data Protection Directorate (Art. 22), and the Directorate must be told of each data transfer (Art. 15). Information handled by entities that the microfinance commission (CONAMI) or the banking superintendency (SIBOIF) authorise and supervise is excluded (Art. 54). The Directorate, attached to the Ministry of Finance and Public Credit, supervises public and private files (Art. 28).
+  - name: Regulation of the Personal Data Protection Law
+    citation: Decreto N° 36-2012 of 17 October 2012, Reglamento de la Ley N° 787, La Gaceta N° 200, 19 October 2012
+    official_url: https://www.lagaceta.gob.ni/la-gaceta-n-200-viernes-19-octubre-de-2012/
+    status: in-force
+    in_force_from: "2012-10-19"
+    notes: In force from publication (Art. 63). Sets out how Law 787 applies.
+regulators:
+  - name: Personal Data Protection Directorate, attached to the Ministry of Finance and Public Credit (MHCP)
+    url: https://www.hacienda.gob.ni/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.

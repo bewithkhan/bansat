@@ -1,0 +1,29 @@
+# Paraguay. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+# The law links point to the Library and Central Archive of Congress (BACN). Summaries rest on Bansat's own
+# translation from Spanish. Paraguay's general law, Law 7593/2025, is enacted but starts only on 28 November 2027;
+# until then Law 6534/2020 on credit data is the main law in force.
+# Law 6534 Art. 20 also makes the Central Bank (BCP), through its Superintendence of Banks, an authority for credit
+# bureaus. It isn't listed as a regulator because www.bcp.gov.py answered every plain request with a bot check.
+id: py
+name: Paraguay
+tier: basic
+laws:
+  - name: Personal Data Protection Law
+    citation: Ley N° 7593/2025 de Protección de Datos Personales en la República del Paraguay, promulgated and published 27 November 2025
+    official_url: https://www.bacn.gov.py/leyes-paraguayas/12924/ley-n-7593-proteccion-de-datos-personales
+    status: enacted
+    notes: Starts on 28 November 2027 (derived, Art. 57, once 24 months have run from official publication on 27 November 2025). It creates the National Personal Data Protection Agency within the ICT Ministry (MITIC) as authority (Art. 34), requires breach notice to the Agency and, where relevant, to data subjects within 72 hours (Art. 17), and provides for data protection officers (Art. 18) and impact assessments. The Executive must issue its regulation within 24 months of publication.
+  - name: Credit Personal Data Protection Law
+    citation: Ley N° 6534/2020 de Protección de Datos Personales Crediticios, promulgated and published 27 October 2020
+    official_url: https://www.bacn.gov.py/leyes-paraguayas/9417/ley-n-6534-de-proteccion-de-datos-personales-crediticios
+    status: in-force
+    in_force_from: "2020-10-28"
+    notes: Applies to processing of personal data in public or private records gathered or stored in Paraguay (Art. 2), with a focus on credit information. The Central Bank, through its Superintendence of Banks, registers, regulates, supervises and sanctions credit bureaus (Arts. 13 and 20). It repealed Law 1682/2001 on private information (Art. 30). Law 7593 repeals parts of it and hands the consumer authority's role to the new Agency. Derived date, the day after publication, under Civil Code Art. 1, as the law has no commencement article.
+regulators:
+  - name: Consumer and User Protection Secretariat (SEDECO), for complaints under Law 6534/2020 until the National Personal Data Protection Agency takes over
+    url: https://www.sedeco.gov.py/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.
