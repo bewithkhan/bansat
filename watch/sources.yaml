@@ -159,3 +159,27 @@ jurisdictions:
     official_domains: [uradni-list.si, pisrs.si, ip-rs.si]
   sk:
     official_domains: [slov-lex.sk, dataprotection.gov.sk, teleoff.gov.sk]
+  at:
+    official_domains: [dsb.gv.at, rtr.at, parlament.gv.at, ris.bka.gv.at]
+  be:
+    official_domains: [autoriteprotectiondonnees.be, gegevensbeschermingsautoriteit.be, dataprotectionauthority.be, ejustice.just.fgov.be, dekamer.be, lachambre.be]
+  bg:
+    official_domains: [cpdp.bg, dv.parliament.bg, parliament.bg, mtc.government.bg, crc.bg, pernik-adms.justice.bg]
+  cy:
+    official_domains: [mof.gov.cy, dataprotection.gov.cy, ocecpr.ee.cy, ocecpr.org.cy]
+  cz:
+    official_domains: [e-sbirka.gov.cz, e-sbirka.cz, uoou.gov.cz, psp.cz]
+  dk:
+    official_domains: [retsinformation.dk, datatilsynet.dk, ft.dk]
+  ee:
+    official_domains: [riigiteataja.ee, aki.ee, riigikogu.ee]
+  fi:
+    official_domains: [finlex.fi, tietosuoja.fi, eduskunta.fi, traficom.fi]
+  gr:
+    official_domains: [dpa.gr, et.gr, hellenicparliament.gr]
+  hr:
+    official_domains: [narodne-novine.nn.hr, azop.hr, sabor.hr, hakom.hr]
+  hu:
+    official_domains: [njt.jog.gov.hu, njt.hu, naih.hu, magyarkozlony.hu]
+  lv:
+    official_domains: [likumi.lv, vestnesis.lv, dvi.gov.lv, saeima.lv]

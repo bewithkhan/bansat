@@ -101,6 +101,7 @@ obligations:
       - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/data-protection-law.pdf
       - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/amendment-law-no-1-of-2025.pdf
       - https://mediaoffice.ae/en/news/2025/july/16-07/difc-announces-enactment-of-amendments-to-select-difc-legislation-through-difc-law-amendment-law
+# No watch: difc.com and difc.ae answer automated requests with a Vercel security checkpoint (a JavaScript challenge), and mediaoffice.ae lists its news only with JavaScript.
 checked:
   date: "2026-11-05"
   status: ai-checked

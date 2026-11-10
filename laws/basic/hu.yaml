@@ -1,0 +1,38 @@
+# Hungary. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: hu
+name: Hungary
+tier: basic
+applies_with: [eu]
+laws:
+  - name: Act on Informational Self-Determination and Freedom of Information (Infotv.)
+    citation: 2011. évi CXII. törvény az információs önrendelkezési jogról és az információszabadságról, as amended
+    official_url: https://njt.jog.gov.hu/jogszabaly/2011-112-00-00
+    status: in-force
+    in_force_from: "2012-01-01"
+    notes: Hungary's main data protection and freedom of information law, which sets up the authority (NAIH). Act XXXVIII of 2018 rewrote it to work alongside the GDPR. Most provisions took effect on 1 January 2012 (§ 73(2)).
+  - name: Act on Commercial Advertising (Grtv.)
+    citation: 2008. évi XLVIII. törvény a gazdasági reklámtevékenység alapvető feltételeiről és egyes korlátairól, as amended
+    official_url: https://njt.jog.gov.hu/jogszabaly/2008-48-00-00
+    status: in-force
+    in_force_from: "2008-09-01"
+    notes: Holds the consent rule for direct marketing. Advertising sent to an individual by direct contact, such as email or another individual electronic channel, is allowed only with the recipient's prior, clear and express consent (§ 6(1)). Most provisions took effect on 1 September 2008 (§ 39(1)).
+  - name: Electronic Communications Act (Eht.)
+    citation: 2003. évi C. törvény az elektronikus hírközlésről, as amended
+    official_url: https://njt.jog.gov.hu/jogszabaly/2003-100-00-00
+    status: in-force
+    in_force_from: "2004-01-01"
+    notes: Holds the cookie rule. Data may be stored on, or read from, a subscriber's or user's device only with their consent after clear and full information, including the purpose of the processing (§ 155(4), worded by Act CVII of 2011). Most provisions took effect on 1 January 2004 (§ 164(1)).
+  - name: Act implementing the AI Act in Hungary
+    citation: 2025. évi LXXV. törvény az Európai Unió mesterséges intelligenciáról szóló rendeletének magyarországi végrehajtásáról
+    official_url: https://njt.jog.gov.hu/jogszabaly/2025-75-00-00
+    status: in-force
+    in_force_from: "2025-12-01"
+    notes: National framework for the EU AI Act. It provides for an AI notifying authority and an AI market surveillance authority, which runs the single point of contact and the AI regulatory sandbox, and sets up an AI Council on which NAIH sits. Government Decree 344/2025 (X. 31.), linked from the Act's page, names the National Accreditation Authority and the minister for enterprise development to these roles. In force on the 31st day after promulgation on 31 October 2025 (§ 12(1)), so 1 December 2025 (derived); the sandbox rules from 2 August 2026 (§ 12(2)).
+regulators:
+  - name: Hungarian National Authority for Data Protection and Freedom of Information (Nemzeti Adatvédelmi és Információszabadság Hatóság, NAIH)
+    url: https://naih.hu/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.

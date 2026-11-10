@@ -1,0 +1,32 @@
+# Latvia. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: lv
+name: Latvia
+tier: basic
+applies_with: [eu]
+laws:
+  - name: Personal Data Processing Law
+    citation: Fizisko personu datu apstrādes likums (Latvijas Vēstnesis, 132, 04.07.2018), as amended
+    official_url: https://likumi.lv/ta/id/300099
+    status: in-force
+    in_force_from: "2018-07-05"
+    notes: Supplements the GDPR and sets the status and tasks of the Data State Inspectorate. Children can consent to information society services from age 13 (Art. 33). In force the day after it was proclaimed. Its last amendments took effect on 4 June 2021.
+  - name: Information Society Services Law
+    citation: Informācijas sabiedrības pakalpojumu likums (Latvijas Vēstnesis, 183, 17.11.2004), as amended
+    official_url: https://likumi.lv/ta/id/96619
+    status: in-force
+    in_force_from: "2004-12-01"
+    notes: Holds the cookie and email marketing rules. Storing or reading information on a user's device needs consent after clear and full information, unless it's needed to transmit information or provide a service the user asked for (Art. 7.1). Commercial messages by email, automated calls or fax need the recipient's prior free and unambiguous consent, with an exception for a business's own similar goods or services if the customer can opt out each time (Art. 9).
+  - name: Financial Market Digital Operational Resilience and AI Use Law
+    citation: Finanšu tirgus digitālās darbības noturības un mākslīgā intelekta izmantošanas likums (Latvijas Vēstnesis, 188, 30.09.2025)
+    official_url: https://likumi.lv/ta/id/363378
+    status: in-force
+    in_force_from: "2025-10-01"
+    notes: Carries out the EU AI Act for the financial sector only; it isn't a general AI Act law. Latvijas Banka supervises how financial entities and credit unions use AI under the AI Act (AI Act Art. 74(6); Arts. 7–8 of this law) and can warn or fine them for breaches (Art. 10(3)). The same law carries out the EU digital operational resilience rules (DORA). In force the day after it was proclaimed.
+regulators:
+  - name: Data State Inspectorate (Datu valsts inspekcija, DVI)
+    url: https://www.dvi.gov.lv/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.

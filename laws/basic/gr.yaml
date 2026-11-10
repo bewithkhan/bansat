@@ -1,0 +1,32 @@
+# Greece. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: gr
+name: Greece
+tier: basic
+applies_with: [eu]
+laws:
+  - name: Law 4624/2019 on the Hellenic Data Protection Authority and GDPR implementing measures
+    citation: Νόμος 4624/2019 (ΦΕΚ Α' 137/29.08.2019), as amended
+    official_url: https://www.dpa.gr/sites/default/files/2023-06/4624_2019%20%CE%BC%CE%B5%20%CF%84%CF%81%CE%BF%CF%80%CE%BF%CF%80%CE%BF%CE%B9%CE%AE%CF%83%CE%B5%CE%B9%CF%82.pdf
+    status: in-force
+    in_force_from: "2019-08-29"
+    notes: Sets up the Hellenic Data Protection Authority, adds national GDPR measures and transposes the law enforcement directive. Children under 15 need a parent's or guardian's consent for information society services offered to them (Art. 21). In force on publication in the Government Gazette (Art. 87). The link is the regulator's consolidated copy.
+  - name: Law 3471/2006 on privacy in electronic communications
+    citation: Νόμος 3471/2006 (ΦΕΚ Α' 133/28.06.2006), as amended
+    official_url: https://www.dpa.gr/sites/default/files/2019-09/%CE%9D3471_06.PDF
+    status: in-force
+    in_force_from: "2006-07-28"
+    notes: Transposes the ePrivacy Directive. As amended by Law 4070/2012, storing or reading information on a user's device needs consent after clear information (Art. 4(5)). Direct marketing by email, automated calls, fax or other electronic means needs prior express consent (Art. 11(1)); a supplier may email its customers about its own similar products if they can object easily, free, at collection and in every message (Art. 11(3)). Chapter One, holding these rules, took effect one month after Gazette publication on 28 June 2006 (Art. 31); date derived. The link is the regulator's consolidated copy.
+  - name: Law 5321/2026 implementing the AI Act
+    citation: Νόμος 5321/2026 (ΦΕΚ Α' 114/20.07.2026)
+    official_url: https://www.dpa.gr/enimerwtiko/nomothesia/proswpikon_dedomenon
+    status: in-force
+    in_force_from: "2026-07-20"
+    notes: National measures for the EU AI Act. It makes the Hellenic Data Protection Authority the market surveillance authority for prohibited AI practices, Annex III high-risk systems and the Art. 50 transparency duties, and the body for AI Act complaints; it runs the national AI sandbox with EETT. In force on publication in the Gazette (ΦΕΚ Α' 114, 20 July 2026) unless a provision says otherwise (Art. 58 of the Gazette text). The link is the regulator's legislation page, which summarises the law and links to that Gazette issue.
+regulators:
+  - name: Hellenic Data Protection Authority (Αρχή Προστασίας Δεδομένων Προσωπικού Χαρακτήρα)
+    url: https://www.dpa.gr/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.

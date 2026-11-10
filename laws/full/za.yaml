@@ -129,3 +129,21 @@ checked:
 history:
   - date: "2026-11-05"
     summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
+watch:
+  - url: https://inforegulator.org.za/guidance-notes/
+    type: html
+    selector: '.entry-content'
+    language: en
+  - url: https://inforegulator.org.za/enforcement-notices/
+    type: html
+    selector: '.entry-content'
+    language: en
+  - url: https://inforegulator.org.za/media-statements/
+    type: html
+    selector: '.entry-content'
+    keywords: [POPIA, personal information, privacy, data, security compromise, security compromises, breach, direct marketing, marketing, children, child, enforcement notice, enforcement notices, infringement notice, fine, fines, penalty, code of conduct, codes of conduct, regulations, guidance note, guidance notes, AI, artificial intelligence, prior authorisation, information officer, information officers]
+    language: en
+  - url: https://thencc.org.za/feed/
+    type: rss
+    keywords: [opt-out, opt out, registry, direct marketing, marketing, spam, unsolicited, calls, telemarketing, privacy, personal information, data]
+    language: en

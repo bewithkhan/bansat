@@ -131,3 +131,13 @@ checked:
 history:
   - date: "2026-11-05"
     summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
+watch:
+  - url: https://www.shura.qa/en/Pages/MediaCenter/News
+    type: html
+    selector: '.newscontainer'
+    keywords: [data, privacy, personal data, children, child, minors, AI, artificial intelligence, cyber, cybersecurity, cybercrime, digital, electronic, online, internet, social media, telecommunications, technology]
+    language: en
+  - url: https://www.qfc.qa/en/operate/data-protection/
+    type: html
+    selector: '.qfc-resources__list'
+    language: en

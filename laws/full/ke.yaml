@@ -107,3 +107,22 @@ checked:
 history:
   - date: "2026-11-05"
     summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
+watch:
+  - url: https://www.parliament.go.ke/the-national-assembly/house-business/bills
+    type: html
+    selector: '.post-block .post-title'
+    keywords: [data, privacy, personal, information, communications, ICT, digital, online, internet, cyber, cybercrimes, computer, artificial intelligence, AI, children, child, technology, social media, e-commerce, consumer protection, telecommunications, surveillance, biometric]
+    language: en
+  - url: https://www.parliament.go.ke/the-senate/house-business/bills
+    type: html
+    selector: '.post-block .post-title'
+    keywords: [data, privacy, personal, information, communications, ICT, digital, online, internet, cyber, cybercrimes, computer, artificial intelligence, AI, children, child, technology, social media, e-commerce, consumer protection, telecommunications, surveillance, biometric]
+    language: en
+  - url: https://www.odpc.go.ke/
+    type: html
+    selector: '.jkit-posts .jkit-post-title'
+    language: en
+  - url: https://www.ca.go.ke/rss.xml
+    type: rss
+    keywords: [consumer protection, regulations, guidelines, spam, unsolicited, SMS, telemarketing, marketing, privacy, data protection, personal data, child online, children, cybersecurity, cybercrime, cybercrimes]
+    language: en
