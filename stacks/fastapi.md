@@ -10,7 +10,7 @@ FastAPI gives you routing, validation and [dependencies](https://fastapi.tiangol
   - A `get_current_user` dependency resolves the caller.
   - Attach it to every router with [`APIRouter(dependencies=[...])`](https://fastapi.tiangolo.com/tutorial/bigger-applications/#add-some-custom-tags-responses-and-dependencies), or to the whole app with [global dependencies](https://fastapi.tiangolo.com/tutorial/dependencies/global-dependencies/), so a new route is closed by default.
   - Route-specific rules (`require_role("ADMIN")`, or [OAuth2 scopes](https://fastapi.tiangolo.com/advanced/security/oauth2-scopes/) through `Security()`) are your `assertCan()` (7.2).
-- **Scoping in the data layer.** Build every query from the signed-in user's memberships, in one module, and never take `organization_id` from the request body (T-03). SQLAlchemy can add a tenant filter to every ORM query through [`do_orm_execute` and `with_loader_criteria`](https://docs.sqlalchemy.org/en/21/orm/session_events.html#adding-global-where-on-criteria). It doesn't touch `text()` or Core statements you write by hand, so review those.
+- **Scoping in the data layer.** Build every query from the signed-in user's memberships, in one module, and never take `organization_id` from the request body (T-03). SQLAlchemy can add a tenant filter to every ORM query through [`do_orm_execute` and `with_loader_criteria`](https://docs.sqlalchemy.org/en/21/orm/session_events.html#adding-global-where-on-criteria). It doesn't touch `text()` or Core statements you write by hand, so review those. The docs' recipe filters only SELECTs (`is_select`), but the same hook receives ORM `update()` and `delete()` statements, which [accept `with_loader_criteria` too](https://docs.sqlalchemy.org/en/21/orm/queryguide/dml.html): cover `is_update` and `is_delete` as well, or scope those statements by hand.
 
 ```python
 # app/tasks.py — tenancy comes from the signed-in user, never from the request
@@ -32,14 +32,15 @@ def read_task(task_id: int, user: CurrentUser, session: SessionDep) -> TaskOut:
 
 ```python
 # tests/test_isolation.py — fixtures seed two organisations (5.5)
-def test_member_of_a_cannot_reach_b(db, user_a, task_b):
+def test_member_of_a_cannot_reach_b(db, user_a, task_a, task_b):
     client = TestClient(app)
     assert client.get(f"/tasks/{task_b.id}").status_code == 401                 # anonymous
     app.dependency_overrides[get_current_user] = lambda: user_a
     try:
+        assert client.get(f"/tasks/{task_a.id}").status_code == 200             # own task: the control
         assert client.get(f"/tasks/{task_b.id}").status_code == 404
         assert client.patch(f"/tasks/{task_b.id}", json={"title": "x"}).status_code == 404
-        client.post("/tasks", json={"organization_id": task_b.organization_id, "title": "x"})
+        client.post("/tasks", json={"organization_id": task_b.organization_id, "title": "x"})  # write into B
         org_b_tasks = select(func.count(Task.id)).where(Task.organization_id == task_b.organization_id)
         assert db.scalar(org_b_tasks) == 1
     finally:
@@ -74,16 +75,23 @@ def test_member_of_a_cannot_reach_b(db, user_a, task_b):
 
 ```python
 # app/main.py — block cross-site writes when sessions live in cookies
-ALLOWED_ORIGINS = {"https://app.example.co.uk"}
+ALLOWED_ORIGINS = {"https://api.example.co.uk", "https://app.example.co.uk"}   # exact origins only
+def write_allowed(site: str | None, origin: str | None) -> bool:
+    if site not in (None, "same-origin", "same-site"):
+        return False                                    # cross-site, or a value we don't expect
+    if site == "same-site" or origin:
+        return origin in ALLOWED_ORIGINS                # a sibling subdomain must be on the list
+    return True                                         # a client that sends neither header
 
 @app.middleware("http")
 async def block_cross_site_writes(request: Request, call_next):
-    if request.method not in {"GET", "HEAD", "OPTIONS"}:
-        site, origin = request.headers.get("sec-fetch-site"), request.headers.get("origin")
-        if (site and site != "same-origin") or (origin and origin not in ALLOWED_ORIGINS):
-            return JSONResponse({"detail": "Cross-site request blocked"}, status_code=403)
+    if request.method not in {"GET", "HEAD", "OPTIONS"} and not write_allowed(
+            request.headers.get("sec-fetch-site"), request.headers.get("origin")):
+        return JSONResponse({"detail": "Cross-site request blocked"}, status_code=403)
     return await call_next(request)
 ```
+
+A front end on its own subdomain (`app.` calling `api.`) sends `Sec-Fetch-Site: same-site`, so the check accepts `same-site` only from an origin on the list. List the API's own origin too, and never a whole domain.
 
 - **CORS.** List exact origins in [`CORSMiddleware`](https://fastapi.tiangolo.com/tutorial/cors/). With `allow_credentials=True`, none of origins, methods or headers may be `["*"]`.
 - **XSS.** JSON responses are safe to render as text, but anything returned through `HTMLResponse` is sent as you wrote it. Starlette's `Jinja2Templates` uses [`select_autoescape()`](https://jinja.palletsprojects.com/en/stable/api/#autoescaping), which escapes only `.html`, `.htm` and `.xml` templates, so a template named `page.jinja` isn't escaped. Jinja's `|safe` and `Markup()` switch escaping off (T-04).
@@ -101,7 +109,7 @@ async def block_cross_site_writes(request: Request, call_next):
 
 - **Usually the front end's job.** Most FastAPI apps serve a separate front end, and the 9.7 consent module and loader live there: see that front end's profile.
 - **FastAPI's part.**
-  - A `POST /privacy/consent` route, validated by a Pydantic model, that appends to `consent_records` (CR-05).
+  - A `POST /privacy/consent` route, validated by a Pydantic model, that appends to `consent_records` (CR-05). The 9.7 `saveConsent()` posts to `/api/privacy/consent`, so change one URL to match the other.
   - The server-side check before any marketing send (CR-06).
   - Behind cookie authentication, the CSRF check above.
 - **If FastAPI renders pages** with Jinja2, the rules for server-rendered stacks apply. Ship no vendor tags in the base template, load the consent module as a static file with the request's nonce, and list `consent_v1` and your session cookie as strictly necessary (9.8).
@@ -111,7 +119,7 @@ async def block_cross_site_writes(request: Request, call_next):
 - **Access logs.** [Uvicorn's access log](https://uvicorn.dev/settings/#logging) records the client IP and the full request line, query string included ([format](https://github.com/Kludex/uvicorn/blob/master/uvicorn/config.py)). Keep tokens, emails and search terms out of URLs, or switch the access log off (`--no-access-log`) and log a cleaned line from a middleware.
 - **Validation errors.** [`RequestValidationError` carries the body it rejected](https://fastapi.tiangolo.com/tutorial/handling-errors/#use-the-requestvalidationerror-body), and the docs suggest logging it while you develop. Don't log `exc.body` or `exc.errors()` inputs in production: they hold whatever the user typed.
 - **Structured logs.** Use the standard `logging` module with a JSON formatter. Put a request ID into a `contextvars` variable in middleware and add it with a logging filter. Log user IDs only (7.5).
-- **Error trackers.** Sentry is a processor (3.6). The Python SDK sends [local variables by default](https://docs.sentry.io/platforms/python/configuration/options/) (`include_local_variables`), and the new `data_collection` option collects user identity and request bodies for any key you leave unset. Set them explicitly.
+- **Error trackers.** Sentry is a processor (3.6). The Python SDK sends [local variables by default](https://docs.sentry.io/platforms/python/configuration/options/) (`include_local_variables`). Passing the new `data_collection` dict opts you into its permissive defaults: every key you leave out collects (user identity and request bodies among them), `send_default_pii` is ignored and your `event_scrubber` no longer runs. Either set every key, or leave `data_collection` out and keep `send_default_pii` off.
 
 ## Testing
 
@@ -134,17 +142,19 @@ async def block_cross_site_writes(request: Request, call_next):
 
 - **No safety net.** FastAPI has no authentication, sessions, CSRF protection, admin or row-level isolation built in. Every rule in 7.1 and 7.2 is code you write and test.
 - **Pin exact versions.** FastAPI is still 0.x, and [each version may break things](https://fastapi.tiangolo.com/deployment/versions/#pin-your-fastapi-version): October 2026 alone brought several minor releases marked "Breaking Changes" ([release notes](https://fastapi.tiangolo.com/release-notes/)). Pin exact versions and read the notes before upgrading. Recent drops: `pydantic.v1` (0.128.0, December 2025) and Python 3.9 (0.129.0, February 2026).
-- **Pin Starlette too.** FastAPI accepts `starlette>=0.46.0`, so an old lockfile can keep an unpatched Starlette. The May and June 2026 advisories were fixed in 1.0.1 to 1.3.0 (latest 1.10.0):
+- **Pin Starlette too.** FastAPI accepts `starlette>=0.46.0`, so an old lockfile can keep an unpatched Starlette. Five advisories published in June 2026 were fixed in releases from 1.0.1 (21 May) to 1.3.1 (12 June): use 1.3.1 or later (1.10.0 when checked). Among them:
   - a malformed `Host` header could make `request.url.path` differ from the routed path and bypass path-based checks in middleware ([GHSA-86qp-5c8j-p5mr](https://github.com/Kludex/starlette/security/advisories/GHSA-86qp-5c8j-p5mr));
-  - `request.url.hostname` could be poisoned ([GHSA-jp82-jpqv-5vv3](https://github.com/Kludex/starlette/security/advisories/GHSA-jp82-jpqv-5vv3)).
+  - `request.url.hostname` could be poisoned ([GHSA-jp82-jpqv-5vv3](https://github.com/Kludex/starlette/security/advisories/GHSA-jp82-jpqv-5vv3));
+  - `request.form()` ignored `max_fields` and `max_part_size` for URL-encoded bodies, so one unauthenticated request could exhaust memory (CVE-2026-54283, [GHSA-82w8-qh3p-5jfq](https://github.com/Kludex/starlette/security/advisories/GHSA-82w8-qh3p-5jfq), High, fixed only in 1.3.1);
+  - `HTTPEndpoint` dispatched arbitrary HTTP methods to its attributes ([GHSA-x746-7m8f-x49c](https://github.com/Kludex/starlette/security/advisories/GHSA-x746-7m8f-x49c)), and `StaticFiles` on Windows followed UNC paths ([GHSA-wqp7-x3pw-xc5r](https://github.com/Kludex/starlette/security/advisories/GHSA-wqp7-x3pw-xc5r)), both fixed in 1.1.0.
 
   Authorise on the route and its dependencies, not on `request.url` in middleware.
-- **Multipart parsing.** python-multipart, which parses forms and uploads, had several 2026 denial-of-service and parameter-smuggling fixes. Use 0.0.30 or later (latest 0.0.33) ([advisories](https://github.com/Kludex/python-multipart/security/advisories)).
+- **Multipart parsing.** python-multipart, which parses forms and uploads, had several 2026 denial-of-service and parameter-smuggling fixes, and in January an arbitrary file write in a non-default configuration ([GHSA-wp53-j4wj-2cfg](https://github.com/Kludex/python-multipart/security/advisories/GHSA-wp53-j4wj-2cfg)). Use 0.0.31 or later (0.0.33 when checked): 0.0.30 still reads a whole body into memory when `Content-Length` is negative (CVE-2026-53540, [GHSA-v9pg-7xvm-68hf](https://github.com/Kludex/python-multipart/security/advisories/GHSA-v9pg-7xvm-68hf)) ([advisories](https://github.com/Kludex/python-multipart/security/advisories)).
 
 ## Sources
 
 - FastAPI docs: [dependencies](https://fastapi.tiangolo.com/tutorial/dependencies/), [global dependencies](https://fastapi.tiangolo.com/tutorial/dependencies/global-dependencies/), [dependencies with yield](https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-with-yield/), [bigger applications](https://fastapi.tiangolo.com/tutorial/bigger-applications/), [security](https://fastapi.tiangolo.com/tutorial/security/), [OAuth2 with JWT](https://fastapi.tiangolo.com/tutorial/security/oauth2-jwt/), [OAuth2 scopes](https://fastapi.tiangolo.com/advanced/security/oauth2-scopes/), [authentication error status codes](https://fastapi.tiangolo.com/how-to/authentication-error-status-code/), [settings](https://fastapi.tiangolo.com/advanced/settings/), [strict Content-Type](https://fastapi.tiangolo.com/advanced/strict-content-type/), [CORS](https://fastapi.tiangolo.com/tutorial/cors/), [handling errors](https://fastapi.tiangolo.com/tutorial/handling-errors/), [static files](https://fastapi.tiangolo.com/tutorial/static-files/), [custom docs UI assets](https://fastapi.tiangolo.com/how-to/custom-docs-ui-assets/), [conditional OpenAPI](https://fastapi.tiangolo.com/how-to/conditional-openapi/), [testing](https://fastapi.tiangolo.com/tutorial/testing/), [testing dependencies](https://fastapi.tiangolo.com/advanced/testing-dependencies/), [async tests](https://fastapi.tiangolo.com/advanced/async-tests/), [testing a database](https://fastapi.tiangolo.com/how-to/testing-database/), [behind a proxy](https://fastapi.tiangolo.com/advanced/behind-a-proxy/), [advanced middleware](https://fastapi.tiangolo.com/advanced/middleware/), [running manually](https://fastapi.tiangolo.com/deployment/manually/), [Docker](https://fastapi.tiangolo.com/deployment/docker/), [versions](https://fastapi.tiangolo.com/deployment/versions/), [release notes](https://fastapi.tiangolo.com/release-notes/); source: [`fastapi/openapi/docs.py`](https://github.com/fastapi/fastapi/blob/master/fastapi/openapi/docs.py)
 - Starlette: [middleware](https://starlette.dev/middleware/), [security advisories](https://github.com/Kludex/starlette/security/advisories); Uvicorn: [settings](https://uvicorn.dev/settings/), [`config.py`](https://github.com/Kludex/uvicorn/blob/master/uvicorn/config.py); python-multipart: [advisories](https://github.com/Kludex/python-multipart/security/advisories)
-- Libraries: [SQLAlchemy 2.1 session events](https://docs.sqlalchemy.org/en/21/orm/session_events.html), [Jinja API](https://jinja.palletsprojects.com/en/stable/api/), [pyotp](https://pypi.org/project/pyotp/), [py_webauthn](https://pypi.org/project/webauthn/), [pip-audit](https://github.com/pypa/pip-audit)
+- Libraries: [SQLAlchemy 2.1 session events](https://docs.sqlalchemy.org/en/21/orm/session_events.html) and [ORM UPDATE and DELETE](https://docs.sqlalchemy.org/en/21/orm/queryguide/dml.html), [Jinja API](https://jinja.palletsprojects.com/en/stable/api/), [pyotp](https://pypi.org/project/pyotp/), [py_webauthn](https://pypi.org/project/webauthn/), [pip-audit](https://github.com/pypa/pip-audit)
 - PostgreSQL: [row security policies](https://www.postgresql.org/docs/current/ddl-rowsecurity.html), [`set_config`](https://www.postgresql.org/docs/current/functions-admin.html); Sentry: [Python options](https://docs.sentry.io/platforms/python/configuration/options/)
 - OWASP Cheat Sheets (linked, not copied): [CSRF Prevention](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html), [REST Security](https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html), [Authorization](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html)

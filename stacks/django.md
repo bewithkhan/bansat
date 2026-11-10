@@ -31,28 +31,28 @@ These skip your scoping:
 - **Raw SQL.** `raw()`, `extra()`, `RawSQL` and `connection.cursor()` bypass your queryset methods.
 - **Forms.** Keep `organization` and `role` out of `ModelForm` fields and set them in the view. An October 2026 fix covered model formsets with editable primary keys ([security archive](https://docs.djangoproject.com/en/6.1/releases/security/)).
 - **The admin.** It shows staff everything their model permissions allow. Scope it with [`ModelAdmin.get_queryset()`](https://docs.djangoproject.com/en/6.1/ref/contrib/admin/#django.contrib.admin.ModelAdmin.get_queryset) and `has_view_permission()`, and keep it for internal staff with MFA.
-- **Django REST framework.** The [default permission is unrestricted access](https://www.django-rest-framework.org/api-guide/permissions/), so set `DEFAULT_PERMISSION_CLASSES` to `IsAuthenticated`. `has_object_permission()` runs only on single-object views, and not on create, so filter `get_queryset()` as well.
+- **Django REST framework.** The [default permission is unrestricted access](https://www.django-rest-framework.org/api-guide/permissions/), so set `DEFAULT_PERMISSION_CLASSES` to `IsAuthenticated`. `has_object_permission()` runs only on single-object views, and not on create, so filter `get_queryset()` as well. A `ModelSerializer` with `fields = "__all__"` returns every column and lets the client set `organization`: [list the fields](https://www.django-rest-framework.org/api-guide/serializers/#specifying-which-fields-to-include), make `organization` and `role` read-only, and set them in [`perform_create()`](https://www.django-rest-framework.org/api-guide/generic-views/#methods) from the user's membership.
 
 **Postgres RLS as a second layer (optional).** Django doesn't set it up. [`ATOMIC_REQUESTS = True`](https://docs.djangoproject.com/en/6.1/topics/db/transactions/#tying-transactions-to-http-requests) wraps each view in a transaction, but middleware and `TemplateResponse` rendering run outside it. So call `select set_config('app.org_id', %s, true)` at the start of the view (a decorator does it), and evaluate querysets inside the view. Connect as a role that doesn't own the tables and lacks `BYPASSRLS`: owners skip policies unless the table has `FORCE ROW LEVEL SECURITY` ([PostgreSQL](https://www.postgresql.org/docs/current/ddl-rowsecurity.html)).
 
-**The 5.4 isolation test** with Django's [test client](https://docs.djangoproject.com/en/6.1/topics/testing/tools/#django.test.Client.force_login):
+**The 5.4 isolation test** with Django's [test client](https://docs.djangoproject.com/en/6.1/topics/testing/tools/#django.test.Client.force_login) and a [fixture](https://docs.djangoproject.com/en/6.1/topics/testing/tools/#fixture-loading) holding the two organisations of 5.5:
 
 ```python
-# tasks/tests/test_isolation.py
+# tasks/tests/test_isolation.py — fixture: user-a in org A, and one task in each organisation
 class TenantIsolationTests(TestCase):
-    @classmethod
-    def setUpTestData(cls):
-        org_a, org_b = Organization.objects.create(name="A"), Organization.objects.create(name="B")
-        cls.user_a = get_user_model().objects.create_user("user-a")
-        Membership.objects.create(user=cls.user_a, organization=org_a, role="MEMBER")
-        cls.task_b = Task.objects.create(organization=org_b, title="B's task")
+    fixtures = ["two_orgs"]
+
     def test_member_of_a_cannot_reach_b(self):
-        url = reverse("task-detail", args=[self.task_b.pk])
+        user_a, org_b = get_user_model().objects.get(username="user-a"), Organization.objects.get(name="B")
+        task_a, task_b = Task.objects.get(title="A's task"), Task.objects.get(title="B's task")
+        url = reverse("task-detail", args=[task_b.pk])
         self.assertEqual(self.client.get(url).status_code, 302)      # anonymous: sent to sign-in
-        self.client.force_login(self.user_a)
+        self.client.force_login(user_a)
+        self.assertEqual(self.client.get(reverse("task-detail", args=[task_a.pk])).status_code, 200)  # control
         self.assertEqual(self.client.get(url).status_code, 404)
         self.assertEqual(self.client.post(url, {"title": "x"}).status_code, 404)
-        self.task_b.refresh_from_db(); self.assertEqual(self.task_b.title, "B's task")
+        self.client.post(reverse("task-create"), {"organization": org_b.pk, "title": "x"})   # write into B
+        task_b.refresh_from_db(); self.assertEqual((task_b.title, org_b.task_set.count()), ("B's task", 1))
 ```
 
 ## Authentication
@@ -64,7 +64,7 @@ class TenantIsolationTests(TestCase):
   - Set `MinimumLengthValidator` to `min_length: 12`.
   - `CommonPasswordValidator` checks a bundled list of 20,000 common passwords. That isn't a breached-password list (7.1), so add one.
 - **Not in core: MFA, passkeys, throttling.** Django [doesn't throttle sign-in attempts](https://docs.djangoproject.com/en/6.1/topics/security/#additional-security-topics). [django-allauth](https://docs.allauth.org/en/latest/mfa/introduction.html) adds:
-  - TOTP, recovery codes and WebAuthn, including passkey sign-in (`MFA_PASSKEY_LOGIN_ENABLED`);
+  - TOTP, recovery codes and WebAuthn, including passkey sign-in. [`MFA_PASSKEY_LOGIN_ENABLED`](https://docs.allauth.org/en/latest/mfa/configuration.html) is off by default and also needs `"webauthn"` in `MFA_SUPPORTED_TYPES`;
   - [rate limits](https://docs.allauth.org/en/latest/account/rate_limits.html): by default, failed sign-ins are limited to 10 a minute per IP and 5 in 5 minutes per account;
   - [re-authentication](https://docs.allauth.org/en/latest/account/configuration.html) before sensitive actions (`ACCOUNT_REAUTHENTICATION_TIMEOUT`, 300 seconds) and `ACCOUNT_PREVENT_ENUMERATION`, which is on by default.
 - **Password reset.** Django's own [`PasswordResetView`](https://docs.djangoproject.com/en/6.1/topics/auth/default/#django.contrib.auth.views.PasswordResetView) shows the same page whether or not the address exists, and sends no email for an unknown one. That's the no-enumeration rule in 7.1.
@@ -86,7 +86,7 @@ class TenantIsolationTests(TestCase):
   - custom filters marked `is_safe`.
 
   Build HTML in Python with `format_html()`, and pass data to scripts with [`json_script`](https://docs.djangoproject.com/en/6.1/ref/templates/builtins/#json-script) (T-04).
-- **CSP (built in since 6.0).** [`ContentSecurityPolicyMiddleware`](https://docs.djangoproject.com/en/6.1/ref/csp/) sends `SECURE_CSP` or `SECURE_CSP_REPORT_ONLY`. With the `csp` context processor, templates get `{{ csp_nonce }}` and, new in 6.1, the `{% csp_nonce_attr %}` tag. In 6.1 the context processor also puts nonces into the admin's and other built-in templates. [`@csp_override({})`](https://docs.djangoproject.com/en/6.1/ref/csp/#django.views.decorators.csp.csp_override) removes the header from a view. Django doesn't collect violation reports, and a page served from cache [reuses its nonce](https://docs.djangoproject.com/en/6.1/howto/csp/):
+- **CSP (built in since 6.0).** [`ContentSecurityPolicyMiddleware`](https://docs.djangoproject.com/en/6.1/ref/csp/) sends `SECURE_CSP` or `SECURE_CSP_REPORT_ONLY`. With the `csp` context processor, templates get `{{ csp_nonce }}` and, new in 6.1, the `{% csp_nonce_attr %}` tag. In 6.1 the context processor also puts nonces into the admin's and other built-in templates. [`@csp_override({})`](https://docs.djangoproject.com/en/6.1/ref/csp/#django.views.decorators.csp.csp_override) removes the enforced header from a view, and `@csp_report_only_override({})` the report-only one, so look for both in review. Django doesn't collect violation reports, and a page served from cache [reuses its nonce](https://docs.djangoproject.com/en/6.1/howto/csp/). When you move the policy to `SECURE_CSP`, add `"upgrade-insecure-requests": True`: browsers ignore it in report-only mode.
 
 ```python
 # settings.py — the 7.4 policy, report-only until the reports are clean
@@ -98,7 +98,7 @@ SECURE_CSP_REPORT_ONLY = {
     "script-src": [CSP.SELF, CSP.NONCE, CSP.STRICT_DYNAMIC],
     "style-src": [CSP.SELF, CSP.UNSAFE_INLINE],
     "img-src": [CSP.SELF, "data:", "blob:"], "font-src": [CSP.SELF], "connect-src": [CSP.SELF],
-    "frame-ancestors": [CSP.NONE], "base-uri": [CSP.SELF], "form-action": [CSP.SELF],
+    "frame-src": [CSP.NONE], "frame-ancestors": [CSP.NONE], "base-uri": [CSP.SELF], "form-action": [CSP.SELF],
     "object-src": [CSP.NONE],
 }
 # and add "django.template.context_processors.csp" to TEMPLATES' context_processors
@@ -122,7 +122,7 @@ SECURE_CSP_REPORT_ONLY = {
 - **Default handlers.** The [default config](https://docs.djangoproject.com/en/6.1/ref/logging/#default-logging-conditions) sends `ERROR` records to `AdminEmailHandler` when `DEBUG` is `False`. If `ADMINS` is set, every server error is emailed. By default, [error reports](https://docs.djangoproject.com/en/6.1/howto/error-reporting/#filtering-sensitive-information) include each frame's local variables and the request's attributes. Remove the `mail_admins` handler, or filter with `@sensitive_variables` and `@sensitive_post_parameters` and a custom `SafeExceptionReporterFilter`.
 - **Request and security logs.** `django.request` logs 4xx responses as warnings and 5xx as errors, with the path. `django.security.*` records suspicious requests: keep them. [SQL is logged only when `DEBUG` is `True`](https://docs.djangoproject.com/en/6.1/ref/logging/#django-db-backends).
 - **Your own logs.** Configure [`LOGGING`](https://docs.djangoproject.com/en/6.1/topics/logging/) as JSON to stdout. Add a request ID through a middleware, a `contextvars` variable and a logging filter. Log user IDs, never `request.POST`, `request.body` or emails (7.5).
-- **Error trackers.** Sentry is a processor (3.6). In the Python SDK, [`include_local_variables`](https://docs.sentry.io/platforms/python/configuration/options/) is on by default, so local variables, which can hold personal data, go with every event. The new `data_collection` option collects user identity and request bodies for any key you leave unset. Turn off what you don't need, explicitly.
+- **Error trackers.** Sentry is a processor (3.6). In the Python SDK, [`include_local_variables`](https://docs.sentry.io/platforms/python/configuration/options/) is on by default, so local variables, which can hold personal data, go with every event. Passing the new `data_collection` dict opts you into its permissive defaults: every key you leave out collects (user identity and request bodies among them), `send_default_pii` is ignored and your `event_scrubber` no longer runs. Either set every key, or leave `data_collection` out and keep `send_default_pii` off.
 
 ## Testing
 
@@ -163,6 +163,6 @@ SECURE_CSP_REPORT_ONLY = {
 ## Sources
 
 - Django 6.1 docs: [6.1 release notes](https://docs.djangoproject.com/en/6.1/releases/6.1/), [6.0 release notes](https://docs.djangoproject.com/en/6.1/releases/6.0/), [security archive](https://docs.djangoproject.com/en/6.1/releases/security/), [authentication](https://docs.djangoproject.com/en/6.1/topics/auth/), [using authentication](https://docs.djangoproject.com/en/6.1/topics/auth/default/), [passwords](https://docs.djangoproject.com/en/6.1/topics/auth/passwords/), [sessions](https://docs.djangoproject.com/en/6.1/topics/http/sessions/), [managers](https://docs.djangoproject.com/en/6.1/topics/db/managers/), [transactions](https://docs.djangoproject.com/en/6.1/topics/db/transactions/), [middleware](https://docs.djangoproject.com/en/6.1/ref/middleware/), [settings](https://docs.djangoproject.com/en/6.1/ref/settings/), [admin](https://docs.djangoproject.com/en/6.1/ref/contrib/admin/), [CSRF](https://docs.djangoproject.com/en/6.1/ref/csrf/), [CSRF how-to](https://docs.djangoproject.com/en/6.1/howto/csrf/), [security](https://docs.djangoproject.com/en/6.1/topics/security/), [CSP](https://docs.djangoproject.com/en/6.1/ref/csp/), [CSP how-to](https://docs.djangoproject.com/en/6.1/howto/csp/), [built-in template tags and filters](https://docs.djangoproject.com/en/6.1/ref/templates/builtins/), [static files](https://docs.djangoproject.com/en/6.1/ref/contrib/staticfiles/), [logging reference](https://docs.djangoproject.com/en/6.1/ref/logging/), [logging](https://docs.djangoproject.com/en/6.1/topics/logging/), [error reporting](https://docs.djangoproject.com/en/6.1/howto/error-reporting/), [testing](https://docs.djangoproject.com/en/6.1/topics/testing/overview/), [testing tools](https://docs.djangoproject.com/en/6.1/topics/testing/tools/), [tasks](https://docs.djangoproject.com/en/6.1/topics/tasks/), [deployment checklist](https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/), [supported versions](https://www.djangoproject.com/download/)
-- Packages: [Django REST framework permissions](https://www.django-rest-framework.org/api-guide/permissions/), django-allauth [MFA](https://docs.allauth.org/en/latest/mfa/introduction.html), [rate limits](https://docs.allauth.org/en/latest/account/rate_limits.html) and [configuration](https://docs.allauth.org/en/latest/account/configuration.html), [pip-audit](https://github.com/pypa/pip-audit)
+- Packages: Django REST framework [permissions](https://www.django-rest-framework.org/api-guide/permissions/), [serializers](https://www.django-rest-framework.org/api-guide/serializers/) and [generic views](https://www.django-rest-framework.org/api-guide/generic-views/), django-allauth [MFA](https://docs.allauth.org/en/latest/mfa/introduction.html), [MFA configuration](https://docs.allauth.org/en/latest/mfa/configuration.html), [rate limits](https://docs.allauth.org/en/latest/account/rate_limits.html) and [configuration](https://docs.allauth.org/en/latest/account/configuration.html), [pip-audit](https://github.com/pypa/pip-audit)
 - PostgreSQL: [row security policies](https://www.postgresql.org/docs/current/ddl-rowsecurity.html); Sentry: [Python options](https://docs.sentry.io/platforms/python/configuration/options/)
 - OWASP Cheat Sheets (linked, not copied): [Django Security](https://cheatsheetseries.owasp.org/cheatsheets/Django_Security_Cheat_Sheet.html), [Authorization](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html)

@@ -11,6 +11,7 @@ Spring Security decides who may call what. Your data layer must still decide whi
   - Spring AOP [doesn't intercept self-invocation](https://docs.spring.io/spring-framework/reference/core/aop/proxying.html#aop-understanding-aop-proxies), so a call from inside the same class skips the check.
   - Until the [September 2025 fixes](https://spring.io/security/cve-2025-41248), annotations on methods of generic supertypes could be missed.
 - **Rows.** Look every record up with the caller's organisation (`findByIdAndOrganizationId`). Or let Hibernate add the tenant to every query with [`@TenantId`](https://docs.hibernate.org/orm/7.4/userguide/html_single/#multitenacy-discriminator) and a `CurrentTenantIdentifierResolver` fed from the `SecurityContext`. Native queries and `JdbcTemplate` skip both, so review them.
+- **Spring Data REST publishes repositories.** With `spring-boot-starter-data-rest` on the classpath, `spring.data.rest.detection-strategy` is `default`, which [exports every public repository](https://docs.spring.io/spring-data/rest/reference/introduction/getting-started.html), with CRUD endpoints and its query methods [under `/search`](https://docs.spring.io/spring-data/rest/reference/customizing/configuring-the-rest-url-path.html), past your controllers. A public `TaskRepository` would publish `findByIdAndOrganizationId` as an endpoint where the caller picks the organisation. Set `detection-strategy=annotated` so only repositories annotated `@RepositoryRestResource` are published (and `exported = false` hides one), hide query methods with `@RestResource(exported = false)`, and put whatever you do publish behind `authorizeHttpRequests` and method security.
 
 ```java
 // TaskController.java — tenancy from the authenticated principal, never from the request body
@@ -33,22 +34,24 @@ TaskView rename(@PathVariable Long id, @RequestBody RenameTask body, @Authentica
 **The 5.4 isolation test**, with [`spring-security-test`](https://docs.spring.io/spring-security/reference/7.1/servlet/test/mockmvc/authentication.html) and MockMvc, against Postgres from Testcontainers:
 
 ```java
-@SpringBootTest @AutoConfigureMockMvc @Transactional
-class TenantIsolationTest {
-  @Autowired MockMvc mvc; @Autowired JdbcTemplate jdbc; @Autowired Fixtures fixtures;   // two organisations
-
+@SpringBootTest @AutoConfigureMockMvc @Transactional class TenantIsolationTest {
+  @Autowired MockMvc mvc; @Autowired JdbcTemplate jdbc; @Autowired Fixtures fx;   // two organisations
   @Test void memberOfACannotReachB() throws Exception {
-    long taskB = fixtures.taskInOrgB();
+    long taskB = fx.taskInOrgB(), orgB = fx.orgB(); var userA = user(fx.memberOfA());   // a Member, see below
     mvc.perform(get("/tasks/{id}", taskB)).andExpect(status().isUnauthorized());   // or a redirect to /login
-    var userA = user(fixtures.memberOfA());
+    mvc.perform(get("/tasks/{id}", fx.taskInOrgA()).with(userA)).andExpect(status().isOk());   // the control
     mvc.perform(get("/tasks/{id}", taskB).with(userA)).andExpect(status().isNotFound());
     mvc.perform(patch("/tasks/{id}", taskB).with(userA).with(csrf())
         .contentType(APPLICATION_JSON).content("{\"title\":\"x\"}")).andExpect(status().isNotFound());
-    assertThat(jdbc.queryForObject("select title from task where id = ?", String.class, taskB))
-        .isEqualTo("B's task");
+    mvc.perform(post("/tasks").with(userA).with(csrf())                          // write into org B
+        .contentType(APPLICATION_JSON).content("{\"title\":\"x\",\"organizationId\":" + orgB + "}"));
+    assertThat(jdbc.queryForList("select title from task where organization_id = ?", String.class, orgB))
+        .containsExactly("B's task");                                      // unchanged, nothing added
   }
 }
 ```
+
+Pass `user(...)` your `Member` object, which must implement `UserDetails` ([test support](https://docs.spring.io/spring-security/reference/7.1/servlet/test/mockmvc/authentication.html)). Given a username instead, it builds a plain `User`, so `@AuthenticationPrincipal Member me` [resolves to `null`](https://docs.spring.io/spring-security/reference/7.1/servlet/integrations/mvc.html) and the request fails on `me.organizationId()`, not on the check you're testing.
 
 ## Authentication
 
@@ -76,20 +79,23 @@ class TenantIsolationTest {
 - **Escape hatches.** `csrf.disable()`, and [`ignoringRequestMatchers(...)`](https://docs.spring.io/spring-security/reference/7.1/servlet/exploits/csrf.html#disable-csrf). Use them only for token-authenticated APIs that browsers never reach with cookies.
 - **XSS.** Thymeleaf's `th:text` escapes output; [`th:utext`](https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html#unescaped-text) doesn't. Jackson writes JSON, so the front end must not inject it as HTML (T-04).
 - **Headers.** The [default headers](https://docs.spring.io/spring-security/reference/7.1/features/exploits/headers.html#headers-default) are `nosniff`, `X-Frame-Options: DENY`, cache control, and HSTS (one year, `includeSubDomains`). HSTS is [sent only on HTTPS requests](https://docs.spring.io/spring-security/reference/7.1/features/exploits/headers.html#headers-hsts), so behind a TLS-terminating proxy it needs the forwarded-header setting under Deployment.
-- **CSP.** There's no CSP, `Referrer-Policy` or `Permissions-Policy` until you add them, and Spring Security has no nonce generator. Add a `OncePerRequestFilter` that makes a nonce, stores it as a request attribute for templates, and writes the header. Or use a static policy:
+- **CSP.** There's no CSP, `Referrer-Policy` or `Permissions-Policy` until you add them, and Spring Security has no nonce generator. Add a filter that makes a nonce per request, stores it as a request attribute (Thymeleaf reads [request attributes as variables](https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html)), and writes the 7.4 policy, report-only first. Add `upgrade-insecure-requests` when you enforce (report-only ignores it). Set the other two headers in the filter chain with `.headers(h -> h.referrerPolicy(...).permissionsPolicyHeader(...))`.
 
 ```java
-@Bean SecurityFilterChain web(HttpSecurity http) throws Exception {
-  return http
-    .authorizeHttpRequests(a -> a.requestMatchers("/", "/login", "/assets/**").permitAll()
-        .anyRequest().authenticated())
-    .formLogin(Customizer.withDefaults())                       // CSRF stays on by default
-    .headers(h -> h
-        .contentSecurityPolicy(c -> c.policyDirectives("default-src 'self'; script-src 'self'; "
-            + "font-src 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'").reportOnly())
-        .referrerPolicy(r -> r.policy(ReferrerPolicy.STRICT_ORIGIN_WHEN_CROSS_ORIGIN))
-        .permissionsPolicyHeader(p -> p.policy("camera=(), microphone=(), geolocation=(), payment=()")))
-    .build();
+// CspNonceFilter.java — the 7.4 policy, report-only until the reports are clean
+@Component class CspNonceFilter extends OncePerRequestFilter {
+  private final SecureRandom random = new SecureRandom();
+  @Override protected void doFilterInternal(HttpServletRequest req, HttpServletResponse res, FilterChain chain)
+      throws ServletException, IOException {
+    byte[] bytes = new byte[16]; random.nextBytes(bytes);
+    String nonce = Base64.getEncoder().encodeToString(bytes);
+    req.setAttribute("cspNonce", nonce);                          // in Thymeleaf: th:nonce="${cspNonce}"
+    res.setHeader("Content-Security-Policy-Report-Only", "default-src 'self'; script-src 'self' 'nonce-"
+        + nonce + "' 'strict-dynamic'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; "
+        + "font-src 'self'; connect-src 'self'; frame-src 'none'; frame-ancestors 'none'; base-uri 'self'; "
+        + "form-action 'self'; object-src 'none'");
+    chain.doFilter(req, res);
+  }
 }
 ```
 
@@ -102,7 +108,7 @@ class TenantIsolationTest {
 ## Consent
 
 - **Nothing loads unless a template prints it.** Thymeleaf pages render on the server. Load the 9.7 consent module as a static file with the request's nonce, and load analytics only through `loadWhenConsented()`.
-- **The consent POST needs the CSRF token.** Send it from `${_csrf.token}` in a meta tag, or from the `XSRF-TOKEN` cookie when you use `csrf.spa()`. A `@PostMapping("/privacy/consent")` validates the body and appends to `consent_records` (CR-05). Marketing sends check that table, not the cookie (CR-06).
+- **The consent POST needs the CSRF token.** Send it from `${_csrf.token}` in a meta tag, or from the `XSRF-TOKEN` cookie when you use `csrf.spa()`. A `@PostMapping("/privacy/consent")` validates the body and appends to `consent_records` (CR-05). The 9.7 `saveConsent()` posts to `/api/privacy/consent`, so change one URL to match the other. Marketing sends check that table, not the cookie (CR-06).
 - **Cookie register (9.8).** List `JSESSIONID`, `XSRF-TOKEN` (if used) and `consent_v1` as strictly necessary.
 
 ## Logging
@@ -110,7 +116,7 @@ class TenantIsolationTest {
 - **Structured logs.** Logback is the default. Boot can write [structured logs](https://docs.spring.io/spring-boot/reference/features/logging.html#features.logging.structured) (`logging.structured.format.console=ecs` or `logstash`). With Micrometer Tracing, the [trace and span IDs](https://docs.spring.io/spring-boot/reference/actuator/tracing.html#actuator.micrometer-tracing.logging) go into each line: your correlation ID.
 - **What not to log.** Don't log request bodies, headers or `Authentication` objects. Log the user ID from the principal, not the username or email (7.5).
 - **Audit events.** Spring Security publishes authentication success and failure events. Record them in `audit_logs` with IDs only.
-- **Error trackers.** Sentry is a processor (3.6). In the Java SDK, [`sendDefaultPii` is deprecated](https://docs.sentry.io/platforms/java/guides/spring-boot/configuration/options/) in favour of `dataCollection`: once you set any field there, it controls those categories. Set each one explicitly.
+- **Error trackers.** Sentry is a processor (3.6). In the Java SDK, [`sendDefaultPii` is deprecated](https://docs.sentry.io/platforms/java/guides/spring-boot/configuration/options/) in favour of `dataCollection`. Setting any one `dataCollection` field switches Data Collection on: `sendDefaultPii` is then ignored, and every field you left unset takes its permissive default (user identity and IP, cookies and headers minus a deny list, all request and response bodies, query parameters, GraphQL documents and variables). Set every field, or set none and keep `sendDefaultPii` false.
 
 ## Testing
 
@@ -125,7 +131,7 @@ class TenantIsolationTest {
 - **Hosting.** Run an executable jar or an OCI image (`bootBuildImage` / `spring-boot:build-image`) on any host with a UK or EU region (9.17).
 - **Behind a proxy.** Set [`server.forward-headers-strategy=native`](https://docs.spring.io/spring-boot/how-to/webserver.html#howto.webserver.use-behind-a-proxy-server). It defaults to `NONE` except on detected cloud platforms. Without it, the app sees plain HTTP: no HSTS, and no automatic `Secure` cookies.
 - **Migrations.** Flyway [runs at start-up](https://docs.spring.io/spring-boot/how-to/data-initialization.html#howto.data-initialization.migration-tool.flyway), with the app's own database user, unless you configure otherwise. Set `spring.flyway.user` and `password`, which give Flyway its own `DataSource`, for a separate migration role (7.4). Or run migrations as a CI step after approval (12.1).
-- **Headers.** Add HSTS `preload` and the rest of 7.4 in the filter chain or at the proxy. Keep backups as 5.7 describes.
+- **Headers.** Spring's HSTS lasts one year; 7.4 wants two years and `preload`, so set `.httpStrictTransportSecurity(h -> h.maxAgeInSeconds(63072000).preload(true))` in the filter chain (or at the proxy), with the rest of 7.4. Keep backups as 5.7 describes.
 
 ## Limits
 
@@ -138,7 +144,7 @@ class TenantIsolationTest {
   - the WebAuthn bypass in Authentication above;
   - an [XSS in the Authorization Server's default consent page](https://spring.io/security/cve-2026-47877);
   - a [DPoP proof replay](https://spring.io/security/cve-2026-41707);
-  - `AesBytesEncryptor` using a [zero IV in CBC mode](https://spring.io/security/cve-2026-47842).
+  - `AesBytesEncryptor` using a [zero IV in CBC mode](https://spring.io/security/cve-2026-47842). The fix deprecates `AesBytesEncryptor` and `Encryptors.standard()`, `stronger()`, `text()` and `delux()` in favour of `AesGcmBytesEncryptor` (or `AesCbcBytesEncryptor`); read the advisory's migration notes, because data encrypted the old way may need re-encrypting.
 
   Run Spring Security 7.1.2, which Boot 4.1.2 manages.
 
@@ -147,5 +153,6 @@ class TenantIsolationTest {
 - Spring Security 7.1 reference: [authorize HTTP requests](https://docs.spring.io/spring-security/reference/7.1/servlet/authorization/authorize-http-requests.html), [method security](https://docs.spring.io/spring-security/reference/7.1/servlet/authorization/method-security.html), [session management](https://docs.spring.io/spring-security/reference/7.1/servlet/authentication/session-management.html), [password storage](https://docs.spring.io/spring-security/reference/7.1/features/authentication/password-storage.html), [MFA](https://docs.spring.io/spring-security/reference/7.1/servlet/authentication/mfa.html), [passkeys](https://docs.spring.io/spring-security/reference/7.1/servlet/authentication/passkeys.html), [CSRF](https://docs.spring.io/spring-security/reference/7.1/servlet/exploits/csrf.html), [default headers](https://docs.spring.io/spring-security/reference/7.1/features/exploits/headers.html), [servlet headers](https://docs.spring.io/spring-security/reference/7.1/servlet/exploits/headers.html), [MockMvc authentication](https://docs.spring.io/spring-security/reference/7.1/servlet/test/mockmvc/authentication.html), [MockMvc CSRF](https://docs.spring.io/spring-security/reference/7.1/servlet/test/mockmvc/csrf.html)
 - Spring Boot 4.1 reference: [Spring Security](https://docs.spring.io/spring-boot/reference/web/spring-security.html), [servlet web applications](https://docs.spring.io/spring-boot/reference/web/servlet.html), [application properties](https://docs.spring.io/spring-boot/appendix/application-properties/index.html), [externalized configuration](https://docs.spring.io/spring-boot/reference/features/external-config.html), [Actuator endpoints](https://docs.spring.io/spring-boot/reference/actuator/endpoints.html), [logging](https://docs.spring.io/spring-boot/reference/features/logging.html), [tracing](https://docs.spring.io/spring-boot/reference/actuator/tracing.html), [testing](https://docs.spring.io/spring-boot/reference/testing/spring-boot-applications.html), [Testcontainers](https://docs.spring.io/spring-boot/reference/testing/testcontainers.html), [web server how-to](https://docs.spring.io/spring-boot/how-to/webserver.html), [data initialisation how-to](https://docs.spring.io/spring-boot/how-to/data-initialization.html), [dependency versions](https://docs.spring.io/spring-boot/appendix/dependency-versions/coordinates.html)
 - Spring project: [security advisories](https://spring.io/security), [Spring Boot support timeline](https://spring.io/projects/spring-boot#support), [Spring Framework AOP proxies](https://docs.spring.io/spring-framework/reference/core/aop/proxying.html)
+- Spring Data REST: [getting started](https://docs.spring.io/spring-data/rest/reference/introduction/getting-started.html), [configuring the REST URL path](https://docs.spring.io/spring-data/rest/reference/customizing/configuring-the-rest-url-path.html), [repository resources](https://docs.spring.io/spring-data/rest/reference/repository-resources.html); Spring Security [Spring MVC integration](https://docs.spring.io/spring-security/reference/7.1/servlet/integrations/mvc.html)
 - Other: [Hibernate 7.4 user guide](https://docs.hibernate.org/orm/7.4/userguide/html_single/), [Thymeleaf 3.1](https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html), [Playwright for Java](https://playwright.dev/java/docs/network), [Sentry Spring Boot options](https://docs.sentry.io/platforms/java/guides/spring-boot/configuration/options/), [PostgreSQL row security](https://www.postgresql.org/docs/current/ddl-rowsecurity.html)
 - OWASP Cheat Sheets (linked, not copied): [Authorization](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html), [CSRF Prevention](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html)
