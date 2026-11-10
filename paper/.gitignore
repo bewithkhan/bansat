@@ -1,0 +1,19 @@
+# LaTeX build files (latexmk -pdf). main.pdf is kept.
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.synctex.gz
+*.synctex(busy)
+*.run.xml
+*.bcf
+*.nav
+*.snm
+*.vrb
+*-blx.bib

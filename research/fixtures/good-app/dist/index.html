@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Fixture good app</title>
+<link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+</head>
+<body>
+<h1>Fixture good app</h1>
+<nav><a href="/">Home</a> · <a href="/pricing/">Pricing</a> · <a href="/privacy/">Privacy</a></nav>
+<section aria-label="Cookie choices">
+  <p>We'd like to use analytics cookies. Nothing loads until you choose.</p>
+  <button type="button" id="accept">Accept all</button>
+  <button type="button" id="reject">Reject all</button>
+</section>
+<script>
+  // Analytics loads only after "Accept all"; the choice is kept in a first-party cookie. .invalid never resolves.
+  function load() { var s = document.createElement('script'); s.src = 'https://analytics.vendor.invalid/script.js'; document.head.appendChild(s); }
+  var choice = document.cookie.match(/(?:^|; )consent=(\w+)/);
+  if (choice && choice[1] === 'yes') load();
+  document.getElementById('accept').onclick = function () { document.cookie = 'consent=yes; path=/'; load(); };
+  document.getElementById('reject').onclick = function () { document.cookie = 'consent=no; path=/'; };
+</script>
+</body>
+</html>
