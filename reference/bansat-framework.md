@@ -3178,7 +3178,7 @@ Check these sources again before each launch; guidance changes.
 
 Use these with Part 3. Each profile lists what changes from the web reference stack. A project can match several profiles; a mobile app for a wearable, for example, uses D3 and D4.
 
-Other server stacks (Laravel, Rails, Django, Express) keep the same rules. Enforce access in the data layer where the database has no RLS (5.4), and treat controllers and route handlers like Server Actions: re-check authorisation in each one. A dedicated profile for these stacks is planned.
+These profiles are about the kind of project. For the framework or platform it's built on, the 24 stack profiles in `stacks/` say what changes from the reference: from Laravel, Django and Spring Boot to Flutter, Lovable and Supabase (`stacks/README.md` lists them). On a stack with no profile, the same rules apply: enforce access in the data layer where the database has no RLS (5.4), and treat controllers and route handlers like Server Actions, re-checking authorisation in each one.
 
 ### D1 Web app (Next.js + Supabase): the reference
 

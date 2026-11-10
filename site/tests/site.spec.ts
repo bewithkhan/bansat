@@ -48,7 +48,7 @@ for (const path of PAGES) {
   });
 }
 
-for (const path of ['/bansat/', '/bansat/casebook/', '/bansat/framework/parts/07-security/', '/bansat/methods/', '/bansat/methods/scrum/', '/bansat/project/blueprint/', '/bansat/laws/', '/bansat/laws/uk/']) {
+for (const path of ['/bansat/', '/bansat/casebook/', '/bansat/framework/parts/07-security/', '/bansat/methods/', '/bansat/methods/scrum/', '/bansat/stacks/', '/bansat/stacks/supabase/', '/bansat/project/blueprint/', '/bansat/laws/', '/bansat/laws/uk/']) {
   test(`axe finds no WCAG 2.2 AA violations: ${path}`, async ({ page }) => {
     await page.goto(path);
     const results = await new AxeBuilder({ page })
@@ -58,6 +58,18 @@ for (const path of ['/bansat/', '/bansat/casebook/', '/bansat/framework/parts/07
     expect(found).toEqual([]);
   });
 }
+
+const STACKS = fileURLToPath(new URL('../../stacks', import.meta.url));
+const stackIds = existsSync(STACKS) ? readdirSync(STACKS).filter((f) => f.endsWith('.md') && f !== 'README.md').map((f) => f.replace(/\.md$/, '')) : [];
+
+test('every stack profile has a page, linked from the stack index (SCR-04)', async ({ page }) => {
+  expect(stackIds.length).toBeGreaterThan(0);
+  await page.goto('/bansat/stacks/');
+  for (const id of stackIds) {
+    expect(existsSync(join(DIST, 'stacks', id, 'index.html')), `stacks/${id} has no page`).toBe(true);
+    await expect(page.locator(`main a[href="/bansat/stacks/${id}/"]`).first(), `the index doesn't link to ${id}`).toBeVisible();
+  }
+});
 
 test('search finds a method, and says so plainly when nothing matches (S6)', async ({ page }) => {
   await page.goto('/bansat/');

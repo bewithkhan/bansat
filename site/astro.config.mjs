@@ -24,6 +24,7 @@ export default defineConfig({
         { label: 'Framework', items: [{ autogenerate: { directory: 'framework/parts' } }] },
         { label: 'Appendices', items: [{ autogenerate: { directory: 'framework/appendices' } }, { slug: 'casebook' }] },
         { label: 'Delivery methods', items: [{ autogenerate: { directory: 'methods' } }] },
+        { label: 'Stack profiles', items: [{ autogenerate: { directory: 'stacks' } }] },
         { label: 'Law tracker', items: [{ slug: 'laws' }, { slug: 'laws/changes' }, { slug: 'laws/about' }] },
         { label: 'Project', items: [{ autogenerate: { directory: 'project' } }] },
       ],
