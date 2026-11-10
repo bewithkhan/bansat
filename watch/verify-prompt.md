@@ -29,6 +29,10 @@ and merges every change.
 2. **Open watch issues** (label `law-watch`), oldest first. For each one:
    - read the entry it names (`laws/<tier>/<id>.yaml`), and the earlier issues and pull requests labelled `law:<id>`;
    - open every new item the issue lists, on the official site, and find what it changes, if anything;
+   - check the entry's `laws` list as well as its obligations. If an item is a law or amendment the entry should
+     list (the main law, its implementing rules, and any marketing, children's, AI or cybercrime law that sets duties
+     builders meet) and `laws` leaves it out, or gives it the wrong `status` or `in_force_from`, that's a change to
+     make, even when an obligation already describes the law;
    - **no change to the entry:** comment with each item you checked and why it doesn't change a field, add the
      `no-change` label and close the issue;
    - **a field needs to change:** on a branch named `law-watch/<id>-<yyyy-mm-dd>`, change only that entry, add a
