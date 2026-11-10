@@ -1,0 +1,106 @@
+# Singapore. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: sg
+name: Singapore
+tier: full
+laws:
+  - name: Personal Data Protection Act 2012 (PDPA)
+    citation: Personal Data Protection Act 2012, as amended (amendments passed on 2 November 2020), with its regulations, including the Personal Data Protection Regulations 2021
+    official_url: https://www.pdpc.gov.sg/about/the-legislation/pdpa-overview
+    status: in-force
+    in_force_from: "2014-07-02"
+    notes: The PDPC was set up on 2 January 2013, the Do Not Call provisions took effect on 2 January 2014 and the main data protection rules on 2 July 2014. The 2020 amendments took effect in phases from 1 February 2021, and the higher financial penalties on 1 October 2022. Part 9 of the Act holds the Do Not Call rules.
+  - name: Online Safety (Relief and Accountability) Act 2025 (OSRAA)
+    citation: Online Safety (Relief and Accountability) Act 2025
+    official_url: https://www.mlaw.gov.sg/the-online-safety-commission-begins-operations-on-29-june-2026/
+    status: in-force
+    in_force_from: "2026-06-29"
+    notes: The date is when the Online Safety Commission opened and the first statutory torts began. It starts with five harms (online harassment, doxxing, online stalking, intimate image abuse and image-based child abuse); eight more will follow in phases. The Commissioner can direct posters, group administrators and platforms to remove content or restrict accounts, and make platforms disclose a perpetrator's identity; ignoring a direction is an offence. Platforms and administrators must act reasonably once notified of a harm; prescribed large platforms must answer harm notices within 6 to 48 hours.
+  - name: Codes of Practice for Online Safety (Social Media Services; App Distribution Services)
+    citation: Issued by IMDA under section 45L of the Broadcasting Act 1994
+    official_url: https://www.imda.gov.sg/regulations-and-licences/regulations/codes-of-practice/codes-of-practice-and-guidelines---media
+    status: in-force
+    in_force_from: "2023-07-18"
+    notes: The social media code took effect on 18 July 2023 for designated services (Facebook, HardwareZone, Instagram, TikTok, X and YouTube). The app store code took effect on 31 March 2025 for designated stores (Apple, Google Play, Microsoft, Huawei and Samsung) and requires age assurance. Both require systems to limit harmful content, tools for children (under 18) and parents, reporting tools and annual safety reports. The start dates come from each code's own text on IMDA's site.
+regulators:
+  - name: Personal Data Protection Commission (PDPC)
+    url: https://www.pdpc.gov.sg/
+  - name: Infocomm Media Development Authority (IMDA), for the Spam Control Act and online safety codes
+    url: https://www.imda.gov.sg/
+  - name: Online Safety Commission (OSC), operating since 29 June 2026
+    url: https://www.osc.gov.sg/
+obligations:
+  scope:
+    summary: The PDPA covers organisations, wherever formed or based, that collect, use or disclose personal data in Singapore. It generally doesn't apply to individuals acting for personal or domestic purposes, employees acting for their employer, public agencies, or business contact information. A data intermediary processing for another organisation under a written contract has only the protection, retention and breach-reporting duties for that work. Private organisations must stop using NRIC numbers, in full or part, for authentication by 31 December 2026; PDPC steps up enforcement from 1 January 2027.
+    source:
+      - https://www.pdpc.gov.sg/about/the-legislation/pdpa-overview
+      - https://www.pdpc.gov.sg/assets/34058be5-ae13-4c40-89e6-1c945d19f65c
+      - https://www.pdpc.gov.sg/media-events/organisations-to-cease-the-use-of-nric-numbers-for-authentication-by-31-december-2026
+  lawful_bases:
+    summary: Consent is the main basis. Tell people the purposes and get consent, which can also be deemed when someone volunteers data, when sharing is needed for a contract, or by notification with a chance to opt out after an assessment. Exceptions allow processing without consent, including legitimate interests (after an assessment and disclosure), business improvement, research and publicly available data. Purposes must be ones a reasonable person would consider appropriate. Legitimate interests can't be used to send direct marketing.
+    source:
+      - https://www.pdpc.gov.sg/assets/34058be5-ae13-4c40-89e6-1c945d19f65c
+  consent_age:
+    summary: The PDPA sets no age. The PDPC's 2024 advisory guidelines say a child aged 13 to 17 can usually give valid consent if the terms are easy for them to understand, while for a child under 13 organisations must get consent from a parent or guardian. Organisations may choose a higher age, for example in education, and consent given for a child stays valid when they turn 18.
+    source:
+      - https://www.pdpc.gov.sg/assets/e3ca97bf-d8ee-4bcf-a11d-7be801fb5f8b
+  children:
+    summary: The PDPC's 2024 advisory guidelines cover online services likely to be used by under-18s, such as social media, EdTech, games and smart toys. They expect accounts not to be public or searchable by default, geolocation off by default, plain language, and a DPIA before launch, and call profiling children to target harmful content unreasonable. Since 31 March 2025 IMDA's code makes designated app stores use age assurance, at least to keep under-18s from their highest age-rated apps. Since 29 June 2026 parents can report online harms against children to the Online Safety Commission.
+    source:
+      - https://www.pdpc.gov.sg/assets/e3ca97bf-d8ee-4bcf-a11d-7be801fb5f8b
+      - https://www.imda.gov.sg/assets/ea975974-b3c9-42f9-b850-dd8bef8a6738.pdf
+      - https://www.mddi.gov.sg/newsroom/pq-on-age-verification-and-restriction-measures-on-app-stores/
+      - https://www.mlaw.gov.sg/the-online-safety-commission-begins-operations-on-29-june-2026/
+      - https://www.osc.gov.sg/newsroom/the-online-safety-commission-begins-operations-on-29-june-2026/
+  cookies:
+    summary: There is no cookie-specific rule; the PDPA applies when cookies collect personal data. PDPC guidance says consent isn't needed for cookies that collect no personal data, or for those a service the user asked for can't work without, such as authentication, security, preferences and network management. Cookies used to target ads with personal data need consent. Browser settings can show consent, but not merely leaving them unchanged, and a cookie preference tool on the site is good practice.
+    source:
+      - https://www.pdpc.gov.sg/assets/d1fbaa47-1471-4208-bfad-9f4bf33453ad
+  marketing:
+    summary: Before sending marketing calls, texts or faxes to Singapore numbers, check the Do Not Call registers (results are valid for 21 days) unless the person gave clear and unambiguous consent in evidential form; identify the sender and don't hide caller ID. Dictionary attacks and address harvesting are banned. Under the Spam Control Act, bulk unsolicited commercial emails and texts need an <ADV> label, accurate headers and an unsubscribe facility, with requests acted on within 10 business days. Direct marketing generally needs express consent.
+    source:
+      - https://www.pdpc.gov.sg/assets/8440dd4d-973b-4b1b-bbb9-2c42c5dec81b
+      - https://www.imda.gov.sg/infocomm-regulation-and-guides/unsolicited-communications/best-practices-for-organisations
+      - https://sso.agc.gov.sg/Act/SCA2007
+      - https://www.pdpc.gov.sg/assets/34058be5-ae13-4c40-89e6-1c945d19f65c
+  breach_notice:
+    summary: Once there are credible grounds to believe a breach happened, assess it quickly, generally within 30 days, and document the steps. A breach is notifiable if it's likely to cause significant harm or affects 500 or more people. Notify the PDPC as soon as practicable and within 3 calendar days of deciding it's notifiable, and, where it's likely to cause significant harm, the affected people at the same time or after. Data intermediaries must tell the organisation without undue delay.
+    value: 3
+    unit: days
+    source:
+      - https://www.pdpc.gov.sg/assets/34058be5-ae13-4c40-89e6-1c945d19f65c
+  registration_or_fees:
+    summary: There is no registration with, or fee to, the PDPC for processing personal data. Organisations must make available the business contact details of at least one person who handles data protection questions, and may publish them on BizFile+.
+    source:
+      - https://www.pdpc.gov.sg/assets/34058be5-ae13-4c40-89e6-1c945d19f65c
+  dpo:
+    summary: Every organisation must designate at least one individual, usually called the DPO, to be responsible for its PDPA compliance, and make that person's business contact details available. The DPO can delegate tasks, but the organisation stays legally responsible.
+    source:
+      - https://www.pdpc.gov.sg/assets/34058be5-ae13-4c40-89e6-1c945d19f65c
+  transfers:
+    summary: Personal data may leave Singapore only if the organisation makes sure the recipient protects it to a standard comparable to the PDPA, through legally enforceable obligations such as law, contract or binding corporate rules, or a specified certification. The Personal Data Protection Regulations 2021 set the certifications, as PDPC guidance revised on 29 April 2026 explains. A recipient acting as an organisation needs Global CBPR or APEC CBPR; one acting as a data intermediary may also rely on Global PRP or APEC PRP.
+    source:
+      - https://www.pdpc.gov.sg/assets/34058be5-ae13-4c40-89e6-1c945d19f65c
+      - https://www.pdpc.gov.sg/organisations/regulations-decisions/regulatory-guidance/advisory-guidelines-on-key-concepts-in-the-personal-data-protection-act
+  dpia:
+    summary: There is no general DPIA duty. Before relying on deemed consent by notification or the legitimate interests exception, an organisation must assess the likely adverse effects on people and how to reduce them. PDPC guidance advises DPIAs as part of accountability, and encourages one before launching products likely to be used by children.
+    source:
+      - https://www.pdpc.gov.sg/assets/34058be5-ae13-4c40-89e6-1c945d19f65c
+      - https://www.pdpc.gov.sg/assets/e3ca97bf-d8ee-4bcf-a11d-7be801fb5f8b
+  automated_decisions_ai:
+    summary: There is no AI law and no PDPA right about automated decisions. PDPC advisory guidelines (1 March 2024) explain when personal data can be used to build AI systems under the business improvement or research exceptions, and what to tell people when asking for consent. Guidelines on generative AI (20 July 2026) cover using publicly available web data, data behind digital barriers, responsibilities across the AI lifecycle and handling people's requests. Both are advisory, not binding.
+    source:
+      - https://www.pdpc.gov.sg/assets/f97f8ecc-3ced-4406-a36f-4783505d64f7
+      - https://www.pdpc.gov.sg/assets/143cb9d4-532e-4cca-9a77-bcc0415ca294
+  penalties:
+    summary: Since 1 October 2022 the PDPC can fine intentional or negligent breaches of the data protection rules up to S$1 million or, for organisations with Singapore turnover above S$10 million, 10% of that turnover, whichever is higher. Do Not Call breaches cost individuals up to S$200,000 and others up to S$1 million; for dictionary attacks or address harvesting, an organisation with Singapore turnover above S$20 million can instead face 5% of that turnover if higher. Egregious mishandling by individuals is a crime, and people who suffer loss can sue.
+    source:
+      - https://www.pdpc.gov.sg/assets/95a3adea-1b5d-474f-b683-6f0a4b65bca5
+      - https://www.pdpc.gov.sg/media-events/amendments-to-enforcement-under-the-personal-data-protection-act-in-updated-advisory-guidelines-and-guide
+      - https://www.pdpc.gov.sg/assets/34058be5-ae13-4c40-89e6-1c945d19f65c
+checked:
+  date: "2026-11-10"
+  status: ai-checked
+history:
+  - date: "2026-11-10"
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

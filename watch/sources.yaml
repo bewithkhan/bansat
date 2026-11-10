@@ -195,3 +195,9 @@ jurisdictions:
     official_domains: [azlp.mk, slvesnik.com.mk]
   rs:
     official_domains: [poverenik.rs, pravno-informacioni-sistem.rs]
+  in:
+    official_domains: [meity.gov.in, indiacode.nic.in, indiacode.gov.in, egazette.gov.in, sansad.in, pib.gov.in, cert-in.org.in, trai.gov.in, rbi.org.in]
+  pk:
+    official_domains: [senate.gov.pk, na.gov.pk, pakistancode.gov.pk, moitt.gov.pk, pta.gov.pk, pkcert.gov.pk, sbp.org.pk, nccia.gov.pk]
+  sg:
+    official_domains: [pdpc.gov.sg, sso.agc.gov.sg, imda.gov.sg, osc.gov.sg, mddi.gov.sg, csa.gov.sg, parliament.gov.sg, mlaw.gov.sg]
