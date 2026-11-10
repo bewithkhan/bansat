@@ -1,0 +1,147 @@
+# Malaysia. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: my
+name: Malaysia
+tier: full
+laws:
+  - name: Personal Data Protection Act 2010 (PDPA)
+    citation: Act 709, as amended by Act A1727 (official reprint as at 15 September 2026)
+    official_url: https://www.pdp.gov.my/wp-content/uploads/2026/10/Akta-709-cetakan-semula-2026-BM.pdf
+    status: in-force
+    in_force_from: "2013-11-15"
+    notes: Brought into force on 15 November 2013 by P.U.(B) 464/2013. The 2026 reprint is in Malay only; JPDP also publishes the 2022 Malay-English text, which predates the 2024 amendments. Since 1 April 2025 the Act says "data controller" where it used to say "data user".
+  - name: Personal Data Protection (Amendment) Act 2024
+    citation: Act A1727; commencement by P.U.(B) 522/2024
+    official_url: https://www.pdp.gov.my/wp-content/uploads/2024/11/Akta-A1727-bm.pdf
+    status: in-force
+    in_force_from: "2025-01-01"
+    notes: Took effect in three stages (P.U.(B) 522/2024). 1 January 2025 (ss 7, 11, 13, 14) were procedural, such as serving notices electronically. 1 April 2025 (ss 2-5, 8, 10, 12) renamed data users as data controllers, made biometric data sensitive, put processors under the Security Principle, raised fines, replaced the transfer whitelist and excluded the deceased. 1 June 2025 (ss 6, 9) added DPOs, breach notification and portability. All stages now apply.
+  - name: Personal Data Protection Regulations 2013, registration regulations and class order
+    citation: P.U.(A) 335/2013; P.U.(A) 337/2013; P.U.(A) 336/2013 as amended by P.U.(A) 326/2016
+    official_url: https://www.pdp.gov.my/wp-content/uploads/2024/06/PERATURAN-PERLINDUGAN-DATA-PERIBADI-2013.pdf
+    status: in-force
+    in_force_from: "2013-11-15"
+    notes: Set out consent, notice and security details, and who must register and how. P.U.(A) 336/2013, as amended by P.U.(A) 326/2016, lists the classes of data controllers that must register.
+  - name: Commissioner's circulars and guidelines under the PDPA
+    citation: Circulars No. 1/2025 (DPOs), 2/2025 (breaches) and 1/2026 (registration); guidelines on DPOs, breaches and transfers (2025) and DPIAs, design and automated decisions (2026)
+    official_url: https://www.pdp.gov.my/wp-content/uploads/2025/02/Pekeliling-DPO.pdf
+    status: in-force
+    in_force_from: "2025-06-01"
+    notes: The DPO and breach circulars apply from 1 June 2025; the link is the DPO circular. The registration circular applies from 1 June 2026 and revokes circular 1/2024. The DPIA, design and automated-decision guidelines were published on 30 April 2026. All are in Malay.
+  - name: Online Safety Act 2025
+    citation: Act 866, with its 2025 and 2026 regulations and MCMC's Child Protection Code and Risk Mitigation Code
+    official_url: https://www.mcmc.gov.my/en/legal/acts/communications-and-multimedia-amendment-act-20-1
+    status: in-force
+    in_force_from: "2026-01-01"
+    notes: Royal Assent 6 May 2025, gazetted 22 May 2025; MCMC's page for the Act says it has been in force since 1 January 2026. It binds providers licensed under the Communications and Multimedia Act 1998. From 1 January 2026, social media and internet messaging services with 8 million or more users in Malaysia are deemed registered for an applications service class licence. Regulations include the Online Safety Plan and Compounding of Offences Regulations 2026. The Child Protection Code applies from 1 June 2026.
+  - name: Communications and Multimedia Act 1998
+    citation: Act 588, as amended (including by Act A1743 of 2025; Act A1798 of 2026 is described in the notes)
+    official_url: https://www.mcmc.gov.my/en/legal/acts
+    status: in-force
+    in_force_from: "1999-04-01"
+    notes: Most provisions took effect on 1 April 1999 (P.U.(B) 128/99). Act A1743 (gazetted 7 February 2025) added s.233A against unsolicited commercial electronic messages sent in breach of the Act or its regulations; MCMC's page gives no commencement date for it. MCMC consulted on those regulations in August 2025 and lists none yet. Act A1798 (gazetted 7 October 2026) only adds a national-security universal service power to s.202; it starts on a date the Minister appoints, and MCMC's page shows none yet.
+  - name: Cyber Security Act 2024
+    citation: Act 854
+    official_url: https://www.nacsa.gov.my/act854.php
+    status: in-force
+    in_force_from: "2024-08-26"
+    notes: Sets duties for entities designated as national critical information infrastructure (NCII) entities, including managing cyber security threats and incidents, and licenses cyber security service providers. It matters to builders who are, or work for, NCII entities.
+  - name: Artificial Intelligence Governance Bill
+    citation: Being drafted by the Ministry of Digital; not yet tabled in Parliament
+    official_url: https://www.mydigital.gov.my/request-for-proposal-rfp-the-development-of-the-ai-governance-bill/
+    status: draft
+    notes: In March 2026 MyDIGITAL, under the Ministry of Digital, sought consultants to help draft the bill. Not law.
+regulators:
+  - name: Personal Data Protection Commissioner and the Personal Data Protection Department (JPDP), Ministry of Digital
+    url: https://www.pdp.gov.my/
+  - name: Malaysian Communications and Multimedia Commission (MCMC), for online safety and electronic messages
+    url: https://www.mcmc.gov.my/en
+obligations:
+  scope:
+    summary: The PDPA covers anyone who processes, or controls or authorises the processing of, personal data in commercial transactions (s.2). It applies if they are established in Malaysia, or use equipment in Malaysia other than just for transit; the latter must nominate a representative in Malaysia. It doesn't apply to the federal and state governments, or to data processed outside Malaysia unless it's meant to be processed further there (s.3). Since 1 April 2025 processors are directly bound by the Security Principle and deceased people are not data subjects.
+    source:
+      - https://www.pdp.gov.my/wp-content/uploads/2024/07/UNDANG-UNDANG-MALAYSIA_AKTA_PERLINDUNGAN_DATA_PERIBADI_2010_709_MALAY_AND-ENG_V2022.pdf
+      - https://www.pdp.gov.my/wp-content/uploads/2026/10/Akta-709-cetakan-semula-2026-BM.pdf
+  lawful_bases:
+    summary: Consent is the default. Without it, personal data may be processed only where necessary for a contract with the person or steps towards one, a legal obligation, their vital interests, the administration of justice or a function given by law (s.6). There is no legitimate-interests basis. Sensitive data, which includes biometric data since 1 April 2025, needs explicit consent or a listed exception (s.40). Consent must be recordable and shown separately from other matters (reg. 3). Give a written notice in Malay and English (s.7).
+    source:
+      - https://www.pdp.gov.my/wp-content/uploads/2024/07/UNDANG-UNDANG-MALAYSIA_AKTA_PERLINDUNGAN_DATA_PERIBADI_2010_709_MALAY_AND-ENG_V2022.pdf
+      - https://www.pdp.gov.my/wp-content/uploads/2024/11/Akta-A1727-bm.pdf
+      - https://www.pdp.gov.my/wp-content/uploads/2024/06/PERATURAN-PERLINDUGAN-DATA-PERIBADI-2013.pdf
+  consent_age:
+    summary: For a data subject under 18, consent must come from a parent, guardian or person with parental responsibility (PDP Regulations 2013, reg. 3(3)), who is also the "relevant person" acting for the child under the Act (s.4).
+    value: 18
+    unit: years
+    source:
+      - https://www.pdp.gov.my/wp-content/uploads/2024/06/PERATURAN-PERLINDUGAN-DATA-PERIBADI-2013.pdf
+      - https://www.pdp.gov.my/wp-content/uploads/2024/07/UNDANG-UNDANG-MALAYSIA_AKTA_PERLINDUNGAN_DATA_PERIBADI_2010_709_MALAY_AND-ENG_V2022.pdf
+  children:
+    summary: Under the Online Safety Act a child is under 18. From 1 June 2026, MCMC's Child Protection Code makes licensed social media services likely to be used by children verify age against government-issued or equivalent foreign records, so only users aged 16 or over can sign up, and keep age-check data minimal and no longer than needed. Child users must get the highest privacy settings by default, parental controls, safe search, limits on contact from unknown adults and no manipulative design.
+    source:
+      - https://www.mcmc.gov.my/skmmgovmy/media/General/pdf2/Online-Safety-Act-2025-Act-866.pdf
+      - https://www.mcmc.gov.my/skmmgovmy/media/General/pdf2/ONSA-Child-Protection-Code_1.pdf
+      - https://www.mcmc.gov.my/en/onsa/under-16
+      - https://www.mcmc.gov.my/en/onsa/information-hub/regulatory-legal
+  cookies:
+    summary: There is no cookie-specific law. Where cookies or similar tools process personal data in commercial transactions, the PDPA's consent and notice rules apply. The Commissioner's 2026 guideline on data protection by design gives, as good practice, turning on only strictly necessary cookies by default and others only with consent, and warns against deceptive designs such as making people click through several pop-ups to set cookie choices.
+    source:
+      - https://www.pdp.gov.my/wp-content/uploads/2026/04/GARIS-PANDUAN-MEREKA-BENTUK-BERDASARKAN-PERLINDUNGAN-DATA-DPbD-1.pdf
+      - https://www.pdp.gov.my/wp-content/uploads/2024/07/UNDANG-UNDANG-MALAYSIA_AKTA_PERLINDUNGAN_DATA_PERIBADI_2010_709_MALAY_AND-ENG_V2022.pdf
+  marketing:
+    summary: Marketing that uses personal data needs consent (s.6). People can tell a data controller in writing to stop, or not start, processing their data for direct marketing, and the Commissioner can order the controller to comply (s.43). Act A1743 added s.233A to the Communications and Multimedia Act against unsolicited commercial electronic messages, but it works through regulations that MCMC is still developing after an August 2025 consultation; MCMC lists none yet.
+    source:
+      - https://www.pdp.gov.my/wp-content/uploads/2026/10/Akta-709-cetakan-semula-2026-BM.pdf
+      - https://www.pdp.gov.my/wp-content/uploads/2024/07/UNDANG-UNDANG-MALAYSIA_AKTA_PERLINDUNGAN_DATA_PERIBADI_2010_709_MALAY_AND-ENG_V2022.pdf
+      - https://www.mcmc.gov.my/skmmgovmy/media/General/pdf2/A1743-BI-COMMUNICATIONS-AND-MULTIMEDIA-AMENDMENT-ACT-2025-1.pdf
+      - https://www.mcmc.gov.my/skmmgovmy/media/General/pdf2/Public-Consultation-Paper-on-UCEM.pdf
+      - https://www.mcmc.gov.my/en/legal/acts
+  breach_notice:
+    summary: Since 1 June 2025, a data controller with reason to believe a personal data breach has occurred must notify the Commissioner as soon as practicable (s.12B). The circular and guideline set 72 hours and apply where the breach causes or may cause significant harm, which includes sensitive data, identity-fraud risk or more than 1,000 people affected. Missing details can follow within 30 days. Tell affected people within 7 days of notifying the Commissioner, and keep records for 2 years. Contracts must make processors report breaches promptly.
+    value: 72
+    unit: hours
+    source:
+      - https://www.pdp.gov.my/wp-content/uploads/2026/10/Akta-709-cetakan-semula-2026-BM.pdf
+      - https://www.pdp.gov.my/wp-content/uploads/2025/02/Pekeliling-DBN.pdf
+      - https://www.pdp.gov.my/wp-content/uploads/2025/08/GP_DBN_BM.pdf
+  registration_or_fees:
+    summary: Controllers in the classes named by order under s.14 must register; processing without a certificate is an offence (s.16(4)). Classes include communications and postal licensees, banks, insurers, private healthcare, tourism, named airlines, private education, direct selling, legal, audit, accountancy, engineering, architecture, retail and wholesale, employment agencies, housing developers, named power and water companies, pawnbrokers and moneylenders. From 1 June 2026, sole traders, partnerships (not LLPs) and companies register online for 1 to 5 years at RM100 to RM400 a year.
+    source:
+      - https://www.pdp.gov.my/wp-content/uploads/2024/07/Perintah-Perlindungan-Data-Peribadi-.pdf
+      - https://www.pdp.gov.my/wp-content/uploads/2024/07/PerintahPindaan2016.pdf
+      - https://www.pdp.gov.my/wp-content/uploads/2024/07/pua_20131114_P.U._A_337_-_peraturan-peraturan_perlindungan_data_peribadi_pendaftaran_pengguna_data_2013.pdf
+      - https://www.pdp.gov.my/wp-content/uploads/2026/06/Pekeliling-Pesuruhjaya-Bil.1-2026.pdf
+  dpo:
+    summary: Since 1 June 2025, controllers and processors must appoint one or more data protection officers (s.12A) if they process personal data of more than 20,000 people, sensitive data including financial information of more than 10,000, or carry out regular and systematic monitoring, such as profiling for behavioural ads (Circular 1/2025). The DPO must live in Malaysia or be easy to reach, and be proficient in Malay and English. Register the DPO with the Commissioner within 21 days and publish their business contact details.
+    source:
+      - https://www.pdp.gov.my/wp-content/uploads/2026/10/Akta-709-cetakan-semula-2026-BM.pdf
+      - https://www.pdp.gov.my/wp-content/uploads/2025/02/Pekeliling-DPO.pdf
+      - https://www.pdp.gov.my/wp-content/uploads/2025/08/GP_DPO_BM.pdf
+  transfers:
+    summary: Since 1 April 2025 there is no ministerial whitelist. Controllers may send personal data abroad if the destination has a law substantially similar to the PDPA, or protection at least equivalent to it (s.129(2)); per the Commissioner's guideline, a transfer impact assessment, valid up to 3 years, can show this. Otherwise use an exception, such as consent, a contract, legal proceedings, vital interests, or all reasonable precautions and due diligence (s.129(3)), which the guideline says binding corporate rules, contract clauses such as the ASEAN model clauses, or approved certification can show.
+    source:
+      - https://www.pdp.gov.my/wp-content/uploads/2026/10/Akta-709-cetakan-semula-2026-BM.pdf
+      - https://www.pdp.gov.my/wp-content/uploads/2025/05/BUKU-GARIS-PANDUAN-PEMINDAHAN-DATA-PERIBADI-RENTAS-SEMPADAN-CBPDT-BM.pdf
+  dpia:
+    summary: The PDPA itself sets no DPIA duty. The Commissioner's DPIA guideline (April 2026) says controllers should carry out one where processing is likely to be high risk. A DPIA is always expected above 20,000 data subjects, or 10,000 for sensitive or financial data; below that, the DPO weighs factors such as legal or significant effects on people. The automated-decision guideline adds that any planned automated decision-making or profiling needs a DPIA.
+    source:
+      - https://www.pdp.gov.my/wp-content/uploads/2026/04/GARIS-PANDUAN-PENILAIAN-IMPAK-PERLINDUNGAN-DATA-DPIA-1.pdf
+      - https://www.pdp.gov.my/wp-content/uploads/2026/04/GARIS-PANDUAN-PEMBUATAN-KEPUTUSAN-SECARA-AUTOMATIK-DAN-PEMPROFILAN-ADMP-1.pdf
+  automated_decisions_ai:
+    summary: The PDPA has no automated-decision provisions. The Commissioner's April 2026 guideline applies the existing principles to decisions with legal or significant effects. Say in your privacy notice when you use automated decisions, profiling or AI, let people withdraw consent and stop the processing, and don't make AI the only factor in decisions about them. No AI law is in force; the national AI governance guidelines and AI Code of Ethics are voluntary, an AI bill is being drafted, and JPDP consulted on an AI framework from 5 to 23 October 2026.
+    source:
+      - https://www.pdp.gov.my/wp-content/uploads/2026/04/GARIS-PANDUAN-PEMBUATAN-KEPUTUSAN-SECARA-AUTOMATIK-DAN-PEMPROFILAN-ADMP-1.pdf
+      - https://www.pdp.gov.my/wp-content/uploads/2026/10/Kertas_Konsultasi_Awam_Bil_1_2026_Kerangka_AI_Perlindungan_Data_Peribadi-1.pdf
+      - https://ai.gov.my/governance/
+      - https://www.mydigital.gov.my/request-for-proposal-rfp-the-development-of-the-ai-governance-bill/
+  penalties:
+    summary: PDPA penalties are criminal fines on conviction. Breaching the data protection principles carries up to RM1,000,000, 3 years' jail or both (raised from RM300,000 and 2 years on 1 April 2025). Processing without a required registration carries up to RM500,000 or 3 years, an unlawful transfer RM300,000 or 2 years, and failing to notify a breach RM250,000 or 2 years. With the Public Prosecutor's written consent, the Commissioner can compound prescribed offences for up to half the maximum fine (s.132). Under the Online Safety Act, MCMC can impose financial penalties of up to RM10 million.
+    source:
+      - https://www.pdp.gov.my/wp-content/uploads/2026/10/Akta-709-cetakan-semula-2026-BM.pdf
+      - https://www.pdp.gov.my/wp-content/uploads/2024/11/Akta-A1727-bm.pdf
+      - https://www.mcmc.gov.my/skmmgovmy/media/General/pdf2/Online-Safety-Act-2025-Act-866.pdf
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
