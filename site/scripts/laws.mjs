@@ -33,9 +33,9 @@ const REVIEW = { 'ai-checked': 'AI-checked', 'human-reviewed': 'Human-reviewed',
 // Regions for the index filter. A new jurisdiction must be added here: a test fails on "Other".
 const REGIONS = {
   Europe: ['eu', 'uk', 'de', 'fr', 'ie', 'nl', 'it', 'es', 'ch', 'no', 'tr', 'at', 'be', 'bg', 'hr', 'cy', 'cz', 'dk', 'ee', 'fi', 'gr', 'hu', 'is', 'li', 'lt', 'lu', 'lv', 'mt', 'pl', 'pt', 'ro', 'se', 'si', 'sk', 'al', 'ba', 'by', 'ge', 'md', 'me', 'mk', 'rs', 'ua', 'am', 'az', 'ad', 'mc', 'sm', 'gg', 'je', 'im', 'gi', 'fo', 'xk'],
-  Americas: ['ca', 'br', 'mx', 'ar', 'cl', 'co', 'pe', 'uy', 'py', 'ec', 'bo', 've', 'cr', 'pa', 'do', 'jm', 'tt', 'bb', 'bs', 'bm', 'ky', 'ni', 'hn', 'gt', 'sv', 'ag', 'lc', 'gd', 'kn', 'vc', 'dm', 'cw', 'aw'],
-  'Middle East & Africa': ['ae', 'sa', 'qa', 'il', 'ng', 'za', 'ke', 'eg', 'bh', 'kw', 'om', 'jo', 'lb', 'ma', 'tn', 'dz', 'gh', 'ug', 'rw', 'tz', 'zm', 'zw', 'bw', 'mu', 'sn', 'ci', 'bj', 'tg', 'ml', 'ne', 'bf', 'cm', 'ga', 'cg', 'cv', 'ao', 'mg', 'mw', 'ls', 'sz', 'na', 'et', 'so', 'sc', 'gq', 'mr', 'td', 'ly', 'ir', 'iq', 'ps', 'sy', 'ye'],
-  'Asia-Pacific': ['cn', 'hk', 'mo', 'tw', 'jp', 'kr', 'in', 'sg', 'id', 'vn', 'th', 'my', 'ph', 'au', 'nz', 'pk', 'bd', 'lk', 'np', 'bt', 'mv', 'kh', 'la', 'mm', 'bn', 'mn', 'kz', 'kg', 'uz', 'tj', 'tm', 'af', 'fj', 'pg', 'ws', 'to', 'vu', 'sb'],
+  Americas: ['ca', 'br', 'mx', 'ar', 'cl', 'co', 'pe', 'uy', 'py', 'ec', 'bo', 've', 'cr', 'pa', 'do', 'jm', 'tt', 'bb', 'bs', 'bm', 'ky', 'ni', 'hn', 'gt', 'sv', 'ag', 'lc', 'gd', 'kn', 'vc', 'dm', 'cw', 'aw', 'vg', 'ai', 'ms', 'tc', 'bz', 'gy', 'sr', 'ht', 'cu'],
+  'Middle East & Africa': ['ae', 'sa', 'qa', 'il', 'ng', 'za', 'ke', 'eg', 'bh', 'kw', 'om', 'jo', 'lb', 'ma', 'tn', 'dz', 'gh', 'ug', 'rw', 'tz', 'zm', 'zw', 'bw', 'mu', 'sn', 'ci', 'bj', 'tg', 'ml', 'ne', 'bf', 'cm', 'ga', 'cg', 'cv', 'ao', 'mg', 'mw', 'ls', 'sz', 'na', 'et', 'so', 'sc', 'gq', 'mr', 'td', 'ly', 'ir', 'iq', 'ps', 'sy', 'ye', 'mz', 'gn', 'gm', 'sl', 'lr', 'bi', 'dj', 'sd', 'ss', 'cd', 'cf', 'gw', 'st', 'km', 'er'],
+  'Asia-Pacific': ['cn', 'hk', 'mo', 'tw', 'jp', 'kr', 'in', 'sg', 'id', 'vn', 'th', 'my', 'ph', 'au', 'nz', 'pk', 'bd', 'lk', 'np', 'bt', 'mv', 'kh', 'la', 'mm', 'bn', 'mn', 'kz', 'kg', 'uz', 'tj', 'tm', 'af', 'fj', 'pg', 'ws', 'to', 'vu', 'sb', 'tl'],
 };
 export function regionOf(id) {
   const root = id.startsWith('us') ? 'us' : id.split('-')[0];

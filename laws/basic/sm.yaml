@@ -1,0 +1,19 @@
+# San Marino. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: sm
+name: San Marino
+tier: basic
+laws:
+  - name: Law No. 171 on the protection of natural persons with regard to the processing of personal data
+    citation: Legge 21 dicembre 2018 n.171 – Protezione delle persone fisiche con riguardo al trattamento dei dati personali, as amended
+    official_url: https://www.consigliograndeegenerale.sm/on-line/home/archivio-leggi-decreti-e-regolamenti/scheda17161069.html
+    status: in-force
+    in_force_from: "2019-01-05"
+    notes: San Marino's GDPR-style law, which set up the Autorità Garante. Revised mainly by Decreto Delegato 19 July 2021 n.138 (ratifying Decreto Delegato 30 April 2021 n.84). The regulator's consolidated text runs to 2023 and is unofficial; the authentic texts are in the Bollettino Ufficiale.
+regulators:
+  - name: Data Protection Authority (Autorità Garante per la protezione dei dati personali)
+    url: https://www.garanteprivacy.sm/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.

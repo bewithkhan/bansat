@@ -1,0 +1,25 @@
+# Guernsey. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: gg
+name: Guernsey
+tier: basic
+laws:
+  - name: Data Protection (Bailiwick of Guernsey) Law, 2017
+    citation: The Data Protection (Bailiwick of Guernsey) Law, 2017, as amended
+    official_url: https://www.odpa.gg/information-hub/law
+    status: in-force
+    in_force_from: "2018-05-25"
+    notes: The Bailiwick's data protection law, drafted to reflect the GDPR. Controllers and processors covered by it must keep an annual registration with the Data Protection Authority. The full text is on Guernsey Legal Resources, linked from the regulator's page.
+  - name: Data Protection (General Provisions) (Bailiwick of Guernsey) (Amendment) Regulations, 2024
+    citation: The Data Protection (General Provisions) (Bailiwick of Guernsey) (Amendment) Regulations, 2024
+    official_url: https://www.odpa.gg/information-hub/law
+    status: in-force
+    in_force_from: "2025-01-01"
+    notes: Changes the registration fees and annual levies in the General Provisions Regulations 2018, which also set registration, returns and record-keeping duties. The regulator adjusts the fees each year in line with inflation (RPIX). For 2026 it charges £62.22 a year under 50 staff and £2,488.80 at 50 or more, with charities and not-for-profits free, and £64.90 and £2,595.82 from January 2027.
+regulators:
+  - name: Office of the Data Protection Authority (ODPA)
+    url: https://www.odpa.gg/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.
