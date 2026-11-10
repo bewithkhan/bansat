@@ -1,0 +1,134 @@
+# Hong Kong. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: hk
+name: Hong Kong
+tier: full
+laws:
+  - name: Personal Data (Privacy) Ordinance (PDPO)
+    citation: Cap. 486, as amended, including by Ord. No. 18 of 2012 and, on doxxing, Ord. No. 32 of 2021; current text dated 1 October 2022
+    official_url: https://www.elegislation.gov.hk/hk/cap486!en
+    status: in-force
+    in_force_from: "1996-08-01"
+    notes: Text checked against the Department of Justice's open-data copy of e-Legislation on DATA.GOV.HK, because e-Legislation's robots.txt refuses automated access. The commencement note gives 1 August 1996 (L.N. 343 of 1996). The Hong Kong Yearbook 2003 says the Ordinance was enacted on 3 August 1995 and its core provisions came into force on 20 December 1996. The doxxing amendments took effect on 8 October 2021. Section 33, on transfers outside Hong Kong, is not in operation.
+  - name: Unsolicited Electronic Messages Ordinance (UEMO)
+    citation: Cap. 593
+    official_url: https://www.elegislation.gov.hk/hk/cap593!en
+    status: in-force
+    in_force_from: "2007-06-01"
+    notes: Text checked against the DoJ's open-data copy on DATA.GOV.HK, because e-Legislation's robots.txt refuses automated access; its commencement note gives 1 June 2007. Government announcements of May and December 2007 say the offences on address harvesting and fraud in sending commercial messages applied from 1 June 2007, and the sending rules from 22 December 2007. The do-not-call registers then opened in phases, with protection starting between 18 January and 7 April 2008.
+  - name: Protection of Critical Infrastructures (Computer Systems) Ordinance
+    citation: Cap. 653, gazetted on 28 March 2025
+    official_url: https://www.elegislation.gov.hk/hk/cap653!en
+    status: in-force
+    in_force_from: "2026-01-01"
+    notes: In operation from 1 January 2026 (commencement note, L.N. 144 of 2025, a notice by the Secretary for Security gazetted on 27 June 2025). Applies only to designated critical infrastructure operators and their critical computer systems. Text checked against the DoJ's open-data copy on DATA.GOV.HK, because e-Legislation's robots.txt refuses automated access.
+regulators:
+  - name: Privacy Commissioner for Personal Data (PCPD)
+    url: https://www.pcpd.org.hk/
+  - name: Office of the Communications Authority (OFCA), for the UEMO
+    url: https://www.ofca.gov.hk/en/home/index.html
+  - name: Commissioner of Critical Infrastructure (Computer-system Security), for Cap. 653
+    url: https://www.occics.gov.hk/en/home/index.html
+obligations:
+  scope:
+    summary: The PDPO covers personal data, meaning data about a living individual from which identity can practicably be worked out, in a form that can be accessed or processed. It binds public and private data users, who control the data's collection, holding, processing or use, but not those handling it only for others (s.2). Personal, family, household and recreational data is broadly exempt (s.52). The mainland's PIPL isn't listed in Basic Law Annex III, so it doesn't apply in Hong Kong (Art. 18), but a business there serving or analysing people in the mainland can fall under PIPL Art. 3(2).
+    source:
+      - https://www.elegislation.gov.hk/hk/cap486!en
+      - https://www.elegislation.gov.hk/hk/capA101!en
+      - https://data.gov.hk/en-data/dataset/hk-doj-hkel-legislation-current
+      - https://www.digitalpolicy.gov.hk/en/our_work/digital_infrastructure/mainland/gbacbdf/cross-boundary_data_flow/
+      - https://www.cac.gov.cn/2021-08/20/c_1631050028355286.htm
+  lawful_bases:
+    summary: There is no list of lawful bases; six Data Protection Principles apply (Sch. 1). Collect data only for a lawful purpose tied to your activities, no more than is needed, by lawful and fair means (DPP 1). Use or disclose it only for that purpose or a directly related one, unless the person gives express, voluntary consent, which they can withdraw in writing (DPP 3; s.2(3)). Keep it accurate and no longer than needed, keep it secure, make your policies available and allow access and correction (DPPs 2, 4, 5 and 6).
+    source:
+      - https://www.elegislation.gov.hk/hk/cap486!en
+      - https://data.gov.hk/en-data/dataset/hk-doj-hkel-legislation-current
+      - https://www.cmab.gov.hk/en/issues/protection.htm
+  consent_age:
+    summary: The PDPO sets no age of consent. A minor is anyone under 18 (Cap. 1, s.3). For a minor, the "relevant person" is someone with parental responsibility (s.2), who can make access and correction requests on the minor's behalf (ss.18 and 22). That person can consent to a new use of the minor's data only if the minor can't understand the new purpose and decide, and the use is clearly in the minor's interest (DPP 3(2)).
+    source:
+      - https://www.elegislation.gov.hk/hk/cap486!en
+      - https://www.elegislation.gov.hk/hk/cap1!en
+      - https://data.gov.hk/en-data/dataset/hk-doj-hkel-legislation-current
+  children:
+    summary: A data user may rely on a parent's consent to a new use of a minor's data only if it also has reasonable grounds to believe the use is clearly in the minor's interest (DPP 3(3)). The Police and Customs may disclose a minor's data to a parent for the minor's care and guardianship (s.59A). The doxxing offences cover harm to the person or their family, and for a minor the parent's consent counts (s.64). Otherwise, the general principles apply to children's data.
+    source:
+      - https://www.elegislation.gov.hk/hk/cap486!en
+      - https://data.gov.hk/en-data/dataset/hk-doj-hkel-legislation-current
+      - https://www.info.gov.hk/gia/general/202110/08/P2021100800392.htm
+  cookies:
+    summary: There is no cookie-specific rule. Where cookies or other tracking collect personal data, the general principles apply. Collect fairly and only what's needed; on or before collecting, tell people the purpose and the classes of people the data may go to (DPP 1(3)); use it only for that or a directly related purpose unless they consent (DPP 3); and be open about the kinds of data held and their main uses (DPP 5).
+    source:
+      - https://www.elegislation.gov.hk/hk/cap486!en
+      - https://data.gov.hk/en-data/dataset/hk-doj-hkel-legislation-current
+  marketing:
+    summary: Before direct marketing, give notice of the data kinds and marketing subjects, a free reply channel, and get consent, which can be no objection (ss.35A, 35C). On first use say people can opt out; stop on request (ss.35F, 35G). Giving data to others for their marketing needs written notice and written consent (ss.35J, 35K). Commercial e-mail, SMS, fax and pre-recorded or AI calls need sender details and an unsubscribe facility, honoured within 10 working days, and can't go to do-not-call numbers without consent (UEMO ss.8 to 11). Live person-to-person calls aren't covered (Sch. 1).
+    source:
+      - https://www.elegislation.gov.hk/hk/cap486!en
+      - https://www.elegislation.gov.hk/hk/cap593!en
+      - https://data.gov.hk/en-data/dataset/hk-doj-hkel-legislation-current
+      - https://www.info.gov.hk/gia/general/202606/24/P2026062400407.htm
+      - https://www.info.gov.hk/gia/general/200712/20/P200712200182.htm
+  breach_notice:
+    summary: The PDPO doesn't require breach notification; the PCPD publishes guidance on notifying voluntarily. The PCPD has proposed a mandatory scheme, and in January 2025 the government said it was studying amendments, possibly in phases. The PDPO hasn't been amended since 1 October 2022 (DoJ text released 2 November 2026). Since 1 January 2026, designated critical infrastructure operators must report computer-system security incidents within 12 hours if the core function is disrupted and 48 hours otherwise, then send a written report within 14 days (Cap. 653, Sch. 6).
+    source:
+      - https://www.info.gov.hk/gia/general/202501/22/P2025012200305.htm
+      - https://www.elegislation.gov.hk/hk/cap486!en
+      - https://www.elegislation.gov.hk/hk/cap653!en
+      - https://data.gov.hk/en-data/dataset/hk-doj-hkel-legislation-current
+      - https://www.occics.gov.hk/en/ordinance/obligations/index.html
+      - https://www.info.gov.hk/gia/general/202506/27/P2025062700238.htm
+    secondary:
+      - https://uppersetup.com/en/blog/pdpo-cap-486-in-2026-the-reform-that-never-came-and
+  registration_or_fees:
+    summary: No general registration or fee. The PCPD may require yearly returns, with a fee, from classes of data users it names by Gazette notice (s.14), but the DoJ's current legislation has no subsidiary legislation under the PDPO, so no class has been named. Parties using the voluntary Greater Bay Area Standard Contract must file it within 10 working days of signing, the Hong Kong party with the Digital Policy Office. Designated critical infrastructure operators must keep an office in Hong Kong and report changes to the Commissioner (Cap. 653).
+    source:
+      - https://www.elegislation.gov.hk/hk/cap486!en
+      - https://data.gov.hk/en-data/dataset/hk-doj-hkel-legislation-current
+      - https://www.digitalpolicy.gov.hk/en/our_work/digital_infrastructure/mainland/gbacbdf/cross-boundary_data_flow/
+      - https://www.occics.gov.hk/en/ordinance/obligations/index.html
+  dpo:
+    summary: The PDPO doesn't require a data protection officer. On or before first use of the data, data users must tell people of their rights to access and correction, and the name or job title and address of the person who handles those requests (DPP 1(3)). Access requests must be answered within 40 days (s.19). Designated critical infrastructure operators must set up a computer-system security management unit headed by an employee with adequate knowledge (Cap. 653).
+    source:
+      - https://www.elegislation.gov.hk/hk/cap486!en
+      - https://data.gov.hk/en-data/dataset/hk-doj-hkel-legislation-current
+      - https://www.occics.gov.hk/en/ordinance/obligations/index.html
+  transfers:
+    summary: Section 33, which would restrict transfers outside Hong Kong, is not in operation, so the general rules apply. Tell people the classes of transferees at collection (DPP 1(3)), and use data only for the original or a directly related purpose unless they consent (DPP 3). An agent's authorised acts count as the principal's (s.65(2)), and data users must protect data sent to processors, in or outside Hong Kong, by contract or other means (DPPs 2(3) and 4(2)). The voluntary GBA Standard Contract, for flows with nine Mainland Greater Bay Area cities, is open to all sectors since 1 November 2024.
+    source:
+      - https://www.elegislation.gov.hk/hk/cap486!en
+      - https://data.gov.hk/en-data/dataset/hk-doj-hkel-legislation-current
+      - https://www.info.gov.hk/gia/general/202411/01/P2024110100291.htm
+      - https://www.digitalpolicy.gov.hk/en/our_work/digital_infrastructure/mainland/gbacbdf/cross-boundary_data_flow/
+    secondary:
+      - https://uppersetup.com/en/blog/pdpo-cap-486-in-2026-the-reform-that-never-came-and
+  dpia:
+    summary: The PDPO doesn't require privacy impact assessments. Parties using the GBA Standard Contract must complete a personal information protection impact assessment within 3 months before filing. Designated critical infrastructure operators must run regular security risk assessments and independent audits (Cap. 653).
+    source:
+      - https://www.elegislation.gov.hk/hk/cap486!en
+      - https://data.gov.hk/en-data/dataset/hk-doj-hkel-legislation-current
+      - https://www.digitalpolicy.gov.hk/en/our_work/digital_infrastructure/mainland/gbacbdf/cross-boundary_data_flow/
+      - https://www.occics.gov.hk/en/ordinance/obligations/index.html
+  automated_decisions_ai:
+    summary: There is no AI law. In March 2026 the government said a working group under the Secretary for Justice would review existing laws, with no decision yet on new legislation. AI uses of personal data must follow the PDPO. Automated matching of data on 10 or more people that may lead to adverse action needs their consent, the PCPD's consent or another listed basis, and 7 days' notice before acting (s.30). The PCPD's 2021 AI guidance, and the Digital Policy Office's Ethical AI Framework (2021) and Generative AI Guideline (April 2025), both updated in December 2025, are guidance, not law.
+    source:
+      - https://www.info.gov.hk/gia/general/202603/18/P2026031800419.htm
+      - https://www.info.gov.hk/gia/general/202603/25/P2026032500363.htm
+      - https://www.info.gov.hk/gia/general/202305/10/P2023051000271.htm
+      - https://www.elegislation.gov.hk/hk/cap486!en
+      - https://data.gov.hk/en-data/dataset/hk-doj-hkel-legislation-current
+  penalties:
+    summary: The PCPD can't fine. Breaching its enforcement notice carries up to HK$50,000 (level 5) and 2 years plus HK$1,000 a day, or HK$100,000 (level 6), 2 years and HK$2,000 a day on a later conviction (s.50A). Direct marketing breaches carry up to HK$500,000 and 3 years, or HK$1,000,000 and 5 years when data is provided for gain (Part 6A). Doxxing carries HK$100,000 and 2 years, or HK$1,000,000 and 5 years if harm is caused. Disclosing data obtained without the data user's consent, for gain or to cause loss, carries HK$1,000,000 and 5 years (s.64). Cap. 653 fines reach HK$5,000,000 plus daily fines.
+    source:
+      - https://www.elegislation.gov.hk/hk/cap486!en
+      - https://www.elegislation.gov.hk/hk/cap221!en
+      - https://www.elegislation.gov.hk/hk/cap653!en
+      - https://data.gov.hk/en-data/dataset/hk-doj-hkel-legislation-current
+      - https://www.info.gov.hk/gia/general/202501/22/P2025012200305.htm
+      - https://www.occics.gov.hk/en/ordinance/penalty/index.html
+checked:
+  date: "2026-11-10"
+  status: ai-checked
+history:
+  - date: "2026-11-10"
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

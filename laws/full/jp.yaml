@@ -1,0 +1,124 @@
+# Japan. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: jp
+name: Japan
+tier: full
+laws:
+  - name: Act on the Protection of Personal Information (APPI)
+    citation: 個人情報の保護に関する法律, Act No. 57 of 2003, as amended
+    official_url: https://laws.e-gov.go.jp/law/415AC0000000057
+    status: in-force
+    in_force_from: "2003-05-30"
+    notes: In force on promulgation, 30 May 2003, except Chapters 4 to 6, including the duties of businesses, which followed on a date set by Cabinet Order within two years (Suppl. Art. 1). The 2020 amendments (Act No. 44 of 2020) took full effect on 1 April 2022, as e-Gov lists. Read with its Enforcement Order and the PPC's Enforcement Rules.
+  - name: Act Partially Amending the Act on the Protection of Personal Information and Other Acts (2026)
+    citation: 個人情報の保護に関する法律等の一部を改正する法律, Act No. 56 of 2026, promulgated on 17 July 2026
+    official_url: https://www.ppc.go.jp/personalinfo/legal/r8kaiseihogohou/
+    status: enacted
+    notes: Passed by the Diet on 10 July 2026. Most of it starts on a date set by Cabinet Order within two years of promulgation, so by 16 July 2028 at the latest (derived; e-Gov lists that date). The PPC's July 2026 roadmap places it in 2028, and the PPC is still drafting the orders, rules and guidelines. Penalty changes and the rules on service by public notice start six months after promulgation (Suppl. Art. 1(iii)), which we derive as 17 January 2027, the date e-Gov lists. Two transitional articles took effect on promulgation (Suppl. Art. 1(i)).
+  - name: Telecommunications Business Act
+    citation: 電気通信事業法, Act No. 86 of 1984
+    official_url: https://laws.e-gov.go.jp/law/359AC0000000086
+    status: in-force
+    in_force_from: "1985-04-01"
+    notes: In force from 1 April 1985 (Suppl. Art. 1). The external transmission rule (Art. 27-12), which covers cookies, tags and similar code, applies from 16 June 2023 under amending Act No. 70 of 2022, as e-Gov lists.
+  - name: Act on Regulation of Transmission of Specified Electronic Mail
+    citation: 特定電子メールの送信の適正化等に関する法律, Act No. 26 of 2002
+    official_url: https://laws.e-gov.go.jp/law/414AC0100000026
+    status: in-force
+    in_force_from: "2002-07-01"
+    notes: The Act took effect on a date set by Cabinet Order within six months of promulgation (Suppl. Provisions para. 1); its Enforcement Rules (MIC Ordinance No. 66 of 2002) state that date as 1 July 2002. The opt-in rule for advertising e-mail applies from 1 December 2008, according to the MIC.
+  - name: Act on Promotion of Research, Development and Utilization of AI-Related Technologies (AI Promotion Act)
+    citation: 人工知能関連技術の研究開発及び活用の推進に関する法律, Act No. 53 of 2025
+    official_url: https://laws.e-gov.go.jp/law/507AC0000000053
+    status: in-force
+    in_force_from: "2025-06-04"
+    notes: In force on promulgation, 4 June 2025. Chapters 3 and 4, on the AI Basic Plan and the AI Strategy Headquarters, followed on a date set by Cabinet Order within three months, which e-Gov lists as 1 September 2025 (Suppl. Art. 1). It sets no penalties.
+  - name: Act on Prevention of Damage Caused by Unauthorized Acts against Important Electronic Computers
+    citation: 重要電子計算機に対する不正な行為による被害の防止に関する法律, Act No. 42 of 2025
+    official_url: https://laws.e-gov.go.jp/law/507AC0000000042
+    status: in-force
+    in_force_from: "2026-10-01"
+    notes: Applies to designated special social infrastructure operators. Its main provisions, including Chapter 2 on reporting incidents (Art. 5), apply from 1 October 2026, as e-Gov lists. Some parts took effect earlier, and Chapters 3 to 7 follow within two and a half years of promulgation on 23 May 2025 (Suppl. Art. 1).
+regulators:
+  - name: Personal Information Protection Commission (PPC)
+    url: https://www.ppc.go.jp/en/
+  - name: Ministry of Internal Affairs and Communications (MIC), for the Telecommunications Business Act and the Specified E-mail Act
+    url: https://www.soumu.go.jp/
+obligations:
+  scope:
+    summary: The APPI applies to any business that uses a personal information database for its work (Art. 16). It also applies when a business handles abroad the personal information of people in Japan in connection with supplying goods or services to people in Japan (Art. 171). Pseudonymised and anonymised information, and personally referable information such as cookie IDs not linked to a person, have their own rules.
+    source:
+      - https://laws.e-gov.go.jp/law/415AC0000000057
+      - https://www.ppc.go.jp/personalinfo/legal/guidelines_tsusoku/
+  lawful_bases:
+    summary: There is no list of lawful bases. Specify the purpose of use, publish it or tell the person, and don't go beyond it without consent, except in listed cases such as legal duties (Arts. 17, 18 and 21). Don't use data in ways that may encourage unlawful or improper acts, or get it by deception (Arts. 19 and 20). Getting sensitive data needs consent (Art. 20(2)). Giving personal data to a third party needs prior consent, unless an exception or the opt-out route applies; processors and joint users aren't third parties (Art. 27).
+    source:
+      - https://laws.e-gov.go.jp/law/415AC0000000057
+      - https://www.ppc.go.jp/personalinfo/legal/guidelines_tsusoku/
+  consent_age:
+    summary: The APPI sets no age for now. PPC guidelines say consent must come from a parent or other legal representative when a minor can't judge its consequences, and the PPC's Q&A says this generally applies to children aged 12 to 15 or younger. The 2026 amendment, not yet in force, will make the legal representative the person to ask and notify for under-16s, from a date set by Cabinet Order within two years of 17 July 2026.
+    source:
+      - https://www.ppc.go.jp/personalinfo/legal/guidelines_tsusoku/
+      - https://www.ppc.go.jp/personalinfo/faq/APPI_QA/
+      - https://www.ppc.go.jp/files/pdf/260717_kaiseihounitsuite.pdf
+  children:
+    summary: For now, children's data follows the general rules and PPC guidance. Once the 2026 amendment applies, businesses must get consent from, and send notices to, the legal representative of under-16s, with exceptions such as when the business had good reason not to know the age. Under-16s or their representatives can then have data stopped or deleted more easily, and businesses must give priority to minors' best interests. The start date is still to be set.
+    source:
+      - https://www.ppc.go.jp/files/pdf/260717_kaiseihounitsuite.pdf
+      - https://www.ppc.go.jp/personalinfo/legal/r8kaiseihogohou/
+  cookies:
+    summary: Since 16 June 2023, businesses running certain online services, including many websites and apps, must tell users or make easy to find what user data their tags or code send to third parties, or get consent, or offer an opt-out (Telecommunications Business Act Art. 27-12). Under the APPI, before giving cookie IDs or similar data to a third party expected to link them to a person, the business must check that the person consented (Art. 31).
+    source:
+      - https://laws.e-gov.go.jp/law/359AC0000000086
+      - https://www.soumu.go.jp/main_sosiki/joho_tsusin/d_syohi/gaibusoushin_kiritsu.html
+      - https://laws.e-gov.go.jp/law/415AC0000000057
+  marketing:
+    summary: Advertising e-mail needs the recipient's prior opt-in consent, except to people with a business relationship, people who gave you their address, or addresses published for business. Keep records of consent, stop when someone opts out, and show the sender's name and an opt-out address in each message (Specified E-mail Act Arts. 3 and 4; opt-in since 1 December 2008). Sending with false sender details, or breaching a ministerial order, carries up to 1 year in prison or a ¥1 million fine, and up to ¥30 million for companies (Arts. 34 and 37).
+    source:
+      - https://laws.e-gov.go.jp/law/414AC0100000026
+      - https://www.soumu.go.jp/main_sosiki/cybersecurity/kokumin/basic/legal/08/
+      - https://www.soumu.go.jp/main_sosiki/joho_tsusin/d_syohi/pdf/081203_2.pdf
+  breach_notice:
+    summary: Report to the PPC promptly, which its guidelines put at about 3 to 5 days, and in full within 30 days (60 for wrongful acts such as attacks), when a leak involves sensitive data, data that could be misused for financial loss, a wrongful act (including data being collected, as in web skimming) or more than 1,000 people. Tell those affected promptly, or take other steps if you can't (Art. 26; Enforcement Rules Arts. 7 and 8). Processors may notify the business instead. The 2026 amendment will ease notices to people in low-risk cases.
+    source:
+      - https://laws.e-gov.go.jp/law/415AC0000000057
+      - https://laws.e-gov.go.jp/law/428M60020000003
+      - https://www.ppc.go.jp/personalinfo/legal/guidelines_tsusoku/
+      - https://www.ppc.go.jp/files/pdf/260717_kaiseihounitsuite.pdf
+  registration_or_fees:
+    summary: No general registration or fee. A business that wants to give personal data to third parties without consent, using the opt-out route, must first file the details with the PPC, which publishes them. The route can't be used for sensitive data, data obtained by deception or other wrongful means (Art. 20(1)), or data the business itself got through another business's opt-out (Art. 27(2)). Once the 2026 amendment applies, opt-out providers must also check who the recipient is and how it will use the data, and face feature data can't be shared this way.
+    source:
+      - https://laws.e-gov.go.jp/law/415AC0000000057
+      - https://www.ppc.go.jp/files/pdf/260717_kaiseihounitsuite.pdf
+  dpo:
+    summary: There is no duty to appoint a data protection officer. Businesses must make known their name, address and representative, the purposes of use, and how to make requests about retained data (Art. 32), and must try to handle complaints properly and promptly (Art. 40). The PPC recommends naming a person or team responsible for personal data as part of data governance.
+    source:
+      - https://laws.e-gov.go.jp/law/415AC0000000057
+      - https://www.ppc.go.jp/personalinfo/independent_effort/
+  transfers:
+    summary: Giving personal data to a third party abroad needs the person's prior consent, after telling them about that country's data protection system and the recipient's safeguards. Consent isn't needed if the recipient keeps safeguards equivalent to the APPI, which the business must monitor, or is in a country the PPC treats as equivalent, currently the EU and the UK (Art. 28). The usual exceptions, such as legal duties, still apply.
+    source:
+      - https://laws.e-gov.go.jp/law/415AC0000000057
+      - https://www.ppc.go.jp/personalinfo/legal/guidelines_offshore/
+  dpia:
+    summary: Businesses don't have to carry out privacy impact assessments. The PPC encourages them as part of data governance and has published a report on why and how to do one.
+    source:
+      - https://www.ppc.go.jp/personalinfo/independent_effort/
+  automated_decisions_ai:
+    summary: The APPI has no specific rule on automated decisions or profiling. The PPC has warned businesses that putting personal data into generative AI prompts must stay within the purpose of use, and that they should check the provider won't use it to train models (June 2023). The AI Promotion Act sets no penalties; businesses must cooperate with government measures, and the government studies harmful uses and can give guidance (Arts. 7 and 16). The 2026 amendment will allow sharing without consent for statistics only, including some AI development.
+    source:
+      - https://www.ppc.go.jp/news/careful_information/230602_AI_utilize_alert/
+      - https://laws.e-gov.go.jp/law/507AC0000000053
+      - https://www.ppc.go.jp/files/pdf/260717_kaiseihounitsuite.pdf
+  penalties:
+    summary: The PPC can make recommendations and orders. Breaching an order carries up to 1 year in prison or a ¥1 million fine (Art. 178); supplying or stealing a personal information database for illicit gain, up to 1 year or ¥500,000 (Art. 179); companies up to ¥100 million (Art. 184). From 17 January 2027, that database offence rises to 2 years or ¥1 million and covers intent to harm, getting personal data by fraud becomes a crime, and the order offence moves to Art. 181 unchanged. Surcharges equal to the gains from serious violations come with the main 2026 changes.
+    source:
+      - https://laws.e-gov.go.jp/law/415AC0000000057
+      - https://www.ppc.go.jp/files/pdf/260717_kaiseihounitsuite.pdf
+      - https://www.ppc.go.jp/files/pdf/260717_houritsu.pdf
+checked:
+  date: "2026-11-10"
+  status: ai-checked
+history:
+  - date: "2026-11-10"
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
