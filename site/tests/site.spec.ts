@@ -153,7 +153,8 @@ test.describe('law tracker', () => {
     expect(response.ok()).toBe(true);
     const xml = await response.text();
     expect(xml).toContain('<feed xmlns="http://www.w3.org/2005/Atom">');
-    expect((xml.match(/<entry>/g) ?? []).length).toBeGreaterThanOrEqual(ENTRY_COUNT);
+    // The feed keeps the 100 newest changes; every jurisdiction has at least one.
+    expect((xml.match(/<entry>/g) ?? []).length).toBeGreaterThanOrEqual(Math.min(ENTRY_COUNT, 100));
   });
 });
 
