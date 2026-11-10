@@ -1,0 +1,26 @@
+# Cyprus. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: cy
+name: Cyprus
+tier: basic
+applies_with: [eu]
+laws:
+  - name: Personal Data Protection Law of 2018
+    citation: Ο περί της Προστασίας των Φυσικών Προσώπων Έναντι της Επεξεργασίας των Δεδομένων Προσωπικού Χαρακτήρα και της Ελεύθερης Κυκλοφορίας των Δεδομένων αυτών Νόμος του 2018, Ν. 125(Ι)/2018
+    official_url: https://www.mof.gov.cy/mof/gpo/gazette.nsf/All/E1762CD230F14EFCC225872C004068B9/$file/4670%2031%207%202018%20PARARTHMA%201o%20MEROS%20I.pdf
+    status: in-force
+    in_force_from: "2018-07-31"
+    notes: Gives effect to the GDPR in Cyprus and repeals the 2001–2012 data protection laws (s. 36). Children can consent to information society services from age 14; younger children need consent from the person with parental responsibility (s. 8). Processing genetic and biometric data for health and life insurance is banned (s. 9). The law has no commencement section, so the date is that of its publication in the Gazette (No. 4670, 31 July 2018); date derived. The link is that whole Gazette issue; the law is on pages 827–841.
+  - name: Electronic Communications and Postal Services Law
+    citation: Ο περί Ρυθμίσεως Ηλεκτρονικών Επικοινωνιών και Ταχυδρομικών Υπηρεσιών Νόμος, Ν. 112(Ι)/2004, as amended
+    official_url: https://ocecpr.ee.cy/images/files_uploads/agora/nomothesia/nomos/enopoiimenos_112i.2004.pdf
+    status: in-force
+    in_force_from: "2004-04-30"
+    notes: Holds the ePrivacy rules (Part 14). Storing or reading information on a user's device needs consent after clear information, unless strictly needed to carry a message or provide a service the user asked for (s. 99(5)). Email, fax or automated-call marketing to people needs prior consent; a seller may email customers about its own similar products if they can object each time (s. 106). The Data Protection Commissioner enforces both (s. 107(2)). No commencement section, so the date is derived from Gazette publication on 30 April 2004. The link is the telecoms regulator's 2022 consolidation.
+regulators:
+  - name: Commissioner for Personal Data Protection (Επίτροπος Προστασίας Δεδομένων Προσωπικού Χαρακτήρα)
+    url: https://www.dataprotection.gov.cy/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.

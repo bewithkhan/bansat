@@ -1,0 +1,26 @@
+# Austria. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: at
+name: Austria
+tier: basic
+applies_with: [eu]
+laws:
+  - name: Data Protection Act (DSG)
+    citation: Datenschutzgesetz (DSG), BGBl. I Nr. 165/1999, as amended, notably by the Datenschutz-Anpassungsgesetz 2018 (BGBl. I Nr. 120/2017)
+    official_url: https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10001597
+    status: in-force
+    in_force_from: "2000-01-01"
+    notes: In force since 1 January 2000 (§ 70(1)); the version that supplements the GDPR has applied since 25 May 2018 (§ 70(9)). Children can consent to information society services from age 14 (§ 4(4)), and §§ 12–13 set rules for image recording such as video surveillance. After a Constitutional Court ruling, the media privilege (§ 9) was rewritten by BGBl. I Nr. 62/2024, in force from 1 July 2024 (§ 70(15)). The link is the consolidated text in the federal legal information system (RIS).
+  - name: Telecommunications Act 2021 (TKG 2021)
+    citation: Telekommunikationsgesetz 2021, BGBl. I Nr. 190/2021, as amended
+    official_url: https://www.rtr.at/rtr/service/rechtsvorschriften/gesetze/TKG_2021_en-gb.pdf
+    status: in-force
+    in_force_from: "2021-11-01"
+    notes: Carries the ePrivacy rules. Under § 165(3) storing or reading data on a user's device needs consent after clear information, unless strictly needed for a requested service. § 174 bans marketing calls, emails and texts without prior consent. A seller may email customers whose details it got in a sale about its own similar products if they could opt out easily and free at collection and in every message and haven't refused, e.g. via the E-Commerce Act list (§ 174(4)). In force from 1 November 2021, the month after publication (§ 217). The link is RTR's non-binding English translation.
+regulators:
+  - name: Data Protection Authority (Datenschutzbehörde, DSB)
+    url: https://dsb.gv.at/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.

@@ -1,0 +1,38 @@
+# Denmark. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: dk
+name: Denmark
+tier: basic
+applies_with: [eu]
+laws:
+  - name: Data Protection Act (Databeskyttelsesloven)
+    citation: Lov nr. 502 af 23. maj 2018, consolidated as LBK nr. 289 af 8. marts 2024
+    official_url: https://www.retsinformation.dk/eli/lta/2024/289
+    status: in-force
+    in_force_from: "2018-05-25"
+    notes: Supplements the GDPR; in force from 25 May 2018 (§ 46 of the original act). Children can consent to information society services from age 15 (§ 6(2)–(3)); Act no. 1783 of 28 December 2023 raised it from 13 from 1 January 2024, and earlier consents stay under the old rule. From the same date Act no. 1784 of 28 December 2023 repealed most of § 13, Denmark's special rules on processing personal data for marketing. The link is the 2024 consolidated text, which includes both changes and which the regulator cites as current.
+  - name: Cookie Order (Cookiebekendtgørelsen)
+    citation: Bekendtgørelse nr. 1148 af 9. december 2011 om krav til information og samtykke ved lagring af eller adgang til oplysninger i slutbrugeres terminaludstyr
+    official_url: https://www.retsinformation.dk/eli/lta/2011/1148
+    status: in-force
+    in_force_from: "2011-12-14"
+    notes: No one may store or read information on a user's device, or let a third party do so, without the user's consent after full information in clear language (§ 3). Consent isn't needed for storage used only to transmit a communication or required to provide a service the user expressly asked for (§ 4).
+  - name: Marketing Practices Act (Markedsføringsloven)
+    citation: LBK nr. 1420 af 2. december 2024 (consolidated)
+    official_url: https://www.retsinformation.dk/eli/lta/2024/1420
+    status: in-force
+    in_force_from: "2017-07-01"
+    notes: § 10 bans direct marketing by email, automated calls or fax without the person's prior consent, which must be easy and free to withdraw. A business may email its customers about its own similar products if they can opt out easily and free of charge each time. The current act has applied since 1 July 2017 (§ 40); the link is the latest consolidation.
+  - name: Act supplementing the AI Act
+    citation: Lov nr. 467 af 14. maj 2025 om supplerende bestemmelser til forordningen om kunstig intelligens
+    official_url: https://www.retsinformation.dk/eli/lta/2025/467
+    status: in-force
+    in_force_from: "2025-08-02"
+    notes: National measures for the EU AI Act. The Agency for Digital Government (Digitaliseringsstyrelsen) is the notifying authority, the single point of contact and the market surveillance authority for most prohibited AI practices (Art. 5(1)(a)–(c), (e) and (f)). Datatilsynet supervises the bans in Art. 5(1)(d) and (g), and the Court Administration the courts' administrative use of AI (§ 2). In force from 2 August 2025 (§ 12).
+regulators:
+  - name: Danish Data Protection Agency (Datatilsynet)
+    url: https://www.datatilsynet.dk/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.
