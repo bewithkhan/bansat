@@ -1,0 +1,109 @@
+# Dubai International Financial Centre. Read together with the UAE federal entry (ae). Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: ae-difc
+name: Dubai International Financial Centre (DIFC)
+tier: full
+applies_with: [ae]
+laws:
+  - name: Data Protection Law 2020
+    citation: DIFC Law No. 5 of 2020, as amended by DIFC Law No. 2 of 2022 and the DIFC Laws Amendment Law, DIFC Law No. 1 of 2025
+    official_url: https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/data-protection-law.pdf
+    status: in-force
+    in_force_from: "2020-07-01"
+    notes: "In force on 1 July 2020 (Art. 4). The 2025 amendment law, enacted on 8 July 2025, came into force on 15 July 2025, the fifth business day after enactment. Art. 64A replaced and expanded the old Art. 64(1) compensation route. Art. 6(3) lost its 'occasional basis' carve-out and its 'means or personnel in the DIFC' test. Art. 28 on public authority requests was reworded. Schedule 2 fines rose for Art. 20 (DPIA) from USD 20,000 to 50,000 and Art. 28 from USD 10,000 to 50,000. The linked text is DIFC's consolidated version of July 2025."
+  - name: Data Protection Regulations
+    citation: DIFC Data Protection Regulations, Consolidated Version No. 2
+    official_url: https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/data-protection-regulation.pdf
+    status: in-force
+    in_force_from: "2023-09-01"
+    notes: "This version, in force on 1 September 2023, added Regulation 10 on autonomous and semi-autonomous systems. The Regulations cover notifications and fees, transfers, fines, breach reporting, and digital communications and cookies (Reg. 9)."
+  - name: Proposed amendments to the Data Protection Regulations
+    citation: DIFC Consultation Paper No. 3 of 2026
+    official_url: https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/consultation-paper.pdf
+    status: draft
+    notes: "Published in June 2026. Proposes tighter Regulation 10 duties for an 'AI-native' DIFC, including a new Safety principle, clearer certification and Autonomous Systems Officer duties, and a new Regulation 11 letting the Commissioner recognise certification schemes. Comments closed on 18 July 2026. No enactment had been announced by 5 November 2026, so it is not in force."
+regulators:
+  - name: Commissioner of Data Protection (DIFC)
+    url: https://www.difc.com/business/registrars-and-commissioners/commissioner-of-data-protection
+obligations:
+  scope:
+    summary: "Applies to controllers and processors incorporated in the DIFC, wherever they process, and to any controller, processor or sub-processor processing in the DIFC as part of stable arrangements, whatever its place of incorporation (Art. 6, as amended from 15 July 2025). Purely personal or household processing is excluded. The federal PDPL doesn't apply to DIFC entities, but federal laws other than civil and commercial ones still apply here, such as the cybercrime law, the Child Digital Safety Law, the health data law and the telemarketing rules (see ae)."
+    source:
+      - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/data-protection-law.pdf
+      - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/amendment-law-no-1-of-2025.pdf
+      - https://uaelegislation.gov.ae/en/legislations/1972
+      - https://uaelegislation.gov.ae/en/legislations/1981/download
+      - https://uaelegislation.gov.ae/en/legislations/1209/download
+      - https://uaelegislation.gov.ae/en/legislations/2519/download
+  lawful_bases:
+    summary: "Six lawful bases (Art. 10): consent, contract, legal obligation, vital interests, DIFC public tasks, and legitimate interests, which public authorities can't use. Preventing fraud and network security count as legitimate interests, and intra-group transfers for internal admin can be (Art. 13). Special category data also needs an Article 11 condition, such as explicit consent, employment or substantial public interest. Consent must be freely given, specific and as easy to withdraw as to give, and continuing consent should be checked and offered for re-affirmation periodically (Art. 12)."
+    source:
+      - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/data-protection-law.pdf
+  consent_age:
+    summary: "The DIFC law sets no age for consent. For automated decisions, the exceptions in Article 38(2) don't apply to minors, judged by the UAE age of majority, which is 18 Gregorian years under the federal Civil Transactions Law since 1 June 2026. Digital platforms that operate in or target the UAE must also follow the federal under-13 parental consent rule (see ae)."
+    source:
+      - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/data-protection-law.pdf
+      - https://uaelegislation.gov.ae/en/news/the-uae-government-issues-a-federal-decree-law-promulgating-the-civil-transactions-law
+      - https://u.ae/en/information-and-services/social-affairs/Priority-groups/children/Childrens-digital-safety
+  children:
+    summary: "The DIFC law's only child-specific rule is Article 38(4): minors can always object to solely automated decisions with serious effects and ask for a manual review. Online platforms must set default privacy preferences that collect only the minimum data and let people choose on first use (Art. 14(4)). The federal Child Digital Safety Law and the social media age rules apply to platforms that operate in or target the UAE, including from the DIFC (see ae)."
+    source:
+      - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/data-protection-law.pdf
+      - https://u.ae/en/information-and-services/social-affairs/Priority-groups/children/Childrens-digital-safety
+      - https://uaelegislation.gov.ae/en/legislations/4506
+  cookies:
+    summary: "Regulation 9 covers cookies used for personalisation, analytics or ad profiling, pixel, in-app and cross-app tracking, and electronic messages. Tell people at collection, give them a chance to refuse or opt out the first time, and set defaults to collect only what's needed, with neutral choice buttons and an easy way to change settings later. Where consent is relied on, it needs an affirmative act such as an unticked box; pre-ticked boxes, silence and inactivity don't count."
+    source:
+      - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/data-protection-regulation.pdf
+  marketing:
+    summary: "Regulation 9 applies to marketing by SMS, MMS, email, in-app messages and AI messaging. People must be able to refuse when their data is first collected, and consent, where relied on, needs an affirmative act. Existing customers can get messages about similar products if their details were collected in a sale or negotiation and they can opt out every time. People can object to direct marketing at any time and must be told before their data is passed to third parties for it (Art. 34). Federal telemarketing rules also apply (see ae)."
+    source:
+      - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/data-protection-regulation.pdf
+      - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/data-protection-law.pdf
+      - https://uaelegislation.gov.ae/en/legislations/2519/download
+  breach_notice:
+    summary: "Notify the Commissioner as soon as practicable of a breach that compromises people's confidentiality, security or privacy, by email or the online form, with its nature, likely consequences and the measures taken; details can follow in phases. Tell affected people as soon as practicable if the breach is likely to be high risk, and promptly if there's an immediate risk of damage. Processors must tell the controller without undue delay. Document every breach. There is no fixed deadline in hours."
+    source:
+      - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/data-protection-law.pdf
+      - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/data-protection-regulation.pdf
+      - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/registrars-and-commissioners/guidance-and-handbooks/personal-data-breaches/notifying_the_commissioner_of_data_protection_of_a_personal_data_breach.pdf
+  registration_or_fees:
+    summary: "Controllers and processors must file a notification of processing with the Commissioner within 30 days of starting, renew it every year and update it within 30 days of a change; the register is public. Registration costs USD 1,250 for DFSA-authorised firms, USD 750 for other non-retail firms and USD 250 for retail, and annual renewal USD 500, USD 250 and USD 100. Controllers that must have a DPO also file an Annual Assessment. Firms with fewer than 50 staff and no high-risk processing needn't keep processing records."
+    source:
+      - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/data-protection-law.pdf
+      - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/data-protection-regulation.pdf
+  dpo:
+    summary: "A DPO is required for DIFC bodies (other than courts acting judicially) and for controllers and processors that carry out high-risk processing systematically or regularly; the Commissioner can require others to appoint one. The DPO must live in the UAE unless employed in the group and doing a similar job for it internationally, must be independent and report to senior management, and must have published contact details. Others must still assign data protection responsibility internally. High-risk AI systems also need an Autonomous Systems Officer (Reg. 10)."
+    source:
+      - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/data-protection-law.pdf
+      - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/data-protection-regulation.pdf
+  transfers:
+    summary: "Transfers out of the DIFC need an adequate destination on the Commissioner's list (for example the UK, EEA states, Switzerland, ADGM, the QFC, Israel, Japan and California, but not the onshore UAE or Saudi Arabia) or appropriate safeguards such as the DIFC standard contractual clauses or approved binding corporate rules. Otherwise a listed derogation is needed, such as explicit consent, a contract or legal claims. Answer public authority requests only after checking that they're valid and proportionate (Art. 28)."
+    source:
+      - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/data-protection-law.pdf
+      - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/data-protection-regulation.pdf
+      - https://www.difc.com/business/registrars-and-commissioners/commissioner-of-data-protection/data-export-and-sharing
+  dpia:
+    summary: "Carry out a DPIA before high-risk processing: new technology that materially increases risk, large volumes of data likely to be high risk, systematic and extensive profiling with legal or similar effects, or a material amount of special category data. The DPO oversees it. Consult the Commissioner if high risks remain after safeguards; the Commissioner aims to reply within four weeks, extendable by four more. A DPIA is also needed before keeping data for research or AI training instead of deleting it (Art. 22)."
+    source:
+      - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/data-protection-law.pdf
+  automated_decisions_ai:
+    summary: "People can object to solely automated decisions with legal or similarly serious effects and require a manual review, unless the decision is needed for a contract, authorised by law or based on explicit consent with safeguards (Art. 38). Regulation 10, in force since 1 September 2023, covers AI and other autonomous systems: notice on first use, evidence and registers on request, and human-defined purposes. High-risk use needs certification under the Commissioner's framework and an Autonomous Systems Officer. Changes proposed in June 2026 are pending."
+    source:
+      - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/data-protection-law.pdf
+      - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/data-protection-regulation.pdf
+      - https://www.difc.com/business/registrars-and-commissioners/commissioner-of-data-protection/regulation-10
+      - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/registrars-and-commissioners/regulation-10/difc-reg-10-accreditation-and-certification-framework.pdf
+      - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/consultation-paper.pdf
+  penalties:
+    summary: "The Commissioner can issue directions, warnings, reprimands and administrative fines up to the Schedule 2 maximum for each contravention, from USD 25,000 to USD 100,000 (USD 100,000 for breaching data subject rights), plus general fines not capped by Schedule 2 that reflect seriousness and harm. Since 15 July 2025, Art. 64A has replaced and expanded the old Art. 64(1) route to court compensation: people who suffer damage, including distress, can claim it from controllers and processors in the DIFC Courts. The 2025 amendments raised the Art. 20 and Art. 28 maximums to USD 50,000."
+    source:
+      - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/data-protection-law.pdf
+      - https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/amendment-law-no-1-of-2025.pdf
+      - https://mediaoffice.ae/en/news/2025/july/16-07/difc-announces-enactment-of-amendments-to-select-difc-legislation-through-difc-law-amendment-law
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

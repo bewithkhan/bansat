@@ -274,7 +274,7 @@ Legal advice; accounts and comments on the site; email collection; paid tiers; c
 |---|---|---|---|---|
 | NFR-FRESH-01 | Freshness | Full-tier entries re-checked | Every 30 days | Staleness report in CI |
 | NFR-FRESH-02 | Freshness | Basic-tier entries re-checked | Every 180 days | Staleness report in CI |
-| NFR-DETECT-01 | Detection | Watched sources polled | Weekly, on Monday at 06:23 UTC (off the hour, because scheduled runs are delayed at the start of the hour, 3.10); a change surfaces as an issue within 7 days | Watch run logs |
+| NFR-DETECT-01 | Detection | Watched sources polled | Weekly, on Sunday at 06:23 UTC (off the hour, because scheduled runs are delayed at the start of the hour, 3.10), a day ahead of the Monday verify task because GitHub can start a scheduled run hours late; a change surfaces as an issue within 7 days | Watch run logs |
 | NFR-ACC-01 | Accuracy | Full-tier legal claims with an official source | 100% | Schema check fails CI otherwise |
 | NFR-PRIV-01 | Privacy | Cookies and third-party requests on the site | Zero | Playwright privacy test (framework 9.9) |
 | NFR-PERF-01 | Performance | Site Core Web Vitals at p75 on mobile | LCP ≤ 2.5 s · INP ≤ 200 ms · CLS ≤ 0.1; ≤ 50 KB JS on country pages | Lighthouse's mobile profile in CI (`npm run perf` in `site/`) on four pages: LCP, CLS, and Total Blocking Time ≤ 200 ms as the lab stand-in for INP |
@@ -382,7 +382,7 @@ Each profile covers: where to enforce access (and the isolation test), authentic
 | Group | Profiles |
 |---|---|
 | Backend | Laravel, Django, FastAPI, Rails, Spring Boot, ASP.NET Core, Express / NestJS |
-| Frontend & full-stack | Next.js (the current reference), Nuxt, SvelteKit, Angular, React Router 7 (formerly Remix), Astro |
+| Frontend & full-stack | Next.js (the current reference), Nuxt, SvelteKit, Angular, React Router (formerly Remix; version 8 since June 2026), Astro |
 | Mobile | Flutter, React Native / Expo, Swift (iOS), Kotlin (Android) |
 | No-code & BaaS | Lovable, Bolt, Bubble, Webflow, Firebase, Supabase, Appwrite |
 

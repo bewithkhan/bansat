@@ -1,0 +1,131 @@
+# South Africa. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: za
+name: South Africa
+tier: full
+laws:
+  - name: Protection of Personal Information Act 2013 (POPIA)
+    citation: Act No. 4 of 2013 (Government Gazette No. 37067, 26 November 2013)
+    official_url: https://inforegulator.org.za/wp-content/uploads/2025/08/PROTECTION-OF-PERSONAL-INFORMATION-ACT-4-OF-2013.pdf
+    status: in-force
+    in_force_from: "2020-07-01"
+    notes: Proclamation R21 of 2020 started most of the Act, including the conditions for lawful processing, on 1 July 2020. The one-year grace period (s.114(1)) ended on 30 June 2021, when s.110 also started, repealing sections 45, 50 and 51 of the Electronic Communications and Transactions Act. The Regulator doesn't accept complaints about events before 1 July 2021. Waiting for prior authorisation (s.58(2)) applied to existing processing from 1 February 2022.
+  - name: Regulations relating to the Protection of Personal Information
+    citation: GN R1383, Government Gazette No. 42110, 14 December 2018, as amended by GN 6126, Government Gazette No. 52523, 17 April 2025
+    official_url: https://www.gov.za/sites/default/files/gcis_document/202504/52523gon6126.pdf
+    status: in-force
+    in_force_from: "2025-04-17"
+    notes: GN R1383 of 2018 is the base text. GN 6126 is the Regulator's Gazette notice publishing the amended regulations for implementation with immediate effect (s.113(4)(b)), which fixes the date; the amending text, signed on 21 January 2025, says it starts on a date the Regulator proclaims. The amendments cover objections, correction requests, consent for electronic direct marketing (Form 4) and paying fines in instalments.
+  - name: Regulations relating to the Processing of Data Subjects' Health Information by Certain Responsible Parties, 2026
+    citation: GN 7198, Government Gazette No. 54268, 6 March 2026 (made under POPIA s.112(2)(c))
+    official_url: https://www.gov.za/sites/default/files/gcis_document/202603/54268gon7198.pdf
+    status: in-force
+    in_force_from: "2026-03-06"
+    notes: They start on publication in the Gazette (reg. 7.2). They apply to insurers, medical schemes and their administrators, managed healthcare organisations, administrative bodies, pension funds, employers and institutions working for them, and require security safeguards, a duty of confidentiality, and section 72 grounds for sending health information abroad.
+  - name: Consumer Protection Act Amendment Regulations 2026 (National Opt-Out Registry)
+    citation: Amended regulation 4 of the Consumer Protection Regulations (GN R293 of 2011), under s.11 of the Consumer Protection Act 68 of 2008
+    official_url: https://thencc.org.za/ncc-launches-the-national-opt-out-registry-to-curb-unwanted-direct-marketing/
+    status: in-force
+    in_force_from: "2026-04-15"
+    notes: The date is when the Minister gazetted the amendment, as the National Consumer Commission (NCC) and the Information Regulator report it; the gazette, its numbers and any commencement clause weren't found. The NCC launched the registry on 7 October 2026. Direct marketers register from 15 September to December 2026, can cleanse lists free from December 2026 to April 2027, and consumers' blocks apply from May 2027. Draft compliance guidelines, gazetted on 2 October 2026, are open for comment until 6 November 2026 and not yet final.
+  - name: Cybercrimes Act 2020
+    citation: Act No. 19 of 2020 (Government Gazette No. 44651, 1 June 2021)
+    official_url: https://inforegulator.org.za/wp-content/uploads/2020/07/44651gon324.pdf
+    status: in-force
+    in_force_from: "2021-12-01"
+    notes: Proclamation R42 of 2021 started most of the Act on 1 December 2021, but not section 54, which would make electronic communications service providers and financial institutions report certain cybercrimes to the police within 72 hours. No later proclamation starting section 54 was found, so that duty isn't in force.
+regulators:
+  - name: Information Regulator (South Africa)
+    url: https://inforegulator.org.za/
+  - name: National Consumer Commission (NCC), for the direct marketing opt-out registry
+    url: https://thencc.org.za/
+obligations:
+  scope:
+    summary: POPIA covers personal information in a record, about living people and existing juristic persons, processed by a responsible party domiciled in South Africa, or by one elsewhere using automated or other means in South Africa beyond mere transit (s.3). It excludes purely personal or household activity, irreversibly de-identified data, some security, policing, Cabinet and judicial functions, and journalism, literature and art (ss.6-7). In 2024 the Regulator ordered WhatsApp LLC, abroad, to revise its South African privacy policy.
+    source:
+      - https://inforegulator.org.za/wp-content/uploads/2025/08/PROTECTION-OF-PERSONAL-INFORMATION-ACT-4-OF-2013.pdf
+      - https://inforegulator.org.za/wp-content/uploads/2025/04/WHATS-APP-ENFORCEMENT-NOTICE.pdf
+  lawful_bases:
+    summary: Process personal information only with consent (a competent person's for a child), or where needed for a contract, a legal obligation, the data subject's legitimate interest, a public body's legal duty, or the legitimate interests of the responsible party or a third party (s.11). People can object to processing on the last three grounds and to direct marketing; objecting must be free, and people must be told of this right at collection (reg. 2). Special personal information, such as health, biometrics, religion or race, is banned unless a s.27 exception applies (s.26).
+    source:
+      - https://inforegulator.org.za/wp-content/uploads/2025/08/PROTECTION-OF-PERSONAL-INFORMATION-ACT-4-OF-2013.pdf
+      - https://inforegulator.org.za/wp-content/uploads/2025/04/POPIA-2021-Regulations-FINAL-21-Jan-2025.pdf
+      - https://www.gov.za/sites/default/files/gcis_document/202603/54268gon7198.pdf
+  consent_age:
+    summary: A child is anyone under 18 who can't act without a competent person's help (s.1). Processing a child's personal information is prohibited unless an exception applies, chiefly the prior consent of a competent person, such as a parent or guardian (ss.34-35).
+    value: 18
+    unit: years
+    source:
+      - https://inforegulator.org.za/wp-content/uploads/2025/08/PROTECTION-OF-PERSONAL-INFORMATION-ACT-4-OF-2013.pdf
+      - https://inforegulator.org.za/wp-content/uploads/2020/07/GuidanceNote-Processing-PersonalInformation-Children-20210628-1.pdf
+  children:
+    summary: Besides a competent person's consent, a child's information may be processed when needed for a right or obligation in law or for international law, for research with safeguards, or when the child made it public with a competent person's consent (s.35(1)). The Regulator can authorise other processing in the public interest, with conditions such as letting parents review it and refuse further processing, and not encouraging children to share more than needed (s.35(2)-(3)). Sending children's information to a third party abroad without adequate protection needs prior authorisation (s.57(1)(d)).
+    source:
+      - https://inforegulator.org.za/wp-content/uploads/2025/08/PROTECTION-OF-PERSONAL-INFORMATION-ACT-4-OF-2013.pdf
+      - https://inforegulator.org.za/wp-content/uploads/2020/07/GuidanceNote-Processing-PersonalInformation-Children-20210628-1.pdf
+  cookies:
+    summary: There is no cookie-specific law. POPIA applies when cookies or similar technologies process personal information, so they need a lawful basis (s.11), and people must be told what is collected and why (s.18). The Regulator's direct marketing guidance lists cookies among the methods of direct marketing by electronic communication, which need consent under section 69 unless the customer exception applies.
+    source:
+      - https://inforegulator.org.za/wp-content/uploads/2025/08/PROTECTION-OF-PERSONAL-INFORMATION-ACT-4-OF-2013.pdf
+      - https://inforegulator.org.za/wp-content/uploads/2020/07/GUIDANCE-NOTE-ON-DIRECT-MARKETING-IN-TERMS-OF-THE-PROTECTION-OF-PERSONAL-INFORMATION-ACT-4-OF-2013-POPIA.pdf
+  marketing:
+    summary: Marketing by email, SMS, auto-call, fax or (per the Regulator) phone needs prior consent, except for your own similar products to customers from a sale, with a free opt-out at collection and in each message; each message must name the sender and an opt-out address (s.69). Ask non-customers once (Form 4); an opt-out isn't consent (reg. 6). No marketing to people at home on Sundays, public holidays, Saturdays outside 09h00-13h00 or other days 20h00-08h00, unless agreed (CPA s.12). From May 2027, cleanse lists against the NCC opt-out registry; the Regulator says s.69 still covers those not on it.
+    source:
+      - https://inforegulator.org.za/wp-content/uploads/2025/08/PROTECTION-OF-PERSONAL-INFORMATION-ACT-4-OF-2013.pdf
+      - https://inforegulator.org.za/wp-content/uploads/2025/04/POPIA-2021-Regulations-FINAL-21-Jan-2025.pdf
+      - https://inforegulator.org.za/wp-content/uploads/2020/07/GUIDANCE-NOTE-ON-DIRECT-MARKETING-IN-TERMS-OF-THE-PROTECTION-OF-PERSONAL-INFORMATION-ACT-4-OF-2013-POPIA.pdf
+      - https://thencc.org.za/ncc-launches-the-national-opt-out-registry-to-curb-unwanted-direct-marketing/
+      - https://thencc.org.za/ncc-extends-the-comment-period-for-oors-guidelines/
+      - https://thencc.org.za/wp-content/uploads/2020/11/Consumer-Protection-Act.pdf
+      - https://thencc.org.za/wp-content/uploads/2020/11/CPA-REGS.pdf
+      - https://inforegulator.org.za/wp-content/uploads/2026/04/MEDIA-STATEMENT-REGULATOR-NOTES-PUBLISHED-GAZETTE-OF-THE-CONSUMER-PROTECT-ACT-AMENDMENT-REGULATIONS-2026.pdf
+  breach_notice:
+    summary: If there are reasonable grounds to believe personal information was accessed or acquired without authority, notify the Regulator and the people affected as soon as reasonably possible after discovery, with no fixed deadline (s.22). Operators must tell the responsible party immediately (s.21(2)). Since 1 April 2025, reports go through the Regulator's eServices portal, which needs a registered information officer. Tell people in writing (post, email, website, media or as directed) with enough detail to protect themselves, unless police or the Regulator say it would hinder an investigation.
+    source:
+      - https://inforegulator.org.za/wp-content/uploads/2025/08/PROTECTION-OF-PERSONAL-INFORMATION-ACT-4-OF-2013.pdf
+      - https://inforegulator.org.za/wp-content/uploads/2025/04/MEDIA-STATEMENT-INVITATION-TO-REPORT-SECURITY-COMPROMISES-THROUGH-THE-eSERVICES-PORTAL-.pdf
+      - https://inforegulator.org.za/wp-content/uploads/2025/05/stepbystepguide.pdf
+  registration_or_fees:
+    summary: No general registration of processing is needed, but each body must register its information officer on the Regulator's eServices portal before they act (s.55(2)). Prior authorisation is needed to link unique identifiers for a new purpose, process criminal-conduct information for third parties, do credit reporting, or send special or children's information to countries without adequate protection (ss.57-58). Direct marketers must also register with the NCC's opt-out registry (open since 15 September 2026) and pay its fees.
+    source:
+      - https://inforegulator.org.za/wp-content/uploads/2025/08/PROTECTION-OF-PERSONAL-INFORMATION-ACT-4-OF-2013.pdf
+      - https://inforegulator.org.za/popia/
+      - https://inforegulator.org.za/wp-content/uploads/2020/07/InfoRegSA-Notice-Sec58-2-20210618-1.pdf
+      - https://thencc.org.za/ncc-launches-the-national-opt-out-registry-to-curb-unwanted-direct-marketing/
+      - https://thencc.org.za/wp-content/uploads/2026/04/Media-Statement-Ncc-Welcomes-Regulations-To-Curb-Spam-Calls-.pdf
+  dpo:
+    summary: Every body has an information officer, by default its head, such as the CEO or managing director, who may authorise someone else; a multinational based abroad must authorise a person in South Africa (Regulator guidance). Register the officer before they act (s.55). They encourage compliance, handle requests, work with the Regulator, and ensure a compliance framework, a personal information impact assessment, request-handling systems and staff awareness sessions (reg. 4). Deputy information officers can be designated in writing (s.56); the guidance says they must be employees.
+    source:
+      - https://inforegulator.org.za/wp-content/uploads/2025/08/PROTECTION-OF-PERSONAL-INFORMATION-ACT-4-OF-2013.pdf
+      - https://inforegulator.org.za/wp-content/uploads/2020/07/20181214-gg42110-rg10897-gon1383-POPIA-Regulations-1.pdf
+      - https://inforegulator.org.za/wp-content/uploads/2025/04/POPIA-2021-Regulations-FINAL-21-Jan-2025.pdf
+      - https://inforegulator.org.za/wp-content/uploads/2025/07/Guidance_Note_on_Information_Officers_.pdf
+  transfers:
+    summary: A responsible party in South Africa may send personal information to a third party abroad only if the recipient is bound by a law, binding corporate rules or binding agreement giving adequate protection, including for onward transfers; or the person consents; or the transfer is needed for a contract with the person or in their interest; or it benefits them and consent isn't practicable (s.72). Sending special or children's information to a country without adequate protection needs the Regulator's prior authorisation (s.57(1)(d)).
+    source:
+      - https://inforegulator.org.za/wp-content/uploads/2025/08/PROTECTION-OF-PERSONAL-INFORMATION-ACT-4-OF-2013.pdf
+  dpia:
+    summary: The Act doesn't use the term DPIA, but the regulations make the information officer ensure that a personal information impact assessment is done, to check that measures meet the conditions for lawful processing (GN R1383 reg. 4(1)(b)). In 2024 the Regulator ordered WhatsApp to do one. Processing that needs prior authorisation must be notified and paused while the Regulator reviews it, which takes up to four weeks to decide whether to investigate and then up to 13 weeks (s.58).
+    source:
+      - https://inforegulator.org.za/wp-content/uploads/2020/07/20181214-gg42110-rg10897-gon1383-POPIA-Regulations-1.pdf
+      - https://inforegulator.org.za/wp-content/uploads/2025/04/WHATS-APP-ENFORCEMENT-NOTICE.pdf
+      - https://inforegulator.org.za/wp-content/uploads/2025/08/PROTECTION-OF-PERSONAL-INFORMATION-ACT-4-OF-2013.pdf
+  automated_decisions_ai:
+    summary: People may not be subjected to decisions with legal or substantial effects based solely on automated processing that profiles them, such as on work performance, creditworthiness, location, health or conduct (s.71). Exceptions are decisions linked to a contract where the person's request was met or appropriate measures protect them, including a chance to make representations and enough information on the underlying logic, and decisions governed by a law or code with such measures. No AI-specific law is in force, and in June 2026 Cabinet approved withdrawing the draft National AI Policy.
+    source:
+      - https://inforegulator.org.za/wp-content/uploads/2025/08/PROTECTION-OF-PERSONAL-INFORMATION-ACT-4-OF-2013.pdf
+      - https://www.sanews.gov.za/south-africa/cabinet-approves-withdrawal-ai-policy
+  penalties:
+    summary: The Regulator can issue infringement notices with fines of up to R10 million, payable in instalments (s.109; reg. 13); in October 2026 it issued one to First National Bank for R1 million, which FNB may pay or contest in court. Offences such as obstructing the Regulator or ignoring an enforcement notice carry a fine or up to 10 years' prison, others up to 12 months (s.107). People can sue for damages without proving intent or negligence (s.99). Under the CPA, the National Consumer Tribunal can fine up to R1 million or 10% of turnover, whichever is greater (s.112).
+    source:
+      - https://inforegulator.org.za/wp-content/uploads/2025/08/PROTECTION-OF-PERSONAL-INFORMATION-ACT-4-OF-2013.pdf
+      - https://inforegulator.org.za/wp-content/uploads/2025/04/POPIA-2021-Regulations-FINAL-21-Jan-2025.pdf
+      - https://inforegulator.org.za/wp-content/uploads/2026/10/FIRST-NATIONAL-BANK-INFRINGEMENT-NOTICE-211026_Redacted.pdf
+      - https://thencc.org.za/wp-content/uploads/2020/11/Consumer-Protection-Act.pdf
+      - https://thencc.org.za/wp-content/uploads/2026/04/Media-Statement-Ncc-Welcomes-Regulations-To-Curb-Spam-Calls-.pdf
+checked:
+  date: "2026-11-05"
+  status: ai-checked
+history:
+  - date: "2026-11-05"
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

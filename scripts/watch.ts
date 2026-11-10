@@ -111,14 +111,20 @@ async function getOnce(url: string, accept: string, attempt: number): Promise<Re
 // robots.txt, fetched once per host. A missing robots.txt (404) allows everything; an unreadable one blocks nothing
 // either, but a 401 or 403 on robots.txt is read as "no robots allowed", as Google does.
 const robotsCache = new Map<string, string | null>();
-async function allowed(url: string): Promise<boolean> {
+const robotsRefused = new Map<string, number>();
+// Why a page may not be fetched, or undefined when it may.
+async function refusal(url: string): Promise<string | undefined> {
   const { origin } = new URL(url);
   if (!robotsCache.has(origin)) {
     const response = await get(`${origin}/robots.txt`, 'text/plain');
-    robotsCache.set(origin, response.ok ? response.body : response.status === 401 || response.status === 403 ? 'User-agent: *\nDisallow: /' : null);
+    const refused = !response.ok && (response.status === 401 || response.status === 403);
+    if (refused) robotsRefused.set(origin, response.status!);
+    robotsCache.set(origin, response.ok ? response.body : refused ? 'User-agent: *\nDisallow: /' : null);
   }
   const robots = robotsCache.get(origin);
-  return robots ? robotsAllows(robots, url) : true;
+  if (!robots || robotsAllows(robots, url)) return undefined;
+  const status = robotsRefused.get(origin);
+  return status ? `the site refused robots.txt (HTTP ${status}), which counts as asking robots not to fetch` : 'robots.txt asks robots not to fetch this page';
 }
 
 // At least a second between requests to a site, or its Crawl-delay if it asks for more (capped at a minute).
@@ -141,10 +147,8 @@ for (const source of sources) {
   const { url } = source.watch;
   const host = new URL(url).host;
 
-  let error: string | undefined;
-  if (!(await allowed(url))) {
-    error = 'robots.txt asks robots not to fetch this page';
-  } else {
+  let error = await refusal(url);
+  if (!error) {
     const wait = (lastRequest.get(host) ?? 0) + gap(url) - Date.now();
     if (wait > 0 && !fixtures) await new Promise((resolve) => setTimeout(resolve, wait));
     lastRequest.set(host, Date.now());

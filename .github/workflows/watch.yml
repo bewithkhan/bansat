@@ -1,4 +1,4 @@
-# Law Watch (blueprint FR-06): every Monday, check the official feeds and pages the registry watches, and open or
+# Law Watch (blueprint FR-06): every Sunday, check the official feeds and pages the registry watches, and open or
 # update one "possible change" issue per jurisdiction. Failing sources go in one "[watch] Source failing" issue.
 # The weekly verify task reads those issues and prepares the updates; a person reviews and merges every change.
 #
@@ -8,8 +8,9 @@ name: Law Watch
 
 on:
   schedule:
-    # Mondays at 06:23 UTC: off the hour, because scheduled runs are delayed at the start of the hour (NFR-DETECT-01).
-    - cron: '23 6 * * 1'
+    # Sundays at 06:23 UTC: off the hour, because scheduled runs are delayed at the start of the hour, and a day ahead
+    # of the verify task (Mondays 10:47 UTC), because GitHub can start a scheduled run hours late (NFR-DETECT-01).
+    - cron: '23 6 * * 0'
   workflow_dispatch:
 
 # Least privilege (NFR-SEC-01): read the repo, read this workflow's earlier artifacts, write issues.

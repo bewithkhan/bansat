@@ -44,6 +44,10 @@ jobs:
         run: node scripts/validate-laws.test.ts
       - name: Law Watch finds changes and reports failures (offline, from fixtures)
         run: node scripts/watch.test.ts
+      - name: The stack profiles are complete and in shape
+        run: node scripts/check-stacks.ts
+      - name: The stack profile checker catches bad profiles
+        run: node scripts/check-stacks.test.ts
       - name: The verify-task eval scores runs correctly, and every golden case still holds
         run: node scripts/eval-verify.test.ts && node scripts/eval-verify.ts prepare --out "$RUNNER_TEMP/eval"
 
