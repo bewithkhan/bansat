@@ -27,7 +27,13 @@ laws:
     official_url: https://ncc.gov.ng/media/1085/view
     status: in-force
     in_force_from: "2015-05-15"
-    notes: The date is the 2015 Act's commencement. The signed copy in the NCC's compilation shows the President assented to the 2024 amendment on 28 February 2024; its commencement line is blank. Operators of computer systems or networks must report cyber attacks to ngCERT (s.21), and service providers must keep traffic and subscriber data for two years in line with the NDPA (s.38).
+    notes: The date is the 2015 Act's commencement. The signed copy in the NCC's compilation shows the President assented to the 2024 amendment on 28 February 2024; its commencement line is blank. Operators of computer systems or networks must report cyber attacks to the national CERT immediately, through their sector CERT, and failing to within 72 hours of detection is an offence (s.21). Service providers must keep traffic and subscriber data for two years in line with the NDPA (s.38).
+  - name: Digital, Electronic, Online, or Non-Traditional Consumer Lending Regulations 2025
+    citation: Made by the Federal Competition and Consumer Protection Commission (FCCPC) on 21 July 2025 under the Federal Competition and Consumer Protection Act 2018
+    official_url: https://fccpc.gov.ng/wp-content/uploads/2025/08/DIGITAL-CONSUMER-LENDING-2025-LATEST.pdf
+    status: in-force
+    in_force_from: "2025-07-21"
+    notes: Apply to digital and other non-traditional consumer lenders. Lenders must comply with the NDPA and its subsidiary rules (reg. 21), and the registration form asks them to confirm their apps won't access call logs, contacts or photos. The regulations start on publication in the Federal Gazette (reg. 32), but the FCCPC's copy leaves the gazette details blank, so the date is the one the FCCPC announced on 3 September 2025.
   - name: National Digital Economy and E-Governance Bill
     citation: National Digital Economy and E-Governance Bill 2025, before the National Assembly
     official_url: https://fmcide.gov.ng/public-hearing-on-national-digital-economy-and-e-governance-bill-2025-holds-in-abuja/
@@ -44,18 +50,19 @@ obligations:
     source:
       - https://ndpc.gov.ng/wp-content/uploads/2024/03/Nigeria_Data_Protection_Act_2023.pdf
       - https://ndpc.gov.ng/wp-content/uploads/2025/07/NDP-ACT-GAID-2025-MARCH-20TH.pdf
-      - https://ndpc.gov.ng/wp-content/uploads/2026/06/NDPC-Annual-Report-2025-1.pdf
   lawful_bases:
-    summary: Six lawful bases, including consent, contract, legal obligation and legitimate interests (s.25). Legitimate interests fail if they override people's rights or go beyond what they'd reasonably expect, and the GAID requires a legitimate interest assessment first (Art. 26, Schedule 8). The GAID requires consent for direct marketing, sensitive data, incompatible further processing, children's data, transfers to countries without an NDPC adequacy decision and solely automated significant decisions (Art. 18). Consent must be an affirmative act; silence and pre-ticked boxes don't count (s.26).
+    summary: Lawful bases include consent, contract and legitimate interests; the last needs a prior assessment (s.25; GAID Art. 26). Silence or pre-ticked boxes aren't consent (s.26). Without prejudice to the Act, the GAID (in force since 19 September 2025) requires consent for direct marketing, sensitive data, incompatible further processing, children's data, transfers without NDPC adequacy and solely automated significant decisions (Art. 18(1)). Where the Act gives another basis (ss.30, 31(4), 37(2), 41-43), it prevails (Art. 3(2)); as this is untested, get consent where practical and record the basis.
     source:
       - https://ndpc.gov.ng/wp-content/uploads/2024/03/Nigeria_Data_Protection_Act_2023.pdf
       - https://ndpc.gov.ng/wp-content/uploads/2025/07/NDP-ACT-GAID-2025-MARCH-20TH.pdf
+      - https://ndpc.gov.ng/wp-content/uploads/2026/06/NDPC-Annual-Report-2025-1.pdf
   consent_age:
-    summary: A child is anyone under 18, as the Child's Rights Act 2003 defines it (NDPA s.65). To rely on consent for a child's data, get it from a parent or legal guardian (s.31(1)). The Act tells the NDPC to make regulations for children aged 13 and over who ask for online services themselves (s.31(5)), but none are published on its site as of November 2026, so treat everyone under 18 as needing parental consent.
+    summary: A child is anyone under 18, as the Child's Rights Act 2003 defines it (NDPA s.65). To rely on consent for a child's data, get a parent's or legal guardian's (s.31(1)); the GAID requires consent to process a child's data, without prejudice to the Act, so the s.31(4) exceptions still apply (Art. 18(1)(d)). The Act tells the NDPC to make regulations for children aged 13 and over who ask for online services themselves (s.31(5)), but none are published on its site as of November 2026, so treat everyone under 18 as needing parental consent.
     value: 18
     unit: years
     source:
       - https://ndpc.gov.ng/wp-content/uploads/2024/03/Nigeria_Data_Protection_Act_2023.pdf
+      - https://ndpc.gov.ng/wp-content/uploads/2025/07/NDP-ACT-GAID-2025-MARCH-20TH.pdf
       - https://www.nigeriarights.gov.ng/files/childrightact.pdf
       - https://ndpc.gov.ng/resources/
   children:
@@ -75,7 +82,7 @@ obligations:
       - https://ncc.gov.ng/media/1203/view
       - https://consumer.ncc.gov.ng/articles/111-do-not-disturb-dnd-service-in-nigeria
   breach_notice:
-    summary: Tell the NDPC within 72 hours of becoming aware of a breach likely to risk people's rights and freedoms (s.40(2)), for example through its online breach portal. Tell affected people immediately, in plain language, when the risk is high (s.40(3); GAID Art. 33). Processors must tell the controller on becoming aware (s.40(1)). Details can follow in phases, and every breach must be recorded (s.40(8)-(9)). Separately, operators of computer systems must report cyber attacks and intrusions to ngCERT, through their sector CERT, within 72 hours of detection (Cybercrimes Act s.21).
+    summary: Tell the NDPC within 72 hours of becoming aware of a breach likely to risk people's rights and freedoms (s.40(2)), e.g. via its breach portal. Tell affected people immediately, in plain language, when the risk is high (s.40(3)); GAID Art. 33(3) drops that limit. Processors must tell the controller on becoming aware (s.40(1)); record every breach (s.40(8)). System operators must also report cyber attacks to the national CERT immediately (Cybercrimes Act s.21(1)); not doing so within 72 hours of detection is an offence, with a ₦2,000,000 fine and possible loss of internet service (s.21(3)).
     value: 72
     unit: hours
     source:
@@ -86,31 +93,30 @@ obligations:
     secondary:
       - https://aluko-oyebode.com/insights/cybersecurity-incident-reporting-nigeria-2025/
   registration_or_fees:
-    summary: Controllers and processors of major importance must register with the NDPC (s.44). The NDPC designates those operating in Nigeria (targeting counts) that process data of over 200 people in six months or work in listed sectors such as finance, health and e-commerce. Ultra-High pays ₦250,000 (over 5,000 people, or any fintech or public social media or email app), Extra-High ₦100,000 (1,000 to 5,000) and Ordinary-High ₦10,000 (200 to 1,000). Ultra- and Extra-High register once, then file a yearly audit return via a licensed DPCO (₦100,000 to ₦1,000,000); Ordinary-High renews yearly.
+    summary: Register with the NDPC if you're of major importance (s.44), i.e. you keep a filing system and process over 200 people's data in 6 months, run commercial ICT services on others' devices able to store personal data, or are in a listed sector, e.g. health (GAID Sch. 7). Ultra-High pays ₦250,000 (fintechs, other listed types or over 5,000 people) plus ₦5,000 yearly per processor; Extra-High ₦100,000; Ordinary-High ₦10,000 yearly. The first two file a yearly audit return via a DPCO (₦100,000-₦1,000,000) by 31 March, or within 15 months if founded after 12 June 2023; late filing adds 50% (Art. 10).
     source:
       - https://ndpc.gov.ng/wp-content/uploads/2024/03/Nigeria_Data_Protection_Act_2023.pdf
       - https://ndpc.gov.ng/wp-content/uploads/2025/07/NDP-ACT-GAID-2025-MARCH-20TH.pdf
       - https://ndpc.gov.ng/wp-content/uploads/2025/07/Updated-Guidance-Notice-on-Registtration-2024.pdf
       - https://ndpc.gov.ng/faqs/
   dpo:
-    summary: Controllers of major importance must designate a data protection officer with expert knowledge of data protection law (s.32), and the GAID extends this to processors of major importance (Art. 7(i)). The DPO can be staff or contracted, reports to management, can't be penalised for doing the job and compiles a semi-annual report (Art. 12-13). Publish the DPO's contact details and send them to the NDPC (Art. 11(2)). The NDPC verifies DPOs' credentials each year; since June 2026 a DPO needs at least 20 CPD points a year to stay verified.
+    summary: Controllers of major importance must designate a data protection officer with expert knowledge of data protection law (s.32), and the GAID extends this to processors of major importance (Art. 7(i)). The DPO can be staff or contracted (s.32(2); GAID Art. 11(1)), reports to management, can't be penalised for doing the job (Art. 12) and compiles a semi-annual report (Art. 13). Publish the DPO's contact details and send them to the NDPC (Art. 11(2)). The NDPC verifies DPOs' credentials each year; since June 2026 a DPO needs at least 20 CPD points a year to stay verified.
     source:
       - https://ndpc.gov.ng/wp-content/uploads/2024/03/Nigeria_Data_Protection_Act_2023.pdf
       - https://ndpc.gov.ng/wp-content/uploads/2025/07/NDP-ACT-GAID-2025-MARCH-20TH.pdf
       - https://ndpc.gov.ng/wp-content/uploads/2026/06/Guidance-Notice-on-CPD-for-Data-Protection-Officers.pdf
   transfers:
-    summary: Send personal data abroad only to a recipient bound by a law, binding corporate rules, contractual clauses, code of conduct or certification giving adequate protection, or on a s.43 ground such as informed consent to the risks, contract necessity or legal claims (ss.41-43). Record the basis and your adequacy assessment (s.41(2)). The GAID recognises NDPC adequacy decisions and NDPC-approved transfer instruments (Art. 45, Schedule 5), and the NDPC's FAQ says to get an instrument approved before transferring. A DPIA is mandatory for cross-border transfers (Art. 28(3)(o)).
+    summary: Send personal data abroad only to a recipient bound by a law, binding corporate rules, contractual clauses, code of conduct or certification giving adequate protection, or on a s.43 ground such as informed consent to the risks, contract necessity or legal claims; record the basis and adequacy (ss.41-43). The GAID makes Part VIII of the Act govern (Art. 45(1)) and recognises NDPC adequacy decisions, NDPC-approved transfer instruments and the Act's other bases (Schedule 5); its consent rule for countries without adequacy (Art. 18(1)(e)) yields to the Act. Transfers need a DPIA (Art. 28(3)(o)).
     source:
       - https://ndpc.gov.ng/wp-content/uploads/2024/03/Nigeria_Data_Protection_Act_2023.pdf
       - https://ndpc.gov.ng/wp-content/uploads/2025/07/NDP-ACT-GAID-2025-MARCH-20TH.pdf
-      - https://ndpc.gov.ng/faqs/
   dpia:
-    summary: Do a data privacy impact assessment before processing likely to be high risk, and consult the NDPC if high risk remains (s.28). Under the GAID a DPIA is mandatory, filed with the NDPC before processing starts and signed by an NDPC-accredited DPO, for profiling, automated decisions, systematic monitoring, sensitive data, vulnerable people, new technologies, software or apps that track or communicate with people, digital financial services, health, e-commerce, education, hospitality, public CCTV and cross-border transfers (Art. 28, 31). Its outcome goes in the audit return.
+    summary: Do a DPIA before likely high-risk processing; consult the NDPC if risk stays high (s.28). The GAID requires one, signed by an accredited DPO and filed before processing, for profiling, automated decisions, monitoring, sensitive data, vulnerable people, new tech, finance, health, e-commerce, education, hospitality, public CCTV and transfers (Art. 28). Apps and other software that track or talk to people need one first, privacy by design, app-store security rules, an in-app privacy policy and a pre-install notice of data, purpose, security, DPIA, support, uninstalling and complaints (Art. 31).
     source:
       - https://ndpc.gov.ng/wp-content/uploads/2024/03/Nigeria_Data_Protection_Act_2023.pdf
       - https://ndpc.gov.ng/wp-content/uploads/2025/07/NDP-ACT-GAID-2025-MARCH-20TH.pdf
   automated_decisions_ai:
-    summary: People can refuse decisions based solely on automated processing, including profiling, with legal or similarly significant effects, unless needed for a contract, authorised by a written law with safeguards, or based on consent; offer human intervention, a chance to be heard and a way to contest (s.37). The GAID asks for consent first (Art. 18(1)(f)). Before deploying AI or other emerging technologies, do a DPIA covering disparate outcomes, consider testing in a low-risk environment and monitor continuously (Art. 43). No AI law yet; a bill with AI rules is pending.
+    summary: People can refuse decisions based solely on automated processing, including profiling, with legal or similarly significant effects, unless needed for a contract, authorised by a written law with safeguards, or based on consent; offer human intervention, a hearing and a way to contest (s.37). The GAID asks for consent before such decisions, without prejudice to s.37(2) (Art. 18(1)(f)). Before deploying AI or other emerging technologies, do a DPIA covering disparate outcomes, consider low-risk testing and monitor continuously (Art. 43). No AI law yet; a bill with AI rules is pending.
     source:
       - https://ndpc.gov.ng/wp-content/uploads/2024/03/Nigeria_Data_Protection_Act_2023.pdf
       - https://ndpc.gov.ng/wp-content/uploads/2025/07/NDP-ACT-GAID-2025-MARCH-20TH.pdf
@@ -127,4 +133,4 @@ checked:
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

@@ -9,13 +9,24 @@ laws:
     official_url: https://libraryir.parliament.go.ke/items/e6af0768-bf1c-4ebc-a2f3-8bffaeba1832
     status: in-force
     in_force_from: "2019-11-25"
-    notes: Assented to on 8 November 2019. The commencement date is printed in the Kenya Law edition of the Act, which Parliament's library holds as Annex 3 of the ministry's bundle tabling the 2021 regulations. No amendment to the Act was found.
+    notes: Assented to on 8 November 2019. The commencement date is printed in the Kenya Law edition of the Act, which Parliament's library holds as Annex 3 of the ministry's bundle tabling the 2021 regulations (scan pages 95-99). No amending Act was found; Kenya Law lists a revised edition of 31 December 2022 that couldn't be opened.
   - name: Data Protection Regulations 2021 (General; Registration of Data Controllers and Data Processors; Complaints Handling Procedure and Enforcement)
     citation: Legal Notices No. 263, 265 and 264 of 2021 (Kenya Gazette Supplement No. 236, 31 December 2021)
     official_url: https://libraryir.parliament.go.ke/items/e6af0768-bf1c-4ebc-a2f3-8bffaeba1832
     status: in-force
     in_force_from: "2021-12-31"
-    notes: The date is the gazette's publication date, used because the General and Complaints regulations set no start date of their own. The registration duty applies six months after publication (LN 265 reg. 1(2)); its exact start date wasn't confirmed from an official source. The General Regulations don't apply to civil registration entities, which have their own 2020 regulations.
+    notes: The date is the gazette's publication date, used because the General and Complaints regulations set no start date of their own. The Registration Regulations (LN 265) take effect six months after publication (reg. 1(2)); that exact date wasn't confirmed officially. In the bundle scan, LN 263 is on pages 21-65, LN 264 on 65-80 and LN 265 on 81-93. The General Regulations don't apply to civil registration entities, which have their own 2020 regulations.
+  - name: Digital Health (Health Information Management Procedures) Regulations 2025
+    citation: Legal Notice No. 76 of 2025 (Kenya Gazette Supplement No. 56, 11 April 2025), under the Digital Health Act 2023 (No. 15 of 2023)
+    official_url: https://libraryir.parliament.go.ke/items/e459ef51-6fce-45e2-9266-d4cb376d8e45
+    status: in-force
+    in_force_from: "2025-04-11"
+    notes: Made by the Health Cabinet Secretary on 9 April 2025. They have no commencement clause, so the date is derived; it's the Gazette publication date. They cover health data controllers and processors and digital health solutions such as e-health, mHealth and telemedicine; providers already operating had six months from commencement to apply for certification (reg. 45). The Digital Health Act itself couldn't be opened from an official source.
+  - name: Artificial Intelligence Bill 2026
+    citation: Senate Bills No. 4 of 2026
+    official_url: https://libraryir.parliament.go.ke/items/0cd6f06a-4b5e-4754-9123-7503c03ad4d3
+    status: draft
+    notes: A private member's bill, introduced in the Senate on 2 April 2026 and listed for Second Reading on 11 June 2026. The Senate's ICT committee has recommended that the Senate not proceed with it. Pending, not law.
 regulators:
   - name: Office of the Data Protection Commissioner (ODPC)
     url: https://www.odpc.go.ke/
@@ -47,28 +58,31 @@ obligations:
     source:
       - https://libraryir.parliament.go.ke/items/e6af0768-bf1c-4ebc-a2f3-8bffaeba1832
   marketing:
-    summary: Commercial use of personal data, including direct marketing, needs express consent or legal authority (s.37). Market only with data you collected, after telling people it's a purpose and getting consent, with a free, simple opt-out in every message, including from all marketing (regs. 15-17). Stop third-party marketing within 7 days of a request (reg. 18). Telecom rules require prior consent for marketing by email, fax or automated calls (2010 regulations, reg. 17), and the Authority's guidelines allow SMS marketing only on opt-in, from 7 a.m. to 7 p.m. unless the customer agrees otherwise.
+    summary: Commercial use of personal data, including direct marketing, needs express consent or legal authority (s.37); without consent it's an offence (KES 20,000 or six months, reg. 15(4)). Say marketing is a purpose, offer a free, simple opt-out in each message, and stop third-party marketing within 7 days of a request (regs. 15-18). Telecom rules require prior consent for email, fax or automated-call marketing, except email to customers about similar products with an opt-out (2010 regulations, reg. 17). CA guidelines allow SMS marketing only on opt-in, 7 a.m. to 7 p.m. unless agreed otherwise.
     source:
       - https://libraryir.parliament.go.ke/items/e6af0768-bf1c-4ebc-a2f3-8bffaeba1832
       - https://www.ca.go.ke/sites/default/files/2023-06/Consumer-Protection-Regulations-2010-1.pdf
       - https://www.ca.go.ke/sites/default/files/2025-03/Consumer%20Protection%20Guidelines%20and%20Customer%20Care%20Standards%202025.pdf
   breach_notice:
-    summary: Where personal data has been accessed or acquired by an unauthorised person and there's a real risk of harm, notify the Data Commissioner without delay and within 72 hours of becoming aware, giving reasons if later (s.43). A real risk of harm exists, for example, when a name or ID number leaks with financial or health details, or an account name with its password (reg. 37). Tell affected people in writing within a reasonably practical period, unless safeguards such as encryption protect the data. Processors must tell the controller within 48 hours where practicable.
+    summary: Notify the Data Commissioner without delay, within 72 hours of learning of unauthorised access to personal data with a real risk of harm (s.43; examples in reg. 37). Tell affected people in writing within a reasonable time unless, say, encryption protects the data; processors must tell the controller within 48 hours where practicable. Digital health solutions report health data breaches to the Digital Health Agency within 48 hours, then corrective steps within 72 hours (LN 76 reg. 11). System operators report cyber attacks to NC4 within 24 hours (Computer Misuse and Cybercrimes Act s.40(4)).
     value: 72
     unit: hours
     source:
       - https://libraryir.parliament.go.ke/items/e6af0768-bf1c-4ebc-a2f3-8bffaeba1832
+      - https://libraryir.parliament.go.ke/bitstreams/6aa4f05c-662b-4ea2-96fc-a8d2ae40f4df/download
+      - https://odpp.go.ke/wp-content/uploads/2026/09/Rapid-Reference-Guide-on-Investigation-and-Prosecution-of-Offences-under-the-Computer-Misuse-and-Cybercrimes-Act-Cap-79C.pdf
   registration_or_fees:
-    summary: Controllers and processors must register with the ODPC online (s.18). You're exempt if annual turnover or revenue is below KES 5 million and you have fewer than 10 employees, unless you process data for listed purposes such as health care, education, financial services, telecoms, direct marketing, transport (including ride-hailing apps), hospitality, gambling, CCTV or genetic data (reg. 13, Third Schedule). Certificates last 24 months. Registration fees are KES 4,000 (micro and small), 16,000 (medium) or 40,000 (large), with renewals at KES 2,000, 9,000 or 25,000 (Second Schedule).
+    summary: Register with the ODPC online (s.18) unless turnover is under KES 5 million, staff fewer than 10 and you don't process for listed purposes such as health, education, finance, telecoms, direct marketing or ride-hailing (reg. 13, Third Schedule). Certificates last 24 months; fees are KES 4,000 to 40,000 by size, renewals KES 2,000 to 25,000. Health data handlers must tell the Digital Health Agency within 7 days of registering, and digital health solutions such as mHealth and telemedicine apps need Agency certification (KES 20,000 to apply; testing KES 50,000 or 250,000) (LN 76 regs 4, 36-38).
     source:
       - https://libraryir.parliament.go.ke/items/e6af0768-bf1c-4ebc-a2f3-8bffaeba1832
       - https://dataportal.odpc.go.ke/
+      - https://libraryir.parliament.go.ke/bitstreams/6aa4f05c-662b-4ea2-96fc-a8d2ae40f4df/download
   dpo:
     summary: The Act lets, rather than requires, controllers and processors appoint a data protection officer, for example where core activities involve regular and systematic monitoring or sensitive data (s.24). The officer can be staff with other duties if there's no conflict, a group can share one, and they need relevant qualifications. If you appoint one, publish their contact details on your website and send them to the Data Commissioner. The DPO advises on the law, monitors compliance, trains staff, advises on DPIAs and works with the regulator.
     source:
       - https://libraryir.parliament.go.ke/items/e6af0768-bf1c-4ebc-a2f3-8bffaeba1832
   transfers:
-    summary: Transfer personal data abroad only with proof to the Data Commissioner of appropriate safeguards, under an adequacy decision, when strictly necessary (such as for a contract), or with explicit consent after being told of the risks (s.48; regs. 40-46). Malabo Convention ratification, a reciprocal agreement with Kenya or binding corporate rules count as safeguards; document each transfer (reg. 41). Sensitive data needs consent and safeguards (s.49). Data for primary or secondary health care, basic education and other state purposes must be processed or copied in Kenya (reg. 26).
+    summary: Transfer personal data abroad only with proof to the Data Commissioner of appropriate safeguards, under an adequacy decision, when strictly necessary (such as for a contract), or with explicit consent after being told of the risks (s.48; regs. 40-46). Malabo Convention ratification, a reciprocal agreement with Kenya or binding corporate rules count as safeguards (reg. 42); document each transfer (reg. 41). Sensitive data needs consent and safeguards (s.49). Data for primary or secondary health care, basic education and other state purposes must be processed or copied in Kenya (reg. 26).
     source:
       - https://libraryir.parliament.go.ke/items/e6af0768-bf1c-4ebc-a2f3-8bffaeba1832
   dpia:
@@ -78,11 +92,11 @@ obligations:
     source:
       - https://libraryir.parliament.go.ke/items/e6af0768-bf1c-4ebc-a2f3-8bffaeba1832
   automated_decisions_ai:
-    summary: People have the right not to be subject to decisions based solely on automated processing, including profiling, with legal or significant effects, unless the decision is needed for a contract, authorised by a law with safeguards, or based on consent (s.35). Tell the person in writing as soon as reasonably practicable; they can ask you to reconsider or to decide again with human involvement. Explain the logic and consequences, prevent errors and bias, and allow human intervention (reg. 22). No AI-specific law is in force.
+    summary: People have the right not to be subject to decisions based solely on automated processing, including profiling, with legal or significant effects, unless the decision is needed for a contract, authorised by a law with safeguards, or based on consent (s.35). Tell the person in writing promptly; they can ask for reconsideration or a new decision with human involvement. Explain the logic and consequences, prevent errors and bias, and allow human intervention (reg. 22). No AI-specific law is in force; an AI bill is pending, though the Senate ICT committee recommended not proceeding with it.
     source:
       - https://libraryir.parliament.go.ke/items/e6af0768-bf1c-4ebc-a2f3-8bffaeba1832
-    secondary:
-      - https://www.wansom.ai/briefly/reports/africa-ai-data-protection-regulation-report-october-2026-2026-10-22
+      - https://parliament.go.ke/sites/default/files/2026-06/Order%20Paper%20-%20Thursday%2011.06.2026_0.pdf
+      - https://libraryir.parliament.go.ke/items/5cb81417-105f-4e1a-9239-6afa0bfeeef7
   penalties:
     summary: The Data Commissioner can issue a penalty notice for each breach, with an administrative fine of up to KES 5 million or, for an undertaking, 1% of the previous year's annual turnover, whichever is lower (ss.62-63), plus a daily fine of up to KES 10,000 until the breach is fixed (LN 264 reg. 20). Appeals go to the High Court (s.64). People can claim compensation for damage (s.65). Offences without a set penalty carry a fine of up to KES 3 million, up to 10 years' imprisonment, or both (s.73), including processing without registration (LN 265 reg. 18).
     source:
@@ -92,4 +106,4 @@ checked:
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

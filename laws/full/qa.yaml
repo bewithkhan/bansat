@@ -11,7 +11,7 @@ laws:
     official_url: https://almeezan.qa/legislations/law/2016/13/general
     status: in-force
     in_force_from: "2017-01-29"
-    notes: Derived date. The law sets no start date, so under Art. 142 of the Constitution it applied one month after its gazette publication on 29 December 2016. Those covered had six months to comply (Art. 30), and Cabinet Decision No. 1 of 2018 added six months from 29 July 2017. Al Meezan lists no amendments. The National Cyber Security Agency (NCSA) applies it and publishes guidelines on it.
+    notes: Derived date. The law sets no start date, so under Art. 142 of the Constitution it applied one month after its gazette publication on 29 December 2016. Those covered had six months to comply (Art. 30), and Cabinet Decision No. 1 of 2018 added six months from 29 July 2017. Al Meezan lists no amendments. NCSA guidelines say its National Cyber Governance and Assurance Affairs is the Competent Department that enforces the law (Amiri Decree No. 1 of 2021).
   - name: QFC Data Protection Regulations 2021
     citation: Data Protection Regulations 2021 of the Qatar Financial Centre, Version 3 (December 2023), with the Data Protection Rules 2021
     official_url: https://www.qfc.qa/en/operate/data-protection/
@@ -23,25 +23,25 @@ laws:
     official_url: https://almeezan.qa/legislations/law/2014/14/general
     status: in-force
     in_force_from: "2014-11-02"
-    notes: Derived date, one month after publication under Art. 142 of the Constitution (Al Meezan lists 2 October 2014). Service providers, including anyone who processes or stores information for users, must keep subscriber information for one year and preserve data for 90 days on request (Art. 21). Law No. 11 of 2025 added Art. 8 bis, punishing publication of photos or videos of people in public places without their knowledge or consent.
-  - name: Proposed law on the digital protection of children
-    citation: Draft law proposal by members of the Shura Council (2026)
-    official_url: https://www.shura.qa/en/Pages/MediaCenter/News/02062026-2
+    notes: "Derived dates, one month after gazette publication under Art. 142 of the Constitution, as neither law sets a start date (Al Meezan's date fields differ). Service providers must keep subscriber information for one year and preserve data for 90 days on request (Art. 21), or face a fine of up to QAR 500,000 (Art. 47). Law No. 11 of 2025, in force 4 September 2025 (derived), added Art. 8 bis: publishing photos or videos of people in public places without their knowledge or consent carries up to one year in prison, a fine of up to QAR 100,000, or both."
+  - name: Draft law on the digital protection of children
+    citation: Government draft law approved by the Cabinet on 14 October 2026, after a Shura Council members' proposal (2026)
+    official_url: https://qna.org.qa/en/News-Area/News/2026-10/14/qatar-cabinet-urges-ministries-to-implement-hh-the-amirs-vision-approves-draft-child-protection-laws
     status: draft
-    notes: Pending, not law. Members proposed it; on 18 May 2026 the Shura Council sent it to its Health, General Services and Environment Committee, which finished its report on 2 June 2026.
+    notes: Pending, not law. Shura members proposed it; on 18 May 2026 the Council sent it to its Health, General Services and Environment Committee, which finished its report on 2 June. On 17 June the Cabinet reviewed the proposal, which would regulate under-16s' use of digital platforms, and sent it for study. On 14 October 2026 the Cabinet approved a draft law on children's digital protection after a study by its General Secretariat. It isn't law until issued and published.
   - name: No AI-specific law yet
     citation: None adopted. The Shura Council referred a motion on AI governance to committee on 27 April 2026
     official_url: https://www.shura.qa/en/Pages/MediaCenter/News/27042026
     status: none
     notes: Qatar has no AI law. On 27 April 2026 the Shura Council debated AI governance and sent the motion to a committee for study. Law No. 13 of 2016 covers personal data used in AI systems.
 regulators:
-  - name: National Cyber Security Agency (NCSA), Personal Data Privacy Protection Department
+  - name: National Cyber Security Agency (NCSA)
     url: https://ncsa.gov.qa/en/pages/personal-data-privacy-protection-department
   - name: QFC Data Protection Office, for the Qatar Financial Centre
     url: https://www.qfc.qa/en/operate/data-protection/
 obligations:
   scope:
-    summary: Law No. 13 of 2016 covers personal data processed electronically, collected for electronic processing, or processed by mixed electronic and manual means (Art. 2). It excludes personal or family processing and official statistics. The NCSA acts as the competent authority. Firms incorporated or registered in the Qatar Financial Centre follow the QFC Data Protection Regulations and the QFC Data Protection Office instead; those regulations also reach outside firms that process through a QFC firm on an ongoing basis, for that processing.
+    summary: Law No. 13 of 2016 covers personal data processed electronically, collected for electronic processing, or processed by mixed electronic and manual means (Art. 2). It excludes personal or family processing and official statistics. The NCSA acts as the law's Competent Department. Firms incorporated or registered in the Qatar Financial Centre follow the QFC Data Protection Regulations and the QFC Data Protection Office instead; those regulations also reach outside firms that process through a QFC firm on an ongoing basis, for that processing.
     source:
       - https://files.almeezan.gov.qa/almeezan/80d3dd1d-f61a-4fcc-8e55-48305f2ac6ec.pdf
       - https://ncsa.gov.qa/shared/document_library/94787172324409/33000/2895/1.0~9c456709-128e-4095-9fc4-d0829aad9fc4?mimetype=application/pdf&filename=Law.pdf
@@ -60,35 +60,39 @@ obligations:
       - https://ncsa.gov.qa/shared/document_library/94787172324409/33000/2921/1.0~d41319d9-a0d8-49c9-940c-9b76b07caecc?mimetype=application/pdf&filename=PN.pdf
       - https://www.qfc.qa/media/xp3pqif3/qfc_data_protection_regulations_and_rules_2021_guidance_-_v31.pdf
   children:
-    summary: Children's data is data of a special nature, which needs an NCSA permit (Art. 16). Operators of websites aimed at children must post a notice on how children's data is used and disclosed, get the guardian's explicit consent, give the guardian a description and copy of the data on request, delete it or stop processing when the guardian asks, and not make a child's game or contest entry depend on more data than needed (Art. 17). Fines reach QAR 5,000,000. A proposed children's digital protection law is pending.
+    summary: Children's data is data of a special nature, which needs an NCSA permit (Art. 16). Operators of websites aimed at children must post a notice on how children's data is used and disclosed, get the guardian's explicit consent, give the guardian a description and copy of the data on request, delete it or stop processing when the guardian asks, and not make a child's game or contest entry depend on more data than needed (Art. 17). Fines reach QAR 5,000,000. The Cabinet approved a draft children's digital protection law in October 2026; it's pending. In the QFC, a child is under 18.
     source:
       - https://files.almeezan.gov.qa/almeezan/80d3dd1d-f61a-4fcc-8e55-48305f2ac6ec.pdf
       - https://ncsa.gov.qa/shared/document_library/94787172324409/33000/2923/1.0~5c715dfb-d7e1-415d-9a52-ce088168c29c?mimetype=application/pdf&filename=Specia.pdf
       - https://ncsa.gov.qa/shared/document_library/94787172324409/33000/2921/1.0~d41319d9-a0d8-49c9-940c-9b76b07caecc?mimetype=application/pdf&filename=PN.pdf
-      - https://www.shura.qa/en/Pages/MediaCenter/News/02062026-2
+      - https://qna.org.qa/en/News-Area/News/2026-10/14/qatar-cabinet-urges-ministries-to-implement-hh-the-amirs-vision-approves-draft-child-protection-laws
+      - https://www.shura.qa/en/Pages/MediaCenter/News/18052026
+      - https://www.qfc.qa/media/xp3pqif3/qfc_data_protection_regulations_and_rules_2021_guidance_-_v31.pdf
   cookies:
-    summary: No cookie-specific rule. The NCSA's direct marketing guideline says cookies used to target advertising, and other cookies not needed for a site or app to work, may be set only after the user opts in, for example by clicking accept. A short notice that relies on implied consent or lets users opt out isn't enough.
+    summary: No cookie-specific rule. The NCSA's direct marketing guideline says cookies used to target advertising, which aren't needed for a site or app to work, may be set only after the user opts in, for example by clicking accept. A short notice that relies on implied consent or lets users opt out isn't enough for them.
     source:
       - https://ncsa.gov.qa/shared/document_library/94787172324409/33000/2910/1.0~02be78e3-91cf-46ed-940d-89f30640e96a?mimetype=application/pdf&filename=Electronic.pdf
   marketing:
-    summary: Electronic communications for direct marketing need the individual's prior consent (Art. 22). Each message must identify who sent it, say it's for direct marketing and give a valid address for stopping messages or withdrawing consent. NCSA guidance expects explicit opt-in consent without pre-ticked boxes, easy withdrawal, no bought contact lists, and care when third parties send on your behalf. Breaches carry a fine of up to QAR 1,000,000 (Art. 23).
+    summary: Electronic communications for direct marketing need the individual's prior consent (Art. 22). Each message must identify who sent it, say it's for direct marketing and give a valid address for stopping messages or withdrawing consent. NCSA guidance expects explicit opt-in consent without pre-ticked boxes, easy withdrawal, no bought contact lists, and care when third parties send on your behalf. Breaches carry a fine of up to QAR 1,000,000 (Art. 23). In the QFC, people can object to direct marketing at any time, and it must then stop (Art. 19(3)).
     source:
       - https://files.almeezan.gov.qa/almeezan/80d3dd1d-f61a-4fcc-8e55-48305f2ac6ec.pdf
       - https://ncsa.gov.qa/shared/document_library/94787172324409/33000/2895/1.0~9c456709-128e-4095-9fc4-d0829aad9fc4?mimetype=application/pdf&filename=Law.pdf
       - https://ncsa.gov.qa/shared/document_library/94787172324409/33000/2910/1.0~02be78e3-91cf-46ed-940d-89f30640e96a?mimetype=application/pdf&filename=Electronic.pdf
+      - https://www.qfc.qa/media/xp3pqif3/qfc_data_protection_regulations_and_rules_2021_guidance_-_v31.pdf
   breach_notice:
-    summary: Processors must tell the controller of any breach or risk to personal data as soon as they know (Art. 13). Controllers must inform the NCSA and the individual of a breach that could cause serious damage to the data or to privacy (Art. 14). The law sets no deadline; NCSA guidelines expect notice within 72 hours of becoming aware, using its breach form. In the QFC, notify the Data Protection Office without undue delay and, where feasible, within 72 hours, unless risk to people is unlikely (Art. 31).
+    summary: Processors must tell the controller of any breach or risk to personal data as soon as they know (Art. 13). Controllers must inform the NCSA and the individual of a breach that could cause serious damage to the data or to privacy (Art. 14). The law sets no deadline; NCSA guidelines expect notice to the NCSA and to individuals within 72 hours of becoming aware, using its breach form. In the QFC, notify the Data Protection Office without undue delay and, where feasible, within 72 hours, unless risk to people is unlikely (Art. 31).
     source:
       - https://files.almeezan.gov.qa/almeezan/80d3dd1d-f61a-4fcc-8e55-48305f2ac6ec.pdf
       - https://ncsa.gov.qa/shared/document_library/94787172324409/33000/2919/1.0~87ad685f-7efe-476e-89f3-d2ae1cfed459?mimetype=application/pdf&filename=NO.pdf
       - https://ncsa.gov.qa/en/pages/personal-data-breach-notification
       - https://www.qfc.qa/media/xp3pqif3/qfc_data_protection_regulations_and_rules_2021_guidance_-_v31.pdf
   registration_or_fees:
-    summary: No general registration or fee. Processing data of a special nature, meaning data on ethnic origin, children, health or physical or mental condition, religious beliefs, marital relations or criminal offences, needs a prior NCSA permit (Art. 16). The NCSA asks for its request form, a DPIA, and both a permitted reason and an extra condition for the processing. Any change to the processing needs an updated permit.
+    summary: No general registration or fee. Processing data of a special nature, meaning data on ethnic origin, children, health or physical or mental condition, religious beliefs, marital relations or criminal offences, needs a prior NCSA permit (Art. 16). The NCSA asks for its request form, a DPIA, and both a permitted reason and an extra condition for the processing. Any change to the processing needs an updated permit. In the QFC, sensitive data can also be processed under a Data Protection Office permit, with adequate safeguards (Art. 12(2)).
     source:
       - https://files.almeezan.gov.qa/almeezan/80d3dd1d-f61a-4fcc-8e55-48305f2ac6ec.pdf
       - https://ncsa.gov.qa/shared/document_library/94787172324409/33000/2923/1.0~5c715dfb-d7e1-415d-9a52-ce088168c29c?mimetype=application/pdf&filename=Specia.pdf
       - https://ncsa.gov.qa/en/pages/special-nature-permissions-request
+      - https://www.qfc.qa/media/xp3pqif3/qfc_data_protection_regulations_and_rules_2021_guidance_-_v31.pdf
   dpo:
     summary: Law No. 13 of 2016 doesn't require a data protection officer. Controllers must identify those responsible for protecting personal data and train them, set up systems for complaints and for access, correction and deletion requests, report breaches of their safeguards, and audit their own compliance (Art. 11). NCSA guidelines say breach notices must name the controller's main person responsible for privacy matters.
     source:
@@ -102,11 +106,12 @@ obligations:
       - https://ncsa.gov.qa/shared/document_library/94787172324409/33000/2907/1.0~430cd493-79f0-49cb-8286-5898a16fa1d3?mimetype=application/pdf&filename=S.pdf
       - https://www.qfc.qa/media/xp3pqif3/qfc_data_protection_regulations_and_rules_2021_guidance_-_v31.pdf
   dpia:
-    summary: Controllers must review their privacy protection measures before new processing (Art. 11). The NCSA's guideline reads this as a duty to carry out a data privacy impact assessment before new processing or a significant change, especially where processing may cause serious damage, such as cross-border transfers, special nature data, tracking, automated decisions or marketing to children. It provides a template. Record why when you decide an assessment isn't needed.
+    summary: Controllers must review their privacy protection measures before new processing (Art. 11). The NCSA's guideline reads this as a duty to carry out a data privacy impact assessment before new processing or a significant change, especially where it may cause serious damage, such as transfers abroad, special nature data, tracking, automated decisions or marketing to children, and gives a template. In the QFC, a DPIA is required before high-risk processing, such as significant automated decisions, large-scale sensitive data or large-scale monitoring of public areas (Art. 27).
     source:
       - https://files.almeezan.gov.qa/almeezan/80d3dd1d-f61a-4fcc-8e55-48305f2ac6ec.pdf
       - https://ncsa.gov.qa/shared/document_library/94787172324409/33000/2907/1.0~430cd493-79f0-49cb-8286-5898a16fa1d3?mimetype=application/pdf&filename=S.pdf
       - https://ncsa.gov.qa/en/pages/guidance-hub-for-regulated-entities
+      - https://www.qfc.qa/media/xp3pqif3/qfc_data_protection_regulations_and_rules_2021_guidance_-_v31.pdf
   automated_decisions_ai:
     summary: The law has no rule on automated decisions. The NCSA's individuals' rights guideline says people can object to decisions based solely on automated processing that may be discriminatory, and controllers should then add human review and change the decision where appropriate. In the QFC, people can refuse solely automated decisions with legal or similarly significant effects, unless needed for a contract, required by law or explicitly consented to (Art. 22). Qatar has no AI law.
     source:
@@ -125,4 +130,4 @@ checked:
   status: ai-checked
 history:
   - date: "2026-11-05"
-    summary: First entry, checked against official sources with AI assistance.
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
