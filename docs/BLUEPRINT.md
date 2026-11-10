@@ -27,6 +27,7 @@
 | 0.5 | 2026-11-05 | Muhammad Tufail Khan | Scope added, decided by the owner on 2026-11-05: a breach casebook in the framework, on the site and in the README (FR-21), and a research paper on the whole of Bansat with an experiment, whose harness and results are published (FR-22). New phase 1d and research workstream R (Part 11), BR-10, Decisions 9 and 10 |
 | 0.6 | 2026-11-05 | Muhammad Tufail Khan | Law Watch's state moves from git to a workflow artifact, so the watch never commits and every commit stays yours; its token adds `actions: read` (NFR-SEC-01). The FR-06 scenario now uses the legislation.gov.uk changes feed, because the ICO's site refuses automated requests (A-05). |
 | 0.7 | 2026-11-10 | Muhammad Tufail Khan | Launch, decided by the owner on 2026-11-10: Phases 2–5 closed for v3.0.0, with the remaining basic entries (Phase 2) and Asia-Pacific watch sources (Phase 4) moved to future work (Part 11); Part 13 checked, including a new keyboard-only test; v3.0.0 released; Phase 7 started |
+| 0.8 | 2026-11-10 | Muhammad Tufail Khan | v3.1.0, asked for by the owner: twelve more launch traps (9.26, now 29), added to the README and the paper |
 
 **Gate approvals**
 

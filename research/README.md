@@ -169,7 +169,7 @@ first, so it never hides a failure.
 
 **What the checks can't see.** Whether RLS policies are *correct* for each tenant and role (that needs the isolation
 tests in 5.4 against a database); runtime behaviour beyond the pages the crawler reaches before signing in; anything
-configured outside the repository, in a dashboard or a tag manager. Five of the 17 launch traps have no check:
+configured outside the repository, in a dashboard or a tag manager. Five of the 17 launch traps in v3.0.0, the version condition B uses, have no check (v3.1.0 added traps 18–29, which the experiment doesn't test):
 10 (personal data in logs, which needs the running app's logs), 13 (real data in staging, an environment question),
 15 (ICO fee and NDPC registration) and 16 (a breach plan), which are organisational and would only reward documents,
 and 17 (dates of birth kept "just in case"), where a column is only a defect if no feature needs it.

@@ -34,6 +34,9 @@ Check these sources again before each launch; guidance changes.
 - RFC 8058 (one-click unsubscribe): https://www.rfc-editor.org/rfc/rfc8058 · RFC 9457 (Problem Details): https://www.rfc-editor.org/rfc/rfc9457 · RFC 9116 (security.txt): https://www.rfc-editor.org/rfc/rfc9116
 - Gmail sender guidelines: https://support.google.com/a/answer/81126
 - OWASP Top 10 for Agentic Applications (2026): https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/
+- OWASP LLM10:2025 Unbounded Consumption: https://genai.owasp.org/llmrisk/llm102025-unbounded-consumption/ · CVE-2025-29927 (Next.js middleware authorisation bypass): https://github.com/advisories?query=CVE-2025-29927
+- Illinois Biometric Information Privacy Act, s.15: https://www.ilga.gov/Documents/legislation/ilcs/documents/074000140K15.htm · Washington My Health My Data Act, RCW 19.373.030: https://app.leg.wa.gov/RCW/default.aspx?cite=19.373.030
+- Directive (EU) 2023/2673 (withdrawal function, Consumer Rights Directive Art. 11a, from 19 Jun 2026): https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023L2673
 - GitHub Actions secure use (pinned actions, token permissions, `pull_request_target`): https://docs.github.com/en/actions/reference/security/secure-use
 - GitHub Actions script injections: https://docs.github.com/en/actions/concepts/security/script-injections · securely using `pull_request_target`: https://docs.github.com/en/actions/reference/security/securely-using-pull_request_target · workflow dependency lockfiles: https://docs.github.com/en/actions/concepts/security/workflow-dependency-lockfiles
 - npm trusted publishing: https://docs.npmjs.com/trusted-publishers · requiring 2FA for publishing: https://docs.npmjs.com/requiring-2fa-for-package-publishing-and-settings-modification

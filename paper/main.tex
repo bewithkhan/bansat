@@ -12,6 +12,7 @@
 \usepackage{amssymb}
 \usepackage{booktabs}
 \usepackage{tabularx}
+\usepackage{xltabular}
 \usepackage{array}
 \usepackage{enumitem}
 \usepackage{xcolor}
@@ -72,7 +73,7 @@ protocol for comparing applications an AI agent builds with and without Bansat; 
 Coding agents built on large language models (LLMs) let a founder with no engineering team describe an application and
 have it built. What the agent rarely does, unless asked, is settle the questions that decide whether it can be launched
 safely and lawfully. Bansat's README calls these \emph{decisions nobody
-made} and lists seventeen recurring ``launch traps''~\cite{khan2026bansat}. Among them: row-level security is off, so
+made} and lists twenty-nine recurring ``launch traps''~\cite{khan2026bansat}. Among them: row-level security is off, so
 anyone with the application's public key can read or change its tables; fonts load from a third-party host, sending
 every visitor's IP address there before any consent; session replay or advertising pixels load before anyone has said
 yes; the ``we launched'' email to a waitlist has no unsubscribe link or sender identity; the sign-up form never asks for
@@ -232,7 +233,7 @@ data, not instructions.
 
 \begin{table}[tbp]
 \centering\footnotesize
-\caption{The parts of a Bansat blueprint (framework v3.0).}\label{tab:parts}
+\caption{The parts of a Bansat blueprint (framework v3.1).}\label{tab:parts}
 \begin{tabularx}{\linewidth}{@{}lL@{}}
 \toprule
 Part & What it settles \\
@@ -308,11 +309,61 @@ S10 Success & a mutation confirmed & & \\
 
 \subsection{Launch checks}
 Bansat checks a project twice before it meets the public. The \emph{launch-trap audit} (framework 9.26) lists the
-seventeen failures that get AI-built applications fined, breached or rejected by app stores, each with a fix and a way
-to verify it, and runs before G2 and again before G3. The \emph{launch gate} (Part~13) has 40 go/no-go items in seven
+twenty-nine failures that get AI-built applications fined, breached or rejected by app stores, each with a fix and a
+way to verify it (Table~\ref{tab:traps}), and runs before G2 and again before G3. Version 3.1.0 added the last twelve:
+AI disclosure, opt-out signals, biometric and health data, online withdrawal, legal notices, accessibility law,
+server-side authorisation, AI spending limits, app store labels, card data and payment webhooks. The \emph{launch gate} (Part~13) has 40 go/no-go items in seven
 groups, 18 of which block launch while open. Blocking items include a tested backup restore, data-layer access
 with isolation tests, no exposed secrets, nothing non-essential before consent, compliant marketing email, and working
 export and account deletion.
+
+{\footnotesize
+\begin{xltabular}{\linewidth}{@{}>{\raggedleft\arraybackslash}p{1.1em}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
+\caption{The 29 launch traps (framework 9.26). Each fix names the framework section that covers it, followed by the
+evidence that proves it. Traps 18--29 were added in version 3.1.0; the experiment in Section~\ref{sec:experiment} tests
+version 3.0.0, which has the first 17.}\label{tab:traps}\\
+\toprule
+\# & Trap & Why it bites & Fix and proof \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\emph{Table~\ref{tab:traps}, continued}}\\
+\toprule
+\# & Trap & Why it bites & Fix and proof \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+1 & The sign-up form never asks for age & Children's data without parental consent or safeguards; under Nigeria's NDPA a child is anyone under 18 & A neutral age question (9.12); an end-to-end test of the under-age path \\
+2 & Fonts from a third-party CDN & Visitors' IP addresses go to a third party with no lawful basis; German courts have awarded damages~\cite{lgmuenchen2022fonts} & Self-hosted fonts and a self-only font policy (9.9); the privacy test \\
+3 & Session replay or heatmaps before consent & A consent breach, and recordings can capture personal data & A consent-gated loader with strict masking (9.10); the privacy test \\
+4 & A launch email with no unsubscribe, sender identity or address & Breaches UK PECR, US CAN-SPAM and Nigeria's NDPA, and fails Gmail and Yahoo sender rules & A compliant template and one-click unsubscribe (9.11); a seed-inbox test \\
+5 & Row-level security off, or the secret key in the client & Anyone can read or write the database & Row-level security on every table and keys on the server only (5.4, 7.3); isolation tests in CI \\
+6 & A template or AI-written privacy policy & It doesn't match what the app does, so it breaches transparency duties & Written from the record of processing (9.6); a checklist review \\
+7 & Ad or analytics pixels in the root layout & Data shared with ad platforms before consent & A consent loader, with Consent Mode denied by default; the privacy test \\
+8 & User data sent to an LLM with no disclosure or DPA & Transparency, transfer and processor-contract breaches & A recorded provider decision, a DPA and redaction; the vendor register \\
+9 & No account deletion or data export & A rights breach, and an App Store rejection & A privacy centre (9.15); end-to-end tests \\
+10 & Personal data in logs or error trackers & Breaches minimisation and widens any breach & Scrubbing and logging rules (7.5); a log review \\
+11 & Pre-ticked boxes, or ``by using this site you agree'' & Invalid consent under the GDPR~\cite{gdpr} & Unticked, granular choices (9.7); a UI review \\
+12 & A cookie banner with no ``Reject all'' & Invalid consent, and a leading enforcement theme~\cite{cnil2025shein} & Equal Accept and Reject on the first layer; a screenshot review \\
+13 & Real customer data in preview or staging & A security and purpose-limitation breach & Synthetic seed data only (3.2); an environment audit \\
+14 & A public storage bucket for uploads & Data exposure & Private buckets and signed URLs; an integration test \\
+15 & Regulator fee or registration missed & ICO penalties of up to \pounds4,350; missed NDPC duties & Pay and register before G2 (9.2); the compliance calendar \\
+16 & No breach plan & Missed 72-hour notification clocks & A breach runbook (9.20); a tabletop drill \\
+17 & Dates of birth or ID scans kept ``just in case'' & A minimisation breach, and a target for attackers & Store the result, not the evidence; a data-dictionary review \\
+18 & A chatbot or AI feature that doesn't say it's AI & The AI Act's transparency duties, applicable since 2~August 2026: disclose the AI and mark generated content~\cite{aiact} & Disclosure where people meet the AI, and marked output (8.6); a UI review \\
+19 & Global Privacy Control ignored & US state laws, California's among them, treat a browser's opt-out preference signal as an opt-out of selling or sharing & GPC treated as ``Reject non-essential'' everywhere (9.8); the privacy test with GPC on \\
+20 & Face, voice or fingerprint features without written consent & Special category data under the GDPR; Illinois law requires written notice, a signed release and a published retention schedule~\cite{bipa} & Explicit consent, a DPIA and a retention schedule (9.13); consent records \\
+21 & Wellness or symptom features without health-data consent & Special category data under the GDPR; Washington law requires consent to collect consumer health data and separate consent to share it~\cite{mhmda} & Separate, specific consents and no trackers on those screens (9.13); end-to-end tests \\
+22 & No online way to withdraw or cancel & In the EU, distance contracts concluded online need a ``withdraw from contract here'' function from 19~June 2026~\cite{eu2023withdrawal} & A withdrawal and cancellation flow as easy as signing up (9.25); an end-to-end test \\
+23 & No company details or legal notice & UK companies must show their registered details on their website; sites aimed at Germany need an Impressum & A legal notice linked from the footer (9.25); a page review \\
+24 & An EU shop or consumer service that fails accessibility law & The European Accessibility Act has covered e-commerce and certain consumer services since 28~June 2025 & WCAG~2.2 AA~\cite{wcag22} and an accessibility statement (10.6); axe and a keyboard-only run \\
+25 & Authorisation only in the UI or in middleware & Server actions and API routes can be called directly; a critical 2025 flaw let requests skip Next.js middleware~\cite{cve202529927} & Deny-by-default checks in the data-access layer (7.2); the role-matrix test \\
+26 & AI endpoints with no quota or spend cap & Anyone can run up the model bill (``denial of wallet'')~\cite{owaspllm2025}, and text the model reads can carry injected instructions~\cite{greshake2023signedup} & Authentication, quotas, a hard spend cap and no unconfirmed side effects (8.7); a rate-limit test \\
+27 & App store privacy labels that don't match the app & Apple's labels and privacy manifests, and Google Play's Data safety form, must describe what the app and its SDKs collect & Labels filled in from the data dictionary (9.25); a comparison before each submission \\
+28 & Card details collected in your own form & Card data on your servers brings full PCI DSS scope & Hosted checkout or hosted fields (9.25); no card field reaches the API, database or logs \\
+29 & Payment webhooks accepted without a signature check & Anyone can post a fake ``payment succeeded'' event & Signature checks that reject stale and repeated events (6.5); a rejection test \\
+\end{xltabular}
+}
 
 \subsection{Retrofit track}\label{sec:retrofit}
 Part~14 routes existing projects by state: built but holding only synthetic data (\emph{light}), or live with real
@@ -556,7 +607,7 @@ s6 Marketplace & startup & Laravel, MySQL & Med & Payments and payouts; a databa
 \paragraph{Checks and rubric.} Twelve checks read the code (row-level security, client-side secrets, fonts,
 consent-gated tracking, security headers, two marketing-email checks, the age question, the privacy notice, pre-ticked
 consent, upload storage, and account deletion and export) and two load the application in Chromium (nothing third-party
-before consent or after ``Reject''). Together they test 12 of the 17 launch traps, and 11 correspond to blocking
+before consent or after ``Reject''). Together they test 12 of the 17 launch traps in v3.0.0, the version condition~B uses, and 11 correspond to blocking
 launch-gate items. Checks read only the
 application's own code, never \fpath{docs/} or the installed skill, so documents cannot earn a pass, and return pass,
 fail, not applicable or needs review, with evidence. A reviewer blind to the condition settles needs-review items;
@@ -612,7 +663,7 @@ Bansat's gates are instructions. An agent can skip a step, misjudge a tier or si
 skill alone cannot prevent it. The hook makes G1 a hard stop only for the agent's file-editing tools, not shell commands, and
 does nothing for G2--G4, which rely on tests and on the person reading the blueprint. Skills are an attack
 surface~\cite{li2026secureskills,liu2026skillswild}, and a tampered copy of Bansat could weaken its rules; the README
-therefore pins installation to a release tag, currently v3.0.0, published on 10~November 2026. And a gate signed without
+therefore pins installation to a release tag, currently v3.1.0, published on 10~November 2026. And a gate signed without
 being read adds little.
 
 \paragraph{Construct validity of the verify-task evaluation.}
@@ -649,7 +700,7 @@ its applications are never deployed, and the only people involved are the author
 % =====================================================================================================================
 \section{Availability}\label{sec:availability}
 Bansat is public at \url{https://github.com/bewithkhan/bansat}~\cite{khan2026bansat}. Text and templates are licensed
-CC~BY~4.0 and code samples MIT; a \fpath{NOTICE} file says which covers what. A documentation site with no cookies or trackers is at \url{https://bewithkhan.github.io/bansat/}~\cite{bansatsite}. \fpath{CITATION.cff} gives the citation for version~3.0.0,
+CC~BY~4.0 and code samples MIT; a \fpath{NOTICE} file says which covers what. A documentation site with no cookies or trackers is at \url{https://bewithkhan.github.io/bansat/}~\cite{bansatsite}. \fpath{CITATION.cff} gives the citation for version~3.1.0,
 released on 10~November 2026. The registry, the watch and the verify prompt are in \fpath{laws/} and \fpath{watch/}. The
 verify-task evaluation (cases, scorer and both rounds' results) is in \fpath{watch/eval/}, merged into the main branch
 with pull request \#28 (merge commit \texttt{a523ca2}), together with the revised verify prompt. The experiment's
