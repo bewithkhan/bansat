@@ -1,0 +1,29 @@
+# Costa Rica. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+# The legislation portals (SCIJ, SINALEVI) block automated requests, so the law links point to the original La Gaceta
+# editions on the National Printing Office's site. Summaries rest on Bansat's own translation from Spanish.
+# PRODHAB states that Law 8968 has not been amended; its regulation was amended by Decrees 40008-JP (2016) and
+# 41582 (2019), and a consolidated copy is on the National Archive's site.
+id: cr
+name: Costa Rica
+tier: basic
+laws:
+  - name: Law on the Protection of Persons with regard to the Processing of their Personal Data
+    citation: Ley N° 8968 de Protección de la Persona frente al Tratamiento de sus Datos Personales, La Gaceta N° 170, 5 September 2011
+    official_url: https://www.imprentanacional.go.cr/pub/2011/09/05/COMP_05_09_2011.pdf
+    status: in-force
+    in_force_from: "2011-09-05"
+    notes: In force from publication. Public and private databases kept for distribution, dissemination or sale must be registered with PRODHAB (Art. 21), and processing them without registration is a very serious offence (Art. 31(e)). So is transferring personal data of Costa Ricans or foreign residents to databases in other countries without the data subjects' consent (Art. 31(f)). Fines reach 30 base salaries of a judicial assistant I, and the database can be suspended for one to six months (Art. 28).
+  - name: Regulation of Law 8968
+    citation: Decreto Ejecutivo N° 37554-JP of 30 October 2012, Alcance Digital N° 42 to La Gaceta N° 45, 5 March 2013, as amended
+    official_url: https://www.imprentanacional.go.cr/pub/2013/03/05/ALCA42_05_03_2013.pdf
+    status: in-force
+    in_force_from: "2013-03-05"
+    notes: In force from publication (Art. 90). Controllers must tell the people affected about a security breach within five business days of it happening and start a full review in the same period (Art. 38), and answer rights requests within five business days (Art. 18). Registered databases pay an annual regulation fee to PRODHAB.
+regulators:
+  - name: Agency for the Protection of Inhabitants' Data (PRODHAB)
+    url: https://www.prodhab.go.cr/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.

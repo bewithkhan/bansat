@@ -1,0 +1,39 @@
+# Uruguay. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+# The law links point to IMPO, the official legislation centre, which shows each text as amended.
+# Summaries rest on Bansat's own translation from Spanish.
+id: uy
+name: Uruguay
+tier: basic
+laws:
+  - name: Personal Data Protection and Habeas Data Law
+    citation: Ley N° 18.331 de Protección de Datos Personales, promulgated 11 August 2008, Diario Oficial 18 August 2008, as amended
+    official_url: https://www.impo.com.uy/bases/leyes/18331-2008
+    status: in-force
+    in_force_from: "2008-08-21"
+    notes: Processing needs free, prior, express and informed consent unless an exception applies (Art. 9), every public or private database must be registered with the regulator (Art. 29), and transfers to countries without adequate protection are barred, with exceptions (Art. 23). The regulator sits within AGESIC (Art. 31). Derived date, as the law has no commencement article; Civil Code Art. 1 deems a law known ten days after its promulgation. Counted from the Diario Oficial publication instead, it would be 28 August 2008.
+  - name: Regulation of the Personal Data Protection Law
+    citation: Decreto N° 414/009 of 31 August 2009, Diario Oficial 15 September 2009, as amended
+    official_url: https://www.impo.com.uy/bases/decretos/414-2009
+    status: in-force
+    in_force_from: "2009-09-15"
+    notes: Implements Law 18.331, including database registration, rights requests and codes of conduct. Derived date, as the decree has no commencement article and runs its registration deadlines from publication in the Diario Oficial (Art. 17).
+  - name: Data protection articles of the 2018 Accountability Law, fiscal year 2017 (Arts. 37–40)
+    citation: Ley N° 19.670 de Rendición de Cuentas, promulgated 15 October 2018, Diario Oficial 25 October 2018, Arts. 37–40
+    official_url: https://www.impo.com.uy/bases/leyes/19670-2018
+    status: in-force
+    in_force_from: "2019-01-01"
+    notes: In force from 1 January 2019 (Art. 2). The law applies to controllers outside Uruguay that offer goods or services to people in Uruguay or analyse their behaviour (Art. 37). Breaches must be reported at once to the people affected and the regulator (Art. 38). Art. 39 adds proactive accountability to Law 18.331. Public bodies and private ones whose main business is sensitive data or that process large volumes must appoint a data protection officer (Art. 40).
+  - name: Regulation of Articles 37–40 of Law 19.670
+    citation: Decreto N° 64/020 of 17 February 2020, Diario Oficial 21 February 2020
+    official_url: https://www.impo.com.uy/bases/decretos/64-2020
+    status: in-force
+    in_force_from: "2020-02-21"
+    notes: Breaches must be reported to the regulator within 72 hours of becoming known (Art. 4). Impact assessments are needed before certain processing, such as sensitive data as the main business (Art. 6). Large volumes means data on more than 35,000 people, and a DPO's appointment must be reported within 90 days (Arts. 10 and 14). Derived date, as the decree has no commencement article and runs its deadlines from publication.
+regulators:
+  - name: Personal Data Regulatory and Control Unit (URCDP), within AGESIC
+    url: https://www.gub.uy/unidad-reguladora-control-datos-personales/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.

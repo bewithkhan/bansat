@@ -195,3 +195,25 @@ jurisdictions:
     official_domains: [azlp.mk, slvesnik.com.mk]
   rs:
     official_domains: [poverenik.rs, pravno-informacioni-sistem.rs]
+  ar:
+    official_domains: [argentina.gob.ar, boletinoficial.gob.ar, infoleg.gob.ar]
+  cl:
+    official_domains: [diariooficial.interior.gob.cl, bcn.cl, senado.cl, camara.cl, registrosocial.gob.cl, digital.gob.cl, consejotransparencia.cl]
+  co:
+    official_domains: [funcionpublica.gov.co, sic.gov.co, secretariasenado.gov.co, suin-juriscol.gov.co]
+  cr:
+    official_domains: [imprentanacional.go.cr, prodhab.go.cr, archivonacional.go.cr, pgrweb.go.cr, sinalevi.go.cr, asamblea.go.cr]
+  ec:
+    official_domains: [spdp.gob.ec, registroficial.gob.ec, asambleanacional.gob.ec, telecomunicaciones.gob.ec]
+  ni:
+    official_domains: [lagaceta.gob.ni, legislacion.asamblea.gob.ni, hacienda.gob.ni]
+  pa:
+    official_domains: [antai.gob.pa, gacetaoficial.gob.pa, asamblea.gob.pa, s3-legispan.asamblea.gob.pa, sinaproc.gob.pa]
+  pe:
+    official_domains: [gob.pe, elperuano.pe, minjus.gob.pe]
+  py:
+    official_domains: [bacn.gov.py, sedeco.gov.py, bcp.gov.py, mitic.gov.py, congreso.gov.py]
+  sv:
+    official_domains: [ace.gob.sv, asamblea.gob.sv, imprentanacional.gob.sv, jurisprudencia.gob.sv, transparencia.mh.gob.sv]
+  uy:
+    official_domains: [impo.com.uy, gub.uy]

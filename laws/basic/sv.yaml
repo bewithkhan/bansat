@@ -1,0 +1,29 @@
+# El Salvador. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+# The law link points to the consolidated text published by the State Cybersecurity Agency (ACE), which includes the
+# 2026 reform; the original Diario Oficial edition is at
+# https://transparencia.mh.gob.sv/downloads/pdf/700-UAIP-LY-2024-14993.pdf. The 2026 reform links to the Legislative
+# Assembly's copy of D.L. N° 659. Summaries rest on Bansat's own translation from Spanish.
+id: sv
+name: El Salvador
+tier: basic
+laws:
+  - name: Law for the Protection of Personal Data
+    citation: Decreto Legislativo N° 144 of 12 November 2024, Ley para la Protección de Datos Personales, Diario Oficial N° 219, Tomo 445, 15 November 2024; reformed by D.L. N° 659 (D.O. N° 173, 18 September 2026)
+    official_url: https://www.ace.gob.sv/page/documentos/decretos/decreto_144_proteccion_datos.pdf
+    status: in-force
+    in_force_from: "2024-11-23"
+    notes: Derived date, eight days after publication (Art. 64). Applies to anyone, public or private, who processes personal data (Art. 2). The ACE supervises and sanctions (Art. 50). Breaches must be reported to the ACE, the Attorney General's Office and the people affected within 72 hours (Art. 25). Rights requests must be answered within 20 business days, extendable by 20 (Art. 20). D.L. 659 reformed it from 26 September 2026.
+  - name: 2026 reform of the Law for the Protection of Personal Data
+    citation: Decreto Legislativo N° 659 of 17 September 2026, Diario Oficial N° 173, Tomo 452, 18 September 2026
+    official_url: https://www.asamblea.gob.sv/sites/default/files/documents/decretos/048D810E-C262-4D9E-8839-B3D26A2F4378.pdf
+    status: in-force
+    in_force_from: "2026-09-26"
+    notes: Derived date, eight days after publication in the Diario Oficial (Art. 14). It repeals the duty for every obligated entity to appoint a data protection delegate (Arts. 15 and 17 repealed), so only public institutions must now name one (Art. 47 as rewritten). The obligated entity itself, rather than a delegate, receives rights requests and answers them within 20 business days, extendable by 20 (Arts. 18 and 20 as rewritten).
+regulators:
+  - name: State Cybersecurity Agency (ACE)
+    url: https://www.ace.gob.sv/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.

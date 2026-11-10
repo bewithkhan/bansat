@@ -1,0 +1,39 @@
+# Argentina. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+# The law links point to the national legislation portal on argentina.gob.ar (Infoleg data). Summaries rest on
+# Bansat's own translation from Spanish.
+id: ar
+name: Argentina
+tier: basic
+laws:
+  - name: Personal Data Protection Law
+    citation: Ley 25.326 de Protección de los Datos Personales (Habeas Data), B.O. 2 November 2000, as amended
+    official_url: https://www.argentina.gob.ar/normativa/nacional/ley-25326-64790/actualizacion
+    status: in-force
+    in_force_from: "2000-11-11"
+    notes: Argentina's general data protection law. Processing needs free, express and informed consent unless an exception applies (Art. 5), transfers are barred to countries without adequate protection (Art. 12), and public databases and private ones that supply information must be registered (Art. 21). Sanctions run from a warning to fines and closure of the database (Art. 31), graded by AAIP Resolution 126/2024. Derived date, as the law has no commencement article; the Civil Code then in force (Art. 2), like Civil and Commercial Code Art. 5 now, applied a law after the eighth day after publication.
+  - name: Regulatory Decree of the Personal Data Protection Law
+    citation: Decreto 1558/2001, B.O. 3 December 2001, as amended by Decreto 1160/2010
+    official_url: https://www.argentina.gob.ar/normativa/nacional/decreto-1558-2001-70368/actualizacion
+    status: in-force
+    in_force_from: "2001-12-12"
+    notes: Implements Law 25.326. It reads "private databases meant to supply reports" broadly, covering any database that goes beyond purely personal use or is meant for transfer, whether paid or free (Art. 1), so most businesses must register theirs. Derived date, by the same eight-day default rule, as the decree has no commencement article.
+  - name: National Do Not Call Register Law
+    citation: Ley 26.951, Registro Nacional "No Llame", B.O. 5 August 2014
+    official_url: https://www.argentina.gob.ar/normativa/nacional/ley-26951-233066/texto
+    status: in-force
+    in_force_from: "2014-08-14"
+    notes: Anyone who advertises, offers or sells by phone, including mobile and VoIP, is treated as a database controller, must not contact numbers on the register and must check it every 30 days (Art. 7). Exceptions include existing customers within the contract's scope and people who agreed to calls (Art. 8). The AAIP enforces it with the sanctions of Law 25.326. Derived date, by the eight-day default rule.
+  - name: Infringement classification and sanctions scale (AAIP Resolution 126/2024)
+    citation: Resolución 126/2024 de la Agencia de Acceso a la Información Pública (RESOL-2024-126-APN-AAIP), B.O. 24 May 2024, as amended by Resolución 179/2025
+    official_url: https://www.argentina.gob.ar/normativa/nacional/norma-399750/actualizacion
+    status: in-force
+    in_force_from: "2024-06-01"
+    notes: In force from 1 June 2024 (Art. 7). Classes breaches of Laws 25.326 and 26.951 as minor, serious or very serious (Annex I). Processing without registering the database is minor, and transfers to countries without adequate protection outside the legal exceptions are very serious. Annex II grades sanctions from warnings and fines to suspension and closure of the database, and halves a fine paid within 20 business days. It sets the No Llame register procedures and repealed Disposition DNPDP 7/2005 (Art. 8).
+regulators:
+  - name: Agency for Access to Public Information (AAIP), National Directorate for Personal Data Protection
+    url: https://www.argentina.gob.ar/aaip/datospersonales
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.

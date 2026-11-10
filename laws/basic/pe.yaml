@@ -1,0 +1,30 @@
+# Peru. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+# The law links point to the National Personal Data Protection Authority's pages on the state platform gob.pe.
+# Summaries rest on Bansat's own translation from Spanish.
+# The 2024 regulation's start date is the one the Authority announced:
+# https://www.gob.pe/institucion/anpd/campa%C3%B1as/128319-nuevo-reglamento-de-proteccion-de-datos-personales and
+# https://www.gob.pe/institucion/minjus/noticias/1137398-nuevo-reglamento-de-proteccion-de-datos-personales-refuerza-el-consentimiento-de-usuarios-para-recibir-llamadas-publicitarias
+id: pe
+name: Peru
+tier: basic
+laws:
+  - name: Personal Data Protection Law
+    citation: Ley N.° 29733, Ley de Protección de Datos Personales, El Peruano 3 July 2011, as amended
+    official_url: https://www.gob.pe/institucion/anpd/normas-legales/2018427-29733-2011
+    status: in-force
+    in_force_from: "2011-07-04"
+    notes: Under the 12th final provision, Title II and a few other provisions applied from the day after publication; the rest, including most duties of controllers, took effect 30 business days after the law's first regulation (Supreme Decree 003-2013-JUS) was published. The National Register for Personal Data Protection records public and private databases and cross-border transfer notices (Art. 34). The Ministry of Justice is the National Authority (Art. 32).
+  - name: Regulation of the Personal Data Protection Law
+    citation: Decreto Supremo N.° 016-2024-JUS, El Peruano special supplement, 30 November 2024
+    official_url: https://www.gob.pe/institucion/anpd/normas-legales/6554453-16-2024-jus
+    status: in-force
+    in_force_from: "2025-03-31"
+    notes: Replaced the 2013 regulation. In force from 31 March 2025, as the Ministry of Justice and the Authority announced (first final provision). Breaches with large volumes, many people, sensitive data or clear harm go to the Authority within 48 hours (Art. 34). A DPO is required for public bodies and for large-volume or sensitive-data processing (Art. 37), phased in for companies by annual sales from 30 November 2025 to 30 November 2028 (derived, one to four years after publication). Portability applies six months after the start. RD 100-2025-JUS/DGTAIPD of 31 December 2025 details DPO designation.
+regulators:
+  - name: National Personal Data Protection Authority (ANPD), exercised by the Ministry of Justice and Human Rights through its General Directorate (DGTAIPD)
+    url: https://www.gob.pe/anpd
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.
