@@ -270,6 +270,12 @@ try {
     assert.match(out, /robots\.txt asks robots not to fetch this page/);
   });
 
+  test('a site that refuses robots.txt itself is reported as refusing, not as a rule', () => {
+    const refused = fixtures('refused', { 'feed.xml': atom([NEW_ENTRY, OLD_ENTRY]), 'page.html': html(['Fine for a retailer']), 'ie.html': ieHtml }, { [FEED]: 'feed.xml', [PAGE]: 'page.html', [ieUrl]: 'ie.html', 'https://www.dataprotection.ie/robots.txt': { status: 403 } });
+    const { out } = run(refused, statePath);
+    assert.match(out, /the site refused robots\.txt \(HTTP 403\), which counts as asking robots not to fetch/);
+  });
+
   test('with --issues, a change opens one labelled issue per jurisdiction, and failures go in one issue', () => {
     // A stand-in for the gh CLI that logs each call and answers like an empty repo.
     const bin = join(dir, 'bin');
