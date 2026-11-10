@@ -1,0 +1,29 @@
+# Slovakia. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+# The law links point to Slov-Lex's static pages, which list every consolidated version of each act.
+id: sk
+name: Slovakia
+tier: basic
+applies_with: [eu]
+laws:
+  - name: Personal Data Protection Act
+    citation: Act No. 18/2018 Coll. on Personal Data Protection (zákon o ochrane osobných údajov)
+    official_url: https://static.slov-lex.sk/static/SK/ZZ/2018/18/
+    status: in-force
+    in_force_from: "2018-05-25"
+    notes: Supplements the GDPR and sets up the Office for Personal Data Protection, its supervision and fines. For processing the GDPR covers, Parts 2 and 3, which mirror the GDPR and the Law Enforcement Directive for other processing, don't apply (§ 3(2)); Part 4 adds special situations such as academic, artistic and literary purposes (§ 78). Since 1 July 2024 it no longer covers data about deceased persons (Act No. 109/2024).
+  - name: Electronic Communications Act
+    citation: Act No. 452/2021 Coll. on Electronic Communications (zákon o elektronických komunikáciách)
+    official_url: https://static.slov-lex.sk/static/SK/ZZ/2021/452/
+    status: in-force
+    in_force_from: "2022-02-01"
+    notes: Storing or reading information on a user's device needs demonstrable consent to the GDPR standard, except for transmission or a service the user asked for (§ 109(8)). Direct marketing by automated calls, fax, email, SMS or MMS needs prior demonstrable consent, which can't be asked for by those channels (§ 116(3)–(4)). Email, SMS and MMS need none for a business's own similar goods or services to contacts got in a sale, or to published contacts of sole traders and companies, with an opt-out at collection and in every message (§ 116(15)). Withdrawals must be confirmed within 30 days (§ 116(6)).
+regulators:
+  - name: Office for Personal Data Protection of the Slovak Republic
+    url: https://dataprotection.gov.sk/sk/
+  - name: Regulatory Authority for Electronic Communications and Postal Services, which supervises the Electronic Communications Act
+    url: https://www.teleoff.gov.sk/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.

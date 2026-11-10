@@ -1,0 +1,28 @@
+# Iceland. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+# Iceland is in the EEA, not the EU: the GDPR applies there through the EEA Agreement (see the first law's notes).
+id: is
+name: Iceland
+tier: basic
+laws:
+  - name: Act on Data Protection and the Processing of Personal Data
+    citation: Lög um persónuvernd og vinnslu persónuupplýsinga, nr. 90/2018
+    official_url: https://www.althingi.is/lagas/nuna/2018090.html
+    status: in-force
+    in_force_from: "2018-07-15"
+    notes: Gives the GDPR the force of law in Iceland as incorporated into the EEA Agreement by EEA Joint Committee Decision No 154/2018 (Art. 2), and adds national rules. Children can consent to information society services themselves from 13 (Art. 10). Persónuvernd is the supervisory authority (Art. 39). Last amended by Act No. 16/2023, as of the law collection edition 157c (1 September 2026).
+  - name: Electronic Communications Act
+    citation: Lög um fjarskipti, nr. 70/2022
+    official_url: https://island.is/stjornartidindi/nr/071f9e66-7028-4720-85c3-9e6293658c98
+    status: in-force
+    in_force_from: "2022-09-01"
+    notes: Replaced Act No. 81/2003. Tools that store or read information on a user's device, or track their activity, need the user's informed consent unless a law allows them; technical storage or access for a lawful purpose with the user's knowledge is allowed (Art. 88). Marketing by automated calls, fax, email or other electronic messages needs prior informed consent, with a soft opt-in for a business's own goods or services; companies' general email addresses may be used (Art. 94). The link is the text as published on 12 July 2022; amendments up to Act 44/2026 leave Arts. 88 and 94 unchanged.
+regulators:
+  - name: Persónuvernd (Icelandic Data Protection Authority)
+    url: https://island.is/s/personuvernd
+  - name: Fjarskiptastofa (Electronic Communications Office), which supervises the Electronic Communications Act (Art. 4)
+    url: https://island.is/s/fjarskiptastofa
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.

@@ -1,0 +1,26 @@
+# Liechtenstein. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+# Liechtenstein is in the EEA, not the EU: the GDPR applies there through the EEA Agreement (see the first law's notes).
+id: li
+name: Liechtenstein
+tier: basic
+laws:
+  - name: Data Protection Act (DSG)
+    citation: Datenschutzgesetz (DSG) vom 4. Oktober 2018, LGBl. 2018 Nr. 272
+    official_url: https://www.gesetze.li/konso/2018272000
+    status: in-force
+    in_force_from: "2019-01-01"
+    notes: The GDPR applies through the EEA Agreement, in the version set by EEA Joint Committee decisions published in the Law Gazette; the DSG carries it out and adds national rules (Art. 1). Video surveillance of publicly accessible spaces must be notified to the Datenschutzstelle before use (Art. 5). Art. 37 allows solely automated decisions in some insurance, due diligence, lending and investment cases; it was amended from 1 February 2025, and other articles from 1 April 2026.
+  - name: Communications Act (KomG)
+    citation: Gesetz vom 5. April 2023 über die elektronische Kommunikation (Kommunikationsgesetz; KomG), LGBl. 2023 Nr. 216
+    official_url: https://www.gesetze.li/konso/2023216000
+    status: in-force
+    in_force_from: "2025-02-01"
+    notes: Replaced the 2006 Act. Storing or reading information on a user's device needs consent based on clear and full information, given as the GDPR requires. The only exceptions are transmission, and access strictly necessary for an audiovisual media service the user explicitly asked for, narrower than the ePrivacy Directive (Art. 61(4)). Direct marketing messages and calls need prior express consent, with a soft opt-in for customers; one email may ask for consent (Art. 63). The Office for Communications is the regulator (Art. 71). Start date per LGBl. 2025 Nr. 45 (Art. 97).
+regulators:
+  - name: Data Protection Authority (Datenschutzstelle)
+    url: https://www.datenschutzstelle.li/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.

@@ -1,0 +1,48 @@
+# Sweden. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: se
+name: Sweden
+tier: basic
+applies_with: [eu]
+laws:
+  - name: Data Protection Act (dataskyddslagen)
+    citation: Lag (2018:218) med kompletterande bestämmelser till EU:s dataskyddsförordning
+    official_url: https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-2018218-med-kompletterande-bestammelser_sfs-2018-218/
+    status: in-force
+    in_force_from: "2018-05-25"
+    notes: Supplements the GDPR, with national rules on legal bases, special category and criminal offence data, limits on some rights, and appeals. Children can consent to information society services themselves from 13 (ch. 2 s. 4).
+  - name: Data Protection Ordinance (dataskyddsförordningen)
+    citation: Förordning (2018:219) med kompletterande bestämmelser till EU:s dataskyddsförordning
+    official_url: https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/forordning-2018219-med-kompletterande_sfs-2018-219/
+    status: in-force
+    in_force_from: "2018-05-25"
+    notes: The government's implementing ordinance. It names the Swedish Authority for Privacy Protection (IMY) as supervisory authority (s. 3) and lets bodies other than authorities process criminal offence data where necessary in some cases (s. 5).
+  - name: Electronic Communications Act (LEK)
+    citation: Lag (2022:482) om elektronisk kommunikation
+    official_url: https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-2022482-om-elektronisk-kommunikation_sfs-2022-482/
+    status: in-force
+    in_force_from: "2022-06-03"
+    notes: Storing or reading data on a user's device needs the user to get information about the purpose and to consent, except for transmission or a service the user expressly asked for (ch. 9 s. 28). The Swedish Post and Telecom Authority (PTS) supervises the Act. Its start date is set by Lag (2022:483).
+  - name: Marketing Act (marknadsföringslagen)
+    citation: Marknadsföringslag (2008:486)
+    official_url: https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/marknadsforingslag-2008486_sfs-2008-486/
+    status: in-force
+    in_force_from: "2008-07-01"
+    notes: Marketing to individuals by email, fax or automated calling needs prior consent, with a soft opt-in for a business's own similar products when the email address came from a sale (s. 19). Every marketing email, including to companies, must give a valid address for opting out (s. 20).
+  - name: Act on the use of AI systems for real-time facial recognition for law enforcement purposes
+    citation: Lag (2026:806) om användning av AI-system för ansiktsigenkänning i realtid för brottsbekämpande ändamål
+    official_url: https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-2026806-om-anvandning-av-ai-system-for_sfs-2026-806/
+    status: in-force
+    in_force_from: "2026-07-01"
+    notes: Uses the EU AI Act's option to let the Police Authority and the Security Service use real-time remote biometric identification in public places, only with a prosecutor's or court's permission and for listed purposes, after a fundamental rights impact assessment. IMY is the market surveillance authority for this use and must be notified of each use (SFS 2026:817, 2026:815). As far as we could check, it was Sweden's only AI Act law on 10 November 2026; it names no general AI Act authorities and sets no fines.
+regulators:
+  - name: Swedish Authority for Privacy Protection (Integritetsskyddsmyndigheten, IMY)
+    url: https://www.imy.se/
+  - name: Swedish Post and Telecom Authority (PTS), which supervises the Electronic Communications Act, including its cookie rule
+    url: https://www.pts.se/
+  - name: Swedish Consumer Agency (Konsumentverket), for the Marketing Act
+    url: https://www.konsumentverket.se/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.
