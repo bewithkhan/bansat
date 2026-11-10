@@ -1,0 +1,19 @@
+# Albania. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: al
+name: Albania
+tier: basic
+laws:
+  - name: Law on Personal Data Protection
+    citation: Ligji nr. 124/2024 "Për mbrojtjen e të dhënave personale" (Fletorja Zyrtare nr. 9/2025)
+    official_url: https://idp.al/wp-content/uploads/2025/07/ligj-2024-12-19-124.pdf
+    status: in-force
+    in_force_from: "2025-02-01"
+    notes: GDPR-style law adopted on 19 December 2024 that repealed Law 9887/2008. It was published on 17 January 2025 (Official Gazette no. 9/2025, from the gazette portal's data; the linked copy doesn't show it) and is in force 15 days after publication (Art. 101), which we count as 1 February 2025 (date derived). Breaches go to the Commissioner within 72 hours. Fines reach ALL 2 billion or 4% of global turnover. A few articles, including telling people about a breach (Art. 29(3)), DPIAs (Art. 31) and prior consultation (Art. 32), apply two years after publication, by our count from 17 January 2027.
+regulators:
+  - name: Commissioner for the Right to Information and Personal Data Protection (IDP)
+    url: https://idp.al/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.

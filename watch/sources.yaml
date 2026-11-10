@@ -183,3 +183,15 @@ jurisdictions:
     official_domains: [njt.jog.gov.hu, njt.hu, naih.hu, magyarkozlony.hu]
   lv:
     official_domains: [likumi.lv, vestnesis.lv, dvi.gov.lv, saeima.lv]
+  al:
+    official_domains: [idp.al, qbz.gov.al]
+  ba:
+    official_domains: [azlp.ba, sluzbenilist.ba]
+  md:
+    official_domains: [monitorul.gov.md, datepersonale.md, legis.md]
+  me:
+    official_domains: [azlp.me, sluzbenilist.me]
+  mk:
+    official_domains: [azlp.mk, slvesnik.com.mk]
+  rs:
+    official_domains: [poverenik.rs, pravno-informacioni-sistem.rs]

@@ -1,0 +1,19 @@
+# Bosnia and Herzegovina. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: ba
+name: Bosnia and Herzegovina
+tier: basic
+laws:
+  - name: Law on Personal Data Protection
+    citation: Zakon o zaštiti ličnih podataka (Službeni glasnik BiH, br. 12/25)
+    official_url: https://azlp.ba/Novi_zakon_i_obavjestenje/?id=4465
+    status: in-force
+    in_force_from: "2025-03-08"
+    notes: GDPR-style state-level law adopted in January 2025 that replaced the 2006 law. The Agency says it was published on 28 February 2025. It entered into force on the eighth day after publication and applies 210 days after that (Art. 120), which we count as early October 2025; both dates are derived, and the Agency's notice said application would begin in October 2025. Controllers have two years from entry into force to bring their processing into line (Art. 116). Fines reach KM 40 million or 4% of worldwide turnover. The link downloads the Agency's Word copy.
+regulators:
+  - name: Personal Data Protection Agency in Bosnia and Herzegovina (AZLP)
+    url: https://azlp.ba/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.

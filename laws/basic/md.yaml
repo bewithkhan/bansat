@@ -1,0 +1,19 @@
+# Moldova. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: md
+name: Moldova
+tier: basic
+laws:
+  - name: Law on Personal Data Protection
+    citation: Legea nr. 195 din 25.07.2024 privind protecția datelor cu caracter personal (Monitorul Oficial nr. 367-369 din 23.08.2024, art. 574)
+    official_url: https://monitorul.gov.md/ro/monitor/2950
+    status: in-force
+    in_force_from: "2026-08-23"
+    notes: GDPR-style law published on 23 August 2024. The National Center for Personal Data Protection says it has governed data protection since 23 August 2026, when Law 133/2011 and Law 182/2008 on the Center were repealed; the date is the Center's. The link is the Official Gazette issue's contents page, where the full text is for subscribers; the Center links the free text on legis.md.
+regulators:
+  - name: National Center for Personal Data Protection (CNPDCP)
+    url: https://datepersonale.md/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.
