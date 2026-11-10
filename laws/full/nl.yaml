@@ -61,7 +61,7 @@ obligations:
       - https://wetten.overheid.nl/jci1.3:c:BWBR0040940&hoofdstuk=1&artikel=5
       - https://wetten.overheid.nl/BWBR0040940/2026-09-01/0/Hoofdstuk1/Artikel5/informatie
   cookies:
-    summary: Storing or reading information on a device needs consent after clear and full information (art. 11.7a Telecommunicatiewet). Consent isn't needed when it's only to carry a communication, strictly necessary for a service the user asked for, or for analytics on a service's quality or effectiveness with little or no privacy impact. Tracking across services is presumed to involve personal data. Public bodies may never make access depend on consent. The ACM enforces the cookie rule and the AP the personal data processing. The AP says cookie walls aren't allowed.
+    summary: Storing or reading information on a device needs consent after clear, full information (art. 11.7a Telecommunicatiewet). Consent isn't needed just to carry a communication, for what a service the user asked for strictly needs, or for analytics of its quality or effectiveness with little or no privacy impact. Tracking across services is presumed to involve personal data. Public bodies may never make access depend on consent. The ACM enforces the cookie rule, the AP the processing. The AP says cookie walls aren't allowed, and scrolling, staying passive or pre-ticked categories aren't consent.
     source:
       - https://wetten.overheid.nl/jci1.3:c:BWBR0009950&hoofdstuk=11&paragraaf=11.1&artikel=11.7a
       - https://wetten.overheid.nl/jci1.3:c:BWBR0009950&hoofdstuk=15&paragraaf=15.1&artikel=15.1
@@ -121,6 +121,8 @@ checked:
   date: "2026-11-05"
   status: ai-checked
 history:
+  - date: "2026-11-10"
+    summary: "Cookies: added the AP's view that scrolling, staying passive or pre-ticked categories aren't consent."
   - date: "2026-11-05"
     summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
 watch:
