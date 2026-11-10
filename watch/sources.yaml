@@ -42,7 +42,7 @@ jurisdictions:
   us-ct:
     official_domains: [cga.ct.gov, ct.gov]
   us-de:
-    official_domains: [delcode.delaware.gov, legis.delaware.gov, attorneygeneral.delaware.gov, governor.delaware.gov]
+    official_domains: [delcode.delaware.gov, legis.delaware.gov, attorneygeneral.delaware.gov, governor.delaware.gov, news.delaware.gov]
   us-federal:
     official_domains: [ftc.gov, ecfr.gov, govinfo.gov, federalregister.gov, congress.gov, uscode.house.gov, fcc.gov, hhs.gov, justice.gov, consumerfinance.gov, cisa.gov, whitehouse.gov, uscourts.gov, supremecourt.gov]
   us-ia:

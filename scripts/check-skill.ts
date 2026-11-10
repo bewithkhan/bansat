@@ -1,6 +1,7 @@
 // Checks SKILL.md:
 // - its frontmatter follows the Agent Skills specification (https://agentskills.io/specification);
-// - every repo file it names exists, and every framework module is reachable from it;
+// - every repo file it names exists, every framework module is reachable from it, and so are the stack
+//   profiles (through stacks/README.md) and the law registry (through laws/README.md);
 // - every pinned download link points at the release named in its metadata;
 // - that release number matches CITATION.cff, the README install command, the CHANGELOG and the framework.
 //
@@ -102,7 +103,7 @@ const minor = version.split('.').slice(0, 2).join('.');
 const tag = `v${version}`;
 
 // --- Files named in SKILL.md exist, and every module is reachable ---
-const pathPattern = /(?<![\w./-])((?:framework|reference|hooks|scripts|examples)\/[\w./-]*[\w-]\.(?:md|mjs|ts|tsx|sql|json|ya?ml))/g;
+const pathPattern = /(?<![\w./-])((?:framework|reference|hooks|scripts|examples|stacks|laws|watch)\/[\w./-]*[\w-]\.(?:md|mjs|ts|tsx|sql|json|ya?ml))/g;
 const named = new Set([...skill.matchAll(pathPattern)].map((m) => m[1] ?? ''));
 for (const file of named) {
   if (!existsSync(join(ROOT, file))) problem(`SKILL.md names ${file}, which doesn't exist`);
@@ -111,6 +112,9 @@ for (const module of MODULES) {
   if (!named.has(`${FRAMEWORK_DIR}/${module}`)) {
     problem(`SKILL.md never names ${FRAMEWORK_DIR}/${module}, so the skill can't load it`);
   }
+}
+for (const index of ['stacks/README.md', 'laws/README.md']) {
+  if (!named.has(index)) problem(`SKILL.md never names ${index}, so the skill can't find what it lists`);
 }
 
 // --- Pinned links point at this release ---

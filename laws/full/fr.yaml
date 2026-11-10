@@ -123,3 +123,18 @@ checked:
 history:
   - date: "2026-11-05"
     summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
+watch:
+  - url: https://www.cnil.fr/fr/rss.xml
+    type: rss
+    language: fr
+  - url: https://www.cnil.fr/fr/le-cadre-national/la-loi-informatique-et-libertes
+    type: html
+    selector: ".ctn-gen-body"
+    language: fr
+  - url: https://www.senat.fr/dossier-legislatif/rss/doslegpjl25-118.xml
+    type: atom
+    language: fr
+  - url: https://www.assemblee-nationale.fr/dyn/17/dossiers/DLR5L17N53140
+    type: html
+    selector: "#main .page-content"
+    language: fr

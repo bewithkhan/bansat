@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "node scripts/build-framework.ts && node scripts/check-examples.ts --write",
-    "check": "node scripts/build-framework.ts --check && node scripts/check-skill.ts && node scripts/check-examples.ts && node hooks/bansat-g1-guard.test.mjs && node scripts/validate-laws.ts && node scripts/validate-laws.test.ts && node scripts/watch.test.ts"
+    "check": "node scripts/build-framework.ts --check && node scripts/check-skill.ts && node scripts/check-examples.ts && node hooks/bansat-g1-guard.test.mjs && node scripts/validate-laws.ts && node scripts/validate-laws.test.ts && node scripts/watch.test.ts && node scripts/check-stacks.ts && node scripts/check-stacks.test.ts"
   },
   "devDependencies": {
     "ajv": "8.20.0",

@@ -125,3 +125,19 @@ checked:
 history:
   - date: "2026-11-05"
     summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
+watch:
+  - url: https://www.garanteprivacy.it/o/gpdp-rss/rss?t=news
+    type: rss
+    language: it
+  - url: https://www.normattiva.it/eli/id/2003/07/29/003G0218/CONSOLIDATED
+    type: html
+    selector: ".testa_atto .note"
+    language: it
+  - url: https://www.normattiva.it/eli/id/2025/09/25/25G00143/CONSOLIDATED
+    type: html
+    selector: ".testa_atto .note"
+    language: it
+  - url: https://www.normattiva.it/eli/id/2026/10/08/26G00200/CONSOLIDATED
+    type: html
+    selector: ".testa_atto .note"
+    language: it

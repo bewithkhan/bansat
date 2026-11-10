@@ -144,3 +144,20 @@ checked:
 history:
   - date: "2026-11-05"
     summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
+watch:
+  - url: https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673
+    type: html
+    selector: "#lista-versiones"
+    language: es
+  - url: https://www.boe.es/buscar/act.php?id=BOE-A-2002-13758
+    type: html
+    selector: "#lista-versiones"
+    language: es
+  - url: https://www.aepd.es/prensa-y-comunicacion/notas-de-prensa
+    type: html
+    selector: ".view-id-solr_news .view-content"
+    language: es
+  - url: https://aesia.digital.gob.es/es/actualidad
+    type: html
+    selector: ".slick_news"
+    language: es

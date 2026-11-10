@@ -104,3 +104,8 @@ checked:
 history:
   - date: "2026-11-05"
     summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
+watch:
+  - url: https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/INDEX.htm
+    type: html
+    selector: 'body'
+    language: en

@@ -9,7 +9,7 @@ import { join } from 'node:path';
 import * as cheerio from 'cheerio';
 import { parse } from 'yaml';
 
-export type WatchItem = { url: string; type: 'rss' | 'atom' | 'html' | 'api'; selector?: string; language: string };
+export type WatchItem = { url: string; type: 'rss' | 'atom' | 'html' | 'api'; selector?: string; keywords?: string[]; language: string };
 export type Item = { title: string; link: string; date?: string };
 export type Snapshot = { hash: string; items: Item[]; checked: string };
 export type Failure = { since: string; error: string };
@@ -22,7 +22,8 @@ export const MAX_ITEMS = 50;
 export const emptyState = (): State => ({ version: 1, updated: '', sources: {}, failures: {} });
 
 export const sourceKey = (w: WatchItem): string => (w.selector ? `${w.url} ${w.selector}` : w.url);
-const clean = (text: string): string => text.replace(/\s+/g, ' ').trim();
+// Collapses whitespace, and drops soft hyphens and zero-width characters, which some sites put inside words.
+const clean = (text: string): string => text.replace(/[\u00AD\u200B-\u200D\u2060\uFEFF]/g, '').replace(/\s+/g, ' ').trim();
 const sha256 = (text: string): string => createHash('sha256').update(text).digest('hex');
 const hashItems = (items: Item[]): string => sha256(items.map((i) => `${i.title}\u0000${i.link}\u0000${i.date ?? ''}`).join('\n'));
 
@@ -55,8 +56,21 @@ const absolute = (base: string, href: string): string => {
   }
 };
 
-// Pull the items out of a response. Throws if the response isn't what the watch item says it is.
+// Pull the items out of a response. Throws if the response isn't what the watch item says it is. With `keywords`,
+// only items whose title contains one of them (as whole words, any case) count, and the hash covers just those
+// items, so unrelated news on an office-wide list changes nothing.
 export function extract(watch: WatchItem, body: string): { hash: string; items: Item[] } {
+  const found = extractAll(watch, body);
+  if (!watch.keywords?.length) return found;
+  const pattern = keywordPattern(watch.keywords);
+  const items = found.items.filter((i) => pattern.test(i.title));
+  return { hash: hashItems(items), items };
+}
+
+export const keywordPattern = (keywords: string[]): RegExp =>
+  new RegExp(`(?<![\\p{L}\\p{N}])(?:${keywords.map((k) => k.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\s+/g, '\\s+')).join('|')})(?![\\p{L}\\p{N}])`, 'iu');
+
+function extractAll(watch: WatchItem, body: string): { hash: string; items: Item[] } {
   if (watch.type === 'rss' || watch.type === 'atom') {
     const $ = cheerio.load(body, { xml: true });
     if (watch.type === 'rss' && !$('rss, channel').length && !$('item').length) throw new Error("the response isn't an RSS feed");
@@ -98,14 +112,30 @@ export function extract(watch: WatchItem, body: string): { hash: string; items: 
     throw new Error("the response isn't JSON");
   }
   const bindings = (data as { results?: { bindings?: Record<string, { value: string; type?: string }>[] } })?.results?.bindings;
-  const items: Item[] = Array.isArray(bindings)
-    ? bindings.slice(0, MAX_ITEMS).map((b) => {
-        const values = Object.values(b);
-        const uri = values.find((v) => v.type === 'uri')?.value ?? '';
-        return { title: clean(values.filter((v) => v.type !== 'uri').map((v) => v.value).join(' · ')) || uri, link: uri };
-      })
-    : [];
-  return { hash: sha256(canonical(data)), items };
+  if (Array.isArray(bindings)) {
+    const items = bindings.slice(0, MAX_ITEMS).map((b): Item => {
+      const values = Object.values(b);
+      const uri = values.find((v) => v.type === 'uri')?.value ?? '';
+      return { title: clean(values.filter((v) => v.type !== 'uri').map((v) => v.value).join(' · ')) || uri, link: uri };
+    });
+    return { hash: sha256(canonical(data)), items };
+  }
+  // A list of documents, as the Federal Register's API returns: each with a title, a link and a date.
+  const list = (data as { results?: unknown; items?: unknown })?.results ?? (data as { items?: unknown })?.items;
+  if (Array.isArray(list) && list.every((d) => d && typeof d === 'object' && typeof (d as { title?: unknown }).title === 'string')) {
+    const field = (d: Record<string, unknown>, names: string[]): string | undefined => {
+      const name = names.find((n) => typeof d[n] === 'string' && d[n]);
+      return name ? String(d[name]) : undefined;
+    };
+    const items = (list as Record<string, unknown>[]).slice(0, MAX_ITEMS).map((d): Item => {
+      // The link: a known name first (Plone's @id, a state newsroom's newsUrl), then any field named like a link.
+      const link = field(d, ['html_url', 'url', 'link', 'uri', '@id', 'newsUrl', 'href']) ?? field(d, Object.keys(d).filter((k) => /url|link|href/i.test(k))) ?? '';
+      const date = field(d, ['publication_date', 'date', 'updated', 'published', 'effective', 'lastModified', 'modified']);
+      return { title: clean(String(d.title)), link: link ? absolute(watch.url, link) : '', date };
+    });
+    return { hash: sha256(canonical(data)), items };
+  }
+  return { hash: sha256(canonical(data)), items: [] };
 }
 
 const canonical = (value: unknown): string => {
@@ -118,6 +148,21 @@ const canonical = (value: unknown): string => {
   }
   return JSON.stringify(value);
 };
+
+// Decode with the charset the server or the page declares (some legislatures still serve ISO-8859-1), else UTF-8.
+export function decode(bytes: Uint8Array, contentType: string): string {
+  const head = new TextDecoder('latin1').decode(bytes.subarray(0, 2048));
+  const declared =
+    /charset=["']?([\w-]+)/i.exec(contentType)?.[1] ??
+    /<meta[^>]+charset=["']?([\w-]+)/i.exec(head)?.[1] ??
+    /<\?xml[^>]+encoding=["']([\w-]+)["']/i.exec(head)?.[1] ??
+    'utf-8';
+  try {
+    return new TextDecoder(declared.toLowerCase()).decode(bytes);
+  } catch {
+    return new TextDecoder('utf-8').decode(bytes);
+  }
+}
 
 export type Comparison = { kind: 'baseline' | 'same' | 'changed'; newItems: Item[] };
 

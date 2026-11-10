@@ -39,6 +39,11 @@ laws:
     official_url: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:52025PC0837
     status: draft
     notes: Commission proposal of 19 November 2025 to amend the GDPR, the ePrivacy Directive and other data laws. The Council agreed its negotiating position on 21 October 2026, and Parliament's committees hadn't voted by 5 November 2026. It isn't law yet.
+  - name: Medical devices simplification (proposal)
+    citation: COM(2025) 1023 final, procedure 2025/0404(COD)
+    official_url: https://publications.europa.eu/resource/cellar/aeac54e6-dbdd-11f0-8da2-01aa75ed71a1.0001.03/DOC_1
+    status: draft
+    notes: Commission proposal of 16 December 2025 to simplify the medical devices and in vitro diagnostics regulations. It would also move both to Section B of AI Act Annex I, so the AI Act's high-risk requirements would no longer apply directly to AI in those devices, and the Commission could set AI rules under the medical devices regulations instead. On 5 November 2026 it was still awaiting a vote in Parliament's committee. It isn't law yet.
 regulators:
   - name: European Data Protection Board (EDPB), which issues EU-wide guidance and settles disputes between national authorities
     url: https://www.edpb.europa.eu/
@@ -150,4 +155,18 @@ checked:
   status: ai-checked
 history:
   - date: "2026-11-05"
+    summary: Added the pending proposal COM(2025) 1023, which would move the medical devices and in vitro diagnostics regulations to Section B of AI Act Annex I. Law Watch's Cellar query listed it as proposing to amend the AI Act. Checked against the proposal's text on publications.europa.eu and its procedure file, 2025/0404(COD).
+  - date: "2026-11-05"
     summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
+watch:
+  # Cellar SPARQL: acts that amend, correct, repeal, consolidate or propose to amend the GDPR, the GDPR Procedural Regulation, the ePrivacy Directive and the AI Act, and legal acts adopted under them, such as adequacy decisions.
+  - url: https://publications.europa.eu/webapi/rdf/sparql?format=application%2Fsparql-results%2Bjson&query=PREFIX%20cdm%3A%20%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E%20PREFIX%20xsd%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%20SELECT%20DISTINCT%20%3Fdoc%20%3Frelation%20%3Fact%20%3Fdate%20%3Flink%20WHERE%20%7B%20VALUES%20%3Fact%20%7B%20%2232016R0679%22%5E%5Exsd%3Astring%20%2232025R2518%22%5E%5Exsd%3Astring%20%2232002L0058%22%5E%5Exsd%3Astring%20%2232024R1689%22%5E%5Exsd%3Astring%20%7D%20VALUES%20%28%3Fp%20%3Frelation%29%20%7B%20%28cdm%3Aresource_legal_amends_resource_legal%20%22amends%22%29%20%28cdm%3Aresource_legal_corrects_resource_legal%20%22corrects%22%29%20%28cdm%3Aresource_legal_repeals_resource_legal%20%22repeals%22%29%20%28cdm%3Aresource_legal_proposes_to_amend_resource_legal%20%22proposes%20to%20amend%22%29%20%28cdm%3Aresource_legal_proposes_to_repeal_resource_legal%20%22proposes%20to%20repeal%22%29%20%28cdm%3Aresource_legal_based_on_resource_legal%20%22adopted%20under%22%29%20%28cdm%3Aact_consolidated_consolidates_resource_legal%20%22consolidates%22%29%20%7D%20%3Fw%20cdm%3Aresource_legal_id_celex%20%3Fact%20.%20%3Fr%20%3Fp%20%3Fw%20%3B%20cdm%3Aresource_legal_id_celex%20%3Fdoc%20.%20FILTER%28%3Frelation%20%21%3D%20%22adopted%20under%22%20%7C%7C%20STRSTARTS%28STR%28%3Fdoc%29%2C%20%223%22%29%29%20FILTER%28%3Frelation%20%21%3D%20%22consolidates%22%20%7C%7C%20STRSTARTS%28STR%28%3Fdoc%29%2C%20CONCAT%28%220%22%2C%20SUBSTR%28STR%28%3Fact%29%2C%202%29%29%29%29%20OPTIONAL%20%7B%20%3Fr%20cdm%3Awork_date_document%20%3Fdate%20%7D%20BIND%28IRI%28CONCAT%28%22https%3A%2F%2Feur-lex.europa.eu%2Flegal-content%2FEN%2FTXT%2F%3Furi%3DCELEX%3A%22%2C%20STR%28%3Fdoc%29%29%29%20AS%20%3Flink%29%20%7D%20ORDER%20BY%20DESC%28%3Fdate%29%20%3Fdoc%20%3Frelation%20%3Fact
+    type: api
+    language: en
+  - url: https://oeil.europarl.europa.eu/oeil/en/procedure-file?reference=2025/0360(COD)
+    type: html
+    selector: "#section3"
+    language: en
+  - url: https://www.edpb.europa.eu/feed/publications_en
+    type: rss
+    language: en

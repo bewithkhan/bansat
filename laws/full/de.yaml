@@ -149,3 +149,11 @@ checked:
 history:
   - date: "2026-11-05"
     summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
+watch:
+  - url: https://www.datenschutzkonferenz-online.de/rss.xml
+    type: rss
+    language: de
+  - url: https://www.bfdi.bund.de/DE/BfDI/Presse/Pressemitteilungen/pressemitteilungen_node.html
+    type: html
+    selector: "main .generictable table"
+    language: de
