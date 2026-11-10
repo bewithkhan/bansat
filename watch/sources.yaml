@@ -231,3 +231,15 @@ jurisdictions:
     official_domains: [ace.gob.sv, asamblea.gob.sv, imprentanacional.gob.sv, jurisprudencia.gob.sv, transparencia.mh.gob.sv]
   uy:
     official_domains: [impo.com.uy, gub.uy]
+  bh:
+    official_domains: [lloc.gov.bh, moj.gov.bh, pdp.gov.bh]
+  jo:
+    official_domains: [modee.gov.jo, pm.gov.jo, lob.gov.jo]
+  kg:
+    official_domains: [dpa.gov.kg, cbd.minjust.gov.kg, kenesh.kg]
+  lb:
+    official_domains: [lp.gov.lb, jo.pcm.gov.lb, economy.gov.lb]
+  om:
+    official_domains: [mtcit.gov.om, mjla.gov.om]
+  uz:
+    official_domains: [lex.uz, gov.uz]

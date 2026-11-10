@@ -1,0 +1,22 @@
+# Lebanon. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+# The law link is the Parliament's file service, which returns the Arabic text of Law No. 81/2018 as a PDF (encoded
+# in a JSON reply). The Parliament's record of the law (https://www.lp.gov.lb/LawDetails?Id=1793) shows only its title.
+# Summaries rest on our own translation. Lebanon has no independent data protection authority; under Title V,
+# declarations go to the Ministry of Economy and Trade, whose website couldn't be opened (it sits behind a bot check),
+# so no regulator is listed.
+id: lb
+name: Lebanon
+tier: basic
+laws:
+  - name: Electronic Transactions and Personal Data Law
+    citation: Law No. 81 of 10 October 2018 on Electronic Transactions and Personal Data (قانون المعاملات الإلكترونية والبيانات ذات الطابع الشخصي), Official Gazette No. 45, 18 October 2018
+    official_url: https://www.lp.gov.lb/Webservice.asmx/GetLawFile?ID=1793
+    status: in-force
+    in_force_from: "2019-01-18"
+    notes: Derived date, three months after publication on 18 October 2018 (single article). Title V covers all automated and manual processing except purely personal use. Controllers must declare processing to the Ministry of Economy and Trade unless exempt, as for customer and staff data in normal business, or processing with prior consent. Health, genetic and sex-life data may be used only in set cases, such as explicit consent, medical care or a licence; data on state security or criminal and court matters needs a ministerial licence. People can access, correct and object.
+regulators: []
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.

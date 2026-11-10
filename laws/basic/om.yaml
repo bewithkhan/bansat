@@ -1,0 +1,35 @@
+# Oman. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+# The links are the Ministry of Transport, Communications and Information Technology's pages, which give each act's
+# publication date and a download of the Official Gazette text in Arabic. Summaries rest on our own translation. For
+# the PDPL, the same page also offers a complete English translation of Royal Decree 6/2022 and the law (Arts 1-32):
+# https://www.mtcit.gov.om/web/content/41499?unique=e4bee1385e56b30966b3ba8dfa448ec0e4d683cc
+id: om
+name: Oman
+tier: basic
+laws:
+  - name: Personal Data Protection Law (PDPL)
+    citation: Royal Decree No. 6/2022 issuing the Personal Data Protection Law (قانون حماية البيانات الشخصية), Official Gazette No. 1429
+    official_url: https://www.mtcit.gov.om/library-3/legislations-policies-8/laws-75/personal-data-protection-law-1034
+    status: in-force
+    in_force_from: "2023-02-13"
+    notes: Derived date, a year after publication (Royal Decree Art. 4), which MTCIT gives as 13 February 2022. It replaced Chapter 7 of the Electronic Transactions Law. Processing needs the data subject's consent unless an exception applies. Genetic, biometric, health, ethnic, sex-life, political or religious, and criminal data need a permit from the Ministry (Art. 5), and children's data needs a guardian's consent unless the processing is in the child's best interest (Art. 6). Amended in 2026 (below).
+  - name: Executive Regulation of the PDPL
+    citation: Ministerial Decision No. 34/2024 issuing the Executive Regulation of the Personal Data Protection Law, Official Gazette No. 1531
+    official_url: https://www.mtcit.gov.om/library-3/legislations-policies-8/regulations-72/executive-regulations-of-the-personal-data-protection-law-1035
+    status: in-force
+    in_force_from: "2024-02-05"
+    notes: Derived date, the day after publication (Decision Art. 4), taking MTCIT's date for the act (4 February 2024) as the Gazette date. It sets the permit procedure for Art. 5 processing, the rules for children's data and for data subject requests, and the duties of controllers and processors. The transition period for existing processing has ended.
+  - name: 2026 amendments to the PDPL
+    citation: Royal Decree No. 68/2026 amending some provisions of the Personal Data Protection Law, Official Gazette No. 1664
+    official_url: https://www.mtcit.gov.om/library-3/legislations-policies-8/laws-75/royal-decree-68-2026-amending-some-provisions-of-the-personal-data-protection-law-1481
+    status: in-force
+    in_force_from: "2026-09-07"
+    notes: Derived date, the day after publication (Art. 3), which MTCIT gives as 6 September 2026. The law now covers processing of data of natural persons in Oman wherever it happens, and a controller must be a legal person. Explicit consent stays the rule, with exceptions for legal duties, public data, vital interests and contracts. Staff data and security cameras need no permit. People can object to automated decisions and get human review, and marketing needs explicit consent. Consent breaches cost OMR 500 to 2,000.
+regulators:
+  - name: Ministry of Transport, Communications and Information Technology (MTCIT)
+    url: https://www.mtcit.gov.om/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.
