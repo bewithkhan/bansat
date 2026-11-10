@@ -1,0 +1,16 @@
+{
+  "//": "A fixture for research/checks: never installed or built. Versions are placeholders on purpose.",
+  "name": "fixture-good-app",
+  "private": true,
+  "scripts": { "build": "next build", "start": "next start" },
+  "dependencies": {
+    "@anthropic-ai/sdk": "0.0.0-fixture",
+    "@react-email/components": "0.0.0-fixture",
+    "@supabase/ssr": "0.0.0-fixture",
+    "@supabase/supabase-js": "0.0.0-fixture",
+    "next": "0.0.0-fixture",
+    "react": "0.0.0-fixture",
+    "resend": "0.0.0-fixture",
+    "stripe": "0.0.0-fixture"
+  }
+}

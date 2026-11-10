@@ -46,18 +46,7 @@ Bansat makes every one of those decisions explicit before the first commit, and 
 
 ## How it works
 
-```mermaid
-flowchart TB
-    subgraph NEW ["Plan"]
-        direction LR
-        A["Your idea"] --> B["Intake<br/>20-question screen"] --> C["Risk tier<br/>Low · Medium · High"] --> D["docs/BLUEPRINT.md"] --> G1{"G1<br/>You approve"}
-    end
-    subgraph SHIP ["Build and ship"]
-        direction LR
-        P["9 build phases"] --> G2{"G2<br/>Data-ready"} --> G3{"G3<br/>Launch gate"} --> L["Launch"] --> G4{"G4<br/>30-day review"}
-    end
-    NEW --> SHIP
-```
+<p align="center"><img src="docs/images/bansat-workflow.png" width="900" alt="Bansat's workflow in three rows. New project: idea, intake of 20 questions, risk tier (low, medium or high), docs/BLUEPRINT.md, then gate G1 where a person approves the blueprint. Build and launch: 9 build phases, gate G2 (real personal data only after the privacy basics are live), gate G3, launch, and gate G4, a review 30 days after launch. Retrofit an existing app: existing or live app, day-0 triage of 12 checks, as-is blueprint, gap register, fix sprints R1 to R4."></p>
 
 The gates are the point. At each one, Claude is instructed to stop and wait for you:
 
@@ -67,12 +56,7 @@ The gates are the point. At each one, Claude is instructed to stop and wait for 
 
 A skill can only instruct Claude, not force it. For a hard stop at G1, add the [optional G1 hook](#make-g1-a-hard-stop-optional): it refuses Claude's code edits until a person signs the blueprint.
 
-**Already built something?** The retrofit track triages the live risks within 48 hours, reverse-engineers the blueprint from your code, and turns every gap into a fix with a deadline:
-
-```mermaid
-flowchart LR
-    E["Existing or live app"] --> T["Day-0 triage<br/>12 checks in 48 h"] --> R["As-is blueprint<br/>from the code"] --> GR["Gap register<br/>with deadlines"] --> S["Fix sprints<br/>R1 → R4"]
-```
+**Already built something?** The retrofit track triages the live risks within 48 hours, reverse-engineers the blueprint from your code, and turns every gap into a fix with a deadline (the bottom row above).
 
 ## Install in 60 seconds
 

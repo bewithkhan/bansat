@@ -1,0 +1,15 @@
+{
+  "//": "A fixture for research/checks: never installed or built. Versions are placeholders on purpose.",
+  "name": "fixture-bad-app",
+  "private": true,
+  "scripts": { "build": "next build", "start": "next start" },
+  "dependencies": {
+    "@react-email/components": "0.0.0-fixture",
+    "@supabase/supabase-js": "0.0.0-fixture",
+    "next": "0.0.0-fixture",
+    "openai": "0.0.0-fixture",
+    "react": "0.0.0-fixture",
+    "resend": "0.0.0-fixture",
+    "stripe": "0.0.0-fixture"
+  }
+}
