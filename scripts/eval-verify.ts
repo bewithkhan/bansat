@@ -230,7 +230,8 @@ export function scoreCase(box: string, manifest: Manifest): Score {
     // Every change is listed with at least one official source, and the files themselves pass the domain checks.
     const sources = parse(readFileSync(join(box, 'watch/sources.yaml'), 'utf8')) as { jurisdictions: Record<string, { official_domains?: string[] }> };
     const domains = [c.entry, ...(manifest.before.applies_with ?? [])].flatMap((id) => sources.jurisdictions[id]?.official_domains ?? []);
-    const listed = result.changes ?? [];
+    // Bookkeeping (checked, history) needs no source; every fact the run changed does.
+    const listed = (result.changes ?? []).filter((ch) => !/^(checked|history)\b/.test(ch.field ?? ''));
     const uncited = listed.filter((ch) => !ch.sources?.length || ch.sources.some((u) => !onDomain(u, domains)));
     score.cited = valid && listed.length > 0 && uncited.length === 0;
     if (!listed.length) notes.push('result.json lists no changes');

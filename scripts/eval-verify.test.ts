@@ -99,6 +99,14 @@ test('a missed change fails the first target', () => {
   assert.match(r.out, /Finds the change \| 0 of 1/);
 });
 
+test('bookkeeping fields need no source', () => {
+  const r = evaluate((box) => {
+    perfect(box);
+    writeFileSync(join(box('change'), 'result.json'), JSON.stringify({ outcome: 'pull-request', changes: [{ field: 'laws[3]', sources: ['https://www.legislation.gov.uk/ukpga/2025/18/contents'] }, { field: 'checked.date' }, { field: 'history[0]' }] }));
+  });
+  assert.equal(r.status, 0, r.out);
+});
+
 test('a change cited to an unofficial site isn\'t cited correctly', () => {
   const r = evaluate((box) => {
     perfect(box);
