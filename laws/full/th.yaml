@@ -1,0 +1,159 @@
+# Thailand. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: th
+name: Thailand
+tier: full
+laws:
+  - name: Personal Data Protection Act (PDPA)
+    citation: Personal Data Protection Act B.E. 2562 (2019), Royal Gazette Vol. 136, Part 69 Kor, 27 May 2019
+    official_url: https://mdes.go.th/law/download/3541
+    status: in-force
+    in_force_from: "2019-05-28"
+    notes: In force the day after publication (s.2), but its main chapters (rules on processing, rights, complaints, liability and penalties) were to apply one year later. Royal decrees then exempted a long list of sectors until 31 May 2022, so for most businesses the duties applied from 1 June 2022 (our reading of the decrees' end date). The MDES copy is the Council of State's text; an unofficial English translation is also on the MDES site.
+  - name: PDPC Notification on access to and copies of personal data
+    citation: Notification of the Personal Data Protection Committee B.E. 2569 (2026), Royal Gazette Vol. 143, Special Part 175 Ngor, 16 July 2026
+    official_url: https://mdes.go.th/law/download/11276
+    status: in-force
+    in_force_from: "2026-09-15"
+    notes: Applies on the expiry of 60 days from publication (cl. 2). 15 September 2026 is our count, not counting the publication day as ETDA did for the platform decree; counting it gives 14 September. We could not open pdpc.or.th to check for an official date. Sets how people ask for access, copies or the source of data collected without consent, a 30-day deadline extendable once by 30 days with reasons, and no fee for electronic delivery that costs nothing extra.
+  - name: Computer Crime Act
+    citation: Act on Computer-Related Offences B.E. 2550 (2007), as amended by Act (No. 2) B.E. 2560 (2017)
+    official_url: https://mdes.go.th/law/download/3516
+    status: in-force
+    in_force_from: "2007-07-18"
+    notes: Applies on the expiry of 30 days from publication on 18 June 2007 (s.2); MDES dates its start to 18 July 2007 (2025 evaluation report). The 2017 amendment, published on 24 January 2017, applied 120 days after publication, from 25 May 2017 by our count (not counting the publication day) or 24 May if it is counted. MDES says fine-only offences, including s.11, became non-criminal fines under the Act on Fines B.E. 2565 (2022). Section 11 covers unsolicited messages (see marketing).
+  - name: MDES Notification on sending computer data and emails without annoying recipients
+    citation: Notification of the Ministry of Digital Economy and Society B.E. 2560 (2017), Royal Gazette Vol. 134, Special Part 188 Ngor, 22 July 2017
+    official_url: https://mdes.go.th/law/download/3529
+    status: in-force
+    in_force_from: "2017-07-23"
+    notes: Made by the Minister under s.11 para. 3 of the Computer Crime Act and signed on 21 July 2017. Applies from the day after publication in the Royal Gazette (cl. 2), so from 23 July 2017. Sets when commercial emails and messages count as annoying (see marketing). Website, app and social media providers that advertise or support such sending must also give their users an easy way to opt out (cl. 6). The MDES copy is the Council of State's text.
+  - name: Royal Decree on Digital Platform Service Businesses Subject to Notification
+    citation: Royal Decree B.E. 2565 (2022), Royal Gazette Vol. 139, Part 78 Kor, 23 December 2022
+    official_url: https://mdes.go.th/law/download/6356
+    status: in-force
+    in_force_from: "2023-08-21"
+    notes: Applies on the expiry of 240 days from publication (s.2); ETDA states it took effect on 21 August 2023. Platforms above set thresholds, including foreign ones serving users in Thailand, must notify ETDA before operating (ss. 8-10). Smaller platforms must still notify brief particulars before operating and report yearly (s.8 para. 4). Foreign operators must appoint a coordinator in Thailand in writing (s.11).
+  - name: Emergency Decree on Measures for the Prevention and Suppression of Technological Crimes
+    citation: Emergency Decree B.E. 2566 (2023), Royal Gazette Vol. 140, Part 18 Kor, 16 March 2023
+    official_url: https://mdes.go.th/law/download/6664
+    status: in-force
+    in_force_from: "2023-03-17"
+    notes: Applies from the day after publication (s.2), so from 17 March 2023. Banks and payment operators must share data on suspicious accounts and suspend suspect transactions; telecom and other service providers must share data, and disclose user and traffic data when investigators order it (ss. 4-7). Data disclosed or used under the decree is outside the PDPA (s.12). The MDES copy is the Royal Gazette page.
+  - name: Emergency Decree on Measures for the Prevention and Suppression of Technological Crimes (No. 2)
+    citation: Emergency Decree (No. 2) B.E. 2568 (2025), Royal Gazette Vol. 142, Part 27 Kor, 12 April 2025
+    official_url: https://mdes.go.th/law/download/9383
+    status: in-force
+    in_force_from: "2025-04-13"
+    notes: Applies from the day after publication (s.2), so from 13 April 2025. Banks, payment and digital asset operators, telecom and other service providers and social media providers share liability for technology-crime losses unless they prove they met their regulator's prevention standards, set for social media by the Electronic Transactions Commission (ss. 4/1, 8/10). Using, collecting or disclosing personal data for such crimes brings up to 1 year's prison or a THB 100,000 fine, or 5 years or THB 500,000 if the data is traded (s.11/2).
+  - name: Electronic Transactions Commission Notification on anti-scam measures for social media providers
+    citation: Notification of the Electronic Transactions Commission, Royal Gazette Vol. 142, Special Part 239 Ngor, 4 July 2025
+    official_url: https://mdes.go.th/law/download/9694
+    status: in-force
+    in_force_from: "2025-07-05"
+    notes: Made under s.4/1 of the technology-crime emergency decree. Applies from the day after publication (cl. 2), so from 5 July 2025. When the MDES technology-crime division notifies a social media provider of fake or false content that may lead to such crime, the provider must stop it spreading at once and within 24 hours at most, and report back (cl. 3).
+  - name: Electronic Transactions Commission Notification on anti-scam measures for social media providers (No. 2)
+    citation: Notification of the Electronic Transactions Commission (No. 2), Royal Gazette Vol. 143, Special Part 111 Ngor, 5 May 2026
+    official_url: https://mdes.go.th/law/download/10901
+    status: in-force
+    in_force_from: "2026-11-02"
+    notes: Applies on the expiry of 180 days from publication (cl. 1), so from 2 November 2026 by our count (not counting the publication day) or 1 November if it is counted. For paid ads shown in Thailand, social media providers must verify the advertiser's identity before each ad, unless verified within the past year, by checking official ID with a face match or by digital ID (cl. 2), and keep the advertiser's and payer's details for at least 90 days after the ad service ends (cl. 3).
+  - name: Draft principles of an AI law
+    citation: Draft principles of a law on artificial intelligence, MDES and ETDA, public hearing until 24 June 2025
+    official_url: https://www.etda.or.th/th/pr-news/law_ai.aspx
+    status: draft
+    notes: MDES and ETDA put draft principles for an AI law, focused on high-risk AI and allowing sector regulators to set rules, to public comment until 24 June 2025. We found no later official stage, such as a Cabinet-approved bill, on ETDA or MDES pages by 10 November 2026. Pending, not law.
+regulators:
+  - name: Personal Data Protection Committee (PDPC) and the Office of the PDPC
+    url: https://www.pdpc.or.th/
+  - name: Electronic Transactions Development Agency (ETDA), for digital platform notification
+    url: https://www.etda.or.th/
+obligations:
+  scope:
+    summary: The PDPA covers controllers and processors in Thailand, wherever the processing happens, and those outside Thailand that offer goods or services to people in Thailand, paid or not, or monitor their behaviour there (s.5). Such foreign controllers and processors must appoint a representative in Thailand in writing (ss. 37(5), 38). It doesn't apply to personal or household use, state security bodies, media, art and literature, Parliament, courts or credit bureaus (s.4). Sensitive data includes race, religion, health, disability, biometric, genetic and criminal data (s.26).
+    source:
+      - https://mdes.go.th/law/download/3541
+      - https://mdes.go.th/law/download/3577
+  lawful_bases:
+    summary: Consent is the default (s.19). It must be asked for in writing or electronically, set apart from other matters, in plain language and without deception, must not be a condition of a contract for unneeded data, and can be withdrawn as easily as given. Other bases are archives or research with safeguards, preventing danger to life or health, contract, public task, legitimate interests not overridden by the person's rights, and legal obligation (s.24). Sensitive data needs explicit consent unless a narrow exception in s.26 applies.
+    source:
+      - https://mdes.go.th/law/download/3541
+      - https://mdes.go.th/law/download/3577
+      - https://mdes.go.th/law/download/6045
+  consent_age:
+    summary: Anyone under 20 is a minor, unless they marry earlier (Civil and Commercial Code ss. 19-20). A minor aged 10 or under can't consent; only the holder of parental responsibility can (PDPA s.20(2); the Thai text says not over ten, the unofficial English translation says below ten). An older minor may consent alone only to acts the Code lets a minor do alone, such as purely personal acts, acts that only gain a right or shed a duty, or acts suited to their station and needed for living (ss. 22-24); otherwise a parent must consent too (s.20(1)). The same applies to notices, rights and complaints.
+    value: 20
+    unit: years
+    source:
+      - https://mdes.go.th/law/download/3541
+      - https://mdes.go.th/law/download/3577
+      - https://mdes.go.th/law/download/6045
+      - https://www.senate.go.th/assets/portals/28/fileups/146/files/%E0%B9%81%E0%B8%9E%E0%B9%88%E0%B8%87%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%9E%E0%B8%B2%E0%B8%93%E0%B8%B4%E0%B8%8A%E0%B8%A2%E0%B9%8C.pdf
+  children:
+    summary: We found no separate law on children's data or online services. The PDPA's rules for minors (s.20) apply to consent, its withdrawal, notices, rights requests and complaints. PDPC consent guidance says controllers should take more care with minors than with adults, verify age in proportion to the risk, for example with ID numbers or other reliable methods, and check that consent for children aged 10 or under really comes from a parent.
+    source:
+      - https://mdes.go.th/law/download/3541
+      - https://mdes.go.th/law/download/6045
+  cookies:
+    summary: There is no cookie-specific rule. Where cookies or similar tools collect personal data, the PDPA applies, so a basis is needed, usually consent meeting s.19, unless another basis in s.24 fits. Behavioural advertising is treated as regular and systematic monitoring, which can trigger the DPO duty (PDPC Notification on DPOs 2023, cl. 5-6).
+    source:
+      - https://mdes.go.th/law/download/3541
+      - https://mdes.go.th/law/download/7337
+  marketing:
+    summary: Marketing that uses personal data needs a PDPA basis, and people can object to direct marketing at any time (s.32). Under a 2017 ministry notification made under Computer Crime Act s.11, commercial emails and messages need the recipient's consent, unless exempt, such as transactional, legal, government or non-profit messages. Each must carry a clear, easy opt-out that costs nothing, and sending must stop at once, or within 7 days at most. Breaking s.11 brings a fine of up to THB 200,000, now a non-criminal fine under the Act on Fines B.E. 2565 (MDES).
+    source:
+      - https://mdes.go.th/law/download/3541
+      - https://mdes.go.th/law/download/3516
+      - https://mdes.go.th/law/download/3529
+      - https://mdes.go.th/law/download/10403
+  breach_notice:
+    summary: Report a personal data breach to the Office without delay and, where feasible, within 72 hours of becoming aware of it, unless it's unlikely to risk people's rights. If the risk is high, also tell the people affected, with remedies, without delay (s.37(4)). The notice covers the nature of the breach, numbers affected, a contact, likely impact and measures taken. A late notice must be justified and made no later than 15 days after awareness (PDPC Notification 2022, in force since 15 December 2022). Processors must tell the controller (s.40).
+    value: 72
+    unit: hours
+    source:
+      - https://mdes.go.th/law/download/3541
+      - https://mdes.go.th/law/download/6336
+  registration_or_fees:
+    summary: There is no registration with, or fee payable to, the PDPC. Controllers and processors must keep records of processing (ss. 39-40); small organisations, such as SMEs, social enterprises, cooperatives, non-profits and sole traders, are mostly exempt unless they need a DPO or their processing is risky, not occasional or sensitive (PDPC Notifications of 8 January 2025). Digital platforms must notify ETDA before operating, in full if Thai revenue exceeds THB 1.8 million a year (individuals) or THB 50 million (companies), or users exceed 5,000 a month; otherwise in brief, updated yearly.
+    source:
+      - https://mdes.go.th/law/download/3541
+      - https://mdes.go.th/law/download/8996
+      - https://mdes.go.th/law/download/8997
+      - https://mdes.go.th/law/download/6356
+      - https://www.etda.or.th/th/contact/faq/Digital-Platform.aspx
+  dpo:
+    summary: Appoint a data protection officer if you're a public authority, or if core activities need regular monitoring of large amounts of data or involve sensitive data (s.41). A 2023 PDPC notification, applying from 14 December 2023 (90 days after publication, our count), requires one where core activities involve both regular monitoring, such as profiling, behavioural ads, credit scoring, fraud checks or CCTV, and large-scale data, such as 100,000 or more people, insurers, financial institutions or some telecom licensees (cl. 4-6). The officer can't be dismissed for doing the job (s.42).
+    source:
+      - https://mdes.go.th/law/download/3541
+      - https://mdes.go.th/law/download/3577
+      - https://mdes.go.th/law/download/7337
+  transfers:
+    summary: Transfers abroad need a destination with adequate protection under PDPC rules, unless an exception applies, such as law, informed consent, a contract, vital interests or public interest (s.28). Without an adequacy decision, use binding corporate rules certified by the Office, or safeguards such as contracts based on the ASEAN Model Contractual Clauses or the EU standard contractual clauses, or a certification (s.29). The PDPC rules on both apply from 25 March 2024 (our count of 90 days after publication on 25 December 2023). Recipients under such clauses must report breaches within 72 hours.
+    source:
+      - https://mdes.go.th/law/download/3541
+      - https://mdes.go.th/law/download/7703
+      - https://mdes.go.th/law/download/7704
+  dpia:
+    summary: The PDPA sets no general duty to carry out a data protection impact assessment. Controllers must keep appropriate security measures that meet the PDPC's minimum standard, cover data in any form, and are reviewed when needed or when technology changes (s.37(1); PDPC Notification on security measures 2022). The PDPC's AI guidance of November 2026 recommends impact assessments for developing and using AI, but it is not binding.
+    source:
+      - https://mdes.go.th/law/download/3541
+      - https://mdes.go.th/law/download/5653
+      - https://mdes.go.th/law/download/11784
+  automated_decisions_ai:
+    summary: The PDPA has no specific rule on automated decisions; the general rights apply, including objecting to processing based on legitimate interests or public tasks (s.32). We found no AI law in force on 10 November 2026; MDES and ETDA consulted on draft principles for one until 24 June 2025. PDPC guidance on personal data in AI, published in the Royal Gazette on 2 November 2026, covers lawful bases for training, web scraping, minimisation, transparency, automated decisions and human oversight, and says plainly it has no binding force.
+    source:
+      - https://mdes.go.th/law/download/3541
+      - https://mdes.go.th/law/download/11784
+      - https://www.etda.or.th/th/pr-news/law_ai.aspx
+  penalties:
+    summary: Administrative fines reach THB 1 million (such as record, DPO or consent-form failures), THB 3 million (lawful basis, security, breach notice or transfer failures) and THB 5 million (sensitive data failures) (ss. 82-89). The expert committee may first order a fix or warn; it weighs intent, severity, business size and remedies (s.90; PDPC criteria of April 2025). Misusing sensitive data in a way likely to harm someone brings up to 6 months' prison and a THB 500,000 fine, or 1 year and THB 1 million for unlawful gain (s.79). Courts can add punitive damages up to twice the actual damages (s.78).
+    source:
+      - https://mdes.go.th/law/download/3541
+      - https://mdes.go.th/law/download/3577
+      - https://mdes.go.th/law/download/9416
+checked:
+  date: "2026-11-10"
+  status: ai-checked
+history:
+  - date: "2026-11-10"
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

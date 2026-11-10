@@ -109,3 +109,9 @@ jurisdictions:
     official_domains: [legislation.gov.au, oaic.gov.au, esafety.gov.au, acma.gov.au, ag.gov.au, homeaffairs.gov.au, industry.gov.au]
   nz:
     official_domains: [legislation.govt.nz, privacy.org.nz, dia.govt.nz, gazette.govt.nz, parliament.nz]
+  id:
+    official_domains: [komdigi.go.id, peraturan.go.id, setneg.go.id, mkri.id, banyumaskab.go.id, kemenkoinfra.go.id, ustr.gov]
+  vn:
+    official_domains: [chinhphu.vn, bocongan.gov.vn, mst.gov.vn, bvhttdl.gov.vn]
+  th:
+    official_domains: [mdes.go.th, pdpc.or.th, etda.or.th, ratchakitcha.soc.go.th, krisdika.go.th, senate.go.th]
