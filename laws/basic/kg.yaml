@@ -1,0 +1,29 @@
+# Kyrgyzstan. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+# The Ministry of Justice's legal database (cbd.minjust.gov.kg) couldn't be opened, so the law links are the data
+# protection agency's own site, whose Documents section holds the texts in Russian: the Digital Code, Law No. 179 of
+# 31 July 2025 that brought it into force (https://dpa.gov.kg/ru?materialId=748d76c9de264617979dd1108e9a3d62), and the
+# 2026 Cabinet resolutions under it. Each link opens the document on the Agency's home page.
+id: kg
+name: Kyrgyzstan
+tier: basic
+laws:
+  - name: Digital Code of the Kyrgyz Republic
+    citation: Code No. 178 of 31 July 2025, Цифровой кодекс Кыргызской Республики, brought into force by Law No. 179 of 31 July 2025 (Erkin-Too, 5 August 2025, No. 58)
+    official_url: https://dpa.gov.kg/ru?materialId=ff84db30f2744f7fa80c37ed8eb5a1b0
+    status: in-force
+    in_force_from: "2026-02-05"
+    notes: Derived date, six months after Law No. 179 was published on 5 August 2025 (Law No. 179, Art. 1). That law repealed the 2008 Law on Personal Information (Art. 2(7)); the Code now holds the personal data rules, using terms such as record owner (the controller) and data principal (the data subject). Consent can be withdrawn at any time (Art. 79(5)). Transfers to countries on the Agency's adequacy list are free; elsewhere they need consent or another listed ground (Art. 89). The Agency is launching a register of record owners, incidents and inspections.
+  - name: Requirements for protecting personal data by security level
+    citation: Cabinet of Ministers Resolution No. 384 of 2 June 2026 on personal data protection requirements in digital systems by security level (Erkin-Too, 5 June 2026, No. 41)
+    official_url: https://dpa.gov.kg/ru?materialId=ff9ff90f95a3497c840e8982673a52d8
+    status: in-force
+    in_force_from: "2026-06-15"
+    notes: Derived date, ten days after publication on 5 June 2026 (para. 5). Issued under Art. 88 of the Code, it binds all record owners and sets four security levels (blue, green, yellow, red), chosen from a threat rating. Even the lowest level needs a public privacy policy, a responsible person in organisations with over ten staff, training, incident rules, a record of who changed data, and backups. Higher levels add privacy by design, encryption, tamper-proof logs and, at the top, certified tools and a yearly audit. It replaces the 2017 requirements.
+regulators:
+  - name: State Agency for Personal Data Protection under the Cabinet of Ministers
+    url: https://dpa.gov.kg/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.
