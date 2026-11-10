@@ -1,0 +1,41 @@
+# Egypt. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+# A basic entry for now: no official copy of Law No. 151 of 2020 or its executive regulations could be opened
+# (pdpc.gov.eg loads its files through a sign-in token service). Court of Cassation records confirm their numbers and
+# publication dates. A full entry follows once an official text can be opened.
+id: eg
+name: Egypt
+tier: basic
+laws:
+  - name: Personal Data Protection Law (PDPL)
+    citation: Law No. 151 of 2020 issuing the Personal Data Protection Law (Official Gazette No. 28, 15 July 2020)
+    official_url: https://cc.gov.eg/legislation/3007991608
+    status: in-force
+    in_force_from: "2020-10-16"
+    notes: Egypt's general data protection law, which the Personal Data Protection Center enforces. Derived date, three months after the day following publication under issuing Art. 7 as reported; the official text couldn't be opened, and the Court of Cassation record confirms only publication on 15 July 2020. Controllers and processors need a licence or permit from the Center, and the one-year period to comply after the executive regulations has passed.
+  - name: Executive Regulations of the Personal Data Protection Law
+    citation: Minister of Communications and Information Technology Decision No. 816 of 2025 issuing the Executive Regulations (published 1 November 2025, issue 244)
+    official_url: https://cc.gov.eg/legislation/3269947493
+    status: in-force
+    in_force_from: "2025-11-02"
+    notes: Implementing rules for the law, including licence and permit categories and fees. Derived date, the day after publication under the decision's Art. 2 as reported; the Court of Cassation record confirms publication on 1 November 2025.
+  - name: Anti-Cyber and Information Technology Crimes Law
+    citation: Law No. 175 of 2018 on Combating Information Technology Crimes (Official Gazette No. 32 bis (c), 14 August 2018)
+    official_url: https://elec.eecourts.gov.eg/assets/laws/21-%20%D9%82%D8%A7%D9%86%D9%88%D9%86%20%D9%85%D9%83%D8%A7%D9%81%D8%AD%D8%A9%20%D8%AC%D8%B1%D8%A7%D8%A6%D9%85%20%D8%AA%D9%82%D9%86%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA.pdf
+    status: in-force
+    in_force_from: "2018-08-15"
+    notes: Derived date, the day after publication (Art. 45). Service providers, including anyone who processes or stores information for users, must keep system logs for 180 days, keep them confidential and secure, and give national security bodies technical help on request (Art. 2). Breaching the retention duty carries a fine of EGP 5,000,000 to 10,000,000 (Art. 33).
+  - name: No AI-specific law yet
+    citation: None adopted. The National Council for AI's Guide to Egypt's National AI Governance Framework (March 2026) isn't legislation
+    official_url: https://ai.gov.eg/SynchedFiles/ar/Resources/Guide%20to%20Egypt%E2%80%99s%20National%20AI%20Governance%20Framework.pdf
+    status: none
+    notes: Egypt has no AI law. The guide sorts AI systems into four risk tiers and calls its requirements binding for high-risk systems, which need an ethical impact assessment and a technical audit before going on the market. Its legal force is unclear, since it isn't legislation.
+regulators:
+  - name: Personal Data Protection Center (PDPC)
+    url: https://pdpc.gov.eg/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: Moved from a full to a basic entry. Its obligations rested on a law firm's translation, because no official text of the law or its regulations could be opened.
+  - date: "2026-11-05"
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.
