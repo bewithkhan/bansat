@@ -13,7 +13,7 @@
 //
 //   node research/run/prepare.ts --spec <id> --condition A|B --out <dir> [--run-id <id>] [--rep <n>] [--skill-ref <ref>]
 //   node research/run/prepare.ts --plan plan.json --run <run-id> --out <dir> [--skill-ref <ref>]
-// --skill-ref is required for condition B: the release tag the co-authors agreed (for example v2.4.0).
+// --skill-ref is required for condition B: the release tag the co-authors agreed (for example v3.0.0).
 import { spawnSync } from 'node:child_process';
 import { randomBytes } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
@@ -84,7 +84,7 @@ export type RunRecord = {
 
 export function prepare(o: { spec: string; condition: 'A' | 'B'; out: string; runId?: string; rep?: number; skillRef?: string; force?: boolean }): RunRecord {
   if (o.condition !== 'A' && o.condition !== 'B') throw new Error('--condition must be A (without Bansat) or B (with Bansat)');
-  if (o.condition === 'B' && !o.skillRef) throw new Error('condition B needs --skill-ref, the Bansat release to install (for example v2.4.0)');
+  if (o.condition === 'B' && !o.skillRef) throw new Error('condition B needs --skill-ref, the Bansat release to install (for example v3.0.0)');
   const out = resolve(o.out);
   // A workspace inside this repository could read research/checks. Refuse.
   const rel = relative(resolve(REPO), out);

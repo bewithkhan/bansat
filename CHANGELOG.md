@@ -2,6 +2,22 @@
 
 All notable changes to Bansat (بنسټ). Each release is a git tag, and the install command in the README is pinned to one, so the skill's instructions only change when you choose to update.
 
+## v3.0.0 (2026-11-10)
+
+Bansat now carries the law and your stack with it: a public privacy-law registry of 120 jurisdictions that the agent reads for the markets your app serves, a weekly watch that keeps it current, and 24 stack profiles.
+
+- **Law registry (`laws/`).** 120 jurisdictions. 62 full entries give every obligation a builder meets: who the law covers, lawful bases, the consent age, children, cookies, marketing, breach notice, registration and fees, DPOs, transfers, DPIAs, automated decisions and AI, and penalties. 58 basic entries give each other country's main data protection laws and its regulator. Every claim cites an official source (legislation, an official gazette, the regulator or a court), 2,944 URLs in all, and CI checks that each one is on an official domain listed for its jurisdiction. Every entry says when it was last checked and how; all 120 are `ai-checked`, not reviewed by a lawyer. The skill reads only the entries for the markets Part 0 names, and re-checks an entry against its sources if it was checked more than 90 days ago.
+- **Law Watch (`watch/`).** A GitHub Action checks 105 official sources for 46 full entries every week and opens an issue when one changes. A weekly AI verify task reads the official source, drafts a sourced update and opens a pull request, and a person reviews and merges every change. Its evaluation, 31 golden cases with six carrying planted instructions, is in `watch/eval/`: in the second round the task found all 18 known changes, invented none and followed no planted instruction.
+- **Law tracker.** A page for every jurisdiction at https://bewithkhan.github.io/bansat/laws/, grouped by region, with a feed of changes. Like every page on the site, it sets no cookies and makes no third-party requests, and CI checks both.
+- **Stack profiles (`stacks/`).** 24 profiles say what changes from the reference stack (Next.js and Supabase) on seven backend frameworks, six frontend and full-stack ones, four mobile platforms, and seven no-code or backend-as-a-service platforms. The skill loads only the profile for the stack Part 0 names, and each one is a page on the site.
+- **README.** A section on what builders can use today, what's missing and what Bansat adds; the 17 launch traps with each one's fix and how it's proved; the law registry, the stack profiles and the research; and a drawn workflow figure.
+- **Research (`research/`, `paper/`).** The paper on Bansat by Muhammad Tufail Khan and Naeem Ramzan, and the experiment it pre-specifies: six app briefs, 14 automated checks and the scripts that run and score each build. The plan was agreed and published before any run.
+- **Site.** A keyboard-only test on the home page, the law tracker and a country page: Tab starts at the skip link, every stop has a visible focus indicator, and the skip link leads into the content.
+
+**Future work.** Basic entries for about 50 more countries, in five batches: the Caribbean; North and West Africa; East Africa; Central and Southern Africa; and the rest of Asia. Watch sources for the 14 Asia-Pacific full entries, and for Tennessee and DIFC. The experiment's runs, then the paper on arXiv. The blueprint lists them (Part 11).
+
+**Updating:** switch your install to v3.0.0, then update the Framework row of each blueprint to v3.0. If a project isn't built on Next.js and Supabase, read the profile for its stack and record any differences in Part 3. For each market a project serves, compare Part 9 with that market's registry entry.
+
 ## v2.4.0 (2026-11-05)
 
 - **Breach casebook (Appendix F).** Twenty documented incidents and regulators' decisions from January 2025 to October 2026, from apps built with AI tools to the largest platforms, each mapped to the Bansat checks that catch its class of failure. Every case rests on a primary source (the organisation's own statement, a regulator, a CVE record or the researcher who found the problem), records any dispute, and was checked against its sources by an independent review. It's also a page on the [site](https://bewithkhan.github.io/bansat/casebook/).

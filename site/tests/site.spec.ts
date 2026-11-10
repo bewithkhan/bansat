@@ -59,6 +59,39 @@ for (const path of ['/bansat/', '/bansat/casebook/', '/bansat/framework/parts/07
   });
 }
 
+// Launch gate (Part 13): a keyboard-only run. Tab starts at the skip link, every stop shows a visible focus indicator,
+// and the skip link takes you past the navigation (the law pages' sidebar lists every jurisdiction) to the content.
+const focusStop = (page: Page) =>
+  page.evaluate(() => {
+    const el = document.activeElement as HTMLElement | null;
+    if (!el || el === document.body) return { visible: false, inMain: false, what: 'nothing focused' };
+    const s = getComputedStyle(el);
+    const visible = (s.outlineStyle !== 'none' && parseFloat(s.outlineWidth) > 0) || s.boxShadow !== 'none';
+    return { visible, inMain: !!el.closest('main'), what: `${el.tagName} ${el.textContent?.trim().slice(0, 40) ?? ''}` };
+  });
+for (const path of ['/bansat/', '/bansat/laws/', '/bansat/laws/uk/']) {
+  test(`keyboard only: skip link first, focus always visible, content reachable: ${path}`, async ({ page }) => {
+    await page.goto(path);
+    await page.keyboard.press('Tab');
+    expect(await page.evaluate(() => document.activeElement?.textContent?.trim() ?? '')).toMatch(/skip to content/i);
+    for (let i = 0; i < 15; i++) {
+      const stop = await focusStop(page);
+      expect(stop.visible, `no visible focus on ${stop.what}`).toBe(true);
+      await page.keyboard.press('Tab');
+    }
+    await page.reload();
+    await page.keyboard.press('Tab');
+    await page.keyboard.press('Enter');
+    let stop = { visible: false, inMain: false, what: '' };
+    for (let i = 0; i < 10 && !stop.inMain; i++) {
+      await page.keyboard.press('Tab');
+      stop = await focusStop(page);
+    }
+    expect(stop.inMain, 'the skip link does not lead into the main content').toBe(true);
+    expect(stop.visible, `no visible focus on ${stop.what}`).toBe(true);
+  });
+}
+
 const STACKS = fileURLToPath(new URL('../../stacks', import.meta.url));
 const stackIds = existsSync(STACKS) ? readdirSync(STACKS).filter((f) => f.endsWith('.md') && f !== 'README.md').map((f) => f.replace(/\.md$/, '')) : [];
 

@@ -109,7 +109,7 @@ The blueprint lives in the repo (`docs/BLUEPRINT.md`) and **changes in the same 
 - **Quarterly:** launch-trap audit (9.26) and cookie scan.
 - **Annually:** full review, plus a framework-version check.
 
-**Framework versioning:** each project blueprint records `Framework: Bansat v2.4`. When this master framework changes (a law, a guideline, a better pattern), its revision history lists what to re-check. Apply that list to each project at its next monthly review.
+**Framework versioning:** each project blueprint records `Framework: Bansat v3.0`. When this master framework changes (a law, a guideline, a better pattern), its revision history lists what to re-check. Apply that list to each project at its next monthly review.
 
 ### 14.6 Portfolio register
 

@@ -193,7 +193,7 @@ schema's row-level security (RLS) policies pass 13 access checks in Postgres and
 page that loads a third-party font before consent; CI also fails if a sample in the text and its tested copy differ. Beside Appendix~D's nine project-type profiles, 24 \emph{stack
 profiles} in \fpath{stacks/} (seven backend, six frontend and full-stack, four mobile, seven no-code or
 backend-as-a-service) say what changes from the Next.js and Supabase reference; the skill loads only the one a project
-needs. They are on the main branch, and v3.0.0 is planned to be the first release with them. Figure~\ref{fig:flow} shows the two tracks through the
+needs. They first shipped in v3.0.0, released on 10~November 2026. Figure~\ref{fig:flow} shows the two tracks through the
 framework.
 
 \begin{figure}[tbp]
@@ -232,7 +232,7 @@ data, not instructions.
 
 \begin{table}[tbp]
 \centering\footnotesize
-\caption{The parts of a Bansat blueprint (framework v2.4).}\label{tab:parts}
+\caption{The parts of a Bansat blueprint (framework v3.0).}\label{tab:parts}
 \begin{tabularx}{\linewidth}{@{}lL@{}}
 \toprule
 Part & What it settles \\
@@ -577,7 +577,7 @@ software engineering research~\cite{sallou2024breaking}.
 
 \paragraph{Decisions agreed by the authors.} The draft protocol left twelve decisions open, and the authors settled
 them as proposed. (1)~Five runs per cell, reviewed once against the pilot's spread. (2)~Condition~B pins v3.0.0, the
-first release with the stack profiles; the model and agent version are pinned when the pilot starts and reported with
+first release with the stack profiles, published on 10~November 2026; the model and agent version are pinned when the pilot starts and reported with
 the results. (3)~The skill is triggered by its description, as for a real user, and the transcript records whether it
 was used. (4)~Permission prompts are skipped inside the disposable, credential-free container, so no run waits on a
 person. (5)~The operator signs G1 without reading the blueprint, and the optional G1 hook is not installed, so the
@@ -612,7 +612,7 @@ Bansat's gates are instructions. An agent can skip a step, misjudge a tier or si
 skill alone cannot prevent it. The hook makes G1 a hard stop only for the agent's file-editing tools, not shell commands, and
 does nothing for G2--G4, which rely on tests and on the person reading the blueprint. Skills are an attack
 surface~\cite{li2026secureskills,liu2026skillswild}, and a tampered copy of Bansat could weaken its rules; the README
-therefore pins installation to a release tag, currently v2.4.0, published on 5~November 2026. And a gate signed without
+therefore pins installation to a release tag, currently v3.0.0, published on 10~November 2026. And a gate signed without
 being read adds little.
 
 \paragraph{Construct validity of the verify-task evaluation.}
@@ -649,8 +649,8 @@ its applications are never deployed, and the only people involved are the author
 % =====================================================================================================================
 \section{Availability}\label{sec:availability}
 Bansat is public at \url{https://github.com/bewithkhan/bansat}~\cite{khan2026bansat}. Text and templates are licensed
-CC~BY~4.0 and code samples MIT; a \fpath{NOTICE} file says which covers what. A documentation site with no cookies or trackers is at \url{https://bewithkhan.github.io/bansat/}~\cite{bansatsite}. \fpath{CITATION.cff} gives the citation for version~2.4.0,
-released on 5~November 2026. The registry, the watch and the verify prompt are in \fpath{laws/} and \fpath{watch/}. The
+CC~BY~4.0 and code samples MIT; a \fpath{NOTICE} file says which covers what. A documentation site with no cookies or trackers is at \url{https://bewithkhan.github.io/bansat/}~\cite{bansatsite}. \fpath{CITATION.cff} gives the citation for version~3.0.0,
+released on 10~November 2026. The registry, the watch and the verify prompt are in \fpath{laws/} and \fpath{watch/}. The
 verify-task evaluation (cases, scorer and both rounds' results) is in \fpath{watch/eval/}, merged into the main branch
 with pull request \#28 (merge commit \texttt{a523ca2}), together with the revised verify prompt. The experiment's
 protocol, specifications, checks and run scripts are in \fpath{research/}, and this paper's source in \fpath{paper/},
