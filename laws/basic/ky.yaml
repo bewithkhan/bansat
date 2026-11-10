@@ -1,0 +1,25 @@
+# Cayman Islands. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: ky
+name: Cayman Islands
+tier: basic
+laws:
+  - name: Data Protection Act (2021 Revision)
+    citation: Law 33 of 2017 (first the Data Protection Law, 2017), revised as the Data Protection Act (2021 Revision)
+    official_url: https://legislation.gov.ky/cms/images/LEGISLATION/PRINCIPAL/2017/2017-0033/2017-0033_2021%20Revision.pdf
+    status: in-force
+    in_force_from: "2019-09-30"
+    notes: Applies to controllers established in the Islands, and to controllers elsewhere that process data in the Islands other than in transit, which must nominate a local representative. A breach must be reported to the people affected and the Ombudsman without undue delay and within five days of when the controller should have known of it. Called a Law until 2020, when Cayman laws became Acts.
+  - name: Data Protection Regulations, 2018
+    citation: SL 17 of 2019 (Legislation Gazette No. 9, 2 April 2019)
+    official_url: https://legislation.gov.ky/cms/images/LEGISLATION/SUBORDINATE/2019/2019-0017/2019-0017_SL%2017%20of%202019.pdf
+    status: in-force
+    in_force_from: "2019-09-30"
+    notes: Start date derived from regulation 1(2), which brings them into force immediately after the Law, itself in force on 30 September 2019. Access requests are free unless manifestly unfounded or excessive. The Regulations also cover extensions of time and exemptions for health, education and social work.
+regulators:
+  - name: Office of the Ombudsman
+    url: https://ombudsman.ky/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.

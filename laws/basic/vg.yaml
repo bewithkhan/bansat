@@ -1,0 +1,19 @@
+# British Virgin Islands. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: vg
+name: British Virgin Islands
+tier: basic
+laws:
+  - name: Data Protection Act, 2021
+    citation: No. 3 of 2021 (assented 6 April 2021, gazetted 13 April 2021)
+    official_url: https://laws.gov.vg/sites/default/files/2021-12/No.%203%20of%202021-Data%20Protection%20Act,%202021.pdf
+    status: in-force
+    in_force_from: "2021-07-09"
+    notes: Virgin Islands Laws Online lists the Act as in force. 9 July 2021 is the start date commonly given, but we couldn't open the Gazette notice that set it, so it is unconfirmed. It covers public and private bodies. Processing needs express consent unless an exception applies, such as a contract, and data may leave the Territory only with proof of adequate safeguards or the person's consent. An Information Commissioner was appointed with effect from 11 May 2026.
+regulators:
+  - name: Information Commissioner (Office of the Information Commissioner)
+    url: https://gov.vg/news/melissa-brewley-appointed-information-commissioner
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.
