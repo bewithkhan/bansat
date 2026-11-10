@@ -1,0 +1,36 @@
+# Poland. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+# The law links point to the Government Legislation Centre's ELI portal, which shows each act's dates
+# and its consolidated text.
+id: pl
+name: Poland
+tier: basic
+applies_with: [eu]
+laws:
+  - name: Personal Data Protection Act
+    citation: Act of 10 May 2018 on the Protection of Personal Data (Dz.U. 2018 poz. 1000; consolidated text Dz.U. 2019 poz. 1781)
+    official_url: https://eli.gov.pl/eli/DU/2018/1000/ogl
+    status: in-force
+    in_force_from: "2018-05-25"
+    notes: Supplements the GDPR. It sets up the President of the Personal Data Protection Office (UODO) and covers DPOs in public bodies, certification, codes of conduct, proceedings, inspections, liability and fines; fines on public sector bodies are capped at PLN 100,000. Since 23 July 2026 the UODO President is also the authority for data intermediation services and data altruism under the EU Data Governance Act (Act of 27 March 2026 on data governance, Dz.U. 2026 poz. 548).
+  - name: Electronic Communications Law
+    citation: Act of 12 July 2024 – Prawo komunikacji elektronicznej (Dz.U. 2024 poz. 1221)
+    official_url: https://eli.gov.pl/eli/DU/2024/1221/ogl
+    status: in-force
+    in_force_from: "2024-11-10"
+    notes: Replaced the Telecommunications Law. Storing or reading information on a user's device needs consent after clear information, which can be given through browser or service settings, except for transmission or a service the user asked for (Art. 399). Marketing through automated calling systems or terminal equipment, such as email, SMS and calls, needs prior consent (Art. 398); this replaced Art. 10 of the e-services act. The President of UKE fines breaches.
+  - name: Act on Artificial Intelligence Systems
+    citation: Act of 3 July 2026 on Artificial Intelligence Systems (Dz.U. 2026 poz. 1003)
+    official_url: https://eli.gov.pl/eli/DU/2026/1003/ogl
+    status: in-force
+    in_force_from: "2026-08-11"
+    notes: Poland's law for carrying out the EU AI Act. It creates the Commission for the Development and Security of Artificial Intelligence as market surveillance authority and single point of contact, and sets the procedure and fines for breaches. Articles 8–18 and Chapters 3–5, 8 and 9 enter into force on 28 October 2026 (Art. 127). It also adds Art. 59a to the 2018 Act, requiring the UODO President to cooperate with the Commission.
+regulators:
+  - name: President of the Personal Data Protection Office (UODO)
+    url: https://uodo.gov.pl/
+  - name: President of the Office of Electronic Communications (UKE), for the cookie and electronic marketing rules
+    url: https://www.uke.gov.pl/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.

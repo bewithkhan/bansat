@@ -1,0 +1,28 @@
+# Portugal. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+# The Diário da República's consolidated pages need JavaScript. Law 58/2019 links to its gazette PDF;
+# Law 41/2004 links to the consolidated text kept by the Lisbon Public Prosecutor's Office, which the CNPD links to.
+id: pt
+name: Portugal
+tier: basic
+applies_with: [eu]
+laws:
+  - name: Law 58/2019 on the execution of the GDPR
+    citation: Lei n.º 58/2019, de 8 de agosto (Diário da República, 1.ª série, n.º 151)
+    official_url: https://files.diariodarepublica.pt/1s/2019/08/15100/0000300040.pdf
+    status: in-force
+    in_force_from: "2019-08-09"
+    notes: Ensures the GDPR's execution in Portugal and names the CNPD as national supervisory authority (Art. 3). Children can consent to information society services themselves from 13; below that, a legal representative must consent, preferably with secure authentication (Art. 16). The date is derived from Art. 68, which brings it into force the day after publication on 8 August 2019.
+  - name: Law 41/2004 on privacy in electronic communications
+    citation: Lei n.º 41/2004, de 18 de agosto, as amended by Lei n.º 46/2012 and Lei n.º 16/2022
+    official_url: https://www.pgdlisboa.pt/leis/lei_mostra_articulado.php?nid=707&tabela=leis&ficha=1&pagina=1&so_miolo=
+    status: in-force
+    in_force_from: "2004-08-19"
+    notes: Cookies and similar technologies need prior consent based on clear and full information, except for transmission or a service the user asked for (Art. 5). Marketing by email, SMS, automated calls or fax to individuals needs prior express consent; companies may be contacted until they opt out through a national list (Arts. 13-A, 13-B). A soft opt-in covers a business's own similar products. The CNPD fines breaches (Art. 15). The date is derived as the day after publication (Art. 20).
+regulators:
+  - name: National Data Protection Commission (Comissão Nacional de Proteção de Dados, CNPD)
+    url: https://www.cnpd.pt/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.

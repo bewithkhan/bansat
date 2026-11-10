@@ -1,0 +1,38 @@
+# Malta. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: mt
+name: Malta
+tier: basic
+applies_with: [eu]
+laws:
+  - name: Data Protection Act
+    citation: Chapter 586 of the Laws of Malta (Act XX of 2018), as amended
+    official_url: https://legislation.mt/eli/cap/586/eng/pdf
+    status: in-force
+    in_force_from: "2018-05-28"
+    notes: Implements and further specifies the GDPR and sets up the Information and Data Protection Commissioner, its powers and fines. Subsidiary Legislation 586.11 lets children consent to information society services from 13. The Act has no commencement section; the date is the one the IDPC gives, which is also the date of assent. Last amended by Legal Notice 212 of 2023.
+  - name: Processing of Personal Data (Electronic Communications Sector) Regulations
+    citation: Subsidiary Legislation 586.01 (Legal Notice 16 of 2003, as amended)
+    official_url: https://legislation.mt/eli/sl/586.1/eng/pdf
+    status: in-force
+    in_force_from: "2003-07-15"
+    notes: Cookies and similar technologies need consent after clear and full information, except for transmission or a service the user asked for (reg. 5). Marketing by email, automated calls or fax needs the recipient's prior written consent, even when the recipient is a company, with a soft opt-in for a business's own similar products (reg. 9). The date is derived from the head of the official consolidated text, since the Regulations came into force by ministerial notice.
+  - name: Artificial Intelligence Regulations
+    citation: Subsidiary Legislation 591.05 (Legal Notice 226 of 2025), made under the Malta Digital Innovation Authority Act (Cap. 591)
+    official_url: https://legislation.mt/eli/sl/591.5/eng/pdf
+    status: in-force
+    in_force_from: "2025-10-10"
+    notes: Malta's main law for carrying out the EU AI Act. The Malta Digital Innovation Authority (MDIA) is the default market surveillance authority, single point of contact and notifying authority, and runs the AI regulatory sandbox (regs. 3, 7, 9). Providers must register high-risk systems for critical infrastructure (Annex III point 2) with the MDIA (reg. 8). Fines reach EUR 350,000 or 1% of worldwide turnover, whichever is higher, and EUR 12,000 a day while a breach lasts (reg. 11). The date is the official text's head date; regs. 4–6 and 8–10 apply from 2 August 2026 (reg. 1(3) of L.N. 226).
+  - name: Artificial Intelligence (Designation of the Information and Data Protection Commissioner for the purposes of Regulation (EU) 2024/1689) Regulations
+    citation: Subsidiary Legislation 586.14 (Legal Notice 227 of 2025), made under the Data Protection Act (Cap. 586)
+    official_url: https://legislation.mt/eli/sl/586.14/eng/pdf
+    status: in-force
+    in_force_from: "2025-10-10"
+    notes: Makes the IDPC the AI Act market surveillance authority for high-risk AI in law enforcement, migration and border control, justice and elections, emergency call triage, and biometric systems in those fields (reg. 3), and for some banned practices (reg. 4). It is also the fundamental rights authority for data protection (reg. 5). The IDPC can fine; public bodies face up to EUR 50,000 per breach (reg. 13). The date is the official text's head date; regs. 5–7 and 9–12 apply from 2 August 2026 (reg. 1(3)).
+regulators:
+  - name: Information and Data Protection Commissioner (IDPC)
+    url: https://idpc.org.mt/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.
