@@ -1,6 +1,6 @@
 # Angular
 
-> **Group:** Frontend and full-stack · **Covers:** Angular 22 (22.2) with `@angular/ssr`, on Node.js 22.22+, 24.15+ or 26 and TypeScript 6.0. Angular 21 and 20 are in LTS · **Checked:** 2026-11-05 against the official docs
+> **Group:** Frontend and full-stack · **Covers:** Angular 22 (22.2) with `@angular/ssr`, on Node.js 22.22.3+, 24.15+ or 26 and TypeScript 6.0. Angular 21 and 20 are in LTS · **Checked:** 2026-11-05 against the official docs
 
 Angular renders in the browser, on a Node server (SSR) or at build time, but it has no data layer of its own. Access
 lives in the backend: Supabase in the reference stack, or your API's profile. Changed in 2025–2026: from v22 a new
@@ -16,11 +16,16 @@ on the latest patch (22.2.1 or later). New projects test with Vitest.
   (convenience only).
 - **SSR runs as the user.** By default the transfer cache skips requests that carry `Authorization` or `Cookie`
   headers or credentials ([SSR](https://angular.dev/guide/ssr)). Keep `includeRequestsWithAuthHeaders` and
-  `includeRequestsWithCredentials` off: the docs warn that cached user-specific data can leak between requests.
-- **Never prerender personal data:** prerendered pages are built once for everyone, so render signed-in routes with
-  `RenderMode.Server` or `RenderMode.Client` (SSR page).
+  `includeRequestsWithCredentials` off, and never list auth headers in `includeHeaders`, which the docs warn can leak
+  between requests. Until the June 2026 fix (21.2.15, 20.3.22), credentialed requests went into the page by default,
+  and a CDN caching that HTML served one user's data to others
+  ([GHSA-q6f4-qqrg-jv6x](https://github.com/advisories/GHSA-q6f4-qqrg-jv6x)). Send `Cache-Control: private, no-store`
+  on signed-in SSR routes (route `headers` or `RESPONSE_INIT`), and keep them out of shared caches.
+- **Never prerender personal data:** prerendered pages are built once for everyone, and Angular prerenders every route
+  by default, so set signed-in routes to `RenderMode.Server` or `RenderMode.Client` (SSR page).
 - **Isolation test:** run the backend's own test (the 5.4 SQL test) in CI, then check the app end to end as user A
-  with Playwright, which `ng e2e` can add:
+  with Playwright, which `ng e2e` can add. Its `request` fixture sends the `storageState` cookies, which suits cookie
+  sessions; with bearer tokens, pass the `Authorization` header yourself:
 
 ```ts
 // e2e/isolation.spec.ts — staging or a local stack seeded with synthetic users A and B (5.5)
@@ -50,8 +55,8 @@ test("user A can't open or change user B's task", async ({ page, request }) => {
 
 ## Secrets
 
-- Files in `src/environments/` "are bundled into your client-side application and visible to anyone who loads the
-  page" ([environments](https://angular.dev/tools/cli/environments)). Only publishable keys go there.
+- Everything in `src/environments/` ships in the client bundle, where any visitor can read it
+  ([environments](https://angular.dev/tools/cli/environments)). Only publishable keys go there.
 - **SSR:** read secrets from `process.env` in `server.ts` and server-only providers. Responses that `HttpClient`
   caches during SSR are serialised into the page for hydration (SSR page), so a server-side fetch made with a secret
   key can put privileged data in the HTML.
@@ -80,8 +85,9 @@ test("user A can't open or change user B's task", async ({ page, request }) => {
 ## Fonts and assets
 
 - **Font inlining doesn't self-host.** `optimization.fonts.inline` inlines the Google Fonts and Adobe Fonts *CSS* at
-  build time ([workspace config](https://angular.dev/reference/configs/workspace-config)). The font files it points to
-  still load from the vendor.
+  build time ([workspace config](https://angular.dev/reference/configs/workspace-config)), unchanged, so the font files
+  still load from the vendor, and it adds `<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>`, itself
+  a request to Google before consent ([CLI source](https://github.com/angular/angular-cli/blob/v22.2.6/packages/angular/build/src/utils/index-file/inline-fonts.ts)).
 - Self-host instead: put `woff2` files in `public/`, which the CLI copies as-is
   ([file structure](https://angular.dev/reference/configs/file-structure)), and declare `@font-face` in `styles.css`.
   Or install an `@fontsource/*` package and import it in `styles`. Keep `font-src 'self'`.
@@ -120,10 +126,13 @@ test("user A can't open or change user B's task", async ({ page, request }) => {
 ## Deployment
 
 - **Static hosting (CSR or prerendered):** set the 7.4 headers at the host or CDN. With `autoCsp`, the `<meta>` policy
-  covers `script-src` only.
+  covers scripts only, and the browser enforces it and your header together. Send 7.4's policy as a header without
+  `default-src` and `script-src`, which would block the hashed scripts, and list `img-src`, `font-src`, `connect-src`
+  and every other directive you need, since nothing falls back to `default-src` (security page).
 - **SSR on Node:** `server.ts` runs `AngularNodeAppEngine` from `@angular/ssr/node`. Set `allowedHosts`, trust proxy
   headers only behind a proxy that rewrites them, and set headers per route with `headers` in the server routes or in
-  middleware. Server-side fetches cap each response body at 1 MB, so keep `maxResponseBodySize` small (SSR page).
+  middleware. During SSR, `HttpClient` on the default fetch backend caps each response body at 1 MB; raise
+  `maxResponseBodySize` only as far as you need (SSR page).
 - **Versions:** take every patch. In 2025–2026, fixes covered SSR SSRF and host injection
   ([GHSA-x288-3778-4hhx](https://github.com/advisories/GHSA-x288-3778-4hhx), critical), XSS in SSR serialisation and
   i18n, transfer-cache leaks across requests
@@ -136,14 +145,16 @@ test("user A can't open or change user B's task", async ({ page, request }) => {
 - Everything in the browser bundle, environment files included, is public.
 - SSR widens the attack surface: many of the 2025–2026 advisories affected SSR alone. If you don't need it, use CSR
   or prerendering with `autoCsp`.
-- Translations, and the formats you pass to date and number pipes, are inputs too. Advisories in 2026 covered XSS
-  through i18n attributes and denial of service through crafted `formatDate` and `digitsInfo` arguments
-  ([GHSA-48r7-hpm6-gfxm](https://github.com/advisories/GHSA-48r7-hpm6-gfxm)), so never pass user input as a format.
+- Translations, and the formats you pass to date and number pipes, are inputs too. 2026 advisories covered XSS through
+  i18n event-handler attributes ([GHSA-jj27-h5hq-8x99](https://github.com/advisories/GHSA-jj27-h5hq-8x99)) and denial
+  of service through crafted `formatDate` ([GHSA-48r7-hpm6-gfxm](https://github.com/advisories/GHSA-48r7-hpm6-gfxm))
+  and `digitsInfo` ([GHSA-p3vc-36g9-x9gr](https://github.com/advisories/GHSA-p3vc-36g9-x9gr)) arguments, so never pass
+  user input as a format.
 - The service worker had header-leak fixes in 2026
   ([GHSA-qxh6-94w6-9r5p](https://github.com/advisories/GHSA-qxh6-94w6-9r5p)). For offline use, follow D2.
 
 ## Sources
 
-- Angular: [security](https://angular.dev/best-practices/security) · [SSR](https://angular.dev/guide/ssr) · [route guards](https://angular.dev/guide/routing/route-guards) · [interceptors](https://angular.dev/guide/http/interceptors) · [environments](https://angular.dev/tools/cli/environments) · [workspace config](https://angular.dev/reference/configs/workspace-config) · [file structure](https://angular.dev/reference/configs/file-structure) · [ErrorHandler](https://angular.dev/api/core/ErrorHandler) · [testing](https://angular.dev/guide/testing) · [end-to-end](https://angular.dev/tools/cli/end-to-end) · [releases](https://angular.dev/reference/releases) · [version compatibility](https://angular.dev/reference/versions)
+- Angular: [security](https://angular.dev/best-practices/security) · [SSR](https://angular.dev/guide/ssr) · [CLI font inlining source](https://github.com/angular/angular-cli/blob/v22.2.6/packages/angular/build/src/utils/index-file/inline-fonts.ts) · [route guards](https://angular.dev/guide/routing/route-guards) · [interceptors](https://angular.dev/guide/http/interceptors) · [environments](https://angular.dev/tools/cli/environments) · [workspace config](https://angular.dev/reference/configs/workspace-config) · [file structure](https://angular.dev/reference/configs/file-structure) · [ErrorHandler](https://angular.dev/api/core/ErrorHandler) · [testing](https://angular.dev/guide/testing) · [end-to-end](https://angular.dev/tools/cli/end-to-end) · [releases](https://angular.dev/reference/releases) · [version compatibility](https://angular.dev/reference/versions)
 - Angular Material: [getting started](https://material.angular.dev/guide/getting-started)
-- Advisories: [GHSA-58c5-g7wp-6w37](https://github.com/advisories/GHSA-58c5-g7wp-6w37) · [GHSA-x288-3778-4hhx](https://github.com/advisories/GHSA-x288-3778-4hhx) · [GHSA-39pv-4j6c-2g6v](https://github.com/advisories/GHSA-39pv-4j6c-2g6v) · [GHSA-rgjc-h3x7-9mwg](https://github.com/advisories/GHSA-rgjc-h3x7-9mwg) · [GHSA-48r7-hpm6-gfxm](https://github.com/advisories/GHSA-48r7-hpm6-gfxm) · [GHSA-qxh6-94w6-9r5p](https://github.com/advisories/GHSA-qxh6-94w6-9r5p)
+- Advisories: [GHSA-58c5-g7wp-6w37](https://github.com/advisories/GHSA-58c5-g7wp-6w37) · [GHSA-x288-3778-4hhx](https://github.com/advisories/GHSA-x288-3778-4hhx) · [GHSA-39pv-4j6c-2g6v](https://github.com/advisories/GHSA-39pv-4j6c-2g6v) · [GHSA-rgjc-h3x7-9mwg](https://github.com/advisories/GHSA-rgjc-h3x7-9mwg) · [GHSA-48r7-hpm6-gfxm](https://github.com/advisories/GHSA-48r7-hpm6-gfxm) · [GHSA-p3vc-36g9-x9gr](https://github.com/advisories/GHSA-p3vc-36g9-x9gr) · [GHSA-jj27-h5hq-8x99](https://github.com/advisories/GHSA-jj27-h5hq-8x99) · [GHSA-q6f4-qqrg-jv6x](https://github.com/advisories/GHSA-q6f4-qqrg-jv6x) · [GHSA-qxh6-94w6-9r5p](https://github.com/advisories/GHSA-qxh6-94w6-9r5p)

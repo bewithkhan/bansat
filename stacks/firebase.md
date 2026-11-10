@@ -3,8 +3,9 @@
 > **Group:** No-code and BaaS · **Covers:** Firebase JS SDK 13 (13.2), Admin SDK 14, `firebase-functions` 7, Firebase CLI 15, Cloud Firestore (Standard and Enterprise editions, Native mode), Cloud Storage and Firebase Authentication · **Checked:** 2026-11-05 against the official docs
 
 Firebase replaces Supabase: Security Rules are your RLS (D3), and Cloud Functions hold privileged code. Read this with
-your client's profile. New since 2025: Dynamic Links are gone, Data Connect is now **SQL Connect**, and both
-`functions.config()` and Firebase Extensions end in March 2027.
+your client's profile. New since 2025: Dynamic Links are gone, Data Connect is now **SQL Connect**, v7 removed
+`functions.config()`, Extensions end in March 2027 and Test Lab in September 2027 ([Test Lab](https://firebase.google.com/docs/test-lab)),
+Firebase 12 is the last Apple SDK on CocoaPods ([setup](https://firebase.google.com/docs/ios/setup)), and a compromised CA hit client SDKs in October 2026 (Deployment).
 
 ## Access and the isolation test
 
@@ -56,21 +57,18 @@ test('user A cannot read or write org B', async () => {
   change, and a client `signOut()` revokes nothing. For 7.1 sign-out, call `revokeRefreshTokens(uid)` on the server,
   and check revocation with `verifyIdToken(token, true)` before sensitive actions
   ([sessions](https://firebase.google.com/docs/auth/admin/manage-sessions)).
-- **Web sessions** persist until explicit sign-out by default
-  ([persistence](https://firebase.google.com/docs/auth/web/auth-state-persistence)), in browser storage that page
-  scripts can reach, so the 7.4 CSP matters. For server rendering, mint an `HttpOnly` session cookie with the Admin SDK
-  (5 minutes to 2 weeks), with the CSRF check its guide shows
-  ([session cookies](https://firebase.google.com/docs/auth/admin/manage-cookies)).
+- **Web sessions** persist until explicit sign-out by default, in browser storage that page scripts can reach
+  ([persistence](https://firebase.google.com/docs/auth/web/auth-state-persistence)), so the 7.4 CSP matters. For server
+  rendering, mint an `HttpOnly` session cookie with the Admin SDK (5 minutes to 2 weeks), with the CSRF check its guide
+  shows ([session cookies](https://firebase.google.com/docs/auth/admin/manage-cookies)).
 - **Enumeration (7.1):** email enumeration protection is on by default only in projects created on or after
   15 September 2023 ([enumeration](https://cloud.google.com/identity-platform/docs/admin/email-enumeration-protection)).
 - **Passwords:** the policy's minimum length defaults to 6. Set it to 12 in **Require** mode
   ([policy](https://firebase.google.com/docs/auth/web/password-auth)). It checks length and character classes only, so
   add the breached-password check yourself, or go passwordless.
-- **Magic links:** Spark sends 5 sign-in emails a day; Blaze sends 25,000. The built-in caps, such as 100 new accounts
-  per IP address an hour, are abuse ceilings, not 7.1's per-account throttle
-  ([limits](https://firebase.google.com/docs/auth/limits)). Mobile email links now go through a Hosting domain
-  (`linkDomain`; leave `dynamicLinkDomain` unset)
-  ([email link](https://firebase.google.com/docs/auth/android/email-link-auth)).
+- **Magic links:** Spark sends 5 sign-in emails a day, Blaze 25,000. Caps such as 100 new accounts per IP address an
+  hour are abuse ceilings, not 7.1's per-account throttle ([limits](https://firebase.google.com/docs/auth/limits)). Mobile
+  links now use a Hosting domain (`linkDomain`; leave `dynamicLinkDomain` unset) ([email link](https://firebase.google.com/docs/auth/android/email-link-auth)).
 - **MFA (SMS or TOTP)** needs Firebase Authentication with Identity Platform and verified emails, and SMS starts with
   every region blocked ([MFA](https://firebase.google.com/docs/auth/web/multi-factor)). Use TOTP for OWNER and ADMIN.
 - **Passkeys:** the Auth docs list no built-in provider (checked 2026-11-05). Verify WebAuthn in a function and sign
@@ -82,8 +80,9 @@ test('user A cannot read or write org B', async () => {
   to Firebase APIs, never add the Generative Language (Gemini) API to one, and never ship a Gemini Developer API key
   ([API keys](https://firebase.google.com/docs/projects/api-keys)).
 - **Functions:** `.env` files aren't a secure store. Use `defineSecret()` and `firebase functions:secrets:set NAME`
-  (Cloud Secret Manager), bound only to the functions that need them. `functions.config()` is deprecated, and new
-  deployments that use it fail after March 2027 ([config](https://firebase.google.com/docs/functions/config-env)).
+  (Cloud Secret Manager), bound only to the functions that need them. `functions.config()` is removed in v7, where
+  calling it throws ([source](https://github.com/firebase/firebase-functions/blob/v7.4.0/src/v1/config.ts)); on 6.x and
+  earlier, new deployments using it fail after March 2027 ([config](https://firebase.google.com/docs/functions/config-env)).
 - **CI and agents (12.1):** no service-account key files in repos or on laptops. The CLI recommends Application Default
   Credentials; `FIREBASE_TOKEN` is legacy and less secure ([CLI](https://firebase.google.com/docs/cli)). App Check
   debug tokens are credentials too: never commit or ship one
@@ -100,8 +99,8 @@ test('user A cannot read or write org B', async () => {
   ([conditions](https://firebase.google.com/docs/storage/security/rules-conditions)). Serve private files with
   `getBytes()` or `getBlob()`, which keep finer-grained control in the rules, rather than handing out download URLs
   ([download](https://firebase.google.com/docs/storage/web/download-files)).
-- **Deep links:** Dynamic Links have gone. Use App Links and Universal Links
-  ([FAQ](https://firebase.google.com/support/dynamic-links-faq)), and treat every link parameter as untrusted.
+- **Deep links:** Dynamic Links have gone ([FAQ](https://firebase.google.com/support/dynamic-links-faq)). Use App
+  Links and Universal Links, and treat every link parameter as untrusted.
 
 ## Fonts and assets
 
@@ -109,19 +108,17 @@ test('user A cannot read or write org B', async () => {
   npm, not from `www.gstatic.com/firebasejs` ([CDN option](https://firebase.google.com/docs/web/alt-setup)).
 - The SDKs call Google APIs such as `firestore.googleapis.com` and `identitytoolkit.googleapis.com` (API keys page).
   They are your backend: allow them in `connect-src` and in the 9.9 test.
-- App Check on the web attests with reCAPTCHA Enterprise ([App Check](https://firebase.google.com/docs/app-check)), a
-  Google service. Treat it as a security tool (9.8): load it only where it's needed, and disclose it.
+- App Check on the web attests with reCAPTCHA Enterprise ([App Check](https://firebase.google.com/docs/app-check)) or the older
+  [reCAPTCHA v3](https://firebase.google.com/docs/app-check/web/recaptcha-provider), both Google services: a security tool (9.8), so load it only where it's needed, and disclose it.
 
 ## Consent
 
-- **Analytics** logs events as soon as it starts. In apps, set `firebase_analytics_collection_enabled` to `false`
-  (AndroidManifest) and `FIREBASE_ANALYTICS_COLLECTION_ENABLED` to `NO` (Info.plist), then call
-  `setAnalyticsCollectionEnabled(true)` after consent
-  ([Android](https://firebase.google.com/docs/analytics/android/configure-data-collection),
-  [Apple](https://firebase.google.com/docs/analytics/ios/configure-data-collection)). Set every consent-mode default to
-  denied (`google_analytics_default_allow_*`, `GOOGLE_ANALYTICS_DEFAULT_ALLOW_*`) and update them with `setConsent`
-  ([consent mode](https://developers.google.com/tag-platform/security/guides/app-consent)). On the web, call
-  `getAnalytics()` only from the 9.7 consent loader.
+- **Analytics** logs events as soon as it starts. In apps, set `firebase_analytics_collection_enabled` (manifest) and
+  `FIREBASE_ANALYTICS_COLLECTION_ENABLED` (Info.plist) off, and every consent-mode default to denied
+  (`google_analytics_default_allow_*`, `GOOGLE_ANALYTICS_DEFAULT_ALLOW_*`). After the choice, call `setConsent` and
+  `setAnalyticsCollectionEnabled(true)` ([Android](https://firebase.google.com/docs/analytics/android/configure-data-collection),
+  [Apple](https://firebase.google.com/docs/analytics/ios/configure-data-collection), [consent mode](https://developers.google.com/tag-platform/security/guides/app-consent)).
+  On the web, call `getAnalytics()`, and the Crashlytics web SDK (preview since JS SDK 13.2.0), only from the 9.7 loader.
 - Cloud Messaging, Crashlytics and Performance Monitoring start themselves: switch off auto-initialisation and start
   them after the choice ([privacy](https://firebase.google.com/support/privacy)). On iOS, leave out AdSupport (the
   IDFA) unless you track with ATT consent (Apple page above).
@@ -134,9 +131,10 @@ test('user A cannot read or write org B', async () => {
 - **Crashlytics** identifies users by an ID number, token or hashed value
   ([Crashlytics](https://firebase.google.com/docs/crashlytics/customize-crash-reports)). The Analytics user ID may not
   be an email address ([user ID](https://firebase.google.com/docs/analytics/userid)).
-- **Audit:** Firestore's data-access audit logs are off until you turn them on
-  ([audit logs](https://cloud.google.com/firestore/native/docs/audit-logging)). Write 7.5's events to an `audit_logs`
-  collection from functions, with rules that deny every client.
+- **Audit:** Data Access audit logs, Firestore's included, are off by default ([Cloud](https://cloud.google.com/logging/docs/audit/configure-data-access)).
+  Once on, entries for Firebase Auth requests hold the token's header and payload (claims such as the email) and the
+  caller's IP ([Firestore](https://cloud.google.com/firestore/native/docs/audit-logging)), so set retention (5.6),
+  restrict access and record them (7.5, 9.3). Write 7.5's events to an `audit_logs` collection from functions; rules deny all clients.
 
 ## Testing
 
@@ -167,6 +165,11 @@ test('user A cannot read or write org B', async () => {
 - **Plans:** Cloud Storage needs Blaze; Spark projects lose bucket access
   ([FAQ](https://firebase.google.com/docs/storage/faqs-storage-changes-announced-sept-2024)). One project per environment
   (3.2), each with budget alerts.
+- **eMudhra CA (October 2026):** some clients compiled in roots that chain to a compromised CA, so a network attacker
+  could impersonate Firestore or any HTTPS host. Fixed in FirebaseFirestore for Apple 13.1.1+ (or 12.19.3, the only fix
+  on CocoaPods); `cloud_firestore` 7.1.0 (or 6.10.1 on iOS and macOS, 6.10.2 on Windows); Flutter 3.47.8 for `dart:io` on
+  Android, Windows and Linux; the App Distribution Gradle plugin 5.3.1+ (or 4.2.1, 3.2.1). React Native on Apple with Firestore, Unity and C++ were hit
+  too. Update, republish and get users to update; the Gradle plugin needs only the update ([guide](https://firebase.google.com/support/guides/compromised-emudhra-intermediate-ca)).
 
 ## Limits
 
@@ -176,21 +179,18 @@ test('user A cannot read or write org B', async () => {
 - App Check is attestation, not authorisation. Within 15 minutes of enforcement it rejects every unattested request,
   old app versions included, so read its metrics first
   ([enforcement](https://firebase.google.com/docs/app-check/enable-enforcement)).
-- **Erasure (9.15):** deleting an Auth user leaves their Firestore and Storage data behind. Extensions shut down on
-  31 March 2027 ([notice](https://firebase.google.com/docs/extensions/users/migrate)), so skip "Delete User Data" and
-  delete in your own delete-account function or `onUserDeleted` handler
-  ([auth events](https://firebase.google.com/docs/functions/auth-events)). Auth purges its own copy, backups included,
-  within 180 days (privacy page).
-- **SQL Connect** has no Security Rules: each operation carries an `@auth` level from `PUBLIC` to `NO_ACCESS`
-  ([SQL Connect](https://firebase.google.com/docs/sql-connect/authorization-and-security)). Review and test them as
-  policies.
+- **Erasure (9.15):** deleting an Auth user leaves their Firestore and Storage data behind; Auth purges its own copy,
+  backups included, within 180 days (privacy page). Extensions, "Delete User Data" included, end on 31 March 2027
+  ([notice](https://firebase.google.com/docs/extensions/users/migrate)), so erase in your own delete-account function;
+  `onUserDeleted` is in Preview and bulk deletes skip it ([auth events](https://firebase.google.com/docs/functions/auth-events)).
+- **SQL Connect** has no Security Rules: each operation carries an `@auth` level from `PUBLIC` to `NO_ACCESS` (the
+  default) ([SQL Connect](https://firebase.google.com/docs/sql-connect/authorization-and-security)). Test them as policies.
 
 ## Sources
 
-- Rules: [get started](https://firebase.google.com/docs/firestore/security/get-started) · [insecure rules](https://firebase.google.com/docs/rules/insecure-rules) · [queries](https://firebase.google.com/docs/firestore/security/rules-query) · [structure and limits](https://firebase.google.com/docs/firestore/security/rules-structure) · [unit tests](https://firebase.google.com/docs/rules/unit-tests) · [Storage conditions](https://firebase.google.com/docs/storage/security/rules-conditions)
+- Rules and App Check: [get started](https://firebase.google.com/docs/firestore/security/get-started) · [insecure rules](https://firebase.google.com/docs/rules/insecure-rules) · [queries](https://firebase.google.com/docs/firestore/security/rules-query) · [structure and limits](https://firebase.google.com/docs/firestore/security/rules-structure) · [unit tests](https://firebase.google.com/docs/rules/unit-tests) · [Storage conditions](https://firebase.google.com/docs/storage/security/rules-conditions) · [App Check](https://firebase.google.com/docs/app-check) · [reCAPTCHA v3 provider](https://firebase.google.com/docs/app-check/web/recaptcha-provider) · [enforcement](https://firebase.google.com/docs/app-check/enable-enforcement) · [debug provider](https://firebase.google.com/docs/app-check/web/debug-provider)
 - Auth: [sessions](https://firebase.google.com/docs/auth/admin/manage-sessions) · [session cookies](https://firebase.google.com/docs/auth/admin/manage-cookies) · [custom claims](https://firebase.google.com/docs/auth/admin/custom-claims) · [persistence](https://firebase.google.com/docs/auth/web/auth-state-persistence) · [password policy](https://firebase.google.com/docs/auth/web/password-auth) · [limits](https://firebase.google.com/docs/auth/limits) · [MFA](https://firebase.google.com/docs/auth/web/multi-factor) · [email link](https://firebase.google.com/docs/auth/android/email-link-auth) · [redirect](https://firebase.google.com/docs/auth/web/redirect-best-practices) · [enumeration protection](https://cloud.google.com/identity-platform/docs/admin/email-enumeration-protection)
-- App Check: [overview](https://firebase.google.com/docs/app-check) · [enforcement](https://firebase.google.com/docs/app-check/enable-enforcement) · [debug provider](https://firebase.google.com/docs/app-check/web/debug-provider)
-- Functions, CLI and Hosting: [API keys](https://firebase.google.com/docs/projects/api-keys) · [config and secrets](https://firebase.google.com/docs/functions/config-env) · [CLI](https://firebase.google.com/docs/cli) · [callable](https://firebase.google.com/docs/functions/callable) · [manage functions](https://firebase.google.com/docs/functions/manage-functions) · [auth events](https://firebase.google.com/docs/functions/auth-events) · [logs](https://firebase.google.com/docs/functions/writing-and-viewing-logs) · [emulators](https://firebase.google.com/docs/emulator-suite/install_and_configure) · [Hosting config](https://firebase.google.com/docs/hosting/full-config) · [CDN setup](https://firebase.google.com/docs/web/alt-setup)
-- Data: [Firestore locations](https://firebase.google.com/docs/firestore/locations) · [project locations](https://firebase.google.com/docs/projects/locations) · [functions locations](https://firebase.google.com/docs/functions/locations) · [backups](https://firebase.google.com/docs/firestore/backups) · [PITR](https://firebase.google.com/docs/firestore/pitr) · [audit logs](https://cloud.google.com/firestore/native/docs/audit-logging) · [Storage plan change](https://firebase.google.com/docs/storage/faqs-storage-changes-announced-sept-2024) · [download files](https://firebase.google.com/docs/storage/web/download-files)
+- Functions, CLI and Hosting: [API keys](https://firebase.google.com/docs/projects/api-keys) · [config and secrets](https://firebase.google.com/docs/functions/config-env) · [`functions.config()` in v7](https://github.com/firebase/firebase-functions/blob/v7.4.0/src/v1/config.ts) · [CLI](https://firebase.google.com/docs/cli) · [callable](https://firebase.google.com/docs/functions/callable) · [manage functions](https://firebase.google.com/docs/functions/manage-functions) · [auth events](https://firebase.google.com/docs/functions/auth-events) · [logs](https://firebase.google.com/docs/functions/writing-and-viewing-logs) · [emulators](https://firebase.google.com/docs/emulator-suite/install_and_configure) · [Hosting config](https://firebase.google.com/docs/hosting/full-config) · [CDN setup](https://firebase.google.com/docs/web/alt-setup)
+- Data: [Firestore locations](https://firebase.google.com/docs/firestore/locations) · [project locations](https://firebase.google.com/docs/projects/locations) · [functions locations](https://firebase.google.com/docs/functions/locations) · [backups](https://firebase.google.com/docs/firestore/backups) · [PITR](https://firebase.google.com/docs/firestore/pitr) · [Firestore audit logs](https://cloud.google.com/firestore/native/docs/audit-logging) · [Data Access audit logs](https://cloud.google.com/logging/docs/audit/configure-data-access) · [Storage plan change](https://firebase.google.com/docs/storage/faqs-storage-changes-announced-sept-2024) · [download files](https://firebase.google.com/docs/storage/web/download-files)
 - Privacy and consent: [privacy and data locations](https://firebase.google.com/support/privacy) · [Analytics on Android](https://firebase.google.com/docs/analytics/android/configure-data-collection) · [on Apple platforms](https://firebase.google.com/docs/analytics/ios/configure-data-collection) · [consent mode for apps](https://developers.google.com/tag-platform/security/guides/app-consent) · [Analytics user ID](https://firebase.google.com/docs/analytics/userid) · [Crashlytics](https://firebase.google.com/docs/crashlytics/customize-crash-reports)
-- Changes: [Dynamic Links FAQ](https://firebase.google.com/support/dynamic-links-faq) · [Extensions shutdown](https://firebase.google.com/docs/extensions/users/migrate) · [SQL Connect auth](https://firebase.google.com/docs/sql-connect/authorization-and-security) · [JS SDK release notes](https://firebase.google.com/support/release-notes/js)
+- Changes: [Dynamic Links FAQ](https://firebase.google.com/support/dynamic-links-faq) · [Extensions shutdown](https://firebase.google.com/docs/extensions/users/migrate) · [SQL Connect auth](https://firebase.google.com/docs/sql-connect/authorization-and-security) · [JS SDK release notes](https://firebase.google.com/support/release-notes/js) · [Test Lab](https://firebase.google.com/docs/test-lab) · [Apple setup and CocoaPods](https://firebase.google.com/docs/ios/setup) · [eMudhra CA guide](https://firebase.google.com/support/guides/compromised-emudhra-intermediate-ca)

@@ -17,8 +17,10 @@ Android 17 adds a local-network permission, certificate transparency by default 
   taken from another app's extras
   ([intent redirection](https://developer.android.com/privacy-and-security/risks/intent-redirection)).
 - **Isolation test:** run the backend's own test in CI (the 5.4 SQL test, or the Firebase profile's rules test), then
-  prove the app's repository gets the same answer in an instrumented test. The emulator reaches a local stack on your
-  machine at `10.0.2.2` ([emulator networking](https://developer.android.com/studio/run/emulator-networking-address)).
+  prove the app's repository gets the same answer in an instrumented test. The emulator reaches a local stack at
+  `10.0.2.2` ([emulator networking](https://developer.android.com/studio/run/emulator-networking-address)), usually over
+  HTTP, which API 28+ blocks: allow cleartext for `10.0.2.2` alone in a network security config in the debug source set
+  (`src/debug/res/xml/`), never in release ([config](https://developer.android.com/privacy-and-security/security-config)).
 
 ```kotlin
 // app/src/androidTest/java/com/example/app/IsolationTest.kt — local stack via 10.0.2.2, synthetic users only (5.5)
@@ -26,6 +28,7 @@ Android 17 adds a local-network permission, certificate transparency by default 
 class IsolationTest {
     @Test fun userA_cannotReadOrChange_userBsTask() = runTest {
         val tasks = TaskRepository(TestBackend.signInAs(TestUsers.A))   // the same repository the screens use
+        assertNotNull(tasks.find(Seed.TASK_OF_A))                         // control: proves the sign-in worked
         assertNull(tasks.find(Seed.TASK_OF_B))                            // RLS or rules hide the row
         assertFailsWith<AccessDenied> { tasks.rename(Seed.TASK_OF_B, "x") } // map 0 rows / 403 / permission-denied
     }
@@ -40,7 +43,7 @@ class IsolationTest {
   ([migration](https://developer.android.com/identity/sign-in/legacy-gsi-migration)).
 - **Other OAuth providers:** use the system browser with PKCE, never a WebView.
 - **Token storage (D3):** Google deprecated every Jetpack Security Crypto API in 2025, EncryptedSharedPreferences
-  included, "in favour of existing platform APIs and direct use of Android Keystore"
+  included, and points to the platform APIs and the Android Keystore instead
   ([AndroidX Security](https://developer.android.com/jetpack/androidx/releases/security)). Encrypt tokens with an AES
   key you generate in the Android Keystore, and keep the ciphertext in DataStore. Keystore keys can't be extracted, and
   can be bound to the TEE or StrongBox ([Keystore](https://developer.android.com/privacy-and-security/keystore)).
@@ -103,7 +106,10 @@ class IsolationTest {
 - **Firebase:** set the `firebase_analytics_collection_enabled` and `firebase_crashlytics_collection_enabled`
   meta-data to `false`, then call `setAnalyticsCollectionEnabled(true)` and `setCrashlyticsCollectionEnabled(true)`
   after consent ([Analytics](https://firebase.google.com/docs/analytics/android/configure-data-collection),
-  [Crashlytics](https://firebase.google.com/docs/crashlytics/android/customize-crash-reports)).
+  [Crashlytics](https://firebase.google.com/docs/crashlytics/android/customize-crash-reports)). Cloud Messaging and
+  Performance Monitoring start themselves too: set `firebase_messaging_auto_init_enabled` and
+  `firebase_performance_collection_enabled` to `false` until consent ([privacy](https://firebase.google.com/support/privacy),
+  [FCM](https://firebase.google.com/docs/cloud-messaging/android/client), [Performance](https://firebase.google.com/docs/perf-mon/disable-sdk?platform=android)).
 - **Google's consent mode:** default the `google_analytics_default_allow_*` meta-data to `false`, and pass the user's
   choice with `setConsent` ([consent mode](https://developers.google.com/tag-platform/security/guides/app-consent)).
 - **Advertising ID:** SDKs can merge the `AD_ID` permission into your manifest
@@ -119,10 +125,12 @@ class IsolationTest {
 
 - `Log.*` writes to logcat. Sanitise logging in release builds, log compile-time constants where you can, and let R8
   remove every level below warning
-  ([log disclosure](https://developer.android.com/privacy-and-security/risks/log-info-disclosure)):
+  ([log disclosure](https://developer.android.com/privacy-and-security/risks/log-info-disclosure)). R8 runs only once
+  you turn it on for release, with `optimization { enable = true }` from AGP 9.3 or `isMinifyEnabled = true` before it
+  ([app optimisation](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization)):
 
 ```proguard
-# app/proguard-rules.pro — R8 drops verbose, debug and info logging from release builds
+# app/src/main/keepRules/strip-logs.keep (or proguard-rules.pro on the old DSL) — R8 drops v, d and i logging
 -assumenosideeffects class android.util.Log {
     public static int v(...); public static int d(...); public static int i(...);
 }
@@ -139,19 +147,24 @@ class IsolationTest {
   Drive OS permission dialogs and their denied states (D3) with a UI tool that reaches system UI.
 - **No-third-party test (9.9):** install a fresh build on an emulator started with `-tcpdump`
   ([emulator](https://developer.android.com/studio/run/emulator-commandline)), run the flow that taps "Reject all",
-  then compare the DNS names looked up with an allowlist. That list comes from a baseline run without your app, plus
-  your API and backend hosts:
+  then compare the DNS names looked up with an allowlist: a baseline run without your app, plus your API and backend
+  hosts. Review the baseline by hand: on a Google Play image it holds hosts Play services contacts by itself, and as
+  the check matches names, not apps, each one also hides your own SDKs' calls to it:
 
 ```bash
 # tests/privacy/no-third-party-android.sh — fails if the app contacts a host outside allowed-hosts.txt
-emulator -avd ci -no-window -no-snapshot -tcpdump cap.pcap & adb wait-for-device
-./gradlew installRelease && adb shell am start -W -n com.example.app/.MainActivity; sleep 30
+emulator -avd ci -no-window -no-snapshot -wipe-data -tcpdump cap.pcap &   # -wipe-data: no consent left from a past run
+adb wait-for-device shell 'while [ "$(getprop sys.boot_completed)" != 1 ]; do sleep 1; done'  # "device" comes before boot ends
+./gradlew installRelease && adb shell am start -W -n com.example.app/.MainActivity; sleep 30  # needs a release signingConfig
 adb emu kill; sleep 3
 tshark -r cap.pcap -Y 'dns.flags.response == 0' -T fields -e dns.qry.name | sort -u > hosts.txt
+grep -qxF api.example.com hosts.txt || { echo 'No lookup of your API host: the capture missed DNS'; exit 1; }
 if grep -vxF -f allowed-hosts.txt hosts.txt; then echo 'Third-party hosts contacted before consent'; exit 1; fi
 ```
 
-- Match DNS names, not TLS SNI: for apps targeting Android 17, Encrypted Client Hello can hide SNI (Android 17 page).
+- adb reports `device` before Android has finished booting ([adb](https://developer.android.com/tools/adb)), hence the
+  boot wait; the API-host check stops an empty capture from passing. Match DNS names, not TLS SNI: for apps targeting
+  Android 17, Encrypted Client Hello can hide SNI (Android 17 page).
 
 ## Deployment
 
@@ -164,7 +177,9 @@ if grep -vxF -f allowed-hosts.txt hosts.txt; then echo 'Third-party hosts contac
   Data safety form, alongside account deletion in the app and through a web link
   ([Play](https://support.google.com/googleplay/android-developer/answer/13327111)) and a review account with the lowest
   role and synthetic data (7.1). The data region is the backend's.
-- **Kotlin:** from 2.4.0, each standard-library release line gets security fixes for 18 months
+- **eMudhra CA (October 2026):** the Firebase App Distribution Gradle plugin trusted a compromised CA. Update it to
+  5.3.1+ (or 4.2.1, 3.2.1); no app republish needed ([Firebase](https://firebase.google.com/support/guides/compromised-emudhra-intermediate-ca)).
+- **Kotlin:** from 2.4.0, each release line of the standard library for the JVM gets security fixes for 18 months
   ([Kotlin releases](https://kotlinlang.org/docs/releases.html)). Plan the move to 2.5.
 
 ## Limits
@@ -180,5 +195,5 @@ if grep -vxF -f allowed-hosts.txt hosts.txt; then echo 'Third-party hosts contac
 
 - Android security: [exported](https://developer.android.com/privacy-and-security/risks/android-exported) · [intent redirection](https://developer.android.com/privacy-and-security/risks/intent-redirection) · [hardcoded secrets](https://developer.android.com/privacy-and-security/risks/hardcoded-cryptographic-secrets) · [WebView bridges](https://developer.android.com/privacy-and-security/risks/insecure-webview-native-bridges) · [WebView file inclusion](https://developer.android.com/privacy-and-security/risks/webview-unsafe-file-inclusion) · [cleartext](https://developer.android.com/privacy-and-security/risks/cleartext-communications) · [deep links](https://developer.android.com/privacy-and-security/risks/unsafe-use-of-deeplinks) · [log disclosure](https://developer.android.com/privacy-and-security/risks/log-info-disclosure) · [debuggable](https://developer.android.com/privacy-and-security/risks/android-debuggable) · [backups](https://developer.android.com/privacy-and-security/risks/backup-best-practices) · [Keystore](https://developer.android.com/privacy-and-security/keystore)
 - Identity and data: [Credential Manager](https://developer.android.com/identity/credential-manager) · [Google Sign-In migration](https://developer.android.com/identity/sign-in/legacy-gsi-migration) · [AndroidX Security releases](https://developer.android.com/jetpack/androidx/releases/security) · [Auto Backup](https://developer.android.com/identity/data/autobackup) · [App Links verification](https://developer.android.com/training/app-links/verify-applinks) · [photo picker](https://developer.android.com/training/data-storage/shared/photopicker) · [declare data use](https://developer.android.com/privacy-and-security/declare-data-use) · [Play Integrity](https://developer.android.com/google/play/integrity/overview)
-- Platform and tools: [Android 17 changes for targeting apps](https://developer.android.com/about/versions/17/behavior-changes-17) · [Android 17 changes for all apps](https://developer.android.com/about/versions/17/behavior-changes-all) · [target API requirement](https://developer.android.com/google/play/requirements/target-sdk) · [developer verification](https://developer.android.com/developer-verification) · [emulator command line](https://developer.android.com/studio/run/emulator-commandline) · [emulator networking](https://developer.android.com/studio/run/emulator-networking-address) · [testing fundamentals](https://developer.android.com/training/testing/fundamentals) · [App Startup](https://developer.android.com/topic/libraries/app-startup) · [Compose fonts](https://developer.android.com/develop/ui/compose/text/fonts) · [downloadable fonts](https://developer.android.com/develop/ui/views/text-and-emoji/downloadable-fonts) · [Kotlin releases](https://kotlinlang.org/docs/releases.html)
-- Google Play and Firebase: [account deletion](https://support.google.com/googleplay/android-developer/answer/13327111) · [advertising ID](https://support.google.com/googleplay/android-developer/answer/6048248) · [API keys](https://firebase.google.com/docs/projects/api-keys) · [Analytics data collection](https://firebase.google.com/docs/analytics/android/configure-data-collection) · [Crashlytics opt-in](https://firebase.google.com/docs/crashlytics/android/customize-crash-reports) · [consent mode for apps](https://developers.google.com/tag-platform/security/guides/app-consent) · [App Check quotas](https://firebase.google.com/docs/app-check)
+- Platform and tools: [network security config](https://developer.android.com/privacy-and-security/security-config) · [app optimisation](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization) · [adb](https://developer.android.com/tools/adb) · [boot completion](https://source.android.com/docs/core/perf/boot-times) · [Android 17 changes for targeting apps](https://developer.android.com/about/versions/17/behavior-changes-17) · [Android 17 changes for all apps](https://developer.android.com/about/versions/17/behavior-changes-all) · [target API requirement](https://developer.android.com/google/play/requirements/target-sdk) · [developer verification](https://developer.android.com/developer-verification) · [emulator command line](https://developer.android.com/studio/run/emulator-commandline) · [emulator networking](https://developer.android.com/studio/run/emulator-networking-address) · [testing fundamentals](https://developer.android.com/training/testing/fundamentals) · [App Startup](https://developer.android.com/topic/libraries/app-startup) · [Compose fonts](https://developer.android.com/develop/ui/compose/text/fonts) · [downloadable fonts](https://developer.android.com/develop/ui/views/text-and-emoji/downloadable-fonts) · [Kotlin releases](https://kotlinlang.org/docs/releases.html)
+- Google Play and Firebase: [eMudhra CA guide](https://firebase.google.com/support/guides/compromised-emudhra-intermediate-ca) · [privacy and auto-init](https://firebase.google.com/support/privacy) · [FCM auto-init](https://firebase.google.com/docs/cloud-messaging/android/client) · [Performance opt-in](https://firebase.google.com/docs/perf-mon/disable-sdk?platform=android) · [account deletion](https://support.google.com/googleplay/android-developer/answer/13327111) · [advertising ID](https://support.google.com/googleplay/android-developer/answer/6048248) · [API keys](https://firebase.google.com/docs/projects/api-keys) · [Analytics data collection](https://firebase.google.com/docs/analytics/android/configure-data-collection) · [Crashlytics opt-in](https://firebase.google.com/docs/crashlytics/android/customize-crash-reports) · [consent mode for apps](https://developers.google.com/tag-platform/security/guides/app-consent) · [App Check quotas](https://firebase.google.com/docs/app-check)

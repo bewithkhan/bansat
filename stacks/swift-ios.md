@@ -14,7 +14,7 @@ system changed too, and its new questions were due by 31 January 2026
 - **The app is a client.** Access is enforced by the backend: RLS (5.4) for Supabase, Security Rules for Firebase, or
   the 7.2 checks in your own API. Hidden buttons are layer 3 (convenience only).
 - **App Attest** (`DCAppAttestService`) lets your server check that a request comes from a genuine copy of your app,
-  because "a compromised app can falsify the results" of checks the app runs on itself
+  because a tampered app can lie about checks it runs on itself
   ([App Attest](https://developer.apple.com/documentation/devicecheck/establishing-your-app-s-integrity)). It slows
   scripted abuse. It isn't authorisation.
 - **Links reach any screen you route to**, so each screen loads its data as though opened cold, and shows S7 or S11
@@ -30,6 +30,7 @@ import Testing
 
 @Test func userACannotReadOrChangeUserBsTask() async throws {
   let api = try await APIClient.signedIn(as: .userA)            // test helper against the local stack
+  #expect(try await api.task(id: Seed.taskOfA) != nil)          // control: proves the sign-in worked
   #expect(try await api.task(id: Seed.taskOfB) == nil)          // RLS or rules hide it
   await #expect(throws: APIError.accessDenied) {                // map 0 rows, 403 or permission-denied here
     try await api.renameTask(id: Seed.taskOfB, to: "x")
@@ -73,10 +74,12 @@ import Testing
   cookie-session web backend, that backend's profile applies.
 - **`WKWebView` runs JavaScript by default** (`allowsContentJavaScript` is `true`): switch it off in
   `WKWebpagePreferences` for content that doesn't need it
-  ([docs](https://developer.apple.com/documentation/webkit/wkwebpagepreferences/allowscontentjavascript)). Turn on
-  `limitsNavigationsToAppBoundDomains` so that the view navigates only within your app's domains
-  ([docs](https://developer.apple.com/documentation/webkit/wkwebviewconfiguration/limitsnavigationstoappbounddomains)).
-  In `decidePolicyFor` allow only your hosts, and open everything else in Safari.
+  ([docs](https://developer.apple.com/documentation/webkit/wkwebpagepreferences/allowscontentjavascript)). List up to
+  10 domains under the `WKAppBoundDomains` Info.plist key: web views then refuse script injection, cookie access and
+  message handlers unless they set `limitsNavigationsToAppBoundDomains`, which keeps them on those domains
+  ([docs](https://developer.apple.com/documentation/webkit/wkwebviewconfiguration/limitsnavigationstoappbounddomains),
+  [WebKit](https://webkit.org/blog/10882/app-bound-domains/)). Only the top frame is checked, so third-party iframes
+  still load: check `frameInfo` (below). In `decidePolicyFor` allow only your hosts, and open everything else in Safari.
 - **Bridges:** in a `WKScriptMessageHandler`, check `message.frameInfo`, the frame that sent the message
   ([docs](https://developer.apple.com/documentation/webkit/wkscriptmessage/frameinfo)), before acting. Treat the body
   as untrusted input.
@@ -103,9 +106,12 @@ import Testing
 - **Firebase:** set `FIREBASE_ANALYTICS_COLLECTION_ENABLED` and `FirebaseCrashlyticsCollectionEnabled` to `NO` in
   Info.plist, then call `setAnalyticsCollectionEnabled(true)` and `setCrashlyticsCollectionEnabled(true)` after consent
   ([Analytics](https://firebase.google.com/docs/analytics/ios/configure-data-collection),
-  [Crashlytics](https://firebase.google.com/docs/crashlytics/ios/customize-crash-reports)). Default Google's consent
-  mode to denied with the `GOOGLE_ANALYTICS_DEFAULT_ALLOW_*` keys, and update it with `setConsent`
-  ([consent mode](https://developers.google.com/tag-platform/security/guides/app-consent)).
+  [Crashlytics](https://firebase.google.com/docs/crashlytics/ios/customize-crash-reports)). Cloud Messaging and
+  Performance Monitoring start themselves too: set `FirebaseMessagingAutoInitEnabled` and
+  `firebase_performance_collection_enabled` to `NO` until consent ([privacy](https://firebase.google.com/support/privacy),
+  [FCM](https://firebase.google.com/docs/cloud-messaging/ios/client), [Performance](https://firebase.google.com/docs/perf-mon/disable-sdk)).
+  Default Google's consent mode to denied with the `GOOGLE_ANALYTICS_DEFAULT_ALLOW_*` keys, and update it with
+  `setConsent` ([consent mode](https://developers.google.com/tag-platform/security/guides/app-consent)).
 - **ATT:** call `ATTrackingManager.requestTrackingAuthorization()` while the app is active, with
   `NSUserTrackingUsageDescription`. In France, Germany, Italy, Poland and Romania the system shows a full-page sheet,
   which uses `NSUserTrackingMarkdownUsageDescription` (iOS 27.2+)
@@ -118,7 +124,7 @@ import Testing
 - **Privacy manifest (`PrivacyInfo.xcprivacy`):** set `NSPrivacyTracking`, `NSPrivacyCollectedDataTypes` and
   `NSPrivacyAccessedAPITypes`. List tracking hosts in `NSPrivacyTrackingDomains`: without ATT permission, requests to
   them fail ([privacy manifest](https://developer.apple.com/documentation/bundleresources/privacy-manifest-files)). SDKs
-  on Apple's list must ship a manifest and a signature
+  on Apple's list must ship a manifest, and a signature too when you use them as binary dependencies
   ([SDK requirements](https://developer.apple.com/support/third-party-SDK-requirements/)).
 
 ## Logging
@@ -138,13 +144,16 @@ import Testing
   ([app activity](https://developer.apple.com/documentation/network/inspecting-app-activity-data)):
 
 ```bash
-# tests/privacy/check-app-privacy-report.sh <report.ndjson> — fails on any domain outside allowed-hosts.txt
-jq -r 'select(.type == "networkActivity" and .bundleID == "com.example.app") | .domain' "$1" | sort -u > hosts.txt
+# tests/privacy/check-app-privacy-report.sh <report.ndjson> <install time, UTC, 2026-11-05T09:00:00Z>
+# fails on any domain outside allowed-hosts.txt; the report holds seven days, so keep only entries after the install
+jq -r --arg since "$2" 'select(.type == "networkActivity" and .bundleID == "com.example.app" and .timeStamp >= $since)
+  | .domain' "$1" | sort -u > hosts.txt
+grep -qxF api.example.com hosts.txt || { echo 'No contact with your API host: wrong report or time?'; exit 1; }
 if grep -vxF -f allowed-hosts.txt hosts.txt; then echo 'Third-party domains contacted before consent'; exit 1; fi
 ```
 
-- The report keeps seven days on the device, so run it for every release candidate. Also test that, with ATT denied,
-  requests to your `NSPrivacyTrackingDomains` fail.
+- Run it for every release candidate, from a fresh install. Also test that, with ATT denied, requests to your
+  `NSPrivacyTrackingDomains` fail.
 
 ## Deployment
 
@@ -157,6 +166,9 @@ if grep -vxF -f allowed-hosts.txt hosts.txt; then echo 'Third-party domains cont
   ([file protection](https://developer.apple.com/documentation/uikit/encrypting-your-app-s-files)),
   and set `isExcludedFromBackup` on files that mustn't reach iCloud backups
   ([backups](https://developer.apple.com/documentation/foundation/optimizing-your-app-s-data-for-icloud-backup)).
+- **eMudhra CA (October 2026):** FirebaseFirestore up to 13.1.0 trusted a compromised CA through roots compiled into
+  the app. Use 13.1.1 or later (or 12.19.3, the only fix on CocoaPods), republish, and prompt users to update
+  ([Firebase](https://firebase.google.com/support/guides/compromised-emudhra-intermediate-ca)).
 - **Store (D3):** build the SDK inventory from `Package.resolved` (and `Podfile.lock`, if any). It feeds the privacy
   label and manifest, alongside account deletion, the updated age rating and a review account with the lowest role
   and synthetic data (7.1). The data region is the backend's.
@@ -174,6 +186,6 @@ if grep -vxF -f allowed-hosts.txt hosts.txt; then echo 'Third-party domains cont
 
 - Apple platform: [TN3187 UIScene](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle) · [upcoming requirements](https://developer.apple.com/news/upcoming-requirements/) · [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) · [Swift Testing](https://developer.apple.com/documentation/testing) · [App Attest](https://developer.apple.com/documentation/devicecheck/establishing-your-app-s-integrity) · [Info.plist](https://developer.apple.com/documentation/bundleresources/information-property-list)
 - Identity: [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) · [passkeys](https://developer.apple.com/documentation/authenticationservices/supporting-passkeys) · [keychain accessibility](https://developer.apple.com/documentation/security/restricting-keychain-item-accessibility) · [Declared Age Range](https://developer.apple.com/documentation/declaredagerange) · [App Review guidelines](https://developer.apple.com/app-store/review/guidelines/) · [5.1.1(v) account deletion](https://developer.apple.com/help/app-review/guideline-reference/5-1-1-account-deletion)
-- Web content and links: [allowsContentJavaScript](https://developer.apple.com/documentation/webkit/wkwebpagepreferences/allowscontentjavascript) · [app-bound domains](https://developer.apple.com/documentation/webkit/wkwebviewconfiguration/limitsnavigationstoappbounddomains) · [WKScriptMessage frameInfo](https://developer.apple.com/documentation/webkit/wkscriptmessage/frameinfo) · [ATS](https://developer.apple.com/documentation/security/preventing-insecure-network-connections) · [associated domains](https://developer.apple.com/documentation/xcode/supporting-associated-domains) · [custom URL schemes](https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app)
+- Web content and links: [allowsContentJavaScript](https://developer.apple.com/documentation/webkit/wkwebpagepreferences/allowscontentjavascript) · [app-bound domains](https://developer.apple.com/documentation/webkit/wkwebviewconfiguration/limitsnavigationstoappbounddomains) · [WebKit on app-bound domains](https://webkit.org/blog/10882/app-bound-domains/) · [WKScriptMessage frameInfo](https://developer.apple.com/documentation/webkit/wkscriptmessage/frameinfo) · [ATS](https://developer.apple.com/documentation/security/preventing-insecure-network-connections) · [associated domains](https://developer.apple.com/documentation/xcode/supporting-associated-domains) · [custom URL schemes](https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app)
 - Privacy: [ATT request](https://developer.apple.com/documentation/apptrackingtransparency/attrackingmanager/requesttrackingauthorization%28completionhandler%3A%29) · [privacy manifest files](https://developer.apple.com/documentation/bundleresources/privacy-manifest-files) · [third-party SDK requirements](https://developer.apple.com/support/third-party-SDK-requirements/) · [inspecting app activity](https://developer.apple.com/documentation/network/inspecting-app-activity-data) · [logging](https://developer.apple.com/documentation/os/generating-log-messages-from-your-code) · [file protection](https://developer.apple.com/documentation/uikit/encrypting-your-app-s-files) · [iCloud backup](https://developer.apple.com/documentation/foundation/optimizing-your-app-s-data-for-icloud-backup) · [custom fonts](https://developer.apple.com/documentation/uikit/adding-a-custom-font-to-your-app)
-- Firebase and Google: [API keys](https://firebase.google.com/docs/projects/api-keys) · [Analytics data collection](https://firebase.google.com/docs/analytics/ios/configure-data-collection) · [Crashlytics opt-in](https://firebase.google.com/docs/crashlytics/ios/customize-crash-reports) · [consent mode for apps](https://developers.google.com/tag-platform/security/guides/app-consent)
+- Firebase and Google: [eMudhra CA guide](https://firebase.google.com/support/guides/compromised-emudhra-intermediate-ca) · [privacy and auto-init](https://firebase.google.com/support/privacy) · [FCM auto-init](https://firebase.google.com/docs/cloud-messaging/ios/client) · [Performance opt-in](https://firebase.google.com/docs/perf-mon/disable-sdk) · [API keys](https://firebase.google.com/docs/projects/api-keys) · [Analytics data collection](https://firebase.google.com/docs/analytics/ios/configure-data-collection) · [Crashlytics opt-in](https://firebase.google.com/docs/crashlytics/ios/customize-crash-reports) · [consent mode for apps](https://developers.google.com/tag-platform/security/guides/app-consent)

@@ -1,12 +1,13 @@
 # Flutter
 
-> **Group:** Mobile · **Covers:** Flutter 3.47 (3.47.8) with Dart 3.13, building for iOS and Android · **Checked:** 2026-11-05 against the official docs
+> **Group:** Mobile · **Covers:** Flutter 3.47 (3.47.9) with Dart 3.13, building for iOS and Android · **Checked:** 2026-11-05 against the official docs
 
 D3 sets the mobile rules, and this profile says how to meet them in Flutter. Only the current stable release gets
-security fixes ([security](https://docs.flutter.dev/security)). Flutter 3.47.8 (Dart 3.13.7) fixes a high-severity
-TLS flaw on Android: `dart:io` trusted compromised eMudhra certificates
-([GHSA-frr6-h895-5pxp](https://github.com/dart-lang/sdk/security/advisories/GHSA-frr6-h895-5pxp)). Upgrade, then
-rebuild and re-release your Android app.
+security fixes ([security](https://docs.flutter.dev/security)). A compromised eMudhra intermediate CA (October 2026)
+hit Flutter apps in two ways. On Android, `dart:io` kept trusting it until Flutter 3.47.8 (Dart 3.13.7)
+([GHSA-frr6-h895-5pxp](https://github.com/dart-lang/sdk/security/advisories/GHSA-frr6-h895-5pxp)). On iOS, apps using
+`cloud_firestore` need 7.1.0 or 6.10.1. The trusted roots are compiled into the app, so rebuild, re-release and prompt
+users to update ([Firebase](https://firebase.google.com/support/guides/compromised-emudhra-intermediate-ca)).
 
 ## Access and the isolation test
 
@@ -27,6 +28,7 @@ void main() {
   testWidgets("user A can't read or change user B's task", (tester) async {
     await TestBackend.signInAs(TestUsers.a);                  // your helper; never a production project
     final tasks = TaskRepository();                           // the same repository the screens use
+    expect(await tasks.find(Seed.taskOfA), isNotNull);        // control: proves the sign-in worked
     expect(await tasks.find(Seed.taskOfB), isNull);           // RLS or rules hide the row
     await expectLater(tasks.rename(Seed.taskOfB, 'x'), throwsA(isA<AccessDenied>()));
   });
@@ -67,7 +69,11 @@ void main() {
 
 - **CSRF** needs a cookie that's attached automatically. Authenticate API calls with bearer tokens. If the app reuses a
   cookie-session web backend, that backend's profile applies.
-- **WebViews (`webview_flutter`):** turn JavaScript on (`setJavaScriptMode`) only for content you control. Return
+- **WebViews (`webview_flutter`):** the package sets no JavaScript default
+  ([iOS source](https://github.com/flutter/packages/blob/webview_flutter_wkwebview-v3.27.2/packages/webview_flutter/webview_flutter_wkwebview/lib/src/webkit_webview_controller.dart)),
+  so JavaScript runs on iOS ([Apple](https://developer.apple.com/documentation/webkit/wkwebpagepreferences/allowscontentjavascript))
+  and starts off on Android ([Android](https://developer.android.com/reference/android/webkit/WebSettings#setJavaScriptEnabled%28boolean%29)).
+  Call `setJavaScriptMode` explicitly, with `unrestricted` only for content you control. Return
   `NavigationDecision.prevent` from `onNavigationRequest` for anything off your allowlist, and open those links in the
   browser ([webview_flutter](https://pub.dev/packages/webview_flutter)). Treat `addJavaScriptChannel` messages as
   untrusted input: an Android WebView bridge can't tell which frame called it
@@ -101,7 +107,9 @@ void main() {
   `FIREBASE_ANALYTICS_COLLECTION_ENABLED` and `FirebaseCrashlyticsCollectionEnabled` to `NO` in `ios/Runner/Info.plist`
   ([Analytics](https://firebase.google.com/docs/analytics/android/configure-data-collection),
   [Crashlytics](https://firebase.google.com/docs/crashlytics/flutter/customize-crash-reports)). After consent, call
-  `setAnalyticsCollectionEnabled(true)` and `setCrashlyticsCollectionEnabled(true)`.
+  `setAnalyticsCollectionEnabled(true)` and `setCrashlyticsCollectionEnabled(true)`. Cloud Messaging and Performance
+  Monitoring start themselves too: turn off their auto-initialisation as well
+  ([Firebase privacy](https://firebase.google.com/support/privacy)).
 - **Google's consent mode:** default every type to denied (the `google_analytics_default_allow_*` keys in the manifest,
   `GOOGLE_ANALYTICS_DEFAULT_ALLOW_*` in Info.plist), then call `setConsent` with the user's choice
   ([consent mode](https://developers.google.com/tag-platform/security/guides/app-consent)).
@@ -120,37 +128,47 @@ void main() {
   ([logging](https://docs.flutter.dev/testing/code-debugging)). Turn on the `avoid_print` lint
   ([lint](https://dart.dev/tools/linter-rules/avoid_print)), and log through one wrapper that drops everything below
   warning when `kReleaseMode` is set.
-- **`dio`'s `LogInterceptor` logs request and response headers by default**, `Authorization` included, through
-  `debugPrint` ([LogInterceptor](https://pub.dev/documentation/dio/latest/dio/LogInterceptor/LogInterceptor.html)). Add it
-  only in debug builds, with `requestHeader: false`.
+- **`dio`'s `LogInterceptor` prints every request and response header by default**, `Authorization` included. Its
+  default printer works only in debug builds (it prints inside an `assert`), but passing `debugPrint` or `print` as
+  `logPrint`, as dio's own comment suggests for Flutter, prints in release too (dio 5.11:
+  [LogInterceptor](https://pub.dev/documentation/dio/latest/dio/LogInterceptor/LogInterceptor.html),
+  [source](https://github.com/cfug/dio/blob/dio_v5.11.1/dio/lib/src/interceptors/log.dart)). Add it only under
+  `kDebugMode`, with `requestHeader: false`.
 - Send errors from `FlutterError.onError` and `PlatformDispatcher.instance.onError`
   ([errors](https://docs.flutter.dev/testing/errors)) to your crash reporter, with an opaque user ID and no personal data
   in keys or messages (7.5).
 
 ## Testing
 
-- `flutter test` for unit and widget tests, and `integration_test` on emulators, devices or Firebase Test Lab
-  ([integration tests](https://docs.flutter.dev/testing/integration-tests)). Native permission dialogs aren't Flutter
-  widgets, so drive the denied state (D3) with a native UI tool.
+- `flutter test` for unit and widget tests, `integration_test` on emulators or devices
+  ([integration tests](https://docs.flutter.dev/testing/integration-tests)). Firebase Test Lab shuts down on
+  30 September 2027: plan the move to Google's Developer Device Platform ([Test Lab](https://firebase.google.com/docs/test-lab)).
+  Native permission dialogs aren't Flutter widgets, so drive the denied state (D3) with a native UI tool.
 - **No-third-party test (9.9).** Playwright can't watch a native app, so capture the device's traffic from a fresh
   install with consent rejected. On Android, use the emulator's `-tcpdump` option
   ([emulator](https://developer.android.com/studio/run/emulator-commandline)):
 
 ```bash
 # tests/privacy/no-third-party-android.sh — fails if the app contacts a host outside allowed-hosts.txt
-emulator -avd ci -no-window -no-snapshot -tcpdump cap.pcap & adb wait-for-device
-adb install -r build/app/outputs/flutter-apk/app-release.apk
+emulator -avd ci -no-window -no-snapshot -wipe-data -tcpdump cap.pcap &   # -wipe-data: no consent left from a past run
+adb wait-for-device shell 'while [ "$(getprop sys.boot_completed)" != 1 ]; do sleep 1; done'  # "device" comes before boot ends
+adb install build/app/outputs/flutter-apk/app-release.apk
 adb shell am start -W -n com.example.app/.MainActivity; sleep 30   # or run the flow that taps "Reject all"
 adb emu kill; sleep 3
 tshark -r cap.pcap -Y 'dns.flags.response == 0' -T fields -e dns.qry.name | sort -u > hosts.txt
+grep -qxF api.example.com hosts.txt || { echo 'No lookup of your API host: the capture missed DNS'; exit 1; }
 if grep -vxF -f allowed-hosts.txt hosts.txt; then echo 'Third-party hosts contacted before consent'; exit 1; fi
 ```
 
-- Seed `allowed-hosts.txt` with a baseline run without your app (the OS's own lookups), then add your API and backend
-  hosts. Match DNS names rather than TLS SNI, which Encrypted Client Hello can hide for apps targeting Android 17
-  ([Android 17](https://developer.android.com/about/versions/17/behavior-changes-17)).
+- adb reports `device` before Android has finished booting ([adb](https://developer.android.com/tools/adb)), hence the
+  boot wait, and the API-host check stops an empty capture from passing. Seed `allowed-hosts.txt` with a baseline run
+  without your app and review it by hand: on a Google Play image it holds hosts that Play services contacts by itself,
+  and because the check matches names, not apps, an allowed Google host also hides your own SDKs calling it. Then add
+  your API and backend hosts. Match DNS names, not TLS SNI, which Encrypted Client Hello can hide for apps targeting
+  Android 17 ([Android 17](https://developer.android.com/about/versions/17/behavior-changes-17)).
 - On iOS, turn on the App Privacy Report on a test device, run the same flow, export the report, and list your app's
-  domains with `jq -r 'select(.type=="networkActivity" and .bundleID=="com.example.app") | .domain'`
+  domains with `jq -r 'select(.type=="networkActivity" and .bundleID=="com.example.app") | .domain'`, keeping only
+  entries whose `timeStamp` is after the fresh install: the report holds seven days
   ([app activity](https://developer.apple.com/documentation/network/inspecting-app-activity-data)).
 
 ## Deployment
@@ -178,6 +196,6 @@ if grep -vxF -f allowed-hosts.txt hosts.txt; then echo 'Third-party hosts contac
 
 - Flutter: [security](https://docs.flutter.dev/security) · [release notes](https://docs.flutter.dev/release/release-notes) · [deep linking](https://docs.flutter.dev/ui/navigation/deep-linking) · [App Links](https://docs.flutter.dev/cookbook/navigation/set-up-app-links) · [Universal Links](https://docs.flutter.dev/cookbook/navigation/set-up-universal-links) · [fonts](https://docs.flutter.dev/cookbook/design/fonts) · [assets](https://docs.flutter.dev/ui/assets/assets-and-images) · [obfuscation](https://docs.flutter.dev/deployment/obfuscate) · [logging](https://docs.flutter.dev/testing/code-debugging) · [errors](https://docs.flutter.dev/testing/errors) · [integration tests](https://docs.flutter.dev/testing/integration-tests) · [UIScene migration](https://docs.flutter.dev/release/breaking-changes/uiscenedelegate)
 - Dart: [environment declarations](https://dart.dev/libraries/core/environment-declarations) · [avoid_print](https://dart.dev/tools/linter-rules/avoid_print) · [GHSA-frr6-h895-5pxp](https://github.com/dart-lang/sdk/security/advisories/GHSA-frr6-h895-5pxp)
-- Packages: [supabase_flutter](https://pub.dev/packages/supabase_flutter) · [flutter_secure_storage](https://pub.dev/packages/flutter_secure_storage) · [local_auth](https://pub.dev/packages/local_auth) · [webview_flutter](https://pub.dev/packages/webview_flutter) · [google_fonts](https://pub.dev/packages/google_fonts) · [allowRuntimeFetching](https://pub.dev/documentation/google_fonts/latest/google_fonts/GoogleFontsConfig/allowRuntimeFetching.html) · [dio LogInterceptor](https://pub.dev/documentation/dio/latest/dio/LogInterceptor/LogInterceptor.html) · [app_tracking_transparency](https://pub.dev/packages/app_tracking_transparency)
-- Firebase and Google: [Analytics data collection](https://firebase.google.com/docs/analytics/android/configure-data-collection) · [Crashlytics opt-in](https://firebase.google.com/docs/crashlytics/flutter/customize-crash-reports) · [consent mode for apps](https://developers.google.com/tag-platform/security/guides/app-consent)
-- Platforms: [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) · [custom URL schemes](https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app) · [ATT request](https://developer.apple.com/documentation/apptrackingtransparency/attrackingmanager/requesttrackingauthorization%28completionhandler%3A%29) · [inspecting app activity](https://developer.apple.com/documentation/network/inspecting-app-activity-data) · [WebView bridges](https://developer.android.com/privacy-and-security/risks/insecure-webview-native-bridges) · [deep links](https://developer.android.com/privacy-and-security/risks/unsafe-use-of-deeplinks) · [backups](https://developer.android.com/privacy-and-security/risks/backup-best-practices) · [emulator command line](https://developer.android.com/studio/run/emulator-commandline) · [Android 17 changes](https://developer.android.com/about/versions/17/behavior-changes-17) · [Play target API](https://developer.android.com/google/play/requirements/target-sdk)
+- Packages: [supabase_flutter](https://pub.dev/packages/supabase_flutter) · [flutter_secure_storage](https://pub.dev/packages/flutter_secure_storage) · [local_auth](https://pub.dev/packages/local_auth) · [webview_flutter](https://pub.dev/packages/webview_flutter) · [webview_flutter iOS controller](https://github.com/flutter/packages/blob/webview_flutter_wkwebview-v3.27.2/packages/webview_flutter/webview_flutter_wkwebview/lib/src/webkit_webview_controller.dart) · [google_fonts](https://pub.dev/packages/google_fonts) · [allowRuntimeFetching](https://pub.dev/documentation/google_fonts/latest/google_fonts/GoogleFontsConfig/allowRuntimeFetching.html) · [dio LogInterceptor](https://pub.dev/documentation/dio/latest/dio/LogInterceptor/LogInterceptor.html) · [its source](https://github.com/cfug/dio/blob/dio_v5.11.1/dio/lib/src/interceptors/log.dart) · [app_tracking_transparency](https://pub.dev/packages/app_tracking_transparency)
+- Firebase and Google: [eMudhra CA guide](https://firebase.google.com/support/guides/compromised-emudhra-intermediate-ca) · [privacy and auto-init](https://firebase.google.com/support/privacy) · [Analytics data collection](https://firebase.google.com/docs/analytics/android/configure-data-collection) · [Crashlytics opt-in](https://firebase.google.com/docs/crashlytics/flutter/customize-crash-reports) · [consent mode for apps](https://developers.google.com/tag-platform/security/guides/app-consent) · [Test Lab](https://firebase.google.com/docs/test-lab)
+- Platforms: [adb](https://developer.android.com/tools/adb) · [boot completion](https://source.android.com/docs/core/perf/boot-times) · [WebView JavaScript default](https://developer.android.com/reference/android/webkit/WebSettings#setJavaScriptEnabled%28boolean%29) · [WKWebView JavaScript default](https://developer.apple.com/documentation/webkit/wkwebpagepreferences/allowscontentjavascript) · [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) · [custom URL schemes](https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app) · [ATT request](https://developer.apple.com/documentation/apptrackingtransparency/attrackingmanager/requesttrackingauthorization%28completionhandler%3A%29) · [inspecting app activity](https://developer.apple.com/documentation/network/inspecting-app-activity-data) · [WebView bridges](https://developer.android.com/privacy-and-security/risks/insecure-webview-native-bridges) · [deep links](https://developer.android.com/privacy-and-security/risks/unsafe-use-of-deeplinks) · [backups](https://developer.android.com/privacy-and-security/risks/backup-best-practices) · [emulator command line](https://developer.android.com/studio/run/emulator-commandline) · [Android 17 changes](https://developer.android.com/about/versions/17/behavior-changes-17) · [Play target API](https://developer.android.com/google/play/requirements/target-sdk)
