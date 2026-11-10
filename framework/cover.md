@@ -4,9 +4,9 @@
 
 **Product · Architecture · Design · Security · Privacy & Compliance · Delivery**
 
-Created by **Muhammad Tufail Khan** ([github.com/bewithkhan](https://github.com/bewithkhan)) · Framework version **2.4** · Legal position checked **4 November 2026** against official sources, with AI assistance (not yet reviewed by a lawyer) · Supersedes *Comprehensive App Development Framework & Master Blueprint* (v1)
+Created by **Muhammad Tufail Khan** ([github.com/bewithkhan](https://github.com/bewithkhan)) · Framework version **3.0** · Legal position checked **4 November 2026** against official sources, with AI assistance (not yet reviewed by a lawyer) · Supersedes *Comprehensive App Development Framework & Master Blueprint* (v1)
 
-> **Cite as:** Khan, M. T. (2026). *Bansat (بنسټ): A blueprint-first framework for building software* (Version 2.4). https://github.com/bewithkhan/bansat
+> **Cite as:** Khan, M. T. (2026). *Bansat (بنسټ): A blueprint-first framework for building software* (Version 3.0). https://github.com/bewithkhan/bansat
 > Text and templates: **CC BY 4.0**. Code samples: **MIT**. Keep this credit when you copy, adapt or share the framework.
 
 This is the single source of truth for **every project, new or existing**. For a new project, complete it **before any code is generated**. For an existing or live project, use the **retrofit track (Part 14)**: reverse-engineer the blueprint from what's built, triage the live risks first, then close the gaps. Either way, it turns your product into decisions that an AI coding agent (Claude, Cursor, Lovable, Bolt, Copilot) can build from without guessing. Privacy and security are built in from the first commit rather than bolted on after launch: UK GDPR, PECR, EU GDPR, Nigeria's NDPA 2023 and GAID 2025, and the EU AI Act.
@@ -27,13 +27,13 @@ This is the single source of truth for **every project, new or existing**. For a
 | Privacy contact / DPO | {{NAME, privacy@DOMAIN}} |
 | Repository | {{URL}} |
 | Last updated · Next review | {{YYYY-MM-DD}} · {{YYYY-MM-DD}} |
-| Framework | Bansat (بنسټ) v2.4 by Muhammad Tufail Khan, https://github.com/bewithkhan/bansat (CC BY 4.0) |
+| Framework | Bansat (بنسټ) v3.0 by Muhammad Tufail Khan, https://github.com/bewithkhan/bansat (CC BY 4.0) |
 
 **Revision history**
 
 | Version | Date | Author | Summary |
 |---|---|---|---|
-| 0.1 | {{YYYY-MM-DD}} | {{NAME}} | First draft from framework v2.4 |
+| 0.1 | {{YYYY-MM-DD}} | {{NAME}} | First draft from framework v3.0 |
 
 **Gate approvals**
 
@@ -45,6 +45,17 @@ This is the single source of truth for **every project, new or existing**. For a
 | G4 Post-launch review | | | |
 
 > **Only a person signs a gate.** An AI agent never fills in this table. With the optional G1 hook from the Bansat repo (`hooks/bansat-g1-guard.mjs`), Claude Code refuses code edits until the G1 row names an approver and a date.
+
+### What changed in v3.0
+
+To re-check an existing blueprint, update its Framework row to v3.0. If the project isn't built on Next.js and Supabase, read the profile for its stack (`stacks/`) and record any differences in Part 3. For each market the project serves, compare Part 9 with that market's entry in the law registry (`laws/`), and re-check the entry against its official sources if it was checked more than 90 days ago.
+
+| Area | Change |
+|---|---|
+| Stack profiles ★ | 24 profiles say what changes from the reference stack (Next.js and Supabase) on seven backend frameworks, six frontend and full-stack ones, four mobile platforms and seven no-code or backend-as-a-service platforms. The skill loads only the one a project uses (`stacks/`). |
+| Law registry ★ | 120 jurisdictions: 62 full entries with every obligation and 58 basic entries with the main laws and the regulator. Every claim cites an official source, 2,944 URLs in all (`laws/`). |
+| Law Watch | A weekly watch of 105 official sources for 46 full entries. An AI verify task drafts each update with its sources, and a person reviews every change (`watch/`). |
+| Law tracker | A page for every jurisdiction on the site, grouped by region, with a feed of changes and no cookies or trackers. |
 
 ### What changed in v2.4
 

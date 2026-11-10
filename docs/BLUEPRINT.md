@@ -26,6 +26,7 @@
 | 0.4 | 2026-11-05 | Muhammad Tufail Khan | Scope added after G1, decided by the owner on 2026-11-05: delivery methods in v2.3 (FR-15 to FR-18), a documentation site now (FR-19), and the Wiki turned off (FR-20). New phases 1b and 1c (Part 11), ADR-B8 and ADR-B9, prior art for both (3.10) |
 | 0.5 | 2026-11-05 | Muhammad Tufail Khan | Scope added, decided by the owner on 2026-11-05: a breach casebook in the framework, on the site and in the README (FR-21), and a research paper on the whole of Bansat with an experiment, whose harness and results are published (FR-22). New phase 1d and research workstream R (Part 11), BR-10, Decisions 9 and 10 |
 | 0.6 | 2026-11-05 | Muhammad Tufail Khan | Law Watch's state moves from git to a workflow artifact, so the watch never commits and every commit stays yours; its token adds `actions: read` (NFR-SEC-01). The FR-06 scenario now uses the legislation.gov.uk changes feed, because the ICO's site refuses automated requests (A-05). |
+| 0.7 | 2026-11-10 | Muhammad Tufail Khan | Launch, decided by the owner on 2026-11-10: Phases 2–5 closed for v3.0.0, with the remaining basic entries (Phase 2) and Asia-Pacific watch sources (Phase 4) moved to future work (Part 11); Part 13 checked, including a new keyboard-only test; v3.0.0 released; Phase 7 started |
 
 **Gate approvals**
 
@@ -33,7 +34,7 @@
 |---|---|---|---|
 | G1 Blueprint approved | Muhammad Tufail Khan | 2026-11-05 | |
 | G2 Data-ready | | | Not needed: Bansat collects no personal data (Part 9) |
-| G3 Release candidate | | | |
+| G3 Release candidate | Muhammad Tufail Khan | 2026-11-10 | Go for v3.0.0, given by the owner ("Please do phase 6"); Part 13 checked |
 | G4 Post-launch review | | | |
 
 > Only a person signs a gate. To approve, edit this file on GitHub and fill in the G1 row with your name and the date.
@@ -643,13 +644,24 @@ All other states are N/A: there are no accounts, forms, uploads or long-running 
 | **1b Delivery methods** (done: v2.3.0, 5 Nov 2026) | Part 0 delivery questions; 11.7 choosing a method; 11.8 toolkit; Appendix E profiles for Scrum, Kanban, stage gates, Shape Up, a solo loop and scaled methods; the skill loads the chosen profile(s); release v2.3.0 | The three picker scenarios in 1.6 give the expected method; each profile maps G0–G4 and copies no source text (BR-09); independent review done; CI green |
 | **1c Documentation site** | A Starlight site generated from `framework/`, this blueprint and the changelog; a Pages deploy workflow; the privacy test and axe run against the built site in CI. Pages is switched on in Settings (Decision 5). | Live at https://bewithkhan.github.io/bansat/; privacy test green (no cookies, no third-party requests); axe clean; search works with no network |
 | **1d Breach casebook** (done: v2.4.0, 5 Nov 2026) | Appendix F: 15–20 documented cases with a root-cause taxonomy and the size of each organisation; a site page; a README section; posts to share | Every case has a primary source and passes an independent check; no claim goes beyond the sources (BR-10); CI green |
-| **2 Law registry** (in progress: Europe and Americas merged, 5 Nov 2026) | Schema; full-tier entries in batches (Europe, Americas, Middle East & Africa, Asia-Pacific); basic-tier entries for every other country with a law. Each batch is its own pull request. | Every full-tier claim sourced; every entry dated and labelled; CI validation green; you've reviewed each batch |
-| **3 Stack profiles** | The 24 profiles in 3.8, in pull requests by group | Each profile reviewed; the skill picks the right one |
-| **4 Law Watch** (in progress: the watch, its tests and the verify prompt, 5 Nov 2026) | `watch/sources.yaml`; the watch Action (you add the workflow file, A-03); the weekly Claude task (created as a scheduled task; approved 2026-11-05) | A dry run on a known past change produces the right issue and pull request; failure reporting works |
-| **5 Law tracker pages** (in progress: SCR-01 to SCR-03, SCR-05, SCR-06 and the performance budgets done 5 Nov 2026; SCR-04 comes with Phase 3) | The tracker screens (SCR-01 to SCR-06) on the site built in Phase 1c | Privacy test green (zero third-party requests), axe clean, Lighthouse budgets met |
-| **6 Launch v3.0.0** | README, CHANGELOG, release, announcement | Part 13 all green → **G3** |
-| **7 First 30 days** | Watch the alerts, the review backlog and staleness | 30-day review → **G4** |
-| **R Research paper** (alongside Phases 2–5) | A research plan agreed with the co-authors; the experiment harness, specifications and checks in `research/` (FR-22); the runs; the paper on arXiv (cs.SE, cross-listed to cs.CR) | The co-authors sign off the plan before any run and the manuscript before submission; every reference checked against its source; nothing unchecked left in the text |
+| **2 Law registry** (done for v3.0.0: 120 entries, 62 full and 58 basic, 10 Nov 2026; about 50 more basic entries are future work, below) | Schema; full-tier entries in batches (Europe, Americas, Middle East & Africa, Asia-Pacific); basic-tier entries for every other country with a law. Each batch is its own pull request. | Every full-tier claim sourced; every entry dated and labelled; CI validation green; you've reviewed each batch |
+| **3 Stack profiles** (done: 24 profiles, merged 10 Nov 2026, first released in v3.0.0) | The 24 profiles in 3.8, in pull requests by group | Each profile reviewed; the skill picks the right one |
+| **4 Law Watch** (done for v3.0.0: 105 sources for 46 full entries, and the verify task evaluated in two rounds, 10 Nov 2026; Asia-Pacific sources are future work, below) | `watch/sources.yaml`; the watch Action (you add the workflow file, A-03); the weekly Claude task (created as a scheduled task; approved 2026-11-05) | A dry run on a known past change produces the right issue and pull request; failure reporting works |
+| **5 Law tracker pages** (done: SCR-01 to SCR-06 and the performance budgets; SCR-04 shipped with Phase 3, 10 Nov 2026) | The tracker screens (SCR-01 to SCR-06) on the site built in Phase 1c | Privacy test green (zero third-party requests), axe clean, Lighthouse budgets met |
+| **6 Launch v3.0.0** (done: released 10 Nov 2026) | README, CHANGELOG, release, announcement | Part 13 all green → **G3** |
+| **7 First 30 days** (in progress from 10 Nov 2026; the 30-day review is due on 10 Dec 2026) | Watch the alerts, the review backlog and staleness | 30-day review → **G4** |
+| **R Research paper** (alongside Phases 2–5; plan agreed and published, and the paper written, 10 Nov 2026; the runs and arXiv are next) | A research plan agreed with the co-authors; the experiment harness, specifications and checks in `research/` (FR-22); the runs; the paper on arXiv (cs.SE, cross-listed to cs.CR) | The co-authors sign off the plan before any run and the manuscript before submission; every reference checked against its source; nothing unchecked left in the text |
+
+**Future work (decided 2026-11-10).** These parts of Phases 2 and 4 move after v3.0.0, so the launch isn't held for them. Each follows the same rules: an entry or source only once an official source confirms it (BR-02).
+
+- **Phase 2, basic entries for about 50 more countries**, in five batches:
+  - the Caribbean: Dominican Republic, Jamaica, Trinidad and Tobago, Barbados, the Bahamas, Antigua and Barbuda, Saint Lucia, Saint Kitts and Nevis;
+  - North and West Africa: Algeria, Morocco, Tunisia, Mauritania, Mali, Niger, Senegal, Côte d'Ivoire, Burkina Faso, Benin, Togo, Ghana, Guinea, Cabo Verde;
+  - East Africa: Ethiopia, Uganda, Tanzania, Rwanda, Somalia, Seychelles, Mauritius, Madagascar, Malawi;
+  - Central and Southern Africa: Cameroon, Chad, Gabon, the Republic of the Congo, Angola, Zambia, Zimbabwe, Mozambique, Botswana, Lesotho, Eswatini, Namibia;
+  - the rest of Asia: Bangladesh, Bhutan, Laos, Macao, Mongolia, Nepal, Sri Lanka, Taiwan.
+- **Phase 4, watch sources** for the 14 Asia-Pacific full entries, and for Tennessee and DIFC, which have none yet.
+- **Workstream R:** the experiment's pilot and main runs, then the paper on arXiv.
 
 **Full-tier list (confirmed 2026-11-05):**
 - **Europe:** EU (GDPR, ePrivacy, AI Act), Germany, France, Ireland, Netherlands, Italy, Spain, UK, Switzerland, Norway, Turkey.
@@ -687,18 +699,18 @@ These go in `watch/verify-prompt.md`:
 
 ## Part 13 — Launch gate (v3.0.0)
 
-- [ ] ⛔ CI green: law schema, source checks, framework build, site build, tests
-- [ ] ⛔ Every full-tier entry dated, sourced and labelled; basic entries carry the banner
-- [ ] ⛔ Site privacy test green: zero cookies, zero third-party requests
-- [ ] ⛔ axe clean on the index and country pages; keyboard-only run passes
-- [ ] ⛔ Disclaimer, method, privacy note and accessibility statement published
-- [ ] ⛔ Watch dry run and Claude task eval passed (8.5)
+- [x] ⛔ CI green: law schema, source checks, framework build, site build, tests
+- [x] ⛔ Every full-tier entry dated, sourced and labelled; basic entries carry the banner
+- [x] ⛔ Site privacy test green: zero cookies, zero third-party requests
+- [x] ⛔ axe clean on the index and country pages; keyboard-only run passes (a site test since 10 Nov 2026)
+- [x] ⛔ Disclaimer, method, privacy note and accessibility statement published
+- [x] ⛔ Watch dry run and Claude task eval passed (8.5)
 - [ ] Branch protection on `main` requires review
-- [ ] README and CHANGELOG updated; release v3.0.0 tagged
+- [x] README and CHANGELOG updated; release v3.0.0 tagged
 
 | Sign-off | Name | Decision | Date |
 |---|---|---|---|
-| Maintainer | | Go / No-go | |
+| Maintainer | Muhammad Tufail Khan | Go | 2026-11-10 |
 
 ---
 

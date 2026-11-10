@@ -1,19 +1,19 @@
 <p align="center">
-  <img src="assets/banner.png" alt="Bansat (بنسټ): lay the foundation before you build. A blueprint-first framework and Claude skill by Muhammad Tufail Khan." width="100%">
+  <img src="assets/banner.png" alt="Bansat (بنسټ): lay the foundation before you build. A blueprint-first framework and Agent Skill for AI coding agents, by Muhammad Tufail Khan." width="100%">
 </p>
 
 <h3 align="center">Your AI can build an app in a weekend.<br>Bansat makes sure it's one you can actually launch.</h3>
 
 <p align="center">
-  A blueprint-first framework and <a href="https://agentskills.io">Agent Skill</a> for Claude. Before any production code, your AI agent writes the plan a senior team would: product, architecture, security, privacy law, accessibility and every UI state. Then it stops and waits for your approval.
+  A blueprint-first framework and <a href="https://agentskills.io">Agent Skill</a> for AI coding agents. Before any production code, your agent writes the plan a senior team would: product, architecture, security, privacy law for every market you serve, accessibility and every UI state. Then it stops and waits for your approval.
 </p>
 
 <p align="center">
   <a href="https://agentskills.io"><img alt="Agent Skill: SKILL.md" src="https://img.shields.io/badge/Agent_Skill-SKILL.md-0B3D91?style=flat-square"></a>
-  <img alt="Framework v2.4" src="https://img.shields.io/badge/framework-v2.4-1F6FEB?style=flat-square">
+  <img alt="Framework v3.0" src="https://img.shields.io/badge/framework-v3.0-1F6FEB?style=flat-square">
   <a href="https://github.com/bewithkhan/bansat/actions/workflows/validate.yml"><img alt="Tested examples: CI status" src="https://github.com/bewithkhan/bansat/actions/workflows/validate.yml/badge.svg?branch=main"></a>
-  <img alt="Laws checked 4 Nov 2026" src="https://img.shields.io/badge/laws_checked-4_Nov_2026-2EA44F?style=flat-square">
-  <img alt="Covers UK GDPR, EU GDPR, EU AI Act and NDPA" src="https://img.shields.io/badge/covers-UK_GDPR_%C2%B7_EU_GDPR_%C2%B7_EU_AI_Act_%C2%B7_NDPA-555555?style=flat-square">
+  <a href="#the-law-registry-and-law-watch"><img alt="Law registry: 120 jurisdictions, official sources only" src="https://img.shields.io/badge/law_registry-120_jurisdictions-2EA44F?style=flat-square"></a>
+  <a href="#stack-profiles"><img alt="24 stack profiles" src="https://img.shields.io/badge/stack_profiles-24-555555?style=flat-square"></a>
   <a href="#licence"><img alt="Licence: CC BY 4.0 and MIT" src="https://img.shields.io/badge/licence-CC_BY_4.0_%2B_MIT-blue?style=flat-square"></a>
 </p>
 
@@ -21,7 +21,10 @@
   <a href="https://bewithkhan.github.io/bansat/"><b>Read it online</b></a> ·
   <a href="#install-in-60-seconds"><b>Install</b></a> ·
   <a href="#see-it-work"><b>See it work</b></a> ·
+  <a href="#whats-missing-out-there-and-what-bansat-adds"><b>The gap</b></a> ·
   <a href="#the-17-launch-traps"><b>17 launch traps</b></a> ·
+  <a href="#the-law-registry-and-law-watch"><b>Law registry</b></a> ·
+  <a href="#stack-profiles"><b>Stack profiles</b></a> ·
   <a href="#real-breaches-and-the-checks-that-catch-them"><b>Breach casebook</b></a> ·
   <a href="#whats-in-the-blueprint"><b>What's inside</b></a> ·
   <a href="#cite"><b>Cite</b></a>
@@ -44,17 +47,34 @@ Bansat makes every one of those decisions explicit before the first commit, and 
 
 > *Bansat* (بنسټ) is Pashto for "foundation": the part you lay before you build.
 
+## What's missing out there, and what Bansat adds
+
+AI coding agents are good at building what you ask for. The trouble is what nobody asks for. This is what we found when we looked at what builders can use today (November 2026; the sources are in the [blueprint's prior-art table](docs/BLUEPRINT.md#310-prior-art-checked-2026-11-05) and the [paper](paper/main.pdf)):
+
+| What you need before launch | What's out there | What's missing | What Bansat adds |
+|---|---|---|---|
+| **A plan before the code** | Spec-driven toolkits, such as GitHub's Spec Kit, walk an agent through specify, plan, tasks and implement | The spec covers whatever you and the agent think of. Nothing makes it reach privacy law, consent, children's data, accessibility or failure states, or sizes it by risk | One 15-part blueprint, from product to launch, sized by a 20-question risk screen (Part 0) |
+| **A person's sign-off** | The agent asks "shall I go ahead?" in the chat | No record of who approved what, and nothing stops the code if nobody did | Gates G1–G4 that only a person signs, recorded in the blueprint, and an optional hook that refuses code edits until G1 is signed |
+| **Security decided, not just scanned** | Scanners and benchmarks find vulnerabilities in code that already exists. One benchmark found that few of the agents' working solutions were also secure, even when the request warned them | The decisions behind the code: who can read which row, which keys the agent may hold, what the user sees when something fails | Access rules with isolation tests, 16 pre-filled threats, coding-agent rules and 17 UI states for every screen, all decided before G1 (Parts 5, 7, 10, 12) |
+| **The law for each market** | Law trackers such as the IAPP's and DLA Piper's are written for lawyers to read, and their terms bar using them to build software or AI tools | We found no current, structured per-country dataset that an agent can read and that cites official sources | A [registry of 120 jurisdictions](#the-law-registry-and-law-watch), every claim citing an official source (2,944 URLs), which the agent reads for the markets you name |
+| **The law kept current** | Asking an AI, which can state legal falsehoods with confidence, or tracking changes by hand | A dated, reviewable record of what changed and where it's written | A weekly watch of 105 official sources: an AI drafts each update with its sources, and a person merges it |
+| **Advice for your stack** | Each framework's own docs, and general security cheat sheets | The same rules (access control, secrets, consent, headers) worked out for the stack you're actually on | [24 stack profiles](#stack-profiles), from Laravel to Flutter to Bubble; the skill loads only yours |
+| **A launch you can defend** | General launch checklists | Checks tied to the failures that get AI-built apps fined or breached, each with a fix and a test | The [17 launch traps](#the-17-launch-traps), checked at G2 and again at G3, and a 40-item launch gate where any of 18 blocking checks stops the launch |
+| **A path for apps already live** | A full security or privacy audit | A fast first pass that finds the live risks, then a plan to close every gap | Day-0 triage within 48 hours, an as-is blueprint and a gap register with deadlines (Part 14) |
+
+No single piece is new on its own. What's missing is all of them together, inside the agent, before the first commit. If you know a tool that already does one of these, [open an issue](https://github.com/bewithkhan/bansat/issues) and we'll link it.
+
 ## How it works
 
 <p align="center"><img src="docs/images/bansat-workflow.png" width="900" alt="Bansat's workflow in three rows. New project: idea, intake of 20 questions, risk tier (low, medium or high), docs/BLUEPRINT.md, then gate G1 where a person approves the blueprint. Build and launch: 9 build phases, gate G2 (real personal data only after the privacy basics are live), gate G3, launch, and gate G4, a review 30 days after launch. Retrofit an existing app: existing or live app, day-0 triage of 12 checks, as-is blueprint, gap register, fix sprints R1 to R4."></p>
 
-The gates are the point. At each one, Claude is instructed to stop and wait for you:
+The gates are the point. At each one, your agent is instructed to stop and wait for you:
 
 - **G1:** no production code until you approve the blueprint.
 - **G2:** no real personal data, not even a waitlist email, until the privacy basics are live: the notice, processing records, consent capture, processor contracts, access-isolation tests and the ICO fee.
 - **G3:** no launch while any of the 18 blocking checks is red.
 
-A skill can only instruct Claude, not force it. For a hard stop at G1, add the [optional G1 hook](#make-g1-a-hard-stop-optional): it refuses Claude's code edits until a person signs the blueprint.
+A skill can only instruct the agent, not force it. For a hard stop at G1, add the [optional G1 hook](#make-g1-a-hard-stop-optional): it refuses Claude's code edits until a person signs the blueprint.
 
 **Already built something?** The retrofit track triages the live risks within 48 hours, reverse-engineers the blueprint from your code, and turns every gap into a fix with a deadline (the bottom row above).
 
@@ -64,12 +84,12 @@ A skill can only instruct Claude, not force it. For a hard stop at G1, add the [
 
 ```bash
 # macOS / Linux
-git clone --branch v2.4.0 --depth 1 https://github.com/bewithkhan/bansat ~/.claude/skills/bansat
+git clone --branch v3.0.0 --depth 1 https://github.com/bewithkhan/bansat ~/.claude/skills/bansat
 ```
 
 ```powershell
 # Windows (PowerShell)
-git clone --branch v2.4.0 --depth 1 https://github.com/bewithkhan/bansat "$HOME\.claude\skills\bansat"
+git clone --branch v3.0.0 --depth 1 https://github.com/bewithkhan/bansat "$HOME\.claude\skills\bansat"
 ```
 
 Start a new Claude Code session and type `/bansat`. To share it with your team, copy the folder into your repo at `.claude/skills/bansat/` and commit it.
@@ -157,27 +177,36 @@ Auditing an existing app works the same way: run `/bansat audit this repo`. The 
 
 ## The 17 launch traps
 
-These are the failures that get vibe-coded apps fined, breached or rejected by the app stores. Bansat checks every one before you collect real data (G2), and again before launch (G3). The full table, with fixes and tests, is in [§9.26 of the framework](reference/bansat-framework.md#926-launch-trap-audit-the-vibe-coding-failures-that-get-apps-fined).
+These are the failures that get AI-built apps fined, breached or rejected by the app stores. None of them is a bug your tests will catch: the app works and the demo works, and the trap only shows when a regulator, an attacker or an app reviewer looks. They happen because an agent builds what it's asked for, and nobody asks for an age question, a self-hosted font or an unsubscribe link. Most of them aren't vulnerabilities a code scanner looks for, either. They're decisions about data, consent and access that nobody made.
 
-| # | Trap | Why it bites |
-|---|---|---|
-| 1 | The sign-up form never asks for age | Children's data without parental consent or safeguards. Under Nigeria's NDPA, a child is anyone under 18. |
-| 2 | Fonts from `fonts.googleapis.com` or any CDN | Visitor IP addresses go to a third party with no lawful basis. German courts have awarded damages. |
-| 3 | Session replay or heatmaps load before consent | A consent breach, and recordings can capture personal data |
-| 4 | A "we launched" email with no unsubscribe, sender identity or address | Breaches UK PECR, US CAN-SPAM and the NDPA, and fails Gmail and Yahoo sender rules |
-| 5 | RLS off (or unscoped queries), or the secret key in the client | Anyone can read or write your database: a breach, with 72-hour deadlines |
-| 6 | A template or AI-written privacy policy | It doesn't match what the app does, so it breaches transparency rules |
-| 7 | Ad or analytics pixels in the root layout | Data shared with ad platforms before consent |
-| 8 | User data sent to an LLM with no disclosure or DPA | Transparency, transfer and contract breaches, and possible training on your data |
-| 9 | No way to delete an account or export data | A rights breach, and an App Store rejection |
-| 10 | Personal data in logs or error trackers | Breaches minimisation and widens any breach |
-| 11 | Pre-ticked boxes, or "by using this site you agree" | Invalid consent |
-| 12 | A cookie banner with no "Reject all" | Invalid consent, and a top enforcement theme for regulators |
-| 13 | Real customer data in preview or staging | A security and purpose-limitation breach |
-| 14 | A public storage bucket for user uploads | Data exposure |
-| 15 | ICO fee unpaid; NDPC status unchecked | ICO penalties of up to £4,350; missed duties for Nigeria's major-importance controllers |
-| 16 | No breach plan | Missed 72-hour clocks |
-| 17 | Dates of birth or ID scans kept "just in case" | A minimisation breach, and a honeypot for attackers |
+Bansat makes each one a decision in the blueprint:
+
+1. **Part 0** screens the idea with 20 questions and switches on the modules each trap needs.
+2. **The blueprint** records the decision, so the agent builds the fix from the start rather than bolting it on.
+3. **The trap audit** (§9.26) runs before you collect real personal data (G2) and again before launch (G3). Every row needs evidence.
+4. **The launch gate** (Part 13) has 40 go/no-go checks in seven groups. While any of its 18 blocking checks is open, the launch waits.
+
+| # | Trap | Why it bites | Bansat's fix | How it's proved |
+|---|---|---|---|---|
+| 1 | The sign-up form never asks for age | Children's data without parental consent or safeguards. Under Nigeria's NDPA, a child is anyone under 18. | Decide who the service is for, and add a neutral age question (9.12) | An end-to-end test of the under-age path |
+| 2 | Fonts from `fonts.googleapis.com` or any CDN | Visitor IP addresses go to a third party with no lawful basis. German courts have awarded damages. | Self-hosted fonts, and a CSP that allows fonts only from your own site | The privacy test fails on any third-party request before consent (9.9) |
+| 3 | Session replay or heatmaps load before consent | A consent breach, and recordings can capture personal data | A consent-gated loader, the strictest masking, sensitive pages excluded (9.10) | The privacy test, and a review of staging recordings |
+| 4 | A "we launched" email with no unsubscribe, sender identity or address | Breaches UK PECR, US CAN-SPAM and the NDPA, and fails Gmail and Yahoo sender rules | A compliant template, one-click unsubscribe and a suppression list (9.11) | A test send to a seed inbox, with the headers checked |
+| 5 | RLS off (or unscoped queries), or the secret key in the client | Anyone can read or write your database: a breach, with 72-hour deadlines | RLS on every table, or scoped queries where there's no RLS; keys on the server only (5.4, 7.3) | Isolation tests in CI, and a scan of the client bundle |
+| 6 | A template or AI-written privacy policy | It doesn't match what the app does, so it breaches transparency rules | Written from your record of processing, and reviewed on every release | The 9.6 checklist |
+| 7 | Ad or analytics pixels in the root layout | Data shared with ad platforms before consent | The consent loader, with Consent Mode denied by default | The privacy test |
+| 8 | User data sent to an LLM with no disclosure or DPA | Transparency, transfer and contract breaches, and possible training on your data | A recorded decision on the AI provider (ADR-006), a DPA, redaction and notice wording | The vendor register |
+| 9 | No way to delete an account or export data | A rights breach, and an App Store rejection | A privacy centre in the app (9.15) | End-to-end tests |
+| 10 | Personal data in logs or error trackers | Breaches minimisation and widens any breach | Scrubbing and logging rules (7.5) | A log review |
+| 11 | Pre-ticked boxes, or "by using this site you agree" | Invalid consent | Unticked, separate choices (9.7) | A UI review |
+| 12 | A cookie banner with no "Reject all" | Invalid consent, and a top enforcement theme for regulators | "Accept all" and "Reject all" given equal weight on the first layer | A screenshot review |
+| 13 | Real customer data in preview or staging | A security and purpose-limitation breach | Synthetic seed data only (3.2) | An environment audit |
+| 14 | A public storage bucket for user uploads | Data exposure | Private buckets and signed URLs | An integration test |
+| 15 | ICO fee unpaid; NDPC status unchecked | ICO penalties of up to £4,350; missed duties for Nigeria's major-importance controllers | Pay and register before G2 (9.2) | The compliance calendar |
+| 16 | No breach plan | Missed 72-hour clocks | A breach runbook (9.20) | A tabletop drill |
+| 17 | Dates of birth or ID scans kept "just in case" | A minimisation breach, and a honeypot for attackers | Store the result, not the evidence | A review of the data dictionary |
+
+The full table, with the law behind each trap, is in [§9.26 of the framework](reference/bansat-framework.md#926-launch-trap-audit-the-vibe-coding-failures-that-get-apps-fined). Twelve of the 17 also have automated checks in the [experiment harness](research/README.md), which the paper uses to compare apps an agent builds with and without Bansat.
 
 > If you read one thing in this repo, read this table. Then check your own app against it.
 
@@ -198,6 +227,28 @@ The [breach casebook](framework/appendix-f-casebook.md) (Appendix F, also [onlin
 
 The cases run from apps one person built with an AI tool to the largest platforms, because the same few failures turn up at every size. Mapping them also showed gaps, mostly around AI coding agents, CI/CD and connected apps, so v2.4 added 14 checks (F.9). The checks catch the class of failure; that isn't a claim that Bansat would have prevented any one incident.
 
+## The law registry and Law Watch
+
+Privacy law differs in every market, and it keeps changing. Bansat keeps a [public registry](laws/README.md) of 120 jurisdictions, and the agent reads the entries for the markets your app serves:
+
+- **62 full entries** give every obligation a builder meets: who the law covers, lawful bases, the consent age, children, cookies, marketing, breach notice, registration and fees, DPOs, transfers, DPIAs, automated decisions and AI, and penalties. They cover the EU and ten other European countries, including the UK; US federal law and the US states with comprehensive privacy laws; Canada, Brazil and Mexico; the UAE (federal law, DIFC and ADGM), Saudi Arabia, Qatar, Israel, Nigeria, South Africa and Kenya; and 14 Asia-Pacific markets.
+- **58 basic entries** give each other country's main data protection laws and its regulator, with a "verify before relying on it" banner.
+- **Official sources only.** Every claim links to legislation, an official gazette, the regulator or a court: 2,944 URLs in all, each on a domain CI checks. Trackers, law firms and news are leads, never sources.
+- **Dated and labelled.** Each entry says when it was last checked and how. All 120 are `ai-checked`: checked against official sources with AI assistance, and not reviewed by a lawyer.
+- **Watched every week.** [Law Watch](watch/README.md) checks 105 official sources for 46 full entries. When one changes, it opens an issue. A weekly AI verify task reads the official source, drafts a sourced update and opens a pull request, and a person reviews and merges every change. On 31 test cases, six of them carrying planted instructions, the verify task found all 18 known changes in its second round, invented none and followed no planted instruction ([results](watch/eval/)).
+- **Read it online.** The [law tracker](https://bewithkhan.github.io/bansat/laws/) has a page for every jurisdiction, grouped by region, and a feed of changes, with no cookies or trackers.
+
+## Stack profiles
+
+Bansat's reference stack is Next.js and Supabase. If you build on something else, a [stack profile](stacks/README.md) says what changes from the reference in architecture, data, API and security (Parts 3–7), and the skill loads only the profile for your stack.
+
+| Group | Profiles |
+|---|---|
+| Backend | [Laravel](stacks/laravel.md), [Django](stacks/django.md), [FastAPI](stacks/fastapi.md), [Rails](stacks/rails.md), [Spring Boot](stacks/spring-boot.md), [ASP.NET Core](stacks/aspnet-core.md), [Express and NestJS](stacks/express-nestjs.md) |
+| Frontend and full-stack | [Next.js](stacks/nextjs.md) (the reference), [Nuxt](stacks/nuxt.md), [SvelteKit](stacks/sveltekit.md), [Angular](stacks/angular.md), [React Router](stacks/react-router.md) (formerly Remix), [Astro](stacks/astro.md) |
+| Mobile | [Flutter](stacks/flutter.md), [React Native and Expo](stacks/react-native-expo.md), [Swift (iOS)](stacks/swift-ios.md), [Kotlin (Android)](stacks/kotlin-android.md) |
+| No-code and BaaS | [Lovable](stacks/lovable.md), [Bolt](stacks/bolt.md), [Bubble](stacks/bubble.md), [Webflow](stacks/webflow.md), [Firebase](stacks/firebase.md), [Supabase](stacks/supabase.md), [Appwrite](stacks/appwrite.md) |
+
 ## Myth vs fact
 
 Viral compliance threads get some of this wrong. Bansat sticks to what the law actually says:
@@ -210,7 +261,7 @@ Viral compliance threads get some of this wrong. Bansat sticks to what the law a
 
 ## What's in the blueprint
 
-15 parts and 6 appendices, about 3,800 lines of Markdown, split into [modules](framework/README.md) so Claude reads only the parts each step needs. `reference/bansat-framework.md` has the whole framework in one file, and you can [read it online](https://bewithkhan.github.io/bansat/) as a searchable site with no cookies or trackers, rebuilt from this repo on every merge.
+15 parts and 6 appendices, about 3,800 lines of Markdown, split into [modules](framework/README.md) so the agent reads only the parts each step needs. `reference/bansat-framework.md` has the whole framework in one file, and you can [read it online](https://bewithkhan.github.io/bansat/) as a searchable site with no cookies or trackers, rebuilt from this repo on every merge.
 
 Planning with a PRD, TRD, app flow, UI/UX brief, backend schema and implementation plan? They're all here, as parts of one blueprint that can't contradict itself: the [map](framework/how-to-use.md#where-the-usual-planning-documents-live) shows where each one lives.
 
@@ -238,14 +289,19 @@ Planning with a PRD, TRD, app flow, UI/UX brief, backend schema and implementati
 | | PRD template | Asking the AI | **Bansat** |
 |---|:---:|:---:|:---:|
 | Product, architecture, security, privacy and UX in one plan | Product only | Patchy | ✅ |
-| Gates Claude stops at until you approve | ❌ | ❌ | ✅ G0–G4, plus an optional G1 hook |
-| Laws cited to the section, and checked on a stated date | ❌ | Unverified | ✅ 4 Nov 2026 |
+| Gates the agent stops at until you approve | ❌ | ❌ | ✅ G0–G4, plus an optional G1 hook |
+| Laws cited to the section, and checked on a stated date | ❌ | Unverified | ✅ 120 jurisdictions, official sources, watched weekly |
+| Guidance for the stack you're on | ❌ | Generic | ✅ 24 stack profiles |
 | Code samples tested, in CI | ❌ | Untested | ✅ `examples/` |
 | Looks at how others solved it before building | ❌ | Rarely | ✅ Research first |
 | Fits how you run the project (Scrum, Kanban, stage gates, Shape Up, solo) | ❌ | ❌ | ✅ A picker and 6 profiles |
 | A track for apps that are already live | ❌ | ❌ | ✅ Day-0 triage |
 | Every UI state designed and tested on every screen | ❌ | Happy path only | ✅ 17 states |
 | The same standard on every project, team and tool | Copy and paste | Per chat | ✅ One skill, one file |
+
+## Research
+
+The paper *Bansat: Blueprint-First Gating of AI Coding Agents, with a Continuously Verified Privacy-Law Registry*, by Muhammad Tufail Khan and Naeem Ramzan (University of the West of Scotland), is in [`paper/`](paper/main.pdf). Its experiment compares apps an AI agent builds with and without Bansat, across six briefs and four stacks. The plan was agreed and published in [`research/`](research/README.md) before any run, so anyone can check the results against it when they come.
 
 ## Tested, not just written
 
@@ -256,6 +312,8 @@ The framework's code runs in CI on every change, from the [`examples/`](examples
 - The **consent loader** runs in Chromium: a vendor script loads only after "Accept all", and every choice is logged.
 - The **Playwright privacy test** passes on clean pages and must fail on a page that loads a third-party font before consent.
 - The **TypeScript UI-state pattern** compiles in strict mode, and the build fails if a screen forgets a state.
+- The **law registry**: every entry must pass the schema, and every source must sit on an official domain listed for its jurisdiction.
+- The **site**: every page is checked for cookies, third-party requests, broken internal links and accessibility (axe, WCAG 2.2 AA).
 
 CI also fails if a sample in the framework and its tested copy differ, so what you copy is what was tested ([issue #1](https://github.com/bewithkhan/bansat/issues/1)). Run it yourself: `cd examples && npm ci && npx playwright install chromium && npm test`. The G1 hook's tests run with `node hooks/bansat-g1-guard.test.mjs`.
 
@@ -263,6 +321,8 @@ CI also fails if a sample in the framework and its tested copy differ, so what y
 <summary><b>Laws and standards covered</b> (checked 4 November 2026)</summary>
 
 <br>
+
+These are the laws the framework's own text covers. For other markets, the agent reads the [law registry](#the-law-registry-and-law-watch).
 
 - UK GDPR and the Data Protection Act 2018, as amended by the Data (Use and Access) Act 2025
 - PECR (cookies and electronic marketing), with fines now at UK GDPR levels
@@ -370,14 +430,14 @@ It lives in your repo as `docs/BLUEPRINT.md` and changes in the same pull reques
 
 Use GitHub's **Cite this repository** button, or:
 
-> Khan, M. T. (2026). *Bansat (بنسټ): A blueprint-first framework for building software* (Version 2.4) [Computer software]. GitHub. https://github.com/bewithkhan/bansat
+> Khan, M. T. (2026). *Bansat (بنسټ): A blueprint-first framework for building software* (Version 3.0) [Computer software]. GitHub. https://github.com/bewithkhan/bansat
 
 ```bibtex
 @misc{khan2026bansat,
   author       = {Khan, Muhammad Tufail},
   title        = {Bansat: A blueprint-first framework for building software},
   year         = {2026},
-  note         = {Version 2.4},
+  note         = {Version 3.0},
   howpublished = {\url{https://github.com/bewithkhan/bansat}}
 }
 ```
