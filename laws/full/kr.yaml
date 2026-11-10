@@ -1,0 +1,151 @@
+# South Korea. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: kr
+name: South Korea
+tier: full
+laws:
+  - name: Personal Information Protection Act (PIPA)
+    citation: 개인정보 보호법, Act No. 10465 of 29 March 2011, as last amended by Act No. 21445 of 10 March 2026
+    official_url: https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95
+    status: in-force
+    in_force_from: "2011-09-30"
+    notes: In force six months after promulgation (Addenda Art. 1), which we derive as 30 September 2011, the day its Enforcement Decree also took effect. The 2023 overhaul (Act No. 19234) applied from 15 September 2023, and its automated-decision and CPO rules from 15 March 2024 (both derived). Act No. 20897 on domestic agents applied from 2 October 2025 (derived). Act No. 21445 applies from 11 September 2026, as law.go.kr lists, except mandatory certification, from 1 July 2027.
+  - name: Enforcement Decree of the Personal Information Protection Act
+    citation: 개인정보 보호법 시행령, Presidential Decree No. 23169 of 29 September 2011, as last amended by Presidential Decree No. 36804 of 10 November 2026
+    official_url: https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95%EC%8B%9C%ED%96%89%EB%A0%B9
+    status: in-force
+    in_force_from: "2011-09-30"
+    notes: In force from 30 September 2011 (Addenda Art. 1). Presidential Decree No. 36671, in force from 11 September 2026, set the rules for CPO reporting, surcharges and possible-leak notices; its list of the largest controllers also covers universities with 20,000 or more students, tertiary general hospitals and public system operators (Art. 32(3)). An amendment on ISMS-P certification audits was put out for comment from 16 September to 26 October 2026 (PIPC release, copy on korea.kr) and is still pending.
+  - name: PIPA amendment on using personal information to develop AI
+    citation: 개인정보 보호법 일부개정법률, Act No. 21910 of 8 September 2026
+    official_url: https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=289415&efYd=20270309&ancYnChk=1
+    status: enacted
+    in_force_from: "2027-03-09"
+    notes: Passed by the National Assembly on 20 August 2026, according to the PIPC's release of that day (copy on korea.kr). Adds a route (Arts. 28-12 to 28-15) for using lawfully collected personal information to develop AI, with the PIPC's approval and stronger safeguards. In force six months after promulgation (Addenda), which we derive as 9 March 2027, the date law.go.kr gives.
+  - name: Framework Act on the Development of Artificial Intelligence and Establishment of Trust (AI Basic Act)
+    citation: 인공지능 발전과 신뢰 기반 조성 등에 관한 기본법, Act No. 20676 of 21 January 2025, as amended by Act No. 21311 of 20 January 2026
+    official_url: https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EB%B0%9C%EC%A0%84%EA%B3%BC%EC%8B%A0%EB%A2%B0%EA%B8%B0%EB%B0%98%EC%A1%B0%EC%84%B1%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EA%B8%B0%EB%B3%B8%EB%B2%95
+    status: in-force
+    in_force_from: "2026-01-22"
+    notes: In force one year after promulgation (Addenda Art. 1), which we derive as 22 January 2026; Act No. 21311 also names that date. Some of its own changes apply from 21 July 2026, six months after promulgation (derived; law.go.kr lists it). The Enforcement Decree (Presidential Decree No. 36053) applies from 22 January 2026. In November 2025 MSIT said it would run a grace period of at least a year before imposing fines, and confirmed it when the Act took effect in January 2026.
+  - name: Act on Promotion of Information and Communications Network Utilization and Information Protection (Network Act)
+    citation: 정보통신망 이용촉진 및 정보보호 등에 관한 법률, wholly amended by Act No. 6360 of 16 January 2001, as last amended by Act No. 21988 of 29 September 2026
+    official_url: https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%A0%95%EB%B3%B4%ED%86%B5%EC%8B%A0%EB%A7%9D%EC%9D%B4%EC%9A%A9%EC%B4%89%EC%A7%84%EB%B0%8F%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EB%B2%95%EB%A5%A0
+    status: in-force
+    in_force_from: "2001-07-01"
+    notes: The wholly amended Act took effect on 1 July 2001 (Addenda Art. 1). Sets the rules for advertising messages (Art. 50), app access permissions (Art. 22-2) and reporting intrusion incidents such as hacking (Art. 48-3). Act No. 21500 of 31 March 2026, in force from 1 October 2026 (derived, six months after promulgation), added user notice of some incidents and fines of up to KRW 50 million for late incident reports.
+regulators:
+  - name: Personal Information Protection Commission (PIPC)
+    url: https://www.pipc.go.kr/eng/index.do
+  - name: Ministry of Science and ICT (MSIT), for the AI Basic Act and the Network Act's security rules
+    url: https://www.msit.go.kr/index.do
+obligations:
+  scope:
+    summary: PIPA applies to personal information controllers, meaning public bodies, companies, organisations and individuals that process personal information files for their work (Art. 2). The PIPC applies it to foreign businesses serving people in Korea; in May 2025 it fined Temu KRW 1.369 billion, including for breaching the transfer rules. Those with no address in Korea and revenue of KRW 1 trillion or more, data of 1 million or more people in Korea stored on an average day, or a PIPC decision, must appoint a domestic agent in writing (Art. 31-2; Decree Art. 32-3).
+    source:
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95/%EC%A0%9C2%EC%A1%B0
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95/%EC%A0%9C31%EC%A1%B0%EC%9D%982
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95%EC%8B%9C%ED%96%89%EB%A0%B9/%EC%A0%9C32%EC%A1%B0%EC%9D%983
+      - https://www.korea.kr/briefing/pressReleaseView.do?newsId=156689159
+  lawful_bases:
+    summary: "Collection and use need one of: consent; a specific legal provision or legal duty; a public body's legal task; a contract with the person, or steps they asked for; urgent protection of life, body or property; legitimate interests that clearly outweigh the person's rights, within limits; or urgent public safety (Art. 15). Related purposes are allowed with safeguards. Ask for each consent separately, including for marketing (Art. 22). Sensitive data and unique identifiers need separate consent or a legal basis, and resident registration numbers are restricted (Arts. 23 to 24-2)."
+    source:
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95/%EC%A0%9C15%EC%A1%B0
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95/%EC%A0%9C22%EC%A1%B0
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95/%EC%A0%9C23%EC%A1%B0
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95/%EC%A0%9C24%EC%A1%B0%EC%9D%982
+  consent_age:
+    summary: Where PIPA requires consent for a child under 14, get it from the legal representative and confirm it, for example by text message, card details, mobile phone verification, a signed form or e-mail (Art. 22-2; Decree Art. 17-2). Only the representative's name and contact details may be collected from the child without that consent.
+    value: 14
+    unit: years
+    source:
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95/%EC%A0%9C22%EC%A1%B0%EC%9D%982
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95%EC%8B%9C%ED%96%89%EB%A0%B9/%EC%A0%9C17%EC%A1%B0%EC%9D%982
+  children:
+    summary: Notices to under-14s about how their data is handled must use an easy format and clear, simple language (Art. 22-2(3)). Processing their data without a legal representative's consent can lead to a surcharge of up to 3% of turnover, and to up to 5 years in prison or a KRW 50 million fine (Arts. 64-2 and 71).
+    source:
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95/%EC%A0%9C22%EC%A1%B0%EC%9D%982
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95/%EC%A0%9C64%EC%A1%B0%EC%9D%982
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95/%EC%A0%9C71%EC%A1%B0
+  cookies:
+    summary: There is no separate cookie-consent rule; personal information collected through cookies needs a PIPA legal basis. Privacy policies must explain automatic collection devices, such as cookies, and how to refuse them (Art. 30). Under the Network Act, apps must tell users which phone data and functions they access and why, get consent, and not refuse service over optional permissions (Art. 22-2), and installing programs that show ads or collect personal information needs consent (Art. 50-5).
+    source:
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95/%EC%A0%9C30%EC%A1%B0
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%A0%95%EB%B3%B4%ED%86%B5%EC%8B%A0%EB%A7%9D%EC%9D%B4%EC%9A%A9%EC%B4%89%EC%A7%84%EB%B0%8F%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EB%B2%95%EB%A5%A0/%EC%A0%9C22%EC%A1%B0%EC%9D%982
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%A0%95%EB%B3%B4%ED%86%B5%EC%8B%A0%EB%A7%9D%EC%9D%B4%EC%9A%A9%EC%B4%89%EC%A7%84%EB%B0%8F%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EB%B2%95%EB%A5%A0/%EC%A0%9C50%EC%A1%B0%EC%9D%985
+  marketing:
+    summary: Advertising messages sent electronically need explicit prior consent, unless you got the contact details in a transaction and advertise similar goods within 6 months of it ending. Messages from 9 pm to 8 am need separate consent, except e-mail. Identify the sender, give an easy free opt-out, confirm the result of each choice and re-check consent every 2 years (Network Act Art. 50; Decree Arts. 61 and 62-3). Fines reach KRW 30 million (Art. 76); evading opt-outs or hiding the sender is a crime (Arts. 50(5) and 74). PIPA also requires separate consent for marketing (Art. 22).
+    source:
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%A0%95%EB%B3%B4%ED%86%B5%EC%8B%A0%EB%A7%9D%EC%9D%B4%EC%9A%A9%EC%B4%89%EC%A7%84%EB%B0%8F%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EB%B2%95%EB%A5%A0/%EC%A0%9C74%EC%A1%B0
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%A0%95%EB%B3%B4%ED%86%B5%EC%8B%A0%EB%A7%9D%EC%9D%B4%EC%9A%A9%EC%B4%89%EC%A7%84%EB%B0%8F%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EB%B2%95%EB%A5%A0/%EC%A0%9C50%EC%A1%B0
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%A0%95%EB%B3%B4%ED%86%B5%EC%8B%A0%EB%A7%9D%EC%9D%B4%EC%9A%A9%EC%B4%89%EC%A7%84%EB%B0%8F%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EB%B2%95%EB%A5%A0%EC%8B%9C%ED%96%89%EB%A0%B9/%EC%A0%9C61%EC%A1%B0
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%A0%95%EB%B3%B4%ED%86%B5%EC%8B%A0%EB%A7%9D%EC%9D%B4%EC%9A%A9%EC%B4%89%EC%A7%84%EB%B0%8F%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EB%B2%95%EB%A5%A0%EC%8B%9C%ED%96%89%EB%A0%B9/%EC%A0%9C62%EC%A1%B0%EC%9D%983
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%A0%95%EB%B3%B4%ED%86%B5%EC%8B%A0%EB%A7%9D%EC%9D%B4%EC%9A%A9%EC%B4%89%EC%A7%84%EB%B0%8F%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EB%B2%95%EB%A5%A0/%EC%A0%9C76%EC%A1%B0
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95/%EC%A0%9C22%EC%A1%B0
+  breach_notice:
+    summary: Within 72 hours of learning of a leak, tell those affected; urgent containment can come first (Art. 34; Decree Art. 39). Report to the PIPC or KISA within 72 hours if 1,000 or more people, sensitive or unique ID data, or hacking is involved (Decree Art. 40). Since 11 September 2026, leaks include alteration and damage (such as ransomware); warn all whose data may have leaked if those affected are unknown (Decree Art. 39-2); and no report is needed if retrieving or deleting the data makes harm much less likely (Art. 40(1)). ICT providers report intrusions in 24 hours (Network Act Art. 48-3).
+    value: 72
+    unit: hours
+    source:
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95/%EC%A0%9C34%EC%A1%B0
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95%EC%8B%9C%ED%96%89%EB%A0%B9/%EC%A0%9C39%EC%A1%B0
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95%EC%8B%9C%ED%96%89%EB%A0%B9/%EC%A0%9C39%EC%A1%B0%EC%9D%982
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95%EC%8B%9C%ED%96%89%EB%A0%B9/%EC%A0%9C40%EC%A1%B0
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%A0%95%EB%B3%B4%ED%86%B5%EC%8B%A0%EB%A7%9D%EC%9D%B4%EC%9A%A9%EC%B4%89%EC%A7%84%EB%B0%8F%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EB%B2%95%EB%A5%A0/%EC%A0%9C48%EC%A1%B0%EC%9D%983
+      - https://www.korea.kr/briefing/pressReleaseView.do?newsId=156781056
+  registration_or_fees:
+    summary: No general registration or fee. Since 11 September 2026, the largest controllers, such as those with revenue over KRW 180 billion processing sensitive or unique ID data of 50,000 or more people or any data of 1 million or more, must report their CPO to the PIPC (Art. 31(3); Decree Art. 32(3)). Some ICT service providers need ISMS certification (Network Act Art. 47). From 1 July 2027, controllers meeting criteria still to be set by decree must hold PIPA certification (Art. 32-2). Foreign AI businesses above set thresholds must report a domestic agent to MSIT (AI Basic Act Art. 36).
+    source:
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95/%EC%A0%9C31%EC%A1%B0
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95%EC%8B%9C%ED%96%89%EB%A0%B9/%EC%A0%9C32%EC%A1%B0
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%A0%95%EB%B3%B4%ED%86%B5%EC%8B%A0%EB%A7%9D%EC%9D%B4%EC%9A%A9%EC%B4%89%EC%A7%84%EB%B0%8F%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EB%B2%95%EB%A5%A0/%EC%A0%9C47%EC%A1%B0
+      - https://www.korea.kr/briefing/pressReleaseView.do?newsId=156781056
+      - https://www.korea.kr/briefing/pressReleaseView.do?newsId=156781836
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EB%B0%9C%EC%A0%84%EA%B3%BC%EC%8B%A0%EB%A2%B0%EA%B8%B0%EB%B0%98%EC%A1%B0%EC%84%B1%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EA%B8%B0%EB%B3%B8%EB%B2%95/%EC%A0%9C36%EC%A1%B0
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EB%B0%9C%EC%A0%84%EA%B3%BC%EC%8B%A0%EB%A2%B0%EA%B8%B0%EB%B0%98%EC%A1%B0%EC%84%B1%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EA%B8%B0%EB%B3%B8%EB%B2%95%EC%8B%9C%ED%96%89%EB%A0%B9/%EC%A0%9C29%EC%A1%B0
+  dpo:
+    summary: Every controller needs a chief privacy officer (CPO); in small businesses it's the owner or CEO (Art. 31; Decree Art. 32). The largest controllers need a qualified CPO and, since 11 September 2026, board approval for companies to appoint, change or remove one, and a report to the PIPC within 6 months, extendable by up to a year; CPOs already in post must be reported within 6 months of that date (Art. 31(3); Decree Art. 32; Addenda Art. 2). The CPO must work independently; the CEO is ultimately responsible (Art. 30-3). A domestic agent must be the Korean subsidiary if any (Art. 31-2).
+    source:
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95/%EC%A0%9C31%EC%A1%B0
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95%EC%8B%9C%ED%96%89%EB%A0%B9/%EC%A0%9C32%EC%A1%B0
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95/%EC%A0%9C30%EC%A1%B0%EC%9D%983
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95/%EC%A0%9C31%EC%A1%B0%EC%9D%982
+      - https://www.korea.kr/briefing/pressReleaseView.do?newsId=156781056
+  transfers:
+    summary: Transferring personal information abroad (providing, entrusting, storing or letting it be viewed) needs separate consent after set notice, a law or treaty, a need under a contract with the person that is disclosed in the privacy policy or notified, a recipient certified as the PIPC specifies, or a destination the PIPC finds equivalent (Art. 28-8). The EU and EEA are recognised from 16 September 2025, with a review due to start 3 months before 15 September 2028; a UK review began in October 2026. The PIPC can order transfers to stop (Art. 28-9).
+    source:
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95/%EC%A0%9C28%EC%A1%B0%EC%9D%988
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95/%EC%A0%9C28%EC%A1%B0%EC%9D%989
+      - https://www.korea.kr/briefing/pressReleaseView.do?newsId=156733999
+      - https://www.korea.kr/briefing/pressReleaseView.do?newsId=156783893
+  dpia:
+    summary: Public institutions must assess the privacy impact of set personal information files; other controllers must actively try to do so where there's a risk (Art. 33). Businesses offering high-impact AI must try to assess its effect on fundamental rights beforehand (AI Basic Act Art. 35). From 9 March 2027, using personal information under the new AI development route can require a prior risk assessment (Art. 28-12).
+    source:
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95/%EC%A0%9C33%EC%A1%B0
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EB%B0%9C%EC%A0%84%EA%B3%BC%EC%8B%A0%EB%A2%B0%EA%B8%B0%EB%B0%98%EC%A1%B0%EC%84%B1%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EA%B8%B0%EB%B3%B8%EB%B2%95/%EC%A0%9C35%EC%A1%B0
+      - https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=289415&efYd=20270309&ancYnChk=1
+      - https://www.korea.kr/briefing/pressReleaseView.do?newsId=156774994
+  automated_decisions_ai:
+    summary: People can refuse fully automated decisions, including by AI, that significantly affect their rights or duties, and can ask for an explanation; the controller must respond within 30 days (Art. 37-2; Decree Art. 44-3). Since 22 January 2026, the AI Basic Act requires prior notice of high-impact or generative AI, labels on generated output, clear marking of realistic synthetic media, and risk, explanation and oversight duties for high-impact AI (Arts. 31 and 34). Fines reach KRW 30 million (Art. 43), but MSIT said it would wait at least a year before imposing them.
+    source:
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95/%EC%A0%9C37%EC%A1%B0%EC%9D%982
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95%EC%8B%9C%ED%96%89%EB%A0%B9/%EC%A0%9C44%EC%A1%B0%EC%9D%983
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EB%B0%9C%EC%A0%84%EA%B3%BC%EC%8B%A0%EB%A2%B0%EA%B8%B0%EB%B0%98%EC%A1%B0%EC%84%B1%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EA%B8%B0%EB%B3%B8%EB%B2%95/%EC%A0%9C31%EC%A1%B0
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EB%B0%9C%EC%A0%84%EA%B3%BC%EC%8B%A0%EB%A2%B0%EA%B8%B0%EB%B0%98%EC%A1%B0%EC%84%B1%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EA%B8%B0%EB%B3%B8%EB%B2%95/%EC%A0%9C34%EC%A1%B0
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EB%B0%9C%EC%A0%84%EA%B3%BC%EC%8B%A0%EB%A2%B0%EA%B8%B0%EB%B0%98%EC%A1%B0%EC%84%B1%EB%93%B1%EC%97%90%EA%B4%80%ED%95%9C%EA%B8%B0%EB%B3%B8%EB%B2%95/%EC%A0%9C43%EC%A1%B0
+      - https://www.korea.kr/news/policyNewsView.do?newsId=148954629
+      - https://www.korea.kr/news/policyNewsView.do?newsId=148958380
+  penalties:
+    summary: Surcharges reach 3% of total turnover, leaving out unrelated turnover, or KRW 2 billion without turnover. Since 11 September 2026, the cap is 10% (KRW 5 billion) for intentional or grossly negligent repeat violations within 3 years, such violations affecting 10 million or more people, or leaks after ignoring a corrective order (Art. 64-2). Administrative fines reach KRW 50 million (Art. 75); crimes, up to 10 years in prison (Art. 70). Courts can award up to 5 times the damage for wilful or grossly negligent leaks, or up to KRW 3 million without proof of loss (Arts. 39 and 39-2).
+    source:
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95/%EC%A0%9C64%EC%A1%B0%EC%9D%982
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95/%EC%A0%9C75%EC%A1%B0
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95/%EC%A0%9C70%EC%A1%B0
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95/%EC%A0%9C39%EC%A1%B0
+      - https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95/%EC%A0%9C39%EC%A1%B0%EC%9D%982
+checked:
+  date: "2026-11-10"
+  status: ai-checked
+history:
+  - date: "2026-11-10"
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

@@ -1,0 +1,159 @@
+# India. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: in
+name: India
+tier: full
+laws:
+  - name: Digital Personal Data Protection Act, 2023 (DPDP Act)
+    citation: Act No. 22 of 2023
+    official_url: https://www.indiacode.nic.in/bitstream/123456789/22037/2/a2023-22.pdf
+    status: in-force
+    in_force_from: "2025-11-13"
+    notes: Brought into force in stages by G.S.R. 843(E) of 13 November 2025. From that day s.1(2), s.2 (definitions), ss.18-26 (the Board), s.35, ss.38-43 and s.44(1) and (3) apply; s.44(3) amends the RTI Act. Consent manager registration (s.6(9), s.27(1)(d)) applies from one year after publication, about 13 November 2026, and nearly all duties, rights and penalties (ss.3-5, 6(1)-(8) and (10), 7-17, 27 except 27(1)(d), 28-34, 36, 37 and 44(2)) from eighteen months after, about 13 May 2027. Both dates are derived. A Lok Sabha answer of 12 August 2026 still gave this timeline.
+  - name: Digital Personal Data Protection Rules, 2025 (DPDP Rules)
+    citation: G.S.R. 846(E), 13 November 2025, corrected by G.S.R. 892(E), 10 December 2025
+    official_url: https://www.meity.gov.in/static/uploads/2025/11/53450e6e5dc0bfa85ebd78686cadad39.pdf
+    status: in-force
+    in_force_from: "2025-11-13"
+    notes: Rules 1, 2 and 17 to 21 (the Board) took effect on publication. Rule 4 (consent managers) applies from one year after publication and rules 3, 5 to 16, 22 and 23 from eighteen months after, so about 13 November 2026 and 13 May 2027 (both derived). The corrigendum G.S.R. 892(E) (Gazette No. 806, 11 December 2025) fixes wording, including "of this Gazette" to "in the Official Gazette" in r.1(3)-(4); it doesn't move those dates.
+  - name: Digital Personal Data Protection (Removal of Difficulties) Order, 2026
+    citation: S.O. 5458(E), 5 October 2026
+    official_url: https://www.meity.gov.in/static/uploads/2026/10/daf495a7b5798a3dfa72a944b51fc176.pdf
+    status: in-force
+    in_force_from: "2026-10-06"
+    notes: Takes effect on publication; the date used is the Gazette issue date shown on it. It fixes wording only. Section 9(1) now reads "child or of a person with disability", and the periodic audit in s.10(2)(c)(ii) becomes a "data audit".
+  - name: Information Technology Act, 2000 (section 43A and related provisions)
+    citation: Act No. 21 of 2000, as amended (s.43A inserted by Act 10 of 2009)
+    official_url: https://indiacode.gov.in/server/api/core/bitstreams/770a7d02-48f2-4274-bab9-10d0f48ee264/content
+    status: in-force
+    in_force_from: "2000-10-17"
+    notes: In force from 17 October 2000 (G.S.R. 788(E)). Section 43A, in force since 27 October 2009, makes a body corporate that negligently fails to protect sensitive personal data pay compensation. DPDP Act s.44(2) omits s.43A and the matching rule-making power from about 13 May 2027 (derived). The Jan Vishwas Act 2023 turned s.72A into a civil penalty from 30 November 2023.
+  - name: Information Technology (Reasonable security practices and procedures and sensitive personal data or information) Rules, 2011 (SPDI Rules)
+    citation: G.S.R. 313(E), 11 April 2011
+    official_url: https://indiacode.gov.in/server/api/core/bitstreams/e9545daf-b012-49cd-a697-388039b9b7e0/content
+    status: in-force
+    in_force_from: "2011-04-11"
+    notes: Take effect on publication in the Gazette; the date used is the notification's date (derived). They cover sensitive personal data such as passwords, financial, health, sexual orientation, medical and biometric data. Their legal basis (IT Act s.43A and s.87(2)(ob)) is removed from about 13 May 2027 (derived).
+  - name: Information Technology (Intermediary Guidelines and Digital Media Ethics Code) Rules, 2021
+    citation: G.S.R. 139(E), 25 February 2021, as amended (latest G.S.R. 120(E), 10 February 2026)
+    official_url: https://www.meity.gov.in/static/uploads/2026/02/550681ab908f8afb135b0ad42816a1c9.pdf
+    status: in-force
+    in_force_from: "2021-02-25"
+    notes: G.S.R. 120(E) of 10 February 2026 added rules on "synthetically generated information" and cut deadlines. Acting on court orders or government notices now takes at most 3 hours (was 36); resolving grievances, 7 days (was 15); removal complaints, 36 hours (was 72); intimate or impersonation content, 2 hours (was 24). Its own start date couldn't be confirmed from an official text that opened. Still pending, MeitY's draft amendments (consultation March to May 2026) would make its advisories and SOPs part of due diligence and require labels shown throughout synthetic visual content.
+  - name: CERT-In directions under section 70B(6) of the Information Technology Act
+    citation: Directions of CERT-In under IT Act s.70B(6), issued 28 April 2022
+    official_url: https://pib.gov.in/PressReleasePage.aspx?PRID=1820904
+    status: in-force
+    in_force_from: "2022-06-27"
+    notes: Effective 60 days after issue, so 27 June 2022 (derived); MSMEs, and data centre, VPS, cloud and VPN providers for customer validation, had until 25 September 2022. They cover clock synchronisation, mandatory reporting of cyber incidents to CERT-In within 6 hours, ICT logs and customer records, and bind service providers, intermediaries, data centres and body corporates. The directions' own text on cert-in.org.in couldn't be opened for this entry; the facts here come from MeitY's releases, its answers to Parliament and the IT Act.
+  - name: Telecom Commercial Communications Customer Preference Regulations, 2018 (TCCCPR)
+    citation: TRAI Regulation 6 of 2018, as amended, latest by the Third Amendment Regulations, 2026 (5 of 2026)
+    official_url: https://www.trai.gov.in/sites/default/files/2026-05/CA_21052026.pdf
+    status: in-force
+    in_force_from: "2018-07-19"
+    notes: The date is the notification date; the regulations took effect in stages from Gazette publication to 28 February 2019, and the exact Gazette date wasn't confirmed. The Third Amendment, notified on 18 September 2026, takes effect 30 days after Gazette publication, with some parts after 60 and 90 days; the Gazette copy couldn't be opened to fix those dates. TRAI's consolidated copy of 21 May 2026 isn't the gazetted text.
+  - name: RBI directive on storage of payment system data
+    citation: RBI/2017-18/153, DPSS.CO.OD No.2785/06.08.005/2017-2018, 6 April 2018
+    official_url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11244&Mode=0
+    status: in-force
+    in_force_from: "2018-04-06"
+    notes: Payment system providers must store all data on the payment systems they operate only in India; the foreign leg of a transaction may also be stored abroad. The date is the date of issue; providers had six months to comply and had to report by 15 October 2018.
+regulators:
+  - name: Data Protection Board of India (set up on 13 November 2025 by G.S.R. 844(E); its posts were advertised in June 2026)
+    url: https://www.meity.gov.in/static/uploads/2025/11/cc217843dc3bcb37b2b05bcc3b4e031f.pdf
+  - name: Ministry of Electronics and Information Technology (MeitY)
+    url: https://www.meity.gov.in/
+  - name: Telecom Regulatory Authority of India (TRAI), for commercial calls and SMS
+    url: https://www.trai.gov.in/
+obligations:
+  scope:
+    summary: The DPDP Act covers digital personal data processed in India, and processing abroad linked to offering goods or services to people in India. Personal or domestic use, and data made public by the person or under a legal duty, are outside it. Most duties start about 13 May 2027 (derived), a plan MeitY repeated to Parliament on 12 August 2026; until then IT Act s.43A and the SPDI Rules govern sensitive data. From that 2027 date, e-commerce and social media platforms with 2 crore+ users and gaming platforms with 50 lakh+ must erase data after 3 years' inactivity, warning users 48 hours ahead.
+    source:
+      - https://www.indiacode.nic.in/bitstream/123456789/22037/2/a2023-22.pdf
+      - https://www.meity.gov.in/static/uploads/2025/11/c56ceae6c383460ca69577428d36828b.pdf
+      - https://www.meity.gov.in/static/uploads/2025/12/3c7ebbae0e5456f493f486e6845df86b.pdf
+      - https://sansad.in/getFile/lsapps/loksabhaquestions/annex/188/AU3943_458sox.pdf?source=lsapps
+      - https://indiacode.gov.in/server/api/core/bitstreams/e9545daf-b012-49cd-a697-388039b9b7e0/content
+      - https://www.meity.gov.in/static/uploads/2025/11/53450e6e5dc0bfa85ebd78686cadad39.pdf
+  lawful_bases:
+    summary: Now, the SPDI Rules require consent in writing (letter, fax or email) before collecting sensitive personal data, for a lawful purpose and only as needed, plus a published privacy policy. From about 13 May 2027 (derived), the DPDP Act allows processing only with consent or for listed legitimate uses, such as data a person gave voluntarily for a purpose, legal duties, court orders, medical emergencies, disasters and employment. Consent must be free, specific, informed, unconditional and unambiguous, follow a standalone itemised notice, and be as easy to withdraw as to give.
+    source:
+      - https://indiacode.gov.in/server/api/core/bitstreams/e9545daf-b012-49cd-a697-388039b9b7e0/content
+      - https://www.indiacode.nic.in/bitstream/123456789/22037/2/a2023-22.pdf
+      - https://www.meity.gov.in/static/uploads/2025/11/53450e6e5dc0bfa85ebd78686cadad39.pdf
+  consent_age:
+    summary: A child is anyone under 18 (DPDP Act s.2(f), in force since 13 November 2025). From about 13 May 2027 (derived), processing a child's data needs verifiable consent from a parent, and the business must check that the parent is an identifiable adult, using identity and age details it already holds or a token from an authorised entity such as a DigiLocker provider. The government may notify an age above which businesses that handle children's data in a verifiably safe way are exempt from some of these duties (s.9(5)); no such notification was found.
+    value: 18
+    unit: years
+    source:
+      - https://www.indiacode.nic.in/bitstream/123456789/22037/2/a2023-22.pdf
+      - https://www.meity.gov.in/static/uploads/2025/11/53450e6e5dc0bfa85ebd78686cadad39.pdf
+  children:
+    summary: From about 13 May 2027 (derived), the DPDP Act bans processing likely to harm a child's well-being, and tracking, behavioural monitoring or targeted ads directed at children. Within set limits, the Rules lift the parental-consent and tracking/ad rules, never the harm ban, for health services, schools, crèches and their transport, email-only accounts, real-time location for safety, blocking harmful content, government functions and benefits, and checking a user isn't a child. Until then, intermediaries' terms must bar content harmful to children, meaning under-18s (IT Rules r.3(1)(b)).
+    source:
+      - https://www.indiacode.nic.in/bitstream/123456789/22037/2/a2023-22.pdf
+      - https://www.meity.gov.in/static/uploads/2025/11/53450e6e5dc0bfa85ebd78686cadad39.pdf
+      - https://www.meity.gov.in/static/uploads/2026/02/550681ab908f8afb135b0ad42816a1c9.pdf
+  cookies:
+    summary: There is no cookie-specific law. From about 13 May 2027 (derived), cookies and trackers that collect personal data will need DPDP consent after a notice, or a legitimate use, and tracking or targeted ads directed at children will be banned. Until then, the SPDI Rules require written consent only where sensitive personal data, such as passwords or financial details, is collected.
+    source:
+      - https://www.indiacode.nic.in/bitstream/123456789/22037/2/a2023-22.pdf
+      - https://indiacode.gov.in/server/api/core/bitstreams/e9545daf-b012-49cd-a697-388039b9b7e0/content
+  marketing:
+    summary: Commercial calls and SMS fall under TRAI's TCCCPR. Senders register headers and message templates with operators, send promotions only to people who haven't opted out or whose explicit consent is recorded, and use the 140-series for promotional calls. Repeat offenders lose all telecom resources and are blacklisted for a year. The Third Amendment (notified 18 September 2026, phased in from 30 days after publication) adds AI-based spam flagging, pre-declared automated calls and a 7-day window after a customer's inquiry. There is no email-specific spam law.
+    source:
+      - https://www.trai.gov.in/sites/default/files/2026-05/CA_21052026.pdf
+      - https://www.trai.gov.in/sites/default/files/2026-09/Regulation_18092026.pdf
+      - https://www.trai.gov.in/sites/default/files/2026-09/PR_No119of2026.pdf
+  breach_notice:
+    summary: Now, report cyber incidents to CERT-In within 6 hours of noticing them or being told of them (CERT-In directions of April 2022). From about 13 May 2027 (derived), the DPDP Rules also require telling each affected person and the Board without delay, then a detailed report to the Board within 72 hours unless it allows longer. They also require security safeguards such as encryption or masking, access controls, access logs and backups, and keeping personal data, traffic data and processing logs for at least one year (r.6, r.8(3)).
+    value: 6
+    unit: hours
+    source:
+      - https://eparlib.sansad.in/bitstream/123456789/2986736/1/AU3822_z3M2Nh.pdf
+      - https://pib.gov.in/PressReleasePage.aspx?PRID=1820904
+      - https://www.meity.gov.in/static/uploads/2025/11/53450e6e5dc0bfa85ebd78686cadad39.pdf
+  registration_or_fees:
+    summary: Ordinary businesses don't register with, or pay a fee to, a data protection regulator. From about 13 November 2026 (derived), consent managers must register with the Data Protection Board; they must be companies incorporated in India with a net worth of at least ₹2 crore. The government can name Significant Data Fiduciaries, with extra duties. Commercial SMS and call senders register with operators under TCCCPR. MeitY's answer to Parliament of 12 August 2026 reported no Board appointments, only that the posts were advertised on 6 June 2026; no appointment notice was found by 10 November 2026.
+    source:
+      - https://www.meity.gov.in/static/uploads/2025/11/53450e6e5dc0bfa85ebd78686cadad39.pdf
+      - https://www.indiacode.nic.in/bitstream/123456789/22037/2/a2023-22.pdf
+      - https://sansad.in/getFile/lsapps/loksabhaquestions/annex/188/AU3960_GyWSTk.pdf?source=lsapps
+      - https://www.meity.gov.in/static/uploads/2026/05/cd481c027470b420b4cb85fb40a91c53.pdf
+      - https://www.trai.gov.in/sites/default/files/2026-05/CA_21052026.pdf
+  dpo:
+    summary: Now, the SPDI Rules require a Grievance Officer, named on the website, who resolves complaints within one month, and the IT Rules require intermediaries to publish a Grievance Officer who acknowledges complaints within 24 hours and resolves them within 7 days. From about 13 May 2027 (derived), every data fiduciary must publish contact details of a DPO or of a person who can answer questions on its processing, and a grievance response period of at most 90 days. Significant Data Fiduciaries must appoint a DPO based in India who answers to the board, and an independent data auditor.
+    source:
+      - https://indiacode.gov.in/server/api/core/bitstreams/e9545daf-b012-49cd-a697-388039b9b7e0/content
+      - https://www.meity.gov.in/static/uploads/2026/02/550681ab908f8afb135b0ad42816a1c9.pdf
+      - https://www.meity.gov.in/static/uploads/2025/11/53450e6e5dc0bfa85ebd78686cadad39.pdf
+      - https://www.indiacode.nic.in/bitstream/123456789/22037/2/a2023-22.pdf
+  transfers:
+    summary: Now, the SPDI Rules allow sensitive data to go to recipients in India or abroad only if they protect it to the same level and the transfer is needed for a contract with the person or they consent. RBI requires payment system data to be stored only in India. From about 13 May 2027 (derived), the DPDP Act allows transfers except to countries the government restricts by notification, subject to its orders on access by foreign states and to stricter sector laws. Significant Data Fiduciaries may have to keep government-specified data in India.
+    source:
+      - https://indiacode.gov.in/server/api/core/bitstreams/e9545daf-b012-49cd-a697-388039b9b7e0/content
+      - https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11244&Mode=0
+      - https://www.indiacode.nic.in/bitstream/123456789/22037/2/a2023-22.pdf
+      - https://www.meity.gov.in/static/uploads/2025/11/53450e6e5dc0bfa85ebd78686cadad39.pdf
+  dpia:
+    summary: There is no general DPIA duty now. From about 13 May 2027 (derived), Significant Data Fiduciaries must carry out a DPIA and an audit every 12 months, send the Board a report of significant findings, and check that algorithmic software they use doesn't put people's rights at risk. Under the SPDI Rules, a company relying on ISO/IEC 27001 or an approved code for its security must have it audited at least once a year.
+    source:
+      - https://www.meity.gov.in/static/uploads/2025/11/53450e6e5dc0bfa85ebd78686cadad39.pdf
+      - https://www.indiacode.nic.in/bitstream/123456789/22037/2/a2023-22.pdf
+      - https://indiacode.gov.in/server/api/core/bitstreams/e9545daf-b012-49cd-a697-388039b9b7e0/content
+  automated_decisions_ai:
+    summary: India has no AI statute, and the DPDP Act gives no specific right about automated decisions. Since February 2026 the IT Rules require intermediaries whose tools let users make or alter realistic AI audio, images or video to block unlawful synthetic content, such as child abuse material, non-consensual intimate images, false documents and deceptive impersonation, and to label the rest prominently with embedded metadata or an identifier where feasible. From about 13 May 2027 (derived), Significant Data Fiduciaries must check their algorithmic software for risks.
+    source:
+      - https://www.meity.gov.in/static/uploads/2026/02/550681ab908f8afb135b0ad42816a1c9.pdf
+      - https://www.meity.gov.in/static/uploads/2025/11/53450e6e5dc0bfa85ebd78686cadad39.pdf
+  penalties:
+    summary: From about 13 May 2027 (derived), the Board can impose penalties of up to ₹250 crore for failing to take reasonable security safeguards, ₹200 crore for not notifying a breach or breaching children's duties, ₹150 crore for Significant Data Fiduciary duties, ₹50 crore for other breaches, and ₹10,000 on individuals breaching their own duties. Now, IT Act s.43A sets no cap on compensation, s.72A allows a penalty of up to ₹25 lakh for disclosing personal information in breach of contract, and ignoring CERT-In directions risks up to one year in prison, a fine of up to ₹1 crore, or both.
+    source:
+      - https://www.indiacode.nic.in/bitstream/123456789/22037/2/a2023-22.pdf
+      - https://indiacode.gov.in/server/api/core/bitstreams/770a7d02-48f2-4274-bab9-10d0f48ee264/content
+checked:
+  date: "2026-11-10"
+  status: ai-checked
+history:
+  - date: "2026-11-10"
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

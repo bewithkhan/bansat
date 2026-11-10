@@ -1,0 +1,116 @@
+# Pakistan. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: pk
+name: Pakistan
+tier: full
+laws:
+  - name: Comprehensive personal data protection law (none enacted)
+    citation: No Act of Parliament; the Personal Data Protection Bill, 2023 (Senate private member's bill) was disposed of in committee
+    official_url: https://www.senate.gov.pk/en/pbs.php?&catid=186&subcatid=276&leftcatid=278&cattitle=Bills
+    status: none
+    notes: The Senate's list of Acts of Parliament, which runs to Act LIII of 2026 (published 12 October 2026), contains no data protection Act. The 2023 private member's bill was neither passed nor rejected by the Senate committee and was disposed of. No government data protection bill appears among the Senate's bills. The National Assembly's and the IT ministry's websites couldn't be opened to check for one there.
+  - name: Prevention of Electronic Crimes Act, 2016 (PECA)
+    citation: Act No. XL of 2016, as amended (latest by Act No. II of 2025)
+    official_url: https://www.senate.gov.pk/uploads/documents/1473158331_443.pdf
+    status: in-force
+    in_force_from: "2016-08-18"
+    notes: Assented to on 18 August 2016 and published in the Gazette on 22 August 2016. Section 1 says it comes into force at once, so the date is derived from the assent. It sets the cybercrimes builders meet, such as misuse of identity information (s.16) and spamming (s.25), and makes service providers keep traffic data for at least a year (s.32).
+  - name: Criminal Laws (Amendment) Act, 2023
+    citation: Act No. XXXVII of 2023
+    official_url: https://www.senate.gov.pk/uploads/documents/1694413406_114.pdf
+    status: in-force
+    in_force_from: "2023-07-18"
+    notes: Assented to on 18 July 2023 and published in the Gazette on 24 July 2023 (Senate list of Acts); it comes into force at once, so the date is derived from the assent. It amends PECA to define a child as under 18, raise penalties for child sexual abuse material, and add offences for online grooming, commercial sexual exploitation of children and child cyberbullying.
+  - name: Prevention of Electronic Crimes (Amendment) Act, 2025
+    citation: Act No. II of 2025
+    official_url: https://www.senate.gov.pk/uploads/documents/1738226500_897.pdf
+    status: in-force
+    in_force_from: "2025-01-29"
+    notes: Assented to and published in the Gazette on 29 January 2025, in force at once. It creates the Social Media Protection and Regulatory Authority, which can require social media platforms to enlist with it and order removal of listed unlawful content, plus a complaints council, tribunals, a false-information offence (s.26A) and the National Cyber Crime Investigation Agency. Until the Authority and the agency are set up, PTA and the earlier investigation agency keep doing their PECA work (s.50A). Whether the Authority is operating couldn't be confirmed from an official source.
+  - name: PTA Critical Telecom Data and Infrastructure Security Regulations, 2020
+    citation: S.R.O. 1226(I)/2020, made on 8 September 2020
+    official_url: https://pkcert.gov.pk/uploads/2023/06/critical_telecom_data_reg_20112020.pdf
+    status: in-force
+    in_force_from: "2020-11-18"
+    notes: Apply to all licensees of the Pakistan Telecommunication Authority (PTA). They take effect on Gazette notification; the Gazette copy is dated 18 November 2020, so the date is derived.
+  - name: Prevention of Electronic Crimes (Amendment) Bill, 2024 (Senate private member's bill)
+    citation: Passed by the Senate on 10 February 2026
+    official_url: https://www.senate.gov.pk/uploads/documents/1770732778_545.pdf
+    status: draft
+    notes: Pending; it isn't in the Senate's list of Acts up to October 2026. It would change the penalties in PECA s.22 (child sexual abuse material) and require treaties for legal help with countries where social media data is held. It isn't law unless the National Assembly passes it and the President assents.
+regulators:
+  - name: No data protection authority. National Cyber Emergency Response Team (PKCERT), for cyber security advisories and incident reports
+    url: https://pkcert.gov.pk/
+  - name: Pakistan Telecommunication Authority (PTA), for its licensees and, until the new Authority is set up, PECA content functions (s.50A)
+    url: https://www.senate.gov.pk/uploads/documents/1738226500_897.pdf
+  - name: Social Media Protection and Regulatory Authority, created by PECA in January 2025 (whether it is operating couldn't be confirmed officially)
+    url: https://www.senate.gov.pk/uploads/documents/1738226500_897.pdf
+obligations:
+  scope:
+    summary: Pakistan has no comprehensive data protection law. No such Act appears in the Senate's list of Acts up to October 2026, and a 2023 private member's bill was disposed of in committee. The main law builders meet is PECA 2016, which applies to Pakistani citizens anywhere, to everyone in Pakistan, and to acts abroad that affect people, property, systems or data in Pakistan. Telecom licensees also follow PTA's 2020 data and security regulations.
+    source:
+      - https://www.senate.gov.pk/en/acts.php?id=-1&catid=186&subcatid=285&cattitle=Acts
+      - https://www.senate.gov.pk/en/pbs.php?&catid=186&subcatid=276&leftcatid=278&cattitle=Bills
+      - https://www.senate.gov.pk/uploads/documents/1473158331_443.pdf
+      - https://pkcert.gov.pk/uploads/2023/06/critical_telecom_data_reg_20112020.pdf
+  lawful_bases:
+    summary: There are no general lawful bases, because there is no data protection law. PECA makes it an offence to obtain, sell, possess, transmit or use another person's identity information without authorisation (s.16). PTA licensees may use critical telecom data only for the purpose it was obtained from customers.
+    source:
+      - https://www.senate.gov.pk/uploads/documents/1473158331_443.pdf
+      - https://pkcert.gov.pk/uploads/2023/06/critical_telecom_data_reg_20112020.pdf
+  consent_age:
+    summary: No law sets an age for consenting to the processing of personal data. For PECA's offences against children, a child is anyone under 18 (since July 2023). A Social Media (Age-Restricted Users) Bill was withdrawn by its movers in the Senate on 18 August 2025.
+    source:
+      - https://www.senate.gov.pk/uploads/documents/1694413406_114.pdf
+      - https://www.senate.gov.pk/en/pbs.php?&catid=186&subcatid=276&leftcatid=278&cattitle=Bills
+  children:
+    summary: There are no rules on children's personal data. PECA punishes child sexual abuse material with 14 to 20 years in prison and a fine of at least Rs 1 million, and also covers online grooming and child cyberbullying; a minor's guardian can ask for cyberbullying content to be removed. A bill passed by the Senate on 10 February 2026 to change the s.22 penalties isn't in the Senate's list of Acts up to October 2026, so it isn't law.
+    source:
+      - https://www.senate.gov.pk/uploads/documents/1694413406_114.pdf
+      - https://www.senate.gov.pk/en/pbs.php?&catid=186&subcatid=276&leftcatid=278&cattitle=Bills
+  cookies:
+    summary: There are no rules on cookies or online tracking, and no data protection law that would apply to them.
+    source:
+      - https://www.senate.gov.pk/en/acts.php?id=-1&catid=186&subcatid=285&cattitle=Acts
+  marketing:
+    summary: PECA s.25 makes it an offence to send unsolicited, harmful, fraudulent or misleading information without the recipient's permission, and anyone doing direct marketing must offer a way to unsubscribe. Unsolicited messages, or marketing without that option, carry a fine of up to Rs 50,000 for a first offence and Rs 50,000 to Rs 1 million for each repeat. Harmful, fraudulent, misleading or illegal spam carries up to 3 months in prison, a fine of Rs 50,000 to Rs 5 million, or both. PTA's own spam rules couldn't be opened for this entry.
+    source:
+      - https://www.senate.gov.pk/uploads/documents/1473158331_443.pdf
+  breach_notice:
+    summary: There is no general duty to report personal data breaches. PTA licensees must report a data breach, or damage to critical telecom infrastructure or data, to PTA within 72 hours of discovering it.
+    source:
+      - https://pkcert.gov.pk/uploads/2023/06/critical_telecom_data_reg_20112020.pdf
+      - https://www.senate.gov.pk/en/acts.php?id=-1&catid=186&subcatid=285&cattitle=Acts
+  registration_or_fees:
+    summary: There is no data protection registration or fee. Since January 2025, PECA lets the Social Media Protection and Regulatory Authority require social media platforms to enlist with it, in a manner and for a fee to be prescribed (s.2Q), and direct them to remove or block listed unlawful content (s.2R). "Social media platform" is broad. It covers any website or app that lets people register or open an account or profile to post or share content, except PTA licensees, so many ordinary apps fall within it (s.2(1)(xxviiib)).
+    source:
+      - https://www.senate.gov.pk/uploads/documents/1738226500_897.pdf
+  dpo:
+    summary: There is no duty to appoint a data protection officer.
+    source:
+      - https://www.senate.gov.pk/en/acts.php?id=-1&catid=186&subcatid=285&cattitle=Acts
+  transfers:
+    summary: There is no general restriction on sending personal data abroad. PTA licensees may not store data outside Pakistan without PTA's approval.
+    source:
+      - https://pkcert.gov.pk/uploads/2023/06/critical_telecom_data_reg_20112020.pdf
+      - https://www.senate.gov.pk/en/acts.php?id=-1&catid=186&subcatid=285&cattitle=Acts
+  dpia:
+    summary: There is no duty to carry out a DPIA. PTA licensees must run cybersecurity policies, asset classification, monitoring and incident response under the 2020 regulations.
+    source:
+      - https://pkcert.gov.pk/uploads/2023/06/critical_telecom_data_reg_20112020.pdf
+  automated_decisions_ai:
+    summary: There is no AI law and no rule on automated decisions. A private member's Regulation of Artificial Intelligence Bill, 2024 was disposed of in a Senate committee without being passed. Since January 2025, PECA s.26A punishes knowingly spreading false or fake information likely to cause fear, panic or unrest with up to 3 years in prison, a fine of up to Rs 2 million, or both.
+    source:
+      - https://www.senate.gov.pk/en/pbs.php?&catid=186&subcatid=276&leftcatid=278&cattitle=Bills
+      - https://www.senate.gov.pk/uploads/documents/1738226500_897.pdf
+  penalties:
+    summary: There are no data protection fines. PECA penalties include up to 3 years in prison, a fine of up to Rs 5 million, or both, for misusing identity information, a fine of up to Rs 10 million for an information system owner who isn't a PTA licensee and fails to keep traffic data for a year, the spam penalties above (for harmful spam, up to 3 months in prison and/or up to Rs 5 million), and up to 3 years or Rs 2 million for spreading false information.
+    source:
+      - https://www.senate.gov.pk/uploads/documents/1473158331_443.pdf
+      - https://www.senate.gov.pk/uploads/documents/1738226500_897.pdf
+checked:
+  date: "2026-11-10"
+  status: ai-checked
+history:
+  - date: "2026-11-10"
+    summary: First entry. Checked against official sources with AI assistance, then corrected after an independent AI-assisted review.

@@ -1,0 +1,24 @@
+# Jordan. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+# The law links are the Ministry of Digital Economy and Entrepreneurship's English translations; MoDEE also
+# publishes the Official Gazette text of the law in Arabic. MoDEE's list of the law, regulations and instructions
+# (https://www.modee.gov.jo/EN/List/The_law_regulations_and_instructions) also holds the Security, Technical and
+# Organizational Measures Instructions of 2025:
+# https://www.modee.gov.jo/ebv4.0/root_storage/en/eb_list_page/security_technical_and_organizational_measures_instructions_2025_-_en_(2).pdf
+id: jo
+name: Jordan
+tier: basic
+laws:
+  - name: Personal Data Protection Law
+    citation: Law No. (24) of 2023, the Personal Data Protection Law (قانون حماية البيانات الشخصية رقم (24) لسنة 2023), Official Gazette of 17 September 2023, p. 4338
+    official_url: https://www.modee.gov.jo/EBV4.0/Root_Storage/EN/1/PDP_Law_-_English_Version-_officail_translation.pdf
+    status: in-force
+    in_force_from: "2024-03-17"
+    notes: In force six months after publication on 17 September 2023 (Art. 1); MoDEE gives 17 March 2024. Existing processing had a year to comply (Art. 23). Covers controllers inside or outside Jordan. Processing needs prior consent unless an exception applies; transfers abroad need at least the same protection, with exceptions. A breach likely to cause the data subject severe harm goes to them within 24 hours and to the Unit within 72 hours (Art. 20). Fines run from JOD 1,000 to 10,000, doubled for repeats. The 2025 security instructions (Art. 8(B)) add security, DPIA and processor contract duties.
+regulators:
+  - name: Personal Data Protection Council and Personal Data Protection Directorate (PDPD, the law's Unit), Ministry of Digital Economy and Entrepreneurship (MoDEE)
+    url: https://www.modee.gov.jo/EN/Pages/False
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.

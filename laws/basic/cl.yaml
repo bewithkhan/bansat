@@ -1,0 +1,38 @@
+# Chile. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+# Summaries rest on Bansat's own translation from Spanish. The Library of Congress portal (bcn.cl/leychile) refused
+# plain requests, so Law 19.628 links to the Transparency Council's Compendio Jurídico 2026 (the law starts on PDF
+# page 201). Its text is the one in force until 30 November 2026 and includes the education-debt rule of Law 21.214
+# (Diario Oficial 28 February 2020, CVE 1734200). The same compendium reproduces Law 20.285, whose Art. 33(m) gives the
+# Council the duty to oversee public bodies' compliance with Law 19.628; Law 21.719 (Art. 2) removes that duty when it
+# starts. Law 21.719 links to its Diario Oficial edition, read with WebFetch, as is Decree 662 of 2025:
+# https://www.diariooficial.interior.gob.cl/publicaciones/2026/09/09/44546/01/2865940.pdf
+# The bill links to the Senate's public record (XML) of its progress. Chile has no general data protection authority
+# until the Personal Data Protection Agency created by Law 21.719 takes up its powers when that law starts.
+id: cl
+name: Chile
+tier: basic
+laws:
+  - name: Law on the Protection of Private Life
+    citation: Ley 19.628 sobre Protección de la Vida Privada, Diario Oficial 28 August 1999, as amended (text in force until 30 November 2026)
+    official_url: https://www.consejotransparencia.cl/wp-content/uploads/2026/05/Compendio-Juridico-2026.pdf#page=201
+    status: in-force
+    in_force_from: "1999-10-27"
+    notes: The current general law. It creates no supervisory authority. A data subject whose request is ignored or refused can go to the civil court (Art. 16), and the Transparency Council oversees public bodies. Law 21.719 rewrites almost all of it from 1 December 2026 and renames it the Law on the Protection of Personal Data. Derived date, 27 October 1999 at the latest, as transitory Art. 1 brought the law (except Art. 22) into force within 60 days of publication on 28 August 1999.
+  - name: Personal Data Protection Law (reform of Law 19.628)
+    citation: Ley 21.719 que regula la protección y el tratamiento de los datos personales y crea la Agencia de Protección de Datos Personales, Diario Oficial 13 December 2024
+    official_url: https://www.diariooficial.interior.gob.cl/publicaciones/2024/12/13/44023/01/2583630.pdf
+    status: enacted
+    notes: Starts on 1 December 2026, the first day of the 24th month after publication (transitory Art. 1). Bill 18.623-07, which would move the start to 15 October 2027, was in the Chamber of Deputies' Hacienda committee on 10 November 2026. It creates the Agency (Art. 30), sets rules for transfers abroad (Title V), requires breach notice to the Agency where rights are at reasonable risk (Art. 14 sexies) and sets fines of up to 20,000 UTM, or a share of revenue for larger repeat offenders. Decree 662 of 2025 (Diario Oficial 9 September 2026) regulates its infringement prevention models (Art. 49).
+  - name: Bill to postpone Law 21.719 and enlarge the Agency's council
+    citation: Boletín N° 18.623-07, approved by the Senate on 28 October 2026
+    official_url: https://tramitacion.senado.cl/wspublico/tramitacion.php?boletin=18623
+    status: draft
+    notes: Would move the start of Law 21.719 from 1 December 2026 to 15 October 2027 and grow the Agency's council from three to five members (Senate oficio 355/SEC/26). The Senate passed it on 28 October 2026. In the Chamber of Deputies, the Constitution committee reported on 10 November 2026 and sent it to the Finance (Hacienda) committee, under the government's "discusión inmediata" urgency. Until it is published as law, 1 December 2026 stands.
+regulators:
+  - name: Transparency Council (CPLT), for public bodies' compliance with Law 19.628 (Law 20.285 Art. 33(m)), until Law 21.719 starts
+    url: https://www.consejotransparencia.cl/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.

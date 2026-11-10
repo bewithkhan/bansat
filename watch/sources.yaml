@@ -195,3 +195,51 @@ jurisdictions:
     official_domains: [azlp.mk, slvesnik.com.mk]
   rs:
     official_domains: [poverenik.rs, pravno-informacioni-sistem.rs]
+  in:
+    official_domains: [meity.gov.in, indiacode.nic.in, indiacode.gov.in, egazette.gov.in, sansad.in, pib.gov.in, cert-in.org.in, trai.gov.in, rbi.org.in]
+  pk:
+    official_domains: [senate.gov.pk, na.gov.pk, pakistancode.gov.pk, moitt.gov.pk, pta.gov.pk, pkcert.gov.pk, sbp.org.pk, nccia.gov.pk]
+  sg:
+    official_domains: [pdpc.gov.sg, sso.agc.gov.sg, imda.gov.sg, osc.gov.sg, mddi.gov.sg, csa.gov.sg, parliament.gov.sg, mlaw.gov.sg]
+  cn:
+    official_domains: [cac.gov.cn, gov.cn, miit.gov.cn]
+  hk:
+    official_domains: [elegislation.gov.hk, data.gov.hk, yearbook.gov.hk, pcpd.org.hk, info.gov.hk, cmab.gov.hk, digitalpolicy.gov.hk, ofca.gov.hk, occics.gov.hk, cac.gov.cn]
+  jp:
+    official_domains: [e-gov.go.jp, ppc.go.jp, soumu.go.jp]
+  kr:
+    official_domains: [law.go.kr, pipc.go.kr, msit.go.kr, korea.kr]
+  ar:
+    official_domains: [argentina.gob.ar, boletinoficial.gob.ar, infoleg.gob.ar]
+  cl:
+    official_domains: [diariooficial.interior.gob.cl, bcn.cl, senado.cl, camara.cl, registrosocial.gob.cl, digital.gob.cl, consejotransparencia.cl]
+  co:
+    official_domains: [funcionpublica.gov.co, sic.gov.co, secretariasenado.gov.co, suin-juriscol.gov.co]
+  cr:
+    official_domains: [imprentanacional.go.cr, prodhab.go.cr, archivonacional.go.cr, pgrweb.go.cr, sinalevi.go.cr, asamblea.go.cr]
+  ec:
+    official_domains: [spdp.gob.ec, registroficial.gob.ec, asambleanacional.gob.ec, telecomunicaciones.gob.ec]
+  ni:
+    official_domains: [lagaceta.gob.ni, legislacion.asamblea.gob.ni, hacienda.gob.ni]
+  pa:
+    official_domains: [antai.gob.pa, gacetaoficial.gob.pa, asamblea.gob.pa, s3-legispan.asamblea.gob.pa, sinaproc.gob.pa]
+  pe:
+    official_domains: [gob.pe, elperuano.pe, minjus.gob.pe]
+  py:
+    official_domains: [bacn.gov.py, sedeco.gov.py, bcp.gov.py, mitic.gov.py, congreso.gov.py]
+  sv:
+    official_domains: [ace.gob.sv, asamblea.gob.sv, imprentanacional.gob.sv, jurisprudencia.gob.sv, transparencia.mh.gob.sv]
+  uy:
+    official_domains: [impo.com.uy, gub.uy]
+  bh:
+    official_domains: [lloc.gov.bh, moj.gov.bh, pdp.gov.bh]
+  jo:
+    official_domains: [modee.gov.jo, pm.gov.jo, lob.gov.jo]
+  kg:
+    official_domains: [dpa.gov.kg, cbd.minjust.gov.kg, kenesh.kg]
+  lb:
+    official_domains: [lp.gov.lb, jo.pcm.gov.lb, economy.gov.lb]
+  om:
+    official_domains: [mtcit.gov.om, mjla.gov.om]
+  uz:
+    official_domains: [lex.uz, gov.uz]
