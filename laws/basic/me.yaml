@@ -1,0 +1,25 @@
+# Montenegro. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: me
+name: Montenegro
+tier: basic
+laws:
+  - name: Law on Personal Data Protection (2026)
+    citation: Zakon o zaštiti podataka o ličnosti (Službeni list Crne Gore, br. 133/26 od 11.09.2026)
+    official_url: https://www.azlp.me/storage/docs/zajednicka/zakoni/Zakon%20o%20zastiti%20podataka%20o%20licnosti%202026.doc
+    status: in-force
+    in_force_from: "2026-09-19"
+    notes: Applies from 19 March 2027. A GDPR-style law adopted on 4 September 2026; it entered into force on the eighth day after publication on 11 September 2026 and applies six months later (Art. 106); both dates are derived. On that day it replaces the 2008 law, except that law's video surveillance rules (Arts. 35 to 40a), which stay until a separate video surveillance law starts (Art. 105). From then, breaches must be reported to the Agency within 72 hours where possible (Art. 34). The link is the Agency's copy of the gazette text.
+  - name: Law on Personal Data Protection (2008)
+    citation: Zakon o zaštiti podataka o ličnosti (Službeni list Crne Gore, br. 79/08, 70/09, 44/12, 22/17 i 77/24)
+    official_url: https://www.azlp.me/storage/docs/zajednicka/zakoni/Zakon%20o%20zastiti%20podataka%20o%20licnosti%20-2024.pdf
+    status: in-force
+    in_force_from: "2008-12-31"
+    notes: Still the law that applies until the 2026 law starts. In force from the eighth day after publication on 23 December 2008 (Art. 79; date derived). The link is the consolidated text the Agency publishes, prepared by a private legal publisher.
+regulators:
+  - name: Agency for Personal Data Protection and Free Access to Information (AZLP)
+    url: https://www.azlp.me/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.

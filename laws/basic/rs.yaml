@@ -1,0 +1,19 @@
+# Serbia. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+id: rs
+name: Serbia
+tier: basic
+laws:
+  - name: Law on Personal Data Protection
+    citation: Zakon o zaštiti podataka o ličnosti (Službeni glasnik RS, br. 87/2018)
+    official_url: https://poverenik.rs/zakon-o-zastiti-podataka-o-licnosti-sl-2/
+    status: in-force
+    in_force_from: "2018-11-21"
+    notes: GDPR-style law adopted on 9 November 2018 that replaced the 2008 law. The Commissioner says it entered into force on 21 November 2018 and began to apply nine months later, in August 2019, except Art. 98 on the central register, which applied at once. The link is the Commissioner's page on the law; the official text is on the Official Gazette's legal information portal, pravno-informacioni-sistem.rs.
+regulators:
+  - name: Commissioner for Information of Public Importance and Personal Data Protection
+    url: https://poverenik.rs/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.
