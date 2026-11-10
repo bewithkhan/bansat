@@ -137,6 +137,28 @@ jurisdictions:
     official_domains: [chinhphu.vn, bocongan.gov.vn, mst.gov.vn, bvhttdl.gov.vn]
   th:
     official_domains: [mdes.go.th, pdpc.or.th, etda.or.th, ratchakitcha.soc.go.th, krisdika.go.th, senate.go.th]
+  is:
+    official_domains: [althingi.is, island.is, personuvernd.is, fjarskiptastofa.is]
+  li:
+    official_domains: [gesetze.li, datenschutzstelle.li, llv.li]
+  lt:
+    official_domains: [lrs.lt, e-tar.lt, vdai.lrv.lt, rrt.lt]
+  lu:
+    official_domains: [legilux.public.lu, cnpd.public.lu, chd.lu]
+  mt:
+    official_domains: [legislation.mt, idpc.org.mt, mdia.gov.mt]
+  pl:
+    official_domains: [eli.gov.pl, isap.sejm.gov.pl, dziennikustaw.gov.pl, uodo.gov.pl, uke.gov.pl]
+  pt:
+    official_domains: [diariodarepublica.pt, pgdlisboa.pt, cnpd.pt]
+  ro:
+    official_domains: [legislatie.just.ro, dataprotection.ro]
+  se:
+    official_domains: [riksdagen.se, svenskforfattningssamling.se, imy.se, pts.se, konsumentverket.se]
+  si:
+    official_domains: [uradni-list.si, pisrs.si, ip-rs.si]
+  sk:
+    official_domains: [slov-lex.sk, dataprotection.gov.sk, teleoff.gov.sk]
   at:
     official_domains: [dsb.gv.at, rtr.at, parlament.gv.at, ris.bka.gv.at]
   be:

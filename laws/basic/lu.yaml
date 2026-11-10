@@ -1,0 +1,32 @@
+# Luxembourg. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+# The law links point to the HTML versions on data.legilux.public.lu, the Journal officiel's data service.
+id: lu
+name: Luxembourg
+tier: basic
+applies_with: [eu]
+laws:
+  - name: Law of 1 August 2018 on the National Data Protection Commission and the general data protection framework
+    citation: Loi du 1er août 2018 portant organisation de la CNPD et du régime général sur la protection des données (Mémorial A n° 686 of 16 August 2018)
+    official_url: https://data.legilux.public.lu/eli/etat/leg/loi/2018/08/01/a686/jo/fr/html
+    status: in-force
+    in_force_from: "2018-08-20"
+    notes: Sets up the CNPD and adds national rules to the GDPR, for example on journalism, research and statistics, special category data and, through the Labour Code (Art. L.261-1), monitoring of employees. Since 26 December 2025 the CNPD also handles data intermediation notifications and the data altruism register under the EU Data Governance Act (Law of 19 December 2025, Arts. 12–13). Both dates are derived as the fourth day after publication (16 August 2018; 22 December 2025, Mémorial A 619), the default rule for Luxembourg laws.
+  - name: Law of 30 May 2005 on privacy in electronic communications
+    citation: Loi modifiée du 30 mai 2005 concernant la protection de la vie privée dans le secteur des communications électroniques (Mémorial A n° 73 of 7 June 2005)
+    official_url: https://data.legilux.public.lu/eli/etat/leg/loi/2005/05/30/n4/consolide/20201225/fr/html
+    status: in-force
+    in_force_from: "2005-07-01"
+    notes: Cookies and similar technologies need consent after clear and full information; where technically possible, consent can be given through browser or app settings (Art. 4(3)(e)). Marketing by email, automated calls or fax to subscribers who are natural persons needs prior consent, with a soft opt-in for a business's own similar products (Art. 11(1), (2), (5)). The CNPD enforces it (Art. 12). The date is derived from Art. 16, which sets the first day of the month after publication. The link is the consolidated text as of 25 December 2020.
+  - name: Bill 8476 implementing the EU AI Act
+    citation: Projet de loi n° 8476 portant mise en oeuvre de certaines dispositions du règlement (UE) 2024/1689 (filed 23 December 2024)
+    official_url: https://www.chd.lu/fr/dossier/8476
+    status: draft
+    notes: Would carry out the EU AI Act in Luxembourg. It names the notifying authorities and several sector market surveillance authorities, with the CNPD as the default one, sets administrative fines, and amends the 2018 law. The Conseil d'État gave its opinion on 10 July 2026; on 10 November 2026 the Chamber of Deputies listed the bill as still in committee.
+regulators:
+  - name: National Commission for Data Protection (CNPD)
+    url: https://cnpd.public.lu/en.html
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.

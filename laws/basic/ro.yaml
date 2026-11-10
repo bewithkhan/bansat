@@ -1,0 +1,28 @@
+# Romania. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+# The national legislation portal (legislatie.just.ro) didn't respond to automated requests, so the law links
+# point to the copies on the supervisory authority's site. Check the portal for later amendments.
+id: ro
+name: Romania
+tier: basic
+applies_with: [eu]
+laws:
+  - name: Law 190/2018 implementing the GDPR
+    citation: Legea nr. 190/2018 privind măsuri de punere în aplicare a Regulamentului (UE) 2016/679 (Monitorul Oficial nr. 651 of 26 July 2018)
+    official_url: https://www.dataprotection.ro/servlet/ViewDocument?id=1520
+    status: in-force
+    in_force_from: "2018-07-31"
+    notes: Adds national rules to the GDPR, including conditions for processing national ID numbers such as the CNP on legitimate interests (Art. 4), limits on monitoring employees by electronic communications or video (Art. 5), exemptions for journalism and research, and a separate sanctions regime for public bodies. The date is derived from Art. 16, which brings it into force 5 days after publication; the publication in Monitorul Oficial no. 651 of 26 July 2018 is as ANSPDCP states it (https://www.dataprotection.ro/servlet/ViewDocument?id=1578), since the linked copy omits it.
+  - name: Law 506/2004 on personal data and privacy in electronic communications
+    citation: Legea nr. 506/2004 (Monitorul Oficial nr. 1101 of 25 November 2004), as amended
+    official_url: https://www.dataprotection.ro/servlet/ViewDocument?id=859
+    status: in-force
+    in_force_from: "2004-11-28"
+    notes: Storing or reading information on a user's device needs consent after clear, easily understood information on the purpose (Art. 4(5)). Commercial messages by automated calls, fax, email or other electronic communications need prior express consent, with a soft opt-in for a business's own similar products; the rules also protect company subscribers (Art. 12). ANSPDCP enforces both. The date is derived as 3 days after publication, the default rule in Art. 78 of the Constitution.
+regulators:
+  - name: National Supervisory Authority for Personal Data Processing (ANSPDCP)
+    url: https://www.dataprotection.ro/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.

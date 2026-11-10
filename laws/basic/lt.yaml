@@ -1,0 +1,34 @@
+# Lithuania. Summarised in Bansat's own words from the official sources linked below.
+# Not legal advice: check the sources before relying on any fact.
+# The Seimas legal portal (e-seimas.lrs.lt) blocks automated tools on its HTML pages, so the law links
+# are official e-seimas document downloads. Check the consolidated text on e-seimas for later amendments.
+id: lt
+name: Lithuania
+tier: basic
+applies_with: [eu]
+laws:
+  - name: Law on the Legal Protection of Personal Data
+    citation: Asmens duomenų teisinės apsaugos įstatymas, No. I-1374, set out anew by Law No. XIII-1426 of 30 June 2018
+    official_url: https://e-seimas.lrs.lt/rs/legalact/TAD/bc0837f27f9511e89188e16a6495e98c/format/OO3_ODT/
+    status: in-force
+    in_force_from: "2018-07-16"
+    notes: Supplements the GDPR. Children can consent to information society services themselves from 14 (Art. 6). The State Data Protection Inspectorate supervises it, except processing for journalism and academic, artistic or literary expression, which the Journalist Ethics Inspector oversees (Art. 7). The link downloads the 2018 law that gave the act its current form.
+  - name: Law on Electronic Communications
+    citation: Elektroninių ryšių įstatymas, No. IX-2135 of 15 April 2004, new version by Law No. XIV-635 of 11 November 2021
+    official_url: https://e-seimas.lrs.lt/rs/actualedition/TAIS.232036/CDCbVvSHKe/format/ISO_PDF/
+    status: in-force
+    in_force_from: "2021-12-01"
+    notes: Storing or reading information on a user's device needs consent based on clear and full information, except for transmission or a service the user asked for (Art. 73(4)). Direct marketing by electronic communications needs prior consent, with a soft opt-in for a business's own similar products. Since 22 April 2026 (Law No. XV-815), subscribers that are legal persons need no consent but must get a free, easy opt-out (Art. 81). VDAI supervises these rules (Art. 5). The date is when the current version took effect. The link is the consolidated text from 2 November 2025, before XV-815.
+  - name: Law on Information Society Services (AI Act provisions)
+    citation: Informacinės visuomenės paslaugų įstatymas, No. X-614, as amended by Law No. XV-106 of 14 January 2025
+    official_url: https://e-seimas.lrs.lt/rs/actualedition/TAIS.277491/mEBznJakRX/format/ISO_PDF/
+    status: in-force
+    in_force_from: "2025-04-01"
+    notes: Lithuania carries out the EU AI Act's authority rules through amendments to existing laws. Law No. XV-106 made the Communications Regulatory Authority (RRT) the AI Act market surveillance authority and single point of contact (Art. 23(12)–(13)). This law sets no AI Act fines. The date is derived as the start of the consolidated text that includes XV-106. The link is that text, valid until 29 June 2026; the version from 30 June 2026 couldn't be opened.
+regulators:
+  - name: State Data Protection Inspectorate (Valstybinė duomenų apsaugos inspekcija, VDAI)
+    url: https://vdai.lrv.lt/en/
+checked: {date: "2026-11-10", status: ai-checked}
+history:
+  - date: "2026-11-10"
+    summary: First entry, checked against official sources with AI assistance.
