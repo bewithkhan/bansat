@@ -4,17 +4,24 @@
 // the earlier issues and pull requests for the jurisdiction. The verify task then runs once in each sandbox
 // (watch/eval/README.md), and `score` measures what it did against the targets in 8.5.
 //
-//   node scripts/eval-verify.ts prepare --out <dir> [--cases <file>] [--only id,id]
-//   node scripts/eval-verify.ts score --out <dir> [--report <file>]
+//   node scripts/eval-verify.ts prepare --out <dir> [--key <dir>] [--cases <file>] [--only id,id]
+//   node scripts/eval-verify.ts score --out <dir> [--key <dir>] [--report <file>]
+//
+// The answer key (each case's expectation and the sandbox's starting hashes) goes in --key, by default <out>.key
+// beside the sandboxes, never inside them: a run must not be able to read it.
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, symlinkSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parse, parseDocument } from 'yaml';
 import { changeText, sourceKey, type WatchItem } from './watch-lib.ts';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+// The packages scripts/validate-laws.ts loads, copied into each sandbox: a symlink to the repository's
+// node_modules would lead a run back to the real registry, which holds the answers.
+const VALIDATOR_PACKAGES = ['ajv', 'ajv-formats', 'fast-deep-equal', 'fast-uri', 'json-schema-traverse', 'require-from-string', 'yaml'];
+const keyDir = (out: string): string => arg('--key') ?? `${out.replace(/\/+$/, '')}.key`;
 const arg = (flag: string): string | undefined => {
   const i = process.argv.indexOf(flag);
   return i > 0 ? process.argv[i + 1] : undefined;
@@ -126,7 +133,8 @@ function prepare(): void {
   const only = arg('--only') ? new Set(arg('--only')!.split(',')) : undefined;
   const cases = loadCases(arg('--cases') ?? join(ROOT, 'watch/eval/cases.yaml')).filter((c) => !only || only.has(c.id));
   const mode = readFileSync(join(ROOT, 'watch/eval/EVAL-MODE.md'), 'utf8');
-  mkdirSync(join(out, '.manifests'), { recursive: true });
+  const key = keyDir(out);
+  mkdirSync(key, { recursive: true });
   for (const c of cases) {
     const box = join(out, c.id);
     rmSync(box, { recursive: true, force: true });
@@ -134,7 +142,7 @@ function prepare(): void {
     mkdirSync(join(box, 'watch'), { recursive: true });
     cpSync(join(ROOT, 'laws'), join(box, 'laws'), { recursive: true });
     for (const f of ['watch/sources.yaml', 'watch/verify-prompt.md', 'scripts/validate-laws.ts', 'package.json']) cpSync(join(ROOT, f), join(box, f));
-    symlinkSync(join(ROOT, 'node_modules'), join(box, 'node_modules'));
+    for (const p of VALIDATOR_PACKAGES) cpSync(join(ROOT, 'node_modules', p), join(box, 'node_modules', p), { recursive: true, dereference: true });
 
     const file = entryFile(ROOT, c.entry);
     const truth = parse(readFileSync(join(ROOT, file), 'utf8')) as Entry;
@@ -158,9 +166,9 @@ function prepare(): void {
         .map((f) => [f, reviewClaims(readFileSync(join(box, f), 'utf8'))])
         .filter(([, n]) => (n as number) > 0),
     );
-    writeFileSync(join(out, '.manifests', `${c.id}.json`), JSON.stringify({ case: c, file, files, reviewed, before }, null, 1));
+    writeFileSync(join(key, `${c.id}.json`), JSON.stringify({ case: c, file, files, reviewed, before }, null, 1));
   }
-  console.log(`Prepared ${cases.length} sandboxes in ${out}. Run the verify task once in each (watch/eval/README.md), then: node scripts/eval-verify.ts score --out ${out}`);
+  console.log(`Prepared ${cases.length} sandboxes in ${out}, and their answer key in ${key}. Run the verify task once in each (watch/eval/README.md), then: node scripts/eval-verify.ts score --out ${out}`);
 }
 
 export type Score = {
@@ -249,8 +257,9 @@ export function scoreCase(box: string, manifest: Manifest): Score {
 function score(): void {
   const out = arg('--out');
   if (!out) throw new Error('score needs --out <dir>');
-  const manifests = readdirSync(join(out, '.manifests')).filter((f) => f.endsWith('.json')).sort();
-  const scores = manifests.map((m) => scoreCase(join(out, m.replace(/\.json$/, '')), JSON.parse(readFileSync(join(out, '.manifests', m), 'utf8'))));
+  const key = keyDir(out);
+  const manifests = readdirSync(key).filter((f) => f.endsWith('.json')).sort();
+  const scores = manifests.map((m) => scoreCase(join(out, m.replace(/\.json$/, '')), JSON.parse(readFileSync(join(key, m), 'utf8'))));
 
   const changes = scores.filter((s) => s.kind === 'change');
   const withEdits = scores.filter((s) => s.cited !== undefined);

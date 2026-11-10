@@ -39,13 +39,19 @@ check on every pull request. So a registry edit that breaks a case fails the bui
    node scripts/eval-verify.ts prepare --out /tmp/bansat-eval
    ```
 
+   The answer key goes in `/tmp/bansat-eval.key`, beside the sandboxes and not inside them. The sandboxes get
+   their own copies of the validator's packages, not a link back to the repository, which holds the answers.
+
 2. Run the verify task once in each sandbox, the same model and prompt as the weekly task, starting with:
    *"Work in this folder only. Read EVAL.md, then follow it."* Each run starts fresh: no memory of the others, and
-   no access to the real repository.
+   no access to the answer key, the other sandboxes or the real repository. Where you can, give each run only its
+   own folder (a container or a copy elsewhere). A run that sees another case's files or the key isn't independent;
+   say so in the results.
 3. Score the runs:
 
    ```bash
    node scripts/eval-verify.ts score --out /tmp/bansat-eval --report watch/eval/results/<date>.md
+   # it reads the key from /tmp/bansat-eval.key; pass --key <dir> if you put it elsewhere
    ```
 
    It exits non-zero if any target is missed. A run may also add a law the case doesn't expect, and the report
