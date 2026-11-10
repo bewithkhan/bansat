@@ -5,9 +5,9 @@
 
 **Product · Architecture · Design · Security · Privacy & Compliance · Delivery**
 
-Created by **Muhammad Tufail Khan** ([github.com/bewithkhan](https://github.com/bewithkhan)) · Framework version **3.0** · Legal position checked **4 November 2026** against official sources, with AI assistance (not yet reviewed by a lawyer) · Supersedes *Comprehensive App Development Framework & Master Blueprint* (v1)
+Created by **Muhammad Tufail Khan** ([github.com/bewithkhan](https://github.com/bewithkhan)) · Framework version **3.1** · Legal position checked **4 November 2026** against official sources, with AI assistance (not yet reviewed by a lawyer) · Supersedes *Comprehensive App Development Framework & Master Blueprint* (v1)
 
-> **Cite as:** Khan, M. T. (2026). *Bansat (بنسټ): A blueprint-first framework for building software* (Version 3.0). https://github.com/bewithkhan/bansat
+> **Cite as:** Khan, M. T. (2026). *Bansat (بنسټ): A blueprint-first framework for building software* (Version 3.1). https://github.com/bewithkhan/bansat
 > Text and templates: **CC BY 4.0**. Code samples: **MIT**. Keep this credit when you copy, adapt or share the framework.
 
 This is the single source of truth for **every project, new or existing**. For a new project, complete it **before any code is generated**. For an existing or live project, use the **retrofit track (Part 14)**: reverse-engineer the blueprint from what's built, triage the live risks first, then close the gaps. Either way, it turns your product into decisions that an AI coding agent (Claude, Cursor, Lovable, Bolt, Copilot) can build from without guessing. Privacy and security are built in from the first commit rather than bolted on after launch: UK GDPR, PECR, EU GDPR, Nigeria's NDPA 2023 and GAID 2025, and the EU AI Act.
@@ -28,13 +28,13 @@ This is the single source of truth for **every project, new or existing**. For a
 | Privacy contact / DPO | {{NAME, privacy@DOMAIN}} |
 | Repository | {{URL}} |
 | Last updated · Next review | {{YYYY-MM-DD}} · {{YYYY-MM-DD}} |
-| Framework | Bansat (بنسټ) v3.0 by Muhammad Tufail Khan, https://github.com/bewithkhan/bansat (CC BY 4.0) |
+| Framework | Bansat (بنسټ) v3.1 by Muhammad Tufail Khan, https://github.com/bewithkhan/bansat (CC BY 4.0) |
 
 **Revision history**
 
 | Version | Date | Author | Summary |
 |---|---|---|---|
-| 0.1 | {{YYYY-MM-DD}} | {{NAME}} | First draft from framework v3.0 |
+| 0.1 | {{YYYY-MM-DD}} | {{NAME}} | First draft from framework v3.1 |
 
 **Gate approvals**
 
@@ -46,6 +46,15 @@ This is the single source of truth for **every project, new or existing**. For a
 | G4 Post-launch review | | | |
 
 > **Only a person signs a gate.** An AI agent never fills in this table. With the optional G1 hook from the Bansat repo (`hooks/bansat-g1-guard.mjs`), Claude Code refuses code edits until the G1 row names an approver and a date.
+
+### What changed in v3.1
+
+To re-check an existing blueprint, update its Framework row to v3.1 and run the twelve new rows of the launch-trap audit (9.26) against it.
+
+| Area | Change |
+|---|---|
+| Launch traps ★ | Twelve more traps in 9.26, now 29: AI that doesn't say it's AI (EU AI Act Art. 50); Global Privacy Control ignored; biometric features without written consent (Illinois BIPA); health features without consent (Washington's My Health My Data Act); no online way to withdraw or cancel (the EU withdrawal function, from 19 Jun 2026); no legal notice; the European Accessibility Act; authorisation only in the UI or middleware; AI endpoints with no quota or spend cap; app store labels that don't match the app; card details in your own form; unsigned payment webhooks. |
+| Privacy | 9.13 names the US biometric and health-data laws; 9.25 adds the EU withdrawal function to the consumer information row. |
 
 ### What changed in v3.0
 
@@ -1912,6 +1921,7 @@ Unsubscribe in one click: {{link}} · Email preferences: {{link}} · Privacy not
   - No analytics, replay or error-monitoring payloads on these screens.
   - AI only with DPIA approval and provider assurances.
   - Short retention.
+- **US state laws:** Illinois BIPA requires written notice and a signed written release before collecting a biometric identifier, and a published retention and destruction schedule (740 ILCS 14/15). Washington's My Health My Data Act requires consent to collect consumer health data and a separate consent to share it (RCW 19.373.030). Check the law registry for the states you serve.
 - **Monitoring other people** (family, carers): the monitored adult must be told and must consent themselves. For a child, the parent acts, but the child is told in age-appropriate terms.
 - **Medical device check:** software intended to diagnose, prevent, monitor, predict, treat or alleviate disease (beyond general wellness) may be a **medical device** under UK MDR 2002 or EU MDR 2017/745. Get regulatory advice before making clinical claims. Selling to the NHS brings in DTAC, the DSPT and clinical safety standards (DCB0129 for manufacturers).
 - **Connected devices (UK PSTI regime, since 29 Apr 2024):** consumer connectable products need no universal default passwords, a published vulnerability disclosure policy, and a stated minimum security-update period. Also: secure pairing, encrypted transport and signed firmware updates.
@@ -2109,7 +2119,7 @@ See 5.6. The schedule is enforced by jobs and tests, disclosed in the privacy no
 | `security.txt` | Always | `/.well-known/` |
 | Accessibility statement | Good practice; required for UK public-sector bodies | Footer |
 | Children's privacy information | Under-18s allowed | Sign-up, settings |
-| Consumer information (B2C paid) | UK: pre-contract information; 14-day cancellation for digital services/content (Consumer Contracts Regulations 2013) unless validly waived; no drip pricing and no fake reviews (DMCC Act 2024). Check the commencement status of the DMCC subscription-contract rules. | Checkout |
+| Consumer information (B2C paid) | UK: pre-contract information; 14-day cancellation for digital services/content (Consumer Contracts Regulations 2013) unless validly waived; no drip pricing and no fake reviews (DMCC Act 2024). Check the commencement status of the DMCC subscription-contract rules. EU: from 19 Jun 2026, contracts concluded online need a "withdraw from contract here" function (Consumer Rights Directive Art. 11a, added by Directive (EU) 2023/2673). | Checkout |
 | App stores | Apple: privacy "nutrition" label, privacy policy URL, in-app account deletion, App Tracking Transparency, SDK privacy manifests. Google Play: Data safety form, in-app + web account deletion, Families policy if children are targeted. | Store listings |
 | Payments | Hosted checkout or fields, so card data never touches your servers (PCI DSS SAQ A scope). Strong customer authentication is handled by the provider. | Checkout |
 | Accessibility law | UK Equality Act 2010 (reasonable adjustments). The European Accessibility Act (since 28 Jun 2025) covers e-commerce and certain consumer services in the EU, with an exemption for micro-enterprises providing services. Target WCAG 2.2 AA (10.6). | Whole product |
@@ -2137,6 +2147,18 @@ Run this before G2 and again before G3. Each row needs evidence.
 | 15 | **ICO fee unpaid; NDPC status unchecked** | ICO penalties up to £4,350; missed DCPMI duties | Pay and register before G2 (9.2) | Calendar |
 | 16 | **No breach plan** | Missed 72-hour clocks | Runbook (9.20) | Tabletop drill |
 | 17 | **DOB or ID scans collected "just in case"** | Minimisation breach, and a honeypot for attackers | Store the result, not the evidence (DP-03) | Data dictionary review |
+| 18 | **A chatbot or AI feature that doesn't say it's AI** | EU AI Act Art. 50 (since 2 Aug 2026): tell people they're interacting with an AI system unless it's obvious, and mark generated audio, images, video and text in a machine-readable way | Say it's AI where people meet it; label and mark generated output (8.6) | UI review; check the marking |
+| 19 | **"Do Not Sell or Share" missing, or Global Privacy Control ignored** | US state laws, California's among them, make a business that sells or shares data for cross-context advertising treat an opt-out preference signal such as GPC as an opt-out (see the law registry) | Treat GPC as "Reject non-essential" everywhere; add the opt-out link where a state law requires it (9.8) | Privacy test with GPC on: no ad or analytics requests |
+| 20 | **Face, voice or fingerprint features without written consent** | Biometric data used for identification is special category data (Art. 9). Illinois BIPA requires written notice and a signed written release before collection, and a published retention schedule with destruction when the purpose is met or within 3 years of the last interaction (740 ILCS 14/15) | Explicit consent before capture, a DPIA and a retention schedule; prefer on-device processing that stores no template (9.13) | Consent records; data dictionary review |
+| 21 | **Wellness or symptom features without health-data consent** | Health data is special category data (Art. 9). Washington's My Health My Data Act requires consent to collect consumer health data, and a separate consent to share it, beyond what the requested service needs (RCW 19.373.030) | Separate, specific consents; no analytics, replay or pixels on these screens (9.13) | E2E test of both consents; privacy test on those screens |
+| 22 | **No online way to withdraw or cancel** | EU: from 19 Jun 2026, distance contracts concluded through an online interface need a "withdraw from contract here" function, and the trader must acknowledge the withdrawal on a durable medium (Consumer Rights Directive Art. 11a, added by Directive (EU) 2023/2673). UK: 14-day cancellation for digital services (9.25) | A withdrawal button and confirmation flow; cancelling is as easy as signing up (DP-10, 9.25) | E2E test of withdrawal and cancellation |
+| 23 | **No company details or legal notice** | UK companies must show their registered name, number, place of registration and office on the website; a site that targets German users needs an Impressum (§5 DDG) | A legal notice linked from the footer (9.25) | Page review |
+| 24 | **An EU shop or consumer service that fails accessibility law** | The European Accessibility Act (since 28 Jun 2025) covers e-commerce and certain consumer services in the EU; micro-enterprises providing services are exempt | WCAG 2.2 AA (10.6) and an accessibility statement | axe in CI, a keyboard-only run and a screen-reader check |
+| 25 | **Authorisation only in the UI or in middleware** | Hidden buttons don't stop direct calls to server actions and API routes. A critical 2025 flaw let requests skip Next.js middleware (CVE-2025-29927), so apps whose only check sat there were open | `assertCan` in the data-access layer for every action, deny by default (7.2) | The role-matrix test (11.3); calls with no session and with another user's |
+| 26 | **AI endpoints with no quota or spend cap** | Anyone who finds the endpoint can run up the model bill ("denial of wallet", OWASP LLM10:2025), and text the model reads can carry injected instructions (LLM01) | Authentication, per-user quotas and a hard spend cap; input treated as data; no side-effect tools without the user's confirmation (8.7, T-05) | Rate-limit test; the cap set at the provider; the injection eval set |
+| 27 | **App store privacy labels that don't match the app** | Apple's privacy label and SDK privacy manifests, and Google Play's Data safety form, must describe what the app and its SDKs collect | Fill them in from the data dictionary and the SDK list (9.25) | Compare the labels with the data dictionary before each submission |
+| 28 | **Card details collected in your own form** | Card data on your servers brings full PCI DSS scope, and a breach exposes every card | Hosted checkout or hosted fields, so card data never touches your servers (9.25) | Check that no card field reaches your API, database or logs |
+| 29 | **Payment webhooks accepted without a signature check** | Anyone can post a fake "payment succeeded" event and unlock paid features | Verify the HMAC signature, reject stale timestamps, deduplicate by event ID (6.5) | A test that an unsigned or replayed event is rejected |
 
 ### 9.27 Myth vs fact: what the viral compliance threads get right and wrong
 
@@ -3027,7 +3049,7 @@ The blueprint lives in the repo (`docs/BLUEPRINT.md`) and **changes in the same 
 - **Quarterly:** launch-trap audit (9.26) and cookie scan.
 - **Annually:** full review, plus a framework-version check.
 
-**Framework versioning:** each project blueprint records `Framework: Bansat v3.0`. When this master framework changes (a law, a guideline, a better pattern), its revision history lists what to re-check. Apply that list to each project at its next monthly review.
+**Framework versioning:** each project blueprint records `Framework: Bansat v3.1`. When this master framework changes (a law, a guideline, a better pattern), its revision history lists what to re-check. Apply that list to each project at its next monthly review.
 
 ### 14.6 Portfolio register
 
@@ -3138,6 +3160,9 @@ Check these sources again before each launch; guidance changes.
 - RFC 8058 (one-click unsubscribe): https://www.rfc-editor.org/rfc/rfc8058 · RFC 9457 (Problem Details): https://www.rfc-editor.org/rfc/rfc9457 · RFC 9116 (security.txt): https://www.rfc-editor.org/rfc/rfc9116
 - Gmail sender guidelines: https://support.google.com/a/answer/81126
 - OWASP Top 10 for Agentic Applications (2026): https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/
+- OWASP LLM10:2025 Unbounded Consumption: https://genai.owasp.org/llmrisk/llm102025-unbounded-consumption/ · CVE-2025-29927 (Next.js middleware authorisation bypass): https://github.com/advisories?query=CVE-2025-29927
+- Illinois Biometric Information Privacy Act, s.15: https://www.ilga.gov/Documents/legislation/ilcs/documents/074000140K15.htm · Washington My Health My Data Act, RCW 19.373.030: https://app.leg.wa.gov/RCW/default.aspx?cite=19.373.030
+- Directive (EU) 2023/2673 (withdrawal function, Consumer Rights Directive Art. 11a, from 19 Jun 2026): https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023L2673
 - GitHub Actions secure use (pinned actions, token permissions, `pull_request_target`): https://docs.github.com/en/actions/reference/security/secure-use
 - GitHub Actions script injections: https://docs.github.com/en/actions/concepts/security/script-injections · securely using `pull_request_target`: https://docs.github.com/en/actions/reference/security/securely-using-pull_request_target · workflow dependency lockfiles: https://docs.github.com/en/actions/concepts/security/workflow-dependency-lockfiles
 - npm trusted publishing: https://docs.npmjs.com/trusted-publishers · requiring 2FA for publishing: https://docs.npmjs.com/requiring-2fa-for-package-publishing-and-settings-modification
@@ -3512,7 +3537,7 @@ Shape Up is © 37signals LLC, all rights reserved, and is summarised here in Ban
   - Demo what works to yourself, or better, to a likely user.
   - Update the blueprint and the gap register.
   - Note one thing to change next week.
-- **Monthly check:** which gate are you working towards, and what's left for it? Re-run the 17 launch traps (9.26) before G2 and G3.
+- **Monthly check:** which gate are you working towards, and what's left for it? Re-run the 29 launch traps (9.26) before G2 and G3.
 
 **Where Bansat fits:**
 

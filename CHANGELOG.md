@@ -2,6 +2,27 @@
 
 All notable changes to Bansat (بنسټ). Each release is a git tag, and the install command in the README is pinned to one, so the skill's instructions only change when you choose to update.
 
+## v3.1.0 (2026-11-10)
+
+Twelve more launch traps, so the launch-trap audit (9.26) now has 29. Each has the law or flaw behind it, a fix that points to the framework section that covers it, and a way to prove the fix:
+
+- **18. A chatbot or AI feature that doesn't say it's AI** (EU AI Act Art. 50, since 2 Aug 2026).
+- **19. "Do Not Sell or Share" missing, or Global Privacy Control ignored** (US state laws, California's among them).
+- **20. Face, voice or fingerprint features without written consent** (Illinois BIPA, 740 ILCS 14/15).
+- **21. Wellness or symptom features without health-data consent** (Washington's My Health My Data Act, RCW 19.373.030).
+- **22. No online way to withdraw or cancel** (the EU withdrawal function, Consumer Rights Directive Art. 11a, from 19 Jun 2026).
+- **23. No company details or legal notice** (UK company disclosures; the German Impressum, §5 DDG).
+- **24. An EU shop or consumer service that fails accessibility law** (the European Accessibility Act, since 28 Jun 2025).
+- **25. Authorisation only in the UI or in middleware** (CVE-2025-29927 let requests skip Next.js middleware).
+- **26. AI endpoints with no quota or spend cap** (OWASP LLM10:2025 Unbounded Consumption, and prompt injection).
+- **27. App store privacy labels that don't match the app.**
+- **28. Card details collected in your own form** (PCI DSS scope).
+- **29. Payment webhooks accepted without a signature check.**
+
+Also: 9.13 names the US biometric and health-data laws, 9.25 adds the EU withdrawal function, Appendix B lists the new sources, and the README and the paper carry the full table. The experiment still uses v3.0.0 and its 17 traps, as its protocol says.
+
+**Updating:** switch your install to v3.1.0, update the Framework row of each blueprint to v3.1, and run traps 18 to 29 against it before the next gate.
+
 ## v3.0.0 (2026-11-10)
 
 Bansat now carries the law and your stack with it: a public privacy-law registry of 120 jurisdictions that the agent reads for the markets your app serves, a weekly watch that keeps it current, and 24 stack profiles.

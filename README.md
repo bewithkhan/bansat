@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="https://agentskills.io"><img alt="Agent Skill: SKILL.md" src="https://img.shields.io/badge/Agent_Skill-SKILL.md-0B3D91?style=flat-square"></a>
-  <img alt="Framework v3.0" src="https://img.shields.io/badge/framework-v3.0-1F6FEB?style=flat-square">
+  <img alt="Framework v3.1" src="https://img.shields.io/badge/framework-v3.1-1F6FEB?style=flat-square">
   <a href="https://github.com/bewithkhan/bansat/actions/workflows/validate.yml"><img alt="Tested examples: CI status" src="https://github.com/bewithkhan/bansat/actions/workflows/validate.yml/badge.svg?branch=main"></a>
   <a href="#the-law-registry-and-law-watch"><img alt="Law registry: 120 jurisdictions, official sources only" src="https://img.shields.io/badge/law_registry-120_jurisdictions-2EA44F?style=flat-square"></a>
   <a href="#stack-profiles"><img alt="24 stack profiles" src="https://img.shields.io/badge/stack_profiles-24-555555?style=flat-square"></a>
@@ -22,7 +22,7 @@
   <a href="#install-in-60-seconds"><b>Install</b></a> ·
   <a href="#see-it-work"><b>See it work</b></a> ·
   <a href="#whats-missing-out-there-and-what-bansat-adds"><b>The gap</b></a> ·
-  <a href="#the-17-launch-traps"><b>17 launch traps</b></a> ·
+  <a href="#the-29-launch-traps"><b>29 launch traps</b></a> ·
   <a href="#the-law-registry-and-law-watch"><b>Law registry</b></a> ·
   <a href="#stack-profiles"><b>Stack profiles</b></a> ·
   <a href="#real-breaches-and-the-checks-that-catch-them"><b>Breach casebook</b></a> ·
@@ -59,7 +59,7 @@ AI coding agents are good at building what you ask for. The trouble is what nobo
 | **The law for each market** | Law trackers such as the IAPP's and DLA Piper's are written for lawyers to read, and their terms bar using them to build software or AI tools | We found no current, structured per-country dataset that an agent can read and that cites official sources | A [registry of 120 jurisdictions](#the-law-registry-and-law-watch), every claim citing an official source (2,944 URLs), which the agent reads for the markets you name |
 | **The law kept current** | Asking an AI, which can state legal falsehoods with confidence, or tracking changes by hand | A dated, reviewable record of what changed and where it's written | A weekly watch of 105 official sources: an AI drafts each update with its sources, and a person merges it |
 | **Advice for your stack** | Each framework's own docs, and general security cheat sheets | The same rules (access control, secrets, consent, headers) worked out for the stack you're actually on | [24 stack profiles](#stack-profiles), from Laravel to Flutter to Bubble; the skill loads only yours |
-| **A launch you can defend** | General launch checklists | Checks tied to the failures that get AI-built apps fined or breached, each with a fix and a test | The [17 launch traps](#the-17-launch-traps), checked at G2 and again at G3, and a 40-item launch gate where any of 18 blocking checks stops the launch |
+| **A launch you can defend** | General launch checklists | Checks tied to the failures that get AI-built apps fined or breached, each with a fix and a test | The [29 launch traps](#the-29-launch-traps), checked at G2 and again at G3, and a 40-item launch gate where any of 18 blocking checks stops the launch |
 | **A path for apps already live** | A full security or privacy audit | A fast first pass that finds the live risks, then a plan to close every gap | Day-0 triage within 48 hours, an as-is blueprint and a gap register with deadlines (Part 14) |
 
 No single piece is new on its own. What's missing is all of them together, inside the agent, before the first commit. If you know a tool that already does one of these, [open an issue](https://github.com/bewithkhan/bansat/issues) and we'll link it.
@@ -84,12 +84,12 @@ A skill can only instruct the agent, not force it. For a hard stop at G1, add th
 
 ```bash
 # macOS / Linux
-git clone --branch v3.0.0 --depth 1 https://github.com/bewithkhan/bansat ~/.claude/skills/bansat
+git clone --branch v3.1.0 --depth 1 https://github.com/bewithkhan/bansat ~/.claude/skills/bansat
 ```
 
 ```powershell
 # Windows (PowerShell)
-git clone --branch v3.0.0 --depth 1 https://github.com/bewithkhan/bansat "$HOME\.claude\skills\bansat"
+git clone --branch v3.1.0 --depth 1 https://github.com/bewithkhan/bansat "$HOME\.claude\skills\bansat"
 ```
 
 Start a new Claude Code session and type `/bansat`. To share it with your team, copy the folder into your repo at `.claude/skills/bansat/` and commit it.
@@ -175,9 +175,9 @@ No production code until you approve this blueprint (G1).
 
 Auditing an existing app works the same way: run `/bansat audit this repo`. The Day-0 triage comes first, marking each check pass, fail or unknown with its evidence: exposed secrets, missing RLS, public buckets, tracking before consent, unsafe marketing email, children's data, credentials AI agents and CI can reach, and whether anything was actually exposed.
 
-## The 17 launch traps
+## The 29 launch traps
 
-These are the failures that get AI-built apps fined, breached or rejected by the app stores. None of them is a bug your tests will catch: the app works and the demo works, and the trap only shows when a regulator, an attacker or an app reviewer looks. They happen because an agent builds what it's asked for, and nobody asks for an age question, a self-hosted font or an unsubscribe link. Most of them aren't vulnerabilities a code scanner looks for, either. They're decisions about data, consent and access that nobody made.
+These are the failures that get AI-built apps fined, breached, drained or rejected by the app stores. None of them is a bug your tests will catch: the app works and the demo works, and the trap only shows when a regulator, an attacker or an app reviewer looks. They happen because an agent builds what it's asked for, and nobody asks for an age question, a self-hosted font or an unsubscribe link. Most of them aren't vulnerabilities a code scanner looks for, either. They're decisions about data, consent and access that nobody made.
 
 Bansat makes each one a decision in the blueprint:
 
@@ -205,8 +205,20 @@ Bansat makes each one a decision in the blueprint:
 | 15 | ICO fee unpaid; NDPC status unchecked | ICO penalties of up to £4,350; missed duties for Nigeria's major-importance controllers | Pay and register before G2 (9.2) | The compliance calendar |
 | 16 | No breach plan | Missed 72-hour clocks | A breach runbook (9.20) | A tabletop drill |
 | 17 | Dates of birth or ID scans kept "just in case" | A minimisation breach, and a honeypot for attackers | Store the result, not the evidence | A review of the data dictionary |
+| 18 | A chatbot or AI feature that doesn't say it's AI | The EU AI Act (Art. 50, since August 2026) requires telling people they're talking to an AI, and marking generated content | Say it's AI where people meet it; label and mark generated output (8.6) | A UI review, and a check of the marking |
+| 19 | "Do Not Sell or Share" missing, or Global Privacy Control ignored | US state laws, California's among them, treat a browser's opt-out signal as an opt-out of selling or sharing data | Treat GPC as "Reject non-essential" everywhere, and add the opt-out link where a state requires it (9.8) | The privacy test with GPC switched on |
+| 20 | Face, voice or fingerprint features without written consent | Biometric data is special category data. Illinois' BIPA requires written notice, a signed release and a published retention schedule | Explicit consent before capture, a DPIA and a retention schedule; prefer on-device processing (9.13) | Consent records, and a review of the data dictionary |
+| 21 | Wellness or symptom features without health-data consent | Health data is special category data. Washington's My Health My Data Act requires consent to collect it and separate consent to share it | Separate, specific consents, and no trackers on those screens (9.13) | End-to-end tests of both consents |
+| 22 | No online way to withdraw or cancel | In the EU, contracts made online need a "withdraw from contract here" button from 19 June 2026 | A withdrawal and cancellation flow as easy as signing up (9.25) | An end-to-end test |
+| 23 | No company details or legal notice | UK companies must show their registered details on their website; a site aimed at Germany needs an Impressum | A legal notice linked from the footer (9.25) | A page review |
+| 24 | An EU shop or consumer service that fails accessibility law | The European Accessibility Act has covered e-commerce and some consumer services since June 2025 | WCAG 2.2 AA and an accessibility statement (10.6) | axe in CI, a keyboard-only run and a screen-reader check |
+| 25 | Authorisation only in the UI or in middleware | Hidden buttons don't stop direct calls to your API. A critical 2025 flaw (CVE-2025-29927) let requests skip Next.js middleware | Deny-by-default checks in the data-access layer for every action (7.2) | The role-matrix test, plus calls with no session and with another user's |
+| 26 | AI endpoints with no quota or spend cap | Anyone who finds the endpoint can run up your model bill (OWASP LLM10:2025), and text the model reads can carry injected instructions | Authentication, per-user quotas, a hard spend cap, and no side effects without the user's say-so (8.7) | A rate-limit test, the cap set at the provider, and an injection eval set |
+| 27 | App store privacy labels that don't match the app | Apple's labels and privacy manifests, and Google Play's Data safety form, must describe what the app and its SDKs collect | Fill them in from the data dictionary and the SDK list (9.25) | A comparison before each submission |
+| 28 | Card details collected in your own form | Card data on your servers brings full PCI DSS scope, and a breach exposes every card | Hosted checkout or hosted fields (9.25) | A check that no card field reaches your API, database or logs |
+| 29 | Payment webhooks accepted without a signature check | Anyone can post a fake "payment succeeded" event and unlock paid features | Verify the signature, and reject stale or repeated events (6.5) | A test that an unsigned or replayed event is rejected |
 
-The full table, with the law behind each trap, is in [§9.26 of the framework](reference/bansat-framework.md#926-launch-trap-audit-the-vibe-coding-failures-that-get-apps-fined). Twelve of the 17 also have automated checks in the [experiment harness](research/README.md), which the paper uses to compare apps an agent builds with and without Bansat.
+The full table, with the law behind each trap, is in [§9.26 of the framework](reference/bansat-framework.md#926-launch-trap-audit-the-vibe-coding-failures-that-get-apps-fined). Traps 18 to 29 were added in v3.1.0. Twelve of the first 17 have automated checks in the [experiment harness](research/README.md), which the paper uses to compare apps an agent builds with v3.0.0 and without Bansat.
 
 > If you read one thing in this repo, read this table. Then check your own app against it.
 
@@ -430,14 +442,14 @@ It lives in your repo as `docs/BLUEPRINT.md` and changes in the same pull reques
 
 Use GitHub's **Cite this repository** button, or:
 
-> Khan, M. T. (2026). *Bansat (بنسټ): A blueprint-first framework for building software* (Version 3.0) [Computer software]. GitHub. https://github.com/bewithkhan/bansat
+> Khan, M. T. (2026). *Bansat (بنسټ): A blueprint-first framework for building software* (Version 3.1) [Computer software]. GitHub. https://github.com/bewithkhan/bansat
 
 ```bibtex
 @misc{khan2026bansat,
   author       = {Khan, Muhammad Tufail},
   title        = {Bansat: A blueprint-first framework for building software},
   year         = {2026},
-  note         = {Version 3.0},
+  note         = {Version 3.1},
   howpublished = {\url{https://github.com/bewithkhan/bansat}}
 }
 ```

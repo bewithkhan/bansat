@@ -12,7 +12,7 @@
   - Demo what works to yourself, or better, to a likely user.
   - Update the blueprint and the gap register.
   - Note one thing to change next week.
-- **Monthly check:** which gate are you working towards, and what's left for it? Re-run the 17 launch traps (9.26) before G2 and G3.
+- **Monthly check:** which gate are you working towards, and what's left for it? Re-run the 29 launch traps (9.26) before G2 and G3.
 
 **Where Bansat fits:**
 
