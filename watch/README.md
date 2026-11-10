@@ -3,7 +3,7 @@
 Law Watch keeps the law registry current (blueprint Phase 4). It has two parts, and a person reviews and merges every
 change:
 
-1. **The watch** (`.github/workflows/watch.yml`, running `scripts/watch.ts`). Every Monday at 06:23 UTC it fetches each
+1. **The watch** (`.github/workflows/watch.yml`, running `scripts/watch.ts`). Every Sunday at 06:23 UTC it fetches each
    official feed and page the registry watches and compares it with the last run. When something changed, it opens
    an issue for that jurisdiction, labelled `law-watch` and `law:<id>`, listing the new items. If that issue is
    already open, it comments on it instead. Sources that fail to load go in one `[watch] Source failing` issue,
@@ -52,7 +52,11 @@ words in any case, count, and unrelated news changes nothing:
 
 - **One request per source per run**, at most one per second to each site (or the site's `Crawl-delay`, up to a
   minute), with the user agent `Bansat-LawWatch/1.0 (+https://github.com/bewithkhan/bansat)`. It reads each site's
-  `robots.txt` first, and a page that robots.txt disallows is reported as failing, not fetched.
+  `robots.txt` first, and a page that robots.txt disallows is reported as failing, not fetched. A site that refuses
+  robots.txt itself (HTTP 401 or 403) is treated the same way, as Google treats it.
+- **Some entries can't be watched.** When every official source for a jurisdiction asks robots not to crawl it, the
+  entry has no `watch` block and the verify task re-checks it by hand as one of the stalest entries. Tennessee
+  (`us-tn`) is one: the attorney general's site refuses robots.txt, and the legislature's disallows every robot.
 - **Two retries, then failing.** A request that times out, hits a network error or gets HTTP 403, 408, 429 or 5xx is
   tried again 5 and 15 seconds later (or after the site's `Retry-After`, up to a minute). Some official sites sit
   behind load balancers that refuse a share of requests at random; a source only goes in the failing issue when all
