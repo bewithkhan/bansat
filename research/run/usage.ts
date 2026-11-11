@@ -23,6 +23,7 @@ const arg = (flag: string): string | undefined => {
 
 export type Tokens = { input: number; output: number; cache_creation: number; cache_read: number; total: number };
 export type Usage = {
+  source?: 'transcript' | 'operator'; // operator: typed in from the agent's own report, for agents with no transcript reader
   files: number;
   models: string[];
   claude_code_versions: string[];
@@ -137,6 +138,17 @@ export function summarise(main: string, subagents: string[] = [], splitAt?: stri
     wall_ms: firstOperator !== undefined && lastAt !== undefined ? lastAt - firstOperator : 0,
     skill: { used: evidence.length > 0, evidence: evidence.slice(0, 5) },
   };
+}
+
+// Usage the operator recorded by hand from the agent's own cost or usage report, for an agent whose transcripts this
+// file can't read. The file holds { wall_ms, active_ms?, tokens: { input, output, cache_creation?, cache_read? },
+// models?, agent_versions?, operator_messages?, skill_used? }.
+export function operatorUsage(file: string): Usage {
+  const u = JSON.parse(readFileSync(file, 'utf8')) as { wall_ms?: number; active_ms?: number; tokens?: Partial<Tokens>; models?: string[]; agent_versions?: string[]; operator_messages?: number; skill_used?: boolean };
+  if (typeof u.wall_ms !== 'number' || !u.tokens || typeof u.tokens.input !== 'number' || typeof u.tokens.output !== 'number') throw new Error(`${file} must give wall_ms and tokens.input and tokens.output as numbers`);
+  const tokens: Tokens = { input: u.tokens.input, output: u.tokens.output, cache_creation: u.tokens.cache_creation ?? 0, cache_read: u.tokens.cache_read ?? 0, total: 0 };
+  tokens.total = tokens.input + tokens.output + tokens.cache_creation + tokens.cache_read;
+  return { source: 'operator', files: 0, models: u.models ?? [], claude_code_versions: u.agent_versions ?? [], operator_messages: u.operator_messages ?? 0, assistant_messages: 0, tokens, active_ms: u.active_ms ?? u.wall_ms, wall_ms: u.wall_ms, skill: { used: u.skill_used === true, evidence: u.skill_used === undefined ? [] : ['recorded by the operator'] } };
 }
 
 export function summariseFiles(transcript: string, subagentsDir?: string, splitAt?: string): Usage {

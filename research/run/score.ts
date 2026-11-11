@@ -19,7 +19,7 @@ import { runDynamic } from '../checks/dynamic.ts';
 import { CHECKS, type Mapping, type Scored, runStatic } from '../checks/index.ts';
 import { type CheckResult, type Spec, type Status, indexApp, loadSpec, result } from '../checks/lib.ts';
 import { specFile } from './prepare.ts';
-import { type Usage, summariseFiles } from './usage.ts';
+import { type Usage, operatorUsage, summariseFiles } from './usage.ts';
 
 const arg = (flag: string): string | undefined => {
   const i = process.argv.indexOf(flag);
@@ -83,6 +83,7 @@ export async function score(o: {
   run?: { run_id: string; condition: string; rep: number | null; operator?: { g1_signed_at?: string | null } };
   transcript?: string;
   subagents?: string;
+  usageFile?: string;
 }): Promise<Score> {
   const spec = loadSpec(specFile(o.spec));
   const app = indexApp(resolve(o.app));
@@ -125,7 +126,7 @@ export async function score(o: {
     ...(features ? { features } : {}),
     ...(o.reviews && 'builds_and_runs' in o.reviews ? { builds_and_runs: o.reviews.builds_and_runs } : {}),
     blueprint: scoreBlueprint(resolve(o.app), spec),
-    ...(o.transcript ? { usage: summariseFiles(o.transcript, o.subagents, g1) } : {}),
+    ...(o.transcript ? { usage: summariseFiles(o.transcript, o.subagents, g1) } : o.usageFile ? { usage: operatorUsage(o.usageFile) } : {}),
     ...(dynamicInfo ? { dynamic: dynamicInfo } : {}),
   };
 }
@@ -182,7 +183,7 @@ export function markdown(s: Score): string {
   }
   if (s.usage) {
     const u = s.usage;
-    lines.push('## Time and tokens', '', `Active ${minutes(u.active_ms)}, wall clock ${minutes(u.wall_ms)}; ${u.operator_messages} operator messages; ${u.tokens.total.toLocaleString('en-GB')} tokens (${u.tokens.output.toLocaleString('en-GB')} output). Models: ${u.models.join(', ') || 'unknown'}. Skill used: ${u.skill.used ? 'yes' : 'no'}.`, '');
+    lines.push('## Time and tokens', '', `Active ${minutes(u.active_ms)}, wall clock ${minutes(u.wall_ms)}; ${u.operator_messages} operator messages; ${u.tokens.total.toLocaleString('en-GB')} tokens (${u.tokens.output.toLocaleString('en-GB')} output). Models: ${u.models.join(', ') || 'unknown'}. Skill used: ${u.skill.used ? 'yes' : 'no'}.${u.source === 'operator' ? ' Recorded by the operator from the agent\'s own report.' : ''}`, '');
     if (u.phases) lines.push(`Before G1 (${u.phases.split_at}): ${minutes(u.phases.before.active_ms)}, ${u.phases.before.total.toLocaleString('en-GB')} tokens. After: ${minutes(u.phases.after.active_ms)}, ${u.phases.after.total.toLocaleString('en-GB')} tokens.`, '');
   }
   if (s.dynamic) lines.push('## Dynamic run', '', `Served at ${s.dynamic.base || 'nothing'}; pages: ${s.dynamic.pages.join(', ') || 'none'}${s.dynamic.error ? `; error: ${s.dynamic.error}` : ''}.`, '');
@@ -208,7 +209,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const specId = arg('--spec');
   const out = arg('--out');
   if (!app || !specId || !out) {
-    console.error('usage: node research/run/score.ts --app <dir> --spec <id|file> --out <dir> [--static <dir> | --url <url> [--start "<cmd>"] | --no-dynamic] [--no-block] [--reviews <file>] [--run <run.json>] [--transcript <file>]');
+    console.error('usage: node research/run/score.ts --app <dir> --spec <id|file> --out <dir> [--static <dir> | --url <url> [--start "<cmd>"] | --no-dynamic] [--no-block] [--reviews <file>] [--run <run.json>] [--transcript <file> | --usage <usage.json>]');
     process.exit(2);
   }
   const noDynamic = process.argv.includes('--no-dynamic');
@@ -227,6 +228,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
       run,
       transcript: arg('--transcript'),
       subagents: arg('--subagents'),
+      usageFile: arg('--usage'),
     });
     mkdirSync(out, { recursive: true });
     writeFileSync(join(out, 'score.json'), `${JSON.stringify(s, null, 2)}\n`);

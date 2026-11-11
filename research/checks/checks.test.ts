@@ -20,6 +20,7 @@ import { checkAccountRights, checkAgeGate, checkPreticked, checkPrivacyNotice } 
 import { checkRls, splitSql } from './rls.ts';
 import { checkSecrets } from './secrets.ts';
 import { checkStorage } from './storage.ts';
+import { checkIdentityData, checkLogs, loggedValues } from './data.ts';
 
 const RESEARCH = join(dirname(fileURLToPath(import.meta.url)), '..');
 const FIXTURES = join(RESEARCH, 'fixtures');
@@ -314,4 +315,39 @@ describe('the specs and the registry', () => {
       for (const g of c.maps.gate) assert.match(g, /^13\.[A-G]\d+ /, c.id);
     }
   });
+});
+
+describe('no-personal-data-in-logs', () => {
+  test('not applicable without personal data', () => is(checkLogs(app({ 'lib/a.ts': 'console.log(user.email);' }), facts({ personal_data: false })), 'not-applicable'));
+  test('passes with no logging, and with logging that names no personal value', () => {
+    is(checkLogs(app({ 'lib/a.ts': 'export const a = 1;' }), facts()), 'pass');
+    is(checkLogs(app({ 'lib/a.ts': "console.log('email sent to the list', count);\nlogger.info(`order ${order.id} paid`);\nconsole.error('sign-up failed', error);" }), facts()), 'pass');
+  });
+  test('the words inside a message never count, only the values', () => {
+    assert.equal(loggedValues("'password reset email sent', id"), "'', id");
+    assert.equal(loggedValues('`welcome ${user.email} to ${plan}`').includes('user.email'), true);
+  });
+  test('fails when a personal field is logged', () => {
+    is(checkLogs(app({ 'lib/a.ts': "console.log('new sign-up', user.email);" }), facts()), 'fail');
+    is(checkLogs(app({ 'lib/a.ts': 'logger.info(`reset for ${customer.phoneNumber}`);' }), facts()), 'fail');
+    is(checkLogs(app({ 'app/a.php': "<?php Log::info('created', ['email' => $user->email]);" }), facts()), 'fail');
+    is(checkLogs(app({ 'app/a.py': 'print(patient.date_of_birth)' }), facts()), 'fail');
+  });
+  test('needs review when a whole record is logged', () => {
+    is(checkLogs(app({ 'lib/a.ts': "console.log('body', req.body);" }), facts()), 'needs-review');
+    is(checkLogs(app({ 'lib/a.ts': "console.log('created', user);" }), facts()), 'needs-review');
+    is(checkLogs(app({ 'lib/a.ts': "console.log('created', user.id);" }), facts()), 'pass');
+  });
+});
+
+describe('no-unneeded-identity-data', () => {
+  test('not applicable without personal data', () => is(checkIdentityData(app({ 'db/1.sql': 'create table p (date_of_birth date);' }), facts({ personal_data: false })), 'not-applicable'));
+  test('passes when only the result of the age check is stored', () => is(checkIdentityData(app({ 'db/1.sql': "create table profiles (id uuid primary key, age_status text not null, age_band text);" }), facts()), 'pass'));
+  test('fails for a stored date of birth or identity document', () => {
+    is(checkIdentityData(app({ 'db/1.sql': 'create table profiles (id uuid primary key, date_of_birth date);' }), facts()), 'fail');
+    is(checkIdentityData(app({ 'prisma/schema.prisma': 'model User {\n  id String @id\n  passportNumber String?\n}' }), facts()), 'fail');
+    is(checkIdentityData(app({ 'app/models/user.py': 'class User(Base):\n    id_scan_url = Column(String)' }), facts()), 'fail');
+  });
+  test('needs review for a year of birth or an age', () => is(checkIdentityData(app({ 'db/1.sql': 'create table profiles (id uuid primary key, birth_year int);' }), facts()), 'needs-review'));
+  test('a form field that is read and dropped is not a stored field', () => is(checkIdentityData(app({ 'app/signup/page.tsx': '<input name="date_of_birth" type="date" />', 'db/1.sql': 'create table profiles (id uuid primary key, age_status text);' }), facts()), 'pass'));
 });

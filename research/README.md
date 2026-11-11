@@ -1,6 +1,7 @@
 # The Bansat experiment: apps built with and without the skill
 
-> **Agreed by the authors on 10 November 2026 and published before any run. Nothing here has been run yet.**
+> **Agreed by the authors on 10 November 2026 and published before any run. Amended once, on 11 November 2026, also
+> before any run (section 12). Nothing here has been run yet.**
 
 This folder holds the experiment for the Bansat research paper (blueprint item 7 of the scope, FR-22 and workstream R
 in Part 11): the app specifications, the harness that prepares and scores runs, the automated checks and their tests.
@@ -142,6 +143,8 @@ never copied into a report.
 | `privacy-notice-names-processors` | static | No privacy notice, or one that leaves out a processor the code uses (the AI provider included) | 6, 8 | 13.D1 ⛔ | T7 | – | 9.6, 3.6, 8.2 | F-19 |
 | `no-preticked-consent` | static | A consent box that starts ticked, a consent column defaulting to true, "by using this site you agree" | 11 | – | – | – | 9.7 CR-02, 9.5 DP-10 | – |
 | `private-storage-buckets` | static | A public bucket whose name says it holds people's files | 14 | – | T3 | T-07 | 7.3 T-07 | – |
+| `no-personal-data-in-logs` | static | A logging call whose arguments name a personal field (email, phone, name, address, date of birth); the words inside a message don't count | 10 | – | – | – | 7.5 | – |
+| `no-unneeded-identity-data` | static | A stored date of birth, or an identity document or number, that nothing in the spec needs | 17 | – | – | – | 9.5 DP-03, 9.12 | – |
 | `account-deletion-export` | static | No way to delete an account, or none to download one's data | 9 | 13.D8 ⛔ | – | – | 9.15, 10.2 | – |
 | `no-third-party-before-consent` | dynamic | In Chromium, before any click: a request to a third-party host, or a tracker cookie | 2, 3, 7 | 13.D3 ⛔ | T4 | T-10 | 9.9 | F-18 |
 | `reject-all-honoured` | dynamic | A banner with Accept and no Reject; anything third-party after clicking Reject and reloading | 12 | 13.D4 ⛔ | – | – | 9.8, 9.9 | F-18 |
@@ -169,10 +172,12 @@ first, so it never hides a failure.
 
 **What the checks can't see.** Whether RLS policies are *correct* for each tenant and role (that needs the isolation
 tests in 5.4 against a database); runtime behaviour beyond the pages the crawler reaches before signing in; anything
-configured outside the repository, in a dashboard or a tag manager. Five of the 17 launch traps in v3.0.0, the version condition B uses, have no check (v3.1.0 added traps 18–29, which the experiment doesn't test):
-10 (personal data in logs, which needs the running app's logs), 13 (real data in staging, an environment question),
-15 (ICO fee and NDPC registration) and 16 (a breach plan), which are organisational and would only reward documents,
-and 17 (dates of birth kept "just in case"), where a column is only a defect if no feature needs it.
+configured outside the repository, in a dashboard or a tag manager. Three of the 17 launch traps in v3.0.0, the version condition B uses, have no check (v3.1.0 added traps 18–29, which
+the experiment doesn't test): 13 (real data in staging, an environment question), 15 (ICO fee and NDPC registration)
+and 16 (a breach plan). All three are about the organisation, not the app, and a check could only reward documents.
+The checks for traps 10 and 17 read the code only: the logs check sees what the code would log, not what a running
+app's log service holds, and the identity-data check sees stored fields, which are a defect here because none of the
+six specs has a feature that needs them.
 
 **The checks are tested.** Every check passes the good fixture app and fails the bad one, whose `docs/` and README
 are full of the right words to prove documents earn nothing; the edge cases that decide between the four outcomes have
@@ -219,7 +224,8 @@ tests of their own (`node research/checks/checks.test.ts`).
 
 **External**
 
-- One agent (Claude Code) and one model; six specs on four stacks; English prompts; markets weighted to the UK and the
+- One agent (Claude Code) and one model in this experiment, though the harness itself runs any agent that reads Agent
+  Skills (section 8); six specs on four stacks; English prompts; markets weighted to the UK and the
   EU. Apps are built once, from scratch, with no real users, no iteration and no human review of the blueprint, unlike
   a real team. The results say nothing directly about other agents, larger codebases or the retrofit track.
 
@@ -284,8 +290,15 @@ as Cohen's kappa.
 `usage.ts` can also be run on its own (`node research/run/usage.ts --transcript <file> --split-at <g1 time>`). It reads
 Claude Code's local transcript format, which isn't a published interface, so check it against `/cost` in the pilot.
 
-**Testing the harness**: `node research/checks/checks.test.ts` (82 tests: every check on both fixtures, the edge cases,
-the specs and the registry; it launches Chromium) and `node research/run/run.test.ts` (16 tests: plan, prepare, score
+**Another agent.** Only two things in the harness depend on the agent: where the skill is installed, and how time and
+tokens are read. For an agent other than Claude Code, prepare a run with
+`--agent <name> --skill-dir <folder the agent reads skills from> --user-config <its settings folder>`, and give
+`score.ts` the usage the operator typed in from the agent's own report (`--usage usage.json`, with `wall_ms` and
+`tokens.input` and `tokens.output`) in place of a transcript. The checks never look at the agent. Before using another
+agent, confirm from its documentation where it reads project skills, and that a clean profile is possible.
+
+**Testing the harness**: `node research/checks/checks.test.ts` (96 tests: every check on both fixtures, the edge cases,
+the specs and the registry; it launches Chromium) and `node research/run/run.test.ts` (18 tests: plan, prepare, score
 and usage). Neither runs an agent.
 
 ## 10. Layout
@@ -337,3 +350,15 @@ The draft left twelve questions open. The authors settled them as proposed:
 11. **Publishing.** The generated apps, every run's score and review, and a summary of each transcript go in
     `results/`; full transcripts follow once machine paths and account details are removed.
 12. **Other agents.** A second agent or model is future work.
+
+## 12. Amendments
+
+Changes to this plan after it was agreed, each made before the runs it affects and recorded here with its reason.
+
+**Amendment 1 (11 November 2026, before any run; made by the first author).** Decision 8 said no check would be
+added for the five launch traps without one. Two are now tested, because both can be read from an app's own code
+without rewarding documents: `no-personal-data-in-logs` (trap 10) and `no-unneeded-identity-data` (trap 17). The
+static checks rise from 12 to 14 and the checks in all from 14 to 16; M1 and M2 are computed over all of them, in
+both conditions. Traps 13, 15 and 16 stay untested, for the reason in section 5. The harness also takes
+`--agent`, `--skill-dir`, `--user-config` and `--usage`, so the same protocol can be repeated with another agent; the
+first experiment still uses one agent and one model, as agreed.

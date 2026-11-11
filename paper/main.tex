@@ -316,7 +316,7 @@ AI disclosure, opt-out signals, biometric and health data, online withdrawal, le
 server-side authorisation, AI spending limits, app store labels, card data and payment webhooks. The list is curated:
 we chose each trap from a law, a regulator's decision, a published vulnerability or a documented incident, and did
 not measure how often applications built by AI agents fall into it. The experiment in Section~\ref{sec:experiment} is
-the first test of twelve of them. The \emph{launch gate} (Part~13) has 40 go/no-go items in seven
+the first test of fourteen of them. The \emph{launch gate} (Part~13) has 40 go/no-go items in seven
 groups, 18 of which block launch while open. Blocking items include a tested backup restore, data-layer access
 with isolation tests, no exposed secrets, nothing non-essential before consent, compliant marketing email, and working
 export and account deletion.
@@ -608,10 +608,13 @@ s6 Marketplace & startup & Laravel, MySQL & Med & Payments and payouts; a databa
 \end{tabularx}
 \end{table}
 
-\paragraph{Checks and rubric.} Twelve checks read the code (row-level security, client-side secrets, fonts,
+\paragraph{Checks and rubric.} Fourteen checks read the code (row-level security, client-side secrets, fonts,
 consent-gated tracking, security headers, two marketing-email checks, the age question, the privacy notice, pre-ticked
-consent, upload storage, and account deletion and export) and two load the application in Chromium (nothing third-party
-before consent or after ``Reject''). Together they test 12 of the 17 launch traps in v3.0.0, the version condition~B uses, and 11 correspond to blocking
+consent, upload storage, account deletion and export, personal data in logging calls, and stored dates of birth or
+identity documents) and two load the application in Chromium (nothing third-party before consent or after
+``Reject''). Together they test 14 of the 17 launch traps in v3.0.0, the version condition~B uses; the other three
+(real data in staging, regulator fees and registration, and a breach plan) are about the organisation, not the
+application, so a check could only reward documents. Eleven checks correspond to blocking
 launch-gate items. Checks read only the
 application's own code, never \fpath{docs/} or the installed skill, so documents cannot earn a pass, and return pass,
 fail, not applicable or needs review, with evidence. A reviewer blind to the condition settles needs-review items;
@@ -640,8 +643,9 @@ experiment measures the skill's instructions alone; an arm with a person's revie
 bars stay as written: row-level security with no policy passes, since deny-all is the framework's own default for
 server-only tables; HSTS and \texttt{Permissions-Policy} are reported, not required; and an ``18 or over'' box passes the
 age check, with a note. (7)~An application that fails to build gets no request to fix it; it is scored without the
-browser checks and reported. (8)~No check is added for the five untested traps, which stay outside the experiment's
-claims. (9)~The stratified permutation test is the primary analysis and a mixed-effects logistic model is exploratory;
+browser checks and reported. (8)~No check was to be added for the five untested traps. An amendment on 11~November 2026, before any run, adds
+checks for two of them that can be read from the code (personal data in logs, and stored dates of birth or identity
+documents); the other three stay outside the experiment's claims, and the amendment is recorded in the protocol. (9)~The stratified permutation test is the primary analysis and a mixed-effects logistic model is exploratory;
 the protocol published in \fpath{research/} before the pilot serves as its pre-registration. (10)~The first author
 reviews every application, the second author independently reviews a random fifth, and disagreements are settled by
 discussion and recorded. (11)~The generated applications, every run's score and review, and a summary of each
@@ -688,7 +692,7 @@ isolate tenants. The checks come from Bansat's own rules, which favours conditio
 design; the question is whether the skill changes those outcomes, and the checks accept common alternatives to Bansat's
 own way of meeting each rule. Agent runs vary~\cite{sallou2024breaking}, which the repetitions and randomised blocks
 spread across conditions; checks within one application are not independent, which is why the run is the unit. The
-results will speak to one agent and model, six specifications on four stacks, and mostly UK and EU markets. The framework's author wrote the specifications
+harness runs any agent that reads Agent Skills, but this experiment uses one, so its results will speak to one agent and model, six specifications on four stacks, and mostly UK and EU markets. The framework's author wrote the specifications
 and checks; publishing them before any run, with the co-authors' sign-off, guards against that bias.
 
 % =====================================================================================================================
