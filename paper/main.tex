@@ -54,7 +54,8 @@ The failures that sink applications built by AI coding agents are often decision
 table enforces access control or whether trackers load before consent. Bansat is an
 open framework and Agent Skill that has the agent write a complete blueprint before any production code (product,
 architecture, security, privacy law, accessibility and 17 UI states for every screen), sized by a 20-question risk
-screen, and then holds the agent at approval gates that only a person may sign. An optional hook makes the first gate a
+screen, and then holds the agent at approval gates that only a person may sign. A 29-item audit of launch traps runs
+before real personal data is collected and again before launch. An optional hook makes the first gate a
 hard stop in agents that support pre-tool-use hooks; a retrofit track covers live applications. Because legal advice ages,
 Bansat also keeps a public law registry in which every claim must cite an official source, enforced in continuous
 integration; it holds 120 entries citing 2,944 official URLs. A weekly watch detects changes on 105 official sources,
@@ -312,7 +313,10 @@ Bansat checks a project twice before it meets the public. The \emph{launch-trap 
 twenty-nine failures that get AI-built applications fined, breached or rejected by app stores, each with a fix and a
 way to verify it (Table~\ref{tab:traps}), and runs before G2 and again before G3. Version 3.1.0 added the last twelve:
 AI disclosure, opt-out signals, biometric and health data, online withdrawal, legal notices, accessibility law,
-server-side authorisation, AI spending limits, app store labels, card data and payment webhooks. The \emph{launch gate} (Part~13) has 40 go/no-go items in seven
+server-side authorisation, AI spending limits, app store labels, card data and payment webhooks. The list is curated:
+we chose each trap from a law, a regulator's decision, a published vulnerability or a documented incident, and did
+not measure how often applications built by AI agents fall into it. The experiment in Section~\ref{sec:experiment} is
+the first test of twelve of them. The \emph{launch gate} (Part~13) has 40 go/no-go items in seven
 groups, 18 of which block launch while open. Blocking items include a tested backup restore, data-layer access
 with isolation tests, no exposed secrets, nothing non-essential before consent, compliant marketing email, and working
 export and account deletion.
