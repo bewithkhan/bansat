@@ -13,7 +13,7 @@ import { loadSpec } from '../checks/lib.ts';
 import { makePlan } from './plan.ts';
 import { prepare } from './prepare.ts';
 import { type Review, markdown, score, totals } from './score.ts';
-import { summarise } from './usage.ts';
+import { operatorUsage, summarise } from './usage.ts';
 
 const RUN = dirname(fileURLToPath(import.meta.url));
 const RESEARCH = join(RUN, '..');
@@ -66,6 +66,15 @@ describe('prepare', () => {
     assert.equal(b.skill?.commit, git(REPO, 'rev-parse', 'HEAD'));
     assert.equal(git(b.workspace, 'status', '--porcelain'), '', 'the skill is committed');
   });
+  test('another agent gets the skill where it reads skills, and a warning to check its profile by hand', () => {
+    const c = prepare({ spec: join(FIXTURES, 'fixture-spec.md'), condition: 'B', out: join(temp, 'other-agent'), skillRef: 'HEAD', agent: 'other-agent', skillDir: '.agents/skills/bansat' });
+    assert.ok(existsSync(join(c.workspace, '.agents/skills/bansat/SKILL.md')));
+    assert.ok(!existsSync(join(c.workspace, '.claude')));
+    assert.deepEqual(c.agent, { id: 'other-agent', skill_dir: '.agents/skills/bansat' });
+    assert.ok(c.warnings.some((w) => /check by hand/.test(w)));
+    assert.throws(() => prepare({ spec: join(FIXTURES, 'fixture-spec.md'), condition: 'B', out: join(temp, 'other-agent-2'), skillRef: 'HEAD', agent: 'other-agent' }), /--skill-dir/);
+    assert.throws(() => prepare({ spec: join(FIXTURES, 'fixture-spec.md'), condition: 'B', out: join(temp, 'other-agent-3'), skillRef: 'HEAD', agent: 'other-agent', skillDir: '../outside' }), /inside the workspace/);
+  });
   test('the installed skill never contains the experiment or the paper', () => {
     for (const dir of ['research', 'paper']) assert.ok(!existsSync(join(b.workspace, '.claude/skills/bansat', dir)), dir);
   });
@@ -105,9 +114,9 @@ describe('score', () => {
     const r = node('score.ts', ['--app', join(FIXTURES, 'good-app'), '--spec', join(FIXTURES, 'fixture-spec.md'), '--static', join(FIXTURES, 'good-app/dist'), '--out', out]);
     assert.equal(r.status, 0, r.stderr);
     const s = JSON.parse(readFileSync(join(out, 'score.json'), 'utf8'));
-    assert.deepEqual([s.automated.pass, s.automated.applicable, s.automated.defects], [14, 14, 0]);
+    assert.deepEqual([s.automated.pass, s.automated.applicable, s.automated.defects], [16, 16, 0]);
     assert.equal(s.blueprint.score, 1);
-    assert.match(readFileSync(join(out, 'score.md'), 'utf8'), /14 of 14/);
+    assert.match(readFileSync(join(out, 'score.md'), 'utf8'), /16 of 16/);
     assert.ok(existsSync(join(out, 'review.json')));
   });
   test('applies a review: resolving needs review, correcting a verdict, and rating features', async () => {
@@ -133,6 +142,14 @@ describe('score', () => {
 });
 
 describe('usage', () => {
+  test('usage typed in by the operator, for an agent with no transcript reader', () => {
+    const file = join(temp, 'usage.json');
+    writeFileSync(file, JSON.stringify({ wall_ms: 3_600_000, tokens: { input: 1000, output: 500 }, models: ['model-y'], skill_used: true }));
+    const u = operatorUsage(file);
+    assert.deepEqual([u.source, u.tokens.total, u.wall_ms, u.active_ms, u.skill.used], ['operator', 1500, 3_600_000, 3_600_000, true]);
+    writeFileSync(file, JSON.stringify({ tokens: { input: 1 } }));
+    assert.throws(() => operatorUsage(file), /wall_ms/);
+  });
   const t0 = Date.parse('2026-12-01T10:00:00Z');
   const at = (s: number) => new Date(t0 + s * 1000).toISOString();
   const line = (o: object) => JSON.stringify(o);

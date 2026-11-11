@@ -5,6 +5,7 @@
 // group (13.C1 is the first item under "C. Security"), with the item's own words beside the number. ⛔ marks the
 // items Part 13 marks as blocking.
 import { checkFonts, checkTracking } from './browser.ts';
+import { checkIdentityData, checkLogs } from './data.ts';
 import { checkListUnsubscribe, checkUnsubscribe } from './email.ts';
 import { checkHeaders } from './headers.ts';
 import { type App, type CheckResult, type Facts } from './lib.ts';
@@ -120,6 +121,20 @@ export const CHECKS: Check[] = [
     kind: 'static',
     maps: { traps: [9], gate: [GATE.D8], day0: [], threats: [], sections: ['9.15', '10.2'], casebook: [] },
     run: checkAccountRights,
+  },
+  {
+    id: 'no-personal-data-in-logs',
+    title: 'No logging call writes a personal field to the logs',
+    kind: 'static',
+    maps: { traps: [10], gate: [], day0: [], threats: [], sections: ['7.5'], casebook: [] },
+    run: checkLogs,
+  },
+  {
+    id: 'no-unneeded-identity-data',
+    title: 'No stored date of birth or identity document that nothing needs',
+    kind: 'static',
+    maps: { traps: [17], gate: [], day0: [], threats: [], sections: ['9.5 DP-03', '9.12'], casebook: [] },
+    run: checkIdentityData,
   },
   {
     id: 'no-third-party-before-consent',

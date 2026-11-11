@@ -55,13 +55,26 @@ export function installSkill(ref: string, dest: string): string {
   return commit;
 }
 
-// Things on this machine that could leak Bansat, or other instructions, into a run. Claude Code reads the user's own
-// skills and CLAUDE.md in every project, so a run must start from a clean profile (README, "Threats to validity").
-export function contamination(): string[] {
+// The agent under test. The harness needs three facts about it: where a project-level skill goes, where its user-level
+// settings live, and which instruction files it reads from there. Claude Code's are built in, because the first
+// experiment uses it. For any other agent that reads Agent Skills, pass --agent <name> --skill-dir <path> and, for the
+// contamination check, --user-config <dir> (repeatable); nothing else in prepare.ts or the checks depends on the agent.
+export type AgentProfile = { id: string; skillDir: string; configDirs: string[]; instructionFiles: string[] };
+const INSTRUCTION_FILES = ['AGENTS.md', 'CLAUDE.md', 'GEMINI.md'];
+export function agentProfile(id = 'claude-code', skillDir?: string, userConfig: string[] = []): AgentProfile {
+  if (id === 'claude-code') return { id, skillDir: skillDir ?? join('.claude', 'skills', 'bansat'), configDirs: [process.env.CLAUDE_CONFIG_DIR, join(homedir(), '.claude'), ...userConfig].filter(Boolean) as string[], instructionFiles: ['CLAUDE.md'] };
+  if (!skillDir) throw new Error(`--agent ${id} needs --skill-dir, the folder inside the project where this agent reads a skill (for example .agents/skills/bansat)`);
+  if (skillDir.startsWith('/') || skillDir.split(/[\\/]/).includes('..')) throw new Error('--skill-dir must be a path inside the workspace');
+  return { id, skillDir, configDirs: userConfig, instructionFiles: INSTRUCTION_FILES };
+}
+
+// Things on this machine that could leak Bansat, or other instructions, into a run. Agents read the user's own skills
+// and instruction files in every project, so a run must start from a clean profile (README, "Threats to validity").
+export function contamination(agent: AgentProfile = agentProfile()): string[] {
   const warnings: string[] = [];
-  const configDirs = [process.env.CLAUDE_CONFIG_DIR, join(homedir(), '.claude')].filter(Boolean) as string[];
-  for (const dir of configDirs) {
-    if (existsSync(join(dir, 'CLAUDE.md'))) warnings.push(`${join(dir, 'CLAUDE.md')} exists: user-level instructions reach every run`);
+  if (!agent.configDirs.length) warnings.push(`no --user-config given for ${agent.id}: check by hand that its user-level settings hold no instructions or skills`);
+  for (const dir of agent.configDirs) {
+    for (const file of agent.instructionFiles) if (existsSync(join(dir, file))) warnings.push(`${join(dir, file)} exists: user-level instructions reach every run`);
     const skills = join(dir, 'skills');
     if (existsSync(skills) && readdirSync(skills).length) warnings.push(`${skills} holds skills (${readdirSync(skills).join(', ')}): they reach every run, in both conditions`);
   }
@@ -73,18 +86,20 @@ export type RunRecord = {
   spec: { id: string; file: string; sha256: string };
   condition: 'A' | 'B';
   rep: number | null;
+  agent: { id: string; skill_dir: string };
   skill: { ref: string; commit: string; excluded: string[] } | null;
   harness: { commit: string; uncommitted_changes: boolean };
   created_at: string;
   workspace: string;
   warnings: string[];
   // Filled in by the operator (research/run/OPERATOR.md).
-  operator: { model: string | null; claude_code_version: string | null; permission_mode: string | null; started_at: string | null; g1_signed_at: string | null; finished_at: string | null; ended_because: string | null; messages: { at: string; text: string }[]; notes: string };
+  operator: { model: string | null; agent_version: string | null; permission_mode: string | null; started_at: string | null; g1_signed_at: string | null; finished_at: string | null; ended_because: string | null; messages: { at: string; text: string }[]; notes: string };
 };
 
-export function prepare(o: { spec: string; condition: 'A' | 'B'; out: string; runId?: string; rep?: number; skillRef?: string; force?: boolean }): RunRecord {
+export function prepare(o: { spec: string; condition: 'A' | 'B'; out: string; runId?: string; rep?: number; skillRef?: string; force?: boolean; agent?: string; skillDir?: string; userConfig?: string[] }): RunRecord {
   if (o.condition !== 'A' && o.condition !== 'B') throw new Error('--condition must be A (without Bansat) or B (with Bansat)');
   if (o.condition === 'B' && !o.skillRef) throw new Error('condition B needs --skill-ref, the Bansat release to install (for example v3.0.0)');
+  const agent = agentProfile(o.agent, o.skillDir, o.userConfig);
   const out = resolve(o.out);
   // A workspace inside this repository could read research/checks. Refuse.
   const rel = relative(resolve(REPO), out);
@@ -106,7 +121,7 @@ export function prepare(o: { spec: string; condition: 'A' | 'B'; out: string; ru
   must(git(['config', 'user.email', 'builder@example.invalid'], workspace), 'git config');
   let skill: RunRecord['skill'] = null;
   if (o.condition === 'B') {
-    const commit = installSkill(o.skillRef!, join(workspace, '.claude', 'skills', 'bansat'));
+    const commit = installSkill(o.skillRef!, join(workspace, agent.skillDir));
     skill = { ref: o.skillRef!, commit, excluded: EXCLUDED };
     must(git(['add', '-A'], workspace), 'git add');
   }
@@ -119,12 +134,13 @@ export function prepare(o: { spec: string; condition: 'A' | 'B'; out: string; ru
     spec: { id: spec.id, file: relative(REPO, spec.file), sha256: spec.sha256 },
     condition: o.condition,
     rep: o.rep ?? null,
+    agent: { id: agent.id, skill_dir: agent.skillDir },
     skill,
     harness: { commit: head.status === 0 ? head.out : 'unknown', uncommitted_changes: dirty.status === 0 ? dirty.out.length > 0 : true },
     created_at: new Date().toISOString(),
     workspace,
-    warnings: contamination(),
-    operator: { model: null, claude_code_version: null, permission_mode: null, started_at: null, g1_signed_at: null, finished_at: null, ended_because: null, messages: [], notes: '' },
+    warnings: contamination(agent),
+    operator: { model: null, agent_version: null, permission_mode: null, started_at: null, g1_signed_at: null, finished_at: null, ended_because: null, messages: [], notes: '' },
   };
   writeFileSync(join(records, 'prompt.md'), spec.prompt);
   writeFileSync(join(records, 'run.json'), `${JSON.stringify(record, null, 2)}\n`);
@@ -144,8 +160,8 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
       ({ spec, condition, run_id: runId, rep } = run);
     }
     const out = arg('--out');
-    if (!spec || !condition || !out) throw new Error('usage: node research/run/prepare.ts --spec <id> --condition A|B --out <dir> [--skill-ref <ref>], or --plan <file> --run <id> --out <dir>');
-    const r = prepare({ spec, condition, out, runId, rep, skillRef: arg('--skill-ref'), force: process.argv.includes('--force') });
+    if (!spec || !condition || !out) throw new Error('usage: node research/run/prepare.ts --spec <id> --condition A|B --out <dir> [--skill-ref <ref>] [--agent <name> --skill-dir <path> --user-config <dir>], or --plan <file> --run <id> --out <dir>');
+    const r = prepare({ spec, condition, out, runId, rep, skillRef: arg('--skill-ref'), force: process.argv.includes('--force'), agent: arg('--agent'), skillDir: arg('--skill-dir'), userConfig: process.argv.flatMap((a, i) => (a === '--user-config' && process.argv[i + 1] ? [process.argv[i + 1]] : [])) });
     console.log(`Prepared ${r.run_id}: ${r.spec.id}, condition ${r.condition}${r.skill ? `, Bansat ${r.skill.ref} (${r.skill.commit.slice(0, 12)})` : ''}`);
     console.log(`  workspace  ${r.workspace}`);
     console.log(`  record     ${join(resolve(out), 'records', r.run_id)}`);

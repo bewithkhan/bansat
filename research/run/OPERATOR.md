@@ -35,7 +35,7 @@ Set up one machine image and use it for every run, in both conditions:
 2. **Copy only `workspaces/<run-id>/`** into the fresh environment. The record stays on the host: it names the
    condition, and the agent must not see it.
 3. **Start Claude Code** in that folder: `claude --model <id> [permission flag]`. Write `started_at` (ISO 8601, UTC),
-   `model`, `claude_code_version` and `permission_mode` into `run.json`.
+   `model`, `agent_version` and `permission_mode` into `run.json`.
 4. **Paste `records/<run-id>/prompt.md`** as the first message, exactly as it is, in one message.
 5. **Reply only with these**, word for word, and log each one with its time in `operator.messages`:
 
@@ -54,6 +54,15 @@ Set up one machine image and use it for every run, in both conditions:
    time, whichever comes first. Write `finished_at` and `ended_because` (`finished`, `reply limit` or `time limit`).
 7. **Collect**: copy the session transcript, `~/.claude/projects/<folder>/<session>.jsonl`, and its `subagents/`
    folder if there is one, into `records/<run-id>/transcripts/`, then copy the workspace back to the host.
+
+## With another agent
+
+The steps are the same. Prepare each run with `--agent <name> --skill-dir <the folder that agent reads project skills
+from> --user-config <its settings folder>`, start that agent in the workspace with its model and version pinned, and
+keep its profile clean: no user-level instructions, skills, plugins, tools or memory. If `usage.ts` can't read its
+transcripts, write the time and tokens from the agent's own usage report into a `usage.json` (`wall_ms`,
+`tokens.input`, `tokens.output`) and score with `--usage usage.json`. Keep the agent's transcript in `transcripts/`
+whatever its format.
 
 ## Building and serving the app, for the dynamic checks
 

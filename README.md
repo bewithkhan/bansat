@@ -218,7 +218,7 @@ Bansat makes each one a decision in the blueprint:
 | 28 | Card details collected in your own form | Card data on your servers brings full PCI DSS scope, and a breach exposes every card | Hosted checkout or hosted fields (9.25) | A check that no card field reaches your API, database or logs |
 | 29 | Payment webhooks accepted without a signature check | Anyone can post a fake "payment succeeded" event and unlock paid features | Verify the signature, and reject stale or repeated events (6.5) | A test that an unsigned or replayed event is rejected |
 
-The full table, with the law behind each trap, is in [§9.26 of the framework](reference/bansat-framework.md#926-launch-trap-audit-the-vibe-coding-failures-that-get-apps-fined). Traps 18 to 29 were added in v3.1.0. Twelve of the first 17 have automated checks in the [experiment harness](research/README.md), which the paper uses to compare apps an agent builds with v3.0.0 and without Bansat.
+The full table, with the law behind each trap, is in [§9.26 of the framework](reference/bansat-framework.md#926-launch-trap-audit-the-vibe-coding-failures-that-get-apps-fined). Traps 18 to 29 were added in v3.1.0. Fourteen of the first 17 have automated checks in the [experiment harness](research/README.md), which the paper uses to compare apps an agent builds with v3.0.0 and without Bansat.
 
 > If you read one thing in this repo, read this table. Then check your own app against it.
 

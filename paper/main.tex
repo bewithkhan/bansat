@@ -41,7 +41,7 @@
 
 \title{Bansat: Blueprint-First Gating of AI Coding Agents,\\ with a Continuously Verified Privacy-Law Registry}
 
-\author[1]{Muhammad Tufail Khan\thanks{Corresponding author: \href{mailto:Muhammadtufail.khan@uws.ac.uk}{Muhammadtufail.khan@uws.ac.uk}}}
+\author[1]{Muhammad Tufail Khan\thanks{Corresponding author: \href{mailto:Muhammadtufail.khan@uws.ac.uk}{Muhammadtufail.khan@uws.ac.uk}. ORCID: \href{https://orcid.org/0009-0004-5791-5129}{0009-0004-5791-5129}}}
 \author[1]{Naeem Ramzan~\orcidlink{0000-0002-5088-1462}}
 \affil[1]{School of Computing, Engineering and Physical Sciences, University of the West of Scotland, Paisley, United Kingdom}
 \date{10 November 2026}
@@ -54,7 +54,8 @@ The failures that sink applications built by AI coding agents are often decision
 table enforces access control or whether trackers load before consent. Bansat is an
 open framework and Agent Skill that has the agent write a complete blueprint before any production code (product,
 architecture, security, privacy law, accessibility and 17 UI states for every screen), sized by a 20-question risk
-screen, and then holds the agent at approval gates that only a person may sign. An optional hook makes the first gate a
+screen, and then holds the agent at approval gates that only a person may sign. A 29-item audit of launch traps runs
+before real personal data is collected and again before launch. An optional hook makes the first gate a
 hard stop in agents that support pre-tool-use hooks; a retrofit track covers live applications. Because legal advice ages,
 Bansat also keeps a public law registry in which every claim must cite an official source, enforced in continuous
 integration; it holds 120 entries citing 2,944 official URLs. A weekly watch detects changes on 105 official sources,
@@ -312,7 +313,10 @@ Bansat checks a project twice before it meets the public. The \emph{launch-trap 
 twenty-nine failures that get AI-built applications fined, breached or rejected by app stores, each with a fix and a
 way to verify it (Table~\ref{tab:traps}), and runs before G2 and again before G3. Version 3.1.0 added the last twelve:
 AI disclosure, opt-out signals, biometric and health data, online withdrawal, legal notices, accessibility law,
-server-side authorisation, AI spending limits, app store labels, card data and payment webhooks. The \emph{launch gate} (Part~13) has 40 go/no-go items in seven
+server-side authorisation, AI spending limits, app store labels, card data and payment webhooks. The list is curated:
+we chose each trap from a law, a regulator's decision, a published vulnerability or a documented incident, and did
+not measure how often applications built by AI agents fall into it. The experiment in Section~\ref{sec:experiment} is
+the first test of fourteen of them. The \emph{launch gate} (Part~13) has 40 go/no-go items in seven
 groups, 18 of which block launch while open. Blocking items include a tested backup restore, data-layer access
 with isolation tests, no exposed secrets, nothing non-essential before consent, compliant marketing email, and working
 export and account deletion.
@@ -604,10 +608,13 @@ s6 Marketplace & startup & Laravel, MySQL & Med & Payments and payouts; a databa
 \end{tabularx}
 \end{table}
 
-\paragraph{Checks and rubric.} Twelve checks read the code (row-level security, client-side secrets, fonts,
+\paragraph{Checks and rubric.} Fourteen checks read the code (row-level security, client-side secrets, fonts,
 consent-gated tracking, security headers, two marketing-email checks, the age question, the privacy notice, pre-ticked
-consent, upload storage, and account deletion and export) and two load the application in Chromium (nothing third-party
-before consent or after ``Reject''). Together they test 12 of the 17 launch traps in v3.0.0, the version condition~B uses, and 11 correspond to blocking
+consent, upload storage, account deletion and export, personal data in logging calls, and stored dates of birth or
+identity documents) and two load the application in Chromium (nothing third-party before consent or after
+``Reject''). Together they test 14 of the 17 launch traps in v3.0.0, the version condition~B uses; the other three
+(real data in staging, regulator fees and registration, and a breach plan) are about the organisation, not the
+application, so a check could only reward documents. Eleven checks correspond to blocking
 launch-gate items. Checks read only the
 application's own code, never \fpath{docs/} or the installed skill, so documents cannot earn a pass, and return pass,
 fail, not applicable or needs review, with evidence. A reviewer blind to the condition settles needs-review items;
@@ -636,8 +643,9 @@ experiment measures the skill's instructions alone; an arm with a person's revie
 bars stay as written: row-level security with no policy passes, since deny-all is the framework's own default for
 server-only tables; HSTS and \texttt{Permissions-Policy} are reported, not required; and an ``18 or over'' box passes the
 age check, with a note. (7)~An application that fails to build gets no request to fix it; it is scored without the
-browser checks and reported. (8)~No check is added for the five untested traps, which stay outside the experiment's
-claims. (9)~The stratified permutation test is the primary analysis and a mixed-effects logistic model is exploratory;
+browser checks and reported. (8)~No check was to be added for the five untested traps. An amendment on 11~November 2026, before any run, adds
+checks for two of them that can be read from the code (personal data in logs, and stored dates of birth or identity
+documents); the other three stay outside the experiment's claims, and the amendment is recorded in the protocol. (9)~The stratified permutation test is the primary analysis and a mixed-effects logistic model is exploratory;
 the protocol published in \fpath{research/} before the pilot serves as its pre-registration. (10)~The first author
 reviews every application, the second author independently reviews a random fifth, and disagreements are settled by
 discussion and recorded. (11)~The generated applications, every run's score and review, and a summary of each
@@ -684,15 +692,18 @@ isolate tenants. The checks come from Bansat's own rules, which favours conditio
 design; the question is whether the skill changes those outcomes, and the checks accept common alternatives to Bansat's
 own way of meeting each rule. Agent runs vary~\cite{sallou2024breaking}, which the repetitions and randomised blocks
 spread across conditions; checks within one application are not independent, which is why the run is the unit. The
-results will speak to one agent and model, six specifications on four stacks, and mostly UK and EU markets. The framework's author wrote the specifications
+harness runs any agent that reads Agent Skills, but this experiment uses one, so its results will speak to one agent and model, six specifications on four stacks, and mostly UK and EU markets. The framework's author wrote the specifications
 and checks; publishing them before any run, with the co-authors' sign-off, guards against that bias.
 
 % =====================================================================================================================
 \section{Ethics and AI-assistance statement}\label{sec:ethics}
-The Bansat framework, its law registry and the verify-task evaluation were developed with assistance from an AI coding agent,
-and the authors reviewed every change. This paper was drafted with AI assistance, and Figure~\ref{fig:flow} was drawn
-with an AI figure tool from the authors' description; the authors checked both and take full responsibility for the
-content. No AI tool is an author. No personal data is involved: the registry holds public legal
+Bansat was conceived, designed and architected by the first author: the framework and its fifteen parts, the gates,
+the Agent Skill, the hook, the law registry's rules and schema, Law Watch, the stack profiles and the experiment
+harness. AI coding agents were used as tools under his direction to help implement and adapt that design: drafting
+registry entries from official sources, writing code and tests, and helping draft this paper. The authors reviewed
+and approved every change. Figure~\ref{fig:flow} was created by the authors, who specified its content, produced it
+with a figure-generation tool and corrected it by hand. The authors take full responsibility for the content.
+No AI tool is an author. No personal data is involved: the registry holds public legal
 information, and the evaluation's injected instructions are synthetic cases run in sandboxes. The casebook uses public primary sources and names only security researchers who
 published under their own names. The pre-specified experiment has no human participants and processes no personal data: its briefs are fictional,
 its applications are never deployed, and the only people involved are the authors, as operator and reviewers.
