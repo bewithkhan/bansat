@@ -29,7 +29,7 @@ concurrency:
 jobs:
   build:
     name: Build and test the site
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04 # pinned: the browser install needs Ubuntu packages, and it failed on the newer image
     timeout-minutes: 15
     defaults:
       run:
