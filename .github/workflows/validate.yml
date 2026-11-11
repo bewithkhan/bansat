@@ -87,7 +87,8 @@ jobs:
         env:
           DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
       - name: Install Chromium
-        run: npx playwright install --with-deps chromium
+        # No --with-deps: it downloads Ubuntu packages, and the runner already has the libraries a browser needs.
+        run: npx playwright install chromium
       - name: Nothing loads before consent
         run: npm run test:privacy
       - name: The privacy test catches a leak

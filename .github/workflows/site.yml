@@ -45,7 +45,8 @@ jobs:
           cache-dependency-path: site/package-lock.json
       - run: npm ci
       - name: Install Chromium (it draws the diagrams and runs the tests)
-        run: npx playwright install --with-deps chromium
+        # No --with-deps: it downloads Ubuntu packages, and the runner already has the libraries a browser needs.
+        run: npx playwright install chromium
       - name: Build the pages from the repo
         run: npm run build
       - name: No cookies, no third-party requests, no broken links, no axe violations, search works
